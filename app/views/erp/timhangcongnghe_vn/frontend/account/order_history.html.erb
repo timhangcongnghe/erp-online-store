@@ -1,0 +1,62 @@
+<div class="main-container container">
+    <ul class="breadcrumb">
+        <li><%= link_to '<i class="fa fa-home"></i>'.html_safe, erp_timhangcongnghe_vn.root_path %></li>
+        <li><%= link_to "Account", erp_timhangcongnghe_vn.my_account_path %></li>
+        <li><%= link_to "Order History", "javascript:void(0)" %></li>
+    </ul>
+
+    <div class="row">
+        <!--Middle Part Start-->
+        <div id="content" class="col-sm-9">
+            <h2 class="title">Order History</h2>
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <td class="text-center">Image</td>
+                            <td class="text-left">Product Name</td>
+                            <td class="text-center">Order ID</td>
+                            <td class="text-center">Qty</td>
+                            <td class="text-center">Status</td>
+                            <td class="text-center">Date Added</td>
+                            <td class="text-right">Total</td>
+                            <td></td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% (0..3).each do |order_history| %>
+                        <tr>
+                            <td class="text-center">
+                                <%= link_to image_tag("/frontend/image/shop/product/b8.jpg", width:"85", alt: "Aspire Ultrabook Laptop", title: "Aspire Ultrabook Laptop"), erp_timhangcongnghe_vn.product_detail_path %>
+                            </td>
+                            <td class="text-left"><%= link_to "Aspire Ultrabook Laptop", erp_timhangcongnghe_vn.product_detail_path %></td>
+                            <td class="text-center">#214521</td>
+                            <td class="text-center">1</td>
+                            <td class="text-center">Shipped</td>
+                            <td class="text-center">21/06/2016</td>
+                            <td class="text-right">$228.00</td>
+                            <td class="text-center"><a class="btn btn-info" data-toggle="tooltip" href="<%= erp_timhangcongnghe_vn.order_information_path %>" data-original-title="View"><i class="fa fa-eye"></i></a></td>
+                        </tr>
+                        <% end %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!--Middle Part End-->
+        <!--Right Part Start -->
+        <aside class="col-sm-3 hidden-xs" id="column-right">
+            <h2 class="subtitle">Account</h2>
+            <div class="list-group">
+                <ul class="list-item">
+                    <li><%= link_to "My Account", erp_timhangcongnghe_vn.my_account_path %><a href="#"></a></li>
+                    <li><%= link_to "Wish List", erp_timhangcongnghe_vn.wishlist_path %></li>
+                    <li><%= link_to "Order History", erp_timhangcongnghe_vn.order_history_path %></li>
+                    <li><%= link_to "Product Returns", erp_timhangcongnghe_vn.product_returns_path %></li>
+                    <li><%= link_to "Gift Voucher", erp_timhangcongnghe_vn.gift_voucher_path %></li>
+                    <li><%= link_to "Sign Out", "javascript:void(0)" %></li>
+                </ul>
+            </div>
+        </aside>
+        <!--Right Part End -->
+    </div>
+</div>

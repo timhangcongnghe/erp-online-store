@@ -1,0 +1,53 @@
+<div class="header-top compact-hidden">
+    <div class="container">
+        <div class="row">
+            <div class="header-top-left  col-lg-4  hidden-sm col-md-5 hidden-xs">
+                <ul class="list-inlines">
+                    <li class="hidden-xs">
+                        <div class="welcome-msg">
+                            <ul class="list-msg">
+                                <li><label class="label-msg">This week</label> <%= link_to "Sale special too good to miss in every gear", "" %></li>
+                                <li><label class="label-msg">Tomorrow</label> <%= link_to "Laten ipsum dolor sit amet. In gravida pellen", "" %></li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="header-top-right collapsed-block col-lg-8 col-sm-12 col-md-7 col-xs-12 ">
+                <h5 class="tabBlockTitle visible-xs">More<a class="expander " href="#TabBlock-1"><i class="fa fa-angle-down"></i></a></h5>
+                <div class="tabBlock" id="TabBlock-1">
+                    <ul class="top-link list-inline">
+                        <li class="account" id="my_account">
+                            <a href="javascript:void(0)" class="btn btn-xs dropdown-toggle" data-toggle="dropdown"> <span>Tài Khoản</span> <span class="fa fa-angle-down"></span></a>
+                            <ul class="dropdown-menu ">
+                                <li><%= link_to '<i class="fa fa-sign-in"></i> Login'.html_safe, erp_timhangcongnghe_vn.register_path %></li>
+                                <li><%= link_to '<i class="fa fa-pencil-square-o"></i> Register'.html_safe, erp_timhangcongnghe_vn.login_path %></li>
+                                <li><%= link_to '<i class="fa fa-user"></i> My Account'.html_safe, erp_timhangcongnghe_vn.my_account_path %></li>
+                                <li><%= link_to '<i class="fa fa-heart"></i> Wishlist'.html_safe, erp_timhangcongnghe_vn.wishlist_path %></li>
+                                <li><%= link_to '<i class="fa fa-arrow-down"></i> Product Returns'.html_safe, erp_timhangcongnghe_vn.product_returns_path %></li>
+                                <li><%= link_to '<i class="fa fa-gift"></i> Gift Voucher'.html_safe, erp_timhangcongnghe_vn.gift_voucher_path %></li>
+                                <li><%= link_to '<i class="fa fa-sign-out"></i> Sign Out'.html_safe, "" %></li>
+                            </ul>
+                        </li>
+                        <li class="compare"><%= link_to '<span>Compare (2)</span>'.html_safe, erp_timhangcongnghe_vn.compare_path, class: "top-link-wishlist" %></li>
+                        <li class="checkout"><%= link_to '<span>Checkout</span>'.html_safe, erp_timhangcongnghe_vn.checkout_path, class: "top-link-checkout" %></li>
+                        <li class="form-group languages-block ">
+                            <form>
+                                <a class="btn btn-xs dropdown-toggle" data-toggle="dropdown">
+                                    <%= image_tag "/frontend/image/flags/gb.png", alt: "English", title: "English" %>
+                                    <span>English</span>
+                                    <span class="fa fa-angle-down"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><%= link_to image_tag("/frontend/image/flags/gb.png", alt: "English", title: "English", class: "image_flag")+" English", "" %></li>
+                                    <li><%= link_to image_tag("/frontend/image/flags/lb.png", alt: "Arabic", title: "Arabic", class: "image_flag")+" Arabic", "" %>
+                                    </li>
+                                </ul>
+                            </form>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

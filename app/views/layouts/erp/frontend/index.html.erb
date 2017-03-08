@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Basic page needs ============================================ -->
+    <title>Tìm Hàng Công Nghệ - Global Naturesoft</title>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="Global Naturesoft">
+
+    <!-- Mobile specific metas ============================================ -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <!-- Favicon ============================================ -->
+    <%= favicon_link_tag '/frontend/ico/favicon.png', rel: 'shortcut icon', type: '/frontend/image/x-icon' %>
+
+    <!-- Google web fonts ============================================ -->
+    <%= stylesheet_link_tag "https://fonts.googleapis.com/css?family=Open+Sans:400,300,700|Roboto:400,500,700,900" %>
+
+    <!-- Libs CSS ============================================ -->
+    <%= stylesheet_link_tag "/frontend/css/bootstrap/css/bootstrap.min.css" %>
+    <%= stylesheet_link_tag "/frontend/css/font-awesome/css/font-awesome.min.css" %>
+    <%= stylesheet_link_tag "/frontend/js/datetimepicker/bootstrap-datetimepicker.min.css" %>
+    <%= stylesheet_link_tag "/frontend/js/owl-carousel/owl.carousel.css" %>
+    <%= stylesheet_link_tag "/frontend/css/themecss/lib.css" %>
+    <%= stylesheet_link_tag "/frontend/js/jquery-ui/jquery-ui.min.css" %>
+
+    <!-- Theme CSS
+	============================================ -->
+    <%= stylesheet_link_tag "/frontend/css/themecss/so_megamenu.css" %>
+    <%= stylesheet_link_tag "/frontend/css/themecss/so-categories.css" %>
+    <%= stylesheet_link_tag "/frontend/css/themecss/so-listing-tabs.css" %>
+    <%= stylesheet_link_tag "/frontend/css/themecss/animate.css" %>
+    <%= stylesheet_link_tag "/frontend/css/themecss/so-super-category.css" %>
+    <%= stylesheet_link_tag "/frontend/css/theme.css", id: "color_scheme" %>
+    <%= stylesheet_link_tag "/frontend/css/responsive.css" %>
+</head>
+
+<body class="<%= @body_class %>">
+  
+    <div id="wrapper" class="wrapper-full banners-effect-7">
+      
+        <!-- Header Container  -->
+        <%= render "erp/timhangcongnghe_vn/frontend/modules/header" %>
+        <!-- //Header Container  -->
+        
+        <!-- Main Container  -->
+        <%= yield %>
+        <!-- //Main Container -->
+
+        <script type="text/javascript">
+        <!--
+        var $typeheader = 'header-home1';
+        //-->
+        </script>
+        
+        <!-- Footer Container -->
+        <%= render "erp/timhangcongnghe_vn/frontend/modules/footer" %>
+        <!-- //end Footer Container -->
+        
+    </div>
+    
+    <!-- Social widgets -->
+    <%= render "erp/timhangcongnghe_vn/frontend/modules/social_widgets" %>
+    <!-- End Social widgets -->
+
+    <!-- Preloading Screen -->
+    <%= render "erp/timhangcongnghe_vn/frontend/modules/preloading_screen" %>
+    <!-- End Preloading Screen -->
+
+    <!-- Include Libs & Plugins ============================================ -->
+    <%= render "erp/timhangcongnghe_vn/frontend/modules/js_include" %>
+</body>
+
+</html>
