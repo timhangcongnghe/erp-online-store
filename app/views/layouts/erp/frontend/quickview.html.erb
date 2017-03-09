@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-	
+
 <head>
     <!-- Basic page needs ============================================ -->
     <title>Tìm Hàng Công Nghệ - Global Naturesoft</title>
@@ -36,40 +36,61 @@
     <%= stylesheet_link_tag "/frontend/css/responsive.css" %>
 </head>
 
-<body class="<%= @body_class %>">
-  
-    <div id="wrapper" class="wrapper-full banners-effect-7">
-      
-        <!-- Header Container  -->
-        <%= render "erp/timhangcongnghe_vn/frontend/modules/header" %>
-        <!-- //Header Container  -->
-        
+<body class="res layout-subpage">
+    <div id="wrapper" class="wrapper-full ">
         <!-- Main Container  -->
         <%= yield %>
         <!-- //Main Container -->
-
-        <script type="text/javascript">
-        <!--
-        var $typeheader = 'header-home1';
-        //-->
-        </script>
-        
-        <!-- Footer Container -->
-        <%= render "erp/timhangcongnghe_vn/frontend/modules/footer" %>
-        <!-- //end Footer Container -->
-        
+        <style type="text/css">
+            #wrapper {
+                box-shadow: none;
+            }
+            
+            #wrapper>*:not(.main-container) {
+                display: none;
+            }
+            
+            #content {
+                margin: 0
+            }
+            
+            .container {
+                width: 100%;
+            }
+            
+            .product-info .product-view,
+            .left-content-product,
+            .box-info-product {
+                margin: 0;
+            }
+            
+            .left-content-product .content-product-right .box-info-product .add-to-links {
+                width: auto;
+                float: none;
+                margin-top: 0px;
+            }
+        </style>
     </div>
-    
-    <!-- Social widgets -->
-    <%= render "erp/timhangcongnghe_vn/frontend/modules/social_widgets" %>
-    <!-- End Social widgets -->
-
-    <!-- Preloading Screen -->
-    <!--<%= render "erp/timhangcongnghe_vn/frontend/modules/preloading_screen" %>-->
-    <!-- End Preloading Screen -->
 
     <!-- Include Libs & Plugins ============================================ -->
-    <%= render "erp/timhangcongnghe_vn/frontend/modules/js_include" %>
+    <!-- Placed at the end of the document so the pages load faster -->
+    <%= javascript_include_tag '/frontend/js/jquery-2.2.4.min.js' %>
+    <%= javascript_include_tag '/frontend/js/bootstrap.min.js' %>
+    <%= javascript_include_tag '/frontend/js/owl-carousel/owl.carousel.js' %>
+    <%= javascript_include_tag '/frontend/js/themejs/libs.js' %>
+    <%= javascript_include_tag '/frontend/js/unveil/jquery.unveil.js' %>
+    <%= javascript_include_tag '/frontend/js/countdown/jquery.countdown.min.js' %>
+    <%= javascript_include_tag '/frontend/js/dcjqaccordion/jquery.dcjqaccordion.2.8.min.js' %>
+    <%= javascript_include_tag '/frontend/js/datetimepicker/moment.js' %>
+    <%= javascript_include_tag '/frontend/js/datetimepicker/bootstrap-datetimepicker.min.js' %>
+    <%= javascript_include_tag '/frontend/js/jquery-ui/jquery-ui.min.js' %>
+    
+    <!-- Theme files ============================================ -->
+    <%= javascript_include_tag '/frontend/js/themejs/application.js' %>
+    <%= javascript_include_tag '/frontend/js/themejs/so_megamenu.js' %>
+    <%= javascript_include_tag '/frontend/js/themejs/addtocart.js' %>
+    <!--<%= javascript_include_tag '/frontend/js/themejs/cpanel.js' %>-->
+
 </body>
 
 </html>

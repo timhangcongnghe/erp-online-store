@@ -9,6 +9,10 @@ module Erp
         def product_detail
           @body_class = "res layout-subpage"
         end
+        
+        def product_quickview
+          render layout: "erp/frontend/quickview"
+        end
       end
     end
   end
