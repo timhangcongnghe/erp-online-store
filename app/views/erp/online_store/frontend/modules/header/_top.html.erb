@@ -28,7 +28,13 @@
                                 <li><%= link_to '<i class="fa fa-heart"></i> Wishlist'.html_safe, erp_online_store.wishlist_path %></li>
                                 <li><%= link_to '<i class="fa fa-arrow-down"></i> Product Returns'.html_safe, erp_online_store.product_returns_path %></li>
                                 <li><%= link_to '<i class="fa fa-gift"></i> Gift Voucher'.html_safe, erp_online_store.gift_voucher_path %></li>
-                                <li><%= link_to '<i class="fa fa-sign-out"></i> Sign Out'.html_safe, "" %></li>
+                                <li><%= link_to '<i class="fa fa-sign-out"></i> Sign Out'.html_safe,
+                                        erp.destroy_user_session_path,
+                                        method: :delete,
+                                        redirect_to: erp.backend_path,
+                                        class: 'link-method'
+                                    %>
+                                </li>
                             </ul>
                         </li>
                         <li class="compare"><%= link_to '<span>Compare (2)</span>'.html_safe, erp_online_store.compare_path, class: "top-link-wishlist" %></li>
