@@ -1,0 +1,119 @@
+<div class="main-container container">
+    <ul class="breadcrumb">
+        <li><%= link_to '<i class="fa fa-home"></i>'.html_safe, erp_online_store.root_path %></li>
+        <li><%= link_to "Tin Tức & Sự Kiện", erp_online_store.blog_path %></li>
+        <li><%= link_to "Kire tuma demonstraverunt lector", "javascript:void(0)" %></li>
+    </ul>
+
+    <div class="row">
+        <!--Left Part Start -->
+        <aside class="col-sm-4 col-md-3" id="column-left">
+            <div class="module blog-category titleLine">
+                <h3 class="modtitle"><span>Blog Category</span></h3>
+                <div class="modcontent">
+                    <ul class="list-group ">
+                        <li class="list-group-item"> <a href="blog-page.html" class="group-item active">Our Blog</a></li>
+                        <li class="list-group-item"><a href="#" class="group-item">Demo Category 2</a></li>
+                        <li class="list-group-item"><a href="#" class="group-item">Demo Category 3</a></li>
+                        <li class="list-group-item"><a href="#" class="group-item">Demo Category 4</a></li>
+                        <li class="list-group-item"><a href="#" class="group-item">Demo Category 5</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="module latest-product titleLine">
+                <h3 class="modtitle"><span>Latest Product</span></h3>
+                <div class="modcontent ">
+                    <% (0..2).each do |product| %>
+                    <div class="product-latest-item">
+                        <div class="media">
+                            <div class="media-left">
+                                <%= link_to image_tag("/frontend/image/shop/product/18.jpg", alt: "Cisi Chicken", title: "Cisi Chicken", size: "90x90"), "" %>
+                            </div>
+                            <div class="media-body">
+                                <div class="caption">
+                                    <h4><%= link_to "Cisi Chicken", "" %></h4>
+                                    <div class="price">
+                                        <span class="price-new">300,000 VNĐ</span>
+                                    </div>
+                                    <div class="ratings">
+                                        <div class="rating-box">
+                                            <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
+                                            <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
+                                            <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
+                                            <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
+                                            <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <% end %>
+                </div>
+            </div>
+        </aside>
+        <!--Left Part End -->
+
+        <!--Middle Part Start-->
+        <div id="content" class="col-md-9 col-sm-8">
+            <div class="article-info">
+                <div class="blog-header">
+                    <h3>Kire tuma demonstraverunt lector</h3>
+                </div>
+                <div class="article-sub-title">
+                    <span class="article-author">Post by: <a href="#"> Admin</a></span>
+                    <span class="article-date">Created Date: Tue, Feb 16, 2016</span>
+                    <span class="article-comment">0  Comments</span>
+                </div>
+                <div class="form-group">
+                  <%= link_to image_tag("/frontend/image/blog/blog4.jpg", alt: "Kire tuma demonstraverunt lector"), "/frontend/image/blog/blog4.jpg", class: "image-popup" %>
+                </div>
+                <div class="article-description">
+                    <p>Morbi tempus, non ullamcorper euismod, erat odio suscipit purus, nec ornare lacus turpis ac purus. Mauris cursus in mi vel dignissim. Morbi mollis elit ipsum, a feugiat lectus gravida non. Aenean molestie justo sed aliquam euismod. Maecenas laoreet bibendum laoreet. Morbi tempor massa sit amet purus lobortis, non porta tellus dignissim. </p>
+                    <p>Proin dictum justo a nisl pellentesque egestas.Nulla commodo euismod nisi ac bibendum. Mauris in pellentesque tellus, in cursus magna. Sed volutpat dui bibendum mi molestie, at volutpat nunc dictum. Fusce sagittis massa id eros scelerisque, eget accumsan magna lacinia. Nullam posuere neque at neque dictum interdum</p>
+                    <p> Mauris cursus in mi vel dignissim. Morbi mollis elit ipsum, a feugiat lectus gravida non. Aenean molestie justo sed aliquam euismod. Maecenas laoreet bibendum laoreet. Morbi tempor massa sit amet purus lobortis, non porta tellus dignissim. Proin dictum justo a nisl pellentesque egestas.Nulla commodo euismod nisi ac bibendum. Mauris in pellentesque tellus, in cursus magna. Sed volutpat dui bibendum mi molestie, at volutpat nunc dictum. Fusce sagittis massa id eros scelerisque, eget accumsan magna lacinia. Nullam posuere neque at neque dictum interdum</p>
+                </div>
+                <div class="panel panel-default related-comment">
+                    <div class="panel-body">
+                        <div class="form-group">
+                            <div id="comments" class="blog-comment-info">
+                                <h3 id="review-title">Leave your comment </h3>
+                                <input type="hidden" name="blog_article_reply_id" value="0" id="blog-reply-id">
+                                <div class="comment-left contacts-form row">
+                                    <div class="col-md-6">
+                                        <b>Your Name:</b>
+                                        <br>
+                                        <input type="text" name="name" value="" class="form-control">
+                                        <br>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <b>Your Comment:</b>
+                                        <br>
+                                        <textarea rows="6" cols="50" name="text" class="form-control"></textarea>
+                                        <span style="font-size: 11px;">Note: HTML is not translated!</span>
+                                        <br>
+                                        <br>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <b>Enter the code in the box below:</b>
+                                        <br>
+                                        <input type="text" name="captcha" style="" value="" class="form-control">
+                                        <br>
+                                        <div class="form-group">
+                                            <img src="/frontend/image/content/captcha.jpg" alt="" id="captcha">
+                                        </div>
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="text-left"><a id="button-comment" class="btn buttonGray"><span>Submit</span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Middle Part End-->
+    </div>
+</div>

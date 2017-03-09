@@ -1,0 +1,117 @@
+<footer class="footer-container typefooter-1">
+    <!-- FOOTER TOP -->
+    <div class="footer-top">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="module social_block col-md-3 col-sm-12 col-xs-12">
+                        <ul class="social-block ">
+                            <li class="facebook"><%= link_to '<i class="fa fa-facebook"></i>'.html_safe, "", target: "_blank" %></li>
+                            <li class="youtube"><%= link_to '<i class="fa fa-youtube"></i>'.html_safe, "", target: "_blank" %></li>
+                            <li class="google_plus"><%= link_to '<i class="fa fa-google-plus"></i>'.html_safe, "", target: "_blank" %></li>
+                            <li class="instagram"><%= link_to '<i class="fa fa-instagram"></i>'.html_safe, "", target: "_blank" %></li>
+                            <li class="pinterest"><%= link_to '<i class="fa fa-pinterest"></i>'.html_safe, "", target: "_blank" %></li>
+                        </ul>
+                    </div>
+                    <div class="module news-letter col-md-9 col-sm-12 col-xs-12">
+                        <div class="newsletter">
+                            <div class="title-block">
+                                <div class="page-heading">SIGN UP FOR OUR NEWSLETTER</div>
+                                <div class="pre-text">
+                                    Duis at ante non massa consectetur iaculis id non tellus
+                                </div>
+                            </div>
+                            <div class="block_content">
+                                <form class="btn-group form-inline signup">
+                                    <div class="form-group required send-mail">
+                                        <div class="input-box">
+                                            <input type="email" placeholder="Your email address..." class="form-control" size="55">
+                                        </div>
+                                        <div class="subcribe">
+                                            <button class="btn btn-default btn-lg">
+                                                Subscribe
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- FOOTER CENTER -->
+    <div class="footer-center">
+        <div class="container content">
+            <div class="row">
+                <!-- BOX INFO -->
+                <div class="col-md-3 col-sm-6 col-xs-12 collapsed-block footer-links box-footer">
+                    <div class="module ">
+                        <div class="content-block-footer">
+                            <div class="footer-logo">
+                                <a href="index.html"><img src="/frontend/image/logos/theme_logo.png" title="Your Store" alt="Your Store" /></a>
+                            </div>
+                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- BOX ACCOUT -->
+                <div class="col-md-3 col-sm-6 box-account box-footer">
+                    <div class="module clearfix">
+                        <h3 class="modtitle">Chính sách & Quy định</h3>
+                        <div class="modcontent">
+                            <ul class="menu">
+                                <li><%= link_to "Chính sách bảo hành", "" %></li>
+                                <li><%= link_to "Quy định & Hình thức thanh toán", "" %></li>
+                                <li><%= link_to "Chính sách vận chuyển, giao nhận", "" %></li>
+                                <li><%= link_to "Chính sách đổi trả hàng và hoàn tiền", "" %></li>
+                                <li><%= link_to "Chính sách bảo mật thông tin", "" %></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- BOX INFOMATION -->
+                <div class="col-md-3 col-sm-6 box-information box-footer">
+                    <div class="module clearfix">
+                        <h3 class="modtitle">Thông tin website</h3>
+                        <div class="modcontent">
+                            <ul class="menu">
+                                <li><%= link_to "Về chúng tôi", erp_online_store.about_us_path %></li>
+                                <li><%= link_to "Liên hệ & Góp ý", erp_online_store.contact_us_path %></li>
+                                <li><%= link_to "Tin tức & Sự kiện", erp_online_store.blog_path %></li>
+                                <li><%= link_to "Câu hỏi thường gặp", erp_online_store.faq_path %></li>
+                                <li><%= link_to "Chính sách & Quy định chung", erp_online_store.terms_and_conditions_path %></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- BOX ABOUT -->
+                <div class="col-md-3  col-sm-6 collapsed-block box-footer">
+                    <div class="module ">
+                        <h3 class="modtitle">Liên hệ</h3>
+                        <div class="modcontent">
+                            <ul class="contact-address">
+                                <li><span class="fa fa-home"></span> 188 đường số 1, Phường 12, Quận Gò Vấp, TP.Hồ Chí Minh</li>
+                                <li><span class="fa fa-envelope"></span><%= mail_to "", "contact@timhangcongnghe.vn" %></li>
+                                <li><span class="fa fa-phone"></span> <%= link_to "(+84) 987654321", "tel:" %></li>
+                                <li><span class="fa fa-mobile-phone"></span> <%= link_to "(+84) 987654321", "tel:" %></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- FOOTER BOTTOM -->
+    <div class="footer-bottom ">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    &copy; 2017 <%= link_to "TimHangCongNghe.VN", erp_online_store.root_path, target: "_blank" %>. All Rights Reserved.
+                </div>
+                <div class="back-to-top"><i class="fa fa-angle-up"></i><span>Top</span></div>
+            </div>
+        </div>
+    </div>
+</footer>

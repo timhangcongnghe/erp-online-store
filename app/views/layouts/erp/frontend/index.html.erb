@@ -3,7 +3,7 @@
 	
 <head>
     <!-- Basic page needs ============================================ -->
-    <title>Tìm Hàng Công Nghệ - Global Naturesoft</title>
+    <title>Online Store - Global Naturesoft</title>
     <meta charset="utf-8">
     <meta name="description" content="">
     <meta name="keywords" content="">
@@ -34,6 +34,7 @@
     <%= stylesheet_link_tag "/frontend/css/themecss/so-super-category.css" %>
     <%= stylesheet_link_tag "/frontend/css/theme.css", id: "color_scheme" %>
     <%= stylesheet_link_tag "/frontend/css/responsive.css" %>
+	<%= stylesheet_link_tag "/frontend/css/custom.css" %>
 </head>
 
 <body class="<%= @body_class %>">
@@ -41,7 +42,7 @@
     <div id="wrapper" class="wrapper-full banners-effect-7">
       
         <!-- Header Container  -->
-        <%= render "erp/timhangcongnghe_vn/frontend/modules/header" %>
+        <%= render "erp/online_store/frontend/modules/header" %>
         <!-- //Header Container  -->
         
         <!-- Main Container  -->
@@ -55,21 +56,21 @@
         </script>
         
         <!-- Footer Container -->
-        <%= render "erp/timhangcongnghe_vn/frontend/modules/footer" %>
+        <%= render "erp/online_store/frontend/modules/footer" %>
         <!-- //end Footer Container -->
         
     </div>
     
     <!-- Social widgets -->
-    <%= render "erp/timhangcongnghe_vn/frontend/modules/social_widgets" %>
+    <%= render "erp/online_store/frontend/modules/social_widgets" %>
     <!-- End Social widgets -->
 
     <!-- Preloading Screen -->
-    <!--<%= render "erp/timhangcongnghe_vn/frontend/modules/preloading_screen" %>-->
+    <!--<%= render "erp/online_store/frontend/modules/preloading_screen" %>-->
     <!-- End Preloading Screen -->
 
     <!-- Include Libs & Plugins ============================================ -->
-    <%= render "erp/timhangcongnghe_vn/frontend/modules/js_include" %>
+    <%= render "erp/online_store/frontend/modules/js_include" %>
 </body>
 
 </html>

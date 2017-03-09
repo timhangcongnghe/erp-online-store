@@ -1,0 +1,487 @@
+<div class="header-center">
+    <div class="container">
+        <div class="row">
+            <!-- LOGO -->
+            <div class="navbar-logo col-md-2 col-sm-4 col-xs-10">
+                <%= link_to image_tag("/frontend/image/logos/theme_logo.png", title: "Your Store", alt: "Your Store"), erp_online_store.root_path %>
+            </div>
+            <div class="header-center-right col-md-10 col-sm-8 col-xs-2">
+                <div class="responsive so-megamenu megamenu-style-dev">
+                    <nav class="navbar-default">
+                        <div class=" container-megamenu  horizontal">
+                            <div class="navbar-header">
+                                <button type="button" id="show-megamenu" data-toggle="collapse" class="navbar-toggle">
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                            </div>
+                            <div class="megamenu-wrapper ">
+                                <span id="remove-megamenu" class="fa fa-times"></span>
+                                <div class="megamenu-pattern">
+                                    <div class="container">
+                                        <ul class="megamenu " data-transition="slide" data-animationtime="250">
+                                            <li class="">
+                                                <p class="close-menu"></p>
+                                                <a href="<%= erp_online_store.root_path %>" class="clearfix">
+                                                    <strong>Trang Chủ</strong>
+                                                    <span class="label"></span>
+                                                </a>
+                                            </li>
+                                            <li class="with-sub-menu hover">
+                                                <p class="close-menu"></p>
+                                                <a href="javascript:void(0)" class="clearfix">
+                                                    <strong>Thiết Bị Tin Học</strong>
+                                                    <b class="caret"></b>
+                                                </a>
+                                                <div class="sub-menu" style="width: 100%; right: auto;">
+                                                    <div class="content">
+                                                        <div class="row">
+                                                            <div class="col-md-3">
+                                                                <div class="column">
+                                                                    <a href="javascript:void(0)" class="title-submenu">Máy Vi Tính</a>
+                                                                    <div>
+                                                                        <ul class="row-list">
+                                                                            <li><%= link_to "Máy tích xách tay - Laptop", erp_online_store.category_path %></li>
+                                                                            <li><%= link_to "Linh kiện - Phụ kiện Laptop", erp_online_store.category_path %></li>
+                                                                            <li><%= link_to "Category Page", erp_online_store.category_path %></li>
+                                                                            <li><%= link_to "Category Page", erp_online_store.category_path %></li>
+                                                                            <li><%= link_to "Category Page", erp_online_store.category_path %></li>
+                                                                            <li><%= link_to "Category Page", erp_online_store.category_path %></li>
+                                                                            <li><%= link_to "Category Page", erp_online_store.category_path %></li>
+                                                                            <li><%= link_to "Category Page", erp_online_store.category_path %></li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                <div class="column">
+                                                                    <a href="javascript:void(0)" class="title-submenu">Linh Kiện Máy Tính</a>
+                                                                    <div>
+                                                                        <ul class="row-list">
+                                                                            <li><%= link_to "Category Page", erp_online_store.category_path %></li>
+                                                                            <li><%= link_to "Category Page", erp_online_store.category_path %></li>
+                                                                            <li><%= link_to "Category Page", erp_online_store.category_path %></li>
+                                                                            <li><%= link_to "Category Page", erp_online_store.category_path %></li>
+                                                                            <li><%= link_to "Category Page", erp_online_store.category_path %></li>
+                                                                            <li><%= link_to "Category Page", erp_online_store.category_path %></li>
+                                                                            <li><%= link_to "Category Page", erp_online_store.category_path %></li>
+                                                                            <li><%= link_to "Category Page", erp_online_store.category_path %></li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                <div class="column">
+                                                                    <a href="javascript:void(0)" class="title-submenu">Máy Tính Bảng</a>
+                                                                    <div>
+                                                                        <ul class="row-list">
+                                                                            <li><%= link_to "Category Page", erp_online_store.category_path %></li>
+                                                                            <li><%= link_to "Category Page", erp_online_store.category_path %></li>
+                                                                            <li><%= link_to "Category Page", erp_online_store.category_path %></li>
+                                                                            <li><%= link_to "Category Page", erp_online_store.category_path %></li>
+                                                                            <li><%= link_to "Category Page", erp_online_store.category_path %></li>
+                                                                            <li><%= link_to "Category Page", erp_online_store.category_path %></li>
+                                                                            <li><%= link_to "Category Page", erp_online_store.category_path %></li>
+                                                                            <li><%= link_to "Category Page", erp_online_store.category_path %></li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                <div class="column">
+                                                                    <a href="javascript:void(0)" class="title-submenu">Phần Mềm</a>
+                                                                    <div>
+                                                                        <ul class="row-list">
+                                                                            <li><%= link_to "Category Page", erp_online_store.category_path %></li>
+                                                                            <li><%= link_to "Category Page", erp_online_store.category_path %></li>
+                                                                            <li><%= link_to "Category Page", erp_online_store.category_path %></li>
+                                                                            <li><%= link_to "Category Page", erp_online_store.category_path %></li>
+                                                                            <li><%= link_to "Category Page", erp_online_store.category_path %></li>
+                                                                            <li><%= link_to "Category Page", erp_online_store.category_path %></li>
+                                                                            <li><%= link_to "Category Page", erp_online_store.category_path %></li>
+                                                                            <li><%= link_to "Category Page", erp_online_store.category_path %></li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="with-sub-menu hover">
+                                                <p class="close-menu"></p>
+                                                <a href="javascript:void(0)" class="clearfix">
+                                                    <strong>Thiết Bị Văn Phòng</strong>
+                                                    <b class="caret"></b>
+                                                </a>
+                                                <div class="sub-menu" style="width: 100%; right: auto;">
+                                                    <div class="content">
+                                                        <div class="row">
+                                                            <div class="col-md-3">
+                                                                <div class="column">
+                                                                    <a href="javascript:void(0)" class="title-submenu">Categories</a>
+                                                                    <div>
+                                                                        <ul class="row-list">
+                                                                            <li><%= link_to "Category Page", erp_online_store.category_path %></li>
+                                                                            <li><%= link_to "Category Page", erp_online_store.category_path %></li>
+                                                                            <li><%= link_to "Category Page", erp_online_store.category_path %></li>
+                                                                            <li><%= link_to "Category Page", erp_online_store.category_path %></li>
+                                                                            <li><%= link_to "Category Page", erp_online_store.category_path %></li>
+                                                                            <li><%= link_to "Category Page", erp_online_store.category_path %></li>
+                                                                            <li><%= link_to "Category Page", erp_online_store.category_path %></li>
+                                                                            <li><%= link_to "Category Page", erp_online_store.category_path %></li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                <div class="column">
+                                                                    <a href="javascript:void(0)" class="title-submenu">Categories</a>
+                                                                    <div>
+                                                                        <ul class="row-list">
+                                                                            <li><%= link_to "Category Page", erp_online_store.category_path %></li>
+                                                                            <li><%= link_to "Category Page", erp_online_store.category_path %></li>
+                                                                            <li><%= link_to "Category Page", erp_online_store.category_path %></li>
+                                                                            <li><%= link_to "Category Page", erp_online_store.category_path %></li>
+                                                                            <li><%= link_to "Category Page", erp_online_store.category_path %></li>
+                                                                            <li><%= link_to "Category Page", erp_online_store.category_path %></li>
+                                                                            <li><%= link_to "Category Page", erp_online_store.category_path %></li>
+                                                                            <li><%= link_to "Category Page", erp_online_store.category_path %></li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                <div class="column">
+                                                                    <a href="javascript:void(0)" class="title-submenu">Categories</a>
+                                                                    <div>
+                                                                        <ul class="row-list">
+                                                                            <li><%= link_to "Category Page", erp_online_store.category_path %></li>
+                                                                            <li><%= link_to "Category Page", erp_online_store.category_path %></li>
+                                                                            <li><%= link_to "Category Page", erp_online_store.category_path %></li>
+                                                                            <li><%= link_to "Category Page", erp_online_store.category_path %></li>
+                                                                            <li><%= link_to "Category Page", erp_online_store.category_path %></li>
+                                                                            <li><%= link_to "Category Page", erp_online_store.category_path %></li>
+                                                                            <li><%= link_to "Category Page", erp_online_store.category_path %></li>
+                                                                            <li><%= link_to "Category Page", erp_online_store.category_path %></li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                <div class="column">
+                                                                    <a href="javascript:void(0)" class="title-submenu">Categories</a>
+                                                                    <div>
+                                                                        <ul class="row-list">
+                                                                            <li><%= link_to "Category Page", erp_online_store.category_path %></li>
+                                                                            <li><%= link_to "Category Page", erp_online_store.category_path %></li>
+                                                                            <li><%= link_to "Category Page", erp_online_store.category_path %></li>
+                                                                            <li><%= link_to "Category Page", erp_online_store.category_path %></li>
+                                                                            <li><%= link_to "Category Page", erp_online_store.category_path %></li>
+                                                                            <li><%= link_to "Category Page", erp_online_store.category_path %></li>
+                                                                            <li><%= link_to "Category Page", erp_online_store.category_path %></li>
+                                                                            <li><%= link_to "Category Page", erp_online_store.category_path %></li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="with-sub-menu hover">
+                                                <p class="close-menu"></p>
+                                                <a href="javascript:void(0)" class="clearfix">
+                                                    <strong><img src="/frontend/image/menu/new-icon.png" alt="">Thiết Bị Mạng</strong>
+                                                    <span class="label"></span>
+                                                    <b class="caret"></b>
+                                                </a>
+                                                <div class="sub-menu" style="width: 100%; display: none;">
+                                                    <div class="content">
+                                                        <div class="row">
+                                                            <div class="col-sm-12">
+                                                                <div class="row">
+                                                                    <div class="col-md-3 img img1">
+                                                                        <a href="javascript:void(0)"><img src="/frontend/image/cms/img1.jpg" alt="banner1"></a>
+                                                                    </div>
+                                                                    <div class="col-md-3 img img2">
+                                                                        <a href="javascript:void(0)"><img src="/frontend/image/cms/img2.jpg" alt="banner2"></a>
+                                                                    </div>
+                                                                    <div class="col-md-3 img img3">
+                                                                        <a href="javascript:void(0)"><img src="/frontend/image/cms/img3.jpg" alt="banner3"></a>
+                                                                    </div>
+                                                                    <div class="col-md-3 img img4">
+                                                                        <a href="javascript:void(0)"><img src="/frontend/image/cms/img4.jpg" alt="banner4"></a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-3">
+                                                                <a href="javascript:void(0)" class="title-submenu">Category</a>
+                                                                <div class="row">
+                                                                    <div class="col-md-12 hover-menu">
+                                                                        <div class="menu">
+                                                                            <ul>
+                                                                            <li><%= link_to "Category Page", erp_online_store.category_path %></li>
+                                                                            <li><%= link_to "Category Page", erp_online_store.category_path %></li>
+                                                                            <li><%= link_to "Category Page", erp_online_store.category_path %></li>
+                                                                            <li><%= link_to "Category Page", erp_online_store.category_path %></li>
+                                                                            <li><%= link_to "Category Page", erp_online_store.category_path %></li>
+                                                                            <li><%= link_to "Category Page", erp_online_store.category_path %></li>
+                                                                            <li><%= link_to "Category Page", erp_online_store.category_path %></li>
+                                                                            <li><%= link_to "Category Page", erp_online_store.category_path %></li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                <a href="javascript:void(0)" class="title-submenu">Category</a>
+                                                                <div class="row">
+                                                                    <div class="col-md-12 hover-menu">
+                                                                        <div class="menu">
+                                                                            <ul>
+                                                                            <li><%= link_to "Category Page", erp_online_store.category_path %></li>
+                                                                            <li><%= link_to "Category Page", erp_online_store.category_path %></li>
+                                                                            <li><%= link_to "Category Page", erp_online_store.category_path %></li>
+                                                                            <li><%= link_to "Category Page", erp_online_store.category_path %></li>
+                                                                            <li><%= link_to "Category Page", erp_online_store.category_path %></li>
+                                                                            <li><%= link_to "Category Page", erp_online_store.category_path %></li>
+                                                                            <li><%= link_to "Category Page", erp_online_store.category_path %></li>
+                                                                            <li><%= link_to "Category Page", erp_online_store.category_path %></li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                <a href="javascript:void(0)" class="title-submenu">Category</a>
+                                                                <div class="row">
+                                                                    <div class="col-md-12 hover-menu">
+                                                                        <div class="menu">
+                                                                            <ul>
+                                                                            <li><%= link_to "Category Page", erp_online_store.category_path %></li>
+                                                                            <li><%= link_to "Category Page", erp_online_store.category_path %></li>
+                                                                            <li><%= link_to "Category Page", erp_online_store.category_path %></li>
+                                                                            <li><%= link_to "Category Page", erp_online_store.category_path %></li>
+                                                                            <li><%= link_to "Category Page", erp_online_store.category_path %></li>
+                                                                            <li><%= link_to "Category Page", erp_online_store.category_path %></li>
+                                                                            <li><%= link_to "Category Page", erp_online_store.category_path %></li>
+                                                                            <li><%= link_to "Category Page", erp_online_store.category_path %></li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                <a href="javascript:void(0)" class="title-submenu">Category</a>
+                                                                <div class="row">
+                                                                    <div class="col-md-12 hover-menu">
+                                                                        <div class="menu">
+                                                                            <ul>
+                                                                            <li><%= link_to "Category Page", erp_online_store.category_path %></li>
+                                                                            <li><%= link_to "Category Page", erp_online_store.category_path %></li>
+                                                                            <li><%= link_to "Category Page", erp_online_store.category_path %></li>
+                                                                            <li><%= link_to "Category Page", erp_online_store.category_path %></li>
+                                                                            <li><%= link_to "Category Page", erp_online_store.category_path %></li>
+                                                                            <li><%= link_to "Category Page", erp_online_store.category_path %></li>
+                                                                            <li><%= link_to "Category Page", erp_online_store.category_path %></li>
+                                                                            <li><%= link_to "Category Page", erp_online_store.category_path %></li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="with-sub-menu hover">
+                                                <p class="close-menu"></p>
+                                                <a href="javascript:void(0)" class="clearfix">
+                                                    <strong>Thiết Bị Viễn Thông</strong>
+                                                    <b class="caret"></b>
+                                                </a>
+                                                <div class="sub-menu" style="width: 100%; display: none;">
+                                                    <div class="content" style="display: none;">
+                                                        <div class="row">
+                                                            <div class="col-md-8">
+                                                                <div class="row">
+                                                                    <div class="col-md-6 static-menu">
+                                                                        <div class="menu">
+                                                                            <ul>
+                                                                                <li>
+                                                                                    <a href="javascript:void(0)" class="main-menu">Categories</a>
+                                                                                    <ul>
+                                                                                        <li><%= link_to "Category Page", erp_online_store.category_path %></li>
+                                                                                        <li><%= link_to "Category Page", erp_online_store.category_path %></li>
+                                                                                        <li><%= link_to "Category Page", erp_online_store.category_path %></li>
+                                                                                        <li><%= link_to "Category Page", erp_online_store.category_path %></li>
+                                                                                    </ul>
+                                                                                </li>
+                                                                                <li>
+                                                                                    <a href="javascript:void(0)" class="main-menu">Categories</a>
+                                                                                    <ul>
+                                                                                        <li><%= link_to "Category Page", erp_online_store.category_path %></li>
+                                                                                        <li><%= link_to "Category Page", erp_online_store.category_path %></li>
+                                                                                        <li><%= link_to "Category Page", erp_online_store.category_path %></li>
+                                                                                        <li><%= link_to "Category Page", erp_online_store.category_path %></li>
+                                                                                    </ul>
+                                                                                </li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-6 static-menu">
+                                                                        <div class="menu">
+                                                                            <ul>
+                                                                                <li>
+                                                                                    <a href="javascript:void(0)" class="main-menu">Categories</a>
+                                                                                    <ul>
+                                                                                        <li><%= link_to "Category Page", erp_online_store.category_path %></li>
+                                                                                        <li><%= link_to "Category Page", erp_online_store.category_path %></li>
+                                                                                        <li><%= link_to "Category Page", erp_online_store.category_path %></li>
+                                                                                        <li><%= link_to "Category Page", erp_online_store.category_path %></li>
+                                                                                    </ul>
+                                                                                </li>
+                                                                                <li>
+                                                                                    <a href="javascript:void(0)" class="main-menu">Categories</a>
+                                                                                    <ul>
+                                                                                        <li><%= link_to "Category Page", erp_online_store.category_path %></li>
+                                                                                        <li><%= link_to "Category Page", erp_online_store.category_path %></li>
+                                                                                        <li><%= link_to "Category Page", erp_online_store.category_path %></li>
+                                                                                        <li><%= link_to "Category Page", erp_online_store.category_path %></li>
+                                                                                    </ul>
+                                                                                </li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                <span class="title-submenu">Bestseller</span>
+                                                                <% (0..2).each do |bestseller| %>
+                                                                <div class="col-sm-12 list-product">
+                                                                    <div class="product-thumb">
+                                                                        <div class="image pull-left">
+                                                                            <%= link_to image_tag("/frontend/image/shop/product/75/2.jpg", width: "80", alt: "Filet Mign", title: "Filet Mign", class: "img-responsive"), erp_online_store.product_detail_path %>
+                                                                        </div>
+                                                                        <div class="caption">
+                                                                            <h4><%= link_to "Filet Mign", erp_online_store.product_detail_path, title: "Filet Mign" %></h4>
+                                                                            <div class="ratings">
+                                                                                <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
+                                                                                <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
+                                                                                <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
+                                                                                <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
+                                                                                <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
+                                                                            </div>
+                                                                            <p class="price">12,000,000</p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <% end %>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="with-sub-menu hover">
+                                                <p class="close-menu"></p>
+                                                <a href="javascript:void(0)" class="clearfix">
+                                                    <strong>Thiết Bị An Ninh</strong>
+                                                    <b class="caret"></b>
+                                                </a>
+                                                <div class="sub-menu" style="width: 100%; display: none;">
+                                                    <div class="content" style="display: none;">
+                                                        <div class="row">
+                                                            <div class="col-md-8">
+                                                                <div class="row">
+                                                                    <div class="col-md-6 static-menu">
+                                                                        <div class="menu">
+                                                                            <ul>
+                                                                                <li>
+                                                                                    <a href="javascript:void(0)" class="main-menu">Categories</a>
+                                                                                    <ul>
+                                                                                        <li><%= link_to "Category Page", erp_online_store.category_path %></li>
+                                                                                        <li><%= link_to "Category Page", erp_online_store.category_path %></li>
+                                                                                        <li><%= link_to "Category Page", erp_online_store.category_path %></li>
+                                                                                        <li><%= link_to "Category Page", erp_online_store.category_path %></li>
+                                                                                    </ul>
+                                                                                </li>
+                                                                                <li>
+                                                                                    <a href="javascript:void(0)" class="main-menu">Categories</a>
+                                                                                    <ul>
+                                                                                        <li><%= link_to "Category Page", erp_online_store.category_path %></li>
+                                                                                        <li><%= link_to "Category Page", erp_online_store.category_path %></li>
+                                                                                        <li><%= link_to "Category Page", erp_online_store.category_path %></li>
+                                                                                        <li><%= link_to "Category Page", erp_online_store.category_path %></li>
+                                                                                    </ul>
+                                                                                </li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-6 static-menu">
+                                                                        <div class="menu">
+                                                                            <ul>
+                                                                                <li>
+                                                                                    <a href="javascript:void(0)" class="main-menu">Categories</a>
+                                                                                    <ul>
+                                                                                        <li><%= link_to "Category Page", erp_online_store.category_path %></li>
+                                                                                        <li><%= link_to "Category Page", erp_online_store.category_path %></li>
+                                                                                        <li><%= link_to "Category Page", erp_online_store.category_path %></li>
+                                                                                        <li><%= link_to "Category Page", erp_online_store.category_path %></li>
+                                                                                    </ul>
+                                                                                </li>
+                                                                                <li>
+                                                                                    <a href="javascript:void(0)" class="main-menu">Categories</a>
+                                                                                    <ul>
+                                                                                        <li><%= link_to "Category Page", erp_online_store.category_path %></li>
+                                                                                        <li><%= link_to "Category Page", erp_online_store.category_path %></li>
+                                                                                        <li><%= link_to "Category Page", erp_online_store.category_path %></li>
+                                                                                        <li><%= link_to "Category Page", erp_online_store.category_path %></li>
+                                                                                    </ul>
+                                                                                </li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                <span class="title-submenu">Bestseller</span>
+                                                                <% (0..2).each do |bestseller| %>
+                                                                <div class="col-sm-12 list-product">
+                                                                    <div class="product-thumb">
+                                                                        <div class="image pull-left">
+                                                                            <%= link_to image_tag("/frontend/image/shop/product/75/2.jpg", width: "80", alt: "Filet Mign", title: "Filet Mign", class: "img-responsive"), erp_online_store.product_detail_path %>
+                                                                        </div>
+                                                                        <div class="caption">
+                                                                            <h4><%= link_to "Filet Mign", erp_online_store.product_detail_path, title: "Filet Mign" %></h4>
+                                                                            <div class="ratings">
+                                                                                <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
+                                                                                <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
+                                                                                <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
+                                                                                <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
+                                                                                <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
+                                                                            </div>
+                                                                            <p class="price">12,000,000</p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <% end %>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

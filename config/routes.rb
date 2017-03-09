@@ -1,4 +1,4 @@
-Erp::TimhangcongngheVn::Engine.routes.draw do
+Erp::OnlineStore::Engine.routes.draw do
   root to: "frontend/home#index"
   
   # CATEGORY
