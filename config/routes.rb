@@ -31,4 +31,7 @@ Erp::OnlineStore::Engine.routes.draw do
   get "lien-he-gop-y.html" => "frontend/information#contact_us", as: :contact_us
   get "cac-dieu-khoan-va-dieu-kien.html" => "frontend/information#terms_and_conditions", as: :terms_and_conditions
   get "site-map.html" => "frontend/information#site_map", as: :site_map
+  
+  #@todo online store
+	get "autosearch" => "frontend/product#autosearch", as: :autosearch
 end
