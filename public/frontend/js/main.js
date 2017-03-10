@@ -127,7 +127,9 @@ $(document).ready(function () {
     
     $(document).on('focusout', '.autosearch-input', function() {
         var box = $(this).parents('.autosearch');        
-        box.find('.autosearch-result-box').hide();
+        setTimeout(function() {
+            box.find('.autosearch-result-box').hide();
+        }, 100);
     });
     
     $(document).on('focusin', '.autosearch-input', function() {
