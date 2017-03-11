@@ -7,14 +7,15 @@
         <!--Left Part Start -->
         <aside class="col-sm-4 col-md-3" id="column-left">
             <div class="module blog-category titleLine">
-                <h3 class="modtitle"><span>Blog Category</span></h3>
+                <h3 class="modtitle"><span>Chủ đề</span></h3>
                 <div class="modcontent">
                     <ul class="list-group ">
-                        <li class="list-group-item"> <a href="blog-page.html" class="group-item active">Our Blog</a></li>
-                        <li class="list-group-item"><a href="blog-page.html" class="group-item">Demo Category 2</a></li>
-                        <li class="list-group-item"><a href="blog-page.html" class="group-item">Demo Category 3</a></li>
-                        <li class="list-group-item"><a href="blog-page.html" class="group-item">Demo Category 4</a></li>
-                        <li class="list-group-item"><a href="blog-page.html" class="group-item">Demo Category 5</a></li>
+                        <% @categories.each do |cat| %>
+                            <li class="list-group-item">
+                                <%= link_to cat.name, erp_online_store.blog_path(cat_id: cat.id),
+                                class: "group-item active" %>
+                            </li>
+                        <% end %>
                     </ul>
                 </div>
             </div>
@@ -54,51 +55,55 @@
 
         <!--Middle Part Start-->
         <div id="content" class="col-md-9 col-sm-8">
-            <div class="blog-header">
-                <h3>Our Blog</h3>
-                <p>Ac tincidunt Suspendisse malesuada velit in Nullam elit magnis netus Vestibulum.</p>
-            </div>
-            <div class="blog-listitem">
-                <% (0..3).each do |blog| %> 
+            <% if params[:cat_id].present? %>
+                <div class="blog-header">
+                    <h3><%= Erp::Articles::Category.find(params[:cat_id]).name %></h3>
+                    <p><%= Erp::Articles::Category.find(params[:cat_id]).description %></p>
+                </div>
+            <% end %>
+            <div class="blog-listitem <%= params[:cat_id].present? ? '' : 'blog-listitem-notitle' %>">
+                <% if @blogs.count == 0 %>
+                    <p>Danh sách bài viết không tìm thấy</p>
+                <% end %>
+                <% @blogs.each do |blog| %> 
                 <div class="blog-item ">
                     <div class="itemBlogImg col-md-4 col-sm-12">
                         <div class="article-image banners">
                             <div>
-                                <%= link_to image_tag("/frontend/image/blog/blog4.jpg", alt: "Kire tuma demonstraverunt lector"), "/frontend/image/blog/blog4.jpg", class: "popup-gallery" %>
+                                <%= link_to image_tag(blog.image.medium, alt: blog.name), "#{blog.image}", class: "popup-gallery" %>
                             </div>
                         </div>
                     </div>
                     <div class="itemBlogContent col-md-8 col-sm-12">
                         <div class="article-title">
                             <h4>
-                                <%= link_to "Kire Tuma Demonstraverunt Lector", erp_online_store.blog_detail_path %>
+                                <%= link_to blog.name, erp_online_store.blog_detail_path(blog_id: blog.id) %>
                             </h4>
                         </div>
                         <div class="article-sub-title">
                             <span class="article-date">
-                              <i class="fa fa-calendar"></i>08/03/2017								
+                              <i class="fa fa-calendar"></i><%= blog.created_at.strftime("%d/%m/%Y %I:%M%p") %>
                             </span>
                         </div>
                         <div class="article-description">
-                            Morbi tempus, non ullamcorper euismod, erat odio suscipit purus, nec ornare lacus turpis ac purus. Mauris cursus in mi vel dignissim. Morbi mollis elit ipsum, a feugiat lectus gravida non. Aenean molestie justo sed aliquam euismod. Maecenas laoreet b </div>
+                            <%= short_text(blog.content, 100) %> [...]
+                        </div>
                         <div class="blog-meta">
                             <span class="comment_count">
                                 <a href="#">0 Comments</a>
                             </span>
                             <span class="author">
-                                <span>Post by </span>Admin
+                                <span>Đăng bởi </span><%= blog.post_by %>
                             </span>
                         </div>
                     </div>
                 </div>
                 <% end %>
-                <ul class="pagination">
-                    <li class="active"><span>1</span></li>
-                    <li><a href="#">2</a></li>
-                    <li>
-                        <a href="#>&gt;</a></li> <li><a href=" # ">&gt;|</a>
-                    </li>
-                </ul>
+                
+                <div class="pagination-online-store">
+                    <%= erp_datalist_pagination(@blogs) %>
+                </div>
+                
             </div>
         </div>
         <!--Middle Part End-->
