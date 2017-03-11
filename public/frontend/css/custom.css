@@ -60,7 +60,12 @@ footer .social_block ul.social-block li.pinterest a:hover {
 .autosearch-result-box ul li:hover a {
   background: #f5f5f5;
 }
-.simple_vertical_list input[type="radio"] + label::after, .simple_vertical_list input[type="checkbox"] + label::after, .checkboxes_list input[type="radio"] + label::after, .checkboxes_list input[type="checkbox"] + label::after {
+.blog-listitem-notitle .blog-item:first-child {
+  padding-top: 0;
+}
+.pagination-online-store .row > div {
+  width: 100%;
+}.simple_vertical_list input[type="radio"] + label::after, .simple_vertical_list input[type="checkbox"] + label::after, .checkboxes_list input[type="radio"] + label::after, .checkboxes_list input[type="checkbox"] + label::after {
   top: 0px;
   width: 17px;
   height: 17px;
