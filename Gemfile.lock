@@ -16,7 +16,7 @@ PATH
 PATH
   remote: .
   specs:
-    erp_timhangcongnghe_vn (0.0.1)
+    erp_online_store (0.0.1)
       deface
       erp_core
       rails (~> 5.0.0.1)
@@ -165,7 +165,7 @@ PLATFORMS
 
 DEPENDENCIES
   erp_core!
-  erp_timhangcongnghe_vn!
+  erp_online_store!
 
 BUNDLED WITH
    1.13.6

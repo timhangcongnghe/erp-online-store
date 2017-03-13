@@ -182,7 +182,7 @@
                             <div class="tabsslider  col-xs-12">
                                 <ul class="nav nav-tabs">
                                     <li class="active"><a data-toggle="tab" href="#tab-1">Description</a></li>
-                                    <li class="item_nonactive"><a data-toggle="tab" href="#tab-review">Reviews (1)</a></li>
+                                    <li class="item_nonactive"><a data-toggle="tab" href="#tab-review">Comments (1)</a></li>
                                     <li class="item_nonactive"><a data-toggle="tab" href="#tab-4">Tags</a></li>
                                     <li class="item_nonactive"><a data-toggle="tab" href="#tab-5">Custom Tab</a></li>
                                 </ul>
@@ -226,25 +226,22 @@
                                                 </table>
                                                 <div class="text-right"></div>
                                             </div>
-                                            <h2 id="review-title">Write a review</h2>
+                                            <h2 id="review-title">Write a comment</h2>
                                             <div class="contacts-form">
-                                                <div class="form-group"> <span class="icon icon-user"></span>
-                                                    <input type="text" name="name" class="form-control" value="Your Name" onblur="if (this.value == '') {this.value = 'Your Name';}" onfocus="if(this.value == 'Your Name') {this.value = '';}">
-                                                </div>
-                                                <div class="form-group"> <span class="icon icon-bubbles-2"></span>
-                                                    <textarea class="form-control" name="text" onblur="if (this.value == '') {this.value = 'Your Review';}" onfocus="if(this.value == 'Your Review') {this.value = '';}">Your Review</textarea>
-                                                </div>
-                                                <span style="font-size: 11px;"><span class="text-danger">Note:</span> HTML is not translated!</span>
-
                                                 <div class="form-group">
-                                                    <b>Rating</b> <span>Bad</span>&nbsp;
-                                                    <input type="radio" name="rating" value="1"> &nbsp;
-                                                    <input type="radio" name="rating" value="2"> &nbsp;
-                                                    <input type="radio" name="rating" value="3"> &nbsp;
-                                                    <input type="radio" name="rating" value="4"> &nbsp;
-                                                    <input type="radio" name="rating" value="5"> &nbsp;
-                                                    <span>Good</span>
+                                                    <input type="radio" name="rating" value="male"> <span>Male</span>
+                                                    <input type="radio" name="rating" value="female"> <span>Female</span>                                                    
                                                 </div>
+                                                <div class="form-group">
+                                                    <input type="text" name="name" class="form-control" placeholder="Your name">
+                                                </div>
+                                                <div class="form-group">
+                                                    <input type="text" name="name" class="form-control" placeholder="Your email">
+                                                </div>
+                                                <div class="form-group">
+                                                    <textarea class="form-control" name="text" placeholder="Your comment"></textarea>
+                                                </div>                                                
+                                                
                                                 <div class="buttons clearfix"><a id="button-review" class="btn buttonGray">Continue</a></div>
                                             </div>
                                         </form>
