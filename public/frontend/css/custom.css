@@ -60,3 +60,12 @@ footer .social_block ul.social-block li.pinterest a:hover {
 .autosearch-result-box ul li:hover a {
   background: #f5f5f5;
 }
+.simple_vertical_list input[type="radio"] + label::after, .simple_vertical_list input[type="checkbox"] + label::after, .checkboxes_list input[type="radio"] + label::after, .checkboxes_list input[type="checkbox"] + label::after {
+  top: 0px;
+  width: 17px;
+  height: 17px;
+}
+.simple_vertical_list input[type="checkbox"] + label::before, .checkboxes_list input[type="checkbox"] + label::before {
+  font-size: 13px;
+  margin: 0 1px;
+}
