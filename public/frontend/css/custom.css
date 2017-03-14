@@ -75,6 +75,11 @@ footer .social_block ul.social-block li.pinterest a:hover {
   font-size: 13px;
   margin: 0 1px;
 }
-.map-contact {
+.type_1 .header-center {
+  padding: 25px 0 10px;
+}
+.logo img {
+  max-width: none;
+}.map-contact {
   margin-top: 40px;
 }
