@@ -21,22 +21,26 @@
     <%= stylesheet_link_tag "https://fonts.googleapis.com/css?family=Open+Sans:400,300,700|Roboto:400,500,700,900" %>
 
     <!-- Libs CSS ============================================ -->
-    <%= stylesheet_link_tag "/frontend/css/bootstrap/css/bootstrap.min.css" %>
-    <%= stylesheet_link_tag "/frontend/css/font-awesome/css/font-awesome.min.css" %>
-    <%= stylesheet_link_tag "/frontend/js/datetimepicker/bootstrap-datetimepicker.min.css" %>
-    <%= stylesheet_link_tag "/frontend/js/owl-carousel/owl.carousel.css" %>
-    <%= stylesheet_link_tag "/frontend/css/themecss/lib.css" %>
-    <%= stylesheet_link_tag "/frontend/js/jquery-ui/jquery-ui.min.css" %>
-
-    <!-- Theme CSS ============================================ -->
-    <%= stylesheet_link_tag "/frontend/css/themecss/so_megamenu.css" %>
-    <%= stylesheet_link_tag "/frontend/css/themecss/so-categories.css" %>
-    <%= stylesheet_link_tag "/frontend/css/themecss/so-listing-tabs.css" %>
-    <%= stylesheet_link_tag "/frontend/css/themecss/animate.css" %>
-    <%= stylesheet_link_tag "/frontend/css/themecss/so-super-category.css" %>
-    <%= stylesheet_link_tag "/frontend/css/theme.css", id: "color_scheme" %>
-    <%= stylesheet_link_tag "/frontend/css/responsive.css" %>
-	<%= stylesheet_link_tag "/frontend/css/custom.css" %>
+		<%= stylesheet_link_tag "/frontend/css/bootstrap/css/bootstrap.min.css" %>
+		<%= stylesheet_link_tag "/frontend/css/font-awesome/css/font-awesome.min.css" %>
+		<%= stylesheet_link_tag "/frontend/js/datetimepicker/bootstrap-datetimepicker.min.css" %>
+		<%= stylesheet_link_tag "/frontend/js/owl-carousel/owl.carousel.css" %>
+		<%= stylesheet_link_tag "/frontend/css/themecss/lib.css" %>
+		<%= stylesheet_link_tag "/frontend/js/jquery-ui/jquery-ui.min.css" %>
+		<%= stylesheet_link_tag "/frontend/js/lightslider/lightslider.css" %>
+		
+		<!-- Theme CSS ============================================ -->
+		<%= stylesheet_link_tag "/frontend/css/themecss/so_megamenu.css" %>
+		<%= stylesheet_link_tag "/frontend/css/themecss/so-categories.css" %>
+		<%= stylesheet_link_tag "/frontend/css/themecss/so-listing-tabs.css" %>
+		<%= stylesheet_link_tag "/frontend/css/themecss/animate.css" %>
+		<%= stylesheet_link_tag "/frontend/css/themecss/so-super-category.css" %>
+		<%= stylesheet_link_tag "/frontend/css/theme.css", id: "color_scheme" %>
+		<%= stylesheet_link_tag "/frontend/css/responsive.css" %>
+		<%= stylesheet_link_tag "/frontend/css/custom.css" %>
+		<% if params[:controller] == "erp/online_store/frontend/category" && params[:action] == "product_detail" %>
+		<%= render "erp/online_store/frontend/modules/js_include" %>
+		<% end %>
 </head>
 
 <body class="<%= @body_class %>">
@@ -71,8 +75,12 @@
     <!--<%= render "erp/online_store/frontend/modules/preloading_screen" %>-->
     <!-- End Preloading Screen -->
 
-    <!-- Include Libs & Plugins ============================================ -->
-    <%= render "erp/online_store/frontend/modules/js_include" %>
+    <% if params[:controller] == "erp/online_store/frontend/category" && params[:action] == "product_detail" %>
+		
+		<% else %>
+		<!-- Include Libs & Plugins ============================================ -->
+		<%= render "erp/online_store/frontend/modules/js_include" %>
+		<% end %>
 </body>
 
 </html>
