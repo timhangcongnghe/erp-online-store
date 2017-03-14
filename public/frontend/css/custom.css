@@ -65,7 +65,8 @@ footer .social_block ul.social-block li.pinterest a:hover {
 }
 .pagination-online-store .row > div {
   width: 100%;
-}.simple_vertical_list input[type="radio"] + label::after, .simple_vertical_list input[type="checkbox"] + label::after, .checkboxes_list input[type="radio"] + label::after, .checkboxes_list input[type="checkbox"] + label::after {
+}
+.simple_vertical_list input[type="radio"] + label::after, .simple_vertical_list input[type="checkbox"] + label::after, .checkboxes_list input[type="radio"] + label::after, .checkboxes_list input[type="checkbox"] + label::after {
   top: 0px;
   width: 17px;
   height: 17px;
@@ -73,4 +74,7 @@ footer .social_block ul.social-block li.pinterest a:hover {
 .simple_vertical_list input[type="checkbox"] + label::before, .checkboxes_list input[type="checkbox"] + label::before {
   font-size: 13px;
   margin: 0 1px;
+}
+.map-contact {
+  margin-top: 40px;
 }
