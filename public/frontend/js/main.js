@@ -1,3 +1,16 @@
+function homeCategoryBox(box) {
+    var url = box.attr('data-url');
+    
+    box.addClass('loading');
+    
+    $.ajax({
+        url: url
+    }).done(function( data ) {
+        box.html(data);
+        box.removeClass('loading');
+    });
+}
+
 function autoSearchMoveUp(box) {
     var current_li = box.find('li.current');
     var prev = current_li.prev();
@@ -135,5 +148,22 @@ $(document).ready(function () {
     $(document).on('focusin', '.autosearch-input', function() {
         var box = $(this).parents('.autosearch');        
         box.find('.autosearch-result-box').show();
+    });
+    
+    $('.category_box').each(function() {
+        var box = $(this);
+        
+        // Render home category box
+        homeCategoryBox(box);
+    });
+    
+    $(document).on('click', '.category_box a.ajax_link', function(e) {
+        e.preventDefault();
+        
+        var box = $(this).parents('.category_box');
+        box.attr('data-url', $(this).attr('href'));
+        
+        // Render home category box
+        homeCategoryBox(box);
     });
 });

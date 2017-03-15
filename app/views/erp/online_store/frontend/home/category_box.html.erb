@@ -1,15 +1,3 @@
-<div class="category_box" data-url="<%= erp_online_store.category_box_path %>"></div>
-
-<% (0..0).each do |super_category| %>
-<!-- Banner Content -->
-<div class="module banner">
-    <div class="banners">
-        <div>
-            <%= link_to image_tag("/frontend/image/banner/m5.jpg", alt: "Static Image"), "", title: "Static Image" %>
-        </div>
-    </div>
-</div>
-<!-- End Banner -->
 <!-- Mod Supercategory -->
 <div class="module cus-style-supper-cate supper1">
     <div class="header">
@@ -23,38 +11,6 @@
     </div>
     <div id="so_super_category_1" class="so-sp-cat first-load">
         <div class="spcat-wrap ">
-            <div class="spcat-tabs-container">
-                <!--Begin Tabs-->
-                <div class="spcat-tabs-wrap">
-                    <ul class="spcat-tabs cf">
-                        <li class="spcat-tab">
-                            <span class="spcat-tab-label">Acer</span>
-                        </li>
-                        <li class="spcat-tab">
-                            <span class="spcat-tab-label">Asus</span>
-                        </li>
-                        <li class="spcat-tab">
-                            <span class="spcat-tab-label">HP</span>
-                        </li>
-                        <li class="spcat-tab">
-                            <span class="spcat-tab-label">Dell</span>
-                        </li>
-                        <li class="spcat-tab">
-                            <span class="spcat-tab-label">Lenovo</span>
-                        </li>
-                        <li class="spcat-tab">
-                            <span class="spcat-tab-label">Toshiba</span>
-                        </li>
-                        <li class="spcat-tab">
-                            <span class="spcat-tab-label">All In One</span>
-                        </li>
-                        <li class="spcat-tab">
-                            <span class="spcat-tab-label">Khác</span>
-                        </li>
-                    </ul>
-                </div>
-                <!-- End Tabs-->
-            </div>
             <div class="main-left">
                 <div class="banner-post-text">
                     <%= link_to image_tag("/frontend/image/banner/s22.jpg", alt: "Banner"), "", title: "Banner" %>
@@ -70,7 +26,7 @@
                                 <div class="item">
                                     <div class="item-inner">
                                         <div class="cat_slider_title">
-                                            <%= link_to '<i class="fa fa-caret-right"></i> '.html_safe + "Chuyên mục hot", "", title: "", target: "_blank" %>
+                                            <%= link_to '<i class="fa fa-caret-right"></i> '.html_safe + "Chuyên mục hot", erp_online_store.category_box_path, title: "", target: "_blank", class: 'ajax_link' %>
                                         </div>
                                     </div>
                                 </div>
@@ -141,4 +97,3 @@
     </div>
 </div>
 <!-- End Mod -->
-<% end %>

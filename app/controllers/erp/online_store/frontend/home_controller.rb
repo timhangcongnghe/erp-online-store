@@ -5,6 +5,11 @@ module Erp
         def index
           @body_class = "common-home res layout-home1"
         end
+        
+        # home category box
+        def category_box
+          render layout: nil
+        end
       end
     end
   end
