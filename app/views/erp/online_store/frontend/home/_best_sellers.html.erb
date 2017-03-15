@@ -1,0 +1,43 @@
+<% (0..5).each_with_index do |best_seller,index| %>
+<div class="item-wrap style1">
+    <div class="item-wrap-inner media">
+        <div class="media-left">
+            <div class="item-image">
+                <div class="item-img-info">
+                    <a href="<%= erp_online_store.product_detail_path %>" class="lt-image" target="_self" title="Bikum masen dumas">
+                        <%= image_tag "/frontend/image/shop/product/75/1.jpg", alt: "Apple Cinema 30", title: "Apple Cinema 30", class: "img-1 img-responsive" %>
+                        <%= image_tag "/frontend/image/shop/product/75/3.jpg", alt: "Apple Cinema 30", title: "Apple Cinema 30", class: "img-2 img-responsive" %>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="media-body">
+            <div class="item-info">
+                <div class="rating">
+                    <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i></span>
+                    <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i></span>
+                    <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i></span>
+                    <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i></span>
+                    <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
+                </div>
+                <div class="item-title">
+                    <%= link_to "Caras cursus nulla", erp_online_store.product_detail_path, title: "Bikum masen dumas" %>
+                </div>
+                <!-- Begin item-content -->
+                <div class="item-content">
+                    <div class="content_price">
+                        <span class="price product-price">
+                            $122.00
+                        </span>
+                    </div>
+                </div>
+                <!-- End item-content -->
+            </div>
+        </div>
+        <!-- End item-info -->
+    </div>
+    <!-- End item-wrap-inner -->
+</div>
+<!-- End item-wrap -->
+<%= '</div><div class="item ">'.html_safe if index%3 == 2 %>
+<% end %>

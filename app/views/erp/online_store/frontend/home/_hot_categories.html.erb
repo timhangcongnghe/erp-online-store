@@ -1,0 +1,110 @@
+<% (0..4).each do |super_category| %>
+<!-- Banner Content -->
+<div class="module banner">
+    <div class="banners">
+        <div>
+            <%= link_to image_tag("/frontend/image/banner/m5.jpg", alt: "Static Image"), "", title: "Static Image" %>
+        </div>
+    </div>
+</div>
+<!-- End Banner -->
+<!-- Mod Supercategory -->
+<div class="module cus-style-supper-cate supper1">
+    <div class="header">
+        <h3 class="modtitle">
+            <span class="icon-color">
+                <i class="fa fa-empire"></i>Thiết bị tin học	
+                <small class="arow-after"></small>
+            </span>
+            <strong class="line-color"></strong>
+        </h3>
+    </div>
+    <div id="so_super_category_1" class="so-sp-cat first-load">
+        <div class="spcat-wrap ">
+            <div class="main-left">
+                <div class="banner-post-text">
+                    <%= link_to image_tag("/frontend/image/banner/s22.jpg", alt: "Banner"), "", title: "Banner" %>
+                </div>
+                <div class="hot-category">
+                    <div class="category-wrap-cat">
+                        <div class="title-imageslider  sp-cat-title-parent">
+                            Hot Categories
+                        </div>
+                        <div id="cat_slider_3" class="slider">
+                            <div class="cat_slider_inner so_category_type_default">
+                                <% (0..4).each do |hot_category| %>
+                                <div class="item">
+                                    <div class="item-inner">
+                                        <div class="cat_slider_title">
+                                            <%= link_to '<i class="fa fa-caret-right"></i> '.html_safe + "Chuyên mục hot", "", title: "", target: "_blank" %>
+                                        </div>
+                                    </div>
+                                </div>
+                                <% end %>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="main-right">
+                <div class="banner-pre-text">
+                    <%= link_to image_tag("/frontend/image/banner/t22.jpg", alt: "banner"), "", title: "banner" %>
+                </div>
+                <div class="spcat-items-container products-list grid show-pre show-row">
+                    <!--Begin Items-->
+                    <div class="spcat-items spcat-items-loaded items-category-sales product-layout spcat-items-selected" data-total="9">
+                        <div class="spcat-items-inner spcat00-4 spcat01-4 spcat02-3 spcat03-2 spcat04-1 flip">
+                            <div class="ltabs-items-inner ltabs-slider ">
+                                <% (0..5).each do |product| %>
+                                <div class="ltabs-item ">
+                                    <div class="item-inner product-thumb product-item-container transition ">
+                                        <div class="left-block">
+                                            <div class="product-image-container">
+                                                <div class="image">
+                                                    <a class="lt-image" href="<%= erp_online_store.product_detail_path %>" target="_self" title="Verty nolen max..">
+                                                        <%= image_tag "/frontend/image/shop/product/170/4.jpg", alt: "Apple Cinema 30", class: "img-1 img-responsive", title: "Apple Cinema 30" %>
+                                                        <%= image_tag "/frontend/image/shop/product/170/4.jpg", alt: "Apple Cinema 30", class: "img-2 img-responsive", title: "Apple Cinema 30" %>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <span class="label label-new">Mới</span>
+                                            <span class="label label-sale">Giảm giá</span>
+                                        </div>
+                                        <div class="right-block">
+                                            <div class="caption">
+                                                <div class="rating">
+                                                    <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i></span>
+                                                    <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i></span>
+                                                    <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i></span>
+                                                    <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i></span>
+                                                    <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i></span>
+                                                </div>
+                                                <h4>
+                                                    <%= link_to "Verty nolen laben", "", title: "Verty nolen laben" %>
+                                                </h4>
+                                                <p class="price">
+                                                    <span class="price-new">$45.00</span>
+                                                    <span class="price-old">$69.00</span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="button-group">
+                                            <button class="wishlist btn-button" type="button" data-toggle="tooltip" title="Add to Wish List" onclick="wishlist.add('42');"><i class="fa fa-heart"></i></button>
+                                            <button class="addToCart" type="button" data-toggle="tooltip" title="Add to Cart" onclick="cart.add('42', '1');"><i class="fa fa-shopping-cart"></i> <span class="hidden-xs"></span></button>
+                                            <button class="compare" type="button" data-toggle="tooltip" title="Compare this Product" onclick="compare.add('42');"><i class="fa fa-exchange"></i></button>
+                                            <a class="quickview iframe-link visible-lg btn-button" data-toggle="tooltip" title="" data-fancybox-type="iframe" href="quickview.html" data-original-title="Quickview"> <i class="fa fa-search"></i> </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <% end %>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--End Items-->
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Mod -->
+<% end %>
