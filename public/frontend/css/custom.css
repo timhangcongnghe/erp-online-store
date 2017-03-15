@@ -86,6 +86,7 @@ footer .social_block ul.social-block li.pinterest a:hover {
 }
 .category_box.loading {
   position: relative;
+  height: 668px;
 }
 .category_box.loading:after {
     content: "dddd";
@@ -98,4 +99,5 @@ footer .social_block ul.social-block li.pinterest a:hover {
     top: 70px;
     z-index: 10;
     text-indent: -20000px;
+    border: solid 1px #ddd;
 }
