@@ -1,9 +1,18 @@
+<!-- Banner Content -->
+<div class="module banner">
+    <div class="banners">
+        <div>
+            <%= link_to image_tag("/frontend/image/banner/m5.jpg", alt: "Static Image"), "", title: "Static Image" %>
+        </div>
+    </div>
+</div>
+<!-- End Banner -->
 <!-- Mod Supercategory -->
-<div class="module cus-style-supper-cate supper1">
+<div class="module cus-style-supper-cate <%= @menu_hot.style_color%>">
     <div class="header">
         <h3 class="modtitle">
             <span class="icon-color">
-                <i class="fa fa-empire"></i>Thiết bị tin học	
+                <%= @menu_hot.style_icon.html_safe %><%= @menu_hot.name %>
                 <small class="arow-after"></small>
             </span>
             <strong class="line-color"></strong>
@@ -11,6 +20,21 @@
     </div>
     <div id="so_super_category_1" class="so-sp-cat first-load">
         <div class="spcat-wrap ">
+            <% if params[:child_1_id].present? %>
+            <div class="spcat-tabs-container">
+                <!--Begin Tabs-->
+                <div class="spcat-tabs-wrap">
+                    <ul class="spcat-tabs cf">
+                        <% @child_1.children.each do |child_2| %>
+                        <li class="spcat-tab">
+                            <span class="spcat-tab-label"><%= link_to child_2.name, erp_online_store.category_box_path(menu_hot_id: @menu_hot.id, child_1_id: @child_1.id, child_2_id: child_2.id), title: child_2.name, class: "ajax_link" %></span>
+                        </li>
+                        <% end %>
+                    </ul>
+                </div>
+                <!-- End Tabs-->
+            </div>
+            <% end %>
             <div class="main-left">
                 <div class="banner-post-text">
                     <%= link_to image_tag("/frontend/image/banner/s22.jpg", alt: "Banner"), "", title: "Banner" %>
@@ -18,15 +42,15 @@
                 <div class="hot-category">
                     <div class="category-wrap-cat">
                         <div class="title-imageslider  sp-cat-title-parent">
-                            Hot Categories
+                            CHUYÊN MỤC HOT
                         </div>
                         <div id="cat_slider_3" class="slider">
                             <div class="cat_slider_inner so_category_type_default">
-                                <% (0..4).each do |hot_category| %>
+                                <% @menu_hot.children.each do |child_1| %>
                                 <div class="item">
                                     <div class="item-inner">
                                         <div class="cat_slider_title">
-                                            <%= link_to '<i class="fa fa-caret-right"></i> '.html_safe + "Chuyên mục hot", erp_online_store.category_box_path, title: "", target: "_blank", class: 'ajax_link' %>
+                                            <%= link_to '<i class="fa fa-caret-right"></i> '.html_safe + child_1.name, erp_online_store.category_box_path(menu_hot_id: @menu_hot.id, child_1_id: child_1.id), title: child_1.name, class: "ajax_link" %>
                                         </div>
                                     </div>
                                 </div>

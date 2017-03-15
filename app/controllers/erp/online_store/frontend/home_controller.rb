@@ -8,6 +8,10 @@ module Erp
         
         # home category box
         def category_box
+          @menu_hot = Erp::Menus::Menu.find(params[:menu_hot_id])
+          if params[:child_1_id].present?
+            @child_1 = Erp::Menus::Menu.find(params[:child_1_id])
+          end
           render layout: nil
         end
       end
