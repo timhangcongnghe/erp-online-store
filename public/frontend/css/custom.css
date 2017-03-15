@@ -84,7 +84,38 @@ footer .social_block ul.social-block li.pinterest a:hover {
 .map-contact {
   margin-top: 40px;
 }
-.category_box.loading {
+.jGrowl-notification.warning {
+  color: #8a6d3b;
+  background-color: #fcf8e3;
+  border-color: #faebcc;
+}
+.jGrowl-notification.success {
+  color: #3c763d;
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+}
+.jGrowl-notification.error {
+  color: #a94442;
+  background-color: #f2dede;
+  border-color: #ebccd1;
+}
+.jGrowl-notification.notice {
+  color: #31708f;
+  background-color: #d9edf7;
+  border-color: #bce8f1;
+}
+.jGrowl-notification.success .jGrowl-header {
+  color: #0b9444;
+}
+.jGrowl-notification.warning .jGrowl-header {
+  color: #ffa500;
+}
+.jGrowl-notification.error .jGrowl-header {
+  color: #d9534f  ;
+}
+.jGrowl-notification.notice .jGrowl-header {
+  color: #5bc0de;
+}.category_box.loading {
   position: relative;
   height: 668px;
 }

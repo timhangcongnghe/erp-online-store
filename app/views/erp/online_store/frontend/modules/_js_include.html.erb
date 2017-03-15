@@ -18,3 +18,19 @@
 <%= javascript_include_tag '/frontend/js/themejs/addtocart.js' %>
 <!--<%= javascript_include_tag '/frontend/js/themejs/cpanel.js' %>-->
 <%= javascript_include_tag '/frontend/js/main.js' %>
+
+<% if !flash.empty? %>
+    <% classes = {"success" => "success", "alert" => "alert", "notice" => "notice", "warning" => "warning", "error" => "error"} %>
+    <% flash.each do |key, value| %>
+        <script>
+            // alert('<%= value %>');
+            var tpl = '<h3><%= value %></h3>';
+            $.jGrowl(tpl, {
+                life: 4000,
+                header: '<%= t('flash_' + key) %>',
+                speed: 'slow',
+                theme: '<%= classes[key] %>'
+            });
+        </script>
+    <% end %>
+<% end %>
