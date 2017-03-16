@@ -1,16 +1,16 @@
-<% (0..1).each do |blog| %>
+<% Erp::Articles::Article.newest_articles(2).each do |blog| %>
 <div class="media">
     <div class="item">
         <div class="media-body">
-            <div class="media-date-added">28<br>
-                <span>Mar</span>
+            <div class="media-date-added image">
+                <%= image_tag(blog.image.small, alt: blog.name) %>
             </div>
             <div class="media-content">
-                <h4 class="media-heading">
-                    <%= link_to "Pellentse tincidunt Suspendis malesu", "", title: "Pellentse tincidunt Suspendis malesu" %>
+                <h4 class="media-heading media-title">
+                    <%= link_to truncate(blog.name, length: 80), erp_online_store.blog_detail_path(blog.id, url_friendly(blog.name)), title: blog.name %>
                 </h4>
                 <div class="description">
-                    <%= "Commodo laoreet semper tincidunt lorem Vestibulum nunc at In Curabitur magna....." %>
+                    <%= short_text(blog.content.html_safe, 20) %> ...
                 </div>
             </div>
         </div>
