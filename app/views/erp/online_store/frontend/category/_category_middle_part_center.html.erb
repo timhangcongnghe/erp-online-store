@@ -1,0 +1,51 @@
+<div class="products-list row list">
+    <% products.each do |product| %>
+    <div class="product-layout  col-md-3 col-sm-6 col-xs-12">
+        <div class="product-item-container">
+            <div class="left-block">
+                <div class="product-image-container lazy second_img ">
+                    <%= image_tag "/frontend/image/shop/product/e11.jpg", data: {src: "/frontend/image/shop/product/e11.jpg"}, alt: product.name, class: "img-1 img-responsive" %>
+                    <%= image_tag "/frontend/image/shop/product/e12.jpg", data: {src: "/frontend/image/shop/product/e12.jpg"}, alt: product.name, class: "img-2 img-responsive" %>
+                </div>
+                <!--Sale Label-->
+                <span class="label label-sale">Giảm giá</span>
+                <!--full quick view block-->
+                <!--<div class="countdown_box">
+                    <div class="countdown_inner">
+                        <div class="defaultCountdown-30"></div>
+                    </div>
+                </div>-->
+            </div>
+            <div class="right-block">
+                <div class="caption">
+                    <h4><%= link_to product.name, erp_online_store.product_detail_path, title: product.name %></h4>
+                    <div class="ratings">
+                        <div class="rating-box">
+                            <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
+                            <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
+                            <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
+                            <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
+                            <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i></span>
+                        </div>
+                    </div>
+                    <div class="price">
+                        <span class="price-new">$74.00</span>
+                        <span class="price-old">$122.00</span>
+                        <span class="label label-percent">-40%</span>
+                    </div>
+                    <div class="description item-desc hidden">
+                        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est . </p>
+                    </div>
+                </div>
+            </div>
+            <!-- right block -->
+            <div class="button-group">
+                <button class="wishlist btn-button" type="button" data-toggle="tooltip" title="Add to Wish List" onclick="wishlist.add('42');"><i class="fa fa-heart"></i></button>
+                <button class="addToCart" type="button" data-toggle="tooltip" title="Add to Cart" onclick="cart.add('42', '1');"><i class="fa fa-shopping-cart"></i> <span class="hidden-xs name-cart">Add to Cart</span></button>
+                <button class="compare" type="button" data-toggle="tooltip" title="Compare this Product" onclick="compare.add('42');"><i class="fa fa-exchange"></i></button>
+                <a class="quickview iframe-link visible-lg btn-button" data-toggle="tooltip" title="" data-fancybox-type="iframe" href="<%= erp_online_store.product_quickview_path(product_id: product.id) %>" data-original-title="Quickview"> <i class="fa fa-search"></i> </a>
+            </div>
+        </div>
+    </div>
+    <% end %>
+</div>

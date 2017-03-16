@@ -44,11 +44,11 @@
                                                             <% menu_topbar.children.each do |child_1| %>
                                                             <div class="col-md-3">
                                                                 <div class="column">
-                                                                    <%= link_to child_1.name, erp_online_store.category_path, class: "title-submenu" %>                                                                
+                                                                    <%= link_to child_1.name, erp_online_store.category_path(menu_id: child_1.id), class: "title-submenu" %>                                                                
                                                                     <div>
                                                                         <ul class="row-list">
                                                                             <% child_1.children.each do |child_2| %>                                                                        
-                                                                            <li><%= link_to child_2.name, erp_online_store.category_path %></li>
+                                                                            <li><%= link_to child_2.name, erp_online_store.category_path(menu_id: child_2.id) %></li>
                                                                             <% end %>
                                                                         </ul>
                                                                     </div>
