@@ -63,7 +63,7 @@
         <div class="container">
             <div class="row">
                 <div class="module so-latest-blog latest-blog col-md-4 col-sm-6 col-xs-12">
-                    <h3 class="modtitle"><span>News</span></h3>
+                    <h3 class="modtitle"><span>Tin tức mới nhất</span></h3>
                     <div id="so_latest_blog_180" class="so-blog-external button-type2 button-type2">
                         <div class="blog-external-simple">
                             <%= render "erp/online_store/frontend/home/news" %>
@@ -96,10 +96,10 @@
         <div class="container">
             <div class="block-brand">
                 <div class="brand-slider">
-                    <% (0..10).each do |brand| %>
-                    <div class="item-manu">
-                        <%= link_to image_tag("/frontend/image/brands/2.jpg", alt: ""), "", title: "" %>
-                    </div>
+                    <% Erp::Products::Brand.where(archived: false).each do |brand| %>
+                        <div class="item-manu">
+                            <%= link_to image_tag("/frontend/image/brands/2.jpg", alt: brand.name), "", title: brand.name %>
+                        </div>
                     <% end %>
                 </div>
             </div>
