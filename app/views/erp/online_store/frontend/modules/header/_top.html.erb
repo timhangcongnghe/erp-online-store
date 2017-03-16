@@ -6,10 +6,14 @@
                     <li class="hidden-xs">
                         <div class="welcome-msg">
                             <ul class="list-msg">
-                                <li><label class="label-msg">08/03/2017</label> <%= link_to "Sale special too good to miss in every gear", erp_online_store.blog_detail_path %></li>
-                                <li><label class="label-msg">08/03/2017</label> <%= link_to "Laten ipsum dolor sit amet. In gravida pellen", erp_online_store.blog_detail_path %></li>
-                                <li><label class="label-msg">07/03/2017</label> <%= link_to "Sale special too good to miss in every gear", erp_online_store.blog_detail_path %></li>
-                                <li><label class="label-msg">07/03/2017</label> <%= link_to "Laten ipsum dolor sit amet. In gravida pellen", erp_online_store.blog_detail_path %></li>
+                                <% Erp::Articles::Article.newest_articles(3).each do |blog| %>
+                                    <li>
+                                        <label class="label-msg"><%= blog.created_at.strftime("%d/%m/%Y") %></label>
+                                        <%= link_to truncate(blog.name, length: 45),
+                                            erp_online_store.blog_detail_path(blog.id, url_friendly(blog.name)
+                                        ) %>
+                                    </li>
+                                <% end %>
                             </ul>
                         </div>
                     </li>
