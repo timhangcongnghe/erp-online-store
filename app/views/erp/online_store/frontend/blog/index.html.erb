@@ -12,7 +12,7 @@
                     <ul class="list-group ">
                         <% @categories.each do |cat| %>
                             <li class="list-group-item">
-                                <%= link_to cat.name, erp_online_store.blog_path(cat_id: cat.id),
+                                <%= link_to cat.name, erp_online_store.blog_with_category_path(cat.id, url_friendly(cat.name)),
                                 class: "group-item active" %>
                             </li>
                         <% end %>
@@ -77,7 +77,7 @@
                     <div class="itemBlogContent col-md-8 col-sm-12">
                         <div class="article-title">
                             <h4>
-                                <%= link_to blog.name, erp_online_store.blog_detail_path(blog_id: blog.id) %>
+                                <%= link_to blog.name, erp_online_store.blog_detail_path(blog.id, url_friendly(blog.name)) %>
                             </h4>
                         </div>
                         <div class="article-sub-title">
