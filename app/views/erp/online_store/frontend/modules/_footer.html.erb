@@ -61,14 +61,34 @@
                 <!-- BOX ACCOUT -->
                 <div class="col-md-3 col-sm-6 box-account box-footer">
                     <div class="module clearfix">
-                        <h3 class="modtitle">Chính sách & Quy định</h3>
+                        <h3 class="modtitle">Chăm sóc khách hàng</h3>
                         <div class="modcontent">
                             <ul class="menu">
-                                <li><%= link_to "Chính sách bảo hành", "" %></li>
-                                <li><%= link_to "Quy định & Hình thức thanh toán", "" %></li>
-                                <li><%= link_to "Chính sách vận chuyển, giao nhận", "" %></li>
-                                <li><%= link_to "Chính sách đổi trả hàng và hoàn tiền", "" %></li>
-                                <li><%= link_to "Chính sách bảo mật thông tin", "" %></li>
+                                <li>
+                                    <%= link_to "Chính sách bảo hành", erp_online_store.policy_path(
+                                        Erp::Articles::Category.find_by_alias(Erp::Articles::Category::ALIAS_WARRANTY).id,
+                                        'chinh-sach-bao-hanh'
+                                    ) %>
+                                </li>
+                                <li>
+                                    <%= link_to "Quy định & Hình thức thanh toán", erp_online_store.policy_path(
+                                        Erp::Articles::Category.find_by_alias(Erp::Articles::Category::ALIAS_PAYMENT).id,
+                                        'quy-dinh-hinh-thuc-thanh-toan'
+                                    ) %>
+                                </li>
+                                <li>
+                                    <%= link_to "Chính sách vận chuyển, giao nhận", erp_online_store.policy_path(
+                                        Erp::Articles::Category.find_by_alias(Erp::Articles::Category::ALIAS_DELIVERY).id,
+                                        'chinh-sach-van-chuyen-giao-nhan'
+                                    ) %>
+                                </li>
+                                <li>
+                                    <%= link_to "Chính sách đổi trả hàng và hoàn tiền", erp_online_store.policy_path(
+                                        Erp::Articles::Category.find_by_alias(Erp::Articles::Category::ALIAS_RETURN_REFUND).id,
+                                        'chinh-sach-doi-tra-hang-va-hoan-tien'
+                                    ) %>
+                                </li>
+                                <li><%= link_to "Câu hỏi thường gặp", erp_online_store.faq_path %></li>
                             </ul>
                         </div>
                     </div>
@@ -82,8 +102,13 @@
                                 <li><%= link_to "Về chúng tôi", erp_online_store.about_us_path %></li>
                                 <li><%= link_to "Liên hệ & Góp ý", erp_online_store.contact_us_path %></li>
                                 <li><%= link_to "Tin tức & Sự kiện", erp_online_store.blog_path %></li>
-                                <li><%= link_to "Câu hỏi thường gặp", erp_online_store.faq_path %></li>
-                                <li><%= link_to "Chính sách & Quy định chung", erp_online_store.terms_and_conditions_path %></li>
+                                <li><%= link_to "Các điều khoản & Điều kiện", erp_online_store.terms_and_conditions_path %></li>
+                                <li>
+                                    <%= link_to "Quy định bảo mật thông tin", erp_online_store.policy_path(
+                                        Erp::Articles::Category.find_by_alias(Erp::Articles::Category::ALIAS_SECURITY).id,
+                                        'quy-dinh-bao-mat-thong-tin'
+                                    ) %>
+                                </li>
                             </ul>
                         </div>
                     </div>
