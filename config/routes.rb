@@ -10,7 +10,8 @@ Erp::OnlineStore::Engine.routes.draw do
   
   # BLOG
   get "danh-sach-bai-viet.html" => "frontend/blog#index", as: :blog
-  get "danh-sach-bai-viet/chi-tiet-bai-viet.html" => "frontend/blog#detail", as: :blog_detail
+  get "bai-viet/:cat_id(/:title).html" => "frontend/blog#index", as: :blog_with_category
+  get "bai-viet/:blog_id(/:title).html" => "frontend/blog#detail", as: :blog_detail
   
   # ACCOUNT
   get "dang-nhap.html" => "frontend/account#login", as: :login
@@ -29,10 +30,11 @@ Erp::OnlineStore::Engine.routes.draw do
   
   # INFORMATION
   get "gioi-thieu.html" => "frontend/information#about_us", as: :about_us
-  get "cau-hoi-thuong-gap.html" => "frontend/information#faq", as: :faq
   get "lien-he-gop-y.html" => "frontend/information#contact_us", as: :contact_us
   post "lien-he-gop-y.html" => "frontend/information#contact_us"
-  get "cac-dieu-khoan-va-dieu-kien.html" => "frontend/information#terms_and_conditions", as: :terms_and_conditions
+  get "thong-tin/cau-hoi-thuong-gap.html" => "frontend/information#faq", as: :faq
+  get "thong-tin/cac-dieu-khoan-va-dieu-kien.html" => "frontend/information#terms_and_conditions", as: :terms_and_conditions
+  get "thong-tin/:category_id(/:title).html" => "frontend/information#policy", as: :policy
   get "site-map.html" => "frontend/information#site_map", as: :site_map
   
   #@todo online store
