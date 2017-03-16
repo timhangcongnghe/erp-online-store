@@ -8,6 +8,12 @@ module Erp
     
         def faq
           @body_class = "res layout-subpage"
+          @faqs = Erp::Articles::Article.get_faqs
+        end
+        
+        def policy
+          @categories = Erp::Articles::Category.get_categories_by_alias_group
+          @article = Erp::Articles::Category.find(params[:category_id]).articles.last
         end
     
         def contact_us
@@ -23,7 +29,9 @@ module Erp
               respond_to do |format|
                 if @msg.save
                   Erp::Contacts::ContactMailer.sending_email_contact(@msg).deliver_now
-                  format.html { redirect_to :back, notice: 'Yêu cầu đã gửi thành công.\n Chúng tôi sẽ liên hệ cho bạn trong thời gian sớm nhất.' }
+                  format.html {
+                    redirect_to :back, notice: 'Yêu cầu đã gửi thành công.\n Chúng tôi sẽ liên hệ cho bạn trong thời gian sớm nhất.'
+                  }
                 end
               end
             else
@@ -33,6 +41,7 @@ module Erp
         end
     
         def terms_and_conditions
+          @terms_conditions = Erp::Articles::Article.get_terms_and_conditions
         end
     
         def site_map
