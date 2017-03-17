@@ -1,7 +1,7 @@
 <% Erp::Testimonials::Testimonial.order('created_at DESC').each do |testimonial| %>
 <div class="block_content">
     <div class="image">
-        <%= image_tag "/frontend/image/cms/clients_say.png", alt: ""%>
+        <%= image_tag(testimonial.logo.small, alt: testimonial.author) %>
     </div>
     <div class="block-info">
         <div class="text">"<%= testimonial.content %>"</div>
