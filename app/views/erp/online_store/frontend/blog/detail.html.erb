@@ -64,7 +64,7 @@
                 <div class="article-sub-title">
                     <span class="article-author">Đăng bởi: <a href="#"> <%= @blog.post_by %></a></span>
                     <span class="article-date">Thời gian: <%= @blog.created_at.strftime("%d/%m/%Y %I:%M%p") %></span>
-                    <span class="article-comment">0  Bình luận</span>
+                    <span class="article-comment"><%= @comments.count %> Bình luận</span>
                 </div>
                 <div class="article-description">
                     <p><%= @blog.content.html_safe %></p>
@@ -72,37 +72,110 @@
                 <div class="panel panel-default related-comment">
                     <div class="panel-body">
                         <div class="form-group">
-                            <div id="comments" class="blog-comment-info">
-                                <h3 id="review-title">Mời bạn để lại bình luận </h3>
-                                <input type="hidden" name="blog_article_reply_id" value="0" id="blog-reply-id">
-                                <div class="comment-left contacts-form row">
-                                    <div class="col-md-6">
-                                        <b>Tên bạn:</b>
-                                        <br>
-                                        <input type="text" name="name" value="" class="form-control">
-                                        <br>
+                            <%= form_for Erp::Articles::Comment.new, url: "" do |f| %>
+                                <div id="comments" class="blog-comment-info">
+                                    <h3 id="review-title">Mời bạn để lại bình luận </h3>
+                                    <input type="hidden" name="comment[article_id]" value="<%= @blog.id %>" />
+                                    <div class="comment-left contacts-form row">
+                                        <div class="col-md-6">
+                                            <b>Họ tên (bắt buộc):</b>
+                                            <br>
+                                            <input type="text" name="comment[name]" value class="form-control" placeholder="Nhập tên của bạn tại đây">
+                                            <br>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <b>Địa chỉ email:</b>
+                                            <br />
+                                            <input type="email" name="comment[email]" value class="form-control" placeholder="Chúng tôi sẽ thông báo cho bạn ngay khi có câu trả lời">
+                                            <br />
+                                        </div>
+                                        <div class="col-md-12">
+                                            <b>Lời nhận xét:</b>
+                                            <br />
+                                            <textarea rows="6" cols="50" name="comment[message]" class="form-control" placeholder="Nội dung đánh giá, thảo luận. Xin vui lòng nhập tiếng Việt có dấu."></textarea>
+                                        </div>
                                     </div>
-                                    <div class="col-md-12">
-                                        <b>Lời nhận xét:</b>
-                                        <br>
-                                        <textarea rows="6" cols="50" name="text" class="form-control"></textarea>
-                                        <span style="font-size: 11px;">Note: HTML is not translated!</span>
-                                        <br>
-                                        <br>
+                                    <br>
+                                    <div class="text-left">
+                                        <button class="btn buttonGray" id="button-comment" type="submit">
+                                            <span>Gửi bình luận</span>
+                                        </button>
                                     </div>
-                                    <div class="col-md-4">
-                                        <b>Nhập mã kiểm tra vào ô bên dưới:</b>
-                                        <br>
-                                        <input type="text" name="captcha" style="" value="" class="form-control">
-                                        <br>
-                                        <div class="form-group">
-                                            <img src="/frontend/image/content/captcha.jpg" alt="" id="captcha">
+                                </div>
+                            <% end %>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="panel panel-default related-comment">
+                    <div id="comments">
+                        <h3>Có <%= @comments.count %> bình luận cho bài viết này</h3>
+                        
+                        <div class="commentlist">
+                            <% @comments.each do |comment| %>
+                                <div id="comment-181" class="comment even thread-even depth-1 media">
+                                    <div class="author">
+                                        <a class="pull-left" href="#">
+                                            <img alt="" src="/frontend/image/avatar/avt_comment.png" class="avatar pull-left media-object avatar-64 photo">
+                                        </a>
+                                    </div>
+                                    <div class="media-body">
+                                        <div class="media">
+                                            <div class="media-heading">
+                                                <div class="author-name">
+                                                    <strong><a href="#"><%= comment.name %></a></strong>
+                                                </div>
+                                            </div>
+                                            <div class="media-content row-fluid">
+                                                <p><%= comment.message %></p>
+                                                <a rel="nofollow" class="right comment-reply-link" href="#"
+                                                   aria-label="Reply to Hung Nguyen"><i class="fa fa-reply"></i> Trả lời</a>
+                                                <a class="right favor satis" href="javascript:void(null)"><i class="fa fa-thumbs-up"></i> Hài lòng</a>
+                                                <a class="right favor satis" href="javascript:void(null)"><i class="fa fa-thumbs-down"></i> Không hài lòng</a>
+                                                <time class="right">1 giờ trước</time>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                                <br>
-                                <div class="text-left"><a id="button-comment" class="btn buttonGray"><span>Gửi bình luận</span></a>
-                                </div>
+                                <ul class="children">
+                                    <table class="table table-striped table-bordered">
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <% (1..2).each do |child_comment| %>
+                                                        <div id="comment-182" class="comment odd alt depth-2 media">
+                                                            <div class="author">
+                                                                <a class="pull-left" href="hung">
+                                                                    <img alt="" src="/frontend/image/avatar/avt_comment.png" class="avatar pull-left media-object avatar-64 photo">
+                                                                </a>
+                                                            </div>
+                                                            <div class="media-body">
+                                                                <div class="media">
+                                                                    <div class="media-heading">
+                                                                        <div class="author-name">
+                                                                            <strong><a href="#">Lâm Vũ</a></strong><span class="label">Quản trị viên</span>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="media-content row-fluid">
+                                                                        <p>Màn hình chỉ HD, pin giữ nguyên so với phiên bản cũ, hệ điều hành chưa bắt kịp xu hướng. Được cái sản phẩm trang bị thêm rom, camera khỏi chê.</p>
+                                                                        <a rel="nofollow" class="right comment-reply-link" href="#"
+                                                                            aria-label="Reply to Hung Nguyen"><i class="fa fa-reply"></i> Trả lời</a>
+                                                                         <a class="right favor satis" href="#"><i class="fa fa-thumbs-up"></i> Hài lòng</a>
+                                                                         <a class="right favor satis" href="#"><i class="fa fa-thumbs-down"></i> Không hài lòng</a>
+                                                                        <time class="right">1 giờ trước</time>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    <% end %>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </ul>
+                            <% end %>
+                            <div class="pagination-comments">
+                                <%= erp_datalist_pagination(@comments) %>
                             </div>
                         </div>
                     </div>
