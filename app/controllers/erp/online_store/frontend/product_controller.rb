@@ -5,6 +5,15 @@ module Erp
         include Erp::ApplicationHelper
         include ActionView::Helpers::NumberHelper
         
+        def product_detail
+          @body_class = "res layout-subpage"
+          @product = Erp::Products::Product.find(params[:product_id])
+        end
+        
+        def product_quickview
+          render layout: "erp/frontend/quickview"
+        end
+        
         def autosearch
           @products = Erp::Products::Product.search(params).paginate(:page => params[:page], :per_page => 10)
           

@@ -153,3 +153,9 @@ footer .social_block ul.social-block li.pinterest a:hover {
 .media-heading.media-title a {
     text-transform: none !important;
 }
+.type_1 .header-bottom .container .header-bottom-inner .header_search {
+  width: 67%;
+}
+.type_1 .header-bottom .container .header-bottom-inner .header_custom_link {
+  padding-right: 0px;
+}

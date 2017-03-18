@@ -129,10 +129,10 @@
                         <!--cart-->
                         <div class="shopping_cart pull-right">
                             <div id="cart" class=" btn-group btn-shopping-cart">
-                                <a data-loading-text="Loading..." class="btn-group top_cart dropdown-toggle" data-toggle="dropdown">
+                                <a data-loading-text="Đang tải giỏ hàng..." class="btn-group top_cart dropdown-toggle" data-toggle="dropdown">
                                     <div class="shopcart">
                                         <span class="handle pull-left"></span>
-                                        <span class="text-shopping-cart hidden-xs">My cart</span>
+                                        <span class="text-shopping-cart hidden-xs">Giỏ hàng(<%= @cart.cart_items.number_items %>)</span>
                                         <span class="text-shopping-cart-mobi hidden-lg hidden-md hidden-sm ">
                                             <i class="fa fa-cart-plus"></i>
                                         </span>
@@ -142,16 +142,15 @@
                                     <li>
                                         <table class="table table-striped">
                                             <tbody>
-                                                <% (0..2).each do |product| %>
+                                                <% @cart.cart_items.each do |cart_item| %>
                                                 <tr>
                                                     <td class="text-center" style="width:70px">
-                                                        <%= link_to image_tag("/frontend/image/shop/product/35.jpg", width: "70px", alt: "Filet Mign", title: "Filet Mign", class: "preview"), erp_online_store.product_detail_path %>
+                                                        <%= link_to image_tag("/frontend/image/shop/product/35.jpg", width: "70px", alt: cart_item.product.name, title: cart_item.product.name, class: "preview"), erp_online_store.product_detail_path %>
                                                     </td>
-                                                    <td class="text-left"><%= link_to "Filet Mign", erp_online_store.product_detail_path, class: "cart_product_name" %></td>
-                                                    <td class="text-center">x1</td>
-                                                    <td class="text-center">$1,202.00</td>
+                                                    <td class="text-left"><%= link_to cart_item.product.name, erp_online_store.product_detail_path, class: "cart_product_name", title: cart_item.product.name %></td>
+                                                    <td class="text-center"><%= format_number(cart_item.product.price) %>x<%= cart_item.quantity %></td>
                                                     <td class="text-right">
-                                                        <a onclick="cart.remove('2');" class="fa fa-times fa-delete"></a>
+                                                        <a class="fa fa-times fa-delete"></a>
                                                     </td>
                                                 </tr>
                                                 <% end %>
@@ -164,34 +163,16 @@
                                                 <tbody>
                                                     <tr>
                                                         <td class="text-left">
-                                                            <strong>Sub-Total</strong>
+                                                            <strong>Tổng tiền:</strong>
                                                         </td>
-                                                        <td class="text-right">$1,060.00</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="text-left">
-                                                            <strong>Eco Tax (-2.00)</strong>
-                                                        </td>
-                                                        <td class="text-right">$2.00</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="text-left">
-                                                            <strong>VAT (20%)</strong>
-                                                        </td>
-                                                        <td class="text-right">$200.00</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="text-left">
-                                                            <strong>Total</strong>
-                                                        </td>
-                                                        <td class="text-right">$1,262.00</td>
+                                                        <td class="text-right"><%= format_number(@cart.total_order) %> VNĐ</td>
                                                     </tr>
                                                 </tbody>
                                             </table>
                                             <p class="text-center">
-                                                <%= link_to '<i class="fa fa-shopping-cart"></i>View Cart'.html_safe, erp_online_store.cart_path, class: "btn view-cart" %>
+                                                <%= link_to '<i class="fa fa-shopping-cart"></i>Giỏ hàng'.html_safe, erp_online_store.cart_path, class: "btn view-cart" %>
                                                 &nbsp;&nbsp;&nbsp;
-                                                <%= link_to '<i class="fa fa-share"></i>Checkout'.html_safe, erp_online_store.checkout_path, class: "btn btn-mega checkout-cart" %>
+                                                <%= link_to '<i class="fa fa-share"></i>Đặt hàng'.html_safe, erp_online_store.checkout_path, class: "btn btn-mega checkout-cart" %>
                                             </p>
                                         </div>
                                     </li>
@@ -202,7 +183,7 @@
                     </div>
                     <div class="header_custom_link hidden-xs">
                         <ul>
-                            <li><%= link_to '<i class="fa fa-user"></i> Login'.html_safe, erp.new_user_session_path %></li>
+                            <li><%= link_to '<i class="fa fa-user"></i> Đăng Nhập'.html_safe, erp.new_user_session_path %></li>
                         </ul>
                     </div>
                 </div>

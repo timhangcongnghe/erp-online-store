@@ -38,7 +38,7 @@
 		<%= stylesheet_link_tag "/frontend/css/theme.css", id: "color_scheme" %>
 		<%= stylesheet_link_tag "/frontend/css/responsive.css" %>
 		<%= stylesheet_link_tag "/frontend/css/custom.css" %>
-		<% if params[:controller] == "erp/online_store/frontend/category" && params[:action] == "product_detail" %>
+		<% if params[:controller] == "erp/online_store/frontend/product" && params[:action] == "product_detail" %>
 		<%= render "erp/online_store/frontend/modules/js_include" %>
 		<% end %>
 </head>
@@ -75,7 +75,7 @@
     <!--<%= render "erp/online_store/frontend/modules/preloading_screen" %>-->
     <!-- End Preloading Screen -->
 
-    <% if params[:controller] == "erp/online_store/frontend/category" && params[:action] == "product_detail" %>
+    <% if params[:controller] == "erp/online_store/frontend/product" && params[:action] == "product_detail" %>
 		
 		<% else %>
 		<!-- Include Libs & Plugins ============================================ -->

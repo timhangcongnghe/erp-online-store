@@ -2,11 +2,10 @@ Erp::OnlineStore::Engine.routes.draw do
   root to: "frontend/home#index"
   
   get "category-box" => "frontend/home#category_box", as: :category_box
-  
   # CATEGORY
   get "chuyen-muc-san-pham.html" => "frontend/category#index", as: :category
-  get "chuyen-muc-san-pham/chi-tiet-san-pham.html" => "frontend/category#product_detail", as: :product_detail
-  get "xem-nhanh.html" => "frontend/category#product_quickview", as: :product_quickview
+  get "chuyen-muc-san-pham/chi-tiet-san-pham.html" => "frontend/product#product_detail", as: :product_detail
+  get "xem-nhanh.html" => "frontend/product#product_quickview", as: :product_quickview
   
   # BLOG
   get "danh-sach-bai-viet.html" => "frontend/blog#index", as: :blog

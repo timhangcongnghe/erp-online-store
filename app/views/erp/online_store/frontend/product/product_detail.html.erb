@@ -2,7 +2,7 @@
     <ul class="breadcrumb">
         <li><%= link_to '<i class="fa fa-home"></i>'.html_safe, erp_online_store.root_path %></li>
         <li><%= link_to "Smartphone & Tablets", erp_online_store.category_path %></li>
-        <li><%= link_to "Comas samer rumas", "javascript:void(0)" %></li>
+        <li><%= link_to @product.name, "javascript:void(0)" %></li>
     </ul>
     <div class="row">
         <!--Middle Part Start-->
@@ -49,7 +49,7 @@
                         </div>
                         <div class="content-product-right col-sm-6 col-xs-12">
                             <div class="title-product">
-                                <h1>Comas samer rumas</h1>
+                                <h1><%= @product.name %></h1>
                             </div>
                             <!-- Review ---->
                             <div class="box-review form-group">
@@ -63,7 +63,7 @@
                                     </div>
                                 </div>
                                 <a class="reviews_button" href="" onclick="$('a[href=\'#tab-review\']').trigger('click'); return false;">0 reviews</a> |
-                                <a class="write_review_button" href="" onclick="$('a[href=\'#tab-review\']').trigger('click'); return false;">Write a review</a>
+                                <a class="write_review_button" href="" onclick="$('a[href=\'#tab-review\']').trigger('click'); return false;">Hỏi, Đáp về sản phẩm</a>
                             </div>
                             <div class="product-label form-group">
                                 <div class="stock"><span>Availability:</span> <span class="status-stock">In Stock</span></div>
