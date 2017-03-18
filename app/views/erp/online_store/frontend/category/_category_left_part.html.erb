@@ -1,14 +1,14 @@
 <div class="module block-shopby titleLine">
-    <h3 class="modtitle"><span>Shop By </span></h3>
+    <h3 class="modtitle"><span>Tìm Hàng Công Nghệ </span></h3>
     <div class="modcontent ">
         <form class="type_2">
             <div class="table_layout filter-shopby">
                 <div class="table_row">
                     <!-- - - - - - - - - - - - - - Category filter - - - - - - - - - - - - - - - - -->
                     <div class="table_cell" style="z-index: 103;">
-                        <legend>Search</legend>
+                        <legend>Tìm kiếm sản phẩm</legend>
                         <div class="input-group">
-                            <input class="form-control" type="text" value="" size="50" autocomplete="off" placeholder="Search" name="search">
+                            <input class="form-control" type="text" value="" size="50" autocomplete="off" placeholder="Nhập từ khóa tìm kiếm" name="search">
                             <div class="input-group-btn">
                                 <button class="btn btn-default inverse" type="button" id="submit_text_search"><i class="fa fa-search"></i></button>
                             </div>
@@ -19,7 +19,7 @@
                     <!-- - - - - - - - - - - - - - SUB CATEGORY - - - - - - - - - - - - - - - - -->
                     <div class="table_cell">
                         <fieldset>
-                            <legend>Sub Category</legend>
+                            <legend>Chuyên mục sản phẩm</legend>
                             <ul class="checkboxes_list">
                                 <li>
                                     <input type="checkbox" checked="" name="category" id="category_1">
@@ -45,7 +45,7 @@
                     <!-- - - - - - - - - - - - - - Manufacturer - - - - - - - - - - - - - - - - -->
                     <div class="table_cell">
                         <fieldset>
-                            <legend>Manufacturer</legend>
+                            <legend>Thương hiệu sản phẩm</legend>
                             <ul class="checkboxes_list">
                                 <li>
                                     <input type="checkbox" checked="" name="manufacturer" id="manufacturer_1">
@@ -67,9 +67,9 @@
                     <!-- - - - - - - - - - - - - - Price - - - - - - - - - - - - - - - - -->
                     <div class="table_cell">
                         <fieldset>
-                            <legend>Price</legend>
+                            <legend>Mức giá sản phẩm</legend>
                             <div class="range">
-                                Range :
+                                Mức giá :
                                 <span class="min_val">$188.73</span> -
                                 <span class="max_val">$335.15</span>
                                 <input type="hidden" name="" class="min_value" value="188.73">
@@ -84,62 +84,15 @@
                     </div>
                     <!--/ .table_cell -->
                     <!-- - - - - - - - - - - - - - End price - - - - - - - - - - - - - - - - -->
-                    <!-- - - - - - - - - - - - - - Price - - - - - - - - - - - - - - - - -->
-                    <div class="table_cell">
-                        <fieldset>
-                            <legend>Color</legend>
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <ul class="simple_vertical_list">
-                                        <li>
-                                            <input type="checkbox" name="" id="color_btn_1">
-                                            <label for="color_btn_1" class="color_btn green">Green</label>
-                                        </li>
-                                        <li>
-                                            <input type="checkbox" name="" id="color_btn_2">
-                                            <label for="color_btn_2" class="color_btn yellow">Yellow</label>
-                                        </li>
-                                        <li>
-                                            <input type="checkbox" name="" id="color_btn_3">
-                                            <label for="color_btn_3" class="color_btn red">Red</label>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="col-sm-6">
-                                    <ul class="simple_vertical_list">
-                                        <li>
-                                            <input type="checkbox" name="" id="color_btn_4">
-                                            <label for="color_btn_4" class="color_btn blue">Blue</label>
-                                        </li>
-                                        <li>
-                                            <input type="checkbox" name="" id="color_btn_5">
-                                            <label for="color_btn_5" class="color_btn grey">Grey</label>
-                                        </li>
-                                        <li>
-                                            <input type="checkbox" name="" id="color_btn_6">
-                                            <label for="color_btn_6" class="color_btn orange">Orange</label>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </fieldset>
-                    </div>
-                    <!--/ .table_cell -->
-                    <!-- - - - - - - - - - - - - - End price - - - - - - - - - - - - - - - - -->
                 </div>
                 <!--/ .table_row -->
-                <footer class="bottom_box">
-                    <div class="buttons_row">
-                        <button type="reset" class="button_grey filter_reset">Reset All</button>
-                    </div>
-                </footer>
             </div>
             <!--/ .table_layout -->
         </form>
     </div>
 </div>
 <div class="module latest-product titleLine">
-    <h3 class="modtitle"><span>Latest Product</span></h3>
+    <h3 class="modtitle"><span>Sản phẩm mới nhất</span></h3>
     <div class="modcontent">
         <% (0..2).each do |lasest_product| %>
         <div class="product-latest-item">

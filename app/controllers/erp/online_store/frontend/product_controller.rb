@@ -7,6 +7,7 @@ module Erp
         
         def product_detail
           @body_class = "res layout-subpage"
+          @menu = Erp::Menus::Menu.find(params[:menu_id])
           @product = Erp::Products::Product.find(params[:product_id])
         end
         
