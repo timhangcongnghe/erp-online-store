@@ -1,14 +1,14 @@
 <div class="main-container container">
     <ul class="breadcrumb">
         <li><%= link_to '<i class="fa fa-home"></i>'.html_safe, erp_online_store.root_path %></li>
-        <li><%= link_to "Account", erp_online_store.my_account_path %></li>
-        <li><%= link_to "My Account", "javascript:void(0)" %></li>
+        <li><%= link_to "Tài khoản", erp_online_store.my_account_path %></li>
+        <li><%= link_to "Tài khoản của tôi", "javascript:void(0)" %></li>
     </ul>
 
     <div class="row">
         <!--Middle Part Start-->
         <div class="col-sm-9" id="content">
-            <h2 class="title">My Account</h2>
+            <h2 class="title">Tài khoản của tôi</h2>
             <p class="lead">Hello, <strong>Jhone Cary!</strong> - To update your account information.</p>
             <form>
                 <div class="row">
@@ -187,19 +187,7 @@
         </div>
         <!--Middle Part End-->
         <!--Right Part Start -->
-        <aside class="col-sm-3 hidden-xs" id="column-right">
-            <h2 class="subtitle">Account</h2>
-            <div class="list-group">
-                <ul class="list-item">
-                    <li><%= link_to "My Account", erp_online_store.my_account_path %><a href="#"></a></li>
-                    <li><%= link_to "Wish List", erp_online_store.wishlist_path %></li>
-                    <li><%= link_to "Order History", erp_online_store.order_history_path %></li>
-                    <li><%= link_to "Product Returns", erp_online_store.product_returns_path %></li>
-                    <li><%= link_to "Gift Voucher", erp_online_store.gift_voucher_path %></li>
-                    <li><%= link_to "Sign Out", "javascript:void(0)" %></li>
-                </ul>
-            </div>
-        </aside>
+        <%= render "erp/online_store/frontend/account/right_part" %>
         <!--Right Part End -->
     </div>
 </div>

@@ -1,0 +1,15 @@
+<aside class="col-sm-3 hidden-xs" id="column-right">
+    <h2 class="subtitle">Tài khoản</h2>
+    <div class="list-group">
+        <ul class="list-item">
+            <li><%= link_to "Tài khoản của tôi", erp_online_store.my_account_path %><a href="#"></a></li>
+            <li><%= link_to "Danh sách yêu thích", erp_online_store.wishlist_path %></li>
+            <li><%= link_to "Lịch sử mua hàng", erp_online_store.order_history_path %></li>
+            <li><%= link_to "Sản phẩm trả lại", erp_online_store.product_returns_path %></li>
+            <li><%= link_to "Đăng xuất", erp.destroy_user_session_path,
+                                        method: :delete,
+                                        redirect_to: erp.backend_path,
+                                        class: 'link-method' %></li>
+        </ul>
+    </div>
+</aside>
