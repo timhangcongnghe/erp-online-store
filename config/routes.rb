@@ -11,6 +11,7 @@ Erp::OnlineStore::Engine.routes.draw do
   get "danh-sach-bai-viet.html" => "frontend/blog#index", as: :blog
   get "danh-sach-bai-viet/:cat_id(/:title).html" => "frontend/blog#index", as: :blog_with_category
   get "bai-viet/:blog_id(/:title).html" => "frontend/blog#detail", as: :blog_detail
+  post "bai-viet/:blog_id(/:title).html" => "frontend/blog#detail"
   
   # ACCOUNT
   get "dang-nhap.html" => "frontend/account#login", as: :login
