@@ -18,11 +18,8 @@ module Erp
           
           if params[:comment].present?
             @comment = Erp::Articles::Comment.new(comment_params)
-            if @comment.save
-              redirect_to :back, flash: { success: 'Bình luận thành công.' }
-            else
-              redirect_to :back, flash: { error: 'Không bình luận được. Vui lòng kiểm tra thông tin đã nhập.' }
-            end
+            @comment.save
+            render 'erp/online_store/frontend/blog/_comments', locals: {comments: @comments}, layout: nil
           end
         end
         

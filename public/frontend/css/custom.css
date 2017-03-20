@@ -208,3 +208,9 @@ footer .social_block ul.social-block li.pinterest a:hover {
     display: none;
 }
 /* end comment list */
+.reply-box {
+  padding: 10px;
+  border: solid 1px #aaa;
+  background: #eee;
+  margin-top: 15px;
+}
