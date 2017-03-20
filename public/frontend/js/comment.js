@@ -19,7 +19,7 @@ $(document).ready(function() {
                 theme: 'success'
             });
             
-            form.find('input, select, textarea').val('');
+            form.find('input[type=text], select, textarea').val('');
         });
     });
 });
