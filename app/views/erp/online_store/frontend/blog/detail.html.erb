@@ -76,6 +76,7 @@
                                 <div id="comments" class="blog-comment-info">
                                     <h3 id="review-title">Mời bạn để lại bình luận </h3>
                                     <input type="hidden" name="comment[article_id]" value="<%= @blog.id %>" />
+                                    <input type="hidden" name="comment[parent_id]" value="<%= @comments.first.id %>" />
                                     <div class="comment-left contacts-form row">
                                         <div class="col-md-6">
                                             <b>Họ tên (bắt buộc):</b>
@@ -132,47 +133,51 @@
                                                    aria-label="Reply to Hung Nguyen"><i class="fa fa-reply"></i> Trả lời</a>
                                                 <a class="right favor satis" href="javascript:void(null)"><i class="fa fa-thumbs-up"></i> Hài lòng</a>
                                                 <a class="right favor satis" href="javascript:void(null)"><i class="fa fa-thumbs-down"></i> Không hài lòng</a>
-                                                <time class="right">1 giờ trước</time>
+                                                <a class="right favor satis" href="javascript:void(null)"><i class="fa fa-remove"></i> Xóa</a>
+                                                <time class="right"><%= relative_time(comment.created_at) %></time>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <ul class="children">
-                                    <table class="table table-striped table-bordered">
-                                        <tbody>
-                                            <tr>
-                                                <td>
-                                                    <% (1..2).each do |child_comment| %>
-                                                        <div id="comment-182" class="comment odd alt depth-2 media">
-                                                            <div class="author">
-                                                                <a class="pull-left" href="hung">
-                                                                    <img alt="" src="/frontend/image/avatar/avt_comment.png" class="avatar pull-left media-object avatar-64 photo">
-                                                                </a>
-                                                            </div>
-                                                            <div class="media-body">
-                                                                <div class="media">
-                                                                    <div class="media-heading">
-                                                                        <div class="author-name">
-                                                                            <strong><a href="#">Lâm Vũ</a></strong><span class="label">Quản trị viên</span>
+                                <% if comment.children.count > 0 %>
+                                    <ul class="children">
+                                        <table class="table table-striped table-bordered">
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <% comment.children.each do |child_comment| %>
+                                                            <div id="comment-182" class="comment odd alt depth-2 media">
+                                                                <div class="author">
+                                                                    <a class="pull-left" href="hung">
+                                                                        <img alt="" src="/frontend/image/avatar/avt_comment.png" class="avatar pull-left media-object avatar-64 photo">
+                                                                    </a>
+                                                                </div>
+                                                                <div class="media-body">
+                                                                    <div class="media">
+                                                                        <div class="media-heading">
+                                                                            <div class="author-name">
+                                                                                <strong><a href="#"><%= child_comment.name %></a></strong><span class="label">Quản trị viên</span>
+                                                                            </div>
                                                                         </div>
-                                                                    </div>
-                                                                    <div class="media-content row-fluid">
-                                                                        <p>Màn hình chỉ HD, pin giữ nguyên so với phiên bản cũ, hệ điều hành chưa bắt kịp xu hướng. Được cái sản phẩm trang bị thêm rom, camera khỏi chê.</p>
-                                                                        <a rel="nofollow" class="right comment-reply-link" href="#"
-                                                                            aria-label="Reply to Hung Nguyen"><i class="fa fa-reply"></i> Trả lời</a>
-                                                                         <a class="right favor satis" href="#"><i class="fa fa-thumbs-up"></i> Hài lòng</a>
-                                                                         <a class="right favor satis" href="#"><i class="fa fa-thumbs-down"></i> Không hài lòng</a>
-                                                                        <time class="right">1 giờ trước</time>
+                                                                        <div class="media-content row-fluid">
+                                                                            <p><%= child_comment.message %></p>
+                                                                            <a rel="nofollow" class="right comment-reply-link" href="#"
+                                                                                aria-label="Reply to Hung Nguyen"><i class="fa fa-reply"></i> Trả lời</a>
+                                                                             <a class="right favor satis" href="#"><i class="fa fa-thumbs-up"></i> Hài lòng</a>
+                                                                             <a class="right favor satis" href="#"><i class="fa fa-thumbs-down"></i> Không hài lòng</a>
+                                                                             <a class="right favor satis" href="javascript:void(null)"><i class="fa fa-remove"></i> Xóa</a>
+                                                                            <time class="right"><%= relative_time(child_comment.created_at) %></time>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                    <% end %>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </ul>
+                                                        <% end %>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </ul>
+                                <% end %>
                             <% end %>
                             <div class="pagination-comments">
                                 <%= erp_datalist_pagination(@comments) %>
