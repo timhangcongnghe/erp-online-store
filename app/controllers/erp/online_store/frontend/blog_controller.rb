@@ -11,6 +11,8 @@ module Erp
         def detail
           @body_class = "res layout-subpage"
           @blog = Erp::Articles::Article.find(params[:blog_id])
+          @meta_keywords = @blog.meta_keywords
+          @meta_description = @blog.meta_description
           @categories = Erp::Articles::Category.where(alias: Erp::Articles::Category::ALIAS_BLOG)
           @comments = Erp::Articles::Comment.where(article_id: params[:blog_id]).order('created_at DESC')
                                             .where(parent_id: nil)
