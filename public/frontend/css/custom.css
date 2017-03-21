@@ -142,8 +142,10 @@ footer .social_block ul.social-block li.pinterest a:hover {
   }
 }
 .slider-container {
-  max-height: 408px;
+  max-height: 449px;
   overflow: hidden;
+  margin-top: 1px;
+  margin-left: 1px;
 }
 .top-10 {
   top: 10px !important;
