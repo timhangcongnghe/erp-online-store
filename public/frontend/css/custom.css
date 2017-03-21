@@ -252,3 +252,20 @@ label {
 footer .footer-center .footer-links p {
   line-height: 22px;
 }
+footer .news-letter .block_content .input-box input {
+  font-size: 14px;
+}
+div.article-info .article-sub-title span {
+  font-size: 13px;
+  padding-left: 0;
+}
+.type_1 .header-top-right ul > li > a {
+  font-size: 13px !important;
+}
+.type_1 .header-top-right ul.dropdown-menu > li > a {
+    font-size: 14px !important;
+    padding: 6px 15px;
+}
+.type_1 .header-top-right ul.top-link > li a.btn {
+  font-size: 13px;
+}
