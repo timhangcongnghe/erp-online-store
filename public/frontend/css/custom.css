@@ -143,6 +143,7 @@ footer .social_block ul.social-block li.pinterest a:hover {
 }
 .slider-container {
   max-height: 408px;
+  overflow: hidden;
 }
 .top-10 {
   top: 10px !important;
@@ -213,4 +214,41 @@ footer .social_block ul.social-block li.pinterest a:hover {
   border: solid 1px #aaa;
   background: #eee;
   margin-top: 15px;
+}
+#so-slideshow .owl2-controls .owl2-nav div {
+  top: 45%;
+}
+body {
+  font-size: 14px;
+}
+div.horizontal ul.megamenu .sub-menu a {
+  color: #333;
+}
+.container-megamenu.vertical .vertical-wrapper ul.megamenu > li > a {
+  font-size: 13px;
+  font-weight: 500;
+}
+footer {
+  font-size: 14px;
+}
+footer .news-letter .pre-text {
+  line-height: 15px;
+}
+footer .news-letter .title-block {
+  padding-top: 0;
+}
+.breadcrumb {
+  font-size: 13px;
+}
+select.form-control, textarea.form-control, input[type="text"].form-control, input[type="password"].form-control, input[type="datetime"].form-control, input[type="datetime-local"].form-control, input[type="date"].form-control, input[type="month"].form-control, input[type="time"].form-control, input[type="week"].form-control, input[type="number"].form-control, input[type="email"].form-control, input[type="url"].form-control, input[type="search"].form-control, input[type="tel"].form-control, input[type="color"].form-control {
+  font-size: 14px;
+}
+label {
+  font-size: 14px;
+}
+.simple_vertical_list input[type="radio"] + label::before, .simple_vertical_list input[type="checkbox"] + label::before, .checkboxes_list input[type="radio"] + label::before, .checkboxes_list input[type="checkbox"] + label::before {
+  top: -2px;
+}
+footer .footer-center .footer-links p {
+  line-height: 22px;
 }

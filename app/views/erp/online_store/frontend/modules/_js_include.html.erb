@@ -12,13 +12,13 @@
 <%= javascript_include_tag '/frontend/js/lightslider/lightslider.js' %>
 
 <!-- Theme files ============================================ -->
+<%= javascript_include_tag '/frontend/js/main.js' %>
 <%= javascript_include_tag '/frontend/js/comment.js' %>
-<%= javascript_include_tag '/frontend/js/themejs/application.js' %>
-<!--<%= javascript_include_tag '/frontend/js/themejs/toppanel.js' %>-->
 <%= javascript_include_tag '/frontend/js/themejs/so_megamenu.js' %>
 <%= javascript_include_tag '/frontend/js/themejs/addtocart.js' %>
+<%= javascript_include_tag '/frontend/js/themejs/application.js' %>
+<!--<%= javascript_include_tag '/frontend/js/themejs/toppanel.js' %>-->
 <!--<%= javascript_include_tag '/frontend/js/themejs/cpanel.js' %>-->
-<%= javascript_include_tag '/frontend/js/main.js' %>
 
 <% if !flash.empty? %>
     <% classes = {"success" => "success", "alert" => "alert", "notice" => "notice", "warning" => "warning", "error" => "error"} %>
