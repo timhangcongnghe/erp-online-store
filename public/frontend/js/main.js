@@ -166,4 +166,35 @@ $(document).ready(function () {
         // Render home category box
         homeCategoryBox(box);
     });
+    
+    $(document).on('submit', '#new_newsletter', function(e) {
+        e.preventDefault();
+        
+        var form = $(this);
+        var url = form.attr('action');
+        var input = form.find('input[type=email]');
+        var value = input.val();
+        
+        if (value.trim() == '') {
+            input.focus();
+            input.addClass('error');
+            return;
+        }
+        
+        $.ajax({
+            url: url,
+            data: form.serialize()
+        }).done(function( data ) {
+            var tpl = '<h3>' + data.message + '</h3>';
+            $.jGrowl(tpl, {
+                life: 4000,
+                header: 'Thông báo',
+                speed: 'slow',
+                theme: data.status
+            });
+            input.val('');
+            input.removeClass('error');
+        });
+        
+    });
 });
