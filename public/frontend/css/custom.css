@@ -291,7 +291,7 @@ input.error  {
   font-weight: 500;
 }
 @media (min-width: 990px) {
-.navbar-header .megamenu {
+.megamenu-pattern .megamenu {
   float: right;
 }
 }
