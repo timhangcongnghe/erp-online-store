@@ -287,3 +287,6 @@ div.article-info .article-sub-title span {
 input.error  {
   border-color: red !important;
 }
+.container-megamenu.vertical .vertical-wrapper ul li > a strong {
+  font-weight: 500;
+}
