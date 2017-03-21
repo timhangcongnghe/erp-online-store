@@ -178,6 +178,13 @@ $(document).ready(function () {
         if (value.trim() == '') {
             input.focus();
             input.addClass('error');
+            var tpl = '<h3>Bạn phải nhập email đăng ký</h3>';
+            $.jGrowl(tpl, {
+                life: 4000,
+                header: 'Thông báo',
+                speed: 'fast',
+                theme: 'warning'
+            });
             return;
         }
         
