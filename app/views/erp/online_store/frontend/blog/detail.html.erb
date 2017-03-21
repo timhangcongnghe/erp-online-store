@@ -68,6 +68,18 @@
                 </div>
                 <div class="article-description">
                     <p><%= @blog.content.html_safe %></p>
+                    <div class="post_footer">
+                        <ul class="post_tags">
+                            <li>Thẻ:</li>
+                            <% @blog.get_tags.each_with_index do |tag,index| %>
+                                <% if index+1 == @blog.get_tags.count %>
+                                    <li><a href="#"><%= tag %></a></li>
+                                <% else %>
+                                    <li><a href="#"><%= tag %></a>,</li>
+                                <% end %>
+                            <% end %>
+                        </ul>
+                    </div>
                 </div>
                 <div class="panel panel-default related-comment">
                     <div class="panel-body">

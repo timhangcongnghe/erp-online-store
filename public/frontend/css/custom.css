@@ -217,7 +217,20 @@ footer .social_block ul.social-block li.pinterest a:hover {
   background: #eee;
   margin-top: 15px;
 }
-#so-slideshow .owl2-controls .owl2-nav div {
+.post_tags li {
+  font-size: 11px;
+  list-style: none;
+  display: inline-block;
+  color: #979797;
+  font-weight: normal;
+}
+.post_tags li a {
+  color: #999;
+  font-weight: normal;
+}
+.post_tags li a:hover {
+  color: #009688;
+}#so-slideshow .owl2-controls .owl2-nav div {
   top: 45%;
 }
 body {
