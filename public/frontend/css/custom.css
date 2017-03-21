@@ -290,3 +290,8 @@ input.error  {
 .container-megamenu.vertical .vertical-wrapper ul li > a strong {
   font-weight: 500;
 }
+@media (min-width: 990px) {
+.megamenu {
+  float: right;
+}
+}
