@@ -28,7 +28,11 @@
             <% end %>
             <div class="main-left">
                 <div class="banner-post-text">
-                    <%= link_to image_tag("/frontend/image/banner/banner-3-1.png", alt: "Banner"), "", title: "Banner" %>
+                    <% if @menu_hot.image_url.present? %>
+                    <%= link_to image_tag(@menu_hot.image_url, alt: @menu_hot.name), @menu_hot.image_product_link, title: @menu_hot.name %>
+                    <% else %>
+                    <%= link_to image_tag("/frontend/image/banner/banner-3-1.png", alt: @menu_hot.name), "#banner", title: @menu_hot.name %>
+                    <% end %>
                 </div>
                 <div class="hot-category">
                     <div class="category-wrap-cat">
@@ -53,7 +57,15 @@
             </div>
             <div class="main-right">
                 <div class="banner-pre-text">
-                    <%= link_to image_tag("/frontend/image/banner/banner-2-1.png", alt: "banner"), "", title: "banner" %>
+                    <% if params[:child_1_id].present? %>
+                        <% if @child_1.image_url.present? %>
+                        <%= link_to image_tag(@child_1.image_url, alt: @child_1.name), @child_1.image_product_link, title: @child_1.name %>
+                        <% else %>
+                        <%= link_to image_tag("/frontend/image/banner/banner-2-1.png", alt: @child_1.name), "#banner", title: @child_1.name %>
+                        <% end %>
+                    <% else %>
+                        <%= link_to image_tag("/frontend/image/banner/banner-2-1.png", alt: @menu_hot.name), "#banner", title: @menu_hot.name %>
+                    <% end %>
                 </div>
                 <div class="spcat-items-container products-list grid show-pre show-row">
                     <!--Begin Items-->

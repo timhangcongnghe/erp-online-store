@@ -29,12 +29,14 @@
                         </div>
                     </div>
                     <div class="price">
-                        <span class="price-new">$74.00</span>
-                        <span class="price-old">$122.00</span>
-                        <span class="label label-percent">-40%</span>
+                        <span class="price-new"><%= format_number(product.product_price) %> VNĐ</span>
+                        <% if product.is_deal %>                        
+                        <br><span class="price-old"><%= format_number(product.price) %> VNĐ</span>
+                        <span class="label label-percent"><%= product.deal_percent %>%</span>
+                        <% end %>
                     </div>
                     <div class="description item-desc hidden">
-                        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est . </p>
+                        <p><%= product.short_description.html_safe if product.short_description %></p>
                     </div>
                 </div>
             </div>
@@ -43,7 +45,7 @@
                 <button class="wishlist btn-button" type="button" data-toggle="tooltip" title="Add to Wish List" onclick="wishlist.add('42');"><i class="fa fa-heart"></i></button>
                 <button class="addToCart" type="button" data-toggle="tooltip" title="Add to Cart" onclick="cart.add('42', '1');"><i class="fa fa-shopping-cart"></i> <span class="hidden-xs name-cart">Add to Cart</span></button>                
                 <button class="compare" type="button" data-toggle="tooltip" title="Compare this Product" onclick="compare.add('42');"><i class="fa fa-exchange"></i></button>
-                <a class="quickview iframe-link visible-lg btn-button" data-toggle="tooltip" title="" data-fancybox-type="iframe" href="<%= erp_online_store.product_quickview_path(product_id: product.id) %>" data-original-title="Quickview"> <i class="fa fa-search"></i> </a>
+                <a class="quickview iframe-link visible-lg btn-button" data-toggle="tooltip" title="Xem nhanh" data-fancybox-type="iframe" href="<%= erp_online_store.product_quickview_path(product_id: product.id) %>" data-original-title="Xem nhanh"> <i class="fa fa-search"></i> </a>
                 <!--<a class="addToShoppingCart" title="Add to Cart" href="<%= erp_carts.add_to_cart_frontend_cart_items_path(product_id: product.id, menu_id: menu.id) %>"><i class="fa fa-shopping-cart"></i> <span class="hidden-xs name-cart">Thêm vào giỏ hàng</span></a>-->
             </div>
         </div>

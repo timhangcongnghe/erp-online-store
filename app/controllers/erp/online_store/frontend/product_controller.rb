@@ -9,10 +9,13 @@ module Erp
           @body_class = "res layout-subpage"
           @menu = Erp::Menus::Menu.find(params[:menu_id])
           @product = Erp::Products::Product.find(params[:product_id])
+          @meta_keywords = @product.meta_keywords
+          @meta_description = @product.meta_description
         end
         
         def product_quickview
-          render layout: "erp/frontend/quickview"
+          @product = Erp::Products::Product.find(params[:product_id])
+          render layout: "erp/frontend/quickview"          
         end
         
         def autosearch
