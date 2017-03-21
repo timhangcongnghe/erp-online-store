@@ -295,7 +295,7 @@ input.error  {
   float: right;
 }
 }
-ul.megamenu {
+.vertical-wrapper ul.megamenu {
   padding: 5px 0 5px 0;
   background: #222;
 }
