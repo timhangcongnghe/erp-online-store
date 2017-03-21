@@ -295,3 +295,10 @@ input.error  {
   float: right;
 }
 }
+ul.megamenu {
+  padding: 5px 0 5px 0;
+  background: #222;
+}
+.container-megamenu.vertical .vertical-wrapper ul.megamenu > li > a {
+    padding: 8px 15px 8px 12px;
+}
