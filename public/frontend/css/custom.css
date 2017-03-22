@@ -163,7 +163,7 @@ footer .social_block ul.social-block li.pinterest a:hover {
   padding-right: 0px;
 }
 /* comment list */
-#comments h3 {
+#review-title {
     margin-top: 0;
 }
 .commentlist .author {
@@ -281,8 +281,8 @@ div.article-info .article-sub-title span {
   font-size: 13px !important;
 }
 .type_1 .header-top-right ul.dropdown-menu > li > a {
-    font-size: 14px !important;
-    padding: 6px 15px;
+  font-size: 14px !important;
+  padding: 6px 15px;
 }
 .type_1 .header-top-right ul.top-link > li a.btn {
   font-size: 13px;
@@ -303,5 +303,59 @@ input.error  {
   background: #222;
 }
 .container-megamenu.vertical .vertical-wrapper ul.megamenu > li > a {
-    padding: 8px 15px 8px 12px;
+  padding: 8px 15px 8px 12px;
+}
+.ratingStar span.lStar:first-child {
+  display: inline-block;
+  margin-top: 8px;
+  float: left;
+  margin-left: 0;
+  margin-right: 5px;
+  font-size: 15px;
+}
+.ratingStar span.lStar {
+  cursor: pointer;
+  margin-left: 5px;
+  display: block;
+  float: left;
+}
+.ratingComment {
+  clear: both;
+}
+.ratingComment textarea {
+  height: 83px;
+}
+.ratingComment .btn.buttonGray {
+  width: 100%;
+}
+
+.content-data-summary {
+  padding: 10px;
+}
+.content-header .content-rating {
+  float: left;
+}
+h3.author {
+  float: left;
+  margin: 4px 0;
+  font-size: 14px;
+}
+.content-title {
+  clear: both;
+}
+.content-data-summary:nth-of-type(odd) {
+  background-color: #f9f9f9;
+}
+.date-time {
+  margin-top: 1px;
+  float: left;
+}
+#review .content-title p {
+  margin-bottom: 0;
+}
+.content-header .right {
+  margin-right: 10px;
+}
+.starability-grow {
+      min-height: 45px !important;
 }
