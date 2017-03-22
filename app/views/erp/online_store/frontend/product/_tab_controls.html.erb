@@ -1,56 +1,52 @@
 <ul class="nav nav-tabs">
     <li class="active"><a data-toggle="tab" href="#tab-description">Mô tả sản phẩm</a></li>
-    <li class="item_nonactive"><a data-toggle="tab" href="#tab-review">Bình luận (1)</a></li>
+    <li class="item_nonactive"><a data-toggle="tab" href="#tab-review">Đánh giá (1)</a></li>
+    <li class="item_nonactive"><a data-toggle="tab" href="#tab-comment">Bình luận (<%= @comments.count %>)</a></li>
 </ul>
 <div class="tab-content col-xs-12">
     <div id="tab-description" class="tab-pane fade active in">
         <%= product.description.html_safe if product.description.present? %>
     </div>
     <div id="tab-review" class="tab-pane fade">
-            <div id="review">
-                <table class="table table-striped table-bordered">
-                    <tbody>
-                        <tr>
-                            <td style="width: 50%;"><strong>Super Administrator</strong></td>
-                            <td class="text-right">29/07/2015</td>
-                        </tr>
-                        <tr>
-                            <td colspan="2">
-                                <p>Best this product opencart</p>
-                                <div class="ratings">
-                                    <div class="rating-box">
-                                        <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
-                                        <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
-                                        <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
-                                        <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
-                                        <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i></span>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-                <div class="text-right"></div>
-            </div>
-            <h2 id="review-title">Bình luận sản phẩm</h2>
-            <form>
-            <div class="contacts-form">
-                <div class="form-group">
-                    <input type="radio" name="rating" value="male" checked> <span>Nam</span>
-                    <input type="radio" name="rating" value="female"> <span>Nữ</span>                                                    
+        
+    </div>
+    <div id="tab-comment" class="tab-pane fade">
+        <div class="form-group">
+            <%= form_for Erp::Products::Comment.new, url: "", html: {class: "comment_form"} do |f| %>
+                <div id="comments" class="blog-comment-info">
+                    <h3 id="review-title">Mời bạn để lại bình luận </h3>
+                    <input type="hidden" name="comment[product_id]" value="<%= product.id %>" />
+                    <input type="hidden" name="comment[parent_id]" value="" />
+                    <div class="comment-left contacts-form row">
+                        <div class="col-md-6">
+                            <b>Họ tên (bắt buộc):</b>
+                            <br>
+                            <input type="text" name="comment[name]" value class="form-control" placeholder="Nhập họ tên của bạn">
+                            <br>
+                        </div>
+                        <div class="col-md-6">
+                            <b>Địa chỉ email:</b>
+                            <br />
+                            <input type="text" name="comment[email]" value class="form-control" placeholder="Nhập đúng định dạng email (Ví dụ: tenban@gmail.com)">
+                            <br />
+                        </div>
+                        <div class="col-md-12">
+                            <b>Lời nhận xét:</b>
+                            <br />
+                            <textarea name="comment[message]" class="form-control" placeholder="Nội dung bình luận, xin vui lòng nhập tiếng Việt có dấu."></textarea>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="text-left">
+                        <button class="btn buttonGray" id="button-comment" type="submit">
+                            <span>Gửi bình luận</span>
+                        </button>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <input type="text" name="name" class="form-control" placeholder="Nhập họ tên (Bắt buộc)">
-                </div>
-                <div class="form-group">
-                    <input type="text" name="name" class="form-control" placeholder="Nhập địa chỉ email (khi cần nhận phản hồi qua mail)">
-                </div>
-                <div class="form-group">
-                    <textarea class="form-control" name="text" placeholder="Mời bạn để lại bình luận về sản phẩm tại đây..."></textarea>
-                </div>                                                
-                
-                <div class="buttons clearfix"><a id="button-review" class="btn buttonGray">Gửi</a></div>
-            </div>
-        </form>
+            <% end %>
+        </div>
+        <div class="comments-list">
+            <%= render 'erp/online_store/frontend/product/comments', comments: @comments %>                    
+        </div>
     </div>
 </div>

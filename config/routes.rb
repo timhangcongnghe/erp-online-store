@@ -5,6 +5,7 @@ Erp::OnlineStore::Engine.routes.draw do
   # CATEGORY
   get "chuyen-muc-san-pham.html" => "frontend/category#index", as: :category
   get "chuyen-muc-san-pham/chi-tiet-san-pham.html" => "frontend/product#product_detail", as: :product_detail
+  post "chuyen-muc-san-pham/chi-tiet-san-pham.html" => "frontend/product#product_detail"
   get "xem-nhanh.html" => "frontend/product#product_quickview", as: :product_quickview
   
   # BLOG
