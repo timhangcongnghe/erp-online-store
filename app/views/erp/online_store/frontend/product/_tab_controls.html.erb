@@ -8,7 +8,7 @@
         <%= product.description.html_safe if product.description.present? %>
     </div>
     <div id="tab-review" class="tab-pane fade">
-        
+        <%= render 'erp/online_store/frontend/product/ratings' %>
     </div>
     <div id="tab-comment" class="tab-pane fade">
         <div class="form-group">
@@ -46,7 +46,7 @@
             <% end %>
         </div>
         <div class="comments-list">
-            <%= render 'erp/online_store/frontend/product/comments', comments: @comments %>                    
+            <%= render 'erp/online_store/frontend/product/comments', comments: @comments %>
         </div>
     </div>
 </div>
