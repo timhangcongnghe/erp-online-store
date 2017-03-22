@@ -20,7 +20,7 @@
                         <div class="media-content row-fluid">
                             <p><%= comment.message %></p>
                             <a onclick="" rel="nofollow" class="right comment-reply-link" href="#reply"
-                               aria-label="Reply to Hung Nguyen"><i class="fa fa-reply"></i> Trả lời</a>                            
+                               aria-label="Reply to <%= comment.name %>"><i class="fa fa-reply"></i> Trả lời</a>                            
                             <a class="right favor satis" href="javascript:void(null)"><i class="fa fa-trash"></i> Xóa</a>
                             <time class="right"><%= relative_time(comment.created_at) %></time>
                         </div>
