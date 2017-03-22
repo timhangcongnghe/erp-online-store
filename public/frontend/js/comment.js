@@ -19,7 +19,18 @@ $(document).ready(function() {
                 theme: 'success'
             });
             
-            form.find('input[type=text], select, textarea').val('');
+            form.find('input[type=text], input[type=email], select, textarea').val('');
         });
+    });
+    
+    $(document).on('click', '.comment-reply-link', function(e) {
+        var box = $(this).parents('.media').find('.reply-box');
+        box.toggle();
+        
+        if (box.is(':visible')) {
+            $(this).html('<i class="fa fa-close"></i> Hủy trả lời');
+        } else {
+            $(this).html('<i class="fa fa-reply"></i> Trả lời');
+        }
     });
 });
