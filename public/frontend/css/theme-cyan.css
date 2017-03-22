@@ -574,8 +574,18 @@ ul, ol {
   background-clip: content-box;
   color: white; }
 
-.social-widgets .twitter .tab-icon {
-  background: #07779a;
+.social-widgets .google-plus .tab-icon {
+  background: #db4437;
+  background-clip: content-box;
+  color: white; }
+
+.social-widgets .instagram .tab-icon {
+  background: #bc2a8d;
+  background-clip: content-box;
+  color: white; }
+
+.social-widgets .pinterest .tab-icon {
+  background: #b7071b;
   background-clip: content-box;
   color: white; }
 

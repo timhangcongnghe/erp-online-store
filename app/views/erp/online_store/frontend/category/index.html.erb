@@ -15,7 +15,9 @@
                 <div class="category-derc form-group">
                     <div class="row">
                         <div class="col-sm-12">
-                            <p><%= image_tag "/frontend/image/shop/category/electronic-cat.png", alt: @menu.name %><br></p>
+                            <% if @menu.image_url_2.present? %>
+                            <p><%= image_tag @menu.image_url_2, alt: @menu.name %><br></p>
+                            <% end %>
                             <p><%= @menu.description %></p>
                         </div>
                     </div>
