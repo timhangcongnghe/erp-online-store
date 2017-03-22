@@ -163,6 +163,9 @@ footer .social_block ul.social-block li.pinterest a:hover {
   padding-right: 0px;
 }
 /* comment list */
+#comments h3 {
+    margin-top: 0;
+}
 .commentlist .author {
   width: 50px;
   float: left;
