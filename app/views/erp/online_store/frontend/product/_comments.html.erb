@@ -1,6 +1,6 @@
 <hr>
 <div id="comments">
-    <h3>Có <%= comments.count %> bình luận cho sản phẩm này</h3>
+    <h3 id="review-title">Có <%= comments.count %> bình luận cho sản phẩm này</h3>
     
     <div class="commentlist">
         <% comments.order('created_at DESC').each do |comment| %>
