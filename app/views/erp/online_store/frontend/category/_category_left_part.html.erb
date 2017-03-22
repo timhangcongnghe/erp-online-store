@@ -1,5 +1,22 @@
 <div class="module block-shopby titleLine">
-    <h3 class="modtitle"><span>Tìm Hàng Công Nghệ </span></h3>
+    <h3 class="modtitle"><span>Tìm Hàng Công Nghệ</span></h3>
+    <div class="module menu-category titleLine">
+        <div class="modcontent">
+            <div class="box-category">
+                <% sidebar_menus = menu.get_related_sidebar_menus %>
+                <ul id="cat_accordion" class="list-group">
+                    <li class="hadchild">
+                        <a href="javascript:void(0)" class="cutom-parent"><%= sidebar_menus[:parent].name %></a> <span class="button-view  fa fa-plus-square-o"></span>
+                        <ul style="display: block;">
+                            <% sidebar_menus[:menus].each do |sidebar_menu| %>
+                            <li><%= link_to sidebar_menu.name, erp_online_store.category_path(menu_id: sidebar_menu.id) %></li>
+                            <% end %>
+                        </ul>
+                    </li>                    
+                </ul>
+            </div>
+        </div>
+    </div>
     <div class="modcontent ">
         <form class="type_2">
             <div class="table_layout filter-shopby">
@@ -16,54 +33,26 @@
                     </div>
                     <!--/ .table_cell -->
                     <!-- - - - - - - - - - - - - - End of category filter - - - - - - - - - - - - - - - - -->
-                    <!-- - - - - - - - - - - - - - SUB CATEGORY - - - - - - - - - - - - - - - - -->
-                    <div class="table_cell">
-                        <fieldset>
-                            <legend>Chuyên mục sản phẩm</legend>
-                            <ul class="checkboxes_list">
-                                <li>
-                                    <input type="checkbox" checked="" name="category" id="category_1">
-                                    <label for="category_1">Smartphone & Tablets</label>
-                                </li>
-                                <li>
-                                    <input type="checkbox" name="category" id="category_2">
-                                    <label for="category_2">Electronics</label>
-                                </li>
-                                <li>
-                                    <input type="checkbox" name="category" id="category_3">
-                                    <label for="category_3">Shoes</label>
-                                </li>
-                                <li>
-                                    <input type="checkbox" name="category" id="category_4">
-                                    <label for="category_4">Watches</label>
-                                </li>
-                            </ul>
-                        </fieldset>
-                    </div>
-                    <!--/ .table_cell -->
-                    <!-- - - - - - - - - - - - - - End SUB CATEGORY - - - - - - - - - - - - - - - - -->
-                    <!-- - - - - - - - - - - - - - Manufacturer - - - - - - - - - - - - - - - - -->
-                    <div class="table_cell">
-                        <fieldset>
-                            <legend>Thương hiệu sản phẩm</legend>
-                            <ul class="checkboxes_list">
-                                <li>
-                                    <input type="checkbox" checked="" name="manufacturer" id="manufacturer_1">
-                                    <label for="manufacturer_1">Manufacturer 1</label>
-                                </li>
-                                <li>
-                                    <input type="checkbox" name="manufacturer" id="manufacturer_2">
-                                    <label for="manufacturer_2">Manufacturer 2</label>
-                                </li>
-                                <li>
-                                    <input type="checkbox" name="manufacturer" id="manufacturer_3">
-                                    <label for="manufacturer_3">Manufacturer 3</label>
-                                </li>
-                            </ul>
-                        </fieldset>
-                    </div>
-                    <!--/ .table_cell -->
-                    <!-- - - - - - - - - - - - - - End manufacturer - - - - - - - - - - - - - - - - -->
+                    <% if menu.brand_group_id.present? %>
+                        <% if menu.get_brand_groups.count > 0 %>
+                            <!-- - - - - - - - - - - - - - Brand - - - - - - - - - - - - - - - - -->
+                            <div class="table_cell">
+                                <fieldset>
+                                    <legend>Thương hiệu sản phẩm</legend>
+                                    <ul class="checkboxes_list">
+                                        <% menu.get_brand_groups.each do |brand_group| %>
+                                        <li>
+                                            <input type="checkbox" name="manufacturer" id="<%= brand_group.brand_id %>">
+                                            <label for="<%= brand_group.brand_id %>"><%= brand_group.brand_name %></label>
+                                        </li>
+                                        <% end %>
+                                    </ul>
+                                </fieldset>
+                            </div>
+                            <!--/ .table_cell -->
+                            <!-- - - - - - - - - - - - - - End brand - - - - - - - - - - - - - - - - -->
+                        <% end %>
+                    <% end %>
                     <!-- - - - - - - - - - - - - - Price - - - - - - - - - - - - - - - - -->
                     <div class="table_cell">
                         <fieldset>

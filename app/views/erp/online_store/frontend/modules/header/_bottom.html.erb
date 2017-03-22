@@ -61,7 +61,7 @@
                                                                                         <ul>
                                                                                             <% menu_sidebar.children.each do |child_1| %>
                                                                                             <li>
-                                                                                                <a href="<%= erp_online_store.category_path %>" class="main-menu">
+                                                                                                <a href="<%= erp_online_store.category_path(menu_id: child_1.id) %>" class="main-menu">
                                                                                                     <%= child_1.name %>
                                                                                                     <% if child_1.children.count > 0 %>
                                                                                                     <b class="fa fa-angle-right"></b>
@@ -70,7 +70,7 @@
                                                                                                 <% if child_1.children.count > 0 %>
                                                                                                 <ul>
                                                                                                     <% child_1.children.each do |child_2| %>
-                                                                                                    <li><%= link_to child_2.name, erp_online_store.category_path %></li>
+                                                                                                    <li><%= link_to child_2.name, erp_online_store.category_path(menu_id: child_2.id) %></li>
                                                                                                     <% end %>
                                                                                                 </ul>
                                                                                                 <% end %>
