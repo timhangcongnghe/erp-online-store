@@ -1,52 +1,38 @@
-<div class="main-container container">
-    <ul class="breadcrumb">
-        <li><%= link_to '<i class="fa fa-home"></i>'.html_safe, erp_online_store.root_path %></li>
-        <li><%= link_to "Đăng Nhập", "javascript:void(0)" %></li>
-    </ul>
-
-    <div class="row">
-        <div id="content" class="col-sm-12">
-            <div class="page-login">
-                <div class="account-border">
-                    <div class="row">
-                        <div class="col-sm-6 new-customer">
-                            <div class="well">
-                                <h2><i class="fa fa-file-o" aria-hidden="true"></i> New Customer</h2>
-                                <p>By creating an account you will be able to shop faster, be up to date on an order's status, and keep track of the orders you have previously made.</p>
-                            </div>
-                            <div class="bottom-form">
-                                <%= link_to "Continue", erp_online_store.register_path, class: "btn btn-default pull-right" %>
-                            </div>
-                        </div>
-                            <div class="col-sm-6 customer-login">                                 
-                                <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: "login-form"}) do |f| %>
-                                    <div class="well">
-                                        <h2><i class="fa fa-file-text-o" aria-hidden="true"></i> Returning Customer</h2>
-                                        
-                                        <% if flash[:alert] %>
-                                            <span class='flash_error alert alert-danger'> <%= flash[:alert] %></span>
-                                        <% end %>                                        
-                                        
-                                        <p><strong>I am a returning customer</strong></p>                                        
-                                        <div class="form-group">
-                                            <label class="control-label" for="input-email">E-Mail Address</label>
-                                            <%= f.email_field :email, autofocus: true, autocomplete: "off", placeholder: "Email", class: "form-control" %>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="control-label" for="input-password">Password</label>
-                                            <%= f.password_field :password, autocomplete: "off", placeholder: "Password", class: "form-control" %>
-                                        </div>
-                                    </div>
-                                    <div class="bottom-form">
-                                        <%= link_to "Forgotten Password", "", class: "forgot" %>
-                                        <input type="submit" value="Login" class="btn btn-default pull-right" />
-                                    </div>
-                                <% end %>
-                            </div>
-                    </div>
-                </div>
-
-            </div>
+<%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: "login-form ajax-form"}) do |f| %>
+    <div class="login-box">
+        <h2><i class="fa fa-user" aria-hidden="true"></i> Đăng nhập thành viên</h2>
+        
+        <div class="notice">
+            <% if flash[:alert] %>
+                <span class='flash_error alert alert-danger'> <%= flash[:alert] %></span>
+            <% end %>                                        
+        </div>
+        
+        <div class="form-group">
+            <label class="control-label" for="input-email">Địa chỉ email</label>
+            <%= f.email_field :email, autofocus: true, autocomplete: "off", placeholder: "Nhập địa chỉ email", class: "form-control required" %>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="input-password">Mật khẩu</label>
+            <%= f.password_field :password, autocomplete: "off", placeholder: "Nhập mật khẩu", class: "form-control required" %>
         </div>
     </div>
-</div>
+    <div class="bottom-form">
+        <input type="submit" value="Đăng nhập" class="btn btn-default pull-right" />
+        <%= link_to "Quên mật khẩu?", "", class: "forgot" %><br />
+        <a class="forgot ajax-link register-link" data-type="ajax" href="<%= erp.new_user_registration_path %>">
+            <i class="fa fa-pencil-square-o"></i> Đăng ký tài khoản
+        </a>
+    </div>
+    <hr>
+    <div>
+        <a href="/auth/facebook" value="Login" class="btn btn-primary btn-facebook width-100 text-center">
+            <i class="fa fa-facebook" aria-hidden="true"></i> Đăng nhập bằng Facebook
+        </a>
+    </div>
+    <script>
+        $('.register-form').validate();
+        $('.login-form').validate();
+        $('.ajax-link').fancybox();   
+    </script>
+<% end %>

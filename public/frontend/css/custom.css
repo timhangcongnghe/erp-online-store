@@ -294,7 +294,7 @@ input.error  {
   font-weight: 500;
 }
 @media (min-width: 990px) {
-.megamenu-pattern .megamenu {
+.header-center-right .megamenu {
   float: right;
 }
 }
@@ -357,5 +357,22 @@ h3.author {
   margin-right: 10px;
 }
 .starability-grow {
-      min-height: 45px !important;
+  min-height: 45px !important;
+}
+.login-box {
+  min-width: 300px;
+}
+.width-100 {
+  width: 100% !important;
+}
+.login-box h2 {
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+.login-form label.error, #new_user label.error {
+  display: none !important;
+}
+.text-danger {
+  background: none;
+  color: #a94442;
 }
