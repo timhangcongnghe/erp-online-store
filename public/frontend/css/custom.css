@@ -405,3 +405,15 @@ form label.error {
 a.hover-product-name:hover {
   color: #009688 !important;
 }
+.filters-panel .form-control {
+  height: 34px;
+  font-weight: 600;
+}
+.box-pagination .pagination > li span, .box-pagination .pagination > li a {
+  width: 34px;
+  height: 34px;
+  line-height: 34px;
+}
+.filters-panel .box-pagination ul {
+  height: 33px;
+}
