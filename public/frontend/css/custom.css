@@ -376,3 +376,6 @@ h3.author {
   background: none;
   color: #a94442;
 }
+label {
+  outline: 0 !important;
+}
