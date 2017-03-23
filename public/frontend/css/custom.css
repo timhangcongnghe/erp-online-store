@@ -287,8 +287,8 @@ div.article-info .article-sub-title span {
 .type_1 .header-top-right ul.top-link > li a.btn {
   font-size: 13px;
 }
-input.error  {
-  border-color: red !important;
+input.error, textarea.error  {
+  border-color: #DA2723 !important;
 }
 .container-megamenu.vertical .vertical-wrapper ul li > a strong {
   font-weight: 500;
@@ -378,4 +378,8 @@ h3.author {
 }
 label {
   outline: 0 !important;
+}
+form label.error {
+  font-weight: normal;
+  color: #DA2723;
 }
