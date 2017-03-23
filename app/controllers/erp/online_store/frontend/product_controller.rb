@@ -14,11 +14,20 @@ module Erp
           @comments = Erp::Products::Comment.where(product_id: params[:product_id]).order('created_at DESC')
                                             .where(parent_id: nil)
                                             .paginate(:page => params[:page], :per_page => 5)
-          
+          @ratings = Erp::Products::Rating.where(product_id: params[:product_id]).order('created_at DESC')
+                                          .paginate(:page => params[:page], :per_page => 5)
+          # product comment
           if params[:comment].present?
             @comment = Erp::Products::Comment.new(comment_params)
             @comment.save
             render 'erp/online_store/frontend/product/_comments', locals: {comments: @comments}, layout: nil
+          end
+          
+          #product rating
+          if params[:rating].present?
+            @rating = Erp::Products::Rating.new(rating_params)
+            @rating.save
+            #render 'erp/online_store/frontend/product/_ratings', locals: {ratings: @ratings}, layout: nil
           end
         end
         
@@ -41,6 +50,10 @@ module Erp
         private
           def comment_params
             params.fetch(:comment, {}).permit(:name, :email, :message, :product_id, :parent_id)
+          end
+          
+          def rating_params
+            params.fetch(:rating, {}).permit(:name, :email, :content, :product_id, :star)
           end
       end
     end

@@ -1,6 +1,6 @@
 <ul class="nav nav-tabs">
     <li class="active"><a data-toggle="tab" href="#tab-description">Mô tả sản phẩm</a></li>
-    <li class="item_nonactive"><a data-toggle="tab" href="#tab-review">Đánh giá (1)</a></li>
+    <li class="item_nonactive"><a data-toggle="tab" href="#tab-review">Đánh giá (<%= @ratings.count %>)</a></li>
     <li class="item_nonactive"><a data-toggle="tab" href="#tab-comment">Bình luận (<%= @comments.count %>)</a></li>
 </ul>
 <div class="tab-content col-xs-12">
@@ -8,7 +8,64 @@
         <%= product.description.html_safe if product.description.present? %>
     </div>
     <div id="tab-review" class="tab-pane fade">
-        <%= render 'erp/online_store/frontend/product/ratings' %>
+        <h2 id="review-title">Mời bạn chọn đánh giá sản phẩm</h2>
+        <%= form_for Erp::Products::Rating.new, url: "" do |f| %>
+            <input type="hidden" name="rating[product_id]" value="<%= product.id %>" />
+            <div class="ratingStar">
+                <span class="lStar">Chọn đánh giá của bạn:</span>
+                <span class="lStar">
+                    <fieldset class="starability-grow">
+                        <input type="radio" id="growing-rate5" name="rating[star]" value="5" />
+                        <label for="growing-rate5" title="Tuyệt vời">5 stars</label>
+                
+                        <input type="radio" id="growing-rate4" name="rating[star]" value="4" />
+                        <label for="growing-rate4" title="Tốt">4 stars</label>
+                
+                        <input type="radio" id="growing-rate3" name="rating[star]" value="3" />
+                        <label for="growing-rate3" title="Bình thường">3 stars</label>
+                
+                        <input type="radio" id="growing-rate2" name="rating[star]" value="2" />
+                        <label for="growing-rate2" title="Không tốt">2 stars</label>
+                
+                        <input type="radio" id="growing-rate1" name="rating[star]" value="1" />
+                        <label for="growing-rate1" title="Rất không tốt">1 star</label>
+                    </fieldset>
+                </span>
+            </div>
+            
+            <div class="row ratingComment">
+                <div class="col-md-4">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <input type="text" name="rating[name]" class="form-control" placeholder="Nhập họ tên (Bắt buộc)">
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <input type="text" name="rating[email]" class="form-control" placeholder="Nhập địa chỉ email">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-8">
+                    <div class="form-group">
+                        <textarea class="form-control" name="rating[content]" placeholder="Mời bạn để lại nhận xét về sản phẩm tại đây..."></textarea>
+                    </div>  
+                </div>
+                <div class="col-md-12">
+                    <div class="buttons clearfix">
+                        <button class="btn buttonGray" id="button-rating" type="submit">
+                            <span>Gửi đánh giá</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        <% end %>
+        
+        <%= render 'erp/online_store/frontend/product/ratings', ratings: @ratings %>
+        
     </div>
     <div id="tab-comment" class="tab-pane fade">
         <div class="form-group">

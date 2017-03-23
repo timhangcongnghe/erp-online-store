@@ -1,78 +1,32 @@
-<h2 id="review-title">Mời bạn chọn đánh giá sản phẩm</h2>
-<form>
-    <div class="ratingStar">
-        <span class="lStar">Chọn đánh giá của bạn:</span>
-        <span class="lStar">
-            <fieldset class="starability-grow">
-                <input type="radio" id="growing-rate5" name="rating" value="5" />
-                <label for="growing-rate5" title="Tuyệt vời">5 stars</label>
-        
-                <input type="radio" id="growing-rate4" name="rating" value="4" />
-                <label for="growing-rate4" title="Tốt">4 stars</label>
-        
-                <input type="radio" id="growing-rate3" name="rating" value="3" />
-                <label for="growing-rate3" title="Bình thường">3 stars</label>
-        
-                <input type="radio" id="growing-rate2" name="rating" value="2" />
-                <label for="growing-rate2" title="Không tốt">2 stars</label>
-        
-                <input type="radio" id="growing-rate1" name="rating" value="1" />
-                <label for="growing-rate1" title="Rất không tốt">1 star</label>
-            </fieldset>
-        </span>
-    </div>
-    
-    <div class="row ratingComment">
-        <div class="col-md-4">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="form-group">
-                        <input type="text" name="name" class="form-control" placeholder="Nhập họ tên (Bắt buộc)">
-                    </div>
-                </div>
-                <div class="col-md-12">
-                    <div class="form-group">
-                        <input type="text" name="name" class="form-control" placeholder="Nhập địa chỉ email">
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="col-md-8">
-            <div class="form-group">
-                <textarea class="form-control" name="text" placeholder="Mời bạn để lại nhận xét về sản phẩm tại đây..."></textarea>
-            </div>  
-        </div>
-        <div class="col-md-12">
-            <div class="buttons clearfix"><a class="btn buttonGray">Gửi đánh giá</a></div>
-        </div>
-    </div>
-</form>
 <hr>
 <div id="review">
-    <h3 id="review-title">Có 3 đánh giá cho sản phẩm này</h3>
-    <% (1..3).each do |rating| %>
+    <h3 id="review-title">Có <%= ratings.count %> đánh giá cho sản phẩm này</h3>
+    <% ratings.each do |rating| %>
         <div class="content-data-summary">
             <div class="content-header">
                 <span class="content-rating right">
                     <div class="ratings">
                         <div class="rating-box">
-                            <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
-                            <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
-                            <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
-                            <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
-                            <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i></span>
+                            <% (1..rating.star).each do |star| %>
+                                <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i></span>
+                            <% end %>
+                            <% (1..(5-rating.star)).each do |star| %>
+                                <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i></span>
+                            <% end %>
                         </div>
                     </div>
                 </span>
                 <span class="content-meta">
-                    <h3 class="author right"><a href="#">Hùng Nguyễn</a></h3>
-                    <span class="date-time">1 giờ trước</span>
+                    <h3 class="author right"><a href="#"><%= rating.name %></a></h3>
+                    <span class="date-time"><%= relative_time(rating.created_at) %></span>
                 </span>
             </div>
             <div class="content-title">
-                <p>Good thing!</p>
+                <p><%= rating.content %></p>
             </div>
         </div>
     <% end %>
+</div>
+<div class="pagination-comments">
+    <%= erp_datalist_pagination(ratings) %>
 </div>
