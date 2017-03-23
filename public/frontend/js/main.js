@@ -182,7 +182,7 @@ $(document).ready(function () {
         
         var form = $(this);
         var url = form.attr('action');
-        var input = form.find('input[type=email]');
+        var input = form.find('input[type=text]');
         var value = input.val();
         
         if (value.trim() == '') {
@@ -223,7 +223,7 @@ $(document).ready(function () {
         var url = form.attr('action');
         var method = form.attr('method');
         
-        form.find('.notice').hide();
+        form.find('.notice').hide();        
         
         $.ajax({
             url: url,
