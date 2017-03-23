@@ -51,19 +51,16 @@
                                             <% end %>
                                         </div>
                                     </div>
-<<<<<<< HEAD
                                 <% end %>
-                                <a class="write_review_button" href="" onclick="$('a[href=\'#tab-review\']').trigger('click'); return false;">Đánh giá</a> | 
-                                <a class="write_review_button" href="" onclick="$('a[href=\'#tab-comment\']').trigger('click'); return false;">Bình luận</a>
-=======
-                                </div>                                
-                                <a class="write_review_button" href="" onclick="$('a[href=\'#tab-review\']').trigger('click'); return false;">Đánh giá về sản phẩm</a>
->>>>>>> a4710d0... remove action
+                                <a class="write_review_button" href="" onclick="$('a[href=\'#tab-review\']').trigger('click'); return false;">Đánh giá sản phẩm</a> | 
+                                <a class="write_review_button" href="" onclick="$('a[href=\'#tab-comment\']').trigger('click'); return false;">Bình luận về sản phẩm</a>
                             </div>
                             <div class="product-label form-group">                                
                                 <div class="product_page_price price" itemprop="offerDetails" itemscope="" itemtype="http://data-vocabulary.org/Offer">
                                     <span class="price-new" itemprop="price"><%= format_number(@product.price) %> VNĐ</span>
-                                    <span class="price-old"><%= "130,000" %> VNĐ</span>
+                                    <% if @product.is_deal %>
+                                    <span class="price-old"><%= format_number(@product.price) %> VNĐ</span>
+                                    <% end %>
                                 </div>
                             </div>
                             <% if @product.get_product_property_array.count > 0 %>

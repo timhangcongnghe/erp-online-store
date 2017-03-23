@@ -357,7 +357,6 @@ h3.author {
   margin-right: 10px;
 }
 .starability-grow {
-<<<<<<< HEAD
   min-height: 45px !important;
 }
 .login-box {
@@ -383,8 +382,7 @@ label {
 form label.error {
   font-weight: normal;
   color: #DA2723;
-=======
-      min-height: 45px !important;
+  min-height: 45px !important;
 }
 .cart a.add-to-cart {
   color: #fff;
@@ -406,5 +404,4 @@ form label.error {
 }
 a.hover-product-name:hover {
   color: #009688 !important;
->>>>>>> a4710d0... remove action
 }
