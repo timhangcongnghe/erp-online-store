@@ -100,8 +100,12 @@
                                                     </a>
                                                 </div>
                                             </div>
+                                            <% if product.is_new %>
                                             <span class="label label-new">Mới</span>
+                                            <% end %>
+                                            <% if product.is_deal %>
                                             <span class="label label-sale">Giảm giá</span>
+                                            <% end %>
                                         </div>
                                         <div class="right-block">
                                             <div class="caption">
@@ -115,19 +119,14 @@
                                                 <h4>
                                                     <%= link_to "Verty nolen laben", "", title: "Verty nolen laben" %>
                                                 </h4>
-                                                <p class="price">
-                                                    <span class="price-new">$45.00</span>
-                                                    <span class="price-old">$69.00</span>
+                                                <p class="price">                                                    
+                                                    <span class="price-new"><%= format_number(product.product_price) %> VNĐ</span>
+                                                    <% if product.is_deal %>                        
+                                                        <br><span class="price-old"><%= format_number(product.price) %> VNĐ</span>
+                                                        <span class="label label-percent"><%= product.deal_percent %>%</span>
+                                                    <% end %>
                                                 </p>
                                             </div>
-                                        </div>
-                                        <div class="button-group">
-                                            <button class="wishlist btn-button" type="button" data-toggle="tooltip" title="Yêu thích sản phẩm"><i class="fa fa-heart"></i></button>                                    
-                                            <button class="addToCart" type="button" data-toggle="tooltip" title="Thêm vào giỏ hàng"><i class="fa fa-shopping-cart"></i> <span class="hidden-xs"></span></button>
-                                            <button class="compare" type="button" data-toggle="tooltip" title="So sánh sản phẩm"><i class="fa fa-exchange"></i></button>
-                                            <a class="quickview iframe-link visible-lg btn-button" data-toggle="tooltip" title="<%= product.name %>" data-fancybox-type="iframe" href="<%= erp_online_store.product_quickview_path(product_id: product.id) %>" data-original-title="Xem nhanh">
-                                                <i class="fa fa-search"></i>
-                                            </a>
                                         </div>
                                     </div>
                                 </div>

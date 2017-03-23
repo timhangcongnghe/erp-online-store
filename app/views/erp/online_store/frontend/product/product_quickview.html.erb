@@ -39,7 +39,7 @@
                                         <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i></span>
                                     </div>
                                 </div>
-                                <a class="reviews_button" href="quickview.php.html" onclick="$('a[href=\'#tab-review\']').trigger('click'); return false;">0 reviews </a>
+								<%= "0 Đánh giá sản phẩm" %>
                             </div>
                             <div class="product-label form-group">
                                 <div class="product_page_price price" itemprop="offerDetails" itemscope="" itemtype="http://data-vocabulary.org/Offer">
@@ -51,68 +51,17 @@
                             </div>
                             <div class="product-box-desc">
                                 <div class="inner-box-desc">
-                                    <h4>Tính năng nổi bật</h4>
+                                    <h3>TÍNH NĂNG SẢN PHẨM</h3>
+									<% @product.get_product_property_array.each do |product_property| %>
                                     <div>
-                                        <span>CPU: </span>
-                                        Intel Core i5 6200U 2.3GHz - 3M (up to 2.8GHz)
+                                        <span><%= product_property[:name] %>: </span>
+                                        <%= product_property[:values].join(", ") %>
                                     </div>
-                                    <div>
-                                        <span>Ram: </span>
-                                        1x 4GB DDR3L/1600 (2 slots)
-                                    </div>
-                                    <div>
-                                        <span>Đĩa cứng: </span>
-                                        HDD 1TB 5400rpm Sata3
-                                    </div>
-                                    <div>
-                                        <span>Màn hình rộng: </span>
-                                        14 inch, HD (1366 x 768 pixels)
-                                    </div>                                    
-                                    <div>
-                                        <span>Cảm ứng: </span>
-                                        Không
-                                    </div>
-                                    <div>
-                                        <span>Đồ họa: </span>
-                                        Intel® HD Graphics, Share (Dùng chung bộ nhớ với RAM)
-                                    </div>
-                                    <div>
-                                        <span>Đĩa quang: </span>
-                                        Không
-                                    </div>
-                                    <div>
-                                        <span>Webcam: </span>
-                                        0.3 MP
-                                    </div>
-                                    <div>
-                                        <span>Chất liệu vỏ: </span>
-                                        Vỏ nhựa
-                                    </div>
-                                    <div>
-                                        <span>Cổng giao tiếp: </span>
-                                        HDMI, LAN (RJ45), USB 2.0, USB 3.0
-                                    </div>
-                                    <div>
-                                        <span>Pin: </span>
-                                        	Li-Ion 4 cell
-                                    </div>
-                                    <div>
-                                        <span>Hệ điều hành, Phần mềm: </span>
-                                        Windows 10, Microsoft Office bản dùng thử
-                                    </div>
-                                    <br>
-                                    <div>
-                                        <span>Sản phẩm bao gồm: </span>
-                                        Pin, Dây nguồn, Sách hướng dẫn, Adapter sạc
-                                    </div>
-                                    <div>
-                                        <span>Bảo hành: </span>
-                                        Thân máy 12 tháng, pin 12 tháng, sạc 12 tháng
-                                    </div>
+                                    <% end %>
                                 </div>
                             </div>
                             <div id="product">
-								<h4>Đặt mua sản phẩm</h4>
+								<h3>ĐẶT MUA SẢN PHẨM</h3>
                                 <div class="form-group box-info-product">
                                     <div class="option quantity">
                                         <div class="input-group quantity-control" unselectable="on" style="-webkit-user-select: none;">

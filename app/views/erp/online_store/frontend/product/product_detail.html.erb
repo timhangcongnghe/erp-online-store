@@ -51,9 +51,14 @@
                                             <% end %>
                                         </div>
                                     </div>
+<<<<<<< HEAD
                                 <% end %>
                                 <a class="write_review_button" href="" onclick="$('a[href=\'#tab-review\']').trigger('click'); return false;">Đánh giá</a> | 
                                 <a class="write_review_button" href="" onclick="$('a[href=\'#tab-comment\']').trigger('click'); return false;">Bình luận</a>
+=======
+                                </div>                                
+                                <a class="write_review_button" href="" onclick="$('a[href=\'#tab-review\']').trigger('click'); return false;">Đánh giá về sản phẩm</a>
+>>>>>>> a4710d0... remove action
                             </div>
                             <div class="product-label form-group">                                
                                 <div class="product_page_price price" itemprop="offerDetails" itemscope="" itemtype="http://data-vocabulary.org/Offer">
@@ -61,70 +66,21 @@
                                     <span class="price-old"><%= "130,000" %> VNĐ</span>
                                 </div>
                             </div>
+                            <% if @product.get_product_property_array.count > 0 %>
                             <div class="product-box-desc">
                                 <div class="inner-box-desc">
-                                    <h4>Tính năng nổi bật</h4>
+                                    <h3>TÍNH NĂNG SẢN PHẨM</h3>
+                                    <% @product.get_product_property_array.each do |product_property| %>
                                     <div>
-                                        <span>CPU: </span>
-                                        Intel Core i5 6200U 2.3GHz - 3M (up to 2.8GHz)
+                                        <span><%= product_property[:name] %>: </span>
+                                        <%= product_property[:values].join(", ") %>
                                     </div>
-                                    <div>
-                                        <span>Ram: </span>
-                                        1x 4GB DDR3L/1600 (2 slots)
-                                    </div>
-                                    <div>
-                                        <span>Đĩa cứng: </span>
-                                        HDD 1TB 5400rpm Sata3
-                                    </div>
-                                    <div>
-                                        <span>Màn hình rộng: </span>
-                                        14 inch, HD (1366 x 768 pixels)
-                                    </div>                                    
-                                    <div>
-                                        <span>Cảm ứng: </span>
-                                        Không
-                                    </div>
-                                    <div>
-                                        <span>Đồ họa: </span>
-                                        Intel® HD Graphics, Share (Dùng chung bộ nhớ với RAM)
-                                    </div>
-                                    <div>
-                                        <span>Đĩa quang: </span>
-                                        Không
-                                    </div>
-                                    <div>
-                                        <span>Webcam: </span>
-                                        0.3 MP
-                                    </div>
-                                    <div>
-                                        <span>Chất liệu vỏ: </span>
-                                        Vỏ nhựa
-                                    </div>
-                                    <div>
-                                        <span>Cổng giao tiếp: </span>
-                                        HDMI, LAN (RJ45), USB 2.0, USB 3.0
-                                    </div>
-                                    <div>
-                                        <span>Pin: </span>
-                                        	Li-Ion 4 cell
-                                    </div>
-                                    <div>
-                                        <span>Hệ điều hành, Phần mềm: </span>
-                                        Windows 10, Microsoft Office bản dùng thử
-                                    </div>
-                                    <br>
-                                    <div>
-                                        <span>Sản phẩm bao gồm: </span>
-                                        Pin, Dây nguồn, Sách hướng dẫn, Adapter sạc
-                                    </div>
-                                    <div>
-                                        <span>Bảo hành: </span>
-                                        Thân máy 12 tháng, pin 12 tháng, sạc 12 tháng
-                                    </div>
+                                    <% end %>
                                 </div>
                             </div>
+                            <% end %>
                             <div id="product">
-                                <h4>Đặt mua sản phẩm</h4>                    
+                                <h3>ĐẶT MUA SẢN PHẨM</h3>                    
                                 <div class="form-group box-info-product">
                                     <div class="option quantity">
                                         <div class="input-group quantity-control" unselectable="on" style="-webkit-user-select: none;">
@@ -136,7 +92,7 @@
                                         </div>
                                     </div>
                                     <div class="cart">
-                                        <input type="button" data-toggle="tooltip" title="Thêm vào giỏ hàng" value="Thêm vào giỏ hàng" data-loading-text="Loading..." id="button-cart" class="btn btn-mega btn-lg" onclick="cart.add('42', '1');" data-original-title="Add to Cart">
+                                        <a title="Thêm vào giỏ hàng" href="<%= erp_carts.add_to_cart_frontend_cart_items_path(product_id: @product.id, menu_id: @menu.id) %>" class="btn btn-mega btn-lg add-to-cart"><i class="fa fa-cart-plus"></i> Thêm vào giỏ hàng</a>
                                     </div>
                                     <div class="add-to-links wish_comp">
                                         <ul class="blank list-inline">

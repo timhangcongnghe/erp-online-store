@@ -8,6 +8,7 @@ module Erp
     
         def checkout
           @body_class = "res layout-subpage"
+          redirect_to erp_online_store.cart_path if @cart.cart_items.empty?
         end
     
         def compare

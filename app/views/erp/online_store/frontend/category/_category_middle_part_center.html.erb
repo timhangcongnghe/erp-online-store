@@ -18,7 +18,7 @@
             </div>
             <div class="right-block">
                 <div class="caption">
-                    <h4><%= link_to product.name, erp_online_store.product_detail_path(product_id: product.id, menu_id: menu.id), title: product.name %></h4>
+                    <h4 class="text-center"><%= link_to product.name, erp_online_store.product_detail_path(product_id: product.id, menu_id: menu.id), title: product.name, class: "hover-product-name" %></h4>
                     <div class="ratings">
                         <div class="rating-box">
                             <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
@@ -41,13 +41,6 @@
                 </div>
             </div>
             <!-- right block -->
-            <div class="button-group">
-                <button class="wishlist btn-button" type="button" data-toggle="tooltip" title="Add to Wish List" onclick="wishlist.add('42');"><i class="fa fa-heart"></i></button>
-                <button class="addToCart" type="button" data-toggle="tooltip" title="Add to Cart" onclick="cart.add('42', '1');"><i class="fa fa-shopping-cart"></i> <span class="hidden-xs name-cart">Add to Cart</span></button>                
-                <button class="compare" type="button" data-toggle="tooltip" title="Compare this Product" onclick="compare.add('42');"><i class="fa fa-exchange"></i></button>
-                <a class="quickview iframe-link visible-lg btn-button" data-toggle="tooltip" title="Xem nhanh" data-fancybox-type="iframe" href="<%= erp_online_store.product_quickview_path(product_id: product.id) %>" data-original-title="Xem nhanh"> <i class="fa fa-search"></i> </a>
-                <!--<a class="addToShoppingCart" title="Add to Cart" href="<%= erp_carts.add_to_cart_frontend_cart_items_path(product_id: product.id, menu_id: menu.id) %>"><i class="fa fa-shopping-cart"></i> <span class="hidden-xs name-cart">Thêm vào giỏ hàng</span></a>-->
-            </div>
         </div>
     </div>
     <% end %>

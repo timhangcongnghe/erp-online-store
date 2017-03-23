@@ -357,6 +357,7 @@ h3.author {
   margin-right: 10px;
 }
 .starability-grow {
+<<<<<<< HEAD
   min-height: 45px !important;
 }
 .login-box {
@@ -382,4 +383,28 @@ label {
 form label.error {
   font-weight: normal;
   color: #DA2723;
+=======
+      min-height: 45px !important;
+}
+.cart a.add-to-cart {
+  color: #fff;
+  height: 30px;
+  line-height: 30px;
+  padding: 0 10px 0 10px;
+  font-weight: normal;
+  font-size: 13px;
+  border-radius: 0;
+  background: #009688 no-repeat;
+  background-position: 8px center;
+  text-transform: uppercase;
+}
+.cart a.add-to-cart:hover {
+  background-color: #ea3a3c;
+}
+.products-list.list-masonry .product-layout .product-item-container .right-block .caption h4 a, .products-list.grid .product-layout .product-item-container .right-block .caption h4 a {
+  font-weight: 600 !important;
+}
+a.hover-product-name:hover {
+  color: #009688 !important;
+>>>>>>> a4710d0... remove action
 }

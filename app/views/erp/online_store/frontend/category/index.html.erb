@@ -12,17 +12,22 @@
         <!--Middle Part Start-->
         <div id="content" class="col-md-9 col-sm-8">
             <div class="products-category">
+                <% if @menu.image_url_2.present? || @menu.description.present? %>
                 <div class="category-derc form-group">
                     <div class="row">
                         <div class="col-sm-12">
                             <% if @menu.image_url_2.present? %>
                             <p><%= image_tag @menu.image_url_2, alt: @menu.name %><br></p>
                             <% end %>
-                            <p><%= @menu.description %></p>
+                            <% if @menu.description.present? %>
+                            <p><%= @menu.description.html_safe %></p>
+                            <% end %>
                         </div>
                     </div>
                 </div>
-                <!--- Subcategories - -->
+                <% end %>
+                <% if @related_menus.count > 0 %>
+                <!--- Realed menus - -->
                 <div class="refine-search form-group">
                     <div class="row">
                         <% @related_menus.each do |related_menu| %>
@@ -33,7 +38,8 @@
                         <% end %>
                     </div>
                 </div>
-                <!---//Subcategories --->
+                <!---//End related ends --->
+                <% end %>
                 <% if @products.count > 0 %>
                 <!-- Filters -->
                 <%= render "erp/online_store/frontend/category/category_middle_part_top" %>
