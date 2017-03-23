@@ -16,6 +16,7 @@ module Erp
           @categories = Erp::Articles::Category.where(alias: Erp::Articles::Category::ALIAS_BLOG)
           @comments = Erp::Articles::Comment.where(article_id: params[:blog_id]).order('created_at DESC')
                                             .where(parent_id: nil)
+                                            .where(archived: false)
                                             .paginate(:page => params[:page], :per_page => 5)
           
           if params[:comment].present?

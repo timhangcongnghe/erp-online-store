@@ -13,6 +13,7 @@ module Erp
           @meta_description = @product.meta_description
           @comments = Erp::Products::Comment.where(product_id: params[:product_id]).order('created_at DESC')
                                             .where(parent_id: nil)
+                                            .where(archived: false)
                                             .paginate(:page => params[:page], :per_page => 5)
           @ratings = Erp::Products::Rating.where(product_id: params[:product_id]).order('created_at DESC')
                                           .paginate(:page => params[:page], :per_page => 5)

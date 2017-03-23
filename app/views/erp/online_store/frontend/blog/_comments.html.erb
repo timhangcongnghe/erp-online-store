@@ -60,13 +60,13 @@
                     </div>
                 </div>
             </div>
-            <% if comment.children.count > 0 %>
+            <% if comment.children.where(archived: false).count > 0 %>
                 <ul class="children">
                     <table class="table table-striped table-bordered">
                         <tbody>
                             <tr>
                                 <td>
-                                    <% comment.children.order('created_at DESC').each do |child_comment| %>
+                                    <% comment.children.where(archived: false).order('created_at DESC').each do |child_comment| %>
                                         <div id="comment-182" class="comment odd alt depth-2 media">
                                             <div class="author">
                                                 <a class="pull-left" href="hung">
