@@ -16,6 +16,7 @@ module Erp
                                             .where(archived: false)
                                             .paginate(:page => params[:page], :per_page => 5)
           @ratings = Erp::Products::Rating.where(product_id: params[:product_id]).order('created_at DESC')
+                                          .where(archived: false)
                                           .paginate(:page => params[:page], :per_page => 5)
           # product comment
           if params[:comment].present?
