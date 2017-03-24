@@ -79,26 +79,36 @@
                             <div id="product">
                                 <h3>ĐẶT MUA SẢN PHẨM</h3>                    
                                 <div class="form-group box-info-product">
-                                    <div class="option quantity">
-                                        <div class="input-group quantity-control" unselectable="on" style="-webkit-user-select: none;">
-                                            <label>Số lượng đặt mua: </label>
-                                            <input class="form-control" type="text" name="quantity" value="1">
-                                            <input type="hidden" name="product_id" value="50">
-                                            <span class="input-group-addon product_quantity_down">−</span>
-                                            <span class="input-group-addon product_quantity_up">+</span>
+                                    <%= form_tag erp_online_store.add_to_cart_frontend_cart_items_path do %>
+                                        <%= hidden_field_tag "product_id", @product.id %>
+                                        <div class="option quantity">
+                                            <div class="input-group quantity-control" unselectable="on" style="-webkit-user-select: none;">
+                                                <label>Số lượng đặt mua: </label>
+                                                <input class="form-control" type="text" name="quantity" value="1">
+                                                <span class="input-group-addon product_quantity_down">−</span>
+                                                <span class="input-group-addon product_quantity_up">+</span>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="cart">
-                                        <a title="Thêm vào giỏ hàng" href="<%= erp_carts.add_to_cart_frontend_cart_items_path(product_id: @product.id) %>" class="btn btn-mega btn-lg add-to-cart"><i class="fa fa-cart-plus"></i> Thêm vào giỏ hàng</a>
-                                    </div>
+                                        <div class="cart">
+                                            <button class="btn btn-mega btn-lg add-to-cart"><i class="fa fa-cart-plus"></i> Thêm vào giỏ hàng</button>
+                                        </div>
+                                    <% end %>
                                     <div class="add-to-links wish_comp">
                                         <ul class="blank list-inline">
-                                            <li class="wishlist">
-                                                <a href="<%= erp_carts.add_to_wish_list_frontend_wish_lists_path(product_id: @product.id) %>" class="icon" data-toggle="tooltip" title="Yêu thích sản phẩm" data-original-title="Yêu thích sản phẩm"><i class="fa fa-heart"></i></a>                                                
-                                            </li>
                                             <li class="compare">
-                                                <a href="<%= erp_carts.add_to_compare_frontend_compare_items_path(product_id: @product.id) %>" class="icon" data-toggle="tooltip" title="So sánh sản phẩm" data-original-title="So sánh sản phẩm"><i class="fa fa-exchange"></i></a>
+                                                <%= form_tag erp_online_store.add_to_compare_frontend_compare_items_path do %>
+                                                    <%= hidden_field_tag "product_id", @product.id %>
+                                                    <button class="btn btn-mega add-to-compare" title="So sánh sản phẩm"><i class="fa fa-exchange"></i></button>
+                                                <% end %>
                                             </li>
+                                            <% if user_signed_in? %>
+                                            <li class="wishlist">
+                                                <%= form_tag erp_online_store.add_to_wish_list_frontend_wish_lists_path do %>
+                                                    <%= hidden_field_tag "product_id", @product.id %>
+                                                    <button class="btn btn-mega add-to-wish-list" title="Yêu thích sản phẩm"><i class="fa fa-heart"></i></button>
+                                                <% end %>
+                                            </li>
+                                            <% end %>
                                         </ul>
                                     </div>
                                 </div>

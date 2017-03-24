@@ -8,6 +8,7 @@
         <div id="content" class="col-sm-12">
             <% if @cart.cart_items.number_items > 0 %>
             <h2 class="title">Giỏ hàng của bạn</h2>
+            <%= form_for([erp_online_store, :frontend, @cart]) do |f| %>
             <div class="table-responsive form-group">
                 <table class="table table-bordered">
                     <thead>
@@ -31,10 +32,10 @@
                             </td>                            
                             <td class="text-left" width="200px">
                                 <div class="input-group btn-block quantity">
-                                    <input type="text" name="quantity" value="<%= cart_item.quantity %>" size="1" class="form-control" />
+                                    <input class="form-control" type="text" name="quantities[<%= cart_item.id %>]" value="<%= cart_item.quantity %>">
                                     <span class="input-group-btn">
                                         <button type="submit" data-toggle="tooltip" title="Cập nhật số lượng" class="btn btn-primary"><i class="fa fa-refresh"></i></button>
-                                        <button type="button" data-toggle="tooltip" title="Xóa sản phẩm" class="btn btn-danger" onClick=""><i class="fa fa-times-circle"></i></button>
+                                        <%= link_to '<i class="fa fa-times-circle"></i>'.html_safe, erp_online_store.remove_cart_item_frontend_cart_items_path(cart_item_id: cart_item.id), class: "btn btn-danger", title: "Xóa sản phẩm" %>
                                     </span>
                                 </div>
                             </td>
@@ -45,6 +46,7 @@
                     </tbody>
                 </table>
             </div>
+            <% end %>
             <div class="row">
                 <div class="col-sm-4 col-sm-offset-8">
                     <table class="table table-bordered">

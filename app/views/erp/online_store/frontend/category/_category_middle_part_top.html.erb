@@ -1,17 +1,20 @@
 <div class="product-filter filters-panel">
     <div class="row">
+        <%= form_tag(erp_online_store.category_path, method: "get") do %>
+        <%= hidden_field_tag "menu_id", menu.id %>
         <div class="short-by-show form-inline text-left col-md-4 col-sm-8 col-xs-12">
             <div class="form-group short-by">
-                <label class="control-label" for="input-sort">Sắp xếp:</label>
-                <select id="input-sort" class="form-control">
-                    <option value="" selected="selected">Ngày tạo mới nhất</option>
-                    <option value="">Hàng mới nhập</option>
-                    <option value="">Giá: Thấp đến Cao</option>
-                    <option value="">Giá: Cao đến Thấp</option>
-                    <option value="">Đang có khuyến mãi</option>
-                </select>
+                <label class="control-label" for="input-sort">Sắp xếp:</label>                
+                <select name="category_sort" class="form-control">
+                    <option value="created_at_desc" selected="selected">Hàng mới nhập</option>
+                    <option value="price_asc">Giá: Thấp đến Cao</option>
+                    <option value="price_desc">Giá: Cao đến Thấp</option>
+                    <option value="is_deal">Đang có khuyến mãi</option>
+                </select>                
             </div>
+            <button class="btn btn-danger">Danger button</button>
         </div>
+        <% end %>
         <div class="box-pagination col-md-8 col-sm-4 col-xs-12 text-right">
             <ul class="pagination">
                 <li class="active"><span>1</span></li>

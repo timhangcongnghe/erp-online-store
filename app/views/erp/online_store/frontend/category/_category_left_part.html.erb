@@ -1,33 +1,17 @@
 <div class="module block-shopby titleLine">
     <h3 class="modtitle"><span>Tìm Hàng Công Nghệ</span></h3>
-    <div class="module menu-category titleLine">
-        <div class="modcontent">
-            <div class="box-category">
-                <% sidebar_menus = menu.get_related_sidebar_menus %>
-                <ul id="cat_accordion" class="list-group">
-                    <li class="hadchild">
-                        <a href="javascript:void(0)" class="cutom-parent"><%= sidebar_menus[:parent].name %></a> <span class="button-view  fa fa-plus-square-o"></span>
-                        <ul style="display: block;">
-                            <% sidebar_menus[:menus].each do |sidebar_menu| %>
-                            <li><%= link_to sidebar_menu.name, erp_online_store.category_path(menu_id: sidebar_menu.id) %></li>
-                            <% end %>
-                        </ul>
-                    </li>                    
-                </ul>
-            </div>
-        </div>
-    </div>
     <div class="modcontent ">
-        <form class="type_2">
+        <%= form_tag(erp_online_store.category_path, method: "get", class: "type_2") do %>
+            <%= hidden_field_tag "menu_id", menu.id %>
             <div class="table_layout filter-shopby">
                 <div class="table_row">
                     <!-- - - - - - - - - - - - - - Category filter - - - - - - - - - - - - - - - - -->
                     <div class="table_cell" style="z-index: 103;">
                         <legend>Tìm kiếm sản phẩm</legend>
                         <div class="input-group">
-                            <input class="form-control" type="text" value="" size="50" autocomplete="off" placeholder="Nhập từ khóa tìm kiếm" name="search">
+                            <input class="form-control" type="text" value="" size="50" autocomplete="off" placeholder="Nhập từ khóa tìm kiếm" name="keyword">
                             <div class="input-group-btn">
-                                <button class="btn btn-default inverse" type="button" id="submit_text_search"><i class="fa fa-search"></i></button>
+                                <button class="btn btn-default inverse"><i class="fa fa-search"></i></button>
                             </div>
                         </div>
                     </div>
@@ -77,7 +61,7 @@
                 <!--/ .table_row -->
             </div>
             <!--/ .table_layout -->
-        </form>
+        <% end %>
     </div>
 </div>
 <div class="module latest-product titleLine">
@@ -115,7 +99,6 @@
     <h3 class="modtitle"><span>Từ khóa nổi bật</span></h3>
     <div class="modcontent" style="margin-top: 20px;">
         <ul class="tags_cloud">
-            <li><%= link_to "Từ khóa", "", class: "button_grey" %></li>
             <li><%= link_to "Từ khóa", "", class: "button_grey" %></li>
             <li><%= link_to "Từ khóa", "", class: "button_grey" %></li>
             <li><%= link_to "Từ khóa", "", class: "button_grey" %></li>

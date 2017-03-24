@@ -2,13 +2,13 @@ module Erp
   module OnlineStore
     module Frontend
       class ShoppingCartController < Erp::Frontend::FrontendController
-        def cart
+        def shopping_cart
           @body_class = "res layout-subpage"
         end
     
         def checkout
           @body_class = "res layout-subpage"
-          redirect_to erp_online_store.cart_path if @cart.cart_items.empty?
+          redirect_to erp_online_store.shopping_cart_path if @cart.cart_items.empty?
         end
     
         def compare

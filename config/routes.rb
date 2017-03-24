@@ -29,9 +29,31 @@ Erp::OnlineStore::Engine.routes.draw do
   get "tai-khoan/san-pham-yeu-thich.html" => "frontend/account#wishlist", as: :wishlist
   
   # SHOPPING CART
-  get "gio-hang.html" => "frontend/shopping_cart#cart", as: :cart
+  get "gio-hang.html" => "frontend/shopping_cart#shopping_cart", as: :shopping_cart
   get "dat-hang.html" => "frontend/shopping_cart#checkout", as: :checkout
-  get "so-sanh-san-pham.html" => "frontend/shopping_cart#compare", as: :compare
+  get "so-sanh-san-pham.html" => "frontend/shopping_cart#compare_product", as: :compare_product
+  namespace :frontend do
+		resources :carts
+		resources :cart_items do
+			collection do
+				post "add_to_cart"
+				get "remove_cart_item"
+			end    
+		end
+		resources :compares
+    resources :compare_items do
+      collection do
+        post "add_to_compare"
+        get "remove_compare_item"
+      end    
+    end
+    resources :wish_lists do
+      collection do
+        post "add_to_wish_list"
+        get "remove_product"
+      end    
+    end
+	end
   
   # INFORMATION
   get "gioi-thieu.html" => "frontend/information#about_us", as: :about_us

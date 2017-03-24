@@ -383,7 +383,7 @@ form label.error {
   font-weight: normal;
   color: #DA2723;
 }
-.cart a.add-to-cart {
+.cart button.add-to-cart {
   color: #fff;
   height: 30px;
   line-height: 30px;
@@ -395,8 +395,39 @@ form label.error {
   background-position: 8px center;
   text-transform: uppercase;
 }
-.cart a.add-to-cart:hover {
+.cart button.add-to-cart:hover {
   background-color: #ea3a3c;
+}
+.wishlist button.add-to-wish-list {  
+  color: #fff;
+  height: 30px;
+  line-height: 30px;
+  padding: 0 10px 0 10px;
+  font-weight: normal;
+  font-size: 13px;
+  border-radius: 0;
+  background: #06c no-repeat;
+  background-position: 8px center;
+  text-transform: uppercase;
+}
+.wishlist button.add-to-wish-list:hover {
+  background-color: #ffc0cb;
+}
+.compare button.add-to-compare {
+  margin-left: 3px;
+  color: #fff;
+  height: 30px;
+  line-height: 30px;
+  padding: 0 10px 0 10px;
+  font-weight: normal;
+  font-size: 13px;
+  border-radius: 0;
+  background: #090 no-repeat;
+  background-position: 8px center;
+  text-transform: uppercase;
+}
+.compare button.add-to-compare:hover {
+  background-color: #cccccc;
 }
 .products-list.list-masonry .product-layout .product-item-container .right-block .caption h4 a, .products-list.grid .product-layout .product-item-container .right-block .caption h4 a {
   font-weight: 600 !important;

@@ -40,11 +40,6 @@
                 </div>
                 <!---//End related ends --->
                 <% end %>
-                <% if @products.count > 0 %>
-                <!-- Filters -->
-                <%= render "erp/online_store/frontend/category/category_middle_part_top" %>
-                <!-- //end Filters -->
-                <% end %>
                 <!--changed listings-->
                 <%= render "erp/online_store/frontend/category/category_middle_part_center", products: @products, menu: @menu %>
                 <!--// End Changed listings-->
