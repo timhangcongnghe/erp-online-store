@@ -32,6 +32,7 @@ module Erp
         
         def wishlist
           @body_class = "res layout-subpage"
+          @wish_lists = current_user.wish_lists.paginate(:page => params[:page], :per_page => 6)
         end
       end
     end
