@@ -214,7 +214,7 @@ $(document).ready(function () {
         });
     });
     
-    $('.ajax-link').fancybox(); // on
+    $('.ajax-link').fancybox({closeClickOutside : true}); // on
     
     $(document).on('submit', '.ajax-form', function(e) {
         e.preventDefault();
