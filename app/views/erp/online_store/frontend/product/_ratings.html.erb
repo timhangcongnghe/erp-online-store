@@ -1,3 +1,50 @@
+<% if user_signed_in? %>
+    <h2 id="review-title">Mời <%= current_user.name %> đánh giá sản phẩm</h2>
+    <%= form_for Erp::Products::Rating.new, url: erp_online_store.product_ratings_path(product_id: @product.id), html: { class: 'comment_form' } do |f| %>
+        <input type="hidden" name="rating[product_id]" value="<%= @product.id %>" />
+        <div class="ratingStar">
+            <span class="lStar">Chọn đánh giá của bạn:</span>
+            <span class="lStar">
+                <fieldset class="starability-grow">
+                    <input type="radio" id="growing-rate5" name="rating[star]" value="5" />
+                    <label for="growing-rate5" title="Tuyệt vời"></label>
+                    
+                    <input type="radio" id="growing-rate4" name="rating[star]" value="4" />
+                    <label for="growing-rate4" title="Tốt"></label>
+                    
+                    <input type="radio" id="growing-rate3" name="rating[star]" value="3" />
+                    <label for="growing-rate3" title="Bình thường"></label>
+                    
+                    <input type="radio" id="growing-rate2" name="rating[star]" value="2" />
+                    <label for="growing-rate2" title="Không tốt"></label>
+                    
+                    <input type="radio" id="growing-rate1" name="rating[star]" value="1" />
+                    <label for="growing-rate1" title="Rất không tốt"></label>
+                </fieldset>
+            </span>
+        </div>
+        
+        <div class="row ratingComment">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <textarea class="form-control" name="rating[content]" placeholder="Mời bạn để lại nhận xét về sản phẩm tại đây..."></textarea>
+                </div>  
+            </div>
+            <div class="col-md-12">
+                <div class="buttons clearfix">
+                    <button class="btn buttonGray" id="button-rating" type="submit">
+                        <span>Gửi đánh giá</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    <% end %>
+<% else %>
+    <h3 id="review-title">Vui lòng
+    <a class="ajax-link text-teal" data-type="ajax" href="<%= erp.new_user_session_path %>">đăng nhập</a>
+    để bình luận </h3>
+<% end %>
+
 <hr>
 <div id="review">
     <h3 id="review-title">Có <%= ratings.count %> đánh giá cho sản phẩm này</h3>
@@ -17,7 +64,7 @@
                     </div>
                 </span>
                 <span class="content-meta">
-                    <h3 class="author right"><a href="#"><%= rating.name %></a></h3>
+                    <h3 class="author right"><a href="#"><%= rating.user_name %></a></h3>
                     <span class="date-time"><%= relative_time(rating.created_at) %></span>
                 </span>
             </div>

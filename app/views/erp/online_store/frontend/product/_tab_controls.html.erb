@@ -1,109 +1,20 @@
 <ul class="nav nav-tabs">
     <li class="active"><a data-toggle="tab" href="#tab-description">Mô tả sản phẩm</a></li>
-    <li class="item_nonactive"><a data-toggle="tab" href="#tab-review">Đánh giá (<%= @ratings.count %>)</a></li>
-    <li class="item_nonactive"><a data-toggle="tab" href="#tab-comment">Bình luận (<%= @comments.count %>)</a></li>
+    <li class="item_nonactive"><a data-toggle="tab" href="#tab-review">Đánh giá (<%= @product.ratings.count %>)</a></li>
+    <li class="item_nonactive"><a data-toggle="tab" href="#tab-comment">Bình luận (<%= @product.comments.count %>)</a></li>
 </ul>
 <div class="tab-content col-xs-12">
     <div id="tab-description" class="tab-pane fade active in">
         <%= product.description.html_safe if product.description.present? %>
     </div>
-    <div id="tab-review" class="tab-pane fade">
-        <h2 id="review-title">Mời bạn chọn đánh giá sản phẩm</h2>
-        <%= form_for Erp::Products::Rating.new, url: "" do |f| %>
-            <input type="hidden" name="rating[product_id]" value="<%= product.id %>" />
-            <div class="ratingStar">
-                <span class="lStar">Chọn đánh giá của bạn:</span>
-                <span class="lStar">
-                    <fieldset class="starability-grow">
-                        <input type="radio" id="growing-rate5" name="rating[star]" value="5" />
-                        <label for="growing-rate5" title="Tuyệt vời"></label>
-                        
-                        <input type="radio" id="growing-rate4" name="rating[star]" value="4" />
-                        <label for="growing-rate4" title="Tốt"></label>
-                        
-                        <input type="radio" id="growing-rate3" name="rating[star]" value="3" />
-                        <label for="growing-rate3" title="Bình thường"></label>
-                        
-                        <input type="radio" id="growing-rate2" name="rating[star]" value="2" />
-                        <label for="growing-rate2" title="Không tốt"></label>
-                        
-                        <input type="radio" id="growing-rate1" name="rating[star]" value="1" />
-                        <label for="growing-rate1" title="Rất không tốt"></label>
-                    </fieldset>
-                </span>
-            </div>
-            
-            <div class="row ratingComment">
-                <div class="col-md-4">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <input type="text" name="rating[name]" class="form-control" placeholder="Nhập họ tên (Bắt buộc)">
-                            </div>
-                        </div>
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <input type="text" name="rating[email]" class="form-control" placeholder="Nhập địa chỉ email">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-md-8">
-                    <div class="form-group">
-                        <textarea class="form-control" name="rating[content]" placeholder="Mời bạn để lại nhận xét về sản phẩm tại đây..."></textarea>
-                    </div>  
-                </div>
-                <div class="col-md-12">
-                    <div class="buttons clearfix">
-                        <button class="btn buttonGray" id="button-rating" type="submit">
-                            <span>Gửi đánh giá</span>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        <% end %>
+    <div id="tab-review" class="tab-pane fade comment_box" data-url="<%= erp_online_store.product_ratings_path(product_id: @product.id) %>">        
         
-        <%= render 'erp/online_store/frontend/product/ratings', ratings: @ratings %>
+        <div class="comments-list">
+        </div>
         
     </div>
-    <div id="tab-comment" class="tab-pane fade">
-        <div class="form-group">
-            <%= form_for Erp::Products::Comment.new, url: "", html: {class: "comment_form"} do |f| %>
-                <div id="comments" class="blog-comment-info">
-                    <h3 id="review-title">Mời bạn để lại bình luận </h3>
-                    <input type="hidden" name="comment[product_id]" value="<%= product.id %>" />
-                    <input type="hidden" name="comment[parent_id]" value="" />
-                    <div class="comment-left contacts-form row">
-                        <div class="col-md-6">
-                            <b>Họ tên (bắt buộc):</b>
-                            <br>
-                            <input type="text" name="comment[name]" value class="form-control required" placeholder="Nhập họ tên của bạn">
-                            <br>
-                        </div>
-                        <div class="col-md-6">
-                            <b>Địa chỉ email:</b>
-                            <br />
-                            <input type="text" name="comment[email]" value class="form-control required email" placeholder="Nhập đúng định dạng email (Ví dụ: tenban@gmail.com)">
-                            <br />
-                        </div>
-                        <div class="col-md-12">
-                            <b>Lời nhận xét:</b>
-                            <br />
-                            <textarea name="comment[message]" class="form-control required" placeholder="Nội dung bình luận, xin vui lòng nhập tiếng Việt có dấu."></textarea>
-                        </div>
-                    </div>
-                    <br>
-                    <div class="text-left">
-                        <button class="btn buttonGray" id="button-comment" type="submit">
-                            <span>Gửi bình luận</span>
-                        </button>
-                    </div>
-                </div>
-            <% end %>
-        </div>
-        <div class="comments-list">
-            <%= render 'erp/online_store/frontend/product/comments', comments: @comments %>
+    <div id="tab-comment" class="tab-pane fade comment_box" data-url="<%= erp_online_store.product_comments_path(product_id: @product.id) %>">        
+        <div class="comments-list">            
         </div>
     </div>
 </div>

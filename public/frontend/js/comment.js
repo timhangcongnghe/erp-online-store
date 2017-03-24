@@ -1,17 +1,54 @@
+function loadCommentList(box, custom_url) {
+    var url = box.attr('data-url');
+    
+    if (typeof(custom_url) != 'undefined') {
+        url = custom_url;
+    }
+    
+    $.ajax({
+        url: url,
+        method: 'GET'
+    }).done(function( data ) {
+        box.html(data);
+        
+        box.find('.ajax-link').fancybox({closeClickOutside : true}); // on
+    });
+}
+
 $(document).ready(function() {
-    $(document).on('submit', '.comment_form', function(e) {
+    $('.comment_box').each(function () { loadCommentList($(this)) });
+    
+    $(document).on('submit', '.comment_box form', function(e) {
         e.preventDefault();
         
         var form = $(this);
         var url = form.attr('action');
+        var box = form.parents('.comment_box');
+        
+        // Check if not rate
+        if (box.find('input[name="rating[star]"]').length && !box.find('input[name="rating[star]"]:checked').length) {
+            // alert('<%= value %>');
+            var tpl = '<h3>Vui lòng đánh giá sao trước khi gửi</h3>';
+            $.jGrowl(tpl, {
+                life: 4000,
+                header: 'Bạn chưa đánh giá sao',
+                speed: 'slow',
+                theme: 'error'
+            });
+            
+            box.find('.ratingStar').addClass('error');
+            
+            return;
+        }
         
         if (form.valid()) {
             $.ajax({
                 url: url,
                 method: 'POST',
                 data: form.serialize()
-            }).done(function( data ) {
-                $('.comments-list').html(data);
+            }).done(function() {
+                loadCommentList(box);
+                
                 // alert('<%= value %>');
                 var tpl = '<h3>Bạn đã đăng bình luận thành công</h3>';
                 $.jGrowl(tpl, {
@@ -35,5 +72,14 @@ $(document).ready(function() {
         } else {
             $(this).html('<i class="fa fa-reply"></i> Trả lời');
         }
+    });
+    
+    $(document).on('click', '.comment_box .pagination a', function(e) {
+        e.preventDefault();
+        
+        var box = $(this).parents('.comment_box');
+        var url = $(this).attr('href');
+        
+        loadCommentList(box, url);
     });
 });

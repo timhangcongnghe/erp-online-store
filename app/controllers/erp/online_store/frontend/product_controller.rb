@@ -10,26 +10,41 @@ module Erp
           @product = Erp::Products::Product.find(params[:product_id])
           @meta_keywords = @product.meta_keywords
           @meta_description = @product.meta_description
-          @comments = Erp::Products::Comment.where(product_id: params[:product_id]).order('created_at DESC')
-                                            .where(parent_id: nil)
-                                            .where(archived: false)
-                                            .paginate(:page => params[:page], :per_page => 5)
-          @ratings = Erp::Products::Rating.where(product_id: params[:product_id]).order('created_at DESC')
-                                          .where(archived: false)
-                                          .paginate(:page => params[:page], :per_page => 5)
+        end
+        
+        def comments
+          @product = Erp::Products::Product.find(params[:product_id])
+          
           # product comment
           if params[:comment].present?
             @comment = Erp::Products::Comment.new(comment_params)
-            @comment.save
-            render 'erp/online_store/frontend/product/_comments', locals: {comments: @comments}, layout: nil
+            @comment.user = current_user
+            @comment.save            
           end
+          
+          @comments = @product.comments.order('created_at DESC')
+            .where(parent_id: nil)
+            .where(archived: false)
+            .paginate(:page => params[:page], :per_page => 5)
+          
+          render 'erp/online_store/frontend/product/_comments', locals: {comments: @comments}, layout: nil
+        end
+        
+        def ratings
+          @product = Erp::Products::Product.find(params[:product_id])
           
           #product rating
           if params[:rating].present?
             @rating = Erp::Products::Rating.new(rating_params)
-            @rating.save
-            #render 'erp/online_store/frontend/product/_ratings', locals: {ratings: @ratings}, layout: nil
+            @rating.user = current_user
+            @rating.save            
           end
+          
+          @ratings = @product.ratings.order('created_at DESC')
+            .where(archived: false)
+            .paginate(:page => params[:page], :per_page => 5)
+          
+          render 'erp/online_store/frontend/product/_ratings', locals: {ratings: @ratings}, layout: nil
         end
         
         def product_quickview
@@ -50,11 +65,11 @@ module Erp
         
         private
           def comment_params
-            params.fetch(:comment, {}).permit(:name, :email, :message, :product_id, :parent_id)
+            params.fetch(:comment, {}).permit(:message, :product_id, :parent_id)
           end
           
           def rating_params
-            params.fetch(:rating, {}).permit(:name, :email, :content, :product_id, :star)
+            params.fetch(:rating, {}).permit(:content, :product_id, :star)
           end
       end
     end

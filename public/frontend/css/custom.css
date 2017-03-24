@@ -382,7 +382,6 @@ label {
 form label.error {
   font-weight: normal;
   color: #DA2723;
-  min-height: 45px !important;
 }
 .cart a.add-to-cart {
   color: #fff;
@@ -419,4 +418,10 @@ a.hover-product-name:hover {
 }
 .type_1 .header-top-right ul.top-link > li.compare a:before {
   content: "\f0ec";
+}
+.text-teal {
+  color: #009688;
+}
+.ratingStar.error {
+  color: #DA2723;
 }
