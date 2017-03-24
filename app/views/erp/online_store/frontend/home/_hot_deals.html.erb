@@ -1,12 +1,12 @@
-<% (0..8).each do |hot_deal| %>
+<% Erp::Products::Product.where(is_deal: true).each do |hot_deal| %>
 <div class="product-thumb transition product-item-container">
     <div class="left-block">
         <div class="product-image-container">
             <div class="image">
                 <span class="label label-sale">Giảm giá</span>
                 <a class="lt-image" href="<%= erp_online_store.product_detail_path %>" target="_self">
-                    <%= image_tag "/frontend/image/shop/product/170/e13.jpg", alt: "Apple Cinema 30", title: "Apple Cinema 30", class: "img-1 img-responsive" %>
-                    <%= image_tag "/frontend/image/shop/product/170/e14.jpg", alt: "Apple Cinema 30", title: "Apple Cinema 30", class: "img-2 img-responsive" %>
+                    <%= image_tag "/frontend/image/shop/product/170/e13.jpg", alt: hot_deal.name, title: hot_deal.name, class: "img-1 img-responsive" %>
+                    <%= image_tag "/frontend/image/shop/product/170/e14.jpg", alt: hot_deal.name, title: hot_deal.name, class: "img-2 img-responsive" %>
                 </a>
                 <div class="item-time">
                     <div class="item-timer">
@@ -18,16 +18,23 @@
     </div>
     <div class="right-block">
         <div class="caption">
-            <div class="rating">
-                <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i></span>
-                <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i></span>
-                <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i></span>
-                <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i></span>
-                <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
-            </div>
-            <h4><%= link_to "Caras tima chuk..", erp_online_store.product_detail_path, title: "Caras tima chuk.." %></h4>
+            <% if hot_deal.count_stars.length > 0 %>
+                <div class="rating">
+                    <% (1..hot_deal.average_stars).each do |star| %>
+                        <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i></span>
+                    <% end %>
+                    <% (1..(5-hot_deal.average_stars)).each do |star| %>
+                        <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
+                    <% end %>
+                </div>
+            <% else %>
+                <% (1..5).each do |star| %>
+                    <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
+                <% end %>
+            <% end %>
+            <h4><%= link_to hot_deal.name, erp_online_store.product_detail_path, title: hot_deal.name %></h4>
             <p class="price">
-                <span class="price-new">$82.40</span> <span class="price-old">$122.00</span>
+                <span class="price-new"><%= hot_deal.product_price %></span> <span class="price-old"><%= hot_deal.price %></span>
             </p>
         </div>
     </div>
