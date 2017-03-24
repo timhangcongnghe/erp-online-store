@@ -417,3 +417,6 @@ a.hover-product-name:hover {
 .filters-panel .box-pagination ul {
   height: 33px;
 }
+.type_1 .header-top-right ul.top-link > li.compare a:before {
+  content: "\f0ec";
+}

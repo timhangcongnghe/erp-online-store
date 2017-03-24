@@ -97,7 +97,7 @@
                                                 <a class="icon" data-toggle="tooltip" title="Yêu thích sản phẩm" data-original-title="Yêu thích sản phẩm"><i class="fa fa-heart"></i></a>
                                             </li>
                                             <li class="compare">
-                                                <a class="icon" data-toggle="tooltip" title="So sánh sản phẩm" data-original-title="So sánh sản phẩm"><i class="fa fa-exchange"></i></a>
+                                                <a href="<%= erp_carts.add_to_compare_frontend_compare_items_path(product_id: @product.id, menu_id: @menu.id) %>" class="icon" data-toggle="tooltip" title="So sánh sản phẩm" data-original-title="So sánh sản phẩm"><i class="fa fa-exchange"></i></a>
                                             </li>
                                         </ul>
                                     </div>

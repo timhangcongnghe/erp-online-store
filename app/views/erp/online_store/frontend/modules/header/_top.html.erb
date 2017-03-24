@@ -39,7 +39,11 @@
                                     </li>
                                 </ul>
                             </li>
-                            <li class="compare"><%= link_to '<span>So sánh (2)</span>'.html_safe, erp_online_store.compare_path, class: "top-link-wishlist" %></li>
+                            <% if @compare.get_number_items > 0 %>
+                            <li class="compare">
+                                <a href="<%= erp_online_store.compare_path %>" class="top-link-compare" title="So sánh sản phẩm"><span>So sánh (<%= @compare.get_number_items %>)</span></a>
+                            </li>
+                            <% end %>
                             <li class="form-group languages-block ">
                                 <form id="bt-language">
                                     <a class="btn btn-xs dropdown-toggle" data-toggle="dropdown">
@@ -71,7 +75,11 @@
                                     </li>
                                 </ul>
                             </li>
-                            <li class="compare"><%= link_to '<span>So sánh (2)</span>'.html_safe, erp_online_store.compare_path, class: "top-link-wishlist" %></li>
+                            <% if @compare.get_number_items > 0 %>
+                            <li class="compare">
+                                <a href="<%= erp_online_store.compare_path %>" class="top-link-compare" title="So sánh sản phẩm"><span>So sánh (<%= @compare.get_number_items %>)</span></a>
+                            </li>
+                            <% end %>
                             <li class="form-group languages-block ">
                                 <form id="bt-language">
                                     <a class="btn btn-xs dropdown-toggle" data-toggle="dropdown">
