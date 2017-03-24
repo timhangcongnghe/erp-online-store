@@ -1,4 +1,4 @@
-<% (0..5).each_with_index do |best_seller,index| %>
+<% Erp::Products::Product.where(is_bestseller: true).each_with_index do |best_seller,index| %>
 <div class="item-wrap style1">
     <div class="item-wrap-inner media">
         <div class="media-left">
@@ -13,21 +13,28 @@
         </div>
         <div class="media-body">
             <div class="item-info">
-                <div class="rating">
-                    <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i></span>
-                    <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i></span>
-                    <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i></span>
-                    <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i></span>
-                    <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
-                </div>
+                <% if best_seller.count_stars.length > 0 %>
+                    <div class="rating">
+                        <% (1..best_seller.average_stars).each do |star| %>
+                            <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i></span>
+                        <% end %>
+                        <% (1..(5-best_seller.average_stars)).each do |star| %>
+                            <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
+                        <% end %>
+                    </div>
+                <% else %>
+                    <% (1..5).each do |star| %>
+                        <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
+                    <% end %>
+                <% end %>
                 <div class="item-title">
-                    <%= link_to "Caras cursus nulla", erp_online_store.product_detail_path, title: "Bikum masen dumas" %>
+                    <%= link_to best_seller.name, erp_online_store.product_detail_path, title: best_seller.name %>
                 </div>
                 <!-- Begin item-content -->
                 <div class="item-content">
                     <div class="content_price">
                         <span class="price product-price">
-                            $122.00
+                            <%= best_seller.price %>
                         </span>
                     </div>
                 </div>
