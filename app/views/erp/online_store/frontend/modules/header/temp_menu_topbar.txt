@@ -1,0 +1,46 @@
+<div class="megamenu-pattern">
+    <div class="container">
+        <ul class="megamenu " data-transition="slide" data-animationtime="250">
+            <li class="">
+                <p class="close-menu"></p>
+                <a href="<%= erp_online_store.root_path %>" class="clearfix">
+                    <strong>Trang Chủ</strong>
+                    <span class="label"></span>
+                </a>
+            </li>
+            <% Erp::Menus::Menu.get_menu_topbar.each do |menu_topbar| %>
+            <li class="with-sub-menu hover">
+                <p class="close-menu"></p>
+                <a href="javascript:void(0)" class="clearfix">
+                    <strong><%= menu_topbar.name %></strong>
+                    <% if menu_topbar.children.count > 0 %>
+                    <b class="caret"></b>
+                    <% end %>
+                </a>
+                <% if menu_topbar.children.count > 0 %>
+                <div class="sub-menu" style="width: 100%; right: auto;">
+                    <div class="content">
+                        <div class="row">
+                            <% menu_topbar.children.each do |child_1| %>
+                            <div class="col-md-3">
+                                <div class="column">
+                                    <%= link_to child_1.name, erp_online_store.category_path(menu_id: child_1.id), class: "title-submenu" %>                                                                
+                                    <div>
+                                        <ul class="row-list">
+                                            <% child_1.children.each do |child_2| %>                                                                        
+                                            <li><%= link_to child_2.name, erp_online_store.category_path(menu_id: child_2.id) %></li>
+                                            <% end %>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <% end %>
+                        </div>
+                    </div>
+                </div>
+                <% end %>
+            </li>
+            <% end %>
+        </ul>
+    </div>
+</div>

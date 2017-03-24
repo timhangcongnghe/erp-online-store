@@ -3,7 +3,7 @@
         <div class="row">
             <!-- LOGO -->
             <div class="navbar-logo col-md-2 col-sm-4 col-xs-10 logo">
-                <%= link_to image_tag("/frontend/image/logos/logo-cyan.png", title: "Your Store", alt: "Your Store"), erp_online_store.root_path %>
+                <%= link_to image_tag("/frontend/image/logos/logo-cyan.png", title: "TIMHANGCONGNGHE.VN - Trang thương mại điện tử sản phẩm công nghệ chất lượng, uy tín.", alt: "Your Store"), erp_online_store.root_path %>
             </div>
             <div class="header-center-right col-md-10 col-sm-8 col-xs-2">
                 <div class="responsive so-megamenu megamenu-style-dev">
@@ -27,40 +27,53 @@
                                                     <strong>Trang Chủ</strong>
                                                     <span class="label"></span>
                                                 </a>
-                                            </li>
-                                            <% Erp::Menus::Menu.get_menu_topbar.each do |menu_topbar| %>
-                                            <li class="with-sub-menu hover">
+                                            </li>                                            
+                                            <li class="">
                                                 <p class="close-menu"></p>
-                                                <a href="javascript:void(0)" class="clearfix">
-                                                    <strong><%= menu_topbar.name %></strong>
-                                                    <% if menu_topbar.children.count > 0 %>
-                                                    <b class="caret"></b>
-                                                    <% end %>
+                                                <a href="<%= erp_online_store.root_path %>" class="clearfix">
+                                                    <strong>Khuyến Mãi</strong>
+                                                    <span class="label"></span>
                                                 </a>
-                                                <% if menu_topbar.children.count > 0 %>
-                                                <div class="sub-menu" style="width: 100%; right: auto;">
-                                                    <div class="content">
+                                            </li>                                            
+                                            <li class="hover">
+                                                <%= link_to 'Thương Hiệu Máy Tính <b class="caret"></b>'.html_safe, "javascript:void(0)" %>                                                
+                                                <div class="sub-menu" style="width: 100%; display: none; right: auto;">
+                                                    <div class="content" style="display: none; height: 512px;">
                                                         <div class="row">
-                                                            <% menu_topbar.children.each do |child_1| %>
+                                                            <% (0..11).each do |brand| %>
                                                             <div class="col-md-3">
-                                                                <div class="column">
-                                                                    <%= link_to child_1.name, erp_online_store.category_path(menu_id: child_1.id), class: "title-submenu" %>                                                                
-                                                                    <div>
-                                                                        <ul class="row-list">
-                                                                            <% child_1.children.each do |child_2| %>                                                                        
-                                                                            <li><%= link_to child_2.name, erp_online_store.category_path(menu_id: child_2.id) %></li>
-                                                                            <% end %>
-                                                                        </ul>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
+																<a href="index.html" class="image-link"> 
+																	<span class="thumbnail">
+																		<img class="img-responsive img-border" src="/frontend/image/menu/temp-hp.jpg" alt="">
+																	</span> 
+																	<h3 class="figcaption">HP</h3> 
+																</a>																
+															</div>
                                                             <% end %>
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <% end %>
+                                                </div>                                                
+                                            </li>                                            
+                                            <li class="">
+                                                <p class="close-menu"></p>
+                                                <a href="<%= erp_online_store.blog_path %>" class="clearfix">
+                                                    <strong>Tin Tức & Sự Kiện</strong>
+                                                    <span class="label"></span>
+                                                </a>
                                             </li>
-                                            <% end %>
+                                            <li class="">
+                                                <p class="close-menu"></p>
+                                                <a href="<%= erp_online_store.contact_us_path %>" class="clearfix">
+                                                    <strong>Liên Hệ & Góp Ý</strong>
+                                                    <span class="label"></span>
+                                                </a>
+                                            </li>
+                                            <li class="hidden-md color-buy">
+                                                <p class="close-menu"></p>
+                                                <a href="" class="clearfix" style="color: red">
+                                                    <strong><img src="/frontend/image/menu/hot-icon.png" alt="">Ưu Đãi Doanh Nghiệp</strong>
+                                                </a>
+                                            </li>
                                         </ul>
                                     </div>
                                 </div>

@@ -456,3 +456,14 @@ a.hover-product-name:hover {
 .ratingStar.error {
   color: #DA2723;
 }
+.back-to-top {
+  background-color: #009688;
+  padding: 7px 0;
+}
+.back-to-top i {
+  line-height: 22px;
+  margin-bottom: 2px;
+}
+.back-to-top:hover {
+  opacity: .8;
+}
