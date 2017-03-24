@@ -94,7 +94,7 @@
                                     <div class="add-to-links wish_comp">
                                         <ul class="blank list-inline">
                                             <li class="wishlist">
-                                                <a class="icon" data-toggle="tooltip" title="Yêu thích sản phẩm" data-original-title="Yêu thích sản phẩm"><i class="fa fa-heart"></i></a>
+                                                <a href="<%= erp_carts.add_to_wish_list_frontend_wish_lists_path(product_id: @product.id) %>" class="icon" data-toggle="tooltip" title="Yêu thích sản phẩm" data-original-title="Yêu thích sản phẩm"><i class="fa fa-heart"></i></a>                                                
                                             </li>
                                             <li class="compare">
                                                 <a href="<%= erp_carts.add_to_compare_frontend_compare_items_path(product_id: @product.id) %>" class="icon" data-toggle="tooltip" title="So sánh sản phẩm" data-original-title="So sánh sản phẩm"><i class="fa fa-exchange"></i></a>
