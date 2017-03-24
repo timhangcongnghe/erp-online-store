@@ -9,23 +9,18 @@
             <h2 class="title">Danh sách sản phẩm</h2>
             <div class="table-responsive">
                 <table class="table table-bordered table-hover">
-                    <thead>
-                        <tr>
-                            <td colspan="4"><strong>Thông tin chi tiết</strong></td>
-                        </tr>
-                    </thead>
                     <tbody>
                         <tr>
                             <td>Tên sản phẩm</td>
                             <% @compare.compare_items.get_all_items.each do |compare_item| %>
-                            <td><strong><%= link_to compare_item.product.name, erp_online_store.product_detail_path(product_id: compare_item.product.id, menu_id: compare_item.menu_id) %></strong></td>
+                            <td><strong><%= link_to compare_item.product.name, erp_online_store.product_detail_path(product_id: compare_item.product.id) %></strong></td>
                             <% end %>
                         </tr>
                         <tr>
                             <td>Hình ảnh</td>
                             <% @compare.compare_items.get_all_items.each do |compare_item| %>
                             <td class="text-center">
-                                <%= link_to image_tag("/frontend/image/shop/product/e4.jpg", alt: compare_item.product.name, title: compare_item.product.name, width: "100", class: "img-thumbnail"), erp_online_store.product_detail_path(product_id: compare_item.product.id, menu_id: compare_item.menu_id) %>
+                                <%= link_to image_tag("/frontend/image/shop/product/e4.jpg", alt: compare_item.product.name, title: compare_item.product.name, width: "100", class: "img-thumbnail"), erp_online_store.product_detail_path(product_id: compare_item.product.id) %>
                             </td>
                             <% end %>
                         </tr>

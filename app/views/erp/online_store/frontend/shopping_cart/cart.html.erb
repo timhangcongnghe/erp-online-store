@@ -23,10 +23,10 @@
                         <% @cart.cart_items.each do |cart_item| %>
                         <tr>
                             <td class="text-center">
-                                <%= link_to image_tag("/frontend/image/shop/product/e3.jpg", alt: cart_item.product.name, title: cart_item.product.name, class: "img-thumbnail", width: "70"), erp_online_store.product_detail_path %>
+                                <%= link_to image_tag("/frontend/image/shop/product/e3.jpg", alt: cart_item.product.name, title: cart_item.product.name, class: "img-thumbnail", width: "70"), erp_online_store.product_detail_path(product_id: cart_item.product.id) %>
                             </td>
                             <td class="text-left">
-                                <%= link_to cart_item.product.name, erp_online_store.product_detail_path(product_id: cart_item.product.id, menu_id: cart_item.menu_id), title: cart_item.product.name %><br />
+                                <%= link_to cart_item.product.name, erp_online_store.product_detail_path(product_id: cart_item.product.id), title: cart_item.product.name %><br />
                                 <small>Mô tả sản phẩm</small>
                             </td>                            
                             <td class="text-left" width="200px">
