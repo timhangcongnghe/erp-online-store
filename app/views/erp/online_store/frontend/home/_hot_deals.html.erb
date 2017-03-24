@@ -4,7 +4,7 @@
         <div class="product-image-container">
             <div class="image">
                 <span class="label label-sale">Giảm giá</span>
-                <a class="lt-image" href="<%= erp_online_store.product_detail_path %>" target="_self">
+                <a class="lt-image" href="<%= erp_online_store.product_detail_path(product_id: hot_deal.id) %>" target="_self">
                     <%= image_tag "/frontend/image/shop/product/170/e13.jpg", alt: hot_deal.name, title: hot_deal.name, class: "img-1 img-responsive" %>
                     <%= image_tag "/frontend/image/shop/product/170/e14.jpg", alt: hot_deal.name, title: hot_deal.name, class: "img-2 img-responsive" %>
                 </a>
@@ -32,7 +32,7 @@
                     <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
                 <% end %>
             <% end %>
-            <h4><%= link_to hot_deal.name, erp_online_store.product_detail_path, title: hot_deal.name %></h4>
+            <h4><%= link_to hot_deal.name, erp_online_store.product_detail_path(product_id: hot_deal.id), title: hot_deal.name %></h4>
             <p class="price">
                 <span class="price-new"><%= hot_deal.product_price %></span> <span class="price-old"><%= hot_deal.price %></span>
             </p>

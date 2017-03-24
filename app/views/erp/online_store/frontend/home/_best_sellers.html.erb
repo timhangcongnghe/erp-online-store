@@ -4,7 +4,7 @@
         <div class="media-left">
             <div class="item-image">
                 <div class="item-img-info">
-                    <a href="<%= erp_online_store.product_detail_path %>" class="lt-image" target="_self" title="Bikum masen dumas">
+                    <a href="<%= erp_online_store.product_detail_path(product_id: best_seller.id) %>" class="lt-image" target="_self" title="Bikum masen dumas">
                         <%= image_tag "/frontend/image/shop/product/75/1.jpg", alt: "Apple Cinema 30", title: "Apple Cinema 30", class: "img-1 img-responsive" %>
                         <%= image_tag "/frontend/image/shop/product/75/3.jpg", alt: "Apple Cinema 30", title: "Apple Cinema 30", class: "img-2 img-responsive" %>
                     </a>
@@ -28,7 +28,7 @@
                     <% end %>
                 <% end %>
                 <div class="item-title">
-                    <%= link_to best_seller.name, erp_online_store.product_detail_path, title: best_seller.name %>
+                    <%= link_to best_seller.name, erp_online_store.product_detail_path(product_id: best_seller.id), title: best_seller.name %>
                 </div>
                 <!-- Begin item-content -->
                 <div class="item-content">
