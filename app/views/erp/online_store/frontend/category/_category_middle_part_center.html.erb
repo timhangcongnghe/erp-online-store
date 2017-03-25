@@ -1,12 +1,7 @@
 <div class="products-list row list">
     <% products.each do |product| %>
     <div class="product-layout  col-md-3 col-sm-6 col-xs-12">
-        <div class="product-item-container">
-            <div class="button-group">
-                <a class="quickview iframe-link visible-lg btn-button" data-toggle="tooltip" title="" data-fancybox-type="iframe" href="quickview.html" data-original-title="Quickview">
-                    <i class="fa fa-search"></i> Xem nhanh
-                </a>
-            </div>
+        <div class="product-item-container product-lists">
             <div class="left-block">
                 <div class="product-image-container lazy second_img ">
                     <%= image_tag "/frontend/image/shop/product/e11.jpg", data: {src: "/frontend/image/shop/product/e11.jpg"}, alt: product.name, class: "img-1 img-responsive" %>
@@ -15,15 +10,15 @@
                 <!--Sale Label-->
                 <span class="label label-sale">Giảm giá</span>
                 <!--full quick view block-->
-                <!--<div class="countdown_box">
+                <div class="countdown_box">
                     <div class="countdown_inner">
                         <div class="defaultCountdown-30"></div>
                     </div>
-                </div>-->
+                </div>
             </div>
             <div class="right-block">
                 <div class="caption">
-                    <h4 class="text-center"><%= link_to product.name, erp_online_store.product_detail_path(product_id: product.id), title: product.name, class: "hover-product-name" %></h4>
+                    <h4><%= link_to product.name, erp_online_store.product_detail_path(product_id: product.id), title: product.name, class: "hover-product-name" %></h4>
                     <div class="ratings">
                         <div class="rating-box">
                             <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
@@ -35,10 +30,11 @@
                     </div>
                     <div class="price">
                         <span class="price-new"><%= format_number(product.product_price) %> VNĐ</span>
-                        <% if product.is_deal %>                        
+                        <!--<% if product.is_deal %>                        
                         <br><span class="price-old"><%= format_number(product.price) %> VNĐ</span>
                         <span class="label label-percent"><%= product.deal_percent %>%</span>
-                        <% end %>
+                        <% end %>-->                      
+                        <br><span class="price-old">150,000 VNĐ</span> <span class="label label-percent">-15%</span>
                     </div>
                     <div class="description item-desc hidden">
                         <p><%= product.short_description.html_safe if product.short_description %></p>

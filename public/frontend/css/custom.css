@@ -465,7 +465,8 @@ a.hover-product-name:hover {
     padding: 3px 5px;
     top: 155px;
     right: -5px;
-}.back-to-top {
+}
+.back-to-top {
   background-color: #009688;
   padding: 7px 0;
 }
@@ -476,3 +477,22 @@ a.hover-product-name:hover {
 .back-to-top:hover {
   opacity: .8;
 }
+/* custom category - product lists*/
+.products-list.list-masonry .product-layout .product-item-container .right-block .caption h4 a, .products-list.grid .product-layout .product-item-container .right-block .caption h4 a {
+  font-size: 13px;
+}
+.products-list {
+  padding-left: 0px;  
+}
+.products-list .product-layout {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+.products-list.list-masonry .product-layout .product-item-container, .products-list.grid .product-layout .product-item-container {
+  border: 0px;
+  margin: 0px;
+}
+.filters-panel {
+  border: 0px;
+}
+/* end custom category - product lists*/
