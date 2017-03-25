@@ -2,6 +2,11 @@
     <% products.each do |product| %>
     <div class="product-layout  col-md-3 col-sm-6 col-xs-12">
         <div class="product-item-container">
+            <div class="button-group">
+                <a class="quickview iframe-link visible-lg btn-button" data-toggle="tooltip" title="" data-fancybox-type="iframe" href="quickview.html" data-original-title="Quickview">
+                    <i class="fa fa-search"></i> Xem nhanh
+                </a>
+            </div>
             <div class="left-block">
                 <div class="product-image-container lazy second_img ">
                     <%= image_tag "/frontend/image/shop/product/e11.jpg", data: {src: "/frontend/image/shop/product/e11.jpg"}, alt: product.name, class: "img-1 img-responsive" %>

@@ -456,7 +456,16 @@ a.hover-product-name:hover {
 .ratingStar.error {
   color: #DA2723;
 }
-.back-to-top {
+.products-list.list-masonry .product-layout .product-item-container .quickview, .products-list.grid .product-layout .product-item-container .quickview {
+    text-indent: 0;
+    background: rgba(0,0,0,0.3);
+    height: auto;
+    color: #fff;
+    width: auto;
+    padding: 3px 5px;
+    top: 155px;
+    right: -5px;
+}.back-to-top {
   background-color: #009688;
   padding: 7px 0;
 }
