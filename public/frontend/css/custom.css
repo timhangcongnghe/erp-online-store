@@ -322,9 +322,9 @@ input.error, textarea.error  {
 .ratingComment {
   clear: both;
 }
-.ratingComment textarea {
+/*.ratingComment textarea {
   height: 83px;
-}
+}*/
 .ratingComment .btn.buttonGray {
   width: 100%;
 }

@@ -3,7 +3,7 @@
     <%= form_for Erp::Products::Rating.new, url: erp_online_store.product_ratings_path(product_id: @product.id), html: { class: 'comment_form' } do |f| %>
         <input type="hidden" name="rating[product_id]" value="<%= @product.id %>" />
         <div class="ratingStar">
-            <span class="lStar">Chọn đánh giá của bạn:</span>
+            <span class="lStar"><b>Chọn đánh giá của bạn:</b></span>
             <span class="lStar">
                 <fieldset class="starability-grow">
                     <input type="radio" id="growing-rate5" name="rating[star]" value="5" />
