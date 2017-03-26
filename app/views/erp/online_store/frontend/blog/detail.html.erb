@@ -81,46 +81,8 @@
                         </ul>
                     </div>
                 </div>
-                <div class="panel panel-default related-comment">
-                    <div class="panel-body">
-                        <div class="form-group">
-                            <%= form_for Erp::Articles::Comment.new, url: "", html: {class: "comment_form"} do |f| %>
-                                <div id="comments" class="blog-comment-info">
-                                    <h3 id="review-title">Mời bạn để lại bình luận </h3>
-                                    <input type="hidden" name="comment[article_id]" value="<%= @blog.id %>" />
-                                    <input type="hidden" name="comment[parent_id]" value="" />
-                                    <div class="comment-left contacts-form row">
-                                        <div class="col-md-6">
-                                            <b>Họ tên (bắt buộc):</b>
-                                            <br>
-                                            <input type="text" name="comment[name]" value class="form-control" placeholder="Nhập họ tên của bạn">
-                                            <br>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <b>Địa chỉ email:</b>
-                                            <br />
-                                            <input type="email" name="comment[email]" value class="form-control" placeholder="Nhập nếu muốn nhận phản hồi qua email">
-                                            <br />
-                                        </div>
-                                        <div class="col-md-12">
-                                            <b>Lời bình luận:</b>
-                                            <br />
-                                            <textarea name="comment[message]" class="form-control" placeholder="Nội dung đánh giá, thảo luận. Xin vui lòng nhập tiếng Việt có dấu."></textarea>
-                                        </div>
-                                    </div>
-                                    <br>
-                                    <div class="text-left">
-                                        <button class="btn buttonGray" id="button-comment" type="submit">
-                                            <span>Gửi bình luận</span>
-                                        </button>
-                                    </div>
-                                </div>
-                            <% end %>
-                        </div>
-                    </div>
-                </div>
-                <div class="panel panel-default related-comment comments-list">
-                    <%= render 'erp/online_store/frontend/blog/comments', comments: @comments %>                    
+                <div class="panel panel-default related-comment comments-list comment_box"
+                     data-url="<%= erp_online_store.blog_comments_path(article_id: @blog.id) %>">
                 </div>                
             </div>
         </div>
