@@ -7,14 +7,10 @@
     <div id="tab-description" class="tab-pane fade active in">
         <%= product.description.html_safe if product.description.present? %>
     </div>
-    <div id="tab-review" class="tab-pane fade comment_box" data-url="<%= erp_online_store.product_ratings_path(product_id: @product.id) %>">        
-        
-        <div class="comments-list">
-        </div>
-        
+    <div id="tab-review" class="tab-pane fade comment_box"
+         data-url="<%= erp_online_store.product_ratings_path(product_id: @product.id) %>">
     </div>
-    <div id="tab-comment" class="tab-pane fade comment_box" data-url="<%= erp_online_store.product_comments_path(product_id: @product.id) %>">        
-        <div class="comments-list">            
-        </div>
+    <div id="tab-comment" class="tab-pane fade comment_box"
+         data-url="<%= erp_online_store.product_comments_path(product_id: @product.id) %>">
     </div>
 </div>
