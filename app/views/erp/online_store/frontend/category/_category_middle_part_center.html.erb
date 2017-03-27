@@ -7,9 +7,9 @@
                     <%= image_tag "/frontend/image/shop/product/e11.jpg", data: {src: "/frontend/image/shop/product/e11.jpg"}, alt: product.name, class: "img-1 img-responsive" %>
                     <%= image_tag "/frontend/image/shop/product/e12.jpg", data: {src: "/frontend/image/shop/product/e12.jpg"}, alt: product.name, class: "img-2 img-responsive" %>
                 </div>
-                <!--Sale Label-->
-                <span class="label label-sale">Giảm giá</span>
-                <!--full quick view block-->
+                <% if product.is_deal? %>
+                <span class="label label-sale">Đang giảm giá</span>
+                <% end %>
                 <div class="countdown_box">
                     <div class="countdown_inner">
                         <div class="defaultCountdown-30"></div>
@@ -30,11 +30,10 @@
                     </div>
                     <div class="price">
                         <span class="price-new"><%= format_number(product.product_price) %> VNĐ</span>
-                        <!--<% if product.is_deal %>                        
+                        <% if product.is_deal? %>                        
                         <br><span class="price-old"><%= format_number(product.price) %> VNĐ</span>
-                        <span class="label label-percent"><%= product.deal_percent %>%</span>
-                        <% end %>-->                      
-                        <br><span class="price-old">150,000 VNĐ</span> <span class="label label-percent">-15%</span>
+                        <span class="label label-percent">-<%= product.deal_percent %>%</span>
+                        <% end %>                                             
                     </div>
                     <div class="description item-desc hidden">
                         <p><%= product.short_description.html_safe if product.short_description %></p>

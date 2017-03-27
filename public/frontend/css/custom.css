@@ -499,3 +499,24 @@ a.hover-product-name:hover {
 ul.megamenu li .sub-menu .content .hover-menu .menu ul ul {
   width: 250px;
 }
+.label-percent {
+  background: #ff9601;
+  font-weight: 600;
+}
+.label-sale {
+  background: #ff0000;
+  font-weight: 600;
+}
+.label-sale:after {
+  border-top: 9px solid #ff0000;
+}
+.price .price-old {
+  color: #000;
+  font-weight: 500;
+}
+.price .price-new, .price span.price {
+  color: #444444;
+}
+.products-list.list-masonry .product-layout .product-item-container .right-block, .products-list.grid .product-layout .product-item-container .right-block {
+  margin-top: 5px;
+}

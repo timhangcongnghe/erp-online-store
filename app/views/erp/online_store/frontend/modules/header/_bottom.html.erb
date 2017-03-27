@@ -42,7 +42,9 @@
                                                     <li class="item-vertical css-menu with-sub-menu hover">
                                                         <p class="close-menu"></p>
                                                         <a href="javascript:void(0)" class="clearfix">
-                                                            <img src="/frontend/image/theme/icons/hp.png" alt="icon">
+                                                            <% if menu_sidebar.menu_icon.present? %>
+                                                                <%= image_tag menu_sidebar.menu_icon.icon, alt: menu_sidebar.name %>
+                                                            <% end %>
                                                             <strong>
                                                                 <span><%= menu_sidebar.name %></span>
                                                                 <% if menu_sidebar.children.count > 0 %>

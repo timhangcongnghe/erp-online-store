@@ -1,33 +1,38 @@
+<% if Erp::Products::Product.get_deal_products.count > 0 %>
 <h3 class="modtitle"><span>Đang khuyến mãi</span></h3>
 <div class="upsell-products">
-    <% @deal_products.each do |deal| %>
+    <% Erp::Products::Product.limit_deal_products.each do |deal_product| %>
     <div class="product-layout">
         <div class="product-item-container">
             <div class="left-block">
                 <div class="product-image-container second_img ">
-                    <%= image_tag "/frontend/image/shop/product/e11.jpg", title: "", alt: "", class: "img-1 img-responsive" %>
-                    <%= image_tag "/frontend/image/shop/product/e12.jpg", title: "", alt: "", class: "img-2 img-responsive" %>
+                    <%= image_tag "/frontend/image/shop/product/e11.jpg", data: {src: "/frontend/image/shop/product/e11.jpg"}, alt: deal_product.name, class: "img-1 img-responsive" %>
+                    <%= image_tag "/frontend/image/shop/product/e12.jpg", data: {src: "/frontend/image/shop/product/e12.jpg"}, alt: deal_product.name, class: "img-2 img-responsive" %>
                 </div>
-                <!--Sale Label-->
+                <% if deal_product.is_deal? %>
                 <span class="label label-sale">Giảm giá</span>
+                <% end %>
+                <div class="countdown_box">
+                    <div class="countdown_inner">
+                        <div class="defaultCountdown-30"></div>
+                    </div>
+                </div>
             </div>
             <div class="right-block">
                 <div class="caption">
-                    <h4><%= link_to deal.name, erp_online_store.product_detail_path(product_id: deal.id) %></h4>
+                    <h4><%= link_to deal_product.name, erp_online_store.product_detail_path(product_id: deal_product.id) %></h4>
                     <div class="ratings">
                         <div class="rating-box">
                             <%= raw stars(deal.average_stars) %>
                         </div>
                     </div>
                     <div class="price">
-                        <span class="price-new"><%= format_price(deal.product_price) %></span>
-                        <span class="price-old"><%= format_price(deal.price) %></span>
-                        <% if !deal.deal_percent.nil? %>
-                            <span class="label label-percent">-<%= deal.deal_percent %>%</span>
-                        <% end %>
+                        <span class="price-new"><%= format_number(deal_product.product_price) %> VNĐ</span>                       
+                        <br><span class="price-old"><%= format_number(deal_product.price) %> VNĐ</span>
+                        <span class="label label-percent">-<%= deal_product.deal_percent %>%</span>
                     </div>
                     <div class="description item-desc hidden">
-                        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut l..</p>
+                        <p><%= deal_product.short_description.html_safe if deal_product.short_description %></p>
                     </div>
                 </div>
             </div>
@@ -36,3 +41,4 @@
     </div>
     <% end %>
 </div>
+<% end %>
