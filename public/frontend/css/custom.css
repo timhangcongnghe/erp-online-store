@@ -496,3 +496,6 @@ a.hover-product-name:hover {
   border: 0px;
 }
 /* end custom category - product lists*/
+ul.megamenu li .sub-menu .content .hover-menu .menu ul ul {
+  width: 250px;
+}

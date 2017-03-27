@@ -1,4 +1,4 @@
-<% Erp::Products::Product.where(is_bestseller: true).each_with_index do |best_seller,index| %>
+<% Erp::Products::Product.get_bestseller_products.each_with_index do |best_seller,index| %>
 <div class="item-wrap style1">
     <div class="item-wrap-inner media">
         <div class="media-left">

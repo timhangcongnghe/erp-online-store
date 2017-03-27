@@ -20,6 +20,7 @@
     <div class="so-spotlight2 ">
         <div class="container">
             <div class="row">
+                <% if Erp::Products::Product.get_deal_products.count > 0 %>
                 <div class="col-md-9 col-sm-8 col-xs-12">
                     <!-- DEAL -->
                     <div class="module so-deals">
@@ -35,6 +36,8 @@
                     </div>
                     <!-- END DEAL -->
                 </div>
+                <% end %>
+                <% if Erp::Products::Product.get_bestseller_products.count > 0 %>
                 <div class="col-md-3 col-sm-4 col-xs-12">
                     <!-- MODULE BESTSELER -->
                     <div class="moduletable module best-seller">
@@ -49,6 +52,7 @@
                     </div>
                     <!-- END  -->
                 </div>
+                <% end %>
             </div>
         </div>
     </div>
@@ -91,12 +95,13 @@
             </div>
         </div>
     </div>
+    <% if Erp::Products::Brand.get_brands.count > 0 %>
     <!--Block Spotlight5  -->
     <div class="so-spotlight5">
         <div class="container">
             <div class="block-brand">
                 <div class="brand-slider">
-                    <% Erp::Products::Brand.where(archived: false).each do |brand| %>
+                    <% Erp::Products::Brand.get_brands.each do |brand| %>
                         <div class="item-manu">
                             <%= link_to image_tag("/frontend/image/brands/2.jpg", alt: brand.name), "", title: brand.name %>
                         </div>
@@ -105,4 +110,5 @@
             </div>
         </div>
     </div>
+    <% end %>
 </main>

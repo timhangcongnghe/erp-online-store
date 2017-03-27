@@ -1,4 +1,4 @@
-<% Erp::Products::Product.where(is_deal: true).each do |hot_deal| %>
+<% Erp::Products::Product.get_deal_products.each do |hot_deal| %>
 <div class="product-thumb transition product-item-container">
     <div class="left-block">
         <div class="product-image-container">
