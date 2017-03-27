@@ -10,6 +10,7 @@ module Erp
           @product = Erp::Products::Product.find(params[:product_id])
           @meta_keywords = @product.meta_keywords
           @meta_description = @product.meta_description
+          @deal_products = Erp::Products::Product.get_deal_products
         end
         
         def comments

@@ -1,6 +1,6 @@
 <h3 class="modtitle"><span>Đang khuyến mãi</span></h3>
 <div class="upsell-products">
-    <% (0..7).each do |upsell_product| %>
+    <% @deal_products.each do |deal| %>
     <div class="product-layout">
         <div class="product-item-container">
             <div class="left-block">
@@ -13,20 +13,18 @@
             </div>
             <div class="right-block">
                 <div class="caption">
-                    <h4><%= link_to "Apple Cinema 30&quot;", erp_online_store.product_detail_path %></h4>
+                    <h4><%= link_to deal.name, erp_online_store.product_detail_path(product_id: deal.id) %></h4>
                     <div class="ratings">
                         <div class="rating-box">
-                            <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
-                            <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
-                            <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
-                            <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
-                            <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i></span>
+                            <%= raw stars(deal.average_stars) %>
                         </div>
                     </div>
                     <div class="price">
-                        <span class="price-new">$74.00</span>
-                        <span class="price-old">$122.00</span>
-                        <span class="label label-percent">-40%</span>
+                        <span class="price-new"><%= format_price(deal.product_price) %></span>
+                        <span class="price-old"><%= format_price(deal.price) %></span>
+                        <% if !deal.deal_percent.nil? %>
+                            <span class="label label-percent">-<%= deal.deal_percent %>%</span>
+                        <% end %>
                     </div>
                     <div class="description item-desc hidden">
                         <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut l..</p>
