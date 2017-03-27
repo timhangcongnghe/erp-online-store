@@ -1,4 +1,4 @@
-<% Erp::Testimonials::Testimonial.order('created_at DESC').each do |testimonial| %>
+<% @testimonials.each do |testimonial| %>
 <div class="block_content">
     <div class="image">
         <%= image_tag(testimonial.logo.small, alt: testimonial.author) %>
