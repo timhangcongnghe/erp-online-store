@@ -1,4 +1,4 @@
-<% Erp::Products::Product.get_deal_products.each do |hot_deal| %>
+<% @hot_deals.each do |hot_deal| %>
 <div class="product-thumb transition product-item-container">
     <div class="left-block">
         <div class="product-image-container">
@@ -18,23 +18,14 @@
     </div>
     <div class="right-block">
         <div class="caption">
-            <% if hot_deal.count_stars.length > 0 %>
-                <div class="rating">
-                    <% (1..hot_deal.average_stars).each do |star| %>
-                        <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i></span>
-                    <% end %>
-                    <% (1..(5-hot_deal.average_stars)).each do |star| %>
-                        <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
-                    <% end %>
-                </div>
-            <% else %>
-                <% (1..5).each do |star| %>
-                    <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
-                <% end %>
-            <% end %>
+            <div class="rating">
+                <%= raw stars(hot_deal.average_stars) %>
+            </div>
             <h4><%= link_to hot_deal.name, erp_online_store.product_detail_path(product_id: hot_deal.id), title: hot_deal.name %></h4>
             <p class="price">
-                <span class="price-new"><%= hot_deal.product_price %></span> <span class="price-old"><%= hot_deal.price %></span>
+                <span class="price-new"><%= format_price(hot_deal.product_price) %></span> <span class="price-old">
+                    <%= format_price(hot_deal.price) %>
+                </span>
             </p>
         </div>
     </div>
