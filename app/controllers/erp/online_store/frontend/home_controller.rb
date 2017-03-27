@@ -4,6 +4,8 @@ module Erp
       class HomeController < Erp::Frontend::FrontendController
         def index
           @body_class = "common-home res layout-home1"
+          @hot_deals = Erp::Products::Product.where(is_deal: true)
+          @bestsellers = Erp::Products::Product.where(is_bestseller: true)
         end
         
         # home category box
