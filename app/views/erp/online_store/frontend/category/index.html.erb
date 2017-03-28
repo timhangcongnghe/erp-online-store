@@ -40,13 +40,17 @@
                 </div>
                 <!---//End related ends --->
                 <% end %>
+                <% if @products.count > 0 %>
                 <!--changed listings-->
                 <%= render "erp/online_store/frontend/category/category_middle_part_center", products: @products, menu: @menu %>
                 <!--// End Changed listings-->
-                <% if @products.count > 0 %>
                 <!-- Filters -->
-                <%= render "erp/online_store/frontend/category/category_middle_part_bottom" %>
+                <%= render "erp/online_store/frontend/category/category_middle_part_bottom", products: @products %>
                 <!-- //end Filters -->
+                <% else %>
+                    <div class="alert alert-warning">
+                        <i class="fa fa-warning"></i> Hiện chưa có sản phẩm cho chuyên mục này.
+                    </div>
                 <% end %>
             </div>
         </div>

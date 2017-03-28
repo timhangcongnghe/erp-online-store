@@ -68,8 +68,9 @@ footer .social_block ul.social-block li.pinterest a:hover {
 }
 .simple_vertical_list input[type="radio"] + label::after, .simple_vertical_list input[type="checkbox"] + label::after, .checkboxes_list input[type="radio"] + label::after, .checkboxes_list input[type="checkbox"] + label::after {
   top: 0px;
-  width: 17px;
-  height: 17px;
+  width: 18px;
+  height: 18px;
+  background: #ea3a3d;
 }
 .simple_vertical_list input[type="checkbox"] + label::before, .checkboxes_list input[type="checkbox"] + label::before {
   font-size: 13px;
@@ -541,4 +542,40 @@ ul.megamenu li .sub-menu .content .hover-menu .menu ul ul {
 }
 .module.cus-style-supper-cate .main-right .spcat-items-container.products-list.grid .product-layout .product-item-container {
   border-width: 1px;
+}
+/* Custom checkbox list */
+.checkboxes_list {
+  color: #ea3a3d;
+}
+.left-content-product .content-product-right .product_page_price .price-new {
+  font-size: 20px;
+}
+.view-all-bestseller {
+  margin-left: 22px;
+}
+.view-all-hotdeals {
+  float: right;
+  margin-right: 10px;
+  margin-top: 9px;
+  background: #da0d0d;
+  padding: 4px;
+  color: #fff;
+  border-radius: 2px;
+}
+a.view-all-hotdeals:hover {
+  color: #fff;
+}
+.list-services, .list-brands {
+  margin-top: 30px;
+}
+.list-services li a {
+  border: 3px solid #ddd;
+  display: block;
+  -webkit-transition: 0.3s;
+}
+.list-services li a:hover {
+    border-color: #ea3a3c;
+}
+.category-banner {
+  margin-top: 30px;
 }

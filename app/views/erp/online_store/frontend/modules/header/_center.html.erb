@@ -34,37 +34,25 @@
                                                     <strong>Khuyến Mãi</strong>
                                                     <span class="label"></span>
                                                 </a>
-                                            </li>                                            
-                                            <li class="hover">
-                                                <%= link_to 'Thương Hiệu Máy Tính <b class="caret"></b>'.html_safe, "javascript:void(0)" %>                                                
-                                                <div class="sub-menu" style="width: 100%; display: none; right: auto;">
-                                                    <div class="content" style="display: none; height: 512px;">
-                                                        <div class="row">
-                                                            <% (0..11).each do |brand| %>
-                                                            <div class="col-md-3">
-																<a href="index.html" class="image-link"> 
-																	<span class="thumbnail">
-																		<img class="img-responsive img-border" src="/frontend/image/menu/temp-hp.jpg" alt="">
-																	</span> 
-																	<h3 class="figcaption">HP</h3> 
-																</a>																
-															</div>
-                                                            <% end %>
-                                                        </div>
-                                                    </div>
-                                                </div>                                                
-                                            </li>                                            
-                                            <li class="">
+                                            </li>
+											<li class="">
                                                 <p class="close-menu"></p>
-                                                <a href="<%= erp_online_store.blog_path %>" class="clearfix">
-                                                    <strong>Tin Tức & Sự Kiện</strong>
+                                                <a href="<%= erp_online_store.root_path %>" class="clearfix">
+                                                    <strong>Bán Chạy</strong>
+                                                    <span class="label"></span>
+                                                </a>
+                                            </li>
+											<li class="">
+                                                <p class="close-menu"></p>
+                                                <a href="<%= erp_online_store.root_path %>" class="clearfix">
+                                                    <strong>Lựa Chọn Của Doanh Nghiệp</strong>
                                                     <span class="label"></span>
                                                 </a>
                                             </li>
                                             <li class="">
                                                 <p class="close-menu"></p>
-                                                <a href="<%= erp_online_store.contact_us_path %>" class="clearfix">
-                                                    <strong>Liên Hệ & Góp Ý</strong>
+                                                <a href="<%= erp_online_store.blog_path %>" class="clearfix">
+                                                    <strong>Tin Tức & Sự Kiện</strong>
                                                     <span class="label"></span>
                                                 </a>
                                             </li>

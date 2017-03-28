@@ -1,17 +1,17 @@
 <div class="module menu-category titleLine">
-        <div class="modcontent">
-            <div class="box-category">
-                <% sidebar_menus = menu.get_related_sidebar_menus %>
-                <ul id="cat_accordion" class="list-group">
-                    <li class="hadchild">
-                        <a href="javascript:void(0)" class="cutom-parent"><%= sidebar_menus[:parent].name %></a> <span class="button-view  fa fa-plus-square-o"></span>
-                        <ul style="display: block;">
-                            <% sidebar_menus[:menus].each do |sidebar_menu| %>
-                            <li><%= link_to sidebar_menu.name, erp_online_store.category_path(menu_id: sidebar_menu.id) %></li>
-                            <% end %>
-                        </ul>
-                    </li>                    
+<div class="modcontent">
+    <div class="box-category">
+        <% sidebar_menus = menu.get_related_sidebar_menus %>
+        <ul id="cat_accordion" class="list-group">
+            <li class="hadchild">
+                <a href="javascript:void(0)" class="cutom-parent"><%= sidebar_menus[:parent].name %></a> <span class="button-view  fa fa-plus-square-o"></span>
+                <ul style="display: block;">
+                    <% sidebar_menus[:menus].each do |sidebar_menu| %>
+                    <li><%= link_to sidebar_menu.name, erp_online_store.category_path(menu_id: sidebar_menu.id) %></li>
+                    <% end %>
                 </ul>
-            </div>
-        </div>
+            </li>                    
+        </ul>
     </div>
+</div>
+</div>

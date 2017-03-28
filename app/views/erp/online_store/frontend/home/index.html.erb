@@ -22,35 +22,16 @@
             <div class="row">
                 <% if @hot_deals.count > 0 %>
                 <div class="col-md-9 col-sm-8 col-xs-12">
-                    <!-- DEAL -->
-                    <div class="module so-deals">
-                        <h3 class="modtitle"><span>Khuyến mãi</span></h3>
-                        <div class="modcontent">
-                            <div class="so-deal modcontent products-list grid clearfixbutton-type1 style2">
-                                <div class="extraslider-inner product-layout deal-slider">
-                                    <%= render "erp/online_store/frontend/home/hot_deals" %>
-                                </div>
-                            </div>
-                        </div>
-                        <!--/.modcontent-->
-                    </div>
-                    <!-- END DEAL -->
+                    <!-- HOT DEALS -->                    
+                    <%= render "erp/online_store/frontend/home/hot_deals" %>                            
+                    <!-- END HOT DEALS -->
                 </div>
                 <% end %>
                 <% if @bestsellers.count > 0 %>
                 <div class="col-md-3 col-sm-4 col-xs-12">
-                    <!-- MODULE BESTSELER -->
-                    <div class="moduletable module best-seller">
-                        <h3 class="modtitle"><span>Bán chạy</span></h3>
-                        <div class="so-extraslider">
-                            <div class="extraslider-inner best-seller-slider">
-                                <div class="item ">
-                                    <%= render "erp/online_store/frontend/home/best_sellers" %>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- END  -->
+                    <!-- BESTSELERS -->
+                    <%= render "erp/online_store/frontend/home/best_sellers" %>
+                    <!-- END BESTSELERS -->
                 </div>
                 <% end %>
             </div>
@@ -98,12 +79,12 @@
                 <% end %>
             </div>
         </div>
-    </div>
-    <% if @brands.count > 0 %>
-    <!--Block Spotlight5  -->
+    </div>    
+    <% if @brands.count > 0 %>        
+    <!-- Brand List  -->
     <div class="so-spotlight5">
         <div class="container">
-            <div class="block-brand">
+            <div class="block-brand list-brands">
                 <div class="brand-slider">
                     <% @brands.each do |brand| %>
                         <div class="item-manu">
@@ -115,4 +96,6 @@
         </div>
     </div>
     <% end %>
+    <!-- List Services -->
+    <%= render "erp/online_store/frontend/home/list_services" %>
 </main>

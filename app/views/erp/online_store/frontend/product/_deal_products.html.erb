@@ -23,12 +23,12 @@
                     <h4><%= link_to deal_product.name, erp_online_store.product_detail_path(product_id: deal_product.id) %></h4>
                     <div class="ratings">
                         <div class="rating-box">
-                            <%= raw stars(deal.average_stars) %>
+                            <%= raw stars(deal_product.average_stars) %>
                         </div>
                     </div>
                     <div class="price">
-                        <span class="price-new"><%= format_number(deal_product.product_price) %> VNĐ</span>                       
-                        <br><span class="price-old"><%= format_number(deal_product.price) %> VNĐ</span>
+                        <span class="price-new"><%= format_price(deal_product.product_price) %></span>                       
+                        <br><span class="price-old"><%= format_price(deal_product.price) %></span>
                         <span class="label label-percent">-<%= deal_product.deal_percent %>%</span>
                     </div>
                     <div class="description item-desc hidden">

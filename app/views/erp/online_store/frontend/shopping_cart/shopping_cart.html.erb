@@ -27,8 +27,10 @@
                                 <%= link_to image_tag("/frontend/image/shop/product/e3.jpg", alt: cart_item.product.name, title: cart_item.product.name, class: "img-thumbnail", width: "70"), erp_online_store.product_detail_path(product_id: cart_item.product.id) %>
                             </td>
                             <td class="text-left">
-                                <%= link_to cart_item.product.name, erp_online_store.product_detail_path(product_id: cart_item.product.id), title: cart_item.product.name %><br />
-                                <small>Mô tả sản phẩm</small>
+                                <strong><%= link_to cart_item.product.name, erp_online_store.product_detail_path(product_id: cart_item.product.id), title: cart_item.product.name %></strong><br />
+                                <% if cart_item.product.short_description.present? %>
+                                <br><small><%= cart_item.product.short_description.html_safe %></small>
+                                <% end %>
                             </td>                            
                             <td class="text-left" width="200px">
                                 <div class="input-group btn-block quantity">

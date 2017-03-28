@@ -1,12 +1,5 @@
 <div class="product-filter product-filter-bottom filters-panel">
     <div class="box-pagination text-center">
-        <ul class="pagination">
-            <li class="active"><span>1</span></li>
-            <li><a href="">2</a></li>
-            <li><a href="">3</a></li>
-            <li><a href="">4</a></li>
-            <li><a href="">5</a></li>
-            <li><a href="">&gt;</a></li>
-        </ul>
+        <%= will_paginate products, previous_label: '←', next_label: '→', renderer: BootstrapPagination::Rails %>
     </div>
 </div>

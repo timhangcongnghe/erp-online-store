@@ -49,11 +49,12 @@
                                 <a class="write_review_button" href="" onclick="$('a[href=\'#tab-comment\']').trigger('click'); return false;">Bình luận về sản phẩm</a>
                             </div>
                             <div class="product-label form-group">                                
-                                <div class="product_page_price price" itemprop="offerDetails" itemscope="" itemtype="http://data-vocabulary.org/Offer">
+                                <div class="product_page_price price">
                                     <span class="price-new" itemprop="price"><%= format_price(@product.product_price) %></span>
                                     <% if @product.is_deal %>
                                     <span class="price-old"><%= format_price(@product.price) %></span>
-                                    <% end %>
+                                    <span class="label label-percent">-<%= @product.deal_percent %>%</span>
+                                    <% end %>                                    
                                 </div>
                             </div>
                             <% if @product.get_product_property_array.count > 0 %>
@@ -115,8 +116,9 @@
                 <div class="row">
                     <div class="col-lg-3 col-md-4  col-xs-12">
                         <div class="module releate-horizontal">
-                            <%= render "/erp/online_store/frontend/product/related_products" %>
-                        </div>
+                            <%= render "/erp/online_store/frontend/home/best_sellers" %>
+                            <%= render "erp/online_store/frontend/modules/category_banners" %>
+                        </div>                        
                     </div>
                     <div class="col-lg-9 col-md-8  col-xs-12">
                         <!-- Product Tabs -->
@@ -126,7 +128,7 @@
                             </div>
                         </div>
                         <!-- //Product Tabs -->
-                        <!-- Upsell Products -->
+                        <!-- Accessory Products -->
                         <div class="related upsell titleLine products-list grid module ">
                             <% if @product.accessory.present? %>
                                 <% if @product.accessory.accessory_details.count > 0 %>
