@@ -1,5 +1,6 @@
 <aside class="col-sm-3 hidden-xs" id="column-right">
-    <h2 class="subtitle">Tài khoản</h2>
+    
+    <h2 class="subtitle">Liên kết nhanh</h2>
     <div class="list-group">
         <ul class="list-item">
             <li><%= link_to "Tài khoản của tôi", erp_online_store.my_account_path %><a href="#"></a></li>
@@ -10,6 +11,16 @@
                                         method: :delete,
                                         redirect_to: erp.backend_path,
                                         class: 'link-method' %></li>
+        </ul>
+    </div>
+    
+    <h3 class="subtitle">Thống kê tài khoản</h3>
+    <div class="list-group">
+        <ul class="list-d">
+            <li>Số sản phẩm đã mua: <span class="strong scheme-e"><strong>10</strong></span></li>
+            <li>Số đơn hàng đã mua: <span class="strong scheme-e"><strong>2</strong></span></li>
+            <li>Tổng tiền còn nợ: <span class="strong scheme-e"><strong>$0.00 USD</strong></span></li>
+            <li>Tổng tiền đã thanh toán: <span class="strong scheme-e"><strong>$5.50 USD</strong></span></li>
         </ul>
     </div>
 </aside>
