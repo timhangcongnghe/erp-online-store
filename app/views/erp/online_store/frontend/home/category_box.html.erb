@@ -16,7 +16,7 @@
                 <!--Begin Tabs-->
                 <div class="spcat-tabs-wrap">
                     <ul class="spcat-tabs cf">
-                        <% @child_1.children.each do |child_2| %>
+                        <% @child_1.children.is_hot.each do |child_2| %>
                         <li class="spcat-tab">
                             <span class="spcat-tab-label"><%= link_to child_2.name, erp_online_store.category_box_path(menu_hot_id: @menu_hot.id, child_1_id: @child_1.id, child_2_id: child_2.id), title: child_2.name, class: "ajax_link" %></span>
                         </li>
@@ -51,7 +51,7 @@
                         </div>
                         <div id="cat_slider_3" class="slider">
                             <div class="cat_slider_inner so_category_type_default">
-                                <% @menu_hot.children.each do |child_1| %>
+                                <% @menu_hot.children.is_hot.each do |child_1| %>
                                 <div class="item">
                                     <div class="item-inner">
                                         <div class="cat_slider_title">
@@ -109,15 +109,8 @@
                                         </div>
                                         <div class="right-block">
                                             <div class="caption">
-                                                <div class="rating">
-                                                    <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i></span>
-                                                    <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i></span>
-                                                    <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i></span>
-                                                    <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i></span>
-                                                    <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i></span>
-                                                </div>
                                                 <h4>
-                                                    <%= link_to "Verty nolen laben", "", title: "Verty nolen laben" %>
+                                                    <%= link_to product.name, erp_online_store.product_detail_path(product_id: product.id), title: product.name %>
                                                 </h4>
                                                 <p class="price">                                                    
                                                     <span class="price-new"><%= format_number(product.product_price) %> VNĐ</span>

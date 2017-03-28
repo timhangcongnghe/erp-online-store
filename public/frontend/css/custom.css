@@ -479,7 +479,7 @@ a.hover-product-name:hover {
 }
 /* custom category - product lists*/
 .products-list.list-masonry .product-layout .product-item-container .right-block .caption h4 a, .products-list.grid .product-layout .product-item-container .right-block .caption h4 a {
-  font-size: 13px;
+  font-size: 14px;
 }
 .products-list {
   padding-left: 0px;  
@@ -515,8 +515,30 @@ ul.megamenu li .sub-menu .content .hover-menu .menu ul ul {
   font-weight: 500;
 }
 .price .price-new, .price span.price {
-  color: #444444;
+  font-size: 14px;
+  color: #c10017;
 }
 .products-list.list-masonry .product-layout .product-item-container .right-block, .products-list.grid .product-layout .product-item-container .right-block {
   margin-top: 5px;
+}
+.product-description {
+  border-top: #ddd 1px dotted;
+  font-size: 13px;
+  line-height: 1em;
+}
+.price {
+  line-height: 13px;
+}
+.module.cus-style-supper-cate .main-left {
+  width: 20%;
+}
+.module.cus-style-supper-cate .main-right {
+  width: 80%;
+}
+.module.cus-style-supper-cate .main-right .spcat-items-container.show-pre .ltabs-items-inner .ltabs-item:nth-child(1) .product-item-container {
+  min-height: 270px;
+  border-width: 1px;
+}
+.module.cus-style-supper-cate .main-right .spcat-items-container.products-list.grid .product-layout .product-item-container {
+  border-width: 1px;
 }

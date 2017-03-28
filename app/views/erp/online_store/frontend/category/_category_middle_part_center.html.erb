@@ -19,15 +19,6 @@
             <div class="right-block">
                 <div class="caption">
                     <h4><%= link_to product.name, erp_online_store.product_detail_path(product_id: product.id), title: product.name, class: "hover-product-name" %></h4>
-                    <div class="ratings">
-                        <div class="rating-box">
-                            <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
-                            <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
-                            <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
-                            <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
-                            <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i></span>
-                        </div>
-                    </div>
                     <div class="price">
                         <span class="price-new"><%= format_number(product.product_price) %> VNĐ</span>
                         <% if product.is_deal? %>                        
@@ -35,9 +26,11 @@
                         <span class="label label-percent">-<%= product.deal_percent %>%</span>
                         <% end %>                                             
                     </div>
-                    <div class="description item-desc hidden">
-                        <p><%= product.short_description.html_safe if product.short_description %></p>
+                    <% if product.short_description.present? %>
+                    <div class="description product-description">
+                        <p><%= product.short_description.html_safe %></p>
                     </div>
+                    <% end %>
                 </div>
             </div>
             <!-- right block -->

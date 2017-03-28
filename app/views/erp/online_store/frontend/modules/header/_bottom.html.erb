@@ -38,21 +38,21 @@
                                         <div class="megamenu-pattern">
                                             <div class="container">
                                                 <ul class="megamenu">
-                                                    <% Erp::Menus::Menu.get_menu_sidebar.each do |menu_sidebar| %>
+                                                    <% Erp::Menus::Menu.get_menus.each do |menu| %>
                                                     <li class="item-vertical css-menu with-sub-menu hover">
                                                         <p class="close-menu"></p>
                                                         <a href="javascript:void(0)" class="clearfix">
-                                                            <% if menu_sidebar.menu_icon.present? %>
-                                                                <%= image_tag menu_sidebar.menu_icon.icon, alt: menu_sidebar.name %>
+                                                            <% if menu.menu_icon.present? %>
+                                                                <%= image_tag menu.menu_icon.icon, alt: menu.name %>
                                                             <% end %>
                                                             <strong>
-                                                                <span><%= menu_sidebar.name %></span>
-                                                                <% if menu_sidebar.children.count > 0 %>
+                                                                <span><%= menu.name %></span>
+                                                                <% if menu.children.count > 0 %>
                                                                 <b class="fa fa-angle-right"></b>
                                                                 <% end %>
                                                             </strong>
                                                         </a>
-                                                        <% if menu_sidebar.children.count > 0 %>
+                                                        <% if menu.children.count > 0 %>
                                                         <div class="sub-menu" data-subwidth="30" style="width: 270px; display: none; right: 0px;">
                                                             <div class="content" style="display: none;">
                                                                 <div class="row">
@@ -62,7 +62,7 @@
                                                                                 <div class="col-sm-12 hover-menu">
                                                                                     <div class="menu">
                                                                                         <ul>
-                                                                                            <% menu_sidebar.children.each do |child_1| %>
+                                                                                            <% menu.children.each do |child_1| %>
                                                                                             <li>
                                                                                                 <a href="<%= erp_online_store.category_path(menu_id: child_1.id) %>" class="main-menu">
                                                                                                     <%= child_1.name %>
@@ -127,7 +127,7 @@
                                     <div class="select_category filter_type  icon-select">
                                         <select class="no-border" name="category_id">
                                             <option value="">Tất cả</option>
-                                            <% Erp::Menus::Menu.get_menu_search.each do |menu_search| %>
+                                            <% Erp::Menus::Menu.get_menus.each do |menu_search| %>
                                             <option value="<%= menu_search.id %>"><%= menu_search.name %></option>
                                             <% end %>
                                         </select>

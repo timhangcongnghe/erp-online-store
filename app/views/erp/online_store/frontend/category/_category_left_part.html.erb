@@ -5,18 +5,17 @@
             <%= hidden_field_tag "menu_id", menu.id %>
             <div class="table_layout filter-shopby">
                 <div class="table_row">
-                    <!-- - - - - - - - - - - - - - Category filter - - - - - - - - - - - - - - - - -->
-                    <div class="table_cell" style="z-index: 103;">
-                        <legend>Tìm kiếm sản phẩm</legend>
-                        <div class="input-group">
-                            <input class="form-control" type="text" value="" size="50" autocomplete="off" placeholder="Nhập từ khóa tìm kiếm" name="keyword">
-                            <div class="input-group-btn">
-                                <button class="btn btn-default inverse"><i class="fa fa-search"></i></button>
-                            </div>
-                        </div>
+                    <div class="table_cell">
+                        <fieldset>
+                            <legend>Khuyến mãi</legend>
+                            <ul class="checkboxes_list">
+                                <li>
+                                    <input type="checkbox" name="is_deal" id="is_deal">
+                                    <label for="is_deal">Đang có khuyến mãi</label>
+                                </li>
+                            </ul>
+                        </fieldset>
                     </div>
-                    <!--/ .table_cell -->
-                    <!-- - - - - - - - - - - - - - End of category filter - - - - - - - - - - - - - - - - -->
                     <% if menu.brand_group_id.present? %>
                         <% if menu.get_brand_groups.count > 0 %>
                             <!-- - - - - - - - - - - - - - Brand - - - - - - - - - - - - - - - - -->
@@ -93,28 +92,6 @@
             </div>
         </div>
         <% end %>
-    </div>
-</div>
-<div class="module tags-product titleLine">
-    <h3 class="modtitle"><span>Từ khóa nổi bật</span></h3>
-    <div class="modcontent" style="margin-top: 20px;">
-        <ul class="tags_cloud">
-            <li><%= link_to "Từ khóa", "", class: "button_grey" %></li>
-            <li><%= link_to "Từ khóa", "", class: "button_grey" %></li>
-            <li><%= link_to "Từ khóa", "", class: "button_grey" %></li>
-            <li><%= link_to "Từ khóa", "", class: "button_grey" %></li>
-            <li><%= link_to "Từ khóa", "", class: "button_grey" %></li>
-            <li><%= link_to "Từ khóa", "", class: "button_grey" %></li>
-            <li><%= link_to "Từ khóa", "", class: "button_grey" %></li>
-            <li><%= link_to "Từ khóa", "", class: "button_grey" %></li>
-            <li><%= link_to "Từ khóa", "", class: "button_grey" %></li>
-            <li><%= link_to "Từ khóa", "", class: "button_grey" %></li>
-            <li><%= link_to "Từ khóa", "", class: "button_grey" %></li>
-            <li><%= link_to "Từ khóa", "", class: "button_grey" %></li>
-            <li><%= link_to "Từ khóa", "", class: "button_grey" %></li>
-            <li><%= link_to "Từ khóa", "", class: "button_grey" %></li>
-            <li><%= link_to "Từ khóa", "", class: "button_grey" %></li>
-        </ul>
     </div>
 </div>
 <div class="module">
