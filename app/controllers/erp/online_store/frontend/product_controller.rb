@@ -54,6 +54,12 @@ module Erp
           redirect_to :back, notice: 'Nội dung bình luận đã được xóa'
         end
         
+        def delete_rating
+          @rating = Erp::Products::Rating.find(params[:rating_id])
+          @rating.destroy
+          redirect_to :back, notice: 'Nội dung đánh giá đã được xóa'
+        end
+        
         def product_quickview
           @product = Erp::Products::Product.find(params[:product_id])
           render layout: "erp/frontend/quickview"          

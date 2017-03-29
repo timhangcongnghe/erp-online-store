@@ -11,6 +11,7 @@ Erp::OnlineStore::Engine.routes.draw do
   get "san-pham/binh-luan/:comment_id-remove.html" => "frontend/product#delete_comment", as: :delete_product_comment
   get "san-pham/danh-gia.html" => "frontend/product#ratings", as: :product_ratings
   post "san-pham/danh-gia.html" => "frontend/product#ratings"
+  get "san-pham/danh-gia/:rating_id-remove.html" => "frontend/product#delete_rating", as: :delete_product_rating
   get "xem-nhanh.html" => "frontend/product#product_quickview", as: :product_quickview
   get "san-pham-khuyen-mai.html" => "frontend/category#deal_products", as: :deal_products
   get "san-pham-ban-chay-nhat.html" => "frontend/category#bestseller_products", as: :bestseller_products
@@ -19,10 +20,10 @@ Erp::OnlineStore::Engine.routes.draw do
   # BLOG
   get "danh-sach-bai-viet.html" => "frontend/blog#index", as: :blog
   get "danh-sach-bai-viet/:cat_id(/:title).html" => "frontend/blog#index", as: :blog_with_category
-  get "bai-viet/:blog_id(/:title).html" => "frontend/blog#detail", as: :blog_detail
-  get "bai-viet/binh-luan.html/:blog_id" => "frontend/blog#comments", as: :blog_comments
-  post "bai-viet/binh-luan.html/:blog_id" => "frontend/blog#comments"
-  get "qbai-viet/binh-luan/:comment_id-remove.html" => "frontend/blog#delete_comment", as: :delete_blog_comment
+  get "danh-sach-bai-viet/chi-tiet-bai-viet/:blog_id(/:title).html" => "frontend/blog#detail", as: :blog_detail
+  get "chi-tiet-bai-viet/binh-luan.html/:blog_id" => "frontend/blog#comments", as: :blog_comments
+  post "chi-tiet-bai-viet/binh-luan.html/:blog_id" => "frontend/blog#comments"
+  get "chi-tiet-bai-viet/binh-luan/:comment_id-remove.html" => "frontend/blog#delete_comment", as: :delete_blog_comment
   
   # ACCOUNT
   get "dang-nhap.html" => "frontend/account#login", as: :login

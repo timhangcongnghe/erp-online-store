@@ -583,7 +583,9 @@ a.view-all-hotdeals:hover {
 .display-inline {
   display: inline;
 }
-.label-bestseller {
+span.full-right {
+  float: right;
+}.label-bestseller {
   min-width: 45px;
   height: 20px;
   padding: 0 10px;
