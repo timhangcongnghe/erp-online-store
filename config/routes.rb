@@ -33,6 +33,7 @@ Erp::OnlineStore::Engine.routes.draw do
   get "tai-khoan/san-pham-yeu-thich.html" => "frontend/account#wishlist", as: :wishlist
   
   # SHOPPING CART
+  get "topcart.html" => "frontend/shopping_cart#top_cart", as: :top_cart
   get "gio-hang.html" => "frontend/shopping_cart#shopping_cart", as: :shopping_cart
   get "dat-hang.html" => "frontend/shopping_cart#checkout", as: :checkout
   get "so-sanh-san-pham.html" => "frontend/shopping_cart#compare_product", as: :compare_product

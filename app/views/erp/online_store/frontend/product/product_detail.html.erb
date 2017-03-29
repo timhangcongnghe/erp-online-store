@@ -73,7 +73,7 @@
                             <div id="product">
                                 <h3>ĐẶT MUA SẢN PHẨM</h3>                    
                                 <div class="form-group box-info-product">
-                                    <%= form_tag erp_online_store.add_to_cart_frontend_cart_items_path do %>
+                                    <%= form_tag erp_online_store.add_to_cart_frontend_cart_items_path, class: 'add-cart-form' do %>
                                         <%= hidden_field_tag "product_id", @product.id %>
                                         <div class="option quantity">
                                             <div class="input-group quantity-control" unselectable="on" style="-webkit-user-select: none;">

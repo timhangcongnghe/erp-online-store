@@ -1,3 +1,17 @@
+function loadTopCart(callback) {
+    var block = $('.block-cart');
+    var url = $('.block-cart').attr('data-url');
+    
+    $.ajax({
+        url: url
+    }).done(function( data ) {
+        block.html(data);
+        if (typeof(callback) !== 'undefined') {
+            callback();
+        }
+    });
+}
+
 function showNotice(type, title, message) {
     var tpl = '<h3>' + message + '</h3>';
     $.jGrowl(tpl, {
@@ -272,5 +286,26 @@ $(document).ready(function () {
         var url = $(this).parents('.product-item-container').find('a.hover-product-name').attr('href');
         
         document.location.href = url;
+    });
+    
+    // Cart form
+    loadTopCart();
+    $(document).on('submit', '.add-cart-form', function(e) {
+        e.preventDefault();
+        
+        var form = $(this);
+        var url = form.attr('action');
+        form.addClass('loading');
+        
+        $.ajax({
+            url: url,
+            method: 'POST',
+            data: form.serialize()
+        }).done(function( data ) {
+            showNotice('success', 'Thành công', data);
+            loadTopCart();
+            form.removeClass('loading');
+            form.find('input[name=quantity]').val(1);
+        });
     });
 });

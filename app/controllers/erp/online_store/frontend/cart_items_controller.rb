@@ -10,7 +10,7 @@ module Erp
           @cart_item = @cart.add_product(product.id, quantity)
       
           if @cart_item.save
-            redirect_to erp_online_store.shopping_cart_path, notice: 'Thêm sản phẩm vào giỏ hàng thành công.'
+            render text: 'Thêm sản phẩm vào giỏ hàng thành công.'
           end
         end
         

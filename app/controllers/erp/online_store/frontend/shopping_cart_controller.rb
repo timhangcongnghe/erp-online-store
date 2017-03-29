@@ -14,6 +14,10 @@ module Erp
         def compare
           @body_class = "res layout-subpage"
         end
+        
+        def top_cart
+          render layout: nil
+        end
       end
     end
   end

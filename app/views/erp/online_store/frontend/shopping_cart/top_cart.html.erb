@@ -1,0 +1,65 @@
+<!--cart-->
+<div class="shopping_cart pull-right">
+    <div id="cart" class=" btn-group btn-shopping-cart">
+        <a data-loading-text="Đang tải giỏ hàng..." class="btn-group top_cart dropdown-toggle" data-toggle="dropdown">
+            <div class="shopcart">
+                <span class="handle pull-left"></span>
+                <span class="text-shopping-cart hidden-xs">Giỏ hàng(<%= @cart.cart_items.number_items %>)</span>
+                <span class="text-shopping-cart-mobi hidden-lg hidden-md hidden-sm ">
+                    <i class="fa fa-cart-plus"></i>
+                </span>
+            </div>
+        </a>
+        <ul class="tab-content content dropdown-menu pull-right shoppingcart-box" role="menu">
+            <% if @cart.cart_items.number_items > 0 %>
+            <li>
+                <table class="table table-striped">
+                    <tbody>
+                        <% @cart.cart_items.each do |cart_item| %>
+                        <tr>
+                            <td class="text-center" style="width:70px">
+                                <%= link_to image_tag("/frontend/image/shop/product/35.jpg", width: "70px", alt: cart_item.product.name, title: cart_item.product.name, class: "preview"), erp_online_store.product_detail_path %>
+                            </td>
+                            <td class="text-left"><%= link_to cart_item.product.name, erp_online_store.product_detail_path, class: "cart_product_name", title: cart_item.product.name %></td>
+                            <td class="text-center"><%= format_number(cart_item.product.price) %>x<%= cart_item.quantity %></td>
+                            <td class="text-right">
+                                <a class="fa fa-times fa-delete"></a>
+                            </td>
+                        </tr>
+                        <% end %>
+                    </tbody>
+                </table>
+            </li>
+            <li>
+                <div>
+                    <table class="table table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="text-left">
+                                    <strong>Tổng tiền:</strong>
+                                </td>
+                                <td class="text-right"><%= format_number(@cart.total_order) %> VNĐ</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p class="text-center">
+                        <%= link_to '<i class="fa fa-shopping-cart"></i>Giỏ hàng'.html_safe, erp_online_store.shopping_cart_path, class: "btn view-cart" %>
+                        &nbsp;&nbsp;&nbsp;
+                        <%= link_to '<i class="fa fa-share"></i>Đặt hàng'.html_safe, erp_online_store.checkout_path, class: "btn btn-mega checkout-cart" %>
+                    </p>
+                </div>
+            </li>
+            <% else %>                                        
+                <li>
+                    <div class="text-center">
+                        <p>Giỏ hàng đang trống.</p>
+                        <p class="text-center">
+                            <%= link_to '<i class="fa fa-shopping-cart"></i>Giỏ hàng'.html_safe, erp_online_store.shopping_cart_path, class: "btn view-cart" %>                                               
+                        </p>
+                    </div>
+                </li>
+            <% end %>
+        </ul>
+    </div>
+</div>
+<!--//cart-->

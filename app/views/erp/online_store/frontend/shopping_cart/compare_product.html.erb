@@ -69,7 +69,11 @@
                             <td></td>
                             <% @compare.compare_items.get_all_items.each do |compare_item| %>
                             <td>
-                                <input type="button" class="btn btn-primary btn-block" value="Thêm vào giỏ hàng">
+                                <%= form_tag erp_online_store.add_to_cart_frontend_cart_items_path, class: 'add-cart-form' do %>
+                                    <%= hidden_field_tag "product_id", compare_item.product.id %>                                    
+                                    <input type='hidden' class="form-control" type="text" name="quantity" value="1">
+                                    <input type="submit" class="btn btn-primary btn-block compare-cart-add-button" value="Thêm vào giỏ hàng">
+                                <% end %>
                                 <%= link_to "Hủy so sánh", erp_online_store.remove_compare_item_frontend_compare_items_path(compare_item_id: compare_item.id), class: "btn btn-danger btn-block", title: "Xóa sản phẩm" %>                                
                             </td>
                             <% end %>
