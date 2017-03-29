@@ -1,0 +1,121 @@
+<!--Block Spotlight2  -->
+<%= render "erp/online_store/frontend/modules/home/list_services" %>
+<!-- Block Spotlight3  -->
+<div class="so-spotlight3">
+    <div class="container">
+        <!-- Mod Deals -->
+        <div class="module so-deals">
+            <h3 class="modtitle"><span>Lựa Chọn Hàng Đầu</span></h3>
+            <div class="modcontent">
+                <div class="so-deal modcontent products-list grid clearfixbutton-type1 style2">
+                    <div class="extraslider-inner product-layout deal-slider-home7">
+                        <% (0..9).each do |top_choice| %>
+                        <div class="product-thumb transition product-item-container">
+                            <div class="left-block">
+                                <div class="product-image-container">
+                                    <div class="image">
+                                        <span class="label label-sale">Giảm giá</span>
+                                        <a class="lt-image" href="<%= "" %>" target="_self">
+                                            <img src="/frontend/image/shop/product/e11.jpg" alt="img" title="Juren tima chuk" class="img-1 img-responsive" />
+                                            <img src="/frontend/image/shop/product/e12.jpg" alt="img" title="Juren tima chuk" class="img-2 img-responsive" />
+                                        </a>
+                                        <div class="item-time">
+                                            <div class="item-timer">
+                                                <div class="defaultCountdown-30"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="right-block">
+                                <div class="caption">
+                                    <div class="rating">
+                                        <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i></span>
+                                        <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i></span>
+                                        <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i></span>
+                                        <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i></span>
+                                        <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i></span>
+                                    </div>
+                                    <h4><a href="product.html" target="_self" title="Juren tima chuk..">Elivers chukalen..</a></h4>
+                                    <p class="price">
+                                        <span class="price-new">$82.40</span> <span class="price-old">$122.00</span>
+                                    </p>
+                                </div>
+                            </div>
+                            <!-- End right block -->
+                        </div>
+                        <% end %>                    
+                    </div>
+                </div>
+            </div>
+            <!--/.modcontent-->
+        </div>
+        <!-- End Mod -->
+        <!-- Mod Category Slider1 -->
+        <div id="so_category_slider_home7" class="container-slider module item1">
+            <div class="page-top">
+                <h3 class="modtitle">
+                    <span>Sản Phẩm HP</span>
+                </h3>
+            </div>
+            <!-- /.page-top -->
+            <div class="modcontent">
+                <div class="categoryslider-content products-list grid show preset01-4 preset02-4 preset03-4 preset04-2 preset05-1">
+                    <div class="item-sub-cat">
+                        <%= link_to image_tag("/frontend/image/banner/cate-slider-1.png", alt: ""), "", title: "" %>
+                        <ul>
+                            <li><%= link_to "Máy Tính Xách Tay (0)", "", title: "" %></li>
+                            <li><%= link_to "Máy Tính Xách Tay (0)", "", title: "" %></li>
+                            <li><%= link_to "Máy Tính Xách Tay (0)", "", title: "" %></li>
+                            <li><%= link_to "Máy Tính Xách Tay (0)", "", title: "" %></li>
+                        </ul>
+                    </div>
+                    <div class="slider slider-h7 so-category-slider not-js product-layout">
+                        <% (0..8).each do |category_choice| %>
+                        <div class="item product-layout">
+                            <div class="item-inner product-thumb transition product-item-container">
+                                <div class="left-block">
+                                    <div class="product-image-container second_img">
+                                        <div class="image">
+                                            <span class="label label-sale">Sale</span>
+                                            <span class="label label-new">New</span>
+                                            <a class="lt-image" href="product.html" target="_self" title="Juren tima chukam">
+                                                <img src="/frontend/image/shop/product/14.jpg" class="img-1 img-responsive" alt="Juren tima chukam">
+                                                <img src="/frontend/image/shop/product/19.jpg" class="img-2 img-responsive" alt="Juren tima chukam">
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="right-block">
+                                    <div class="caption">
+                                        <div class="rating">
+                                            <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
+                                            <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
+                                            <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
+                                            <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
+                                            <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
+                                        </div>
+                                        <h4 class="item-title">
+                                            <a href="product.html" title="Juren tima chukam" target="_self">Tilam Makar Loring</a>
+                                        </h4>
+                                        <p class="price">
+                                            <span class="price-new">$367.00</span> <span class="price-old">$400.00</span>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="button-group">
+                                    <button class="wishlist btn-button" type="button" data-toggle="tooltip" title="Add to Wish List" onclick="wishlist.add('42');"><i class="fa fa-heart"></i></button>
+                                    <button class="addToCart" type="button" data-toggle="tooltip" title="Add to Cart" onclick="cart.add('42', '1');"><i class="fa fa-shopping-cart"></i> <span class="hidden-xs"></span></button>
+                                    <button class="compare" type="button" data-toggle="tooltip" title="Compare this Product" onclick="compare.add('42');"><i class="fa fa-exchange"></i></button>
+                                    <a class="quickview iframe-link visible-lg btn-button" data-toggle="tooltip" title="" data-fancybox-type="iframe" href="quickview.html" data-original-title="Quickview"> <i class="fa fa-search"></i> </a>
+                                </div>
+                            </div>
+                        </div>
+                        <% end %>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Mod -->        
+    </div>
+</div>

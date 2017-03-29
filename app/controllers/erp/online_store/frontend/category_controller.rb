@@ -10,6 +10,14 @@ module Erp
           @meta_keywords = @menu.meta_keywords
           @meta_desciption = @menu.meta_description
         end
+        
+        def deal_products
+          @products = Erp::Products::Product.get_deal_products.paginate(:page => params[:page], :per_page => 16)
+        end
+        
+        def bestseller_products
+          @products = Erp::Products::Product.get_bestseller_products.paginate(:page => params[:page], :per_page => 16)
+        end
       end
     end
   end

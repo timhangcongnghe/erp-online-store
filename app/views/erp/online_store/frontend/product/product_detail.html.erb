@@ -116,15 +116,15 @@
                 <div class="row">
                     <div class="col-lg-3 col-md-4  col-xs-12">
                         <div class="module releate-horizontal">
-                            <%= render "/erp/online_store/frontend/home/best_sellers" %>
-                            <%= render "erp/online_store/frontend/modules/category_banners" %>
+                            <%= render "/erp/online_store/frontend/modules/sidebar_best_sellers" %>
+                            <%= render "erp/online_store/frontend/modules/hot_banners" %>
                         </div>                        
                     </div>
                     <div class="col-lg-9 col-md-8  col-xs-12">
                         <!-- Product Tabs -->
                         <div class="producttab ">
                             <div class="tabsslider  col-xs-12">
-                                <%= render "/erp/online_store/frontend/product/tab_controls", product: @product %>
+                                <%= render "/erp/online_store/frontend/modules/product/tab_controls", product: @product %>
                             </div>
                         </div>
                         <!-- //Product Tabs -->
@@ -132,12 +132,12 @@
                         <div class="related upsell titleLine products-list grid module ">
                             <% if @product.accessory.present? %>
                                 <% if @product.accessory.accessory_details.count > 0 %>
-                                    <%= render "/erp/online_store/frontend/product/accessories", accessory: @product.accessory %>
+                                    <%= render "/erp/online_store/frontend/modules/product/accessories", accessory: @product.accessory %>
                                 <% else %>
-                                    <%= render "/erp/online_store/frontend/product/deal_products" %>
+                                    <%= render "/erp/online_store/frontend/modules/product/deal_products" %>
                                 <% end %>
                             <% else %>
-                                <%= render "/erp/online_store/frontend/product/deal_products" %>
+                                <%= render "/erp/online_store/frontend/modules/product/deal_products" %>
                             <% end %>
                         </div>
                     </div>

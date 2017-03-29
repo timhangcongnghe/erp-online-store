@@ -36,6 +36,10 @@
 		<%= stylesheet_link_tag "/frontend/css/themecss/so-listing-tabs.css" %>
 		<%= stylesheet_link_tag "/frontend/css/themecss/animate.css" %>
 		<%= stylesheet_link_tag "/frontend/css/themecss/so-super-category.css" %>
+		<% if params[:controller] == "erp/online_store/frontend/business_choices" && params[:action] == "index" %>
+		<%= stylesheet_link_tag "/frontend/css/themecss/slider.css" %>
+		<%= stylesheet_link_tag "/frontend/css/home7.css" %>
+		<% end %>
 		<%= stylesheet_link_tag "/frontend/css/theme-cyan.css" %>
 		<%= stylesheet_link_tag "/frontend/css/responsive.css" %>
 		<%= stylesheet_link_tag "/frontend/css/custom.css" %>

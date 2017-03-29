@@ -11,6 +11,9 @@ Erp::OnlineStore::Engine.routes.draw do
   post "chuyen-muc-san-pham/danh-gia.html" => "frontend/product#ratings"
   post "chuyen-muc-san-pham/chi-tiet-san-pham.html" => "frontend/product#product_detail"
   get "xem-nhanh.html" => "frontend/product#product_quickview", as: :product_quickview
+  get "san-pham-khuyen-mai.html" => "frontend/category#deal_products", as: :deal_products
+  get "san-pham-ban-chay-nhat.html" => "frontend/category#bestseller_products", as: :bestseller_products
+  get "lua-chon-cua-doanh-nghiep.html" => "frontend/business_choices#index", as: :business_choices
   
   # BLOG
   get "danh-sach-bai-viet.html" => "frontend/blog#index", as: :blog

@@ -276,7 +276,6 @@ footer .news-letter .block_content .input-box input {
 }
 div.article-info .article-sub-title span {
   font-size: 13px;
-  padding-left: 0;
 }
 .type_1 .header-top-right ul > li > a {
   font-size: 13px !important;
@@ -508,6 +507,12 @@ ul.megamenu li .sub-menu .content .hover-menu .menu ul ul {
 }
 .label-sale {
   background: #ff0000;
+  font-weight: 600;
+}
+.label-bestseller {
+  font-weight: 600;
+}
+.label-new {
   font-weight: 600;
 }
 .label-sale:after {

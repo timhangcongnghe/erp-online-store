@@ -6,7 +6,7 @@
     <div class="row">
         <!--Left Part Start -->
         <aside class="col-sm-4 col-md-3" id="column-left">
-            <%= render "erp/online_store/frontend/category/category_left_part", menu: @menu %>
+            <%= render "erp/online_store/frontend/modules/category/category_left_part", menu: @menu %>
         </aside>
         <!--Left Part End -->
         <!--Middle Part Start-->
@@ -42,10 +42,10 @@
                 <% end %>
                 <% if @products.count > 0 %>
                 <!--changed listings-->
-                <%= render "erp/online_store/frontend/category/category_middle_part_center", products: @products, menu: @menu %>
+                <%= render "erp/online_store/frontend/modules/category/category_middle_part_center", products: @products, menu: @menu %>
                 <!--// End Changed listings-->
                 <!-- Filters -->
-                <%= render "erp/online_store/frontend/category/category_middle_part_bottom", products: @products %>
+                <%= render "erp/online_store/frontend/modules/category/category_middle_part_bottom", products: @products %>
                 <!-- //end Filters -->
                 <% else %>
                     <div class="alert alert-warning">

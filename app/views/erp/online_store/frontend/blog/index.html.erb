@@ -19,37 +19,8 @@
                     </ul>
                 </div>
             </div>
-            <div class="module latest-product titleLine">
-                <h3 class="modtitle"><span>Latest Product</span></h3>
-                <div class="modcontent ">
-                    <% (0..2).each do |product| %>
-                    <div class="product-latest-item">
-                        <div class="media">
-                            <div class="media-left">
-                                <%= link_to image_tag("/frontend/image/shop/product/18.jpg", alt: "Cisi Chicken", title: "Cisi Chicken", size: "90x90"), "" %>
-                            </div>
-                            <div class="media-body">
-                                <div class="caption">
-                                    <h4><%= link_to "Cisi Chicken", "" %></h4>
-                                    <div class="price">
-                                        <span class="price-new">300,000 VNĐ</span>
-                                    </div>
-                                    <div class="ratings">
-                                        <div class="rating-box">
-                                            <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
-                                            <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
-                                            <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
-                                            <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
-                                            <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i></span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <% end %>
-                </div>
-            </div>
+            <%= render "erp/online_store/frontend/modules/sidebar_best_sellers" %>
+            <%= render "erp/online_store/frontend/modules/hot_banners" %>
         </aside>
         <!--Left Part End -->
 

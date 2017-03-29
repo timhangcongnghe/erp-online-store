@@ -6,13 +6,13 @@
                 <div id="yt_header_right" class="col-lg-offset-3 col-lg-9 col-md-12 col-slideshow">
                     <div class="slider-container ">
                         <div id="so-slideshow" class="">
-                            <%= render "erp/online_store/frontend/home/slideshow" %>
+                            <%= render "erp/online_store/frontend/modules/home/slideshow" %>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="block-banner banners banner-sn-1 wow fadeInUp">
-                <%= render "erp/online_store/frontend/home/banner" %>
+                <%= render "erp/online_store/frontend/modules/home/banner" %>
             </div>
         </div>
     </div>
@@ -23,14 +23,14 @@
                 <% if @hot_deals.count > 0 %>
                 <div class="col-md-9 col-sm-8 col-xs-12">
                     <!-- HOT DEALS -->                    
-                    <%= render "erp/online_store/frontend/home/hot_deals" %>                            
+                    <%= render "erp/online_store/frontend/modules/home/hot_deals" %>                            
                     <!-- END HOT DEALS -->
                 </div>
                 <% end %>
                 <% if @bestsellers.count > 0 %>
                 <div class="col-md-3 col-sm-4 col-xs-12">
                     <!-- BESTSELERS -->
-                    <%= render "erp/online_store/frontend/home/best_sellers" %>
+                    <%= render "erp/online_store/frontend/modules/sidebar_best_sellers" %>
                     <!-- END BESTSELERS -->
                 </div>
                 <% end %>
@@ -40,7 +40,7 @@
     <!-- Block Spotlight3  -->
     <div class="so-spotlight3">
         <div class="container">
-            <%= render "erp/online_store/frontend/home/hot_categories" %>
+            <%= render "erp/online_store/frontend/modules/home/hot_categories" %>
         </div>
     </div>
     <!--Block Spotlight4  -->
@@ -52,7 +52,7 @@
                     <h3 class="modtitle"><span>Tin tức mới nhất</span></h3>
                     <div id="so_latest_blog_180" class="so-blog-external button-type2 button-type2">
                         <div class="blog-external-simple">
-                            <%= render "erp/online_store/frontend/home/news" %>
+                            <%= render "erp/online_store/frontend/modules/home/news" %>
                         </div>
                     </div>
                 </div>
@@ -61,7 +61,7 @@
                     <div class="bestseller-inner">
                         <div>
                             <h3>Bestsellers</h3>
-                            <%= render "erp/online_store/frontend/home/bestsellers" %>
+                            <%= render "erp/online_store/frontend/modules/home/bestsellers" %>
                         </div>
                     </div>
                 </div>
@@ -72,7 +72,7 @@
                             <h3>Ý kiến khách hàng</h3>
                         </div>
                         <div class="slider-clients-say">
-                            <%= render "erp/online_store/frontend/home/testimonial" %>
+                            <%= render "erp/online_store/frontend/modules/home/testimonial" %>
                         </div>
                     </div>
                 </div>
@@ -97,5 +97,5 @@
     </div>
     <% end %>
     <!-- List Services -->
-    <%= render "erp/online_store/frontend/home/list_services" %>
+    <%= render "erp/online_store/frontend/modules/home/list_services" %>
 </main>
