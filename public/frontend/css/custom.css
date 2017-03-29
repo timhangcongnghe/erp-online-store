@@ -478,7 +478,9 @@ a.hover-product-name:hover {
 .back-to-top:hover {
   opacity: .8;
 }
-/* custom category - product lists*/
+.product-item-container .left-block {
+  cursor: pointer;
+}/* custom category - product lists*/
 .products-list.list-masonry .product-layout .product-item-container .right-block .caption h4 a, .products-list.grid .product-layout .product-item-container .right-block .caption h4 a {
   font-size: 14px;
 }
