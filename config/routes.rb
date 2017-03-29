@@ -22,6 +22,7 @@ Erp::OnlineStore::Engine.routes.draw do
   get "bai-viet/:blog_id(/:title).html" => "frontend/blog#detail", as: :blog_detail
   get "bai-viet/binh-luan.html/:blog_id" => "frontend/blog#comments", as: :blog_comments
   post "bai-viet/binh-luan.html/:blog_id" => "frontend/blog#comments"
+  get "qbai-viet/binh-luan/:comment_id-remove.html" => "frontend/blog#delete_comment", as: :delete_blog_comment
   
   # ACCOUNT
   get "dang-nhap.html" => "frontend/account#login", as: :login
