@@ -266,7 +266,8 @@ $(document).ready(function () {
         $(".btn-pref .btn").removeClass("btn-primary").addClass("btn-default");
         // $(".tab").addClass("active"); // instead of this do the below
         $(this).removeClass("btn-default").addClass("btn-primary");
-    }
+    });
+    
     $(document).on('click', '.product-item-container .left-block', function() {
         var url = $(this).parents('.product-item-container').find('a.hover-product-name').attr('href');
         
