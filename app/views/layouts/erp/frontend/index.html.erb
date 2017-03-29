@@ -44,7 +44,9 @@
 		<% end %>
 		<%= stylesheet_link_tag "/frontend/css/responsive.css" %>
 		<%= stylesheet_link_tag "/frontend/css/custom.css" %>
+		<% if params[:controller] == "erp/online_store/frontend/account" && params[:action] == "my_account" %>
 		<%= stylesheet_link_tag "/frontend/css/custom-profile.css" %>
+		<% end %>
 		<%= stylesheet_link_tag "/frontend/css/starability-minified/starability-all.min.css" %>
 		<% if params[:controller] == "erp/online_store/frontend/product" && params[:action] == "product_detail" %>
 		<%= render "erp/online_store/frontend/modules/js_include" %>
