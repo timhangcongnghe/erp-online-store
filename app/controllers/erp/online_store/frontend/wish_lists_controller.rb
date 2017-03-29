@@ -15,10 +15,18 @@ module Erp
               user_id: current_user.id
             )
             if @wish_list.save
-              redirect_to erp_online_store.wishlist_path, notice: 'Thêm yêu thích sản phẩm thành công.'
+              render json: {
+                message: 'Thêm yêu thích sản phẩm thành công.',
+                type: 'success',
+                title: 'Thông báo'
+              }
             end
           else
-            redirect_to erp_online_store.wishlist_path, notice: 'Đã yêu thích sản phẩm trước đó.'
+            render json: {
+              message: 'Đã yêu thích sản phẩm trước đó.',
+              type: 'warning',
+              title: 'Thông báo'
+            }
           end
         end
         

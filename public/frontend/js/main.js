@@ -1,3 +1,17 @@
+function loadTopRightMenu(callback) {
+    var block = $('.top-right-menu');
+    var url = $('.top-right-menu').attr('data-url');
+    
+    $.ajax({
+        url: url
+    }).done(function( data ) {
+        block.html(data);
+        if (typeof(callback) !== 'undefined') {
+            callback();
+        }
+    });
+}
+
 function loadTopCart(callback) {
     var block = $('.block-cart');
     var url = $('.block-cart').attr('data-url');
@@ -289,7 +303,6 @@ $(document).ready(function () {
     });
     
     // Cart form
-    loadTopCart();
     $(document).on('submit', '.add-cart-form', function(e) {
         e.preventDefault();
         
@@ -306,6 +319,44 @@ $(document).ready(function () {
             loadTopCart();
             form.removeClass('loading');
             form.find('input[name=quantity]').val(1);
+        });
+    });
+    
+    // Compare form
+    $(document).on('submit', '.add-compare-form', function(e) {
+        e.preventDefault();
+        
+        var form = $(this);
+        var url = form.attr('action');
+        form.addClass('loading');
+        
+        $.ajax({
+            url: url,
+            method: 'POST',
+            data: form.serialize()
+        }).done(function( data ) {
+            showNotice(data.type, data.title, data.message);
+            loadTopRightMenu();
+            form.removeClass('loading');
+        });
+    });
+    
+    // Wishlist form
+    $(document).on('submit', '.add-wishlist-form', function(e) {
+        e.preventDefault();
+        
+        var form = $(this);
+        var url = form.attr('action');
+        form.addClass('loading');
+        
+        $.ajax({
+            url: url,
+            method: 'POST',
+            data: form.serialize()
+        }).done(function( data ) {
+            showNotice(data.type, data.title, data.message);
+            loadTopRightMenu();
+            form.removeClass('loading');
         });
     });
 });

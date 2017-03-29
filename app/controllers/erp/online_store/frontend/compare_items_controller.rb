@@ -11,10 +11,18 @@ module Erp
             product = Erp::Products::Product.find(params[:product_id])
             @compare_item = @compare.compare_items.build(product: product)        
             if @compare_item.save
-              redirect_to erp_online_store.compare_product_path, notice: 'Thêm sản phẩm vào mục so sánh thành công.'
+              render json: {
+                message: 'Thêm sản phẩm vào mục so sánh thành công.',
+                type: 'success',
+                title: 'Thông báo'
+              }
             end
           else
-            redirect_to erp_online_store.compare_product_path, notice: 'Sản phẩm đã được thêm trước đó.'
+            render json: {
+              message: 'Sản phẩm đã được thêm trước đó.',
+              type: 'warning',
+              title: 'Thông báo'
+            }
           end
         end
         

@@ -29,6 +29,10 @@ module Erp
           end
           render layout: nil
         end
+        
+        def top_right_menu
+          render partial: 'erp/online_store/frontend/modules/header/top_right_menu', layout: nil
+        end
       end
     end
   end

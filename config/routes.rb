@@ -69,6 +69,9 @@ Erp::OnlineStore::Engine.routes.draw do
   get "thong-tin/:category_id(/:title).html" => "frontend/information#policy", as: :policy
   get "site-map.html" => "frontend/information#site_map", as: :site_map
   
+  # HOME
+  get "top-right-menu.html" => "frontend/home#top_right_menu", as: :top_right_menu
+  
   #@todo online store
 	get "autosearch" => "frontend/product#autosearch", as: :autosearch
 	

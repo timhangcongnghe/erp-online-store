@@ -16,7 +16,7 @@ module Erp
         end
         
         def top_cart
-          render layout: nil
+          render partial: 'erp/online_store/frontend/shopping_cart/top_cart', layout: nil
         end
       end
     end

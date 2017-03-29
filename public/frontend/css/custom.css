@@ -589,7 +589,7 @@ a.view-all-hotdeals:hover {
 .shopping_cart:hover .content {
   display: block;
 }
-.add-cart-form.loading {
+.add-cart-form.loading, .add-compare-form.loading, .add-wishlist-form.loading {
   opacity: 0.4;
 }
 .compare-cart-add-button {

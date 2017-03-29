@@ -90,14 +90,14 @@
                                     <div class="add-to-links wish_comp">
                                         <ul class="blank list-inline">
                                             <li class="compare">
-                                                <%= form_tag erp_online_store.add_to_compare_frontend_compare_items_path do %>
+                                                <%= form_tag erp_online_store.add_to_compare_frontend_compare_items_path, class: 'add-compare-form' do %>
                                                     <%= hidden_field_tag "product_id", @product.id %>
                                                     <button class="btn btn-mega add-to-compare" title="So sánh sản phẩm"><i class="fa fa-exchange"></i></button>
                                                 <% end %>
                                             </li>
                                             <% if user_signed_in? %>
                                             <li class="wishlist">
-                                                <%= form_tag erp_online_store.add_to_wish_list_frontend_wish_lists_path do %>
+                                                <%= form_tag erp_online_store.add_to_wish_list_frontend_wish_lists_path, class: 'add-wishlist-form' do %>
                                                     <%= hidden_field_tag "product_id", @product.id %>
                                                     <button class="btn btn-mega add-to-wish-list" title="Yêu thích sản phẩm"><i class="fa fa-heart"></i></button>
                                                 <% end %>
