@@ -80,22 +80,7 @@
             </div>
         </div>
     </div>    
-    <% if @brands.count > 0 %>        
-    <!-- Brand List  -->
-    <div class="so-spotlight5">
-        <div class="container">
-            <div class="block-brand list-brands">
-                <div class="brand-slider">
-                    <% @brands.each do |brand| %>
-                        <div class="item-manu">
-                            <%= link_to image_tag("/frontend/image/brands/2.jpg", alt: brand.name), "", title: brand.name %>
-                        </div>
-                    <% end %>
-                </div>
-            </div>
-        </div>
-    </div>
-    <% end %>
+    <%= render "erp/online_store/frontend/modules/brand_list" %>
     <!-- List Services -->
     <%= render "erp/online_store/frontend/modules/home/list_services" %>
 </main>

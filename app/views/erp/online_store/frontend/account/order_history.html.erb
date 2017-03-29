@@ -1,41 +1,41 @@
 <div class="main-container container">
     <ul class="breadcrumb">
         <li><%= link_to '<i class="fa fa-home"></i>'.html_safe, erp_online_store.root_path %></li>
-        <li><%= link_to "Account", erp_online_store.my_account_path %></li>
-        <li><%= link_to "Order History", "javascript:void(0)" %></li>
+        <li><%= link_to "Tài khoản", erp_online_store.my_account_path %></li>
+        <li><%= link_to "Lịch sử mua hàng", "javascript:void(0)" %></li>
     </ul>
-
     <div class="row">
         <!--Middle Part Start-->
         <div id="content" class="col-sm-9">
-            <h2 class="title">Order History</h2>
+            <h2 class="title">Danh sách đơn hàng</h2>
             <div class="table-responsive">
                 <table class="table table-bordered table-hover">
                     <thead>
                         <tr>
-                            <td class="text-center">Image</td>
-                            <td class="text-left">Product Name</td>
-                            <td class="text-center">Order ID</td>
-                            <td class="text-center">Qty</td>
-                            <td class="text-center">Status</td>
-                            <td class="text-center">Date Added</td>
-                            <td class="text-right">Total</td>
-                            <td></td>
+                            <td class="text-center">Mã đơn hàng</td>
+                            <td class="text-center">Ngày đặt hàng</td>
+                            <td class="text-center">Trạng thái</td>
+                            <td class="text-center">Thành Tiền</td>
+                            <td class="text-center">Thao tác</td>
                         </tr>
                     </thead>
                     <tbody>
                         <% (0..3).each do |order_history| %>
-                        <tr>
-                            <td class="text-center">
-                                <%= link_to image_tag("/frontend/image/shop/product/b8.jpg", width:"85", alt: "Aspire Ultrabook Laptop", title: "Aspire Ultrabook Laptop"), erp_online_store.product_detail_path %>
-                            </td>
-                            <td class="text-left"><%= link_to "Aspire Ultrabook Laptop", erp_online_store.product_detail_path %></td>
+                        <tr class="order-list">
                             <td class="text-center">#214521</td>
-                            <td class="text-center">1</td>
-                            <td class="text-center">Shipped</td>
                             <td class="text-center">21/06/2016</td>
-                            <td class="text-right">$228.00</td>
-                            <td class="text-center"><a class="btn btn-info" data-toggle="tooltip" href="<%= erp_online_store.order_information_path %>" data-original-title="View"><i class="fa fa-eye"></i></a></td>
+                            <td class="text-left order-status">                                
+                                <span class="pending"><i class="fa fa-info-circle"></i> Đơn hàng vừa tạo</span><br>
+                                <span class="confirm"><i class="fa fa-warning"></i> Đơn hàng đã xác nhận</span><br>
+                                <span class="confirm"><i class="fa fa-warning"></i> Đơn hàng đang được giao</span><br>
+                                <span class="finish"><i class="fa fa-check-circle"></i> Giao dịch thành công</span>
+                            </td>                            
+                            <td class="text-center">12,548,000 VNĐ</td>
+                            <td class="text-center">
+                                <a class="btn btn-info" title="Chi tiết đơn hàng" data-toggle="tooltip" href="<%= erp_online_store.order_information_path %>" data-original-title="Chi tiết đơn hàng">
+                                    <i class="fa fa-eye"></i>
+                                </a>                                
+                            </td>
                         </tr>
                         <% end %>
                     </tbody>

@@ -579,11 +579,6 @@ ul, ol {
   background-clip: content-box;
   color: white; }
 
-.social-widgets .instagram .tab-icon {
-  background: #bc2a8d;
-  background-clip: content-box;
-  color: white; }
-
 .social-widgets .pinterest .tab-icon {
   background: #b7071b;
   background-clip: content-box;
@@ -4028,7 +4023,7 @@ ul.yt-accordion li.accordion-group h3.accordion-heading:hover .fa {
 ******                 SO Framework: Sass ProductList                     ******
 ********************************************************************************/
 /*============ BOX SALE,NEW ==============*/
-.label-new, .label-sale, .label-bestseller {
+.label-new, .label-sale {
   min-width: 45px;
   height: 20px;
   padding: 0 10px;
@@ -4062,18 +4057,6 @@ ul.yt-accordion li.accordion-group h3.accordion-heading:hover .fa {
   .label-new:after {
     content: "";
     border-top: 9px solid #00ABF0;
-    border-right: 8px solid transparent;
-    position: absolute;
-    bottom: -6px;
-    left: 0; }
-
-.label-bestseller {
-  background: #F4A137;
-  top: 0;
-  right: 0; }
-  .label-bestseller:after {
-    content: "";
-    border-top: 9px solid #F4A137;
     border-right: 8px solid transparent;
     position: absolute;
     bottom: -6px;
@@ -4446,10 +4429,7 @@ h2.title-category {
       display: none; }
     .products-list.list-masonry .product-layout .product-item-container .label-new, .products-list.grid .product-layout .product-item-container .label-new {
       top: 8px;
-      right: 8px; }
-    .products-list.list-masonry .product-layout .product-item-container .label-bestseller, .products-list.grid .product-layout .product-item-container .label-bestseller {
-      top: 8px;
-      right: 8px; }
+      right: 8px; }    
     .products-list.list-masonry .product-layout .product-item-container .label-sale, .products-list.grid .product-layout .product-item-container .label-sale {
       top: 8px;
       left: 8px; }
@@ -4481,11 +4461,7 @@ h2.title-category {
     .products-list.list .product-layout .product-item-container .label-new {
       top: 10px;
       right: 10px;
-      left: auto; }
-    .products-list.list .product-layout .product-item-container .label-bestseller {
-      top: 10px;
-      right: 10px;
-      left: auto; }
+      left: auto; }    
     .products-list.list .product-layout .product-item-container .label-sale {
       top: 10px;
       left: 10px;

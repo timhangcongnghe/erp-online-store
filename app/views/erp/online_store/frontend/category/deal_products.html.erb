@@ -10,21 +10,34 @@
                 <h3 class="modtitle">
                   <span>
                     <i class="fa fa-angle-double-right"></i>
-                    Chuyên Mục
+                    KHUYẾN MÃI
                   </span>
                 </h3>
                 <div class="modcontent">
                     <div class="box-category">
                         <ul id="cat_accordion" class="list-group">
-                            <% (0..4).each do |category| %>
-                            <li class="hadchild cutom-parent-li"><%= link_to 'Sản Phẩm HP (100) <span class="dcjq-icon"></span>'.html_safe, "", class: "cutom-parent" %>
+                            <% @menus.each do |menu| %>
+                            <li <% if menu.children.count > 0 %>class="hadchild cutom-parent-li"<% end %>>
+                                <a href="<%= erp_online_store.category_path(menu_id: menu.id) %>" class="cutom-parent"><%= menu.name %><span class="dcjq-icon"></span></a>
+                                <% if menu.children.count > 0 %>
                                 <span class="button-view  fa fa-plus-square-o"></span>
+                                <% end %>
                                 <ul style="display: none;">
-                                    <li><%= link_to "Máy Tính Để Bàn (20)", "" %></li>
-                                    <li><%= link_to "Máy Chủ - Server (20)", "" %></li>
-                                    <li><%= link_to "Thiết Bị Chuyển Mạch (20)", "" %></li>
-                                    <li><%= link_to "Thiết Bị Lưu Trữ (20)", "" %></li>
-                                    <li><%= link_to "Máy Tính Xách Tay (20)", "" %></li>
+                                    <% menu.children.each do |child_1| %>
+                                        <% if child_1.children.count > 0 %>
+                                        <li class="hadchild cutom-parent-li">
+                                            <%= link_to child_1.name, erp_online_store.category_path(menu_id: child_1.id), class: "cutom-parent" %>
+                                            <span class="button-view  fa fa-plus-square-o"></span>
+                                            <ul style="display: none;">
+                                                <% child_1.children.each do |child_2| %>
+                                                    <li><%= link_to child_2.name, erp_online_store.category_path(menu_id: child_2.id) %></li>
+                                                <% end %>
+                                            </ul>
+                                        </li>
+                                        <% else %>
+                                            <li><%= link_to child_1.name, erp_online_store.category_path(menu_id: child_1.id) %></li>
+                                        <% end %>
+                                    <% end %>                                    
                                 </ul>
                             </li>
                             <% end %>

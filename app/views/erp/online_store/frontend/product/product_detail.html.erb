@@ -95,14 +95,6 @@
                                                     <button class="btn btn-mega add-to-compare" title="So sánh sản phẩm"><i class="fa fa-exchange"></i></button>
                                                 <% end %>
                                             </li>
-                                            <% if user_signed_in? %>
-                                            <li class="wishlist">
-                                                <%= form_tag erp_online_store.add_to_wish_list_frontend_wish_lists_path, class: 'add-wishlist-form' do %>
-                                                    <%= hidden_field_tag "product_id", @product.id %>
-                                                    <button class="btn btn-mega add-to-wish-list" title="Yêu thích sản phẩm"><i class="fa fa-heart"></i></button>
-                                                <% end %>
-                                            </li>
-                                            <% end %>
                                         </ul>
                                     </div>
                                 </div>
@@ -133,12 +125,9 @@
                             <% if @product.accessory.present? %>
                                 <% if @product.accessory.accessory_details.count > 0 %>
                                     <%= render "/erp/online_store/frontend/modules/product/accessories", accessory: @product.accessory %>
-                                <% else %>
-                                    <%= render "/erp/online_store/frontend/modules/product/deal_products" %>
                                 <% end %>
-                            <% else %>
-                                <%= render "/erp/online_store/frontend/modules/product/deal_products" %>
                             <% end %>
+                            <%= render "/erp/online_store/frontend/modules/product/deal_products" %>
                         </div>
                     </div>
                 </div>

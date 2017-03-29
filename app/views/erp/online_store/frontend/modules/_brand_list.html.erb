@@ -1,0 +1,16 @@
+<% if Erp::Products::Brand.get_brands.count > 0 %>        
+<!-- Brand List  -->
+<div class="so-spotlight5">
+    <div class="container">
+        <div class="block-brand list-brands">
+            <div class="brand-slider">
+                <% Erp::Products::Brand.get_brands.each do |brand| %>
+                    <div class="item-manu">
+                        <%= link_to image_tag("/frontend/image/brands/2.jpg", alt: brand.name), "", title: brand.name %>
+                    </div>
+                <% end %>
+            </div>
+        </div>
+    </div>
+</div>
+<% end %>

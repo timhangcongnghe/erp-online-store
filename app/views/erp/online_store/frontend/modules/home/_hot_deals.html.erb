@@ -1,9 +1,9 @@
 <div class="module so-deals">
     <h3 class="modtitle">
         <span>
-            <i class="fa fa-empire"></i> Khuyến mãi
+            <i class="fa fa-empire"></i> Khuyến Mãi
         </span>
-        <%= link_to "Xem toàn bộ", "", class: "view-all-hotdeals", title: "Xem toàn bộ" %>
+        <%= link_to "Xem toàn bộ", erp_online_store.deal_products_path, class: "view-all-hotdeals", title: "Xem toàn bộ" %>
     </h3>
     <div class="modcontent">
         <div class="so-deal modcontent products-list grid clearfixbutton-type1 style2">
@@ -37,9 +37,10 @@
                             <h4><%= link_to hot_deal.name, erp_online_store.product_detail_path(product_id: hot_deal.id), title: hot_deal.name %></h4>
                             <p class="price">
                                 <span class="price-new"><%= format_price(hot_deal.product_price) %>
-                                </span><span class="price-old">
-                                    <%= format_price(hot_deal.price) %>
-                                </span>
+                                <% if hot_deal.is_deal %>                        
+                                    <br><span class="price-old"><%= format_price(hot_deal.price) %></span>
+                                    <span class="label label-percent">-<%= hot_deal.deal_percent %>%</span>
+                                <% end %>
                             </p>
                         </div>
                     </div>

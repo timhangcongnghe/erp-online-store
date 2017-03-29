@@ -1,7 +1,7 @@
 <div class="moduletable module best-seller">
     <h3 class="modtitle">
-        <span>Bán chạy</span>
-        <%= link_to "Xem toàn bộ", erp_online_store.bestseller_products_path, class: "view-all-bestseller", title: "Xem toàn bộ" %>
+        <span>BÁN CHẠY</span>
+        <%= link_to "Xem tất cả", erp_online_store.bestseller_products_path, class: "view-all-bestseller", title: "Xem toàn bộ" %>
     </h3>
     <div class="so-extraslider">
         <div class="extraslider-inner best-seller-slider">
@@ -32,8 +32,12 @@
                                 <div class="item-content">
                                     <div class="content_price">
                                         <span class="price product-price">
-                                            <%= format_price(best_seller.price) %>
+                                            <%= format_price(best_seller.product_price) %>
                                         </span>
+                                        <% if best_seller.is_deal? %>                        
+                                        <br><span class="price-old-price"><%= format_price(best_seller.price) %></span>
+                                        <span class="product-percent">-<%= best_seller.deal_percent %>%</span>
+                                        <% end %>
                                     </div>
                                 </div>
                                 <!-- End item-content -->

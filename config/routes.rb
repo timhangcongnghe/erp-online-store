@@ -28,9 +28,6 @@ Erp::OnlineStore::Engine.routes.draw do
   get "tai-khoan/thong-tin-tai-khoan.html" => "frontend/account#my_account", as: :my_account
   get "tai-khoan/lich-su-mua-hang.html" => "frontend/account#order_history", as: :order_history
   get "tai-khoan/chi-tiet-don-hang.html" => "frontend/account#order_information", as: :order_information
-  get "tai-khoan/san-pham-tra-lai.html" => "frontend/account#product_returns", as: :product_returns
-  get "tai-khoan/ma-khuyen-mai.html" => "frontend/account#gift_voucher", as: :gift_voucher
-  get "tai-khoan/san-pham-yeu-thich.html" => "frontend/account#wishlist", as: :wishlist
   
   # SHOPPING CART
   get "topcart.html" => "frontend/shopping_cart#top_cart", as: :top_cart

@@ -7,14 +7,14 @@
         <!--Middle Part Start-->
         <div id="content" class="col-sm-12">
             <% if @compare.compare_items.count > 0 %>
-            <h2 class="title">Danh sách so sánh</h2>
+            <h2 class="title title-compare">DANH SÁCH SO SÁNH</h2>
             <div class="table-responsive">
-                <table class="table table-bordered table-hover">
+                <table class="table table-bordered table-hover product-compare">
                     <tbody>
                         <tr>
-                            <td>Tên sản phẩm</td>
+                            <td>Tên</td>
                             <% @compare.compare_items.get_all_items.each do |compare_item| %>
-                            <td><strong><%= link_to compare_item.product.name, erp_online_store.product_detail_path(product_id: compare_item.product.id) %></strong></td>
+                            <td class="product-name"><strong><%= link_to compare_item.product.name, erp_online_store.product_detail_path(product_id: compare_item.product.id), title: compare_item.product.name %></strong></td>
                             <% end %>
                         </tr>
                         <tr>
@@ -42,27 +42,21 @@
                         <tr>
                             <td>Thương hiệu</td>
                             <% @compare.compare_items.get_all_items.each do |compare_item| %>
-                                <td>Chưa có</td>
+                                <td><%= compare_item.product.brand_name %></td>
                             <% end %>
                         </tr>
-                        <tr>
-                            <td>CPU</td>
-                            <td>Intel, Celeron, N3060, 1.60 GHz</td>
-                            <td>Intel, Celeron, N3060, 1.60 GHz</td>
-                            <td>Intel, Celeron, N3060, 1.60 GHz</td>
-                        </tr>
-                        <tr>
-                            <td>RAM</td>
-                            <td>DDR3L (1 khe RAM), 4 GB, 1600 MHz</td>
-                            <td>DDR3L (1 khe RAM), 4 GB, 1600 MHz</td>
-                            <td>DDR3L (1 khe RAM), 4 GB, 1600 MHz</td>
-                        </tr>
-                        <tr>
-                            <td>Đồ họa</td>
-                            <td>Intel® HD Graphics, Share (Dùng chung bộ nhớ với RAM)</td>
-                            <td>Intel® HD Graphics, Share (Dùng chung bộ nhớ với RAM)</td>
-                            <td>Intel® HD Graphics, Share (Dùng chung bộ nhớ với RAM)</td>
-                        </tr>
+                        <% Erp::Carts::CompareItem.get_comparision_hash(@compare.compare_items).each do |row| %>
+                            <tr>
+                                <td><%= row[0] %></td>
+                                <% row[1].each do |values| %>
+                                    <% if values.nil? %>
+                                        <td class="not-property">Chưa có thuộc tính.</td>
+                                    <% else %>
+                                        <td><%= values.join(', ') %></td>
+                                    <% end %>
+                                <% end %>
+                            </tr>
+                        <% end %>
                     </tbody>
                     <tbody>
                         <tr>

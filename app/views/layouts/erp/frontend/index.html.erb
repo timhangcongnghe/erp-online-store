@@ -39,8 +39,9 @@
 		<% if params[:controller] == "erp/online_store/frontend/business_choices" && params[:action] == "index" %>
 		<%= stylesheet_link_tag "/frontend/css/themecss/slider.css" %>
 		<%= stylesheet_link_tag "/frontend/css/home7.css" %>
-		<% end %>
+		<% else %>
 		<%= stylesheet_link_tag "/frontend/css/theme-cyan.css" %>
+		<% end %>
 		<%= stylesheet_link_tag "/frontend/css/responsive.css" %>
 		<%= stylesheet_link_tag "/frontend/css/custom.css" %>
 		<%= stylesheet_link_tag "/frontend/css/custom-profile.css" %>

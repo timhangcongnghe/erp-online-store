@@ -28,7 +28,7 @@ module Erp
             .where(archived: false)
             .paginate(:page => params[:page], :per_page => 5)
           
-          render 'erp/online_store/frontend/product/_comments', locals: {comments: @comments}, layout: nil
+          render 'erp/online_store/frontend/modules/product/_comments', locals: {comments: @comments}, layout: nil
         end
         
         def ratings
@@ -45,7 +45,7 @@ module Erp
             .where(archived: false)
             .paginate(:page => params[:page], :per_page => 5)
           
-          render 'erp/online_store/frontend/product/_ratings', locals: {ratings: @ratings}, layout: nil
+          render 'erp/online_store/frontend/modules/product/_ratings', locals: {ratings: @ratings}, layout: nil
         end
         
         def product_quickview

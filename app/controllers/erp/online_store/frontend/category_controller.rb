@@ -13,10 +13,12 @@ module Erp
         
         def deal_products
           @products = Erp::Products::Product.get_deal_products.paginate(:page => params[:page], :per_page => 16)
+          @menus = Erp::Menus::Menu.get_menus
         end
         
         def bestseller_products
           @products = Erp::Products::Product.get_bestseller_products.paginate(:page => params[:page], :per_page => 16)
+          @menus = Erp::Menus::Menu.get_menus
         end
       end
     end

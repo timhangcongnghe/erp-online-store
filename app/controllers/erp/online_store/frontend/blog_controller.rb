@@ -35,7 +35,7 @@ module Erp
             .where(archived: false)
             .paginate(:page => params[:page], :per_page => 5)
             
-          render 'erp/online_store/frontend/blog/_comments', locals: {comments: @comments}, layout: nil
+          render 'erp/online_store/frontend/modules/blog/_comments', locals: {comments: @comments}, layout: nil
         end
         
         private
