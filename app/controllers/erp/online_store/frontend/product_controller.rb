@@ -2,6 +2,7 @@ module Erp
   module OnlineStore
     module Frontend
       class ProductController < Erp::Frontend::FrontendController
+        before_action :set_comment, only: [:delete_comment]
         include Erp::ApplicationHelper
         include ActionView::Helpers::NumberHelper
         
@@ -48,6 +49,11 @@ module Erp
           render 'erp/online_store/frontend/modules/product/_ratings', locals: {ratings: @ratings}, layout: nil
         end
         
+        def delete_comment
+          @comment.destroy
+          redirect_to :back, notice: 'Nội dung bình luận đã được xóa'
+        end
+        
         def product_quickview
           @product = Erp::Products::Product.find(params[:product_id])
           render layout: "erp/frontend/quickview"          
@@ -65,6 +71,10 @@ module Erp
         end
         
         private
+          def set_comment
+            @comment = Erp::Products::Comment.find(params[:comment_id])
+          end
+          
           def comment_params
             params.fetch(:comment, {}).permit(:message, :product_id, :parent_id)
           end

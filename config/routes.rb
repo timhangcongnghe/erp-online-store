@@ -5,11 +5,12 @@ Erp::OnlineStore::Engine.routes.draw do
   # CATEGORY
   get "chuyen-muc-san-pham.html" => "frontend/category#index", as: :category
   get "chuyen-muc-san-pham/chi-tiet-san-pham.html" => "frontend/product#product_detail", as: :product_detail
-  get "chuyen-muc-san-pham/binh-luan.html" => "frontend/product#comments", as: :product_comments
-  post "chuyen-muc-san-pham/binh-luan.html" => "frontend/product#comments"
-  get "chuyen-muc-san-pham/danh-gia.html" => "frontend/product#ratings", as: :product_ratings
-  post "chuyen-muc-san-pham/danh-gia.html" => "frontend/product#ratings"
   post "chuyen-muc-san-pham/chi-tiet-san-pham.html" => "frontend/product#product_detail"
+  get "san-pham/binh-luan.html" => "frontend/product#comments", as: :product_comments
+  post "san-pham/binh-luan.html" => "frontend/product#comments"
+  get "san-pham/binh-luan/:comment_id-remove.html" => "frontend/product#delete_comment", as: :delete_product_comment
+  get "san-pham/danh-gia.html" => "frontend/product#ratings", as: :product_ratings
+  post "san-pham/danh-gia.html" => "frontend/product#ratings"
   get "xem-nhanh.html" => "frontend/product#product_quickview", as: :product_quickview
   get "san-pham-khuyen-mai.html" => "frontend/category#deal_products", as: :deal_products
   get "san-pham-ban-chay-nhat.html" => "frontend/category#bestseller_products", as: :bestseller_products
