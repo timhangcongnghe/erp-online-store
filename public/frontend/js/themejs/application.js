@@ -2154,38 +2154,40 @@ $(document).ready(function($) {
 });
 $(document).ready(function($) {
     "use strict";
-    //$('.best-seller-slider').owlCarousel2({
-    //    pagination: false,
-    //    center: false,
-    //    nav: true,
-    //    dots: false,
-    //    loop: true,
-    //    margin: 0,
-    //    navText: ['', ''],
-    //    slideBy: 1,
-    //    autoplay: false,
-    //    autoplayTimeout: 2500,
-    //    autoplayHoverPause: true,
-    //    autoplaySpeed: 800,
-    //    startPosition: 0,
-    //    responsive: {
-    //        0: {
-    //            items: 1
-    //        },
-    //        480: {
-    //            items: 1
-    //        },
-    //        768: {
-    //            items: 1
-    //        },
-    //        1024: {
-    //            items: 1
-    //        },
-    //        1200: {
-    //            items: 1
-    //        }
-    //    }
-    //});
+    if ($('.best-seller-slider .item').length > 1) {
+        $('.best-seller-slider').owlCarousel2({
+            pagination: false,
+            center: false,
+            nav: true,
+            dots: false,
+            loop: true,
+            margin: 0,
+            navText: ['', ''],
+            slideBy: 1,
+            autoplay: false,
+            autoplayTimeout: 2500,
+            autoplayHoverPause: true,
+            autoplaySpeed: 800,
+            startPosition: 0,
+            responsive: {
+                0: {
+                    items: 1
+                },
+                480: {
+                    items: 1
+                },
+                768: {
+                    items: 1
+                },
+                1024: {
+                    items: 1
+                },
+                1200: {
+                    items: 1
+                }
+            }
+        });
+    }
 });
 $screensize = $(window).width();
 if ($screensize > 991) {
@@ -2232,98 +2234,104 @@ $(document).ready(function($) {
 });
 $(document).ready(function($) {
     "use strict";
-    //$('.releate-products').owlCarousel2({
-    //    pagination: false,
-    //    center: false,
-    //    nav: true,
-    //    dots: false,
-    //    loop: true,
-    //    margin: 2,
-    //    navText: ['', ''],
-    //    slideBy: 1,
-    //    autoplay: false,
-    //    autoplayTimeout: 2500,
-    //    autoplayHoverPause: true,
-    //    autoplaySpeed: 800,
-    //    startPosition: 0,
-    //    responsive: {
-    //        0: {
-    //            items: 1
-    //        },
-    //        480: {
-    //            items: 1
-    //        },
-    //        768: {
-    //            items: 2
-    //        },
-    //        1024: {
-    //            items: 3
-    //        },
-    //        1200: {
-    //            items: 4
-    //        }
-    //    }
-    //});
-    //$('.upsell-products').owlCarousel2({
-    //    pagination: false,
-    //    center: false,
-    //    nav: true,
-    //    dots: false,
-    //    loop: true,
-    //    margin: 2,
-    //    navText: ['', ''],
-    //    slideBy: 1,
-    //    autoplay: false,
-    //    autoplayTimeout: 2500,
-    //    autoplayHoverPause: true,
-    //    autoplaySpeed: 800,
-    //    startPosition: 0,
-    //    responsive: {
-    //        0: {
-    //            items: 1
-    //        },
-    //        480: {
-    //            items: 1
-    //        },
-    //        768: {
-    //            items: 2
-    //        },
-    //        1024: {
-    //            items: 3
-    //        },
-    //        1200: {
-    //            items: 4
-    //        }
-    //    }
-    //});
-    //$('.slider-clients-say').owlCarousel2({
-    //    pagination: false,
-    //    center: false,
-    //    nav: true,
-    //    loop: false,
-    //    margin: 25,
-    //    navText: ['prev', 'next'],
-    //    slideBy: 1,
-    //    autoplay: false,
-    //    autoplayTimeout: 2500,
-    //    autoplayHoverPause: true,
-    //    autoplaySpeed: 800,
-    //    startPosition: 0,
-    //    responsive: {
-    //        0: {
-    //            items: 1
-    //        },
-    //        480: {
-    //            items: 1
-    //        },
-    //        768: {
-    //            items: 1
-    //        },
-    //        1200: {
-    //            items: 1
-    //        }
-    //    }
-    //});
+    if ($('.releate-products').length) {
+        $('.releate-products').owlCarousel2({
+            pagination: false,
+            center: false,
+            nav: true,
+            dots: false,
+            loop: true,
+            margin: 2,
+            navText: ['', ''],
+            slideBy: 1,
+            autoplay: false,
+            autoplayTimeout: 2500,
+            autoplayHoverPause: true,
+            autoplaySpeed: 800,
+            startPosition: 0,
+            responsive: {
+                0: {
+                    items: 1
+                },
+                480: {
+                    items: 1
+                },
+                768: {
+                    items: 2
+                },
+                1024: {
+                    items: 3
+                },
+                1200: {
+                    items: 4
+                }
+            }
+        });
+    }
+    if ($('.upsell-products').length) {
+        $('.upsell-products').owlCarousel2({
+            pagination: false,
+            center: false,
+            nav: true,
+            dots: false,
+            loop: true,
+            margin: 2,
+            navText: ['', ''],
+            slideBy: 1,
+            autoplay: false,
+            autoplayTimeout: 2500,
+            autoplayHoverPause: true,
+            autoplaySpeed: 800,
+            startPosition: 0,
+            responsive: {
+                0: {
+                    items: 1
+                },
+                480: {
+                    items: 1
+                },
+                768: {
+                    items: 2
+                },
+                1024: {
+                    items: 3
+                },
+                1200: {
+                    items: 4
+                }
+            }
+        });
+    }
+    if ($('.slider-clients-say').length) {
+        $('.slider-clients-say').owlCarousel2({
+            pagination: false,
+            center: false,
+            nav: true,
+            loop: false,
+            margin: 25,
+            navText: ['prev', 'next'],
+            slideBy: 1,
+            autoplay: false,
+            autoplayTimeout: 2500,
+            autoplayHoverPause: true,
+            autoplaySpeed: 800,
+            startPosition: 0,
+            responsive: {
+                0: {
+                    items: 1
+                },
+                480: {
+                    items: 1
+                },
+                768: {
+                    items: 1
+                },
+                1200: {
+                    items: 1
+                }
+            }
+        });
+    }
 });
 $(document).ready(function() {
     "use strict";
