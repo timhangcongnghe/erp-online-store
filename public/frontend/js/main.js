@@ -359,4 +359,28 @@ $(document).ready(function () {
             form.removeClass('loading');
         });
     });
+    
+    // Forget password form
+    $(document).on('submit', '.reset-password', function(e) {
+        e.preventDefault();
+        
+        var form = $(this);
+        var url = form.attr('action');
+        var method = form.attr('method');
+        
+        form.find('.notice').hide();        
+        
+        $.ajax({
+            url: url,
+            method: method,
+            data: form.serialize(),
+            dataType: 'text',
+        }).done(function( data ) {
+            if ( $('<div>').html(data).find('form').length ) {
+                form.find('.form-content').html($('<div>').html(data).find('.form-content').html());
+            } else {
+                form.find('.form-content').html(data);
+            }
+        });
+    });
 });

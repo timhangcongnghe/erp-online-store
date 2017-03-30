@@ -1,0 +1,35 @@
+<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post, class: "reset-password" }) do |f| %>
+  <div class="form-content">
+    <div class="login-box">
+        <h2><i class="fa fa-user" aria-hidden="true"></i> Lấy lại mật khẩu</h2>
+        
+        <div class="notice">
+          <% if devise_error_messages! != '' %>
+            <span class='flash_error alert alert-danger'>
+              <%= devise_error_messages! %>
+            </span>
+          <% end %>
+        </div>
+        
+        <div class="notice">
+            <% if flash[:alert] %>
+                <span class='flash_error alert alert-danger'> <%= flash[:alert] %></span>
+            <% end %>                                        
+        </div>
+        
+        <div class="form-group">
+            <label class="control-label" for="input-email">Địa chỉ email</label>
+            <%= f.email_field :email, autofocus: true, autocomplete: "off", placeholder: "Nhập địa chỉ email đã đăng ký", class: "form-control required" %>
+        </div>
+    </div>
+    <div class="bottom-form">
+        <input type="submit" value="Đăng nhập" class="btn btn-default pull-right" />
+    </div>    
+    <script>
+        $('.register-form').validate();
+        $('.login-form').validate();
+        $('.reset-password').validate();
+        $('.ajax-link').fancybox({closeClickOutside : true});   
+    </script>
+  </div>
+<% end %>
