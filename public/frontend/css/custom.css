@@ -729,3 +729,9 @@ table.product-compare tr td.product-name {
 .info-contact .comment {
   text-align: justify;
 }
+.best-seller .so-extraslider .extraslider-inner .item .item-wrap.style1 .media-body .item-info .item-title a {
+  font-weight: 600;
+}
+.footer-center .content, footer .footer-center .contact-address li, footer a {
+  color: #000;
+}
