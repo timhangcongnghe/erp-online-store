@@ -681,7 +681,7 @@ span.full-right {
   color: #000;
   font-weight: 600;
 }
-table.product-compare {
+table.product-compare, .custom-profile {
   color: #000;
 }
 table.product-compare td {
@@ -714,7 +714,7 @@ table.product-compare tr td.product-name {
   font-weight: 600;
   color: #000;
 }
-.order-list {
+.order-list, .custom-profile .button-info {
   font-weight: 600;
 }
 .order-status span.pending {
