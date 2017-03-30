@@ -1,0 +1,14 @@
+<p>Chào mừng <%= @email %>!</p>
+
+<p>Bạn có thể xác nhận email tài khoản của mình thông qua liên kết bên dưới:</p>
+
+<p><%= link_to 'Xác minh tài khoản', confirmation_url(@resource, confirmation_token: @token) %></p>
+<p>Trân trọng,<br/>
+Nhóm Bảo mật Hoàng Khang
+</p>
+<p style="color: #999;font-size: 12px;">
+    <i>
+        *Email này không nhận được thư trả lời.
+        Để gửi phản hồi cho chúng tôi về thông báo này, vui lòng truy cập http://timhangcongnghe.vn/
+    </i>
+</p>
