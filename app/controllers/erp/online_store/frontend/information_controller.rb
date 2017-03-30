@@ -27,6 +27,7 @@ module Erp
             if @contact.save and params[:msg].present?
               @msg = Erp::Contacts::Message.new(message_params)
               @msg.contact_id = @contact.id
+              # @todo get email receive contact
               @msg.to_contact_id = Erp::Contacts::Contact.first.id
               respond_to do |format|
                 if @msg.save
