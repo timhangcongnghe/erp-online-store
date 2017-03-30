@@ -415,14 +415,14 @@ form label.error {
   background-color: #F4A137;
 }
 .products-list.list-masonry .product-layout .product-item-container .right-block .caption h4 a, .products-list.grid .product-layout .product-item-container .right-block .caption h4 a {
-  font-weight: 600 !important;
+  font-weight: 500 !important;
 }
 a.hover-product-name:hover {
   color: #009688 !important;
 }
 .filters-panel .form-control {
   height: 34px;
-  font-weight: 600;
+  font-weight: 500;
 }
 .box-pagination .pagination > li span, .box-pagination .pagination > li a {
   width: 34px;
@@ -488,17 +488,17 @@ ul.megamenu li .sub-menu .content .hover-menu .menu ul ul {
 }
 .label-percent {
   background: #ff9601;
-  font-weight: 600;
+  font-weight: 500;
 }
 .label-sale {
   background: #ff0000;
-  font-weight: 600;
+  font-weight: 500;
 }
 .label-bestseller {
-  font-weight: 600;
+  font-weight: 500;
 }
 .label-new {
-  font-weight: 600;
+  font-weight: 500;
 }
 .label-sale:after {
   border-top: 9px solid #ff0000;
@@ -651,7 +651,7 @@ span.full-right {
 }
 .best-seller .so-extraslider .extraslider-inner .item .item-wrap.style1 .media-body .item-info .item-content .content_price span.product-percent {
   background: #ff9601;
-  font-weight: 600;
+  font-weight: 500;
   padding: 2px 5px;
   font-size: 13px;
   display: inline;
@@ -668,24 +668,24 @@ span.full-right {
 }
 .left-content-product .content-product-right .box-info-product .quantity .quantity-control span.product_quantity_down {
   background: none repeat scroll 0 0 #ea3a3c;
-  font-weight: 600;
+  font-weight: 500;
 }
 .left-content-product .content-product-right .box-info-product .quantity .quantity-control span.product_quantity_up {
   background: none repeat scroll 0 0 #ea3a3c;
-  font-weight: 600;
+  font-weight: 500;
 }
 .left-content-product .content-product-right .box-info-product .quantity .quantity-control input.form-control {
-  font-weight: 600;
+  font-weight: 500;
 }
 .list-item li a {
   color: #000;
-  font-weight: 600;
+  font-weight: 500;
 }
 table.product-compare, .custom-profile {
   color: #000;
 }
 table.product-compare td {
-  font-weight: 600;
+  font-weight: 500;
 }
 table.product-compare tr td.product-name {
   text-align: center;
@@ -693,7 +693,7 @@ table.product-compare tr td.product-name {
 }
 .breadcrumb {
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 500;
 }
 .title-compare {
   color: #000;
@@ -711,11 +711,11 @@ table.product-compare tr td.product-name {
   font-style: italic;  
 }
 .account-report {
-  font-weight: 600;
+  font-weight: 500;
   color: #000;
 }
 .order-list, .custom-profile .button-info {
-  font-weight: 600;
+  font-weight: 500;
 }
 .order-status span.pending {
   color: #F4A137;
@@ -730,7 +730,7 @@ table.product-compare tr td.product-name {
   text-align: justify;
 }
 .best-seller .so-extraslider .extraslider-inner .item .item-wrap.style1 .media-body .item-info .item-title a {
-  font-weight: 600;
+  font-weight: 500;
 }
 .footer-center .content, footer .footer-center .contact-address li, footer a {
   color: #000;
