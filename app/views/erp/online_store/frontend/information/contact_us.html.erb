@@ -19,24 +19,22 @@
                                 <div class="icon">
                                     <i class="fa fa-home"></i>
                                 </div>
-                                <div class="text">Công ty TNHH Giải Pháp CNTT và Truyền Thông Hoàng Khang</div>
+                                <div class="text"><%= @company_info.contact_name %></div>
                             </div>
                             <div class="address form-group">
                                 <div class="icon">
                                     <i class="fa fa-map-marker"></i>
                                 </div>
-                                <div class="text">188 Đường Số 1, Phường 16, Quận Gò Vấp, TP. Hồ Chí Minh</div>
+                                <div class="text"><%= @company_info.address %></div>
                             </div>
                             <div class="phone form-group">
                                 <div class="icon">
                                     <i class="fa fa-phone"></i>
                                 </div>
-                                <div class="text">Điện thoại: 0987654321</div>
+                                <div class="text"><%= @company_info.phone %></div>
                             </div>
                             <div class="comment">             
-                                Maecenas euismod felis et purus consectetur, quis fermentum velition. Aenean egestas quis turpis vehicula.Maecenas euismod felis et purus consectetur, quis fermentum velition. 
-                                Aenean egestas quis turpis vehicula.It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. 
-                                The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.
+                                <%= @company_info.note %>
                             </div>
                         </address>
                     </div>
@@ -46,35 +44,35 @@
                         <fieldset>
                             <legend>Chúng tôi hân hạnh được hỗ trợ Quý khách.</legend>
                             <div class="form-group required">
-                                <label class="col-sm-2 control-label" for="input-name">Tên Quý khách</label>
-                                <div class="col-sm-10">
+                                <label class="col-sm-3 control-label" for="input-name">Tên Quý khách</label>
+                                <div class="col-sm-9">
                                     <input type="text" name="contact[name]"
                                            placeholder="Nhập tên của Quý khách để chúng tôi tiện xưng hô"
                                            id="input-name" class="form-control" />
                                 </div>
                             </div>
                             <div class="form-group required">
-                                <label class="col-sm-2 control-label" for="input-email">Địa chỉ email</label>
-                                <div class="col-sm-10">
+                                <label class="col-sm-3 control-label" for="input-email">Địa chỉ email</label>
+                                <div class="col-sm-9">
                                     <input type="text" name="contact[email]"
                                            placeholder="Nhập địa chỉ email của Quý khách"
                                            id="input-email" class="form-control" />
                                 </div>
                             </div>
                             <div class="form-group required">
-                                <label class="col-sm-2 control-label" for="input-email">Điện thoại</label>
-                                <div class="col-sm-10">
+                                <label class="col-sm-3 control-label" for="input-email">Điện thoại</label>
+                                <div class="col-sm-9">
                                     <input type="text" name="contact[phone]"
                                            placeholder="Nhập số điện thoại của Quý khách"
                                            id="input-email" class="form-control" />
                                 </div>
                             </div>
                             <div class="form-group required">
-                                <label class="col-sm-2 control-label" for="input-enquiry">Lời nhắn</label>
-                                <div class="col-sm-10">
+                                <label class="col-sm-3 control-label" for="input-enquiry">Lời nhắn</label>
+                                <div class="col-sm-9">
                                     <textarea name="msg[message]"
                                               placeholder="Xin vui lòng mô tả chi tiết ý kiến góp ý hoặc lời nhắn của Quý khách"
-                                              rows="10" id="input-enquiry" class="form-control"></textarea>
+                                              rows="6" id="input-enquiry" class="form-control"></textarea>
                                 </div>
                             </div>
                         </fieldset>

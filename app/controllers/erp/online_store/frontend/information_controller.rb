@@ -19,6 +19,8 @@ module Erp
         def contact_us
           @body_class = "res layout-subpage"
           
+          @company_info = Erp::Contacts::Contact.get_main_contact
+          
           if params[:contact].present?
             @contact = Erp::Contacts::Contact.new(contact_params)
             @contact.contact_type = Erp::Contacts::Contact::TYPE_PERSON

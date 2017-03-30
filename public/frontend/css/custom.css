@@ -726,3 +726,6 @@ table.product-compare tr td.product-name {
 .order-status span.finish {
   color: #009688;
 }
+.info-contact .comment {
+  text-align: justify;
+}
