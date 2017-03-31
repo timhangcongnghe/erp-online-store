@@ -5,19 +5,19 @@
     </ul>
     <div class="row">
         <!--Middle Part Start-->
-        <div id="content" class="col-sm-12">
+        <div id="content" class="col-sm-12 shopping-cart">
             <% if @cart.cart_items.number_items > 0 %>
-            <h2 class="title">Giỏ hàng của bạn</h2>
+            <h2 class="title">GIỎ HÀNG CỦA BẠN</h2>
             <%= form_for([erp_online_store, :frontend, @cart]) do |f| %>
             <div class="table-responsive form-group">
                 <table class="table table-bordered">
                     <thead>
                         <tr>
-                            <td class="text-center">Hình ảnh</td>
-                            <td class="text-left">Tên sản phẩm</td>
-                            <td class="text-left">Số lượng</td>
-                            <td class="text-right">Giá sản phẩm</td>
-                            <td class="text-right">Thành tiền</td>
+                            <td class="text-center">HÌNH ẢNH</td>
+                            <td class="text-left">TÊN SẢN PHẨM</td>
+                            <td class="text-center">SỐ LƯỢNG</td>
+                            <td class="text-center">GIÁ</td>
+                            <td class="text-center">THÀNH TIỀN</td>
                         </tr>
                     </thead>
                     <tbody>
@@ -32,7 +32,7 @@
                                 <br><small><%= cart_item.product.short_description.html_safe %></small>
                                 <% end %>
                             </td>                            
-                            <td class="text-left" width="200px">
+                            <td class="text-center" width="200px">
                                 <div class="input-group btn-block quantity">
                                     <input class="form-control" type="text" name="quantities[<%= cart_item.id %>]" value="<%= cart_item.quantity %>">
                                     <span class="input-group-btn">
@@ -41,8 +41,8 @@
                                     </span>
                                 </div>
                             </td>
-                            <td class="text-right"><%= format_number(cart_item.product.price) %> VNĐ</td>
-                            <td class="text-right"><%= format_number(cart_item.total_price) %> VNĐ</td>
+                            <td class="text-center"><%= format_number(cart_item.product.price) %> VNĐ</td>
+                            <td class="text-center"><%= format_number(cart_item.total_price) %> VNĐ</td>
                         </tr>
                         <% end %>
                     </tbody>
@@ -53,20 +53,20 @@
                 <div class="col-sm-4 col-sm-offset-8">
                     <table class="table table-bordered">
                         <tr>
-                            <td class="text-right"><strong>Tổng tiền:</strong></td>
-                            <td class="text-right"><%= format_number(@cart.total_order) %> VNĐ</td>
+                            <td class="text-right"><strong>TỔNG TIỀN:</strong></td>
+                            <td class="text-right total-price"><%= format_number(@cart.total_order) %> VNĐ</td>
                         </tr>
                     </table>
                 </div>
             </div>
             <div class="buttons">
-                <div class="pull-left"><%= link_to "Tiếp tục mua hàng", erp_online_store.root_path, class: "btn btn-default" %></div>
-                <div class="pull-right"><%= link_to "Tiến hành đặt hàng", erp_online_store.checkout_path, class: "btn btn-primary" %></div>
+                <div class="pull-left"><%= link_to "Tiếp tục mua hàng", erp_online_store.root_path, class: "btn btn-default shopping-continue" %></div>
+                <div class="pull-right"><%= link_to "Tiến hành đặt hàng", erp_online_store.checkout_path, class: "btn btn-primary shopping-order" %></div>
             </div>
             <% else %>
                 <h2 class="title">Giỏ hàng của bạn hiện chưa có sản phẩm.</h2>
                 <div class="buttons">
-                    <div class="pull-left"><%= link_to "Tiếp tục mua hàng", erp_online_store.root_path, class: "btn btn-default" %></div>                
+                    <div class="pull-left"><%= link_to "Tiếp tục mua hàng", erp_online_store.root_path, class: "btn btn-default shopping-continue" %></div>                
                 </div>
             <% end %>
         </div>

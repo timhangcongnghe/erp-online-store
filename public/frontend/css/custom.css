@@ -708,7 +708,7 @@ table.product-compare tr td.product-name {
   color: #666;
   font-style: italic;  
 }
-.account-report {
+.account-reportm {
   font-weight: 500;
   color: #000;
 }
@@ -747,4 +747,32 @@ table.product-compare tr td.product-name {
 }
 .default-margin {
   margin-bottom: 10px !important;
+}
+.shopping-cart, a, .btn-link {
+  color: #000;
+}
+.total-price, .shopping-order {
+  font-weight: 500;
+}
+.shopping-cart a.shopping-continue {
+  color: #000;
+  font-weight: 500;
+}
+/* Custom shopping cart box */
+.shopping_cart .shoppingcart-box {
+  min-width: 380px;
+  color: #000;
+}
+.shopping_cart .shoppingcart-box .table-striped a {
+  color: #000;
+  font-weight: 500;
+}
+.type_1 .shopping_cart .btn-shopping-cart {
+  text-transform: none;
+}
+.shoppingcart-box {
+  border: 1px solid #009688;
+}
+.shopping-actions {
+  font-weight: 500;
 }

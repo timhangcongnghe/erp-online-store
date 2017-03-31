@@ -11,8 +11,12 @@
                 <div class="table_row">
                     <div class="table_cell">
                         <fieldset>
-                            <legend>Loại sản phẩm</legend>
+                            <legend>Nhóm sản phẩm</legend>
                             <ul class="checkboxes_list">
+                                <li>
+                                    <input type="checkbox" name="is_deal" id="product_is_bestseller">
+                                    <label for="product_is_bestseller">Doanh nghiệp lựa chọn</label>
+                                </li>
                                 <li>
                                     <input type="checkbox" name="is_deal" id="product_is_deal">
                                     <label for="product_is_deal">Đang có khuyến mãi</label>
@@ -44,26 +48,6 @@
                             <!-- - - - - - - - - - - - - - End brand - - - - - - - - - - - - - - - - -->
                         <% end %>
                     <% end %>
-                    <!-- - - - - - - - - - - - - - Price - - - - - - - - - - - - - - - - -->
-                    <div class="table_cell">
-                        <fieldset>
-                            <legend>Mức giá sản phẩm</legend>
-                            <div class="range">
-                                Mức giá :
-                                <span class="min_val">$188.73</span> -
-                                <span class="max_val">$335.15</span>
-                                <input type="hidden" name="" class="min_value" value="188.73">
-                                <input type="hidden" name="" class="max_value" value="335.15">
-                            </div>
-                            <div id="slider" class="ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all">
-                                <div class="ui-slider-range ui-widget-header ui-corner-all"></div>
-                                <span class="ui-slider-handle ui-state-default ui-corner-all"></span>
-                                <span class="ui-slider-handle ui-state-default ui-corner-all"></span>
-                            </div>
-                        </fieldset>
-                    </div>
-                    <!--/ .table_cell -->
-                    <!-- - - - - - - - - - - - - - End price - - - - - - - - - - - - - - - - -->
                 </div>
                 <!--/ .table_row -->
             </div>

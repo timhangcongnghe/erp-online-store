@@ -20,11 +20,8 @@
                             <td class="text-center" style="width:70px">
                                 <%= link_to image_tag("/frontend/image/shop/product/35.jpg", width: "70px", alt: cart_item.product.name, title: cart_item.product.name, class: "preview"), erp_online_store.product_detail_path %>
                             </td>
-                            <td class="text-left"><%= link_to cart_item.product.name, erp_online_store.product_detail_path, class: "cart_product_name", title: cart_item.product.name %></td>
-                            <td class="text-center"><%= format_number(cart_item.product.price) %>x<%= cart_item.quantity %></td>
-                            <td class="text-right">
-                                <a class="fa fa-times fa-delete"></a>
-                            </td>
+                            <td class="text-left"><%= link_to cart_item.product.name, erp_online_store.product_detail_path(product_id: cart_item.product_id), class: "cart_product_name", title: cart_item.product.name %></td>
+                            <td class="text-center shopping-cart-price"><%= format_number(cart_item.product.price) %>x<%= cart_item.quantity %></td>                            
                         </tr>
                         <% end %>
                     </tbody>
@@ -43,9 +40,9 @@
                         </tbody>
                     </table>
                     <p class="text-center">
-                        <%= link_to '<i class="fa fa-shopping-cart"></i>Giỏ hàng'.html_safe, erp_online_store.shopping_cart_path, class: "btn view-cart" %>
+                        <%= link_to '<i class="fa fa-opencart"></i> Giỏ hàng'.html_safe, erp_online_store.shopping_cart_path, class: "btn view-cart shopping-actions" %>
                         &nbsp;&nbsp;&nbsp;
-                        <%= link_to '<i class="fa fa-share"></i>Đặt hàng'.html_safe, erp_online_store.checkout_path, class: "btn btn-mega checkout-cart" %>
+                        <%= link_to '<i class="fa fa-share"></i> Đặt hàng'.html_safe, erp_online_store.checkout_path, class: "btn btn-mega checkout-cart shopping-actions" %>
                     </p>
                 </div>
             </li>
@@ -54,7 +51,7 @@
                     <div class="text-center">
                         <p>Giỏ hàng đang trống.</p>
                         <p class="text-center">
-                            <%= link_to '<i class="fa fa-shopping-cart"></i>Giỏ hàng'.html_safe, erp_online_store.shopping_cart_path, class: "btn view-cart" %>                                               
+                            <%= link_to '<i class="fa fa-opencart"></i> Giỏ hàng'.html_safe, erp_online_store.shopping_cart_path, class: "btn view-cart" %>                                               
                         </p>
                     </div>
                 </li>

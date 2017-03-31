@@ -5,56 +5,52 @@
     </ul>
     <div class="row">
         <!--Middle Part Start-->
-        <div id="content" class="col-sm-12">
-            <h2 class="title">Đặt hàng</h2>
+        <div id="content" class="col-sm-12 shopping-cart">
+            <h2 class="title">ĐẶT HÀNG</h2>
             <div class="row">
                 <div class="col-sm-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h4 class="panel-title"><i class="fa fa-shopping-cart"></i> Đơn hàng của bạn</h4>
+                            <h4 class="panel-title"><i class="fa fa-opencart"></i> Danh sách sản phẩm</h4>
                         </div>
                         <div class="panel-body">
                             <div class="table-responsive">
                                 <table class="table table-bordered">
                                     <thead>
                                         <tr>
-                                            <td class="text-center">Hình ảnh</td>
-                                            <td class="text-left">Thông tin sản phẩm</td>
-                                            <td class="text-left">Số lượng</td>
-                                            <td class="text-right">Giá sản phẩm</td>
-                                            <td class="text-right">Thành tiền</td>
+                                            <td class="text-center">HÌNH ẢNH</td>
+                                            <td class="text-left">TÊN SẢN PHẨM</td>
+                                            <td class="text-center">SỐ LƯỢNG</td>
+                                            <td class="text-center">GIÁ</td>
+                                            <td class="text-center">THÀNH TIỀN</td>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <% @cart.cart_items.each do |cart_item| %>
                                         <tr>
                                             <td class="text-center">
-                                                <%= link_to image_tag("/frontend/image/shop/product/e4.jpg", alt: cart_item.product.name, title: cart_item.product.name, class: "img-thumbnail", width: "60"), erp_online_store.product_detail_path(product_id: cart_item.product.id) %>
+                                                <%= link_to image_tag("/frontend/image/shop/product/e3.jpg", alt: cart_item.product.name, title: cart_item.product.name, class: "img-thumbnail", width: "70"), erp_online_store.product_detail_path(product_id: cart_item.product.id) %>
                                             </td>
                                             <td class="text-left">
-                                                <%= link_to cart_item.product.name, erp_online_store.product_detail_path(product_id: cart_item.product.id), title: cart_item.product.name %><br />
-                                                <small>Mô tả sản phẩm</small>
-                                            </td>
-                                            <td class="text-left" width="200px">
+                                                <strong><%= link_to cart_item.product.name, erp_online_store.product_detail_path(product_id: cart_item.product.id), title: cart_item.product.name %></strong><br />
+                                                <% if cart_item.product.short_description.present? %>
+                                                <br><small><%= cart_item.product.short_description.html_safe %></small>
+                                                <% end %>
+                                            </td>                            
+                                            <td class="text-center" width="200px">
                                                 <div class="input-group btn-block quantity">
-                                                    <input type="text" name="quantity" value="<%= cart_item.quantity %>" size="1" class="form-control" />
+                                                    <input class="form-control" type="text" name="quantities[<%= cart_item.id %>]" value="<%= cart_item.quantity %>">
                                                     <span class="input-group-btn">
                                                         <button type="submit" data-toggle="tooltip" title="Cập nhật số lượng" class="btn btn-primary"><i class="fa fa-refresh"></i></button>
                                                         <%= link_to '<i class="fa fa-times-circle"></i>'.html_safe, erp_online_store.remove_cart_item_frontend_cart_items_path(cart_item_id: cart_item.id), class: "btn btn-danger", title: "Xóa sản phẩm" %>
                                                     </span>
                                                 </div>
                                             </td>
-                                            <td class="text-right"><%= format_number(cart_item.product.price) %> VNĐ</td>
-                                            <td class="text-right"><%= format_number(cart_item.total_price) %> VNĐ</td>
+                                            <td class="text-center"><%= format_number(cart_item.product.price) %> VNĐ</td>
+                                            <td class="text-center"><%= format_number(cart_item.total_price) %> VNĐ</td>
                                         </tr>
                                         <% end %>
                                     </tbody>
-                                    <tfoot>
-                                        <tr>
-                                            <td class="text-right" colspan="4"><strong>Tổng tiền:</strong></td>
-                                            <td class="text-right">110,000,000 VNĐ</td>
-                                        </tr>
-                                    </tfoot>
                                 </table>
                             </div>
                         </div>
@@ -63,7 +59,7 @@
                 <div class="col-sm-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h4 class="panel-title"><i class="fa fa-pencil"></i> Ghi chú</h4>
+                            <h4 class="panel-title"><i class="fa fa-pencil"></i> Ghi chú cho đơn hàng</h4>
                         </div>
                         <div class="panel-body">
                             <textarea placeholder="Nhập nội dung ghi chú của bạn tại đây..." rows="4" class="form-control" id="confirm_comment" name="comments"></textarea>
@@ -72,7 +68,7 @@
                                 <input type="checkbox" checked="checked" value="1" required="" class="validate required" id="confirm_agree" name="confirm agree">
                                 <span>
                                     Tôi đã đọc và đồng ý với
-                                    <%= link_to '<b>Các điều khoản & Điều kiện</b>'.html_safe, "", class: "agree" %>
+                                    <%= link_to '<b>Các điều khoản & Điều kiện</b>'.html_safe, "", class: "agree", target: "_blank" %>
                                     </a>
                                 </span>
                             </label>
