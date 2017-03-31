@@ -374,38 +374,38 @@ $(document).ready(function($) {
 });
 $(document).ready(function($) {
     "use strict";
-    //$('.deal-slider-home7').owlCarousel2({
-    //    pagination: false,
-    //    center: false,
-    //    nav: true,
-    //    dots: false,
-    //    loop: true,
-    //    margin: 25,
-    //    navText: ['', ''],
-    //    slideBy: 1,
-    //    autoplay: false,
-    //    autoplayTimeout: 2500,
-    //    autoplayHoverPause: true,
-    //    autoplaySpeed: 800,
-    //    startPosition: 0,
-    //    responsive: {
-    //        0: {
-    //            items: 1
-    //        },
-    //        480: {
-    //            items: 2
-    //        },
-    //        768: {
-    //            items: 3
-    //        },
-    //        1024: {
-    //            items: 4
-    //        },
-    //        1200: {
-    //            items: 5
-    //        }
-    //    }
-    //});
+    $('.deal-slider-home7').owlCarousel2({
+        pagination: false,
+        center: false,
+        nav: true,
+        dots: false,
+        loop: true,
+        margin: 25,
+        navText: ['', ''],
+        slideBy: 1,
+        autoplay: false,
+        autoplayTimeout: 2500,
+        autoplayHoverPause: true,
+        autoplaySpeed: 800,
+        startPosition: 0,
+        responsive: {
+            0: {
+                items: 1
+            },
+            480: {
+                items: 2
+            },
+            768: {
+                items: 3
+            },
+            1024: {
+                items: 4
+            },
+            1200: {
+                items: 5
+            }
+        }
+    });
 });
 $('.slider-h7').owlCarousel2({
     loop: true,
