@@ -23,7 +23,7 @@
             </div>
             <div class="right-block">
                 <div class="caption">
-                    <h4><%= link_to accessory_detail.product.name, erp_online_store.product_detail_path(product_id: accessory_detail.product.id), title: accessory_detail.product.name %></h4>
+                    <h4><%= link_to accessory_detail.product.name, product_link(accessory_detail.product), title: accessory_detail.product.name %></h4>
                     <div class="ratings">
                         <div class="rating-box">
                             <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>

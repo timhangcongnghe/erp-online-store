@@ -94,7 +94,7 @@
                                         <div class="left-block">
                                             <div class="product-image-container">
                                                 <div class="image">
-                                                    <a class="lt-image" href="<%= erp_online_store.product_detail_path(product_id: product.id) %>" target="_self" title="Verty nolen max..">
+                                                    <a class="lt-image" href="<%= product_link(product) %>" target="_self" title="Verty nolen max..">
                                                         <%= image_tag "/frontend/image/shop/product/170/4.jpg", alt: "Apple Cinema 30", class: "img-1 img-responsive", title: "Apple Cinema 30" %>
                                                         <%= image_tag "/frontend/image/shop/product/170/4.jpg", alt: "Apple Cinema 30", class: "img-2 img-responsive", title: "Apple Cinema 30" %>
                                                     </a>
@@ -110,7 +110,7 @@
                                         <div class="right-block">
                                             <div class="caption">
                                                 <h4>
-                                                    <%= link_to product.name, erp_online_store.product_detail_path(product_id: product.id), title: product.name %>
+                                                    <%= link_to product.name, product_link(product), title: product.name %>
                                                 </h4>
                                                 <p class="price">                                                    
                                                     <span class="price-new"><%= format_price(product.product_price) %></span>

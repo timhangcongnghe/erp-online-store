@@ -11,6 +11,15 @@ module Erp
         strs.join('')
       end
       
+      # menu link helper
+      def menu_link(menu)
+        erp_online_store.category_path(menu_id: menu.id, title: url_friendly(menu.name))
+      end
+      
+      # product link helper
+      def product_link(product)
+        erp_online_store.product_detail_path(product_id: product.id, title: url_friendly(product.name))
+      end
     end
   end
 end

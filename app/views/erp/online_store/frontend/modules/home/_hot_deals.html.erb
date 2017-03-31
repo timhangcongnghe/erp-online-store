@@ -17,7 +17,7 @@
                                 <span class="label label-new">Mới</span>
                                 <% end %>
                                 <span class="label label-sale">Giảm giá</span>
-                                <a class="lt-image" href="<%= erp_online_store.product_detail_path(product_id: hot_deal.id) %>" target="_self">
+                                <a class="lt-image" href="<%= product_link(hot_deal) %>" target="_self">
                                     <%= image_tag "/frontend/image/shop/product/170/e13.jpg", alt: hot_deal.name, title: hot_deal.name, class: "img-1 img-responsive" %>
                                     <%= image_tag "/frontend/image/shop/product/170/e14.jpg", alt: hot_deal.name, title: hot_deal.name, class: "img-2 img-responsive" %>
                                 </a>
@@ -34,7 +34,7 @@
                             <div class="rating">
                                 <%= raw stars(hot_deal.average_stars) %>
                             </div>
-                            <h4><%= link_to hot_deal.name, erp_online_store.product_detail_path(product_id: hot_deal.id), title: hot_deal.name %></h4>
+                            <h4><%= link_to hot_deal.name, product_link(hot_deal), title: hot_deal.name %></h4>
                             <p class="price">
                                 <span class="price-new"><%= format_price(hot_deal.product_price) %>
                                 <% if hot_deal.is_deal %>                        

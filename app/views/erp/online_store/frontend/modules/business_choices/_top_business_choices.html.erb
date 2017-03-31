@@ -13,7 +13,7 @@
                       <div class="left-block">
                           <div class="product-image-container">
                               <div class="image">                                            
-                                  <a class="lt-image" href="<%= erp_online_store.product_detail_path(product_id: top_choice.id) %>" target="_self">
+                                  <a class="lt-image" href="<%= product_link(top_choice) %>" target="_self">
                                       <%=  %>
                                       <img src="/frontend/image/shop/product/e11.jpg" alt="img" title="Juren tima chuk" class="img-1 img-responsive" />
                                       <img src="/frontend/image/shop/product/e12.jpg" alt="img" title="Juren tima chuk" class="img-2 img-responsive" />
@@ -38,7 +38,7 @@
                                 <%= raw stars(top_choice.average_stars) %>
                               </div>
                               <h4>
-                                <%= link_to top_choice.name, erp_online_store.product_detail_path(product_id: top_choice.id), title: top_choice.name %>
+                                <%= link_to top_choice.name, product_link(top_choice), title: top_choice.name %>
                               </h4>
                               <p class="price">                                                    
                                   <span class="price-new"><%= format_price(top_choice.product_price) %></span>

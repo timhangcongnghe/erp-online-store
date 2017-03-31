@@ -29,10 +29,10 @@
                                         <% @cart.cart_items.each do |cart_item| %>
                                         <tr>
                                             <td class="text-center">
-                                                <%= link_to image_tag("/frontend/image/shop/product/e3.jpg", alt: cart_item.product.name, title: cart_item.product.name, class: "img-thumbnail", width: "70"), erp_online_store.product_detail_path(product_id: cart_item.product.id) %>
+                                                <%= link_to image_tag("/frontend/image/shop/product/e3.jpg", alt: cart_item.product.name, title: cart_item.product.name, class: "img-thumbnail", width: "70"), product_link(cart_item.product) %>
                                             </td>
                                             <td class="text-left">
-                                                <strong><%= link_to cart_item.product.name, erp_online_store.product_detail_path(product_id: cart_item.product.id), title: cart_item.product.name %></strong><br />
+                                                <strong><%= link_to cart_item.product.name, product_link(cart_item.product), title: cart_item.product.name %></strong><br />
                                                 <% if cart_item.product.short_description.present? %>
                                                 <br><small><%= cart_item.product.short_description.html_safe %></small>
                                                 <% end %>

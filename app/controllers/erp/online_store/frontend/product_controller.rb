@@ -4,6 +4,7 @@ module Erp
       class ProductController < Erp::Frontend::FrontendController
         before_action :set_comment, only: [:delete_comment]
         include Erp::ApplicationHelper
+        include Erp::OnlineStore::ApplicationHelper
         include ActionView::Helpers::NumberHelper
         
         def product_detail
@@ -76,7 +77,7 @@ module Erp
           render json: @products.map { |product| {
             name: product.name,
             price: format_number(product.price) + ' ₫',
-            link: erp_online_store.product_detail_path(product),
+            link: product_link(product),
             image: image_src(product.main_image, 'small'),
           }}
         end

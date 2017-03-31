@@ -18,9 +18,9 @@
                         <% @cart.cart_items.each do |cart_item| %>
                         <tr>
                             <td class="text-center" style="width:70px">
-                                <%= link_to image_tag("/frontend/image/shop/product/35.jpg", width: "70px", alt: cart_item.product.name, title: cart_item.product.name, class: "preview"), erp_online_store.product_detail_path %>
+                                <%= link_to image_tag("/frontend/image/shop/product/35.jpg", width: "70px", alt: cart_item.product.name, title: cart_item.product.name, class: "preview"), product_link(cart_item.product) %>
                             </td>
-                            <td class="text-left"><%= link_to cart_item.product.name, erp_online_store.product_detail_path(product_id: cart_item.product_id), class: "cart_product_name", title: cart_item.product.name %></td>
+                            <td class="text-left"><%= link_to cart_item.product.name, product_link(cart_item.product), class: "cart_product_name", title: cart_item.product.name %></td>
                             <td class="text-center shopping-cart-price"><%= format_number(cart_item.product.price) %>x<%= cart_item.quantity %></td>                            
                         </tr>
                         <% end %>

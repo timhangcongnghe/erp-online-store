@@ -25,7 +25,7 @@
             </div>
             <div class="right-block">
                 <div class="caption">
-                    <h4><%= link_to deal_product.name, erp_online_store.product_detail_path(product_id: deal_product.id) %></h4>
+                    <h4><%= link_to deal_product.name, product_link(deal_product) %></h4>
                     <div class="ratings">
                         <div class="rating-box">
                             <%= raw stars(deal_product.average_stars) %>
