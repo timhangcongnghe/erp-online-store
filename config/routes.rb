@@ -8,10 +8,10 @@ Erp::OnlineStore::Engine.routes.draw do
   post "chuyen-muc-san-pham/chi-tiet-san-pham.html" => "frontend/product#product_detail"
   get "san-pham/binh-luan.html" => "frontend/product#comments", as: :product_comments
   post "san-pham/binh-luan.html" => "frontend/product#comments"
-  get "san-pham/binh-luan/:comment_id-remove.html" => "frontend/product#delete_comment", as: :delete_product_comment
+  delete "san-pham/binh-luan/:comment_id-remove.html" => "frontend/product#delete_comment", as: :delete_product_comment
   get "san-pham/danh-gia.html" => "frontend/product#ratings", as: :product_ratings
   post "san-pham/danh-gia.html" => "frontend/product#ratings"
-  get "san-pham/danh-gia/:rating_id-remove.html" => "frontend/product#delete_rating", as: :delete_product_rating
+  delete "san-pham/danh-gia/:rating_id-remove.html" => "frontend/product#delete_rating", as: :delete_product_rating
   get "xem-nhanh.html" => "frontend/product#product_quickview", as: :product_quickview
   get "san-pham-khuyen-mai.html" => "frontend/category#deal_products", as: :deal_products
   get "san-pham-ban-chay-nhat.html" => "frontend/category#bestseller_products", as: :bestseller_products

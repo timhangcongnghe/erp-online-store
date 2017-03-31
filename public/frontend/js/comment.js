@@ -82,4 +82,36 @@ $(document).ready(function() {
         
         loadCommentList(box, url);
     });
+    
+    // Forget password form
+    $(document).on('click', 'a.remove-comment', function(e) {
+        e.preventDefault();
+        
+        var link = $(this);
+        var url = link.attr('href');
+        var method = link.attr('data-method');
+        var box = link.parents('.comment_box');
+        var confirm_message = link.attr('data-confirm');
+        
+        if (typeof(confirm_message) !== 'undefined') {
+            var r = confirm(confirm_message);
+            if (r == true) {
+            } else {
+                return;
+            }
+        }
+        
+        if (typeof(method) == 'undefined') {
+            method = 'GET';
+        }
+        
+        $.ajax({
+            url: url,
+            method: method
+        }).done(function( data ) {
+            loadCommentList(box);
+        }).fail(function(xhr, status, error) {
+            loadCommentList(box);
+        });
+    });
 });
