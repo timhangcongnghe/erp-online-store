@@ -2430,31 +2430,31 @@ $(document).ready(function() {
 });
 $(document).ready(function($) {
     "use strict";
-    //$('.list-msg').owlCarousel2({
-    //    pagination: false,
-    //    center: false,
-    //    nav: false,
-    //    loop: true,
-    //    slideBy: 1,
-    //    autoplay: true,
-    //    margin: 30,
-    //    autoplayTimeout: 4500,
-    //    autoplayHoverPause: true,
-    //    autoplaySpeed: 1200,
-    //    startPosition: 0,
-    //    responsive: {
-    //        0: {
-    //            items: 1
-    //        },
-    //        480: {
-    //            items: 1
-    //        },
-    //        768: {
-    //            items: 1
-    //        },
-    //        1200: {
-    //            items: 1
-    //        }
-    //    }
-    //});
+    $('.list-msg').owlCarousel2({
+        pagination: false,
+        center: false,
+        nav: false,
+        loop: true,
+        slideBy: 1,
+        autoplay: true,
+        margin: 30,
+        autoplayTimeout: 4500,
+        autoplayHoverPause: true,
+        autoplaySpeed: 1200,
+        startPosition: 0,
+        responsive: {
+            0: {
+                items: 1
+            },
+            480: {
+                items: 1
+            },
+            768: {
+                items: 1
+            },
+            1200: {
+                items: 1
+            }
+        }
+    });
 });
