@@ -776,3 +776,6 @@ table.product-compare tr td.product-name {
 .shopping-actions {
   font-weight: 500;
 }
+.label-new, .label-sale {
+  z-index: 4;
+}

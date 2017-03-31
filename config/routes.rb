@@ -4,7 +4,7 @@ Erp::OnlineStore::Engine.routes.draw do
   get "category-box" => "frontend/home#category_box", as: :category_box
   # CATEGORY
   get "san-pham/:product_id(/:title).html" => "frontend/product#product_detail", as: :product_detail
-  get "chuyen-muc-san-pham/:menu_id(/:title).html" => "frontend/category#index", as: :category  
+  get "chuyen-muc-san-pham(/:menu_id)(/:title).html" => "frontend/category#index", as: :category  
   post "chuyen-muc-san-pham/chi-tiet-san-pham.html" => "frontend/product#product_detail"
   get "binh-luan-san-pham.html" => "frontend/product#comments", as: :product_comments
   post "binh-luan-san-pham.html" => "frontend/product#comments"
