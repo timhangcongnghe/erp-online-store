@@ -506,6 +506,7 @@ ul.megamenu li .sub-menu .content .hover-menu .menu ul ul {
 .price .price-old {
   color: #000;
   font-weight: 500;
+  padding: 5px 0 0 0;
 }
 .price .price-new, .price span.price {
   font-size: 14px;
@@ -731,4 +732,19 @@ table.product-compare tr td.product-name {
 }
 .footer-center .content, footer .footer-center .contact-address li, footer a {
   color: #000;
+}
+.top-choices {
+  margin: 30px 0 !important;
+}
+.box_banner {
+  padding-left: 0;
+}
+.common-home .banner-business-choices {
+  margin-bottom: 0;
+}
+.box_banner .banner-business-choices ul li {
+  margin-bottom: 13px;
+}
+.default-margin {
+  margin-bottom: 10px !important;
 }

@@ -1,0 +1,60 @@
+<% if Erp::Products::Product.get_top_business_choices.count > 0 %>
+  <div class="module so-deals top-choices">
+      <h3 class="modtitle">
+        <span>
+          Lựa Chọn Hàng Đầu
+        </span>
+      </h3>
+      <div class="modcontent">
+          <div class="so-deal modcontent products-list grid clearfixbutton-type1 style2">
+              <div class="extraslider-inner product-layout deal-slider-home7">
+                  <% Erp::Products::Product.get_top_business_choices.each do |top_choice| %>
+                  <div class="product-thumb transition product-item-container">
+                      <div class="left-block">
+                          <div class="product-image-container">
+                              <div class="image">                                            
+                                  <a class="lt-image" href="<%= erp_online_store.product_detail_path(product_id: top_choice.id) %>" target="_self">
+                                      <%=  %>
+                                      <img src="/frontend/image/shop/product/e11.jpg" alt="img" title="Juren tima chuk" class="img-1 img-responsive" />
+                                      <img src="/frontend/image/shop/product/e12.jpg" alt="img" title="Juren tima chuk" class="img-2 img-responsive" />
+                                  </a>
+                                  <% if top_choice.is_new? %>
+                                  <span class="label label-new">Mới</span>
+                                  <% end %>
+                                  <% if top_choice.is_deal? %>
+                                  <span class="label label-sale">Giảm giá</span>
+                                  <% end %>
+                                  <div class="item-time">
+                                      <div class="item-timer">
+                                          <div class="defaultCountdown-30"></div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="right-block">
+                          <div class="caption">
+                              <div class="rating">
+                                <%= raw stars(top_choice.average_stars) %>
+                              </div>
+                              <h4>
+                                <%= link_to top_choice.name, erp_online_store.product_detail_path(product_id: top_choice.id), title: top_choice.name %>
+                              </h4>
+                              <p class="price">                                                    
+                                  <span class="price-new"><%= format_price(top_choice.product_price) %></span>
+                                  <% if top_choice.is_deal %>                        
+                                      <br><span class="price-old"><%= format_price(top_choice.price) %></span>
+                                      <span class="label label-percent">-<%= top_choice.deal_percent %>%</span>
+                                  <% end %>
+                              </p>
+                          </div>
+                      </div>
+                      <!-- End right block -->
+                  </div>
+                  <% end %>                    
+              </div>
+          </div>
+      </div>
+      <!--/.modcontent-->
+  </div>
+<% end %>
