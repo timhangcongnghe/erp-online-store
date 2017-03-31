@@ -1,0 +1,35 @@
+<section id="bt-news" class="bt-sectionpadding bt-haslayout">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="bt-fullheading bt-styletwo">
+                    <span>Stay Always Updated</span>
+                    <h2>Our Publication</h2>
+                </div>
+            </div>
+            <div id="bt-postsslider" class="bt-posts bt-postsslider">
+                <% (0..2).each do |post_slider| %>
+                <div class="item">
+                    <article class="bt-post">
+                        <figure>
+                            <%= link_to image_tag("/frontend/business-template/images/blog/img-01.jpg", alt: ""), "", title: "" %>
+                            <figcaption><time datetime="08/11/2017">08/11/2017</time></figcaption>
+                        </figure>
+                        <div class="bt-postcontent">
+                            <div class="bt-posttitle">
+                                <h3><%= link_to "Tiêu đề của bài viết.....", "", title: "" %></h3>
+                            </div>
+                            <div class="bt-description">
+                                <p>
+                                  <%= "Nội dung bài viết......" %>
+                                </p>
+                            </div>
+                            <%= link_to "Xem tiếp...", "", class: "bt-btn" %>
+                        </div>
+                    </article>
+                </div>
+                <% end %>
+            </div>
+        </div>
+    </div>
+</section>

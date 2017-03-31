@@ -38,6 +38,9 @@ Erp::OnlineStore::Engine.routes.draw do
   get "gio-hang.html" => "frontend/shopping_cart#shopping_cart", as: :shopping_cart
   get "dat-hang.html" => "frontend/shopping_cart#checkout", as: :checkout
   get "so-sanh-san-pham.html" => "frontend/shopping_cart#compare_product", as: :compare_product
+  
+  # BUSINESS PAGE
+  get "uu-dai-doanh-nghiep.html" => "frontend/business_page#index", as: :business_page
   namespace :frontend do
 		resources :carts
 		resources :cart_items do

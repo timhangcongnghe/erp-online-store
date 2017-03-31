@@ -790,3 +790,6 @@ table.product-compare tr td.product-name {
 .post_footer {
   margin-top: 20px;
 }
+.list-services li a:hover {
+  border-color: #009688;
+}

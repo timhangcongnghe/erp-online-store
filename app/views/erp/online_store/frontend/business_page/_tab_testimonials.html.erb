@@ -1,0 +1,30 @@
+<section class="bt-sectionpadding bt-haslayout" data-appear-top-offset="600" data-parallax="scroll" data-image-src="/frontend/business-template/images/bgparallax/bgparallax-02.jpg">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="bt-fullheading bt-styletwo bt-colowhite">
+                    <span>Clients Feedback</span>
+                    <h2>Testimonials</h2>
+                </div>
+            </div>
+            <div id="bt-testimonialsslider" class="bt-testimonialsslider bt-clienttestimonials">
+                <% (0..2).each do |testimonial| %>
+                <div class="item">
+                    <blockquote class="bt-colowhite">
+                      <q>
+                        <%= "Nội dung testimonial....." %>
+                      </q>
+                    </blockquote>
+                    <div class="bt-authorinfo">
+                        <span class="bt-authordp">
+                          <%= link_to image_tag("/frontend/business-template/images/authors/img-01.jpg", alt: ""), "", title: "" %>
+                        </span>
+                        <span class="bt-authorname"><%= link_to "Tên Khách Hàng", "" %></span>
+                        <span class="bt-authordesignation bt-colowhite"><%= "Founder / CEO Powax" %></span>
+                    </div>
+                </div>
+                <% end %>
+            </div>
+        </div>
+    </div>
+</section>
