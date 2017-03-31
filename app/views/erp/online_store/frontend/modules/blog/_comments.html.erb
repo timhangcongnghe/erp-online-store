@@ -49,12 +49,14 @@
                             <p><%= comment.message %></p>
                             <a onclick="" rel="nofollow" class="right comment-reply-link" href="#reply"
                                aria-label="Reply to <%= comment.user_name %>"><i class="fa fa-reply"></i> Trả lời</a>                            
-                            <a class="right favor satis"
-                                href="<%= erp_online_store.delete_blog_comment_path(comment) %>"
-                                data-method="delete"
-                                data-confirm="Bạn muốn xóa bình luận này?">
-                                <i class="fa fa-remove"></i> Xóa
-                            </a>
+                            <% if can? :delete, comment %>
+                                <a class="right favor satis remove-comment"
+                                    href="<%= erp_online_store.delete_blog_comment_path(comment) %>"
+                                    data-method="delete"
+                                    data-confirm="Bạn muốn xóa bình luận này?">
+                                    <i class="fa fa-remove"></i> Xóa
+                                </a>
+                            <% end %>
                             <time class="right"><%= relative_time(comment.created_at) %></time>
                         </div>
                         <div class="reply-box" style="display: none">

@@ -23,7 +23,7 @@ Erp::OnlineStore::Engine.routes.draw do
   get "danh-sach-bai-viet/chi-tiet-bai-viet/:blog_id(/:title).html" => "frontend/blog#detail", as: :blog_detail
   get "chi-tiet-bai-viet/binh-luan.html/:blog_id" => "frontend/blog#comments", as: :blog_comments
   post "chi-tiet-bai-viet/binh-luan.html/:blog_id" => "frontend/blog#comments"
-  get "chi-tiet-bai-viet/binh-luan/:comment_id-remove.html" => "frontend/blog#delete_comment", as: :delete_blog_comment
+  delete "chi-tiet-bai-viet/binh-luan/:comment_id-remove.html" => "frontend/blog#delete_comment", as: :delete_blog_comment
   
   # ACCOUNT
   get "dang-nhap.html" => "frontend/account#login", as: :login
