@@ -1,4 +1,10 @@
-<div class="page-business-choices">
+<div class="main-container container">
+    <ul class="breadcrumb">
+        <li><%= link_to '<i class="fa fa-home"></i>'.html_safe, erp_online_store.root_path %></li>
+        <li><%= link_to "Lựa chọn của doanh nghiệp", "javascript:void(0)" %></li>
+    </ul>
+</div>
+<div class="page-business-choices">    
     <!-- Business Choices Slider  -->
     <div class="so-spotlight1 ">
         <div class="container">
@@ -73,12 +79,13 @@
                             <div class="product-thumb transition product-item-container">
                                 <div class="left-block">
                                     <div class="product-image-container">
-                                        <div class="image">
-                                            <span class="label label-sale">Giảm giá</span>
+                                        <div class="image">                                            
                                             <a class="lt-image" href="<%= "" %>" target="_self">
                                                 <img src="/frontend/image/shop/product/e11.jpg" alt="img" title="Juren tima chuk" class="img-1 img-responsive" />
                                                 <img src="/frontend/image/shop/product/e12.jpg" alt="img" title="Juren tima chuk" class="img-2 img-responsive" />
                                             </a>
+                                            <span class="label label-new">Mới</span>
+                                            <span class="label label-sale">Giảm giá</span>
                                             <div class="item-time">
                                                 <div class="item-timer">
                                                     <div class="defaultCountdown-30"></div>
