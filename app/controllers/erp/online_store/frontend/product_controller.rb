@@ -33,13 +33,14 @@ module Erp
         end
         
         def ratings
+          @rating = current_user.find_rating_by_product(params[:product_id])
           @product = Erp::Products::Product.find(params[:product_id])
           
-          #product rating
+          # product rating
           if params[:rating].present?
-            @rating = Erp::Products::Rating.new(rating_params)
+            @rating.update(rating_params)
             @rating.user = current_user
-            @rating.save            
+            @rating.save
           end
           
           @ratings = @product.ratings.order('created_at DESC')
@@ -50,11 +51,15 @@ module Erp
         end
         
         def delete_comment
+          authorize! :delete, @comment
+          
           @comment.destroy
           redirect_to :back, notice: 'Nội dung bình luận đã được xóa'
         end
         
         def delete_rating
+          authorize! :delete, @rating
+          
           @rating = Erp::Products::Rating.find(params[:rating_id])
           @rating.destroy
           redirect_to :back, notice: 'Nội dung đánh giá đã được xóa'
