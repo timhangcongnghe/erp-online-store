@@ -81,6 +81,7 @@ function autoSearch(box) {
     var keyword = input.val();
     var url = box.attr('data-url');
     var result_box = box.find('.autosearch-result-box ul');
+    var menu_id = box.find('select').val();
     
     // if keyword == ''
     if (keyword.trim() == '') {
@@ -100,7 +101,8 @@ function autoSearch(box) {
     autosearch_xhr = $.ajax({
         url: url,
         data: {
-            keyword: keyword
+            keyword: keyword,
+            menu_id: menu_id
         }
     }).done(function( items ) {
         result_box.html('');
@@ -173,6 +175,12 @@ $(document).ready(function () {
             window.location = link;
             return;
         }
+        autoSearch(box);
+    });
+    
+    $(document).on('change', '.autosearch select', function(e) {
+        var box = $(this).parents('.autosearch');
+        
         autoSearch(box);
     });
     
