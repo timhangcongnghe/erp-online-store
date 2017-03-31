@@ -2084,38 +2084,38 @@ $(document).ready(function() {
 });
 $(document).ready(function($) {
     "use strict";
-    //$('.brand-slider').owlCarousel2({
-    //    pagination: false,
-    //    center: false,
-    //    nav: true,
-    //    dots: false,
-    //    loop: true,
-    //    margin: 0,
-    //    navText: ['', ''],
-    //    slideBy: 1,
-    //    autoplay: false,
-    //    autoplayTimeout: 2500,
-    //    autoplayHoverPause: true,
-    //    autoplaySpeed: 800,
-    //    startPosition: 0,
-    //    responsive: {
-    //        0: {
-    //            items: 2
-    //        },
-    //        480: {
-    //            items: 2
-    //        },
-    //        768: {
-    //            items: 3
-    //        },
-    //        1024: {
-    //            items: 4
-    //        },
-    //        1200: {
-    //            items: 5
-    //        }
-    //    }
-    //});
+    $('.brand-slider').owlCarousel2({
+        pagination: false,
+        center: false,
+        nav: true,
+        dots: false,
+        loop: true,
+        margin: 0,
+        navText: ['', ''],
+        slideBy: 1,
+        autoplay: false,
+        autoplayTimeout: 2500,
+        autoplayHoverPause: true,
+        autoplaySpeed: 800,
+        startPosition: 0,
+        responsive: {
+            0: {
+                items: 2
+            },
+            480: {
+                items: 2
+            },
+            768: {
+                items: 3
+            },
+            1024: {
+                items: 4
+            },
+            1200: {
+                items: 5
+            }
+        }
+    });
 });
 $(document).ready(function($) {
     "use strict";
