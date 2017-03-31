@@ -20,6 +20,11 @@ module Erp
       def product_link(product)
         erp_online_store.product_detail_path(product_id: product.id, title: url_friendly(product.name))
       end
+      
+      # page title helper
+      def title(page_title)
+        content_for :title, page_title.to_s
+      end
     end
   end
 end
