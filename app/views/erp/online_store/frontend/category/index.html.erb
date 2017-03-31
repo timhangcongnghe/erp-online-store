@@ -32,8 +32,8 @@
                     <div class="row">
                         <% @related_menus.each do |related_menu| %>
                         <div class="form-group col-md-15 col-sm-4 col-xs-12 ">
-                            <%= link_to image_tag("/frontend/image/shop/product/m2.jpg", alt: related_menu.menu.name, title: related_menu.menu.name), erp_online_store.category_path(menu_id: related_menu.menu.id), class: "thumbnail", target: "_blank" %>
-                            <%= link_to related_menu.menu.name, erp_online_store.category_path(menu_id: related_menu.menu.id), title: related_menu.menu.name, target: "_blank" %>
+                            <%= link_to image_tag("/frontend/image/shop/product/m2.jpg", alt: related_menu.menu.name, title: related_menu.menu.name), menu_link(related_menu.menu), class: "thumbnail", target: "_blank" %>
+                            <%= link_to related_menu.menu.name, menu_link(related_menu.menu), title: related_menu.menu.name, target: "_blank" %>
                         </div>
                         <% end %>
                     </div>

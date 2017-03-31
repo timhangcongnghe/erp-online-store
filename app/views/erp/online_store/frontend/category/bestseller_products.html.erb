@@ -18,7 +18,7 @@
                         <ul id="cat_accordion" class="list-group">
                             <% @menus.each do |menu| %>
                             <li <% if menu.children.count > 0 %>class="hadchild cutom-parent-li"<% end %>>
-                                <a href="<%= erp_online_store.category_path(menu_id: menu.id) %>" class="cutom-parent"><%= menu.name %><span class="dcjq-icon"></span></a>
+                                <a href="<%= menu_link(menu) %>" class="cutom-parent"><%= menu.name %><span class="dcjq-icon"></span></a>
                                 <% if menu.children.count > 0 %>
                                 <span class="button-view  fa fa-plus-square-o"></span>
                                 <% end %>
@@ -26,16 +26,16 @@
                                     <% menu.children.each do |child_1| %>
                                         <% if child_1.children.count > 0 %>
                                         <li class="hadchild cutom-parent-li">
-                                            <%= link_to child_1.name, erp_online_store.category_path(menu_id: child_1.id), class: "cutom-parent" %>
+                                            <%= link_to child_1.name, menu_link(child_1), class: "cutom-parent" %>
                                             <span class="button-view  fa fa-plus-square-o"></span>
                                             <ul style="display: none;">
                                                 <% child_1.children.each do |child_2| %>
-                                                    <li><%= link_to child_2.name, erp_online_store.category_path(menu_id: child_2.id) %></li>
+                                                    <li><%= link_to child_2.name, menu_link(child_2) %></li>
                                                 <% end %>
                                             </ul>
                                         </li>
                                         <% else %>
-                                            <li><%= link_to child_1.name, erp_online_store.category_path(menu_id: child_1.id) %></li>
+                                            <li><%= link_to child_1.name, menu_link(child_1) %></li>
                                         <% end %>
                                     <% end %>                                    
                                 </ul>
