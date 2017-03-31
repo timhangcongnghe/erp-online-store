@@ -33,7 +33,7 @@ module Erp
         end
         
         def ratings
-          @rating = current_user.find_rating_by_product(params[:product_id])
+          @rating = current_user.find_rating_by_product(params[:product_id]) if !current_user.nil?
           @product = Erp::Products::Product.find(params[:product_id])
           
           # product rating
