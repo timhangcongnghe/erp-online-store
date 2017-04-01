@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-	
+
 <head>
 	<%= csrf_meta_tags %>
-	
+
     <!-- Basic page needs ============================================ -->
     <title>
 		<% if content_for?(:title) %>
 			<%= yield(:title) %>
 		<% else %>
 			Online Store - Global Naturesoft
-		<% end %>		
+		<% end %>
 	</title>
     <meta charset="utf-8">
     <meta name="description" content="<%= @meta_desciption if @meta_desciption.present? %>">
@@ -35,14 +35,14 @@
 		<%= stylesheet_link_tag "/frontend/js/jquery-ui/jquery-ui.min.css" %>
 		<%= stylesheet_link_tag "/frontend/js/lightslider/lightslider.css" %>
 		<%= stylesheet_link_tag "/frontend/fancybox/jquery.fancybox.min.css" %>
-		
+
 		<!-- Theme CSS ============================================ -->
 		<%= stylesheet_link_tag "/frontend/css/themecss/so_megamenu.css" %>
 		<%= stylesheet_link_tag "/frontend/css/themecss/so-categories.css" %>
 		<%= stylesheet_link_tag "/frontend/css/themecss/so-listing-tabs.css" %>
 		<%= stylesheet_link_tag "/frontend/css/themecss/animate.css" %>
 		<%= stylesheet_link_tag "/frontend/css/themecss/so-super-category.css" %>
-		<%= stylesheet_link_tag "/frontend/css/theme-cyan.css" %>		
+		<%= stylesheet_link_tag "/frontend/css/theme-cyan.css" %>
 		<%= stylesheet_link_tag "/frontend/css/responsive.css" %>
 		<%= stylesheet_link_tag "/frontend/css/custom.css" %>
 		<% if params[:controller] == "erp/online_store/frontend/account" && params[:action] == "my_account" %>
@@ -55,13 +55,13 @@
 </head>
 
 <body class="<%= @body_class %>">
-  
+
     <div id="wrapper" class="wrapper-full banners-effect-7">
-      
+
         <!-- Header Container  -->
         <%= render "erp/online_store/frontend/modules/header" %>
         <!-- //Header Container  -->
-        
+
         <!-- Main Container  -->
         <%= yield %>
         <!-- //Main Container -->
@@ -71,13 +71,13 @@
         var $typeheader = 'header-home1';
         //-->
         </script>
-        
+
         <!-- Footer Container -->
         <%= render "erp/online_store/frontend/modules/footer" %>
         <!-- //end Footer Container -->
-        
+
     </div>
-    
+
     <!-- Social widgets -->
     <%= render "erp/online_store/frontend/modules/social_widgets" %>
     <!-- End Social widgets -->
@@ -87,7 +87,7 @@
     <!-- End Preloading Screen -->
 
     <% if params[:controller] == "erp/online_store/frontend/product" && params[:action] == "product_detail" %>
-		
+
 		<% else %>
 		<!-- Include Libs & Plugins ============================================ -->
 		<%= render "erp/online_store/frontend/modules/js_include" %>

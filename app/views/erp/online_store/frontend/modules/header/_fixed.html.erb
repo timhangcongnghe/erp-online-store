@@ -1,0 +1,53 @@
+<div class="header-fixed-top  type_7">
+	<div class="header-center">
+		<div class="container">
+			<div class="row">
+				<!-- Logo -->
+				<div class="navbar-logo col-md-3 col-sm-4 col-xs-12">
+					<%= link_to image_tag("/frontend/image/logos/logo-cyan.png", title: "TIMHANGCONGNGHE.VN - Trang thương mại điện tử sản phẩm công nghệ chất lượng, uy tín.", alt: "Your Store"), erp_online_store.root_path %>
+				</div>
+                <div class="header-center-right col-md-5 col-sm-4 col-xs-12">
+                    <!-- Search -->
+                    <div id="sosearchpro" class="search-pro">
+                        <form method="GET" action="index.html">
+                            <div id="search0" class="search input-group autosearch" data-url="<%= erp_online_store.autosearch_path %>">
+                                <div class="select_category filter_type  icon-select">
+                                    <select class="no-border" name="category_id">
+                                        <option value="">Tất cả</option>
+                                        <% Erp::Menus::Menu.get_menus.each do |menu_search| %>
+                                        <option value="<%= menu_search.id %>"><%= menu_search.name %></option>
+                                        <% end %>
+                                    </select>
+                                </div>
+                                <input class="autosearch-input form-control" type="text" value="" size="50" autocomplete="off" placeholder="Nhập từ khóa tìm kiếm" name="search">
+                                <span class="input-group-btn">
+                                    <button type="submit" class="button-search btn btn-primary" name="submit_search">
+                                        <i class="fa fa-search"></i>
+                                    </button>
+                                </span>
+                            </div>
+                            <input type="hidden" name="route" value="product/search" />
+                        </form>
+                    </div>
+                    <!-- //end Search -->
+                </div>
+				<!-- //End Logo -->
+				<div class="header-center-right col-md-4 col-sm-4 col-xs-12">
+					<!-- Cart Pro-->
+					<div class="block-cart" data-url="<%= erp_online_store.top_cart_path %>">
+                        <%= render 'erp/online_store/frontend/shopping_cart/top_cart' %>
+                    </div>
+					<!-- //End Cart Pro -->
+					<!-- Phone -->
+					<div class="phone-contact hidden-xs">
+						<div class="inner-info">
+							<h2>Hotline:</h2><p>(801) 2345 - 6789</p>
+						</div>
+					</div>
+					<!-- //End Phone -->
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- //Header center -->
+</div>

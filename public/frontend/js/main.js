@@ -392,3 +392,12 @@ $(document).ready(function () {
         });
     });
 });
+$(window).scroll(function () {
+    var top = $(window).scrollTop();
+
+    if (top > 165 &&  $(window).width() > 992)  {
+        $('.header-fixed-top').slideDown();
+    } else {
+        $('.header-fixed-top').hide();
+    }
+});
