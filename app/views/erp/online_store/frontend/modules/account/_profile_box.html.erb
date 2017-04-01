@@ -144,6 +144,31 @@
                     <div class="col-sm-12">
                         <fieldset id="personal-details">
                             <legend>Thay đổi thông tin</legend>
+                            <div class="row">    
+                                <div class="col-sm-12">
+                                    <div class="form-group required">
+                                        <label for="input-lastname" class="control-label">Ảnh đại diện: </label>
+                                        <!-- image-preview-filename input [CUT FROM HERE]-->
+                                        <div class="input-group image-preview">
+                                            <input type="text" class="form-control image-preview-filename" disabled="disabled"
+                                                   placeholder="Không có hình ảnh."> <!-- don't give a name === doesn't send on POST/GET -->
+                                            <span class="input-group-btn">
+                                                <!-- image-preview-clear button -->
+                                                <button type="button" class="btn btn-default image-preview-clear" style="display:none;">
+                                                    <span class="fa fa-remove"></span> Xóa ảnh
+                                                </button>
+                                                <!-- image-preview-input -->
+                                                <div class="btn btn-default image-preview-input">
+                                                    <span class="fa fa-folder-open"></span>
+                                                    <span class="image-preview-input-title">Chọn ảnh</span>
+                                                    <input type="file" accept="image/png, image/jpeg, image/gif" name="user[avatar]"/> <!-- rename it -->
+                                                </div>
+                                            </span>
+                                        </div>
+                                        <!-- /input-group image-preview [TO HERE]-->
+                                    </div>
+                                </div>
+                            </div>
                             <div class="row">
                                 <div class="col-sm-4">
                                     <div class="form-group required">
