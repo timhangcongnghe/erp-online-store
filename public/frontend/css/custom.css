@@ -863,3 +863,6 @@ table.product-compare tr td.product-name {
     overflow: auto;
     max-height: 300px;
 }
+.type_7 .shopping_cart .btn-shopping-cart ul {
+  margin-top: -1px;
+}
