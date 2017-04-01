@@ -839,11 +839,22 @@ table.product-compare tr td.product-name {
   padding: 2px 0;
 }
 .type_7 .header-center {
-  padding: 10px 0 10px;
+    padding: 4px 0 2px;
+    border-bottom: solid 1px #ddd;
 }
 #sosearchpro.search-pro .select_category select {
   width: auto !important;
 }
 .type_7 #sosearchpro.search-pro .select_category select {
     padding: 2px 30px 0 26px;
+}
+.header_custom_link a {
+  font-size: 12px;
+}
+.header-bottom-right .text-shopping-cart {
+  font-size: 12px;
+}
+.header-fixed-top .navbar-logo img {
+    width: 140px;
+    margin: 1px 0;
 }
