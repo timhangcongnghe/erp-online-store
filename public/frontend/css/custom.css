@@ -771,7 +771,7 @@ table.product-compare tr td.product-name {
   text-transform: none;
 }
 .shoppingcart-box {
-  border: 1px solid #009688;
+  border: 2px solid #009688;
 }
 .shopping-actions {
   font-weight: 500;

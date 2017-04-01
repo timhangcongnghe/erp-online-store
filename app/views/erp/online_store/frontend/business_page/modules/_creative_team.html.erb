@@ -1,0 +1,52 @@
+<section id="bt-creativeteam" class="bt-sectionpadding bt-haslayout">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="bt-fullheading bt-styletwo">
+                    <span>You have to Kknow</span>
+                    <h2>Creative Team</h2>
+                </div>
+            </div>
+            <div class="bt-creativeteam">
+                <div class="col-xs-12 hidden-xs col-sm-4 col-md-4 col-lg-4">
+                    <figure class="bt-memberlargedp">
+                        <img src="frontend/business-template/images/team/img-06.jpg" alt="image description">
+                    </figure>
+                </div>
+                <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+                    <div class="bt-teammembersliders">
+                        <div id="bt-teammembercontentslider" class="bt-teammembercontentslider">
+                            <% (0..5).each do |team_member| %>
+                            <div class="item">
+                                <div class="bt-teammembercontent">
+                                    <h3>Jimmy Morgan</h3>
+                                    <span>Founder / CEO Pawa</span>
+                                    <div class="bt-description">
+                                        <p><%= "Nội dung giới thiệu ngắn gọn" %></p>
+                                    </div>
+                                    <ul class="bt-socialicons bt-socialiconsround">
+                                        <li><a href=""><i class="fa fa-facebook"></i></a></li>
+                                        <li><a href=""><i class="fa fa-google-plus"></i></a></li>
+                                        <li><a href=""><i class="fa fa-twitter"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <% end %>
+                        </div>
+                        <div class="row">
+                            <div id="bt-teammembernavigationslider" class="bt-teammembernavigationslider">
+                                <% (0..5).each do |team_member| %>
+                                <div class="item">
+                                    <figure>
+                                        <%= image_tag "/frontend/business-template/images/team/img-06.jpg", alt: "" %>
+                                    </figure>
+                                </div>
+                                <% end %>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

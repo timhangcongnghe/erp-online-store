@@ -41,6 +41,7 @@ Erp::OnlineStore::Engine.routes.draw do
   
   # BUSINESS PAGE
   get "uu-dai-doanh-nghiep.html" => "frontend/business_page#index", as: :business_page
+  get "uu-dai-doanh-nghiep/chi-tiet-bai-viet.html" => "frontend/business_page#news_detail", as: :news_detail
   namespace :frontend do
 		resources :carts
 		resources :cart_items do

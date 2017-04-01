@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-xs-12 col-sm-12">
                 <strong class="bt-logo">
-                    <a href="index.html"><img src="frontend/business-template/images/logo.png" alt="image description"></a>
+                    <%= link_to image_tag("/frontend/business-template/images/logo.png", alt: ""), erp_online_store.business_page_path, title: "" %>
                 </strong>
                 <nav id="bt-nav" class="bt-nav">
                     <div class="navbar-header">
@@ -16,22 +16,17 @@
                     </div>
                     <div id="bt-navigation" class="collapse navbar-collapse bt-navigation">
                         <ul>
-                            <li><a href="#bt-home">HOME</a></li>
-                            <li><a href="#bt-services">services</a></li>
-                            <li><a href="#bt-projects">portfolio</a></li>
-                            <li><a href="#bt-aboutpowax">about us</a></li>
-                            <li><a href="#bt-creativeteam">Team</a></li>
-                            <li class="menu-item-has-children">
-                                <a href="#bt-news">news</a>
-                                <ul>
-                                    <li><a class="external" href="news.html" target="_self">News One</a></li>
-                                    <li><a class="external" href="newsv2.html" target="_self">News Two</a></li>
-                                    <li><a class="external" href="newsdetail.html" target="_self">news Detail</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="#bt-contactus">contact us</a></li>
+                            <li><a href="#bt-home">Trang Chủ</a></li>
+                            <li><a href="#bt-services">Dịch Vụ</a></li>
+                            <li><a href="#bt-projects">Lĩnh Vực Hoạt Động</a></li>
+                            <li><a href="#bt-aboutpowax">Giới Thiệu</a></li>
+                            <li><a href="#bt-creativeteam">Đội Ngũ</a></li>
+                            <li><a href="#bt-news">Our Publication</a></li>
+                            <li><a href="#bt-contactus">Liên hệ</a></li>
                             <li>
-                                <a href="javascript:void(0);" class="hamburger is-closed" data-toggle="offcanvas"><img src="frontend/business-template/images/icons/icon-01.png" alt="image description"></a>
+                                <a href="javascript:void(0);" class="hamburger is-closed" data-toggle="offcanvas">
+                                    <img src="/frontend/business-template/images/icons/icon-01.png" alt="image description">
+                                </a>
                             </li>
                         </ul>
                     </div>

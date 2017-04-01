@@ -7,24 +7,30 @@
                     <h2>Our Publication</h2>
                 </div>
             </div>
-            <div id="bt-postsslider" class="bt-posts bt-postsslider">
-                <% (0..2).each do |post_slider| %>
-                <div class="item">
+            <div id="bt-postsslider" class="bt-posts bt-postsslider">                
+                <% (0..3).each do |our_publication| %>
+                <div class="item">                  
                     <article class="bt-post">
                         <figure>
                             <%= link_to image_tag("/frontend/business-template/images/blog/img-01.jpg", alt: ""), "", title: "" %>
-                            <figcaption><time datetime="08/11/2017">08/11/2017</time></figcaption>
+                            <figcaption>
+                                <time datetime="08-11-2017">08-11-2017</time>
+                            </figcaption>
                         </figure>
                         <div class="bt-postcontent">
+                            <ul class="bt-postmetadata">
+                                <li><%= link_to "Đăng Bởi: TimHangCongNghe.vn", "avascript:void(0);" %></li>
+                                <li><%= link_to "Chuyên Mục: Our Publication", "avascript:void(0);" %></li>
+                            </ul>
                             <div class="bt-posttitle">
-                                <h3><%= link_to "Tiêu đề của bài viết.....", "", title: "" %></h3>
+                                <h3><%= link_to "Familiar Idea With Brand", "" %></h3>
                             </div>
                             <div class="bt-description">
                                 <p>
-                                  <%= "Nội dung bài viết......" %>
+                                  Nội dung của bài viết................
                                 </p>
                             </div>
-                            <%= link_to "Xem tiếp...", "", class: "bt-btn" %>
+                            <%= link_to "XEM CHI TIẾT", "", class: "bt-btn" %>
                         </div>
                     </article>
                 </div>

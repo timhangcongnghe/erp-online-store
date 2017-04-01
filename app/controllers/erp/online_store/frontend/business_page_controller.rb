@@ -5,6 +5,10 @@ module Erp
         def index
           render layout: "erp/frontend/business"          
         end
+        
+        def news_detail
+          render layout: "erp/frontend/business"          
+        end
       end
     end
   end
