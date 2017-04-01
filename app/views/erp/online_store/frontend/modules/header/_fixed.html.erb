@@ -13,7 +13,7 @@
                             <div id="search0" class="search input-group autosearch" data-url="<%= erp_online_store.autosearch_path %>">
                                 <div class="select_category filter_type  icon-select">
                                     <select class="no-border" name="category_id">
-                                        <option value="">Tất cả</option>
+                                        <option value="">Tất cả chuyên mục</option>
                                         <% Erp::Menus::Menu.get_menus.each do |menu_search| %>
                                         <option value="<%= menu_search.id %>"><%= menu_search.name %></option>
                                         <% end %>

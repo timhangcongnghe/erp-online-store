@@ -841,3 +841,9 @@ table.product-compare tr td.product-name {
 .type_7 .header-center {
   padding: 10px 0 10px;
 }
+#sosearchpro.search-pro .select_category select {
+  width: auto !important;
+}
+.type_7 #sosearchpro.search-pro .select_category select {
+    padding: 2px 30px 0 26px;
+}
