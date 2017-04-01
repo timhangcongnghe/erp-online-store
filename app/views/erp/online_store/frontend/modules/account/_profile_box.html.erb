@@ -1,10 +1,10 @@
 <div class="col-sm-9 custom-profile" id="content">
     <div class="card hovercard">
         <div class="card-background">
-            <img class="card-bkimg" alt="" src="<%= url_for("/frontend/image/avatar/avt_comment.png") %>">
+            <img class="card-bkimg" alt="" src="<%= current_user.avatar.nil? ? url_for("/frontend/image/avatar/avt_comment.png") : current_user.avatar %>">
         </div>
         <div class="useravatar">
-            <img alt="" src="<%= url_for("/frontend/image/avatar/avt_comment.png") %>">
+            <img alt="" src="<%= current_user.avatar.nil? ? url_for("/frontend/image/avatar/avt_comment.png") : current_user.avatar.profile %>">
         </div>
         <div class="card-info"> <span class="card-title"><%= current_user.name %></span></div>
     </div>
@@ -140,32 +140,31 @@
         </div>
         <div class="tab-pane fade in" id="tab3">
             <div class="row">
-                <%= form_for '' do |f| %>
+                <%= form_for '', html: {multipart: true} do |f| %>
                     <div class="col-sm-12">
                         <fieldset id="personal-details">
                             <legend>Thay đổi thông tin</legend>
                             <div class="row">    
                                 <div class="col-sm-12">
                                     <div class="form-group required">
-                                        <label for="input-lastname" class="control-label">Ảnh đại diện: </label>
-                                        <!-- image-preview-filename input [CUT FROM HERE]-->
+                                        <label for="input-lastname" class="control-label">Thêm/cập nhật hình đại diện: </label>
                                         <div class="input-group image-preview">
-                                            <input type="text" class="form-control image-preview-filename" disabled="disabled"
-                                                   placeholder="Không có hình ảnh."> <!-- don't give a name === doesn't send on POST/GET -->
+                                            <input type="text" class="form-control image-preview-filename" disabled
+                                                   placeholder="<%= current_user.avatar.nil? ? 'Hãy thêm hình đại diện cho tài khoản của bạn.' : 'Bạn đang có một hình đại diện. Thay đổi hình đại diện khác?' %>"
+                                                />
                                             <span class="input-group-btn">
                                                 <!-- image-preview-clear button -->
                                                 <button type="button" class="btn btn-default image-preview-clear" style="display:none;">
-                                                    <span class="fa fa-remove"></span> Xóa ảnh
+                                                    <span class="fa fa-remove"></span> Bỏ chọn
                                                 </button>
                                                 <!-- image-preview-input -->
                                                 <div class="btn btn-default image-preview-input">
                                                     <span class="fa fa-folder-open"></span>
                                                     <span class="image-preview-input-title">Chọn ảnh</span>
-                                                    <input type="file" accept="image/png, image/jpeg, image/gif" name="user[avatar]"/> <!-- rename it -->
+                                                    <input type="file" accept="image/png, image/jpeg, image/gif" name="user[avatar]"/>
                                                 </div>
                                             </span>
                                         </div>
-                                        <!-- /input-group image-preview [TO HERE]-->
                                     </div>
                                 </div>
                             </div>
