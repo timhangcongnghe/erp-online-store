@@ -462,14 +462,14 @@ a.hover-product-name:hover {
 .back-to-top:hover {
   opacity: .8;
 }
-.product-item-container .left-block {
+.product-item-container .left-block, .product-item-container .right-block {
   cursor: pointer;
 }/* custom category - product lists*/
 .products-list.list-masonry .product-layout .product-item-container .right-block .caption h4 a, .products-list.grid .product-layout .product-item-container .right-block .caption h4 a {
   font-size: 14px;
 }
 .products-list {
-  padding-left: 0px;  
+  padding-left: 0px;
 }
 .products-list .product-layout {
   padding-left: 0px;
@@ -706,7 +706,7 @@ table.product-compare tr td.product-name {
 .not-property {
   font-size: 12px;
   color: #666;
-  font-style: italic;  
+  font-style: italic;
 }
 .account-reportm {
   font-weight: 500;
