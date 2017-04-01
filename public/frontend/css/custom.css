@@ -858,3 +858,8 @@ table.product-compare tr td.product-name {
     width: 140px;
     margin: 1px 0;
 }
+.autosearch-result-box {
+    display: block;
+    overflow: auto;
+    max-height: 300px;
+}
