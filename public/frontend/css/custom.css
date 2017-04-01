@@ -794,7 +794,8 @@ table.product-compare tr td.product-name {
   border-color: #009688;
 }
 @media (min-width: 767px) {
-  .products-list.list-masonry .product-layout .product-item-container, .products-list.grid .product-layout .product-item-container {
+  .products-category .products-list.list-masonry .product-layout .product-item-container,
+  .products-category .products-list.grid .product-layout .product-item-container {
     min-height: 470px;
   }
 }
