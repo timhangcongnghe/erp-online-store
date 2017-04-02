@@ -70,9 +70,7 @@ module Erp
           end
           
           def contact_params
-            params.fetch(:contact, {}).permit(:name, :phone, :email, :birthday, :gender,
-                                              :user_attributes => [ :id, :avatar, :_destroy ]
-                                              )
+            params.fetch(:contact, {}).permit(:name, :phone, :email, :birthday, :gender, :address)
           end
       end
     end
