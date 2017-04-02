@@ -1,10 +1,10 @@
 <div class="col-sm-9 custom-profile" id="content">
     <div class="card hovercard">
         <div class="card-background">
-            <img class="card-bkimg" alt="" src="<%= current_user.avatar.nil? ? url_for("/frontend/image/avatar/avt_comment.png") : current_user.avatar %>">
+            <img class="card-bkimg" alt="" src="<%= !current_user.avatar? ? url_for("/frontend/image/avatar/avt_comment.png") : current_user.avatar %>">
         </div>
         <div class="useravatar">
-            <img alt="" src="<%= current_user.avatar.nil? ? url_for("/frontend/image/avatar/avt_comment.png") : current_user.avatar.profile %>">
+            <img alt="" src="<%= !current_user.avatar? ? url_for("/frontend/image/avatar/avt_comment.png") : current_user.avatar.profile %>">
         </div>
         <div class="card-info"> <span class="card-title"><%= current_user.name %></span></div>
     </div>
@@ -16,12 +16,12 @@
         </div>
         <div class="btn-group" role="group">
             <button type="button" id="following" class="btn btn-default" href="#tab2" data-toggle="tab"><span class="fa fa-map-marker" aria-hidden="true"></span>
-                <div class="hidden-xs button-info">Thông tin đặt hàng</div>
+                <div class="hidden-xs button-info">Cập nhật liên hệ</div>
             </button>
         </div>
         <div class="btn-group" role="group">
             <button type="button" id="following" class="btn btn-default" href="#tab3" data-toggle="tab"><span class="fa fa-cog" aria-hidden="true"></span>
-                <div class="hidden-xs button-info">Cập nhật tài khoản</div>
+                <div class="hidden-xs button-info">Cài đặt bảo mật</div>
             </button>
         </div>
     </div>
@@ -64,30 +64,79 @@
         </div>
         <div class="tab-pane fade in" id="tab2">
             <div class="row">
-                <div class="col-sm-12">
-                    <fieldset id="address">
-                        <legend>Thông tin đặt hàng</legend>
-                        <form>
-                            <div class="row">
-                                <div class="col-sm-4">
+                <%= form_for '', html: {multipart: true} do |f| %>
+                    <div class="col-sm-12">
+                        <fieldset id="personal-details">
+                            <legend>Thông tin cơ bản</legend>
+                            <div class="row">    
+                                <div class="col-sm-6">
                                     <div class="form-group required">
-                                        <label for="input-name" class="control-label">Họ & Tên người nhận: </label>
-                                        <input type="text" class="form-control" id="input-name" placeholder="" value="" name="name">
+                                        <label for="input-lastname" class="control-label">Thêm/cập nhật hình đại diện: </label>
+                                        <div class="input-group image-preview">
+                                            <input type="text" class="form-control image-preview-filename" disabled
+                                                   placeholder="<%= current_user.avatar? ? 'Bạn đã có ảnh đại diện. Thay đổi ảnh khác?' : 'Hãy thêm ảnh đại diện cho tài khoản của bạn.' %>"
+                                                />
+                                            <span class="input-group-btn">
+                                                <!-- image-preview-clear button -->
+                                                <button type="button" class="btn btn-default image-preview-clear" style="display:none;">
+                                                    <span class="fa fa-remove"></span> Bỏ chọn
+                                                </button>
+                                                <!-- image-preview-input -->
+                                                <div class="btn btn-default image-preview-input">
+                                                    <span class="fa fa-folder-open"></span>
+                                                    <span class="image-preview-input-title">Chọn ảnh</span>
+                                                    <input type="file" accept="image/png, image/jpeg, image/gif" name="user[avatar]"/>
+                                                </div>
+                                            </span>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="col-sm-4">
+                                <div class="col-sm-6">
                                     <div class="form-group required">
-                                        <label for="input-phone" class="control-label">Số điện thoại: </label>
-                                        <input type="text" class="form-control" id="input-phone" placeholder="" value="" name="phone">
+                                        <label for="input-lastname" class="control-label">Họ & Tên: </label>
+                                        <input type="text" class="form-control" id="input-lastname" placeholder="Họ và tên" value="<%= @contact.name %>" name="contact[name]">
                                     </div>
                                 </div>
-                                <div class="col-sm-4">
-                                    <div class="form-group required">
-                                        <label for="input-email" class="control-label">Email: </label>
-                                        <input type="text" class="form-control" id="input-email" placeholder="" value="" name="email">
-                                    </div>
-                                </div> 
                             </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group required">
+                                        <label for="input-telephone" class="control-label">Số điện thoại: </label>
+                                        <input type="tel" class="form-control" id="input-telephone" placeholder="Số điện thoại" value="<%= @contact.phone %>" name="contact[phone]">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group required">
+                                        <label for="input-telephone" class="control-label">Địa chỉ email: </label>
+                                        <input type="email" class="form-control" id="input-email" placeholder="Địa chỉ email" value="<%= @contact.email %>" name="contact[email]">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="input-date-ordered" class="control-label">Ngày sinh: </label>
+                                        <div class="input-group date">
+                                            <input type="text" class="form-control" id="input-date-ordered" data-date-format="YYYY-MM-DD" placeholder="Ngày sinh (YYYY/MM/DD)" value="<%= format_date(@contact.birthday) %>" name="contact[birthday]">
+                                            <span class="input-group-btn">
+                                                <button class="btn btn-default" type="button"><i class="fa fa-calendar"></i></button>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="input-date-ordered" class="control-label">Giới tính: </label>
+                                        <select class="form-control" id="input-zone" name="contact[gender]">
+                                            <option value=""> Chọn giới tính </option>
+                                            <option <%= 'selected' if @contact.gender == Erp::Contacts::Contact::GENDER_MALE %> value="<%= Erp::Contacts::Contact::GENDER_MALE %>">Nam</option>
+                                            <option <%= 'selected' if @contact.gender == Erp::Contacts::Contact::GENDER_FEMALE %> value="<%= Erp::Contacts::Contact::GENDER_FEMALE %>">Nữ</option> 
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <legend>Địa chỉ đặt hàng</legend>
                             <div class="row">
                                 <div class="col-sm-6">
                                     <div class="form-group required">
@@ -124,90 +173,7 @@
                                 <div class="col-sm-6">
                                     <div class="form-group required">
                                         <label for="input-address" class="control-label">Số nhà/đường/thôn/ấp: </label>
-                                        <input type="text" class="form-control" id="input-address" placeholder="Số nhà, đường, thôn, ấp" value="" name="address">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="buttons clearfix">
-                                <div class="pull-right">
-                                    <input type="submit" class="btn btn-md btn-primary" value="Cập nhật">
-                                </div>
-                            </div>
-                        </form>
-                    </fieldset>
-                </div>                
-            </div>
-        </div>
-        <div class="tab-pane fade in" id="tab3">
-            <div class="row">
-                <%= form_for '', html: {multipart: true} do |f| %>
-                    <div class="col-sm-12">
-                        <fieldset id="personal-details">
-                            <legend>Thay đổi thông tin</legend>
-                            <div class="row">    
-                                <div class="col-sm-12">
-                                    <div class="form-group required">
-                                        <label for="input-lastname" class="control-label">Thêm/cập nhật hình đại diện: </label>
-                                        <div class="input-group image-preview">
-                                            <input type="text" class="form-control image-preview-filename" disabled
-                                                   placeholder="<%= current_user.avatar.nil? ? 'Hãy thêm hình đại diện cho tài khoản của bạn.' : 'Bạn đang có một hình đại diện. Thay đổi hình đại diện khác?' %>"
-                                                />
-                                            <span class="input-group-btn">
-                                                <!-- image-preview-clear button -->
-                                                <button type="button" class="btn btn-default image-preview-clear" style="display:none;">
-                                                    <span class="fa fa-remove"></span> Bỏ chọn
-                                                </button>
-                                                <!-- image-preview-input -->
-                                                <div class="btn btn-default image-preview-input">
-                                                    <span class="fa fa-folder-open"></span>
-                                                    <span class="image-preview-input-title">Chọn ảnh</span>
-                                                    <input type="file" accept="image/png, image/jpeg, image/gif" name="user[avatar]"/>
-                                                </div>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-sm-4">
-                                    <div class="form-group required">
-                                        <label for="input-lastname" class="control-label">Họ & Tên: </label>
-                                        <input type="text" class="form-control" id="input-lastname" placeholder="Họ và tên" value="<%= @contact.name %>" name="contact[name]">
-                                    </div>
-                                </div>
-                                <div class="col-sm-4">
-                                    <div class="form-group required">
-                                        <label for="input-telephone" class="control-label">Số điện thoại: </label>
-                                        <input type="tel" class="form-control" id="input-telephone" placeholder="Số điện thoại" value="<%= @contact.phone %>" name="contact[phone]">
-                                    </div>
-                                </div>
-                                <div class="col-sm-4">
-                                    <div class="form-group required">
-                                        <label for="input-telephone" class="control-label">Địa chỉ email: </label>
-                                        <input type="email" class="form-control" id="input-email" placeholder="Địa chỉ email" value="<%= @contact.email %>" name="contact[email]">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <label for="input-date-ordered" class="control-label">Ngày sinh: </label>
-                                        <div class="input-group date">
-                                            <input type="text" class="form-control" id="input-date-ordered" data-date-format="YYYY-MM-DD" placeholder="Ngày sinh (YYYY/MM/DD)" value="<%= format_date(@contact.birthday) %>" name="contact[birthday]">
-                                            <span class="input-group-btn">
-                                                <button class="btn btn-default" type="button"><i class="fa fa-calendar"></i></button>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <label for="input-date-ordered" class="control-label">Giới tính: </label>
-                                        <select class="form-control" id="input-zone" name="contact[gender]">
-                                            <option value=""> Chọn giới tính </option>
-                                            <option <%= 'selected' if @contact.gender == Erp::Contacts::Contact::GENDER_MALE %> value="<%= Erp::Contacts::Contact::GENDER_MALE %>">Nam</option>
-                                            <option <%= 'selected' if @contact.gender == Erp::Contacts::Contact::GENDER_FEMALE %> value="<%= Erp::Contacts::Contact::GENDER_FEMALE %>">Nữ</option> 
-                                        </select>
+                                        <input type="text" class="form-control" id="input-address" placeholder="Số nhà, đường, thôn, ấp" value="<%= @contact.address %>" name="contact[address]">
                                     </div>
                                 </div>
                             </div>
@@ -220,7 +186,11 @@
                             </div>
                         </div>
                     </div>
-                <% end %>
+                <% end %>          
+            </div>
+        </div>
+        <div class="tab-pane fade in" id="tab3">
+            <div class="row">
                 <%= form_for '', url: erp_online_store.update_password_path do |f| %>
                     <div class="col-sm-12">
                         <fieldset>
