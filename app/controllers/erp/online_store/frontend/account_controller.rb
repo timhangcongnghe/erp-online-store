@@ -16,11 +16,13 @@ module Erp
           @contact = !current_user.contact.nil? ? current_user.contact : Erp::Contacts::Contact.new(user_id: current_user.id)
           
           # Create contact for currnet_user if contact user does not exists
-          if params[:contact].present? && current_user.contact.nil?
-            @contact = Erp::Contacts::Contact.new(contact_params)
+          if params[:contact].present?
+            @contact.assign_attributes(contact_params)
             @contact.creator = current_user
             @contact.contact_type = params[:contact_type].present? ? params[:contact_type] : Erp::Contacts::Contact::TYPE_PERSON
             @contact.user = current_user
+            
+            @contact.user.update(user_params)
             
             if @contact.save
               current_user.update_columns(contact_id: @contact.id)
@@ -28,17 +30,10 @@ module Erp
             else
               redirect_to :back, flash: {error: "Thông tin chưa được cập nhật. Vui lòng kiểm tra giá trị nhập."}
             end
-          end
-          
-          # Update contact for currnet_user if contact user do exists
-          if params[:contact].present? && !current_user.contact.nil?
-            if @contact.update(contact_params)
-              redirect_to :back, flash: { success: "Thông tin cá nhân đã được cập nhật." }
-            else
-              redirect_to :back, flash: { error: "Thông tin chưa được cập nhật. Vui lòng kiểm tra giá trị nhập." }
-            end
-          end          
-          
+          end        
+        end
+        
+        def update_password
           # change password for user
           @user = current_user
       
@@ -59,7 +54,6 @@ module Erp
               redirect_to :back, flash: { error: "Mật khẩu mới và mật khẩu xác nhận phải trùng khớp, và phải chứa ít nhất 6 ký tự." }
             end
           end
-          
         end
     
         def order_history
@@ -72,11 +66,13 @@ module Erp
         
         private
           def user_params
-            params.fetch(:user, {}).permit(:current_password, :password, :password_confirmation)
+            params.fetch(:user, {}).permit(:avatar, :current_password, :password, :password_confirmation)
           end
           
           def contact_params
-            params.fetch(:contact, {}).permit(:name, :phone, :email, :birthday, :gender)
+            params.fetch(:contact, {}).permit(:name, :phone, :email, :birthday, :gender,
+                                              :user_attributes => [ :id, :avatar, :_destroy ]
+                                              )
           end
       end
     end
