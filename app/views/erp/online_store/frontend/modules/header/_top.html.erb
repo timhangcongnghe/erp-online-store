@@ -10,8 +10,8 @@
                                     <li>
                                         <label class="label-msg"><%= blog.created_at.strftime("%d/%m/%Y") %></label>
                                         <%= link_to truncate(blog.name, length: 45),
-                                            erp_online_store.blog_detail_path(blog.id, url_friendly(blog.name), title: blog.name                                                                            
-                                        ) %>
+                                            article_link(blog)
+                                        %>
                                     </li>
                                 <% end %>
                             </ul>

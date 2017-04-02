@@ -188,7 +188,7 @@ $(document).ready(function () {
         var box = $(this).parents('.autosearch');
         setTimeout(function() {
             box.find('.autosearch-result-box').hide();
-        }, 100);
+        }, 500);
     });
 
     $(document).on('focusin', '.autosearch-input', function() {

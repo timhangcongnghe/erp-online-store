@@ -36,7 +36,7 @@
                 <% if @blogs.count == 0 %>
                     <p>Danh sách bài viết không tìm thấy</p>
                 <% end %>
-                <% @blogs.each do |blog| %> 
+                <% @blogs.each do |blog| %>
                 <div class="blog-item ">
                     <div class="itemBlogImg col-md-4 col-sm-12">
                         <div class="article-image banners">
@@ -48,7 +48,7 @@
                     <div class="itemBlogContent col-md-8 col-sm-12">
                         <div class="article-title">
                             <h4>
-                                <%= link_to blog.name, erp_online_store.blog_detail_path(blog.id, url_friendly(blog.name)) %>
+                                <%= link_to blog.name, article_link(blog) %>
                             </h4>
                         </div>
                         <div class="article-sub-title">
@@ -70,11 +70,11 @@
                     </div>
                 </div>
                 <% end %>
-                
+
                 <div class="pagination-online-store">
                     <%= erp_datalist_pagination(@blogs) %>
                 </div>
-                
+
             </div>
         </div>
         <!--Middle Part End-->
