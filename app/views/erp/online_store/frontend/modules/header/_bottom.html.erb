@@ -57,7 +57,7 @@
                                                             <div class="content" style="display: none;">
                                                                 <div class="row">
                                                                     <div class="col-sm-12">
-                                                                        <div class="categories ">
+                                                                        <div class="custom-menu categories ">
                                                                             <div class="row">
                                                                                 <div class="col-sm-12 hover-menu">
                                                                                     <div class="menu">
@@ -73,7 +73,7 @@
                                                                                                 <% if child_1.children.count > 0 %>
                                                                                                 <ul>
                                                                                                     <% child_1.children.each do |child_2| %>
-                                                                                                    <li><%= link_to child_2.name, menu_link(child_2) %></li>
+                                                                                                    <li class="custom-menu"><%= link_to child_2.name, menu_link(child_2) %></li>
                                                                                                     <% end %>
                                                                                                 </ul>
                                                                                                 <% end %>

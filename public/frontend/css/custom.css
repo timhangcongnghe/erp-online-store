@@ -867,3 +867,7 @@ table.product-compare tr td.product-name {
 .type_7 .shopping_cart .btn-shopping-cart ul {
   margin-top: -1px;
 }
+.custom-menu {
+  font-weight: 500;
+  color: #000;
+}
