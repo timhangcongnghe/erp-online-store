@@ -14,20 +14,20 @@ Erp::OnlineStore::Engine.routes.draw do
   delete "danh-gia-san-pham/:rating_id-remove.html" => "frontend/product#delete_rating", as: :delete_product_rating
   get "xem-nhanh.html" => "frontend/product#product_quickview", as: :product_quickview
   get "san-pham-khuyen-mai.html" => "frontend/category#deal_products", as: :deal_products
-  get "san-pham-ban-chay-nhat.html" => "frontend/category#bestseller_products", as: :bestseller_products
-  get "lua-chon-cua-doanh-nghiep.html" => "frontend/business_choices#index", as: :business_choices
+  get "san-pham-ban-chay.html" => "frontend/category#bestseller_products", as: :bestseller_products
+  get "lua-chon-tu-doanh-nghiep.html" => "frontend/business_choices#index", as: :business_choices
   
   # BLOG
-  get "danh-sach-bai-viet.html" => "frontend/blog#index", as: :blog
-  get "danh-sach-bai-viet/:cat_id(/:title).html" => "frontend/blog#index", as: :blog_with_category
-  get "danh-sach-bai-viet/chi-tiet-bai-viet/:blog_id(/:title).html" => "frontend/blog#detail", as: :blog_detail
+  get "tin-cong-nghe.html" => "frontend/blog#index", as: :blog
+  get "tin-cong-nghe/:cat_id(/:title).html" => "frontend/blog#index", as: :blog_with_category
+  get "tin-cong-nghe/:blog_id(/:title).html" => "frontend/blog#detail", as: :blog_detail
   get "chi-tiet-bai-viet/binh-luan.html/:blog_id" => "frontend/blog#comments", as: :blog_comments
   post "chi-tiet-bai-viet/binh-luan.html/:blog_id" => "frontend/blog#comments"
   delete "chi-tiet-bai-viet/binh-luan/:comment_id-remove.html" => "frontend/blog#delete_comment", as: :delete_blog_comment
   
   # ACCOUNT
-  get "dang-nhap.html" => "frontend/account#login", as: :login
-  get "dang-ky.html" => "frontend/account#register", as: :register
+  get "tai-khoan/dang-nhap.html" => "frontend/account#login", as: :login
+  get "tai-khoan/dang-ky.html" => "frontend/account#register", as: :register
   get "tai-khoan/thong-tin-tai-khoan.html" => "frontend/account#my_account", as: :my_account
   post "tai-khoan/thong-tin-tai-khoan.html" => "frontend/account#my_account"
   get "tai-khoan/cap-nhat-mat-khau.html" => "frontend/account#update_password", as: :update_password
