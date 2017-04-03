@@ -30,6 +30,23 @@ module Erp
       def article_link(article)
         erp_online_store.blog_detail_path(article.id, title:  url_friendly(article.name))
       end
+      
+      # user avatar
+      def avatar(user)
+        if user.avatar?
+          user.avatar.profile
+        else
+          if user.contact.present?
+            if user.contact.gender == Erp::Contacts::Contact::FEMALE_GENDER
+              url_for('/frontend/image/avatar/avt_female.png')
+            else
+              url_for('/frontend/image/avatar/avt_male.png')
+            end
+          else
+            url_for('/frontend/image/avatar/avt_male.png')
+          end
+        end
+      end
     end
   end
 end
