@@ -863,13 +863,13 @@ table.product-compare tr td.product-name {
   font-size: 12px;
 }
 .header-fixed-top .navbar-logo img {
-    width: 140px;
-    margin: 1px 0;
+  width: 140px;
+  margin: 1px 0;
 }
 .autosearch-result-box {
-    display: block;
-    overflow: auto;
-    max-height: 300px;
+  display: block;
+  overflow: auto;
+  max-height: 300px;
 }
 .type_7 .shopping_cart .btn-shopping-cart ul {
   margin-top: -1px;
@@ -879,5 +879,12 @@ table.product-compare tr td.product-name {
   color: #000;
 }
 a.group-item.active {
-    color: #009688 !important;
+  color: #009688 !important;
+}
+.product-item-container {
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
 }
