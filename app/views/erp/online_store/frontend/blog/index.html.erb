@@ -1,3 +1,4 @@
+<% title 'Tin công nghệ' %>
 <div class="main-container container">
     <ul class="breadcrumb">
         <li><%= link_to '<i class="fa fa-home"></i>'.html_safe, erp_online_store.root_path %></li>
@@ -6,19 +7,7 @@
     <div class="row">
         <!--Left Part Start -->
         <aside class="col-sm-4 col-md-3" id="column-left">
-            <div class="module blog-category titleLine">
-                <h3 class="modtitle"><span>Chủ đề</span></h3>
-                <div class="modcontent">
-                    <ul class="list-group ">
-                        <% @categories.each do |cat| %>
-                            <li class="list-group-item">
-                                <%= link_to cat.name, erp_online_store.blog_with_category_path(cat.id, url_friendly(cat.name)),
-                                class: "group-item active" %>
-                            </li>
-                        <% end %>
-                    </ul>
-                </div>
-            </div>
+            <%= render "erp/online_store/frontend/modules/blog/categories" %>
             <%= render "erp/online_store/frontend/modules/sidebar_best_sellers" %>
             <%= render "erp/online_store/frontend/modules/hot_banners" %>
         </aside>
@@ -28,8 +17,8 @@
         <div id="content" class="col-md-9 col-sm-8">
             <% if params[:cat_id].present? %>
                 <div class="blog-header">
-                    <h3><%= Erp::Articles::Category.find(params[:cat_id]).name %></h3>
-                    <p><%= Erp::Articles::Category.find(params[:cat_id]).description %></p>
+                    <h3><%= @category.name %></h3>
+                    <p><%= @category.description %></p>
                 </div>
             <% end %>
             <div class="blog-listitem <%= params[:cat_id].present? ? '' : 'blog-listitem-notitle' %>">
@@ -57,11 +46,11 @@
                             </span>
                         </div>
                         <div class="article-description">
-                            <%= short_text(blog.content, 100) %> [...]
+                            <%= short_text(blog.content, 100) %>
                         </div>
                         <div class="blog-meta">
                             <span class="comment_count">
-                                <a href="#">0 Comments</a>
+                                <span><%= blog.comments.count %> bình luận</span>
                             </span>
                             <span class="author">
                                 <span>Đăng bởi </span><%= blog.post_by %>
