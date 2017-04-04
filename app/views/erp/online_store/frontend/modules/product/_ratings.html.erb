@@ -39,15 +39,20 @@
             </div>
             
             <div class="row ratingComment ">
-                <div class="col-md-12">
+                <div class="col-sm-12">
                     <div class="form-group">
-                        <textarea class="form-control" name="rating[content]" placeholder="Mời bạn để lại nhận xét về sản phẩm tại đây..."><%= @rating.content %></textarea>
+                        <textarea class="form-control"
+                            name="rating[content]"
+                            id="btn-radius"
+                            placeholder="Mời bạn để lại nhận xét về sản phẩm tại đây...">
+                            <%= @rating.content %>
+                        </textarea>
                     </div>  
                 </div>
-                <div class="col-md-12">
+                <div class="col-sm-12">
                     <div class="buttons clearfix">
-                        <button class="btn buttonGray" id="button-rating" type="submit">
-                            <span>Gửi đánh giá</span>
+                        <button class="btn buttonGray" id="btn-radius" type="submit">
+                            <span>Gửi</span>
                         </button>
                     </div>
                 </div>

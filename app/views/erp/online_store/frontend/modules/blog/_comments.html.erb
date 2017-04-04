@@ -5,17 +5,24 @@
             <input type="hidden" name="comment[article_id]" value="<%= @blog.id %>" />
             <input type="hidden" name="comment[parent_id]" value="" />
             <div class="comment-left contacts-form row">
-                <div class="col-md-12">
-                    <b>Lời bình luận:</b>
-                    <br />
-                    <textarea name="comment[message]" class="form-control required" placeholder="Nội dung đánh giá, thảo luận. Xin vui lòng nhập tiếng Việt có dấu."></textarea>
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <b>Lời bình luận:</b>
+                        <br />
+                        <textarea name="comment[message]"
+                            class="form-control required"
+                            id="btn-radius"
+                            placeholder="Nội dung đánh giá, thảo luận. Xin vui lòng nhập tiếng Việt có dấu.">
+                        </textarea>
+                    </div>
                 </div>
-            </div>
-            <br>
-            <div class="text-left">
-                <button class="btn buttonGray" id="button-comment" type="submit">
-                    <span>Gửi bình luận</span>
-                </button>
+                <div class="col-sm-12">
+                    <div class="text-left">
+                        <button class="btn buttonGray" id="btn-radius" type="submit">
+                            <span>Gửi</span>
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
     <% end %>
@@ -68,15 +75,22 @@
                                         <input type="hidden" name="comment[article_id]" value="<%= @blog.id %>" />
                                         <input type="hidden" name="comment[parent_id]" value="<%= comment.id %>" />
                                         <div class="comment-left contacts-form row">
-                                            <div class="col-md-12">
-                                                <textarea name="comment[message]" class="form-control required" placeholder="Nội dung bình luận, xin vui lòng nhập tiếng Việt có dấu."></textarea>
+                                            <div class="col-sm-12">
+                                                <div class="form-group">
+                                                    <textarea name="comment[message]"
+                                                        class="form-control required"
+                                                        id="btn-radius"
+                                                        placeholder="Nội dung bình luận, xin vui lòng nhập tiếng Việt có dấu.">
+                                                    </textarea>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <br>
-                                        <div class="text-left">
-                                            <button class="btn buttonGray" id="button-comment" type="submit">
-                                                <span>Gửi bình luận</span>
-                                            </button>
+                                            <div class="col-ms-12">
+                                                <div class="text-left">
+                                                    <button class="btn buttonGray" id="btn-radius" type="submit">
+                                                        <span>Gửi bình luận</span>
+                                                    </button>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 <% end %>
@@ -112,12 +126,14 @@
                                                     </div>
                                                     <div class="media-content row-fluid">
                                                         <p><%= child_comment.message %></p>
-                                                         <a class="right favor satis"
-                                                            href="<%= erp_online_store.delete_blog_comment_path(child_comment) %>"
-                                                            data-method="delete"
-                                                            data-confirm="Bạn muốn xóa bình luận này?">
-                                                            <i class="fa fa-remove"></i> Xóa
-                                                         </a>
+                                                        <% if can? :delete, comment %>
+                                                            <a class="right favor satis remove-comment"
+                                                                href="<%= erp_online_store.delete_blog_comment_path(child_comment) %>"
+                                                                data-method="delete"
+                                                                data-confirm="Bạn muốn xóa bình luận này?">
+                                                                <i class="fa fa-remove"></i> Xóa
+                                                            </a>
+                                                        <% end %>
                                                         <time class="right"><%= relative_time(child_comment.created_at) %></time>
                                                     </div>
                                                 </div>
@@ -136,3 +152,8 @@
         </div>
     </div>
 </div>
+<script>
+    $(document).ready( function() {
+        $('.comment_form').validate();
+    })
+</script>
