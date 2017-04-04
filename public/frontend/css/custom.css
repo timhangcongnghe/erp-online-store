@@ -803,7 +803,7 @@ table.product-compare tr td.product-name {
 @media (min-width: 767px) {
   .products-category .products-list.list-masonry .product-layout .product-item-container,
   .products-category .products-list.grid .product-layout .product-item-container {
-    min-height: 470px;
+    height: 482px
   }
 }
 .header-fixed-top {
