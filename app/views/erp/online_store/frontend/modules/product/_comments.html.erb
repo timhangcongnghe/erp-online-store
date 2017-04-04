@@ -1,33 +1,30 @@
 <% if user_signed_in? %>
-    <!--<div class="form-group">-->
-        <%= form_for Erp::Products::Comment.new, url: erp_online_store.product_comments_path(product_id: @product.id), html: {class: "comment_form"} do |f| %>
-            <div id="comments" class="blog-comment-info">
-                <h3 id="review-title">Mời <%= current_user.name %> để lại bình luận </h3>
-                <input type="hidden" name="comment[product_id]" value="<%= @product.id %>" />
-                <input type="hidden" name="comment[parent_id]" value="" />
-                <div class="comment-left contacts-form row">
-                    <div class="col-sm-12">
-                        <div class="form-group">
-                            <b>Lời bình luận:</b>
-                            <br />
-                            <textarea name="comment[message]"
-                                class="form-control required"
-                                id="btn-radius"
-                                placeholder="Nội dung bình luận, xin vui lòng nhập tiếng Việt có dấu.">
-                            </textarea>
-                        </div>
+    <%= form_for '', url: erp_online_store.product_comments_path(product_id: @product.id), html: {class: "comment_form"} do |f| %>
+        <div id="comments" class="blog-comment-info">
+            <h3 id="review-title">Mời <%= current_user.name %> để lại bình luận </h3>
+            <input type="hidden" name="comment[product_id]" value="<%= @product.id %>" />
+            <input type="hidden" name="comment[parent_id]" value="" />
+            <div class="comment-left contacts-form row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <b>Lời bình luận:</b>
+                        <br />
+                        <textarea name="comment[message]"
+                            class="form-control required"
+                            id="btn-radius"
+                            placeholder="Nội dung bình luận, xin vui lòng nhập tiếng Việt có dấu."></textarea>
                     </div>
-                    <div class="col-sm-12">
-                        <div class="text-left">
-                            <button class="btn buttonGray" id="btn-radius" type="submit">
-                                <span>Gửi</span>
-                            </button>
-                        </div>
+                </div>
+                <div class="col-sm-12">
+                    <div class="text-left">
+                        <button class="btn buttonGray" id="btn-radius" type="submit">
+                            <span>Gửi</span>
+                        </button>
                     </div>
                 </div>
             </div>
-        <% end %>
-    <!--</div>-->
+        </div>
+    <% end %>
 <% else %>
     <h3 id="review-title">Vui lòng
     <a class="ajax-link text-teal" data-type="ajax" href="<%= erp.new_user_session_path %>">đăng nhập</a>
@@ -71,7 +68,7 @@
                         </div>
                         <div class="reply-box" style="display: none">
                             <% if user_signed_in? %>
-                                <%= form_for Erp::Products::Comment.new, url: erp_online_store.product_comments_path(product_id: @product.id), html: {class: "comment_form"} do |f| %>
+                                <%= form_for '', url: erp_online_store.product_comments_path(product_id: @product.id), html: {class: "comment_form"} do |f| %>
                                     <div id="comments" class="blog-comment-info">
                                         <h3 id="review-title" style="margin-top: 0;">Trả lời bình luận </h3>
                                         <input type="hidden" name="comment[product_id]" value="<%= @product.id %>" />
@@ -82,8 +79,7 @@
                                                     <textarea name="comment[message]"
                                                         class="form-control required"
                                                         id="btn-radius"
-                                                        placeholder="Nội dung bình luận, xin vui lòng nhập tiếng Việt có dấu.">
-                                                    </textarea>
+                                                        placeholder="Nội dung bình luận, xin vui lòng nhập tiếng Việt có dấu."></textarea>
                                                 </div>
                                             </div>
                                             <div class="col-sm-12">

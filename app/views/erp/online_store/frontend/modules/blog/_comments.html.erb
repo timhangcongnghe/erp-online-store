@@ -1,5 +1,5 @@
 <% if user_signed_in? %>
-    <%= form_for Erp::Articles::Comment.new, url: erp_online_store.blog_comments_path(article_id: @blog.id), html: {class: "comment_form"} do |f| %>
+    <%= form_for '', url: erp_online_store.blog_comments_path(article_id: @blog.id), html: {class: "comment_form"} do |f| %>
         <div id="comments" class="blog-comment-info">
             <h3 id="review-title">Mời <%= current_user.name %> để lại bình luận </h3>
             <input type="hidden" name="comment[article_id]" value="<%= @blog.id %>" />
@@ -12,8 +12,7 @@
                         <textarea name="comment[message]"
                             class="form-control required"
                             id="btn-radius"
-                            placeholder="Nội dung đánh giá, thảo luận. Xin vui lòng nhập tiếng Việt có dấu.">
-                        </textarea>
+                            placeholder="Nội dung bình luận, xin vui lòng nhập tiếng Việt có dấu."></textarea>
                     </div>
                 </div>
                 <div class="col-sm-12">
@@ -35,7 +34,7 @@
 <hr>
 
 <div id="comments">
-    <h3>Có <%= comments.count %> bình luận cho bài viết này</h3>
+    <h3>Có <%= @blog.comments.count %> bình luận cho bài viết này</h3>
     
     <div class="commentlist">
         <% comments.order('created_at DESC').each do |comment| %>
@@ -69,7 +68,7 @@
                         </div>
                         <div class="reply-box" style="display: none">
                             <% if user_signed_in? %>
-                                <%= form_for Erp::Articles::Comment.new, url: erp_online_store.blog_comments_path(article_id: @blog.id), html: {class: "comment_form"} do |f| %>
+                                <%= form_for '', url: erp_online_store.blog_comments_path(article_id: @blog.id), html: {class: "comment_form"} do |f| %>
                                     <div id="comments" class="blog-comment-info">
                                         <h3 id="review-title" style="margin-top: 0;">Trả lời bình luận </h3>
                                         <input type="hidden" name="comment[article_id]" value="<%= @blog.id %>" />
@@ -80,14 +79,13 @@
                                                     <textarea name="comment[message]"
                                                         class="form-control required"
                                                         id="btn-radius"
-                                                        placeholder="Nội dung bình luận, xin vui lòng nhập tiếng Việt có dấu.">
-                                                    </textarea>
+                                                        placeholder="Nội dung bình luận, xin vui lòng nhập tiếng Việt có dấu."></textarea>
                                                 </div>
                                             </div>
-                                            <div class="col-ms-12">
+                                            <div class="col-sm-12">
                                                 <div class="text-left">
                                                     <button class="btn buttonGray" id="btn-radius" type="submit">
-                                                        <span>Gửi bình luận</span>
+                                                        <span>Gửi</span>
                                                     </button>
                                                 </div>
                                             </div>
