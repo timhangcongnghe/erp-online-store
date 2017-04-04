@@ -1,7 +1,6 @@
 <div class="main-container container">
     <ul class="breadcrumb">
         <li><%= link_to '<i class="fa fa-home"></i>'.html_safe, erp_online_store.root_path %></li>
-        <li><%= link_to "Tin Tức & Sự Kiện", erp_online_store.blog_path %></li>
         <li><%= link_to @article.name, "javascript:void(0)" %></li>
     </ul>
 
@@ -33,50 +32,8 @@
                 <div class="blog-header">
                     <h3><%= @article.name %></h3>
                 </div>
-                <div class="article-sub-title">
-                    <span class="article-date">Cập nhật lần cuối: <%= @article.created_at.strftime("%d/%m/%Y %I:%M%p") %></span>
-                    <span class="article-comment">0  Bình luận</span>
-                </div>
                 <div class="article-description">
                     <p><%= @article.content.html_safe %></p>
-                </div>
-                <div class="panel panel-default related-comment">
-                    <div class="panel-body">
-                        <div class="form-group">
-                            <div id="comments" class="blog-comment-info">
-                                <h3 id="review-title">Mời bạn để lại bình luận </h3>
-                                <input type="hidden" name="blog_article_reply_id" value="0" id="blog-reply-id">
-                                <div class="comment-left contacts-form row">
-                                    <div class="col-md-6">
-                                        <b>Tên bạn:</b>
-                                        <br>
-                                        <input type="text" name="name" value="" class="form-control">
-                                        <br>
-                                    </div>
-                                    <div class="col-md-12">
-                                        <b>Lời nhận xét:</b>
-                                        <br>
-                                        <textarea rows="6" cols="50" name="text" class="form-control"></textarea>
-                                        <span style="font-size: 11px;">Note: HTML is not translated!</span>
-                                        <br>
-                                        <br>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <b>Nhập mã kiểm tra vào ô bên dưới:</b>
-                                        <br>
-                                        <input type="text" name="captcha" style="" value="" class="form-control">
-                                        <br>
-                                        <div class="form-group">
-                                            <img src="/frontend/image/content/captcha.jpg" alt="" id="captcha">
-                                        </div>
-                                    </div>
-                                </div>
-                                <br>
-                                <div class="text-left"><a id="button-comment" class="btn buttonGray"><span>Gửi bình luận</span></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
