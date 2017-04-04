@@ -278,8 +278,14 @@ footer .footer-center .footer-links p {
 footer .news-letter .block_content .input-box input {
   font-size: 14px;
 }
-div.article-info .article-sub-title span {
+div.article-info .article-sub-title span, div.article-info .article-sub-title span.article-author a {
   font-size: 13px;
+}
+div.article-info .article-sub-title span.article-folder a {
+  color: #999;
+}
+div.article-info .article-sub-title span.article-folder a:hover {
+  color: #009688;
 }
 .type_1 .header-top-right ul > li > a {
   font-size: 13px !important;

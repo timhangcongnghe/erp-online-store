@@ -3,7 +3,7 @@
 <div class="main-container container">
     <ul class="breadcrumb">
         <li><%= link_to '<i class="fa fa-home"></i>'.html_safe, erp_online_store.root_path %></li>
-        <li><%= link_to "Tin Tức & Sự Kiện", erp_online_store.blog_path %></li>
+        <li><%= link_to "Tin Công Nghệ", erp_online_store.blog_path %></li>
         <li><%= link_to truncate(@blog.name, length: 60), "javascript:void(0)" %></li>
     </ul>
 
@@ -23,12 +23,15 @@
                     <h3><%= @blog.name %></h3>
                 </div>
                 <div class="article-sub-title">
-                    <span class="article-author">Đăng bởi: <a href="#"> <%= @blog.post_by %></a></span>
-                    <span class="article-date">Thời gian: <%= @blog.created_at.strftime("%d/%m/%Y %I:%M%p") %></span>
-                    <span class="article-comment"><%= @blog.comments.count %> bình luận</span>
+                    <span class="article-author"><i class="fa fa-user"></i> <a href="#"> <%= @blog.post_by %></a></span>
+                    <span class="article-date"><i class="fa fa-clock-o"></i> <%= relative_time(@blog.created_at) %></span>
+                    <span class="article-folder"><i class="fa fa-folder-open"></i>
+                        <%= link_to @blog.category_name, erp_online_store.blog_with_category_path(@blog.category_id, url_friendly(@blog.category_name)) %>
+                    </span>
+                    <span class="article-comment"><i class="fa fa-comments-o"></i> <%= @blog.comments.count %> bình luận</span>
                 </div>
                 <div class="article-description">
-                    <p><%= @blog.content.html_safe %></p>
+                    <%= @blog.content.html_safe %>
                     <div class="post_footer">
                         <ul class="post_tags">
                             <li>Thẻ:</li>

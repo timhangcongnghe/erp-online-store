@@ -1,8 +1,13 @@
-<% title 'Tin công nghệ' %>
+<% title (params[:cat_id].present? ? @category.name : 'Tin công nghệ') %>
 <div class="main-container container">
     <ul class="breadcrumb">
         <li><%= link_to '<i class="fa fa-home"></i>'.html_safe, erp_online_store.root_path %></li>
-        <li><%= link_to "Tin Tức & Sự Kiện", "javascript:void(0)" %></li>
+        <% if params[:cat_id].present? %>
+            <li><%= link_to "Tin Công Nghệ", erp_online_store.blog_path %></li>
+            <li><%= link_to @category.name, "javascript:void(0)" %></li>
+        <% else %>
+            <li><%= link_to "Tin Công Nghệ", "javascript:void(0)" %></li>
+        <% end %>
     </ul>
     <div class="row">
         <!--Left Part Start -->

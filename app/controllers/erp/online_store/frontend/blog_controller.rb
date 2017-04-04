@@ -8,7 +8,9 @@ module Erp
           @body_class = "res layout-subpage banners-effect-6"
           @blogs = Erp::Articles::Article.get_all_blogs(params).paginate(:page => params[:page], :per_page => 5)
           @categories = Erp::Articles::Category.where(alias: Erp::Articles::Category::ALIAS_BLOG)
-          @category = Erp::Articles::Category.find(params[:cat_id])
+          if params[:cat_id].present?
+            @category = Erp::Articles::Category.find(params[:cat_id])
+          end
         end
     
         def detail
