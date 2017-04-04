@@ -872,3 +872,6 @@ table.product-compare tr td.product-name {
   font-weight: 500;
   color: #000;
 }
+a.group-item.active {
+    color: #009688 !important;
+}
