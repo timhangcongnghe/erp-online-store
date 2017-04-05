@@ -3,3 +3,25 @@ vi:
   flash_warning: "Cảnh báo!"
   flash_error: "Lỗi!"
   flash_notice: "Thông báo"
+  
+  activerecord:
+    attributes:
+      erp/user:
+        password: "Mật khẩu"
+        password_confirmation: "Mật khẩu xác nhận"
+    errors:
+      models:
+        erp/user:
+          attributes:
+            email:
+              invalid: "không hợp lệ. Thử lại? (Ví dụ: username@gmail.com)"
+              taken: "đã được đăng ký tài khoản thành viên."
+            password:
+              blank: "không được để trống."
+              too_short: "ngắn thường dễ đoán. Hãy thử mật khẩu có ít nhất 6 ký tự."
+            password_confirmation:
+              confirmation: "không khớp. Thử lại?"
+  devise:
+    failure:
+      invalid: "Email hoặc mật khẩu đăng nhập không đúng."
+      not_found_in_database: "Email hoặc mật khẩu đăng nhập không đúng."
