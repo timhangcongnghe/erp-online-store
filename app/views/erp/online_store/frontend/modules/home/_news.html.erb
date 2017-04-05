@@ -10,7 +10,7 @@
                     <%= link_to truncate(blog.name, length: 80), erp_online_store.blog_detail_path(blog.id, url_friendly(blog.name)), title: blog.name %>
                 </h4>
                 <div class="description">
-                    <%= short_text(blog.content.html_safe, 20) %> ...
+                    <%= short_text(blog.content.html_safe, 20) %>
                 </div>
             </div>
         </div>
