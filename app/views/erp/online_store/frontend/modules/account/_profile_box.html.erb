@@ -1,10 +1,10 @@
 <div class="col-sm-9 custom-profile" id="content">
     <div class="card hovercard">
         <div class="card-background">
-            <img class="card-bkimg" alt="" src="<%= !current_user.avatar? ? url_for("/frontend/image/avatar/avt_comment.png") : current_user.avatar %>">
+            <img class="card-bkimg" alt="" src="<%= avatar(current_user) %>">
         </div>
         <div class="useravatar">
-            <img alt="" src="<%= !current_user.avatar? ? url_for("/frontend/image/avatar/avt_comment.png") : current_user.avatar.profile %>">
+            <img alt="" src="<%= avatar(current_user) %>">
         </div>
         <div class="card-info"> <span class="card-title"><%= current_user.name %></span></div>
     </div>
@@ -70,7 +70,7 @@
                             <legend>Thông tin cơ bản</legend>
                             <div class="row">    
                                 <div class="col-sm-6">
-                                    <div class="form-group required">
+                                    <div class="form-group">
                                         <label for="input-lastname" class="control-label">Thêm/cập nhật hình đại diện: </label>
                                         <div class="input-group image-preview">
                                             <input type="text" class="form-control image-preview-filename" disabled
