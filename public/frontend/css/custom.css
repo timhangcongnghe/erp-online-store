@@ -915,3 +915,7 @@ footer .footer-center .module ul.menu li a, .contact-address {
 .flash_error #error_explanation h2 {
   display: none;
 }
+form.login-form, input.btn-login-account, form.register-form, input.btn-register-account, .forgot-password, .forgot-password input.btn-forgot-password {
+  color: #000;
+  font-weight: 500;
+}

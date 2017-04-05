@@ -1,6 +1,6 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: "register-form"}) do |f| %>
     <div class="login-box form-content">
-        <h2><i class="fa fa-user" aria-hidden="true"></i> Đăng ký thành viên</h2>
+        <h2><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Đăng ký tài khoản</h2>
         
         <div class="notice">
           <% if devise_error_messages! != '' %>
@@ -10,27 +10,27 @@
           <% end %>
         </div>
         <div class="form-group">
-            <label class="control-label" for="input-email">Họ và Tên <span class="text-danger">*</span></label>
+            <label class="control-label" for="input-email">Họ và Tên<span class="text-danger">*</span></label>
             <%= f.text_field :name, autofocus: true, autocomplete: "off", placeholder: "Họ và tên người dùng", class: "form-control required" %>
         </div>
         <div class="form-group">
-            <label class="control-label" for="input-email">Địa chỉ email <span class="text-danger">*</span></label>
+            <label class="control-label" for="input-email">Địa chỉ email<span class="text-danger">*</span></label>
             <%= f.email_field :email, autofocus: true, autocomplete: "off", placeholder: "Nhập địa chỉ email", class: "form-control required" %>
         </div>
         <div class="form-group">
-            <label class="control-label" for="input-password">Mật khẩu <span class="text-danger">*</span></label>
+            <label class="control-label" for="input-password">Mật khẩu<span class="text-danger">*</span></label>
             <% if @minimum_password_length %>
             <em>(Tối thiểu <%= @minimum_password_length %> ký tự)</em>
             <% end %><br />
             <%= f.password_field :password, autocomplete: "off", placeholder: "Nhập mật khẩu", class: "form-control required" %>
         </div>
         <div class="form-group">
-            <label class="control-label" for="input-password">Nhập lại mật khẩu <span class="text-danger">*</span></label>
+            <label class="control-label" for="input-password">Nhập lại mật khẩu<span class="text-danger">*</span></label>
             <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "Nhập mật khẩu", class: "form-control required" %>
         </div>
         <hr>
       <div>
-        <input type="submit" value="Đăng ký" class="btn btn-default width-100 text-center" />
+        <input type="submit" value="ĐĂNG KÝ" class="btn btn-default width-100 text-center btn-register-account" />
       </div>
       <hr>
       <div>

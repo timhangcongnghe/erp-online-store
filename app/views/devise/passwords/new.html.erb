@@ -1,7 +1,7 @@
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post, class: "reset-password" }) do |f| %>
-  <div class="form-content">
+  <div class="form-content forgot-password">
     <div class="login-box">
-        <h2><i class="fa fa-user" aria-hidden="true"></i> Lấy lại mật khẩu</h2>
+        <h2><i class="fa fa-refresh" aria-hidden="true"></i> Lấy lại mật khẩu</h2>
         
         <div class="notice">
           <% if devise_error_messages! != '' %>
@@ -18,12 +18,12 @@
         </div>
         
         <div class="form-group">
-            <label class="control-label" for="input-email">Địa chỉ email</label>
+            <label class="control-label" for="input-email">Email:</label>
             <%= f.email_field :email, autofocus: true, autocomplete: "off", placeholder: "Nhập địa chỉ email đã đăng ký", class: "form-control required" %>
         </div>
     </div>
     <div class="bottom-form">
-        <input type="submit" value="Gửi yêu cầu" class="btn btn-default pull-right" />
+        <input type="submit" value="GỬI YÊU CẦU" class="btn btn-default pull-right btn-forgot-password" />
     </div>    
     <script>
         $('.register-form').validate();

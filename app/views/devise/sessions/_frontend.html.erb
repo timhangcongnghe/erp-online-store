@@ -1,38 +1,38 @@
 <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: "login-form ajax-form"}) do |f| %>
     <div class="login-box">
-        <h2><i class="fa fa-user" aria-hidden="true"></i> Đăng nhập thành viên</h2>        
+        <h2><i class="fa fa-sign-in" aria-hidden="true"></i> Đăng nhập tài khoản</h2>        
         <div class="notice">
             <% if flash[:alert] %>
                 <span class='flash_error alert alert-danger'> <%= flash[:alert] %></span>
             <% end %>                                        
         </div>        
         <div class="form-group">
-            <label class="control-label" for="input-email">Địa chỉ email</label>
+            <label class="control-label" for="input-email">Email:</label>
             <%= f.email_field :email, autofocus: true, autocomplete: "off", placeholder: "Nhập địa chỉ email", class: "form-control required" %>
         </div>
         <div class="form-group">
-            <label class="control-label" for="input-password">Mật khẩu</label>
+            <label class="control-label" for="input-password">Mật khẩu:</label>
             <%= f.password_field :password, autocomplete: "off", placeholder: "Nhập mật khẩu", class: "form-control required" %>
         </div>
     </div>
     <div class="bottom-form">
-        <input type="submit" value="Đăng nhập" class="btn btn-default pull-right" />
+        <input type="submit" value="ĐĂNG NHẬP" class="btn btn-default pull-right btn-login-account" />
         <%= link_to "Quên mật khẩu?", erp.new_user_password_path, class: "forgot ajax-link", 'data-type': 'ajax' %>        
     </div>
     <hr>
     <div>
-        <a href="/auth/facebook" value="Login" class="btn btn-primary btn-facebook width-100 text-center">
+        <a href="/auth/facebook" value="Đăng nhập bằng Facebook" class="btn btn-primary btn-facebook width-100 text-center">
             <i class="fa fa-facebook" aria-hidden="true"></i> Đăng nhập bằng Facebook
         </a>
         <br />
-        <a style="margin-top: 10px;" href="/auth/google_oauth2" value="Login" class="btn btn-danger btn-facebook width-100 text-center">
+        <a style="margin-top: 10px;" href="/auth/google_oauth2" value="Đăng nhập bằng Google" class="btn btn-danger btn-facebook width-100 text-center">
             <i class="fa fa-google" aria-hidden="true"></i> Đăng nhập bằng Google
         </a>
     </div>
     <hr>
     <div class="text-center">
         <a class="forgot ajax-link register-link width-100" data-type="ajax" href="<%= erp.new_user_registration_path %>">
-            <i class="fa fa-pencil-square-o"></i> Đăng ký tài khoản
+            <i class="fa fa-pencil-square-o"></i> ĐĂNG KÝ TÀI KHOẢN
         </a>
     </div>
     <script>
