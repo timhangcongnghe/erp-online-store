@@ -38,3 +38,15 @@
         </script>
     <% end %>
 <% end %>
+
+<% if params[:controller] == "erp/online_store/frontend/information" && params[:action] == "contact_us" %>
+    <script>
+        $('.maps').click(function () {
+            $('.maps iframe').css("pointer-events", "auto");
+        });
+        
+        $( ".maps" ).mouseleave(function() {
+            $('.maps iframe').css("pointer-events", "none"); 
+        });
+    </script>
+<% end %>
