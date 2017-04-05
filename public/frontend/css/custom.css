@@ -923,3 +923,12 @@ form.login-form, input.btn-login-account, form.register-form, input.btn-register
   color: #000;
   font-weight: 500;
 }
+.info-store legend {
+    border-bottom: 0;
+}
+.contact-form input, .contact-form textarea {
+  border-radius: 3px;
+}
+.info-store strong.company-name {
+    text-transform: uppercase;
+}
