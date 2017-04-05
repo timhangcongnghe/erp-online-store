@@ -11,47 +11,47 @@ $(document).ready(function() {
     });
     jQuery(function($) {
         "use strict";
-        $(".social-widgets .item").each(function() {
-            var $this = $(this),
-                timer;
-            $this.on("mouseenter", function() {
-                var $this = $(this);
-                if (timer) clearTimeout(timer);
-                timer = setTimeout(function() {
-                    $this.addClass("active")
-                }, 200)
-            }).on("mouseleave", function() {
-                var $this = $(this);
-                if (timer) clearTimeout(timer);
-                timer = setTimeout(function() {
-                    $this.removeClass("active")
-                }, 100)
-            }).on("click", function(e) {
-                e.preventDefault()
-            })
-        })
+        //$(".social-widgets .item").each(function() {
+        //    var $this = $(this),
+        //        timer;
+        //    $this.on("mouseenter", function() {
+        //        var $this = $(this);
+        //        if (timer) clearTimeout(timer);
+        //        timer = setTimeout(function() {
+        //            $this.addClass("active")
+        //        }, 200)
+        //    }).on("mouseleave", function() {
+        //        var $this = $(this);
+        //        if (timer) clearTimeout(timer);
+        //        timer = setTimeout(function() {
+        //            $this.removeClass("active")
+        //        }, 100)
+        //    }).on("click", function(e) {
+        //        e.preventDefault()
+        //    })
+        //})
     });
     jQuery(function($) {
         "use strict";
-        var loadmap = $(".social-widgets .item a");
-        loadmap.click(function(e) {
-            e.preventDefault()
-        });
-        loadmap.hover(function(e) {
-            if (!$(this).parent().hasClass("load")) {
-                var loadcontainer = $(this).parent().find(".loading");
-                $.ajax({
-                    url: $(this).attr("href"),
-                    cache: false,
-                    success: function(data) {
-                        setTimeout(function() {
-                            loadcontainer.html(data)
-                        }, 1000)
-                    }
-                });
-                $(this).parent().addClass("load")
-            }
-        })
+        //var loadmap = $(".social-widgets .item a");
+        //loadmap.click(function(e) {
+        //    e.preventDefault()
+        //});
+        //loadmap.hover(function(e) {
+        //    if (!$(this).parent().hasClass("load")) {
+        //        var loadcontainer = $(this).parent().find(".loading");
+        //        $.ajax({
+        //            url: $(this).attr("href"),
+        //            cache: false,
+        //            success: function(data) {
+        //                setTimeout(function() {
+        //                    loadcontainer.html(data)
+        //                }, 1000)
+        //            }
+        //        });
+        //        $(this).parent().addClass("load")
+        //    }
+        //})
     });
     $(".header-top-right .top-link > li").mouseenter(function() {
         $(".header-top-right .top-link > li.account").addClass('inactive');
