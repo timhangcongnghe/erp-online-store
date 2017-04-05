@@ -69,8 +69,8 @@ Erp::OnlineStore::Engine.routes.draw do
   
   # INFORMATION
   get "gioi-thieu.html" => "frontend/information#about_us", as: :about_us
-  get "lien-he-gop-y.html" => "frontend/information#contact_us", as: :contact_us
-  post "lien-he-gop-y.html" => "frontend/information#contact_us"
+  get "gop-y-lien-he.html" => "frontend/information#contact_us", as: :contact_us
+  post "gop-y-lien-he.html" => "frontend/information#contact_us"
   get "thong-tin/cau-hoi-thuong-gap.html" => "frontend/information#faq", as: :faq
   get "thong-tin/cac-dieu-khoan-va-dieu-kien.html" => "frontend/information#terms_and_conditions", as: :terms_and_conditions
   get "thong-tin/:category_id(/:title).html" => "frontend/information#policy", as: :policy

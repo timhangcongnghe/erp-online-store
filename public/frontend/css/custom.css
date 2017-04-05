@@ -295,7 +295,17 @@ div.article-info .article-sub-title span.article-folder a:hover {
   padding: 6px 15px;
 }
 .type_1 .header-top-right ul.top-link > li a.btn {
-  font-size: 13px;
+  font-size: 13px !important;
+  color: #000;
+  font-weight: 500;
+}
+.header-top ul.dropdown-menu li a {
+  color: #000;
+  font-weight: 500;
+}
+.type_1 .header-top .header-top-left .welcome-msg a {
+  color: #000;
+  font-weight: 500;
 }
 input.error, textarea.error  {
   border-color: #DA2723 !important;
@@ -895,4 +905,10 @@ a.group-item.active {
 }
 .label-bestseller {
   z-index: 4;
+}
+.type_1 .header-top-right ul.top-link > li.support > a:before {
+  content: "\f02d";
+}
+footer .footer-center .module ul.menu li a, .contact-address {
+  font-weight: 500;
 }

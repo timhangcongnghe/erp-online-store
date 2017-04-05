@@ -9,9 +9,7 @@
                                 <% Erp::Articles::Article.newest_articles(3).each do |blog| %>
                                     <li>
                                         <label class="label-msg"><%= blog.created_at.strftime("%d/%m/%Y") %></label>
-                                        <%= link_to truncate(blog.name, length: 45),
-                                            article_link(blog)
-                                        %>
+                                        <%= link_to truncate(blog.name, length: 45), article_link(blog), title: blog.name %>
                                     </li>
                                 <% end %>
                             </ul>
