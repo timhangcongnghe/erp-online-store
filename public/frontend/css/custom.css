@@ -912,3 +912,6 @@ a.group-item.active {
 footer .footer-center .module ul.menu li a, .contact-address {
   font-weight: 500;
 }
+.flash_error #error_explanation h2 {
+  display: none;
+}
