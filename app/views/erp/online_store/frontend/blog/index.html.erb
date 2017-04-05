@@ -27,48 +27,50 @@
                 </div>
             <% end %>
             <div class="blog-listitem <%= params[:cat_id].present? ? '' : 'blog-listitem-notitle' %>">
-                <% if @blogs.count == 0 %>
-                    <p>Danh sách bài viết không tìm thấy</p>
-                <% end %>
-                <% @blogs.each do |blog| %>
-                <div class="blog-item ">
-                    <div class="itemBlogImg col-md-4 col-sm-12">
-                        <div class="article-image banners">
-                            <div>
-                                <%= link_to image_tag(blog.image.medium, alt: blog.name), "#{blog.image}", class: "popup-gallery" %>
+                <% if @blogs.count > 0 %>
+                    <% @blogs.each do |blog| %>
+                    <div class="blog-item ">
+                        <div class="itemBlogImg col-md-4 col-sm-12">
+                            <div class="article-image banners">
+                                <div>
+                                    <%= link_to image_tag(blog.image.medium, alt: blog.name), "#{blog.image}", class: "popup-gallery" %>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="itemBlogContent col-md-8 col-sm-12">
+                            <div class="article-title">
+                                <h4>
+                                    <%= link_to blog.name, article_link(blog) %>
+                                </h4>
+                            </div>
+                            <div class="article-sub-title">
+                                <span class="article-date">
+                                  <i class="fa fa-calendar"></i><%= blog.created_at.strftime("%d/%m/%Y %I:%M%p") %>
+                                </span>
+                            </div>
+                            <div class="article-description">
+                                <%= short_text(blog.content, 100) %>
+                            </div>
+                            <div class="blog-meta">
+                                <span class="comment_count">
+                                    <span><%= blog.comments.count %> bình luận</span>
+                                </span>
+                                <span class="author">
+                                    <span>Đăng bởi </span><%= blog.post_by %>
+                                </span>
                             </div>
                         </div>
                     </div>
-                    <div class="itemBlogContent col-md-8 col-sm-12">
-                        <div class="article-title">
-                            <h4>
-                                <%= link_to blog.name, article_link(blog) %>
-                            </h4>
-                        </div>
-                        <div class="article-sub-title">
-                            <span class="article-date">
-                              <i class="fa fa-calendar"></i><%= blog.created_at.strftime("%d/%m/%Y %I:%M%p") %>
-                            </span>
-                        </div>
-                        <div class="article-description">
-                            <%= short_text(blog.content, 100) %>
-                        </div>
-                        <div class="blog-meta">
-                            <span class="comment_count">
-                                <span><%= blog.comments.count %> bình luận</span>
-                            </span>
-                            <span class="author">
-                                <span>Đăng bởi </span><%= blog.post_by %>
-                            </span>
-                        </div>
+                    <% end %>
+    
+                    <div class="pagination-online-store">
+                        <%= erp_datalist_pagination(@blogs) %>
                     </div>
-                </div>
+                <% else %>
+                    <div class="alert alert-warning">
+                        <i class="fa fa-warning"></i> Hiện chưa có bài viết cho mục này.
+                    </div>
                 <% end %>
-
-                <div class="pagination-online-store">
-                    <%= erp_datalist_pagination(@blogs) %>
-                </div>
-
             </div>
         </div>
         <!--Middle Part End-->
