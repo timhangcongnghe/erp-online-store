@@ -1,3 +1,14 @@
+function toogleFixedNav() {
+    var top = $(window).scrollTop();
+    var nav_top = $('.header-fixed-top').offset().top;
+
+    if (top > 165 && nav_top > 265 &&  $(window).width() > 992)  {
+        $('.header-fixed-top').slideDown();
+    } else {
+        $('.header-fixed-top').hide();
+    }
+}
+
 function loadTopRightMenu(callback) {
     var block = $('.top-right-menu');
     var url = $('.top-right-menu').attr('data-url');
@@ -391,22 +402,22 @@ $(document).ready(function () {
             }
         });
     });
-    
-    
+
+
     // TODO: JS CHO UPLOAD HÌNH TRÊN MY ACCOUNT
-    $(document).on('click', '#close-preview', function(){ 
+    $(document).on('click', '#close-preview', function(){
         $('.image-preview').popover('hide');
         // Hover befor close the preview
         $('.image-preview').hover(
             function () {
                $('.image-preview').popover('show');
-            }, 
+            },
              function () {
                $('.image-preview').popover('hide');
             }
-        );    
+        );
     });
-    
+
     $(function() {
         // Create the close button
         var closebtn = $('<button/>', {
@@ -430,35 +441,32 @@ $(document).ready(function () {
             $('.image-preview-filename').val("");
             $('.image-preview-clear').hide();
             $('.image-preview-input input:file').val("");
-            $(".image-preview-input-title").text("Chọn ảnh"); 
-        }); 
+            $(".image-preview-input-title").text("Chọn ảnh");
+        });
         // Create the preview image
-        $(".image-preview-input input:file").change(function (){     
+        $(".image-preview-input input:file").change(function (){
             var img = $('<img/>', {
                 id: 'dynamic',
                 width:250,
                 height:200
-            });      
+            });
             var file = this.files[0];
             var reader = new FileReader();
             // Set preview image into the popover data-content
             reader.onload = function (e) {
                 $(".image-preview-input-title").text("Thay đổi");
                 $(".image-preview-clear").show();
-                $(".image-preview-filename").val(file.name);            
+                $(".image-preview-filename").val(file.name);
                 img.attr('src', e.target.result);
                 $(".image-preview").attr("data-content",$(img)[0].outerHTML).popover("show");
             }
             reader.readAsDataURL(file);
-        });  
+        });
+
+        // toggle fixed bar
+        setInterval('toogleFixedNav()', 200);
     });
     // TODO: JS CHO UPLOAD HÌNH TRÊN MY ACCOUNT ----- END
 });$(window).scroll(function () {
-    var top = $(window).scrollTop();
-
-    if (top > 165 &&  $(window).width() > 992)  {
-        $('.header-fixed-top').slideDown();
-    } else {
-        $('.header-fixed-top').hide();
-    }
+    // toogleFixedNav();
 });
