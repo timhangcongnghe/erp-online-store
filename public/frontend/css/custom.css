@@ -450,7 +450,11 @@ a.hover-product-name:hover {
   height: 33px;
 }
 .type_1 .header-top-right ul.top-link > li.compare a:before {
-  content: "\f0ec";
+  content: "\f2dd";
+}
+.type_1 .header-top-right ul.top-link > li.compare, .type_1 .header-top-right ul.top-link > li > a {
+  color: #000;
+  font-weight: 500;
 }
 .text-teal {
   color: #009688;

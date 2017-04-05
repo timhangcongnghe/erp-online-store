@@ -1,21 +1,19 @@
-<% (0..1).each do |bestseller| %>
+<% bestsellers.limit(2).each do |product| %>
 <div class="product-layout ">
     <div class="product-thumb transition">
         <div class="image">
-            <%= link_to image_tag("/frontend/image/shop/product/75/2.jpg", alt: "Apple Cinema 30", class: "img-1 img-responsive"), "", title: "Apple Cinema 30" %>
+            <%= link_to image_tag("/frontend/image/shop/product/75/2.jpg", alt: product.name, class: "img-1 img-responsive"), product_link(product), title: product.name %>
         </div>
         <div class="caption">
             <div class="rating">
-                <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i></span>
-                <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i></span>
-                <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i></span>
-                <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i></span>
-                <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i></span>
+                <%= raw stars(product.average_stars) %>
             </div>
-            <h4><%= link_to "Apple Cinema 30", "", title: "Apple Cinema 30" %></h4>
+            <h4><%= link_to truncate(strip_tags(product.name), length: 30), product_link(product), title: product.name %></h4>
             <p class="price">
-                <span class="price-new"> $88.00</span>
-                <span class="price-old">$129.00</span>
+                <span class="price-new"> <%= format_price(product.product_price) %></span>
+                <% if product.is_deal? %>     
+                <span class="price-old"> <%= format_price(product.price) %></span>
+                <% end %>
             </p>
         </div>
     </div>
