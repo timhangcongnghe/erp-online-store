@@ -1,11 +1,12 @@
+<% title "So Sánh Sản Phẩm" %>
 <div class="main-container container">
     <ul class="breadcrumb">
         <li><%= link_to '<i class="fa fa-home"></i>'.html_safe, erp_online_store.root_path %></li>
-        <li><%= link_to "So sánh sản phẩm", "javascript:void(0)" %></li>
+        <li><%= link_to "So Sánh Sản Phẩm", "javascript:void(0)" %></li>
     </ul>
     <div class="row">
         <!--Middle Part Start-->
-        <div id="content" class="col-sm-12">
+        <div id="content" class="col-sm-12 compare-product">
             <% if @compare.compare_items.count > 0 %>
             <h2 class="title title-compare">DANH SÁCH SO SÁNH</h2>
             <div class="table-responsive">
@@ -30,9 +31,9 @@
                             <% @compare.compare_items.get_all_items.each do |compare_item| %>
                             <td>
                                 <div class="price">
-                                    <span class="price-new"><%= format_number(compare_item.product.product_price) %> VNĐ</span>
+                                    <span class="price-new"><%= format_price(compare_item.product.product_price) %></span>
                                     <% if compare_item.product.is_deal %>                        
-                                        <br><span class="price-old"><%= format_number(compare_item.product.price) %> VNĐ</span>
+                                        <br><span class="price-old"><%= format_price(compare_item.product.price) %></span>
                                         <span class="label label-percent"><%= compare_item.product.deal_percent %>%</span>
                                     <% end %>
                                 </div>
@@ -76,9 +77,9 @@
                 </table>
             </div>
             <% else %>
-                <h2 class="title">Danh sách so sánh hiện đang trống</h2>
+                <h2 class="title">Danh sách so sánh hiện tại đang trống.</h2>
                 <div class="buttons">
-                    <div class="pull-left"><%= link_to "Trở về trang chủ", erp_online_store.root_path, class: "btn btn-default" %></div>                
+                    <div class="pull-left"><%= link_to "TIẾP TỤC MUA HÀNG", erp_online_store.root_path, class: "btn btn-default shopping-continue" %></div>                
                 </div>
             <% end %>
         </div>

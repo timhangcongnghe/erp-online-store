@@ -25,9 +25,10 @@ Erp::OnlineStore::Engine.routes.draw do
   post "binh-luan-bai-viet.html/:blog_id" => "frontend/blog#comments"
   delete "binh-luan-bai-viet/:comment_id-remove.html" => "frontend/blog#delete_comment", as: :delete_blog_comment
   
+  # EVENTS
+  get "su-kien.html" => "frontend/events#index", as: :events
+  
   # ACCOUNT
-  get "tai-khoan/dang-nhap.html" => "frontend/account#login", as: :login
-  get "tai-khoan/dang-ky.html" => "frontend/account#register", as: :register
   get "tai-khoan/thong-tin-tai-khoan.html" => "frontend/account#my_account", as: :my_account
   post "tai-khoan/thong-tin-tai-khoan.html" => "frontend/account#my_account"
   get "tai-khoan/cap-nhat-mat-khau.html" => "frontend/account#update_password", as: :update_password

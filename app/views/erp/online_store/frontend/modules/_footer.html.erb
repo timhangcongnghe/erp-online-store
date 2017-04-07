@@ -52,7 +52,7 @@
                     <div class="module ">
                         <div class="content-block-footer">
                             <div class="footer-logo">
-                                <%= link_to image_tag("/frontend/image/logos/logo-cyan.png", alt: "Tìm Hàng Công Nghệ"), "", title: "Tìm Hàng Công Nghệ", target: "_blank" %>
+                                <%= link_to image_tag("/frontend/image/logos/logo-cyan.png", alt: "Tìm Hàng Công Nghệ"), erp_online_store.root_path, title: "Tìm Hàng Công Nghệ", target: "_blank" %>
                             </div>
                             <p class="text-justify"><strong>TimHangCongNghe.Vn</strong> là dự án Thương Mại Điện Tử về các sản phẩm công nghệ thông tin...do <strong>Công Ty TNHH Giải Pháp Công Nghệ Thông Tin & Truyền Thông Hoàng Khang (Hoang Khang Incotech)</strong> đầu tư và phát triển sau 10 năm hoạt động kể từ ngày công ty thành lập.</p>                            
                         </div>
@@ -88,6 +88,12 @@
                                         'chinh-sach-doi-tra-hang-va-hoan-tien'
                                     ) %>
                                 </li>
+                                <li>
+                                    <%= link_to "Quy định bảo mật thông tin", erp_online_store.policy_path(
+                                        Erp::Articles::Category.find_by_alias(Erp::Articles::Category::ALIAS_SECURITY).id,
+                                        'quy-dinh-bao-mat-thong-tin'
+                                    ) %>
+                                </li>
                                 <li><%= link_to "Câu hỏi thường gặp", erp_online_store.faq_path %></li>
                             </ul>
                         </div>
@@ -102,13 +108,9 @@
                                 <li><%= link_to "Về chúng tôi", erp_online_store.about_us_path %></li>
                                 <li><%= link_to "Góp ý & Liên hệ", erp_online_store.contact_us_path %></li>
                                 <li><%= link_to "Tin công nghệ", erp_online_store.blog_path %></li>
-                                <li><%= link_to "Các điều khoản & Điều kiện", erp_online_store.terms_and_conditions_path %></li>
-                                <li>
-                                    <%= link_to "Quy định bảo mật thông tin", erp_online_store.policy_path(
-                                        Erp::Articles::Category.find_by_alias(Erp::Articles::Category::ALIAS_SECURITY).id,
-                                        'quy-dinh-bao-mat-thong-tin'
-                                    ) %>
-                                </li>
+                                <li><%= link_to "Tin sự kiện", erp_online_store.events_path %></li>
+                                <li><%= link_to "Đánh giá từ khách hàng", erp_online_store.events_path %></li>
+                                <li><%= link_to "Các điều khoản & Điều kiện", erp_online_store.terms_and_conditions_path %></li>                                
                             </ul>
                         </div>
                     </div>
@@ -120,8 +122,8 @@
                         <div class="modcontent">
                             <ul class="contact-address">
                                 <li><span class="fa fa-building"></span> Công Ty TNHH Giải Pháp CNTT & TT Hoàng Khang</li>
-                                <li><span class="fa fa-map-marker"></span> 188 Đường Số 1, Phường 16, Quận Gò Vấp, TP.Hồ Chí Minh, Việt Nam</li>                                
-                                <li><span class="fa fa-envelope"></span><%= mail_to "", "hotrokhachhang@timhangcongnghe.vn" %></li>                                
+                                <li><span class="fa fa-map-marker"></span> 188 Đường Số 1, Phường 16, Quận Gò Vấp, TP. Hồ Chí Minh, Việt Nam</li>                                
+                                <li><span class="fa fa-envelope"></span><%= mail_to "", "hotrokhachhang@timhangcongnghe.vn" %></li>
                                 <li><span class="fa fa-phone"></span> <%= link_to "(+84) 987654321", "tel:" %> - <%= link_to "(+84) 987654321", "tel:" %></li>
                             </ul>
                         </div>

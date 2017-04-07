@@ -1,4 +1,4 @@
-<% title @menu.name %>
+<% title (params[:menu_id].present? ? @menu.name : 'TimHangCongNghe.VN') %>
 
 <div class="main-container container">
     <ul class="breadcrumb">

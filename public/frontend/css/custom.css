@@ -431,9 +431,6 @@ form label.error {
 .compare button.add-to-compare:hover {
   background-color: #F4A137;
 }
-.products-list.list-masonry .product-layout .product-item-container .right-block .caption h4 a, .products-list.grid .product-layout .product-item-container .right-block .caption h4 a {
-  font-weight: 500 !important;
-}
 a.hover-product-name:hover {
   color: #009688 !important;
 }
@@ -488,6 +485,8 @@ a.hover-product-name:hover {
 }/* custom category - product lists*/
 .products-list.list-masonry .product-layout .product-item-container .right-block .caption h4 a, .products-list.grid .product-layout .product-item-container .right-block .caption h4 a {
   font-size: 14px;
+  color: #000;
+  font-weight: 500;
 }
 .products-list {
   padding-left: 0px;
@@ -540,6 +539,7 @@ ul.megamenu li .sub-menu .content .hover-menu .menu ul ul {
   border-top: #ddd 1px dotted;
   font-size: 13px;
   line-height: 1em;
+  color: #000;
 }
 .price {
   line-height: 13px;
@@ -769,14 +769,17 @@ table.product-compare tr td.product-name {
 .default-margin {
   margin-bottom: 10px !important;
 }
-.shopping-cart, a, .btn-link {
+.shopping-cart, .compare-product, a, .btn-link {
   color: #000;
 }
-.total-price, .shopping-order {
+.shopping-cart a.shopping-continue, .compare-product a.shopping-continue {
+  color: #000;
   font-weight: 500;
 }
-.shopping-cart a.shopping-continue {
-  color: #000;
+.shopping-cart a.shopping-continue:hover, .compare-product a.shopping-continue:hover {
+  color: #fff;
+}
+.total-price, .shopping-order {
   font-weight: 500;
 }
 /* Custom shopping cart box */
@@ -931,4 +934,23 @@ form.login-form, input.btn-login-account, form.register-form, input.btn-register
 }
 .info-store strong.company-name {
     text-transform: uppercase;
+}
+.type_1 .megamenu-style-dev .horizontal ul.megamenu > li.active > a, .type_1 .megamenu-style-dev .horizontal ul.megamenu > li.home > a, .type_1 .megamenu-style-dev .horizontal ul.megamenu > li:hover > a {
+  background: #009688;
+}
+.blog-category ul li.list-group-item a, .menu-category .list-group > li a {
+  color: #000;
+  font-weight: 500;
+}
+.best-seller .so-extraslider .extraslider-inner .item .item-wrap.style1 .media-body .item-info a, .blog-listitem .blog-item .itemBlogContent .article-description {
+  color: #000;
+}
+.blog-listitem .blog-item .itemBlogContent .article-sub-title .article-date, .blog-listitem .blog-item .itemBlogContent .blog-meta {
+  color: #000;
+}
+.blog-header h3, .article-description, .blog-comment-info, .left-content-product .content-product-right #product, .producttab .tabsslider .nav-tabs li a {
+  color: #000;
+}
+body {
+  color: #000;
 }

@@ -6,7 +6,7 @@
                 <span class="handle pull-left"></span>
                 <span class="text-shopping-cart hidden-xs">Giỏ hàng (<%= @cart.cart_items.number_items %>)</span>
                 <span class="text-shopping-cart-mobi hidden-lg hidden-md hidden-sm ">
-                    <i class="fa fa-cart-plus"></i>
+                    <i class="fa fa-opencart"></i>
                 </span>
             </div>
         </a>
@@ -33,16 +33,16 @@
                         <tbody>
                             <tr>
                                 <td class="text-left">
-                                    <strong>Tổng tiền:</strong>
+                                    <strong>TỔNG TIỀN:</strong>
                                 </td>
                                 <td class="text-right"><%= format_price(@cart.total_order) %></td>
                             </tr>
                         </tbody>
                     </table>
                     <p class="text-center">
-                        <%= link_to '<i class="fa fa-opencart"></i> Giỏ hàng'.html_safe, erp_online_store.shopping_cart_path, class: "btn view-cart shopping-actions" %>
+                        <%= link_to '<i class="fa fa-opencart"></i> GIỎ HÀNG'.html_safe, erp_online_store.shopping_cart_path, class: "btn view-cart shopping-actions" %>
                         &nbsp;&nbsp;&nbsp;
-                        <%= link_to '<i class="fa fa-share"></i> Đặt hàng'.html_safe, erp_online_store.checkout_path, class: "btn btn-mega checkout-cart shopping-actions" %>
+                        <%= link_to '<i class="fa fa-share"></i> ĐẶT HÀNG'.html_safe, erp_online_store.checkout_path, class: "btn btn-mega checkout-cart shopping-actions" %>
                     </p>
                 </div>
             </li>
@@ -50,9 +50,9 @@
                 <li>
                     <div class="text-center">
                         <h3>GIỎ HÀNG ĐANG TRỐNG</h3>
-                        <p>Hiện tại, chưa có sản phẩm nào trong giỏ hàng.</p>
+                        <p>Giỏ hàng hiện tại của bạn đang trống.</p>
                         <p class="text-center">
-                            <%= link_to '<i class="fa fa-opencart"></i> Giỏ hàng'.html_safe, erp_online_store.shopping_cart_path, class: "btn view-cart" %>                                               
+                            <%= link_to '<i class="fa fa-opencart"></i> GIỎ HÀNG'.html_safe, erp_online_store.shopping_cart_path, class: "btn view-cart" %>                                               
                         </p>
                     </div>
                 </li>

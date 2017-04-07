@@ -1,7 +1,8 @@
+<% title "Giỏ Hàng" %>
 <div class="main-container container">
     <ul class="breadcrumb">
         <li><%= link_to '<i class="fa fa-home"></i>'.html_safe, erp_online_store.root_path %></li>
-        <li><%= link_to "Giỏ hàng", "javascript:void(0)" %></li>
+        <li><%= link_to "Giỏ Hàng", "javascript:void(0)" %></li>
     </ul>
     <div class="row">
         <!--Middle Part Start-->
@@ -64,13 +65,13 @@
                 </div>
             </div>
             <div class="buttons">
-                <div class="pull-left"><%= link_to "Tiếp tục mua hàng", erp_online_store.root_path, class: "btn btn-default shopping-continue" %></div>
-                <div class="pull-right"><%= link_to "Tiến hành đặt hàng", erp_online_store.checkout_path, class: "btn btn-primary shopping-order" %></div>
+                <div class="pull-left"><%= link_to "Tiếp Tục Mua Hàng", erp_online_store.root_path, class: "btn btn-default shopping-continue" %></div>
+                <div class="pull-right"><%= link_to "Tiến Hành Đặt Hàng", erp_online_store.checkout_path, class: "btn btn-primary shopping-order" %></div>
             </div>
             <% else %>
-                <h2 class="title">Giỏ hàng của bạn hiện chưa có sản phẩm.</h2>
+                <h2 class="title">Giỏ hàng hiện tại của bạn đang trống.</h2>
                 <div class="buttons">
-                    <div class="pull-left"><%= link_to "Tiếp tục mua hàng", erp_online_store.root_path, class: "btn btn-default shopping-continue" %></div>                
+                    <div class="pull-left"><%= link_to "TIẾP TỤC MUA HÀNG", erp_online_store.root_path, class: "btn btn-default shopping-continue" %></div>                
                 </div>
             <% end %>
         </div>
