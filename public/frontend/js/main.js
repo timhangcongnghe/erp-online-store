@@ -465,6 +465,11 @@ $(document).ready(function () {
 
         // toggle fixed bar
         setInterval('toogleFixedNav()', 200);
+        
+        // validate contact form, comment form, rating form
+        $('.contact_form').validate();
+        $('.comment_form').validate();
+        $('.rating_form').validate();
     });
     // TODO: JS CHO UPLOAD HÌNH TRÊN MY ACCOUNT ----- END
 });$(window).scroll(function () {

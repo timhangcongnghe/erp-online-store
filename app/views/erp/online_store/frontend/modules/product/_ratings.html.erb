@@ -5,7 +5,7 @@
         <h2 id="review-title">Mời <%= current_user.name %> đánh giá sản phẩm</h2>
     <% end %>
         
-    <%= form_for Erp::Products::Rating.new, url: erp_online_store.product_ratings_path(product_id: @product.id), html: { class: 'comment_form' } do |f| %>
+    <%= form_for Erp::Products::Rating.new, url: erp_online_store.product_ratings_path(product_id: @product.id), html: { class: 'rating_form' } do |f| %>
         <input type="hidden" name="rating[product_id]" value="<%= @product.id %>" />
         <input type="hidden" name="rating[id]" value="<%= @rating.id %>" />
         
@@ -41,12 +41,7 @@
             <div class="row ratingComment ">
                 <div class="col-sm-12">
                     <div class="form-group">
-                        <textarea class="form-control"
-                            name="rating[content]"
-                            id="btn-radius"
-                            placeholder="Mời bạn để lại nhận xét về sản phẩm tại đây...">
-                            <%= @rating.content %>
-                        </textarea>
+                        <textarea class="form-control required" name="rating[content]" id="btn-radius" placeholder="Mời bạn để lại nhận xét về sản phẩm tại đây..."><%= @rating.content %></textarea>
                     </div>  
                 </div>
                 <div class="col-sm-12">
