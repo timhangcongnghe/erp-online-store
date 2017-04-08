@@ -26,11 +26,11 @@ footer .social_block ul.social-block li.pinterest a:hover {
 .autosearch-result-box ul {
     background: #fff;
     margin: 0;
-    border: solid 1px #ddd;
+    border: solid 1px #ccc;
     display: block;
     overflow: auto;
     max-height: 300px;
-    box-shadow: 3px 3px 0px rgba(0,0,0,0.15);
+    box-shadow: 0 6px 12px rgba(0,0,0,.175);
 }
 .autosearch-result-box ul li a {
     padding: 5px 10px;
@@ -958,12 +958,18 @@ select, .form-control:focus {
 }
 .type_1 #sosearchpro.search-pro .select_category select:focus,
 .type_1 #sosearchpro.search-pro .autosearch-input:focus {
-  border: solid 1px #009688 !important;
-  border-width: 0 1px 0 1px !important;
+  border: solid 0px #ccc !important;
+  border-width: 0 0 0 1px !important;
 }
 .type_1 #sosearchpro.search-pro .search {
   border: none;
 }
 .type_1 #sosearchpro.search-pro .select_category select, .type_1 #sosearchpro.search-pro .autosearch-input {
   height: 31px;
+}
+.business-special a {
+  color: red !important;
+}
+.business-special a:hover, .btn-shopping-cart a:hover, .btn-shopping-cart a:hover span {
+  color: #fff !important;
 }
