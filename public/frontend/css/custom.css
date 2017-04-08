@@ -19,14 +19,18 @@ footer .social_block ul.social-block li.pinterest a:hover {
 .autosearch-result-box {
     position: absolute;
     top: 30px;
-    left: -1px;
-    right: -1px;
+    left: 0;
+    right: 0;
     z-index: 10;
 }
 .autosearch-result-box ul {
-  background: #fff;
-  margin: 0;
-  border: solid 1px #ddd;
+    background: #fff;
+    margin: 0;
+    border: solid 1px #ddd;
+    display: block;
+    overflow: auto;
+    max-height: 300px;
+    box-shadow: 3px 3px 0px rgba(0,0,0,0.15);
 }
 .autosearch-result-box ul li a {
     padding: 5px 10px;
@@ -883,11 +887,6 @@ table.product-compare tr td.product-name {
   width: 140px;
   margin: 1px 0;
 }
-.autosearch-result-box {
-  display: block;
-  overflow: auto;
-  max-height: 300px;
-}
 .type_7 .shopping_cart .btn-shopping-cart ul {
   margin-top: -1px;
 }
@@ -953,4 +952,18 @@ form.login-form, input.btn-login-account, form.register-form, input.btn-register
 }
 body {
   color: #000;
+}
+select, .form-control:focus {
+  box-shadow: 0 0 0 rgba(0,0,0,0);
+}
+.type_1 #sosearchpro.search-pro .select_category select:focus,
+.type_1 #sosearchpro.search-pro .autosearch-input:focus {
+  border: solid 1px #009688 !important;
+  border-width: 0 1px 0 1px !important;
+}
+.type_1 #sosearchpro.search-pro .search {
+  border: none;
+}
+.type_1 #sosearchpro.search-pro .select_category select, .type_1 #sosearchpro.search-pro .autosearch-input {
+  height: 31px;
 }
