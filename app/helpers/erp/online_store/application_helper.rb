@@ -33,19 +33,7 @@ module Erp
       
       # user avatar
       def avatar(user)
-        if user.avatar?
-          user.avatar.profile
-        else
-          if user.contact.present?
-            if user.contact.gender == Erp::Contacts::Contact::FEMALE_GENDER
-              url_for('/frontend/image/avatar/avt_female.png')
-            else
-              url_for('/frontend/image/avatar/avt_male.png')
-            end
-          else
-            url_for('/frontend/image/avatar/avt_male.png')
-          end
-        end
+        user.avatar? ? user.avatar.profile : url_for('/frontend/image/avatar/user_default.png')
       end
     end
   end
