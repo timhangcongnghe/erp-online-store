@@ -52,6 +52,10 @@
 		<% if params[:controller] == "erp/online_store/frontend/product" && params[:action] == "product_detail" %>
 		<%= render "erp/online_store/frontend/modules/js_include" %>
 		<% end %>
+		<!-- Js use for map-canvas in contact us  -->
+		<% if params[:controller] == "erp/online_store/frontend/information" && params[:action] == "contact_us" %>
+		<%= javascript_include_tag "/frontend/js-google-map/jquery/jquery.js" %>
+		<% end %>
 </head>
 
 <body class="<%= @body_class %>">
