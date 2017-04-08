@@ -1854,70 +1854,70 @@ $(document).ready(function() {
 });
 $(document).ready(function() {
     "use strict";
-    $('#ytcs579bfc965e489183711469840534').each(function() {
+    $('#client-say-slider-content').each(function() {
         var slider = $(this),
             data = slider.data();
         slider.children(':not(.yt-content-slide)').remove();
-        //slider.owlCarousel2({
-        //    mouseDrag: true,
-        //    video: true,
-        //    lazyLoad: (data.lazyload == 'yes') ? true : false,
-        //    autoplay: (data.autoplay == 'yes') ? true : false,
-        //    autoHeight: (data.autoheight == 'yes') ? true : false,
-        //    autoplayTimeout: data.delay * 1000,
-        //    smartSpeed: data.speed * 1000,
-        //    autoplayHoverPause: (data.hoverpause == 'yes') ? true : false,
-        //    center: (data.center == 'yes') ? true : false,
-        //    loop: (data.loop == 'yes') ? true : false,
-        //    dots: (data.pagination == 'yes') ? true : false,
-        //    nav: (data.arrows == 'yes') ? true : false,
-        //    margin: data.margin,
-        //    navText: ['next', 'prev'],
-        //    responsive: {
-        //        0: {
-        //            items: data.item_xs
-        //        },
-        //        768: {
-        //            items: data.item_sm
-        //        },
-        //        992: {
-        //            items: data.item_lg
-        //        }
-        //    },
-        //});
+        slider.owlCarousel2({
+            mouseDrag: true,
+            video: true,
+            lazyLoad: (data.lazyload == 'yes') ? true : false,
+            autoplay: (data.autoplay == 'yes') ? true : false,
+            autoHeight: (data.autoheight == 'yes') ? true : false,
+            autoplayTimeout: data.delay * 1000,
+            smartSpeed: data.speed * 1000,
+            autoplayHoverPause: (data.hoverpause == 'yes') ? true : false,
+            center: (data.center == 'yes') ? true : false,
+            loop: (data.loop == 'yes') ? true : false,
+            dots: (data.pagination == 'yes') ? true : false,
+            nav: (data.arrows == 'yes') ? true : false,
+            margin: data.margin,
+            navText: ['next', 'prev'],
+            responsive: {
+                0: {
+                    items: data.item_xs
+                },
+                768: {
+                    items: data.item_sm
+                },
+                992: {
+                    items: data.item_lg
+                }
+            },
+        });
     });
-    $('#ytcs579bfc965e78d103041469840534').each(function() {
+    $('#our-team-slider-content').each(function() {
         var slider = $(this),
             panels = slider.children('div'),
             data = slider.data();
         slider.children(':not(.yt-content-slide)').remove();
-        //slider.owlCarousel2({
-        //    mouseDrag: true,
-        //    video: true,
-        //    lazyLoad: (data.lazyload == 'yes') ? true : false,
-        //    autoplay: (data.autoplay == 'yes') ? true : false,
-        //    autoHeight: (data.autoheight == 'yes') ? true : false,
-        //    autoplayTimeout: data.delay * 1000,
-        //    smartSpeed: data.speed * 1000,
-        //    autoplayHoverPause: (data.hoverpause == 'yes') ? true : false,
-        //    center: (data.center == 'yes') ? true : false,
-        //    loop: (data.loop == 'yes') ? true : false,
-        //    dots: (data.pagination == 'yes') ? true : false,
-        //    nav: (data.arrows == 'yes') ? true : false,
-        //    margin: data.margin,
-        //    navText: ['next', 'prev'],
-        //    responsive: {
-        //        0: {
-        //            items: data.item_xs
-        //        },
-        //        768: {
-        //            items: data.item_sm
-        //        },
-        //        992: {
-        //            items: data.item_lg
-        //        }
-        //    },
-        //});
+        slider.owlCarousel2({
+            mouseDrag: true,
+            video: true,
+            lazyLoad: (data.lazyload == 'yes') ? true : false,
+            autoplay: (data.autoplay == 'yes') ? true : false,
+            autoHeight: (data.autoheight == 'yes') ? true : false,
+            autoplayTimeout: data.delay * 1000,
+            smartSpeed: data.speed * 1000,
+            autoplayHoverPause: (data.hoverpause == 'yes') ? true : false,
+            center: (data.center == 'yes') ? true : false,
+            loop: (data.loop == 'yes') ? true : false,
+            dots: (data.pagination == 'yes') ? true : false,
+            nav: (data.arrows == 'yes') ? true : false,
+            margin: data.margin,
+            navText: ['next', 'prev'],
+            responsive: {
+                0: {
+                    items: data.item_xs
+                },
+                768: {
+                    items: data.item_sm
+                },
+                992: {
+                    items: data.item_lg
+                }
+            },
+        });
     });
     $('#ytcs579c07146430563341469843220').each(function() {
         var slider = $(this),
@@ -1952,38 +1952,38 @@ $(document).ready(function() {
         //    },
         //});
     });
-    $('#ytcs579c07146456674551469843220').each(function() {
+    $('#client-logo-slider-content').each(function() {
         var slider = $(this),
             panels = slider.children('div'),
             data = slider.data();
         slider.children(':not(.yt-content-slide)').remove();
-        //slider.owlCarousel2({
-        //    mouseDrag: true,
-        //    video: true,
-        //    lazyLoad: (data.lazyload == 'yes') ? true : false,
-        //    autoplay: (data.autoplay == 'yes') ? true : false,
-        //    autoHeight: (data.autoheight == 'yes') ? true : false,
-        //    autoplayTimeout: data.delay * 1000,
-        //    smartSpeed: data.speed * 1000,
-        //    autoplayHoverPause: (data.hoverpause == 'yes') ? true : false,
-        //    center: (data.center == 'yes') ? true : false,
-        //    loop: (data.loop == 'yes') ? true : false,
-        //    dots: (data.pagination == 'yes') ? true : false,
-        //    nav: (data.arrows == 'yes') ? true : false,
-        //    margin: data.margin,
-        //    navText: ['next', 'prev'],
-        //    responsive: {
-        //        0: {
-        //            items: data.item_xs
-        //        },
-        //        768: {
-        //            items: data.item_sm
-        //        },
-        //        992: {
-        //            items: data.item_lg
-        //        }
-        //    },
-        //});
+        slider.owlCarousel2({
+            mouseDrag: true,
+            video: true,
+            lazyLoad: (data.lazyload == 'yes') ? true : false,
+            autoplay: (data.autoplay == 'yes') ? true : false,
+            autoHeight: (data.autoheight == 'yes') ? true : false,
+            autoplayTimeout: data.delay * 1000,
+            smartSpeed: data.speed * 1000,
+            autoplayHoverPause: (data.hoverpause == 'yes') ? true : false,
+            center: (data.center == 'yes') ? true : false,
+            loop: (data.loop == 'yes') ? true : false,
+            dots: (data.pagination == 'yes') ? true : false,
+            nav: (data.arrows == 'yes') ? true : false,
+            margin: data.margin,
+            navText: ['next', 'prev'],
+            responsive: {
+                0: {
+                    items: data.item_xs
+                },
+                768: {
+                    items: data.item_sm
+                },
+                992: {
+                    items: data.item_lg
+                }
+            },
+        });
     });
     $('#ytcs579c0714641b9213691469843220').each(function() {
         var slider = $(this),
