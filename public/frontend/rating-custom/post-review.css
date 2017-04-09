@@ -1,0 +1,60 @@
+.animated {
+  -webkit-transition: height 0.2s;
+  -moz-transition: height 0.2s;
+  transition: height 0.2s;
+}
+.stars, .starrr {
+  margin: -4px 0;
+  font-size: 20px;
+  color: #eca330;
+}
+span.your-choice-was {
+  float: right;
+  margin-top: -20px;
+  display: block;
+}
+span.stars.choice {
+  font-size: 14px;
+}
+div#post-review-box {
+  margin-top: 10px;
+}
+.rating-num {
+  margin-top:0px;
+  font-size: 54px;
+}
+.rating-block {
+	border-right: 1px solid #EFEFEF;
+	padding: 0px 15px 35px 15px;
+}
+.rating-block h1.bold {
+  font-weight:700;
+  color: #f63;
+}
+.no-margin-top {
+  margin-top: 0;
+}
+.rating-block .rating span.fa {
+  width: auto;
+  height: auto;
+}
+.rating-block .rating span.fa {
+  font-size: 22px;
+  margin-right: 5px;
+  color: #eca330;
+}
+.breakdown {
+  border-right: 1px solid #EFEFEF;
+}
+.breakdown span.fa.fa-star {
+    color: #00635a;
+}
+div.stars.starrr span.fa {
+    margin-right: 3px;
+}
+.ratingStar span.lStar:first-child {
+  margin-top: 0;
+}
+.ratingStar {
+  margin-top: 5px;
+}

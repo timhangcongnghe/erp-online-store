@@ -50,6 +50,7 @@
 		<% end %>
 		<%= stylesheet_link_tag "/frontend/css/starability-minified/starability-all.min.css" %>
 		<% if params[:controller] == "erp/online_store/frontend/product" && params[:action] == "product_detail" %>
+		<%= stylesheet_link_tag "/frontend/rating-custom/post-review.css" %>
 		<%= render "erp/online_store/frontend/modules/js_include" %>
 		<% end %>
 		<!-- Js use for map-canvas in contact us  -->
