@@ -404,7 +404,7 @@ $(document).ready(function () {
     });
 
 
-    // TODO: JS CHO UPLOAD HÌNH TRÊN MY ACCOUNT
+    //// TODO: js upload image in my account
     $(document).on('click', '#close-preview', function(){
         $('.image-preview').popover('hide');
         // Hover befor close the preview
@@ -417,8 +417,10 @@ $(document).ready(function () {
             }
         );
     });
+    ////
 
     $(function() {
+        //// js upload image in my account
         // Create the close button
         var closebtn = $('<button/>', {
             type:"button",
@@ -462,6 +464,7 @@ $(document).ready(function () {
             }
             reader.readAsDataURL(file);
         });
+        //// end - js upload image in my account
 
         // toggle fixed bar
         setInterval('toogleFixedNav()', 200);
@@ -471,8 +474,9 @@ $(document).ready(function () {
         $('.comment_form').validate();
         $('.rating_form').validate();
         $('.password_form').validate();
+        $('.account_form').validate();
     });
-    // TODO: JS CHO UPLOAD HÌNH TRÊN MY ACCOUNT ----- END
+    
 });$(window).scroll(function () {
     // toogleFixedNav();
 });

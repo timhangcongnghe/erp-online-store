@@ -64,7 +64,7 @@
         </div>
         <div class="tab-pane fade in" id="tab2">
             <div class="row">
-                <%= form_for '', html: {multipart: true} do |f| %>
+                <%= form_for '', url: erp_online_store.my_account_path, html: {class: "account_form", multipart: true} do |f| %>
                     <div class="col-sm-12">
                         <fieldset id="personal-details">
                             <legend>Thông tin cơ bản</legend>
@@ -74,7 +74,7 @@
                                         <label for="input-lastname" class="control-label">Thêm/cập nhật hình đại diện: </label>
                                         <div class="input-group image-preview">
                                             <input type="text" class="form-control image-preview-filename" disabled
-                                                   placeholder="<%= current_user.avatar? ? 'Bạn đã có ảnh đại diện. Thay đổi ảnh khác?' : 'Hãy thêm ảnh đại diện cho tài khoản của bạn.' %>"
+                                                   placeholder="<%= current_user.avatar? ? 'Bạn đã có ảnh đại diện. Cập nhật ảnh mới?' : 'Hãy thêm ảnh đại diện cho tài khoản của bạn.' %>"
                                                 />
                                             <span class="input-group-btn">
                                                 <!-- image-preview-clear button -->
@@ -94,7 +94,7 @@
                                 <div class="col-sm-6">
                                     <div class="form-group required">
                                         <label for="input-lastname" class="control-label">Họ & Tên: </label>
-                                        <input type="text" class="form-control" id="input-lastname" placeholder="Họ và tên" value="<%= @contact.name %>" name="contact[name]">
+                                        <input type="text" class="form-control required" id="input-lastname" placeholder="Họ và tên" value="<%= @contact.name %>" name="contact[name]">
                                     </div>
                                 </div>
                             </div>
@@ -102,13 +102,13 @@
                                 <div class="col-sm-6">
                                     <div class="form-group required">
                                         <label for="input-telephone" class="control-label">Số điện thoại: </label>
-                                        <input type="tel" class="form-control" id="input-telephone" placeholder="Số điện thoại" value="<%= @contact.phone %>" name="contact[phone]">
+                                        <input type="tel" class="form-control required" id="input-telephone" placeholder="Số điện thoại" value="<%= @contact.phone %>" name="contact[phone]">
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-group required">
                                         <label for="input-telephone" class="control-label">Địa chỉ email: </label>
-                                        <input type="email" class="form-control" id="input-email" placeholder="Địa chỉ email" value="<%= @contact.email %>" name="contact[email]">
+                                        <input type="email" class="form-control required" id="input-email" placeholder="Địa chỉ email" value="<%= @contact.email %>" name="contact[email]">
                                     </div>
                                 </div>
                             </div>
@@ -139,7 +139,7 @@
                             <legend>Địa chỉ đặt hàng</legend>
                             <div class="row">
                                 <div class="col-sm-6">
-                                    <div class="form-group required">
+                                    <div class="form-group">
                                         <label for="input-province" class="control-label">Tỉnh/Thành</label>
                                         <select class="form-control" id="input-province" name="province_id">
                                             <option value=""> --- Tỉnh/Thành --- </option>
@@ -149,7 +149,7 @@
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
-                                    <div class="form-group required">
+                                    <div class="form-group">
                                         <label for="input-district" class="control-label">Quận/Huyện</label>
                                         <select class="form-control" id="input-district" name="district_id">
                                             <option value=""> --- Quận/Huyện --- </option>
@@ -161,7 +161,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-sm-6">
-                                    <div class="form-group required">
+                                    <div class="form-group">
                                         <label for="input-ward" class="control-label">Phường/Xã</label>
                                         <select class="form-control" id="input-ward" name="ward_id">
                                             <option value=""> --- Phường/Xã --- </option>
@@ -171,7 +171,7 @@
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
-                                    <div class="form-group required">
+                                    <div class="form-group">
                                         <label for="input-address" class="control-label">Số nhà/đường/thôn/ấp: </label>
                                         <input type="text" class="form-control" id="input-address" placeholder="Số nhà, đường, thôn, ấp" value="<%= @contact.address %>" name="contact[address]">
                                     </div>
