@@ -49,9 +49,13 @@ module Erp
             
             if @user.update_with_password(user_params)
               bypass_sign_in(@user)
-              redirect_to :back, flash: { notice: "Mật khẩu mới đã được cập nhật" }
+              redirect_to :back, flash: { notice: "Mật khẩu mới đã được cập nhật." }
             else
-              redirect_to :back, flash: { error: "Mật khẩu mới và mật khẩu xác nhận phải trùng khớp, và phải chứa ít nhất 6 ký tự." }
+              if params[:user][:password].length < 6
+                redirect_to :back, flash: { error: "Mật khẩu phải chứa ít nhất 6 ký tự." }
+              else
+                redirect_to :back, flash: { error: "Mật khẩu không trùng khớp." }
+              end
             end
           end
         end

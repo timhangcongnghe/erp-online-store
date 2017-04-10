@@ -470,6 +470,7 @@ $(document).ready(function () {
         $('.contact_form').validate();
         $('.comment_form').validate();
         $('.rating_form').validate();
+        $('.password_form').validate();
     });
     // TODO: JS CHO UPLOAD HÌNH TRÊN MY ACCOUNT ----- END
 });$(window).scroll(function () {
