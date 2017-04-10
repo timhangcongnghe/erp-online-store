@@ -312,10 +312,14 @@ div.article-info .article-sub-title span.article-folder a:hover {
   font-weight: 500;
 }
 input.error, textarea.error  {
-  border-color: #DA2723 !important;
+  border-color: #da2723 !important;
 }
 .container-megamenu.vertical .vertical-wrapper ul li > a strong {
   font-weight: 500;
+}
+.container-megamenu.vertical .vertical-wrapper ul li > a {
+  font-weight: 500;
+  color: #000;
 }
 @media (min-width: 990px) {
 .header-center-right .megamenu {
