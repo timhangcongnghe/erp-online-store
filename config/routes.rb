@@ -27,6 +27,7 @@ Erp::OnlineStore::Engine.routes.draw do
   
   # EVENTS
   get "su-kien.html" => "frontend/events#index", as: :events
+  get "su-kien/chi-tiet.html" => "frontend/events#events_detail", as: :events_detail
   
   # ACCOUNT
   get "tai-khoan/thong-tin-tai-khoan.html" => "frontend/account#my_account", as: :my_account

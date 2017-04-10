@@ -973,3 +973,6 @@ select, .form-control:focus {
 .business-special a:hover, .btn-shopping-cart a:hover, .btn-shopping-cart a:hover span {
   color: #fff !important;
 }
+.date-event {
+  color: #cc181e;
+}
