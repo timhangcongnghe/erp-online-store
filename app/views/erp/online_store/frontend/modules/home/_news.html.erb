@@ -3,7 +3,7 @@
     <div class="item">
         <div class="media-body">
             <div class="media-date-added image">
-                <%= image_tag(blog.image.small, alt: blog.name) %>
+                <%= image_tag(article_image(blog.image.small, 'small'), alt: blog.name) %>
             </div>
             <div class="media-content">
                 <h4 class="media-heading media-title">

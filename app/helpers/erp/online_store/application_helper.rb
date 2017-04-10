@@ -35,6 +35,15 @@ module Erp
       def avatar(user)
         user.avatar? ? user.avatar.profile : url_for('/frontend/image/avatar/user_default.png')
       end
+      
+      # user avatar
+      def article_image(thumb, size)
+        if size == 'normal'
+          thumb.present? ? thumb : url_for('/frontend/image/blog/normal_600x390.png')
+        elsif size == 'small'
+          thumb.present? ? thumb : url_for('/frontend/image/blog/small_70x70.png')
+        end
+      end
     end
   end
 end
