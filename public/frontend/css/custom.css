@@ -391,7 +391,7 @@ h3.author {
   margin-bottom: 20px;
 }
 .login-form label.error, #new_user label.error {
-  display: none !important;
+  /*display: none !important;*/
 }
 .text-danger {
   background: none;
