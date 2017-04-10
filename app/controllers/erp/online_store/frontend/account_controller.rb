@@ -28,7 +28,7 @@ module Erp
               current_user.update_columns(contact_id: @contact.id)
               redirect_to :back, flash: {success: "Thông tin cá nhân đã được cập nhật."}
             else
-              redirect_to :back, flash: {error: "Thông tin chưa được cập nhật. Vui lòng kiểm tra giá trị nhập."}
+              redirect_to :back, flash: {error: "Thông tin chưa được cập nhật. Vui lòng thử lại."}
             end
           end        
         end
