@@ -1,3 +1,13 @@
+function countDown(item, year, month, day, hour, minute) {
+    month = month - 1
+    
+    "use strict";
+    var austDay = new Date(year, month, day, hour, minute);
+    item.countdown(austDay, function(event) {
+        var $this = $(this).html(event.strftime('' + '<div class="time-item time-day"><div class="num-time">%D</div><div class="name-time">Ngày </div></div>' + '<div class="time-item time-hour"><div class="num-time">%H</div><div class="name-time">Giờ </div></div>' + '<div class="time-item time-min"><div class="num-time">%M</div><div class="name-time">Phút </div></div>' + '<div class="time-item time-sec"><div class="num-time">%S</div><div class="name-time">Giây </div></div>'));
+    });
+}
+
 function toogleFixedNav() {
     var top = $(window).scrollTop();
     var nav_top = $('.header-fixed-top').offset().top;
@@ -475,6 +485,14 @@ $(document).ready(function () {
         $('.rating_form').validate();
         $('.password_form').validate();
         $('.account_form').validate();
+        
+        // Count Down
+        $('.count-down').each(function() {
+            var times = $(this).attr('rel').split(',');
+            
+            countDown($(this), times[0], times[1], times[2], times[3], times[4]);
+        });
+        
     });
     
 });$(window).scroll(function () {
