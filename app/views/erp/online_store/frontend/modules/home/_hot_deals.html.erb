@@ -21,11 +21,7 @@
                                     <%= image_tag "/frontend/image/shop/product/170/e13.jpg", alt: hot_deal.name, title: hot_deal.name, class: "img-1 img-responsive" %>
                                     <%= image_tag "/frontend/image/shop/product/170/e14.jpg", alt: hot_deal.name, title: hot_deal.name, class: "img-2 img-responsive" %>
                                 </a>
-                                <div class="item-time">
-                                    <div class="item-timer">
-                                        <div class="defaultCountdown-30"></div>
-                                    </div>
-                                </div>
+                                <%= count_down(hot_deal.deal_from_date, hot_deal.deal_to_date) %>
                             </div>
                         </div>
                     </div>

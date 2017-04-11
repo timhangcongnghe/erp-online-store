@@ -17,11 +17,7 @@
                 <% if deal_product.is_deal? %>
                 <span class="label label-sale">Giảm giá</span>
                 <% end %>
-                <div class="countdown_box">
-                    <div class="countdown_inner">
-                        <div class="defaultCountdown-30"></div>
-                    </div>
-                </div>
+                <%= count_down(deal_product.deal_from_date, deal_product.deal_to_date) %>
             </div>
             <div class="right-block">
                 <div class="caption">
