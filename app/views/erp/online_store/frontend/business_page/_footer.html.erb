@@ -7,7 +7,7 @@
                     <div id="bt-contactus" class="bt-contactformandinfo">
                         <div class="bt-formarea">
                             <div class="bt-fullheading">
-                                <span>ƯU ĐÃI DOANH NGHIỆP</span>
+                                <span>NHẬN TƯ VẤN DỊCH VỤ</span>
                                 <h2>ĐĂNG KÝ</h2>
                             </div>
                             <form class="bt-themeform bt-formcontactus">
@@ -18,12 +18,12 @@
                                                 <input type="text" class="form-control" name="yourname" placeholder="Vui lòng nhập tên doanh nghiệp của bạn">
                                             </div>
                                         </div>
-                                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                             <div class="form-group">
                                                 <input type="email" class="form-control" name="emailaddress" placeholder="Vui lòng nhập địa chỉ email">
                                             </div>
                                         </div>
-                                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                             <div class="form-group">
                                                 <input type="email" class="form-control" name="emailaddress" placeholder="Vui lòng nhập số điện thoại">
                                             </div>
@@ -46,16 +46,24 @@
                                 <h2>TIMHANGCONGNGHE.VN</h2>
                             </div>
                             <div class="bt-description">
-                                <p>We create web productions for our clients and we promote the modernisation of web all around world. We create web productions for our clients modernisation of web all around world.</p>
+                                <p class="text-justify"><strong>TimHangCongNghe.Vn</strong> là dự án Thương Mại Điện Tử về các sản phẩm công nghệ thông tin...do <strong>Công Ty TNHH Giải Pháp Công Nghệ Thông Tin & Truyền Thông Hoàng Khang (Hoang Khang Incotech)</strong> đầu tư và phát triển sau 10 năm hoạt động kể từ ngày công ty được thành lập cho tới nay.</p>
                             </div>
                             <ul class="bt-contactinfo">
                                 <li>
                                     <strong>Địa chỉ:</strong>
-                                    <address>198 West 21th Street Victoria 8007, Australia</address>
+                                    <address>188 Đường Số 1, Phường 16, Quận Gò Vấp, TP. Hồ Chí Minh</address>
                                 </li>
                                 <li>
-                                    <strong>Số điện thoại:</strong>
-                                    <span>(654) 332-112-222</span>
+                                    <strong>Hotline:</strong>
+                                    <%= link_to "(08) 2212 9454", "tel:" %>
+                                </li>
+                                <li>
+                                    <strong>Điện thoại:</strong>
+                                    <%= link_to "(+84) 987654321", "tel:" %>
+                                </li>
+                                <li>
+                                    <strong>Fax:</strong>
+                                    <span>(08) 3984 7691</span>
                                 </li>
                                 <li>
                                     <strong>Email:</strong>
@@ -73,13 +81,126 @@
                     </div>
                 </div>
                 <div class="bt-brands">
-                    <% (0..11).each do |brand| %>
                     <div class="bt-brand">
                         <figure>
-                            <%= link_to image_tag("/frontend/business-template/images/brands/img-03.png", alt: ""), "", title: "" %>
+                            <%= link_to image_tag("/frontend/business-template/images/brands/acer.png", alt: ""), "", title: "" %>
+                        </figure>
+                    </div>                    
+                    <div class="bt-brand">
+                        <figure>
+                            <%= link_to image_tag("/frontend/business-template/images/brands/asus.png", alt: ""), "", title: "" %>
                         </figure>
                     </div>
-                    <% end %>
+                    <div class="bt-brand">
+                        <figure>
+                            <%= link_to image_tag("/frontend/business-template/images/brands/canon.png", alt: ""), "", title: "" %>
+                        </figure>
+                    </div>
+                    <div class="bt-brand">
+                        <figure>
+                            <%= link_to image_tag("/frontend/business-template/images/brands/cisco.png", alt: ""), "", title: "" %>
+                        </figure>
+                    </div>
+                    <div class="bt-brand">
+                        <figure>
+                            <%= link_to image_tag("/frontend/business-template/images/brands/dell.png", alt: ""), "", title: "" %>
+                        </figure>
+                    </div>
+                    <div class="bt-brand">
+                        <figure>
+                            <%= link_to image_tag("/frontend/business-template/images/brands/d-link.png", alt: ""), "", title: "" %>
+                        </figure>
+                    </div>
+                    <div class="bt-brand">
+                        <figure>
+                            <%= link_to image_tag("/frontend/business-template/images/brands/epson.png", alt: ""), "", title: "" %>
+                        </figure>
+                    </div>
+                    <div class="bt-brand">
+                        <figure>
+                            <%= link_to image_tag("/frontend/business-template/images/brands/genius.png", alt: ""), "", title: "" %>
+                        </figure>
+                    </div>
+                    <div class="bt-brand">
+                        <figure>
+                            <%= link_to image_tag("/frontend/business-template/images/brands/hp.png", alt: ""), "", title: "" %>
+                        </figure>
+                    </div>
+                    <div class="bt-brand">
+                        <figure>
+                            <%= link_to image_tag("/frontend/business-template/images/brands/intel.png", alt: ""), "", title: "" %>
+                        </figure>
+                    </div>
+                    <div class="bt-brand">
+                        <figure>
+                            <%= link_to image_tag("/frontend/business-template/images/brands/kaspersky.png", alt: ""), "", title: "" %>
+                        </figure>
+                    </div>
+                    <div class="bt-brand">
+                        <figure>
+                            <%= link_to image_tag("/frontend/business-template/images/brands/kingmax.png", alt: ""), "", title: "" %>
+                        </figure>
+                    </div>
+                    <div class="bt-brand">
+                        <figure>
+                            <%= link_to image_tag("/frontend/business-template/images/brands/kvm.png", alt: ""), "", title: "" %>
+                        </figure>
+                    </div>
+                    <div class="bt-brand">
+                        <figure>
+                            <%= link_to image_tag("/frontend/business-template/images/brands/lenovo.png", alt: ""), "", title: "" %>
+                        </figure>
+                    </div>
+                    <div class="bt-brand">
+                        <figure>
+                            <%= link_to image_tag("/frontend/business-template/images/brands/lg.png", alt: ""), "", title: "" %>
+                        </figure>
+                    </div>
+                    <div class="bt-brand">
+                        <figure>
+                            <%= link_to image_tag("/frontend/business-template/images/brands/logitech.png", alt: ""), "", title: "" %>
+                        </figure>
+                    </div>
+                    <div class="bt-brand">
+                        <figure>
+                            <%= link_to image_tag("/frontend/business-template/images/brands/microsoft.png", alt: ""), "", title: "" %>
+                        </figure>
+                    </div>
+                    <div class="bt-brand">
+                        <figure>
+                            <%= link_to image_tag("/frontend/business-template/images/brands/msi.png", alt: ""), "", title: "" %>
+                        </figure>
+                    </div>
+                    <div class="bt-brand">
+                        <figure>
+                            <%= link_to image_tag("/frontend/business-template/images/brands/norton.png", alt: ""), "", title: "" %>
+                        </figure>
+                    </div>
+                    <div class="bt-brand">
+                        <figure>
+                            <%= link_to image_tag("/frontend/business-template/images/brands/oki.png", alt: ""), "", title: "" %>
+                        </figure>
+                    </div>
+                    <div class="bt-brand">
+                        <figure>
+                            <%= link_to image_tag("/frontend/business-template/images/brands/samsung.png", alt: ""), "", title: "" %>
+                        </figure>
+                    </div>
+                    <div class="bt-brand">
+                        <figure>
+                            <%= link_to image_tag("/frontend/business-template/images/brands/sony.png", alt: ""), "", title: "" %>
+                        </figure>
+                    </div>
+                    <div class="bt-brand">
+                        <figure>
+                            <%= link_to image_tag("/frontend/business-template/images/brands/toshiba.png", alt: ""), "", title: "" %>
+                        </figure>
+                    </div>
+                    <div class="bt-brand">
+                        <figure>
+                            <%= link_to image_tag("/frontend/business-template/images/brands/tp-link.png", alt: ""), "", title: "" %>
+                        </figure>
+                    </div>
                 </div>
             </div>
         </div>
@@ -88,7 +209,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                    <span>Copyrights &copy; 2017 TimHangCongNghe. All rights reserved.</span>
+                    <span>Copyrights &copy; 2017 TimHangCongNghe.Vn - All rights reserved.</span>
                     <span>Phát triển <i class="icon-heart"></i> bởi <%= link_to "TimHangCongNghe.VN", erp_online_store.root_path, title: "", target: "_blank" %></span>
                 </div>
             </div>

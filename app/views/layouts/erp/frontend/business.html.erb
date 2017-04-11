@@ -13,7 +13,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Ưu Đãi Doanh Nghiệp - TimHangCongNghe.VN</title>
     <%= favicon_link_tag '/frontend/business-template/images/icons/favicon.png', rel: 'shortcut icon', type: '/frontend/image/x-icon' %>
-		<%= stylesheet_link_tag "/frontend/business-template/images/apple-touch-icon.png" %>
 		<%= stylesheet_link_tag "/frontend/business-template/css/bootstrap.min.css" %>
 		<%= stylesheet_link_tag "/frontend/business-template/css/normalize.css" %>
 		<%= stylesheet_link_tag "/frontend/business-template/css/font-awesome.min.css" %>
@@ -26,6 +25,7 @@
 		<%= stylesheet_link_tag "/frontend/business-template/css/color.css" %>
 		<%= stylesheet_link_tag "/frontend/business-template/css/responsive.css" %>
 		<%= javascript_include_tag '/frontend/business-template/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js' %>
+		<%= stylesheet_link_tag "/frontend/business-template/css/custom.css" %>
 </head>
 
 <body id="bt-home" class="bt-home">
@@ -68,17 +68,9 @@
 					Header Start
 				*************************************-->
         <div class="overlay"></div>
-        <%= render "/erp/online_store/frontend/business_page/side_navigation" %>
         <%= render "/erp/online_store/frontend/business_page/header" %>
         <!--************************************
 					Header End
-				*************************************-->
-        <!--************************************
-					Home Slider Start
-				*************************************-->
-        <%= render "/erp/online_store/frontend/business_page/home_slider" %>
-        <!--************************************
-					Home Slider End
 				*************************************-->
         <!--************************************
 					Main Start

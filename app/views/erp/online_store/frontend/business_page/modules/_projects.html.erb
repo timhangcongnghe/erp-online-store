@@ -3,31 +3,31 @@
         <div class="row">
             <div class="bt-projects">
                 <div class="bt-textshortcode bt-projectthreecolumns">
-                    <figure><img src="frontend/business-template/images/projects/img-01.jpg" alt="image description"></figure>
+                    <figure><%= image_tag "/frontend/business-template/images/projects/img-01.jpg", alt: "" %></figure>
                     <div class="bt-box">
                         <div class="bt-fullheading">
-                            <span>Our Work</span>
-                            <h2>Latest Projects</h2>
+                            <span>TimHangCongNghe.Vn</span>
+                            <h2>Lĩnh Vực Hoạt Động</h2>
                         </div>
                         <div class="bt-description">
-                            <p>Powax is an award winning creative design agency building apps and experiences for the web Omnis.</p>
-                            <p>iste natus sit voluptatem accusantium doloremque laudantium, onepage, creative, simple, totam rem aperiam.perspiciatis one page omnis iste. Creative Theme for Creative People.</p>
+                            <p>TimHangCongNghe.Vn là dự án thương mại điện tử do Công Ty TNHH Giải Pháp CNTT & Truyền Thông Hoàng Khang đầu tư và phát triển.</p>
+                            <p class="text-justify">Chúng tôi là đơn vị cung cấp các thiết bị, sản phẩm công nghệ thông tin chính hãng, chất lượng tốt nhất. Ngoài ra chúng tôi còn cung cấp các dịch vụ: Bảo trì, sửa chữa, lắp đặt thiết bị - Tư vấn, thi công hạ tầng mạng - Cung cấp, thiết kế website và phần mềm ứng dụng quản lý.</p>
                         </div>
-                        <a class="bt-btn" href="#">View all work</a>
+                        <%= link_to "Giới Thiệu", "", class: "bt-btn" %>
                     </div>
                 </div>
                 <div class="bt-project bt-projectthreecolumns">
                     <figure class="bt-projectimg">
-                        <img src="frontend/business-template/images/projects/img-01.jpg" alt="image description">
+                        <%= image_tag "/frontend/business-template/images/projects/img-01.jpg", alt: "" %>
                         <figcaption class="bt-projectdescription">
                             <div class="bt-projectholder">
-                                <span class="bt-hearticon icon-heart"></span>
                                 <div class="bt-tagsandprojectname">
                                     <ul class="bt-tags">
-                                        <li><a href="projectdetail.html">website</a></li>
-                                        <li><a href="projectdetail.html">graphic</a></li>
+                                        <li><%= link_to "Kết Nối Mạng", "" %></li>
+                                        <li><%= link_to "Hạ Tầng Mạng", "" %></li>
+                                        <li><%= link_to "Vật Tư Mạng", "" %></li>
                                     </ul>
-                                    <h3><a href="projectdetail.html">Creative Project</a></h3>
+                                    <h3><%= link_to "Thiết Bị Mạng", "" %></h3>
                                 </div>
                             </div>
                         </figcaption>
@@ -35,16 +35,20 @@
                 </div>
                 <div class="bt-project bt-projectthreecolumns">
                     <figure class="bt-projectimg">
-                        <img src="frontend/business-template/images/projects/img-02.jpg" alt="image description">
+                        <%= image_tag "/frontend/business-template/images/projects/img-02.jpg", alt: "" %>
                         <figcaption class="bt-projectdescription">
                             <div class="bt-projectholder">
-                                <span class="bt-hearticon icon-heart"></span>
                                 <div class="bt-tagsandprojectname">
                                     <ul class="bt-tags">
-                                        <li><a href="projectdetail.html">website</a></li>
-                                        <li><a href="projectdetail.html">graphic</a></li>
+                                        <li><%= link_to "Kỹ Thuật Số", "" %></li>
+                                        <li><%= link_to "Viễn Thông", "" %></li>
+                                        <li><%= link_to "An Ninh", "" %></li>
                                     </ul>
-                                    <h3><a href="projectdetail.html">Creative Project</a></h3>
+                                    <h3>
+                                        <%= link_to "Kỹ Thuật Số - Viễn Thông", "" %>
+                                        <%= link_to " - ", "javascript:void(0)" %>
+                                        <%= link_to "An Ninh", "" %>
+                                    </h3>
                                 </div>
                             </div>
                         </figcaption>
@@ -52,16 +56,21 @@
                 </div>
                 <div class="bt-project bt-projecttwocolumns">
                     <figure class="bt-projectimg">
-                        <img src="frontend/business-template/images/projects/img-03.jpg" alt="image description">
+                        <%= image_tag "/frontend/business-template/images/projects/img-03.jpg", alt: "" %>
                         <figcaption class="bt-projectdescription">
                             <div class="bt-projectholder">
-                                <span class="bt-hearticon icon-heart"></span>
                                 <div class="bt-tagsandprojectname">
                                     <ul class="bt-tags">
-                                        <li><a href="projectdetail.html">website</a></li>
-                                        <li><a href="projectdetail.html">graphic</a></li>
+                                        <li><%= link_to "Sản Phẩm HP", "" %></li>
+                                        <li><%= link_to "Máy Vi Tính", "" %></li>
+                                        <li><%= link_to "Màn Hình Máy Tính", "" %></li>
+                                        <li><%= link_to "Linh Kiện - Phụ Kiện", "" %></li>
                                     </ul>
-                                    <h3><a href="projectdetail.html">Creative Project</a></h3>
+                                    <h3>
+                                        <%= link_to "Thiết Bị Tin Học", "" %>
+                                        <%= link_to " - ", "javascript:void(0)" %>
+                                        <%= link_to "Thiết Bị Văn Phòng", "" %>
+                                    </h3>
                                 </div>
                             </div>
                         </figcaption>
@@ -69,16 +78,15 @@
                 </div>
                 <div class="bt-project bt-projectfourcolumns">
                     <figure class="bt-projectimg">
-                        <img src="frontend/business-template/images/projects/img-04.jpg" alt="image description">
+                        <%= image_tag "/frontend/business-template/images/projects/img-04.jpg" %>
                         <figcaption class="bt-projectdescription">
                             <div class="bt-projectholder">
-                                <span class="bt-hearticon icon-heart"></span>
                                 <div class="bt-tagsandprojectname">
                                     <ul class="bt-tags">
-                                        <li><a href="projectdetail.html">website</a></li>
-                                        <li><a href="projectdetail.html">graphic</a></li>
+                                        <li><%= link_to "Bảo trì" %></li>
+                                        <li><%= link_to "Sửa chữa" %></li>
                                     </ul>
-                                    <h3><a href="projectdetail.html">Creative Project</a></h3>
+                                    <h3><%= link_to "Dịch Vụ Thiết Bị" %></h3>
                                 </div>
                             </div>
                         </figcaption>
@@ -86,16 +94,15 @@
                 </div>
                 <div class="bt-project bt-projectfourcolumns">
                     <figure class="bt-projectimg">
-                        <img src="frontend/business-template/images/projects/img-05.jpg" alt="image description">
+                        <%= image_tag "/frontend/business-template/images/projects/img-05.jpg", alt: "" %>
                         <figcaption class="bt-projectdescription">
                             <div class="bt-projectholder">
-                                <span class="bt-hearticon icon-heart"></span>
                                 <div class="bt-tagsandprojectname">
                                     <ul class="bt-tags">
-                                        <li><a href="projectdetail.html">website</a></li>
-                                        <li><a href="projectdetail.html">graphic</a></li>
+                                        <li><%= link_to "Tư vấn" %></li>
+                                        <li><%= link_to "Thi công" %></li>
                                     </ul>
-                                    <h3><a href="projectdetail.html">Creative Project</a></h3>
+                                    <h3><%= link_to "Hạ Tầng Mạng" %></h3>
                                 </div>
                             </div>
                         </figcaption>
@@ -103,39 +110,38 @@
                 </div>
                 <div class="bt-project bt-projectfourcolumns">
                     <figure class="bt-projectimg">
-                        <img src="frontend/business-template/images/projects/img-06.jpg" alt="image description">
+                        <%= image_tag "/frontend/business-template/images/projects/img-06.jpg", alt: "" %>
                         <figcaption class="bt-projectdescription">
                             <div class="bt-projectholder">
-                                <span class="bt-hearticon icon-heart"></span>
                                 <div class="bt-tagsandprojectname">
                                     <ul class="bt-tags">
-                                        <li><a href="projectdetail.html">website</a></li>
-                                        <li><a href="projectdetail.html">graphic</a></li>
+                                        <li><%= link_to "Thiết kế website" %></li>
+                                        <li><%= link_to "Ứng dụng quản lý" %></li>
                                     </ul>
-                                    <h3><a href="projectdetail.html">Creative Project</a></h3>
+                                    <h3><%= link_to "Website & Ứng Dụng" %></h3>
                                 </div>
                             </div>
                         </figcaption>
                     </figure>
                 </div>
-                <div class="bt-statactites bt-projectfourcolumns">
-                    <figure><img src="frontend/business-template/images/projects/placeholder-02.jpg" alt="image description"></figure>
+                <div class="bt-statactites bt-projectfourcolumns">                    
+                    <figure><%= image_tag "/frontend/business-template/images/projects/placeholder-02.jpg", alt: "" %></figure>
                     <div class="bt-box">
                         <div class="bt-counters">
                             <div class="bt-counter">
                                 <span class="bt-countericon icon-trophy"></span>
-                                <span class="bt-count" data-from="0" data-to="39" data-speed="8000" data-refresh-interval="50">39</span>
-                                <h4>Winning awards</h4>
+                                <span class="bt-count" data-from="0" data-to="3230" data-speed="2000" data-refresh-interval="50">3,230</span>
+                                <h4>Dòng sản phẩm</h4>
                             </div>
                             <div class="bt-counter">
                                 <span class="bt-countericon icon-mobile"></span>
-                                <span class="bt-count" data-from="0" data-to="534" data-speed="8000" data-refresh-interval="50">534</span>
-                                <h4>Websites and Applications</h4>
+                                <span class="bt-count" data-from="0" data-to="100" data-speed="2000" data-refresh-interval="50">100</span>
+                                <h4>Nhóm chuyên mục</h4>
                             </div>
                             <div class="bt-counter">
                                 <span class="bt-countericon icon-happy"></span>
-                                <span class="bt-count" data-from="0" data-to="200" data-speed="8000" data-refresh-interval="50">200</span>
-                                <h4>Happy Clients Worldwide</h4>
+                                <span class="bt-count" data-from="0" data-to="200" data-speed="2000" data-refresh-interval="50">50</span>
+                                <h4>Nhà cung cấp</h4>
                             </div>
                         </div>
                     </div>

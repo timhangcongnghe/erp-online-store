@@ -1,10 +1,9 @@
-<section id="bt-news" class="bt-sectionpadding bt-haslayout">
+<section id="bt-business-news" class="bt-sectionpadding bt-haslayout">
     <div class="container">
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <div class="bt-fullheading bt-styletwo">
-                    <span>Stay Always Updated</span>
-                    <h2>Our Publication</h2>
+                    <h2>Bản Tin Doanh Nghiệp</h2>
                 </div>
             </div>
             <div id="bt-postsslider" class="bt-posts bt-postsslider">                
@@ -19,18 +18,18 @@
                         </figure>
                         <div class="bt-postcontent">
                             <ul class="bt-postmetadata">
-                                <li><%= link_to "Đăng Bởi: TimHangCongNghe.vn", "avascript:void(0);" %></li>
-                                <li><%= link_to "Chuyên Mục: Our Publication", "avascript:void(0);" %></li>
+                                <li>Đăng Bởi: <%= link_to "TimHangCongNghe.vn", "avascript:void(0);", class: "float-right" %></li>
+                                <li>Chuyên Mục: <%= link_to "Bản Tin Doanh Nghiệp", "avascript:void(0);", class: "float-right" %></li>
                             </ul>
                             <div class="bt-posttitle">
-                                <h3><%= link_to "Familiar Idea With Brand", "" %></h3>
+                                <h3><%= link_to "Tiêu đề bài viết bản tin doanh nghiệp", erp_online_store.news_detail_path %></h3>
                             </div>
                             <div class="bt-description">
                                 <p>
                                   Nội dung của bài viết................
                                 </p>
                             </div>
-                            <%= link_to "XEM CHI TIẾT", "", class: "bt-btn" %>
+                            <%= link_to "XEM CHI TIẾT", erp_online_store.news_detail_path, class: "bt-btn" %>
                         </div>
                     </article>
                 </div>
