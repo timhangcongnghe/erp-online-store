@@ -80,128 +80,19 @@
                         </div>
                     </div>
                 </div>
+                <% if Erp::Products::Brand.get_brands_order_name.count > 0 %>
                 <div class="bt-brands">
+                    <% Erp::Products::Brand.get_brands_order_name.each do |brand| %>
+                    <% if brand.image_url.present? %>
                     <div class="bt-brand">
                         <figure>
-                            <%= link_to image_tag("/frontend/business-template/images/brands/acer.png", alt: ""), "", title: "" %>
-                        </figure>
-                    </div>                    
-                    <div class="bt-brand">
-                        <figure>
-                            <%= link_to image_tag("/frontend/business-template/images/brands/asus.png", alt: ""), "", title: "" %>
+                            <%= link_to image_tag(brand.image_url.smaller, alt: brand.name), "", title: brand.name %>
                         </figure>
                     </div>
-                    <div class="bt-brand">
-                        <figure>
-                            <%= link_to image_tag("/frontend/business-template/images/brands/canon.png", alt: ""), "", title: "" %>
-                        </figure>
-                    </div>
-                    <div class="bt-brand">
-                        <figure>
-                            <%= link_to image_tag("/frontend/business-template/images/brands/cisco.png", alt: ""), "", title: "" %>
-                        </figure>
-                    </div>
-                    <div class="bt-brand">
-                        <figure>
-                            <%= link_to image_tag("/frontend/business-template/images/brands/dell.png", alt: ""), "", title: "" %>
-                        </figure>
-                    </div>
-                    <div class="bt-brand">
-                        <figure>
-                            <%= link_to image_tag("/frontend/business-template/images/brands/d-link.png", alt: ""), "", title: "" %>
-                        </figure>
-                    </div>
-                    <div class="bt-brand">
-                        <figure>
-                            <%= link_to image_tag("/frontend/business-template/images/brands/epson.png", alt: ""), "", title: "" %>
-                        </figure>
-                    </div>
-                    <div class="bt-brand">
-                        <figure>
-                            <%= link_to image_tag("/frontend/business-template/images/brands/genius.png", alt: ""), "", title: "" %>
-                        </figure>
-                    </div>
-                    <div class="bt-brand">
-                        <figure>
-                            <%= link_to image_tag("/frontend/business-template/images/brands/hp.png", alt: ""), "", title: "" %>
-                        </figure>
-                    </div>
-                    <div class="bt-brand">
-                        <figure>
-                            <%= link_to image_tag("/frontend/business-template/images/brands/intel.png", alt: ""), "", title: "" %>
-                        </figure>
-                    </div>
-                    <div class="bt-brand">
-                        <figure>
-                            <%= link_to image_tag("/frontend/business-template/images/brands/kaspersky.png", alt: ""), "", title: "" %>
-                        </figure>
-                    </div>
-                    <div class="bt-brand">
-                        <figure>
-                            <%= link_to image_tag("/frontend/business-template/images/brands/kingmax.png", alt: ""), "", title: "" %>
-                        </figure>
-                    </div>
-                    <div class="bt-brand">
-                        <figure>
-                            <%= link_to image_tag("/frontend/business-template/images/brands/kvm.png", alt: ""), "", title: "" %>
-                        </figure>
-                    </div>
-                    <div class="bt-brand">
-                        <figure>
-                            <%= link_to image_tag("/frontend/business-template/images/brands/lenovo.png", alt: ""), "", title: "" %>
-                        </figure>
-                    </div>
-                    <div class="bt-brand">
-                        <figure>
-                            <%= link_to image_tag("/frontend/business-template/images/brands/lg.png", alt: ""), "", title: "" %>
-                        </figure>
-                    </div>
-                    <div class="bt-brand">
-                        <figure>
-                            <%= link_to image_tag("/frontend/business-template/images/brands/logitech.png", alt: ""), "", title: "" %>
-                        </figure>
-                    </div>
-                    <div class="bt-brand">
-                        <figure>
-                            <%= link_to image_tag("/frontend/business-template/images/brands/microsoft.png", alt: ""), "", title: "" %>
-                        </figure>
-                    </div>
-                    <div class="bt-brand">
-                        <figure>
-                            <%= link_to image_tag("/frontend/business-template/images/brands/msi.png", alt: ""), "", title: "" %>
-                        </figure>
-                    </div>
-                    <div class="bt-brand">
-                        <figure>
-                            <%= link_to image_tag("/frontend/business-template/images/brands/norton.png", alt: ""), "", title: "" %>
-                        </figure>
-                    </div>
-                    <div class="bt-brand">
-                        <figure>
-                            <%= link_to image_tag("/frontend/business-template/images/brands/oki.png", alt: ""), "", title: "" %>
-                        </figure>
-                    </div>
-                    <div class="bt-brand">
-                        <figure>
-                            <%= link_to image_tag("/frontend/business-template/images/brands/samsung.png", alt: ""), "", title: "" %>
-                        </figure>
-                    </div>
-                    <div class="bt-brand">
-                        <figure>
-                            <%= link_to image_tag("/frontend/business-template/images/brands/sony.png", alt: ""), "", title: "" %>
-                        </figure>
-                    </div>
-                    <div class="bt-brand">
-                        <figure>
-                            <%= link_to image_tag("/frontend/business-template/images/brands/toshiba.png", alt: ""), "", title: "" %>
-                        </figure>
-                    </div>
-                    <div class="bt-brand">
-                        <figure>
-                            <%= link_to image_tag("/frontend/business-template/images/brands/tp-link.png", alt: ""), "", title: "" %>
-                        </figure>
-                    </div>
+                    <% end %>
+                    <% end %>
                 </div>
+                <% end %>
             </div>
         </div>
     </div>

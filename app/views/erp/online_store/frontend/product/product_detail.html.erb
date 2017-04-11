@@ -32,8 +32,10 @@
                             </div>
                             <div class="large-image  vertical">                                
                                 <img itemprop="image" class="product-image-zoom" src="<%= @product.main_image.image_url %>" data-zoom-image="<%= @product.main_image.image_url %>" title="<%= @product.name %>" alt="<%= @product.name %>">
-                            </div>                            
-                            <%= link_to '<i class="fa fa-youtube-play"></i>'.html_safe, "https://www.youtube.com/watch?v=HhabgvIIXik", class: "thumb-video pull-left", title: @product.name %>
+                            </div>
+                            <% if @product.product_intro_link.present? %>
+                                <%= link_to '<i class="fa fa-youtube-play"></i>'.html_safe, @product.product_intro_link, class: "thumb-video pull-left", title: @product.name %>
+                            <% end %>
                             <% else %>
                                 Check chưa thêm hình ảnh cho sản phẩm.
                             <% end %>
