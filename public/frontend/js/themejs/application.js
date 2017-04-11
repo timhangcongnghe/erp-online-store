@@ -2033,13 +2033,13 @@ $(document).ready(function() {
         classExpand: 'button-view'
     });
 });
-$(function() {
-    "use strict";
-    var austDay = new Date(2018, 3 - 1, 28);
-    $('.defaultCountdown-30').countdown(austDay, function(event) {
-        var $this = $(this).html(event.strftime('' + '<div class="time-item time-day"><div class="num-time">%D</div><div class="name-time">Day </div></div>' + '<div class="time-item time-hour"><div class="num-time">%H</div><div class="name-time">Hour </div></div>' + '<div class="time-item time-min"><div class="num-time">%M</div><div class="name-time">Min </div></div>' + '<div class="time-item time-sec"><div class="num-time">%S</div><div class="name-time">Sec </div></div>'));
-    });
-});
+//$(function() {
+//    "use strict";
+//    var austDay = new Date(2018, 3 - 1, 28);
+//    $('.defaultCountdown-30').countdown(austDay, function(event) {
+//        var $this = $(this).html(event.strftime('' + '<div class="time-item time-day"><div class="num-time">%D</div><div class="name-time">Day </div></div>' + '<div class="time-item time-hour"><div class="num-time">%H</div><div class="name-time">Hour </div></div>' + '<div class="time-item time-min"><div class="num-time">%M</div><div class="name-time">Min </div></div>' + '<div class="time-item time-sec"><div class="num-time">%S</div><div class="name-time">Sec </div></div>'));
+//    });
+//});
 
 function display(view) {
     "use strict";
