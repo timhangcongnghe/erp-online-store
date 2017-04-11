@@ -49,8 +49,8 @@ module Erp
       def count_down(from_time, to_time)
         if from_time.present? and to_time.present?
           if from_time <= Time.now and Time.now <= to_time
-            "<div class=\'item-time\'>
-                <div class=\'item-timer\'>
+            "<div class=\'countdown_box\'>
+                <div class=\'countdown_inner\'>
                     <div class=\'defaultCountdown-30 count-down\' rel=\'#{to_time.year}, #{to_time.month}, #{to_time.day}, #{to_time.hour}, #{to_time.min}\'></div>
                 </div>
             </div>".html_safe
