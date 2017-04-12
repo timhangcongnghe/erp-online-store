@@ -1,6 +1,6 @@
 function countDown(item, year, month, day, hour, minute) {
     month = month - 1
-    
+
     "use strict";
     var austDay = new Date(year, month, day, hour, minute);
     item.countdown(austDay, function(event) {
@@ -478,23 +478,30 @@ $(document).ready(function () {
 
         // toggle fixed bar
         setInterval('toogleFixedNav()', 200);
-        
+
         // validate contact form, comment form, rating form
         $('.contact_form').validate();
         $('.comment_form').validate();
         $('.rating_form').validate();
         $('.password_form').validate();
         $('.account_form').validate();
-        
+
         // Count Down
         $('.count-down').each(function() {
             var times = $(this).attr('rel').split(',');
-            
+
             countDown($(this), times[0], times[1], times[2], times[3], times[4]);
         });
-        
+
+
+        // Top toggle menu for product detail
+        $('.layout-subpage .top-link li').hover(function() {
+            $(this).find('ul').slideDown(200);
+        }, function() {
+            $(this).find('ul').hide();
+        });
     });
-    
+
 });$(window).scroll(function () {
     // toogleFixedNav();
 });
