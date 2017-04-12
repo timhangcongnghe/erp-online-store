@@ -8,7 +8,7 @@ module Erp
         (1..5).each do |star|
           strs << "<span class=\"fa fa-stack\"><i class=\"fa fa-star#{(number >= star ? '' : '-o')} fa-stack-2x\"></i></span>"
         end
-        strs.join('')
+        strs.join('').html_safe
       end
 
       # menu link helper
@@ -43,6 +43,11 @@ module Erp
         elsif size == 'small'
           thumb.present? ? thumb : url_for('/frontend/image/blog/small_70x70.png')
         end
+      end
+      
+      # product image
+      def product_image(images, ordinal, thumb)
+        images.present? ? images.send(ordinal).image_url.send(thumb).url : url_for('/frontend/image/shop/product/no-image.png')
       end
       
       # count down to end datetime
