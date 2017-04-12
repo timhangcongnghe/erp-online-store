@@ -6,7 +6,7 @@ Erp::Ability.class_eval do
     can :delete, Erp::Articles::Comment do |comment|
       !user.nil? && user.backend_access
     end
-    can :delete, Erp::Products::Rating do  |rating|      
+    can :delete, Erp::Products::Rating do  |rating|
       !user.nil? && (user.backend_access or rating.user_id == user.id)
     end
   end

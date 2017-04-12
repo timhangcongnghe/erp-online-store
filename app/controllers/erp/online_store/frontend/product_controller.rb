@@ -59,9 +59,10 @@ module Erp
         end
 
         def delete_rating
+          @rating = Erp::Products::Rating.find(params[:rating_id])
+
           authorize! :delete, @rating
 
-          @rating = Erp::Products::Rating.find(params[:rating_id])
           @rating.destroy
           redirect_to :back, notice: 'Nội dung đánh giá đã được xóa'
         end
