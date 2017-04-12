@@ -546,7 +546,7 @@ ul.megamenu li .sub-menu .content .hover-menu .menu ul ul {
 .product-description {
   border-top: #ddd 1px dotted;
   font-size: 13px;
-  line-height: 1em;
+  line-height: 1.5em;
   color: #000;
 }
 .price {
