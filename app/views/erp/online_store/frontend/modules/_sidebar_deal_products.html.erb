@@ -7,15 +7,15 @@
         <div class="extraslider-inner best-seller-slider">
             <div class="item ">
             <% count = Erp::Products::Product.get_deal_products.count %>
-            <% Erp::Products::Product.get_deal_products.limit(12).each_with_index do |best_seller,index| %>
+            <% Erp::Products::Product.get_deal_products.limit(12).each_with_index do |deal_product,index| %>
                 <div class="item-wrap style1">
                     <div class="item-wrap-inner media">
                         <div class="media-left">
                             <div class="item-image">
                                 <div class="item-img-info">
-                                    <a href="<%= product_link(best_seller) %>" class="lt-image" target="_self" title="<%= best_seller.name %>">
-                                        <%= image_tag "/frontend/image/shop/product/75/1.jpg", alt: best_seller.name, title: best_seller.name, class: "img-1 img-responsive" %>
-                                        <%= image_tag "/frontend/image/shop/product/75/3.jpg", alt: best_seller.name, title: best_seller.name, class: "img-2 img-responsive" %>
+                                    <a href="<%= product_link(deal_product) %>" class="lt-image" target="_self" title="<%= deal_product.name %>">
+                                        <%= image_tag product_image(deal_product.product_images, 'first', 'thumb75'), alt: deal_product.name, title: deal_product.name, class: "img-1 img-responsive" %>
+                                        <%= image_tag product_image(deal_product.product_images, 'second', 'thumb75'), alt: deal_product.name, title: deal_product.name, class: "img-2 img-responsive" %>
                                     </a>
                                 </div>
                             </div>
@@ -23,20 +23,20 @@
                         <div class="media-body">
                             <div class="item-info">
                                 <div class="rating">
-                                    <%= raw stars(best_seller.average_stars) %>
+                                    <%= stars(deal_product.average_stars) %>
                                 </div>
                                 <div class="item-title">
-                                    <%= link_to best_seller.name, product_link(best_seller), title: best_seller.name %>
+                                    <%= link_to deal_product.name, product_link(deal_product), title: deal_product.name %>
                                 </div>
                                 <!-- Begin item-content -->
                                 <div class="item-content">
                                     <div class="content_price">
                                         <span class="price product-price">
-                                            <%= format_price(best_seller.product_price) %>
+                                            <%= format_price(deal_product.product_price) %>
                                         </span>
-                                        <% if best_seller.is_deal? %>                        
-                                        <br><span class="price-old-price"><%= format_price(best_seller.price) %></span>
-                                        <span class="product-percent">-<%= best_seller.deal_percent %>%</span>
+                                        <% if deal_product.is_deal? %>                        
+                                        <br><span class="price-old-price"><%= format_price(deal_product.price) %></span>
+                                        <span class="product-percent">-<%= deal_product.deal_percent %>%</span>
                                         <% end %>
                                     </div>
                                 </div>

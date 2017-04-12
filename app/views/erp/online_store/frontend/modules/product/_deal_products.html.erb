@@ -11,8 +11,8 @@
         <div class="product-item-container">
             <div class="left-block">
                 <div class="product-image-container second_img ">
-                    <%= image_tag "/frontend/image/shop/product/e11.jpg", data: {src: "/frontend/image/shop/product/e11.jpg"}, alt: deal_product.name, class: "img-1 img-responsive" %>
-                    <%= image_tag "/frontend/image/shop/product/e12.jpg", data: {src: "/frontend/image/shop/product/e12.jpg"}, alt: deal_product.name, class: "img-2 img-responsive" %>
+                    <%= image_tag product_image(deal_product.product_images, 'first', 'thumb600'), data: {src: product_image(deal_product.product_images, 'first', 'thumb600')}, alt: deal_product.name, class: "img-1 img-responsive" %>
+                    <%= image_tag product_image(deal_product.product_images, 'second', 'thumb600'), data: {src: product_image(deal_product.product_images, 'second', 'thumb600')}, alt: deal_product.name, class: "img-2 img-responsive" %>
                 </div>
                 <% if deal_product.is_deal? %>
                 <span class="label label-sale">Giảm giá</span>
@@ -30,7 +30,9 @@
                     <div class="price">
                         <span class="price-new"><%= format_price(deal_product.product_price) %></span>                       
                         <br><span class="price-old"><%= format_price(deal_product.price) %></span>
-                        <span class="label label-percent">-<%= deal_product.deal_percent %>%</span>
+                        <% if !deal_product.deal_percent.nil? %>
+                            <span class="label label-percent">-<%= deal_product.deal_percent %>%</span>
+                        <% end %>
                     </div>
                     <div class="description item-desc hidden">
                         <p><%= deal_product.short_description.html_safe if deal_product.short_description %></p>

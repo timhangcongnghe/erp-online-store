@@ -16,30 +16,33 @@
                     <div class="row">                        
                         <div class="content-product-left  col-sm-6 col-xs-12 ">
                             <% if @product.product_images.count > 0 %>
-                            <div id="thumb-slider-vertical" class="thumb-vertical-outer">
-                                <span class="btn-more prev-thumb nt"><i class="fa fa-chevron-up"></i></span>
-                                <span class="btn-more next-thumb nt"><i class="fa fa-chevron-down"></i></span>
-                                <ul class="thumb-vertical">
-                                    <!-- thumb 600x600 -->
-                                    <% @product.product_images.each_with_index do |product_image,index| %>
-                                    <li class="owl2-item">
-                                        <a data-index="<%= index %>" class="img thumbnail " data-image="<%= product_image.image_url %>" title="<%= @product.name %>">
-                                            <%= image_tag product_image.image_url, alt: @product.name, title: @product.name %>
-                                        </a>
-                                    </li>
-                                    <% end %>
-                                </ul>
-                            </div>
-                            <div class="large-image  vertical">                                
-                                <img itemprop="image" class="product-image-zoom" src="<%= @product.main_image.image_url %>" data-zoom-image="<%= @product.main_image.image_url %>" title="<%= @product.name %>" alt="<%= @product.name %>">
-                            </div>
-                            <% if @product.product_intro_link.present? %>
-                                <%= link_to '<i class="fa fa-youtube-play"></i>'.html_safe, @product.product_intro_link, class: "thumb-video pull-left", title: @product.name %>
-                            <% end %>
+                                <div id="thumb-slider-vertical" class="thumb-vertical-outer">
+                                    <span class="btn-more prev-thumb nt"><i class="fa fa-chevron-up"></i></span>
+                                    <span class="btn-more next-thumb nt"><i class="fa fa-chevron-down"></i></span>
+                                    <ul class="thumb-vertical">
+                                        <!-- thumb 600x600 -->
+                                        <% @product.product_images.each_with_index do |product_image,index| %>
+                                        <li class="owl2-item">
+                                            <a data-index="<%= index %>" class="img thumbnail " data-image="<%= product_image.image_url.thumb600 %>" title="<%= @product.name %>">
+                                                <%= image_tag product_image.image_url.thumb600, alt: @product.name, title: @product.name %>
+                                            </a>
+                                        </li>
+                                        <% end %>
+                                    </ul>
+                                </div>
+                                <div class="large-image  vertical">                                
+                                    <img itemprop="image" class="product-image-zoom" src="<%= @product.main_image.image_url.thumb600 %>" data-zoom-image="<%= @product.main_image.image_url.thumb600 %>" title="<%= @product.name %>" alt="<%= @product.name %>">
+                                </div>
+                                <% if @product.product_intro_link.present? %>
+                                    <%= link_to '<i class="fa fa-youtube-play"></i>'.html_safe, @product.product_intro_link, class: "thumb-video pull-left", title: @product.name %>
+                                <% end %>
                             <% else %>
-                                Check chưa thêm hình ảnh cho sản phẩm.
+                                <div id="thumb-slider-vertical" class="thumb-vertical-outer"></div>
+                                <div class="large-image  vertical">                                
+                                    <img itemprop="image" class="product-image-zoom" src="<%= url_for('/frontend/image/shop/product/no_image_451.png') %>" data-zoom-image="<%= url_for('/frontend/image/shop/product/no_image_451.png') %>" title="<%= @product.name %>" alt="<%= @product.name %>">
+                                </div>
                             <% end %>
-                        </div>                        
+                        </div>
                         <div class="content-product-right col-sm-6 col-xs-12">
                             <div class="title-product">
                                 <h1><%= @product.name %></h1>
@@ -48,7 +51,7 @@
                             <div class="box-review form-group">
                                 <div class="ratings">
                                     <div class="rating-box">
-                                        <%= raw stars(@product.average_stars) %>
+                                        <%= stars(@product.average_stars) %>
                                     </div>
                                 </div>
                                 <a class="write_review_button" href="" onclick="$('a[href=\'#tab-review\']').trigger('click'); return false;">Đánh giá sản phẩm</a> | 
@@ -59,7 +62,9 @@
                                     <span class="price-new" itemprop="price"><%= format_price(@product.product_price) %></span>
                                     <% if @product.is_deal %>
                                     <span class="price-old"><%= format_price(@product.price) %></span>
-                                    <span class="label label-percent">-<%= @product.deal_percent %>%</span>
+                                        <% if !@product.deal_percent.nil? %>
+                                        <span class="label label-percent">-<%= @product.deal_percent %>%</span>
+                                        <% end %>
                                     <% end %>                                    
                                 </div>
                             </div>
@@ -150,7 +155,8 @@
                         galleryActiveClass: "active"
                     });
                     $('.large-image').magnificPopup({
-                        items: [{
+                        items: [
+                            {
                                 src: '/frontend/image/shop/product/1.png'
                             },
                             {

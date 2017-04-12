@@ -9,8 +9,8 @@
         <div class="product-item-container">
             <div class="left-block">
                 <div class="product-image-container second_img ">
-                    <%= image_tag "/frontend/image/shop/product/e11.jpg", data: {src: "/frontend/image/shop/product/e11.jpg"}, alt: accessory_detail.product.name, class: "img-1 img-responsive" %>
-                    <%= image_tag "/frontend/image/shop/product/e12.jpg", data: {src: "/frontend/image/shop/product/e12.jpg"}, alt: accessory_detail.product.name, class: "img-2 img-responsive" %>
+                    <%= image_tag product_image(accessory_detail.product.product_images, 'first', 'thumb600'), data: {src: product_image(accessory_detail.product.product_images, 'first', 'thumb600')}, alt: accessory_detail.product.name, class: "img-1 img-responsive" %>
+                    <%= image_tag product_image(accessory_detail.product.product_images, 'second', 'thumb600'), data: {src: product_image(accessory_detail.product.product_images, 'second', 'thumb600')}, alt: accessory_detail.product.name, class: "img-2 img-responsive" %>
                 </div>
                 <% if accessory_detail.product.is_deal? %>
                 <span class="label label-sale">Giảm giá</span>
@@ -22,18 +22,16 @@
                     <h4><%= link_to accessory_detail.product.name, product_link(accessory_detail.product), title: accessory_detail.product.name %></h4>
                     <div class="ratings">
                         <div class="rating-box">
-                            <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
-                            <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
-                            <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
-                            <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
-                            <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i></span>
+                            <%= stars(accessory_detail.product.average_stars) %>
                         </div>
                     </div>
                     <div class="price">
                         <span class="price-new"><%= format_number(accessory_detail.product.product_price) %> VNĐ</span>
                         <% if accessory_detail.product.is_deal? %>                        
                         <br><span class="price-old"><%= format_number(accessory_detail.product.price) %> VNĐ</span>
-                        <span class="label label-percent">-<%= accessory_detail.product.deal_percent %>%</span>
+                            <% if !accessory_detail.product.deal_percent.nil? %>
+                            <span class="label label-percent">-<%= accessory_detail.product.deal_percent %>%</span>
+                            <% end %>
                         <% end %>
                     </div>
                     <div class="description item-desc hidden">

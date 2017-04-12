@@ -18,8 +18,8 @@
                                 <% end %>
                                 <span class="label label-sale">Giảm giá</span>
                                 <a class="lt-image" href="<%= product_link(hot_deal) %>" target="_self">
-                                    <%= image_tag "/frontend/image/shop/product/170/e13.jpg", alt: hot_deal.name, title: hot_deal.name, class: "img-1 img-responsive" %>
-                                    <%= image_tag "/frontend/image/shop/product/170/e14.jpg", alt: hot_deal.name, title: hot_deal.name, class: "img-2 img-responsive" %>
+                                    <%= image_tag product_image(hot_deal.product_images, 'first', 'thumb170'), alt: hot_deal.name, title: hot_deal.name, class: "img-1 img-responsive" %>
+                                    <%= image_tag product_image(hot_deal.product_images, 'second', 'thumb170'), alt: hot_deal.name, title: hot_deal.name, class: "img-2 img-responsive" %>
                                 </a>
                                 <%= count_down(hot_deal.deal_from_date, hot_deal.deal_to_date) %>
                             </div>
@@ -28,7 +28,7 @@
                     <div class="right-block">
                         <div class="caption">
                             <div class="rating">
-                                <%= raw stars(hot_deal.average_stars) %>
+                                <%= stars(hot_deal.average_stars) %>
                             </div>
                             <h4><%= link_to hot_deal.name, product_link(hot_deal), title: hot_deal.name %></h4>
                             <p class="price">

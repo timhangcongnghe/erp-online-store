@@ -94,9 +94,9 @@
                                         <div class="left-block">
                                             <div class="product-image-container">
                                                 <div class="image">
-                                                    <a class="lt-image" href="<%= product_link(product) %>" target="_self" title="Verty nolen max..">
-                                                        <%= image_tag "/frontend/image/shop/product/170/4.jpg", alt: "Apple Cinema 30", class: "img-1 img-responsive", title: "Apple Cinema 30" %>
-                                                        <%= image_tag "/frontend/image/shop/product/170/4.jpg", alt: "Apple Cinema 30", class: "img-2 img-responsive", title: "Apple Cinema 30" %>
+                                                    <a class="lt-image" href="<%= product_link(product) %>" target="_self" title="<%= product.name %>">
+                                                        <%= image_tag product_image(product.product_images, 'first', 'thumb170'), alt: product.name, class: "img-1 img-responsive", title: product.name %>
+                                                        <%= image_tag product_image(product.product_images, 'second', 'thumb170'), alt: product.name, class: "img-2 img-responsive", title: product.name %>
                                                     </a>
                                                 </div>
                                             </div>
@@ -109,9 +109,10 @@
                                         </div>
                                         <div class="right-block">
                                             <div class="caption">
-                                                <h4>
-                                                    <%= link_to product.name, product_link(product), title: product.name %>
-                                                </h4>
+                                                <div class="rating">
+                                                    <%= stars(hot_deal.average_stars) %>
+                                                </div>
+                                                <h4><%= link_to product.name, product_link(product), title: product.name %></h4>
                                                 <p class="price">                                                    
                                                     <span class="price-new"><%= format_price(product.product_price) %></span>
                                                     <% if product.is_deal %>                        

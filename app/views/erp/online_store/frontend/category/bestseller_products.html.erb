@@ -61,10 +61,10 @@
                         <div class="product-item-container product-lists">
                             <div class="left-block">
                                 <div class="product-image-container lazy second_img ">
-                                    <%= image_tag "/frontend/image/shop/product/e11.jpg", data: {src: "/frontend/image/shop/product/e11.jpg"}, alt: product.name, class: "img-1 img-responsive" %>
-                                    <%= image_tag "/frontend/image/shop/product/e12.jpg", data: {src: "/frontend/image/shop/product/e12.jpg"}, alt: product.name, class: "img-2 img-responsive" %>
+                                    <%= image_tag product_image(product.product_images, 'first', 'thumb600'), data: {src: product_image(product.product_images, 'first', 'thumb600')}, alt: product.name, class: "img-1 img-responsive" %>
+                                    <%= image_tag product_image(product.product_images, 'second', 'thumb600'), data: {src: product_image(product.product_images, 'second', 'thumb600')}, alt: product.name, class: "img-2 img-responsive" %>
                                 </div>
-                                <% if product.is_new? %>
+                                <% if product.is_bestseller? %>
                                 <span class="label label-bestseller">Bán Chạy</span>
                                 <% end %>
                                 <% if product.is_deal? %>
@@ -75,6 +75,11 @@
                             <div class="right-block">
                                 <div class="caption">
                                     <h4><%= link_to product.name, product_link(product), title: product.name, class: "hover-product-name" %></h4>
+                                    <div class="ratings">
+                                        <div class="rating-box">
+                                            <%= stars(product.average_stars) %>
+                                        </div>
+                                    </div>
                                     <div class="price">
                                         <span class="price-new"><%= format_price(product.product_price) %></span>
                                         <% if product.is_deal? %>                        

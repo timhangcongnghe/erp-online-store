@@ -14,8 +14,8 @@
                             <div class="item-image">
                                 <div class="item-img-info">
                                     <a href="<%= product_link(best_seller) %>" class="lt-image" target="_self" title="<%= best_seller.name %>">
-                                        <%= image_tag "/frontend/image/shop/product/75/1.jpg", alt: best_seller.name, title: best_seller.name, class: "img-1 img-responsive" %>
-                                        <%= image_tag "/frontend/image/shop/product/75/3.jpg", alt: best_seller.name, title: best_seller.name, class: "img-2 img-responsive" %>
+                                        <%= image_tag product_image(best_seller.product_images, 'first', 'thumb75'), alt: best_seller.name, title: best_seller.name, class: "img-1 img-responsive" %>
+                                        <%= image_tag product_image(best_seller.product_images, 'second', 'thumb75'), alt: best_seller.name, title: best_seller.name, class: "img-2 img-responsive" %>
                                     </a>
                                 </div>
                             </div>
@@ -36,7 +36,9 @@
                                         </span>
                                         <% if best_seller.is_deal? %>                        
                                         <br><span class="price-old-price"><%= format_price(best_seller.price) %></span>
-                                        <span class="product-percent">-<%= best_seller.deal_percent %>%</span>
+                                            <% if !best_seller.deal_percent.nil? %>
+                                            <span class="product-percent">-<%= best_seller.deal_percent %>%</span>
+                                            <% end %>
                                         <% end %>
                                     </div>
                                 </div>
