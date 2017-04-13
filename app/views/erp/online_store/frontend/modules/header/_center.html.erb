@@ -51,21 +51,21 @@
                                             </li>
                                             <li>
                                                 <p class="close-menu"></p>
-                                                <a href="<%= erp_online_store.blog_path %>" class="clearfix">
-                                                    <strong>Tin Công Nghệ</strong>
+                                                <a href="<%= erp_online_store.brand_listing_path %>" class="clearfix">
+                                                    <strong>Thương Hiệu</strong>
                                                     <span class="label"></span>
                                                 </a>
                                             </li>
 											<li>
                                                 <p class="close-menu"></p>
                                                 <a href="<%= erp_online_store.events_path %>" class="clearfix">
-                                                    <strong><img src="/frontend/image/menu/new-icon.png" alt="">Tin Sự Kiện</strong>
+                                                    <strong><%= image_tag "/frontend/image/menu/new-icon.png", alt: "Hot" %>Tin Sự Kiện</strong>
                                                 </a>
                                             </li>
                                             <li class="hidden-md color-buy business-special">
                                                 <p class="close-menu"></p>
                                                 <a href="<%= erp_online_store.business_page_path %>" class="clearfix" target="_blank">
-                                                    <strong><img src="/frontend/image/menu/hot-icon.png" alt="">Ưu Đãi Doanh Nghiệp</strong>
+                                                    <strong><%= image_tag "/frontend/image/menu/hot-icon.png", alt: "Đặc biệt" %>Ưu Đãi Doanh Nghiệp</strong>
                                                 </a>
                                             </li>
                                         </ul>

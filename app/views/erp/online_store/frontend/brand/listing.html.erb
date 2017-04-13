@@ -1,0 +1,34 @@
+<% title 'Thương hiệu sản phẩm' %>
+<div class="main-container container">
+    <ul class="breadcrumb">
+        <li><%= link_to '<i class="fa fa-home"></i>'.html_safe, erp_online_store.root_path %></li>
+        <li><%= link_to "Thương Hiệu Sản Phẩm", "javascript:void(0)" %></li>
+    </ul>
+    <div class="row">
+        <!--Middle Part Start-->
+        <div id="content" class="col-md-12 col-sm-12">
+            <h3 class="offset_title">Thương Hiệu Sản Phẩm</h3>
+            <div class="brand-page">
+                <!-- Changed listings-->
+                <div class="brand-list row list">
+                    <% @brands.each do |brand| %>
+                    <div class="products-brand col-md-2 col-sm-3 col-xs-6 ">
+                        <div class="product-item-container">
+                            <div class="left-block">
+                                <a href="">
+                                    <div class="product-image-container lazy second_img ">
+                                        <img data-src="<%= brand.image_url.brand_page %>" src="<%= brand.image_url.brand_page %>" alt="<%= brand.name %>" class="img-1 img-responsive">                             
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <% end %>
+                </div>
+                <!--// End Changed listings-->
+            </div>
+        </div>
+    </div>
+    <!--Middle Part End-->
+</div>
+<!-- //Main Container -->
