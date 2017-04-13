@@ -995,3 +995,13 @@ select, .form-control:focus {
 .page-brand-name {
   margin-bottom: 30px;
 }
+.inner-box-desc h4 {
+    font-weight: normal;
+    text-transform: uppercase;
+    padding: 8px 10px;
+    background: #f5f5f5;
+    margin: 10px 0 5px 0;
+}
+.inner-box-desc span {
+    padding-left: 10px;
+}

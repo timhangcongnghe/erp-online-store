@@ -30,12 +30,12 @@ module Erp
       def article_link(article)
         erp_online_store.blog_detail_path(article.id, title:  url_friendly(article.name))
       end
-      
+
       # user avatar
       def avatar(user)
         user.avatar? ? user.avatar.profile : url_for('/frontend/image/avatar/user_default.png')
       end
-      
+
       # user avatar
       def article_image(thumb, size)
         if size == 'normal'
@@ -44,7 +44,7 @@ module Erp
           thumb.present? ? thumb : url_for('/frontend/image/blog/small_70x70.png')
         end
       end
-      
+
       # product image
       def product_image(images, ordinal, thumb)
         if images.present?
@@ -53,7 +53,7 @@ module Erp
           url_for('/frontend/image/shop/product/no-image.png')
         end
       end
-      
+
       # count down to end datetime
       def count_down(from_time, to_time)
         if from_time.present? and to_time.present?
@@ -66,7 +66,7 @@ module Erp
           end
         end
       end
-      
+
     end
   end
 end
