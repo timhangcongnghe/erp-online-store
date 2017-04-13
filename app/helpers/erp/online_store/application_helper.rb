@@ -47,7 +47,11 @@ module Erp
       
       # product image
       def product_image(images, ordinal, thumb)
-        images.present? ? images.send(ordinal).image_url.send(thumb).url : url_for('/frontend/image/shop/product/no-image.png')
+        if images.present?
+          images.count < 2 ? images.first.image_url.send(thumb).url : images.send(ordinal).image_url.send(thumb).url
+        else
+          url_for('/frontend/image/shop/product/no-image.png')
+        end
       end
       
       # count down to end datetime
