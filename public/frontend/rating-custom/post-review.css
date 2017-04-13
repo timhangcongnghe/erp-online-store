@@ -40,6 +40,13 @@ div#post-review-box {
   height: 22px;
   color: #eca330;
 }
+.rating-block a {
+  color: #009688;
+  font-weight: 500;
+}
+.rating-block .rating {
+  margin-bottom: 5px;
+}
 .breakdown {
   border-right: 1px solid #EFEFEF;
 }

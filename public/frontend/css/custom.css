@@ -992,7 +992,14 @@ select, .form-control:focus {
 .date-event {
   color: #cc181e;
 }
-.page-brand-name {
+span.fa.fa-stack {
+    color: #eca330;
+}
+.not-yet-rating {
+  border-right: 1px solid #EFEFEF;
+  padding: 15px 15px 15px 15px;
+  text-transform: uppercase;
+}.page-brand-name {
   margin-bottom: 30px;
 }
 .inner-box-desc h4 {
