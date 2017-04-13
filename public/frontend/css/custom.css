@@ -989,3 +989,6 @@ select, .form-control:focus {
 .date-event {
   color: #cc181e;
 }
+.page-brand-name {
+  margin-bottom: 30px;
+}
