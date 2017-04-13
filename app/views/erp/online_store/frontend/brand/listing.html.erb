@@ -12,7 +12,7 @@
                 <!-- Changed listings-->
                 <div class="products-brand brand-list row list">
                     <% @brands.each_with_index do |brand, index| %>
-                    <%= '</div> <div class="brand-list row list">'.html_safe if index%6 == 0 and index != 0 %>
+                    <%= '</div> <div class="products-brand brand-list row list">'.html_safe if index%6 == 0 and index != 0 %>
                         <div class="col-md-2 col-sm-3 col-xs-6 ">
                             <div class="product-item-container">
                                 <div class="left-block">
