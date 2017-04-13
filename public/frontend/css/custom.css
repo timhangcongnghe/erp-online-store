@@ -839,6 +839,9 @@ table.product-compare tr td.product-name {
 }
 .products-brand {
   margin-bottom: 30px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
 }
 .header-fixed-top {
   position: fixed;
