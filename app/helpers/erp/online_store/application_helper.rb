@@ -6,7 +6,16 @@ module Erp
       def stars(number)
         strs = []
         (1..5).each do |star|
-          strs << "<span class=\"fa fa-stack\"><i class=\"fa fa-star#{(number >= star ? '' : '-o')} fa-stack-2x\"></i></span>"
+          star = star-1
+          if number <= star+0.25
+            cls = '-o'
+          elsif number >= star+0.76
+            cls = ''
+          elsif number >= star+0.26 and number <= star+0.75
+            cls = '-half-o'
+          end
+          
+          strs << "<span class=\"fa fa-stack\"><i class=\"fa fa-star#{(cls)} fa-stack-2x\"></i></span>"
         end
         strs.join('').html_safe
       end
