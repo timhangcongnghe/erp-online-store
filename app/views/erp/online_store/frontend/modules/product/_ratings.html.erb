@@ -71,43 +71,48 @@
 <% end %>
 
 <% if ratings.count > 0 %>
-    <hr>
-    <div id="review">
-        <% ratings.each do |rating| %>
-            <div class="content-data-summary">
-                <div class="content-header">
-                    <span class="content-rating right">
-                        <div class="ratings">
-                            <div class="rating-box">
-                                <%= stars(rating.star) %>
-                            </div>
+<div class="row">
+    <div class="col-sm-12">
+        <hr/>
+        <div class="review-block">
+            <% ratings.each_with_index do |rating,index| %>
+                <div class="row">
+                    <div class="col-sm-4 review-block-author">
+                        <img src="http://dummyimage.com/60x60/666/ffffff&text=No+Image" class="img-rounded">
+                        <div class="author">
+                            <div class="review-block-name"><a href="#"><%= rating.user_name %></a></div>
+                            <div class="review-block-date">đến từ Hồ Chí Minh<br/><%= relative_time(rating.created_at) %></div>
                         </div>
-                    </span>
-                    <span class="content-meta">
-                        <h3 class="author right"><a href="#"><%= rating.user_name %></a></h3>
-                        <span class="date-time"><%= relative_time(rating.created_at) %></span>
-                    </span>
-                    <% if can? :delete, rating %>
-                    <span class="full-right">
-                        <a class="favor satis remove-comment"
-                            href="<%= erp_online_store.delete_product_rating_path(rating) %>"
-                            data-method="delete"
-                            title="Xóa đánh giá"
-                            data-confirm="Bạn muốn xóa đánh giá này?">
-                            <i class="fa fa-trash-o"></i>
-                        </a>
-                    </span>
-                    <% end %>
+                    </div>
+                    <div class="col-sm-8 border-left">
+                        <div class="review-block-rate">
+                            <%= stars(rating.star) %>
+                            <% if can? :delete, rating %>
+                            <span class="full-right">
+                                <a class="favor satis remove-comment"
+                                    href="<%= erp_online_store.delete_product_rating_path(rating) %>"
+                                    data-method="delete"
+                                    title="Xóa đánh giá"
+                                    data-confirm="Bạn muốn xóa đánh giá này?">
+                                    <i class="fa fa-trash-o"></i> Xóa đánh giá
+                                </a>
+                            </span>
+                            <% end %>
+                        </div>
+                        <div class="review-block-title"></div>
+                        <div class="review-block-description"><%= rating.content %></div>
+                    </div>
                 </div>
-                <div class="content-title">
-                    <p><%= rating.content %></p>
-                </div>
-            </div>
-        <% end %>
+                <%= (index+1 == ratings.count) ? '' : '<hr/>'.html_safe %>
+            <% end %>
+            
+        </div>
+        
     </div>
     <div class="pagination-comments">
-        <%= erp_datalist_pagination(ratings) %>
-    </div>
+            <%= erp_datalist_pagination(ratings) %>
+        </div>
+</div>
 <% end %>
 
 <%= javascript_include_tag '/frontend/rating-custom/star-rating.js' %>
