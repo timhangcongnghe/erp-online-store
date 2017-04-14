@@ -30,11 +30,7 @@
                         <span class="label label-percent">-<%= product.deal_percent %>%</span>
                         <% end %>
                     </div>
-                    <% if product.short_description.present? %>
-                    <div class="description product-description">
-                        <p><%= product.short_description.html_safe %></p>
-                    </div>
-                    <% end %>
+                    <%= product_list_description(product) %>
                 </div>
             </div>
             <!-- right block -->

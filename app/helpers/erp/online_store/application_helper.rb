@@ -14,7 +14,7 @@ module Erp
           elsif number >= star+0.26 and number <= star+0.75
             cls = '-half-o'
           end
-          
+
           strs << "<span class=\"fa fa-stack\"><i class=\"fa fa-star#{(cls)} fa-stack-2x\"></i></span>"
         end
         strs.join('').html_safe
@@ -29,7 +29,7 @@ module Erp
       def product_link(product)
         erp_online_store.product_detail_path(product_id: product.id, title: url_friendly(product.name))
       end
-      
+
       # brand link helper
       def brand_link(brand)
         erp_online_store.brand_detail_path(brand_id: brand.id, title: url_friendly(brand.name))
@@ -79,6 +79,17 @@ module Erp
             </div>".html_safe
           end
         end
+      end
+
+      def product_list_description(product)
+        html = '<div class="description product-description">'
+        rows = []
+        product.product_list_descipriton_values_array.each do |row|
+          rows << '<p><strong>' + row[:name] + '</strong>: ' + row[:values].join(', ') + '</p>'
+        end
+        html += rows.join('<br>')
+        html += '</div>'
+        html.html_safe
       end
 
     end
