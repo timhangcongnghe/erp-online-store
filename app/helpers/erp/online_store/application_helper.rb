@@ -83,7 +83,7 @@ module Erp
 
       def product_list_description(product)
         props = product.product_list_descipriton_values_array
-        return '' if !props.empty?
+        return '' if props.empty?
 
         html = '<div class="description product-description">'
         rows = []
