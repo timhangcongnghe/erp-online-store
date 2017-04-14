@@ -72,15 +72,22 @@
                             <div class="product-box-desc">
                                 <div class="inner-box-desc">
                                     <h3>TÍNH NĂNG SẢN PHẨM</h3>
-                                    <% @product.category.property_groups.each do |group| %>
-                                        <h4><%= group.name %></h4>
-                                        <% group.properties.each do |property| %>
+
+                                    <% @product.product_short_descipriton_values_array.each do |row| %>
+                                        <div>
+                                            <span><%= row[:name] %>: </span>
+                                            <%= row[:values].join(", ") %>
+                                        </div>
+                                    <% end %>
+                                    <!--<% @product.product_values_array.each do |group| %>
+                                        <h4><%= group[:group].name %></h4>
+                                        <% group[:properties].each do |property| %>
                                             <div>
-                                                <span><%= property.name %>: </span>
-                                                <%= (@product.products_values_by_property(property).map {|pv| pv.properties_value.value }).join(", ") %>
+                                                <span><%= property[:property].name %>: </span>
+                                                <%= property[:values].join(", ") %>
                                             </div>
                                         <% end %>
-                                    <% end %>
+                                    <% end %>-->
                                 </div>
                             </div>
                             <% end %>
