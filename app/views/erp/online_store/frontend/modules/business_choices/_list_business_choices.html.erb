@@ -32,7 +32,7 @@
                                     <% else %>
                                         <li><%= link_to child_1.name, menu_link(child_1) %></li>
                                     <% end %>
-                                <% end %>                                    
+                                <% end %>
                             </ul>
                         </li>
                         <% end %>
@@ -77,16 +77,12 @@
                                 <h4><%= link_to product.name, product_link(product), title: product.name, class: "hover-product-name" %></h4>
                                 <div class="price">
                                     <span class="price-new"><%= format_price(product.product_price) %></span>
-                                    <% if product.is_deal? %>                        
+                                    <% if product.is_deal? %>
                                     <br><span class="price-old"><%= format_price(product.price) %></span>
                                     <span class="label label-percent">-<%= product.deal_percent %>%</span>
-                                    <% end %>                                             
+                                    <% end %>
                                 </div>
-                                <% if product.short_description.present? %>
-                                <div class="description product-description">
-                                    <p><%= product.short_description.html_safe %></p>
-                                </div>
-                                <% end %>
+                                <%= product_list_description(product) %>
                             </div>
                         </div>
                         <!-- right block -->
