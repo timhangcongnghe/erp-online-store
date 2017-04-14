@@ -1012,3 +1012,15 @@ span.fa.fa-stack {
 .inner-box-desc span {
     padding-left: 10px;
 }
+.content-product-left .owl2-item {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    border: solid 1px #e6e6e6;
+}
+.content-product-left .thumb-vertical-outer .thumbnail {
+  border: none;
+}
+.content-product-left .owl2-item img {
+  max-height: 99px;
+}

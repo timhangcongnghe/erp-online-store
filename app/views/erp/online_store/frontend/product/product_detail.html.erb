@@ -24,7 +24,7 @@
                                         <% @product.product_images.each_with_index do |product_image,index| %>
                                         <li class="owl2-item">
                                             <a data-index="<%= index %>" class="img thumbnail " data-image="<%= product_image.image_url.thumb600 %>" title="<%= @product.name %>">
-                                                <%= image_tag product_image.image_url.thumb600, alt: @product.name, title: @product.name %>
+                                                <%= image_tag product_image.image_url.thumb99, alt: @product.name, title: @product.name %>
                                             </a>
                                         </li>
                                         <% end %>
@@ -168,7 +168,7 @@
                         items: [
                             <% @product.product_images.each_with_index do |product_image,index| %>
                                 {
-                                    src: '<%= product_image.image_url.thumb600 %>'
+                                    src: '<%= product_image.image_url %>'
                                 },
                             <% end %>
                         ],
