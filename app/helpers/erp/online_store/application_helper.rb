@@ -85,13 +85,13 @@ module Erp
         props = product.product_list_descipriton_values_array
         return '' if props.empty?
 
-        html = '<div class="description product-description">'
+        html = '<div class="description product-description"><p>'
         rows = []
         props.each do |row|
-          rows << '<p><strong>' + row[:name] + '</strong>: ' + row[:values].join(', ') + '</p>'
+          rows << '<strong>' + row[:name] + '</strong>: ' + row[:values].join(', ') + ''
         end
         html += rows.join('<br>')
-        html += '</div>'
+        html += '</p></div>'
         html.html_safe
       end
 
