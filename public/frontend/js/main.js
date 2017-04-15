@@ -1,3 +1,9 @@
+function fixWithProductListAll() {
+    $('.products-list').each(function() {
+        fixWithProductList($(this));
+    });
+}
+
 function fixWithProductList(list) {
     var count = list.find('.product-item-container').length;
     var item_width = list.find('.product-layout').width();
@@ -30,7 +36,7 @@ function fixWithProductList(list) {
     });
     rows.forEach(function(entry) {
         entry["boxes"].forEach(function(box) {
-            box.height(entry["max_height"]+10);
+            box.height(entry["max_height"]);
         });
     });
     console.log(rows);
@@ -539,13 +545,16 @@ $(document).ready(function () {
             $(this).find('ul').hide();
         });
 
-        // auto height product list
+        //// auto height product list
         setTimeout(function() {
-            $('.products-list').each(function() {
-                fixWithProductList($(this));
-                fixWithProductList($(this));
-            });
+            fixWithProductListAll();
         }, 1000);
+
+        $('div.lazy img').load(function() {
+            setTimeout(function() {
+                fixWithProductListAll();
+            }, 1000);
+        });
     });
 
 });
@@ -554,8 +563,5 @@ $(window).scroll(function () {
 });
 $( window ).resize(function() {
     // auto height product list
-    $('.products-list').each(function() {
-        fixWithProductList($(this));
-        fixWithProductList($(this));
-    });
+    fixWithProductListAll();
 });
