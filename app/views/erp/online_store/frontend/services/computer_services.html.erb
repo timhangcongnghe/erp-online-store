@@ -1,0 +1,37 @@
+<% title 'Dịch Vụ Sửa Chữa - Bảo Trì' %>
+
+<div class="main-container container">
+    <ul class="breadcrumb">
+        <li><%= link_to '<i class="fa fa-home"></i>'.html_safe, erp_online_store.root_path %></li>
+        <li><%= link_to "Dịch Vụ Sửa Chữa - Bảo Trì", "javascript:void(0)" %></li>
+    </ul>
+    <div class="row">
+        <div id="content" class="col-md-12 col-sm-12">
+            <h3 class="offset_title">DỊCH VỤ SỬA CHỮA - BẢO TRÌ</h3>
+            <div class="products-category">
+                <div class="category-derc form-group">
+                    <%= render "erp/online_store/frontend/modules/services/intro" %>
+                </div>
+                <div class="divider"></div>
+                <%= render "erp/online_store/frontend/modules/services/about_services" %>
+                <div class="row">
+                    <div class="col-md-12">
+                        <%= render "erp/online_store/frontend/modules/services/computer_repairs" %>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <%= render "erp/online_store/frontend/modules/services/printer_repairs" %>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <%= render "erp/online_store/frontend/modules/services/toner_refill" %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Middle Part End-->
+</div>
+<!-- //Main Container -->

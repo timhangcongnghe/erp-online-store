@@ -3,8 +3,6 @@ module Erp
     module Frontend
       class ProductController < Erp::Frontend::FrontendController
         before_action :set_comment, only: [:delete_comment]
-        include Erp::ApplicationHelper
-        include Erp::OnlineStore::ApplicationHelper
         include ActionView::Helpers::NumberHelper
 
         def product_detail

@@ -82,7 +82,11 @@ Erp::OnlineStore::Engine.routes.draw do
   # BRAND
   get "thuong-hieu-san-pham.html" => "frontend/brand#listing", as: :brand_listing
   get "thuong-hieu-san-pham(/:brand_id)(/:title).html" => "frontend/brand#detail", as: :brand_detail
-
+  
+  # SERVICES
+  get "dich-vu-sua-chua-bao-tri.html" => "frontend/services#computer_services", as: :computer_services
+  get "thi-cong-ha-tang-mang.html" => "frontend/services#network_services", as: :network_services
+  
   # HOME
   get "top-right-menu.html" => "frontend/home#top_right_menu", as: :top_right_menu
 

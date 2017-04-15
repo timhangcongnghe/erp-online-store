@@ -1051,3 +1051,62 @@ h3 {
 .products-list.list-masonry .product-layout .product-item-container, .products-list.grid .product-layout .product-item-container {
   border: solid 1px rgba(0,0,0,0);
 }
+.text-services {
+  font-weight: 600;
+  color: #ea3a3c;
+}
+.text-brands {
+  font-weight: 600;
+  color: #5f87d1;
+}
+.text-pricing-services {
+  font-weight: 600;
+}
+.text-download-services {
+  font-weight: 600;
+}
+.services-content {
+  line-height: 1.7;
+}
+.td-price {
+  text-align: center;
+}
+table th {
+  color: #000;
+}
+.price-computer-repairs .table thead > tr > th {
+  background: #ef4836;
+  color: #fff;
+}
+.price-computer-repairs .table-bordered>tbody>tr>td, .price-computer-repairs .table-bordered>tbody>tr>th, .price-computer-repairs .table-bordered>tfoot>tr>td, .price-computer-repairs .table-bordered>tfoot>tr>th, .price-computer-repairs .table-bordered>thead>tr>td, .price-computer-repairs .table-bordered>thead>tr>th {
+  border: 1px solid #f36a5a;
+  font-weight: 500;
+}
+.price-printer-repairs .table thead > tr > th {
+  background: #2ab4c0;
+  color: #fff;
+}
+.price-printer-repairs .table-bordered>tbody>tr>td, .price-printer-repairs .table-bordered>tbody>tr>th, .price-printer-repairs .table-bordered>tfoot>tr>td, .price-printer-repairs .table-bordered>tfoot>tr>th, .price-printer-repairs .table-bordered>thead>tr>td, .price-printer-repairs .table-bordered>thead>tr>th {
+  border: 1px solid #32c5d2;
+  font-weight: 500;
+}
+.price-toner-refill-repairs .table thead > tr > th {
+  background: #8E44AD;
+  color: #fff;
+}
+.price-toner-refill-repairs .table-bordered>tbody>tr>td, .price-toner-refill-repairs .table-bordered>tbody>tr>th, .price-toner-refill-repairs .table-bordered>tfoot>tr>td, .price-toner-refill-repairs .table-bordered>tfoot>tr>th, .price-toner-refill-repairs .table-bordered>thead>tr>td, .price-toner-refill-repairs .table-bordered>thead>tr>th {
+  border: 1px solid #8775A7;
+  font-weight: 500;
+}
+.text-middle-table {
+  vertical-align: middle !important;
+}
+.feature-content .service-name {
+  padding-top: 11px;
+}
+.service-box .feature-icon {
+  color: #3598DC;
+}
+.warning-box .feature-icon {
+  color: #E87E04;
+}
