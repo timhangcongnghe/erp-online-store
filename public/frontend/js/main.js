@@ -548,7 +548,7 @@ $(document).ready(function () {
         //// auto height product list
         setTimeout(function() {
             fixWithProductListAll();
-        }, 1000);
+        }, 5000);
     });
 
 });
@@ -557,5 +557,5 @@ $(window).scroll(function () {
 });
 $( window ).resize(function() {
     // auto height product list
-    fixWithProductListAll();
+    // fixWithProductListAll();
 });
