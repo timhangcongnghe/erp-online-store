@@ -30,7 +30,7 @@ function fixWithProductList(list) {
     });
     rows.forEach(function(entry) {
         entry["boxes"].forEach(function(box) {
-            box.height(entry["max_height"]);
+            box.height(entry["max_height"]+10);
         });
     });
     console.log(rows);
@@ -544,7 +544,7 @@ $(document).ready(function () {
             $('.products-list').each(function() {
                 fixWithProductList($(this));
             });
-        }, 2000);
+        }, 1000);
     });
 
 });
