@@ -83,6 +83,12 @@ module Erp
           }}
         end
 
+        # view all product properties
+        def all_property
+          @product = Erp::Products::Product.find(params[:product_id])
+          render "erp/online_store/frontend/modules/product/_all_property", layout: nil
+        end
+
         private
           def set_comment
             @comment = Erp::Products::Comment.find(params[:comment_id])

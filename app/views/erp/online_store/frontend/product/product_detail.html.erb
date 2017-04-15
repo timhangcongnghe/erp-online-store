@@ -72,24 +72,22 @@
                             <div class="product-box-desc">
                                 <div class="inner-box-desc">
                                     <h3>TÍNH NĂNG SẢN PHẨM</h3>
-
-                                    <% @product.product_short_descipriton_values_array.each do |row| %>
-                                        <div>
-                                            <span><%= row[:name] %>: </span>
-                                            <%= row[:values].join(", ") %>
-                                        </div>
-                                    <% end %>
-                                    <!--<% @product.product_values_array.each do |group| %>
-                                        <h4><%= group[:group].name %></h4>
-                                        <% group[:properties].each do |property| %>
-                                            <div>
-                                                <span><%= property[:property].name %>: </span>
-                                                <%= property[:values].join(", ") %>
-                                            </div>
+                                    <table>
+                                        <% @product.product_short_descipriton_values_array.each do |row| %>
+                                            <tr>
+                                                <td valign="top" class="text-nowrap"><span><%= row[:name] %></span></td>
+                                                <td class="pl-10"><%= row[:values].join(", ") %></td>
+                                            </tr>
                                         <% end %>
-                                    <% end %>-->
+                                    </table>
                                 </div>
+                                <a class="product-property-all ajax-link"
+                                   data-type="ajax"
+                                    href="<%= erp_online_store.all_property_path(product_id: @product.id) %>">
+                                        Xem thông số chi tiết
+                                </a>
                             </div>
+
                             <% end %>
                             <div id="product">
                                 <h3>ĐẶT MUA SẢN PHẨM</h3>

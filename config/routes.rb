@@ -1,10 +1,11 @@
 Erp::OnlineStore::Engine.routes.draw do
   root to: "frontend/home#index"
-  
+
   get "category-box" => "frontend/home#category_box", as: :category_box
   # CATEGORY
+  get "san-pham/thuoc-tinh/:product_id.html" => "frontend/product#all_property", as: :all_property
   get "san-pham/:product_id(/:title).html" => "frontend/product#product_detail", as: :product_detail
-  get "chuyen-muc(/:menu_id)(/:title).html" => "frontend/category#index", as: :category  
+  get "chuyen-muc(/:menu_id)(/:title).html" => "frontend/category#index", as: :category
   post "chuyen-muc/chi-tiet-san-pham.html" => "frontend/product#product_detail"
   get "binh-luan-san-pham.html" => "frontend/product#comments", as: :product_comments
   post "binh-luan-san-pham.html" => "frontend/product#comments"
@@ -16,7 +17,7 @@ Erp::OnlineStore::Engine.routes.draw do
   get "san-pham-khuyen-mai.html" => "frontend/category#deal_products", as: :deal_products
   get "san-pham-ban-chay.html" => "frontend/category#bestseller_products", as: :bestseller_products
   get "lua-chon-tu-doanh-nghiep.html" => "frontend/business_choices#index", as: :business_choices
-  
+
   # BLOG
   get "tin-cong-nghe.html" => "frontend/blog#index", as: :blog
   get "tin-cong-nghe/:blog_id(/:title).html" => "frontend/blog#detail", as: :blog_detail
@@ -24,11 +25,11 @@ Erp::OnlineStore::Engine.routes.draw do
   get "binh-luan-bai-viet.html/:blog_id" => "frontend/blog#comments", as: :blog_comments
   post "binh-luan-bai-viet.html/:blog_id" => "frontend/blog#comments"
   delete "binh-luan-bai-viet/:comment_id-remove.html" => "frontend/blog#delete_comment", as: :delete_blog_comment
-  
+
   # EVENTS
   get "su-kien.html" => "frontend/events#index", as: :events
   get "su-kien/chi-tiet.html" => "frontend/events#events_detail", as: :events_detail
-  
+
   # ACCOUNT
   get "tai-khoan/thong-tin-tai-khoan.html" => "frontend/account#my_account", as: :my_account
   post "tai-khoan/thong-tin-tai-khoan.html" => "frontend/account#my_account"
@@ -36,13 +37,13 @@ Erp::OnlineStore::Engine.routes.draw do
   post "tai-khoan/cap-nhat-mat-khau.html" => "frontend/account#update_password"
   get "tai-khoan/lich-su-mua-hang.html" => "frontend/account#order_history", as: :order_history
   get "tai-khoan/chi-tiet-don-hang.html" => "frontend/account#order_information", as: :order_information
-  
+
   # SHOPPING CART
   get "topcart.html" => "frontend/shopping_cart#top_cart", as: :top_cart
   get "gio-hang.html" => "frontend/shopping_cart#shopping_cart", as: :shopping_cart
   get "dat-hang.html" => "frontend/shopping_cart#checkout", as: :checkout
   get "so-sanh-san-pham.html" => "frontend/shopping_cart#compare_product", as: :compare_product
-  
+
   # BUSINESS PAGE
   get "uu-dai-doanh-nghiep.html" => "frontend/business_page#index", as: :business_page
   get "uu-dai-doanh-nghiep/chi-tiet-bai-viet.html" => "frontend/business_page#news_detail", as: :news_detail
@@ -52,23 +53,23 @@ Erp::OnlineStore::Engine.routes.draw do
 			collection do
 				post "add_to_cart"
 				get "remove_cart_item"
-			end    
+			end
 		end
 		resources :compares
     resources :compare_items do
       collection do
         post "add_to_compare"
         get "remove_compare_item"
-      end    
+      end
     end
     resources :wish_lists do
       collection do
         post "add_to_wish_list"
         get "remove_product"
-      end    
+      end
     end
 	end
-  
+
   # INFORMATION
   get "gioi-thieu.html" => "frontend/information#about_us", as: :about_us
   get "gop-y-lien-he.html" => "frontend/information#contact_us", as: :contact_us
@@ -77,17 +78,17 @@ Erp::OnlineStore::Engine.routes.draw do
   get "thong-tin/cac-dieu-khoan-va-dieu-kien.html" => "frontend/information#terms_and_conditions", as: :terms_and_conditions
   get "thong-tin/:category_id(/:title).html" => "frontend/information#policy", as: :policy
   get "site-map.html" => "frontend/information#site_map", as: :site_map
-  
+
   # BRAND
   get "thuong-hieu-san-pham.html" => "frontend/brand#listing", as: :brand_listing
   get "thuong-hieu-san-pham(/:brand_id)(/:title).html" => "frontend/brand#detail", as: :brand_detail
-  
+
   # HOME
   get "top-right-menu.html" => "frontend/home#top_right_menu", as: :top_right_menu
-  
+
   #@todo online store
 	get "autosearch" => "frontend/product#autosearch", as: :autosearch
-	
+
 	# NEWSLETTER
 	# @todo newsletters routes errors
 	Erp::Newsletters::Engine.routes.draw do
