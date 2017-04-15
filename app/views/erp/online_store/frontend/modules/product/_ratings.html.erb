@@ -100,7 +100,7 @@
                             <% end %>
                         </div>
                         <div class="review-block-title"></div>
-                        <div class="review-block-description"><%= rating.content %></div>
+                        <div class="review-block-description"><%= rating.display_content %></div>
                     </div>
                 </div>
                 <%= (index+1 == ratings.count) ? '' : '<hr/>'.html_safe %>
