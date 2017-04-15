@@ -5,11 +5,11 @@ function fixWithProductListAll() {
 }
 
 function fixWithProductList(list) {
-    var count = list.find('.product-item-container').length;
+    var count = list.find('.product-layout').length;
     var item_width = list.find('.product-layout').width();
     var list_width = list.width();
     var per_row = list_width/item_width;
-    var items = list.find('.product-item-container');
+    var items = list.find('.product-layout');
 
     items.css('height', 'auto');
 
@@ -37,6 +37,7 @@ function fixWithProductList(list) {
     rows.forEach(function(entry) {
         entry["boxes"].forEach(function(box) {
             box.height(entry["max_height"]);
+            box.find('.product-item-container').height(entry["max_height"]);
         });
     });
     console.log(rows);
@@ -548,7 +549,7 @@ $(document).ready(function () {
         //// auto height product list
         setTimeout(function() {
             fixWithProductListAll();
-        }, 5000);
+        }, 1000);
     });
 
 });
