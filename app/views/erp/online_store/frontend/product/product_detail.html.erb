@@ -72,20 +72,39 @@
                             <div class="product-box-desc">
                                 <div class="inner-box-desc">
                                     <h3>TÍNH NĂNG SẢN PHẨM</h3>
-                                    <table>
-                                        <% @product.product_short_descipriton_values_array.each do |row| %>
-                                            <tr>
-                                                <td valign="top" class="text-nowrap"><span><%= row[:name] %></span></td>
-                                                <td class="pl-10"><%= row[:values].join(", ") %></td>
-                                            </tr>
-                                        <% end %>
-                                    </table>
+                                    <% product_short_descipriton_values_array = @product.product_short_descipriton_values_array %>
+                                    <% if product_short_descipriton_values_array.count > 3 %>
+                                        <table>
+                                            <% @product.product_short_descipriton_values_array.each do |row| %>
+                                                <tr>
+                                                    <td valign="top" class="text-nowrap"><span><%= row[:name] %></span></td>
+                                                    <td class="pl-10"><%= row[:values].join(", ") %></td>
+                                                </tr>
+                                            <% end %>
+                                        </table>
+                                    <% else %>
+                                        <table width="100%" style="margin-top: -15px;">
+                                            <% @product.product_values_array.each do |group| %>
+                                                <tr>
+                                                    <td colspan="2"><h4 class=""><%= group[:group].name %></h4></td>
+                                                </tr>
+                                                <% group[:properties].each do |property| %>
+                                                    <tr>
+                                                        <td valign="top" class="text-nowrap"><span><%= property[:property].name %></span></td>
+                                                        <td class="pl-10"><%= property[:values].join(", ") %></td>
+                                                    </tr>
+                                                <% end %>
+                                            <% end %>
+                                        </table>
+                                    <% end %>
                                 </div>
-                                <a class="product-property-all ajax-link"
-                                   data-type="ajax"
-                                    href="<%= erp_online_store.all_property_path(product_id: @product.id) %>">
-                                        Xem thông số chi tiết
-                                </a>
+                                <% if product_short_descipriton_values_array.count > 3 %>
+                                    <a class="product-property-all ajax-link"
+                                       data-type="ajax"
+                                        href="<%= erp_online_store.all_property_path(product_id: @product.id) %>">
+                                            Xem thông số chi tiết
+                                    </a>
+                                <% end %>
                             </div>
 
                             <% end %>
