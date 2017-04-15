@@ -48,6 +48,9 @@
 		<% if params[:controller] == "erp/online_store/frontend/account" && params[:action] == "my_account" %>
 		<%= stylesheet_link_tag "/frontend/css/custom-profile.css" %>
 		<% end %>
+		<% if params[:controller] == "erp/online_store/frontend/shopping_cart" && params[:action] == "checkout" %>
+		<%= stylesheet_link_tag "/frontend/css/checkout.css" %>
+		<% end %>
 		<%= stylesheet_link_tag "/frontend/css/starability-minified/starability-all.min.css" %>
 		<% if params[:controller] == "erp/online_store/frontend/product" && params[:action] == "product_detail" %>
 		<%= stylesheet_link_tag "/frontend/rating-custom/post-review.css" %>

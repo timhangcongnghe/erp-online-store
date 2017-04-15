@@ -4,81 +4,213 @@
         <li><%= link_to '<i class="fa fa-home"></i>'.html_safe, erp_online_store.root_path %></li>
         <li><%= link_to "Đặt Hàng", "javascript:void(0)" %></li>
     </ul>
+    
+    
     <div class="row">
         <!--Middle Part Start-->
-        <div id="content" class="col-sm-12 shopping-cart">
-            <h2 class="title">ĐẶT HÀNG</h2>
-            <div class="row">
-                <div class="col-sm-12">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h4 class="panel-title"><i class="fa fa-opencart"></i> Danh sách sản phẩm</h4>
-                        </div>
-                        <div class="panel-body">
-                            <div class="table-responsive">
-                                <table class="table table-bordered">
-                                    <thead>
-                                        <tr>
-                                            <td class="text-center">HÌNH ẢNH</td>
-                                            <td class="text-left">TÊN SẢN PHẨM</td>
-                                            <td class="text-center">SỐ LƯỢNG</td>
-                                            <td class="text-center">GIÁ</td>
-                                            <td class="text-center">THÀNH TIỀN</td>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <% @cart.cart_items.each do |cart_item| %>
-                                        <tr>
-                                            <td class="text-center">
-                                                <%= link_to image_tag("/frontend/image/shop/product/e3.jpg", alt: cart_item.product_name, class: "img-thumbnail", width: "70"), product_link(cart_item.product), title: cart_item.product_name %>
-                                            </td>
-                                            <td class="text-left">
-                                                <strong><%= link_to cart_item.product_name, product_link(cart_item.product), title: cart_item.product_name %></strong><br />
-                                                <% if cart_item.product.short_description.present? %>
-                                                <br><small><%= cart_item.product.short_description.html_safe %></small>
-                                                <% end %>
-                                            </td>                            
-                                            <td class="text-center" width="200px">
-                                                <strong><%= cart_item.quantity %></strong>
-                                            </td>
-                                            <td class="text-center">
-                                                <strong><%= format_price(cart_item.product_price) %></strong>
-                                            </td>
-                                            <td class="text-center">
-                                                <strong><%= format_price(cart_item.total_price) %></strong>
-                                            </td>
-                                        </tr>
+        <div id="content" class="col-sm-12">
+          <h2 class="title">ĐẶT HÀNG</h2>
+          <div class="so-onepagecheckout ">
+            
+            <div class="col-left col-sm-9">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="panel panel-default no-padding">
+                            <div class="col-sm-12 checkout-shipping-methods">
+                                <div class="panel-heading">
+                                  <h4 class="panel-title"><i class="fa fa-truck"></i> Địa chỉ giao hàng</h4>
+                                </div>
+                                <div class="col-sm-12">
+                                    <div class="address-item is-default">
+                                        <p class="name">Nguyễn Tôn Hùng</p>
+                                        <span class="default">Mặc định</span>
+                                        <p class="address">Địa chỉ: 48/8 Ung Văn Khiêm, Phường 25, Quận Bình Thạnh, Hồ Chí Minh, Việt Nam</p>
+                                        <p class="phone">Điện thoại: 0912345678</p>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <p class="other">Bạn muốn giao hàng đến địa chỉ khác? <a href="#">Chọn trong sổ địa chỉ</a> hoặc <a href="#">Tạo địa chỉ giao hàng mới</a></p>
+                                    
+                                    <hr>
+                                    <p class="note"><i>*</i> Chọn địa chỉ giao hàng từ danh sách dưới đây:</p>
+                                    <div class="row address-book">
+                                        <div class="col-sm-6">
+                                            <div class="address-item is-default">
+                                                <p class="name">Nguyễn Tôn Hùng</p>
+                                                <span class="default">Mặc định</span>
+                                                <p class="address">Địa chỉ: 188 Đường số 1, Phường 16, Gò Vấp, Hồ Chí Minh</p>
+                                                <p class="phone">Điện thoại: 0912345678</p>
+                                                <p class="action">
+                                                    <button type="button" class="btn btn-default btn-custom is-blue">
+                                                        Giao đến địa chỉ này
+                                                    </button>
+                                                    <button type="button" class="btn btn-default btn-custom"><i class="fa fa-edit"></i></button>
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <% (1..2).each do |contact| %>
+                                            <div class="col-sm-6">
+                                                <div class="address-item">
+                                                    <p class="name">Nguyễn Tôn Hùng</p>
+                                                    <p class="address">Địa chỉ: 188 Đường số 1, Phường 16, Gò Vấp, Hồ Chí Minh</p>
+                                                    <p class="phone">Điện thoại: 0912345678</p>
+                                                    <p class="action">
+                                                        <button type="button" class="btn btn-default btn-custom is-black">
+                                                            Giao đến địa chỉ này
+                                                        </button>
+                                                        <button type="button" class="btn btn-default btn-custom"><i class="fa fa-edit"></i></button>
+                                                        <button type="button" class="btn btn-default btn-custom"><i class="fa fa-trash"></i></button>
+                                                    </p>
+                                                </div>
+                                            </div>
                                         <% end %>
-                                    </tbody>
-                                </table>
+                                    </div>
+                                    
+                                    <hr>
+                                    <p class="title">Tạo mới địa chỉ giao hàng</p>
+                                    <fieldset id="address-form" class="required">
+                                        <form class="">
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <label for="input-payment-company" class="control-label">Họ tên</label>
+                                                        <input type="text" class="form-control" id="input-payment-company" placeholder="Nhập họ tên người nhận" value="" name="company">
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <label for="input-payment-company" class="control-label">Điện thoại di động</label>
+                                                        <input type="text" class="form-control" id="input-payment-company" placeholder="Nhập số điện thoại" value="" name="company">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <label for="input-payment-country" class="control-label">Tỉnh/Thành phố</label>
+                                                        <select class="form-control" id="input-payment-country" name="country_id">
+                                                            <option value=""> --- Please Select --- </option>
+                                                            <option value="244">Aaland Islands</option>
+                                                            <option value="1">Afghanistan</option>
+                                                            <option value="2">Albania</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <label for="input-payment-zone" class="control-label">Quận/Huyện/Thị xã</label>
+                                                        <select class="form-control" id="input-payment-zone" name="zone_id">
+                                                            <option value=""> --- Please Select --- </option>
+                                                            <option value="3513">Aberdeen</option>
+                                                            <option value="3514">Aberdeenshire</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <label for="input-payment-zone" class="control-label">Xã/Phường/Thị trấn</label>
+                                                        <select class="form-control" id="input-payment-zone" name="zone_id">
+                                                            <option value=""> --- Please Select --- </option>
+                                                            <option value="3513">Aberdeen</option>
+                                                            <option value="3514">Aberdeenshire</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <label for="input-payment-address-1" class="control-label">Địa chỉ</label>
+                                                        <input type="text" class="form-control" id="input-payment-address-1" placeholder="Số nhà, đường, thôn, ấp"name="address_1"></in>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-12 text-right">
+                                                    <button class="btn buttonGray" id="btn-radius" type="submit">
+                                                        <span>Cập nhật</span>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </fieldset>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-sm-12">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h4 class="panel-title"><i class="fa fa-pencil"></i> Ghi chú cho đơn hàng</h4>
-                        </div>
-                        <div class="panel-body">
-                            <textarea placeholder="Nhập nội dung ghi chú của bạn tại đây..." rows="4" class="form-control" id="confirm_comment" name="comments"></textarea>
-                            <br>
-                            <label class="control-label" for="confirm_agree">
-                                <input type="checkbox" checked="checked" value="1" required="" class="validate required" id="confirm_agree" name="confirm agree">
-                                <span>
-                                    Tôi đã đọc và đồng ý với
-                                    <%= link_to '<b>Các điều khoản & Điều kiện</b>'.html_safe, "", class: "agree", target: "_blank" %>
-                                    </a>
-                                </span>
-                            </label>
-                            <div class="buttons">
-                                <div class="pull-right">
-                                    <input type="button" class="btn btn-primary" id="button-confirm" value="GỬI ĐƠN ĐẶT HÀNG">
+                    
+                    <div class="col-sm-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title"><i class="fa fa-shopping-cart"></i> Danh sách sản phẩm</h4>
+                            </div>
+                            <div class="panel-body">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <td class="text-center">HÌNH ẢNH</td>
+                                                <td class="text-left">TÊN SẢN PHẨM</td>
+                                                <td class="text-center">SỐ LƯỢNG</td>
+                                                <td class="text-center">GIÁ</td>
+                                                <td class="text-center">THÀNH TIỀN</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <% @cart.cart_items.each do |cart_item| %>
+                                            <tr>
+                                                <td class="text-center">
+                                                    <%= link_to image_tag("/frontend/image/shop/product/e3.jpg", alt: cart_item.product_name, class: "img-thumbnail", width: "70"), product_link(cart_item.product), title: cart_item.product_name %>
+                                                </td>
+                                                <td class="text-left">
+                                                    <strong><%= link_to cart_item.product_name, product_link(cart_item.product), title: cart_item.product_name %></strong><br />
+                                                    <% if cart_item.product.short_description.present? %>
+                                                    <br><small><%= cart_item.product.short_description.html_safe %></small>
+                                                    <% end %>
+                                                </td>                            
+                                                <td class="text-center" width="200px">
+                                                    <strong><%= cart_item.quantity %></strong>
+                                                </td>
+                                                <td class="text-center">
+                                                    <strong><%= format_price(cart_item.product_price) %></strong>
+                                                </td>
+                                                <td class="text-center">
+                                                    <strong><%= format_price(cart_item.total_price) %></strong>
+                                                </td>
+                                            </tr>
+                                            <% end %>
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
+                
+            <div class="col-right col-sm-3">
+                <div class="panel panel-default fee">
+                    <p class="list-info-price"><b>Tổng đơn hàng:</b> <span>15.390.000 đ</span></p>
+                    <p class="total2">Thành tiền: <span>15.390.000 đ</span></p>
+                    <p class="text-right">
+                        <i>(Đã bao gồm VAT)</i>
+                    </p>
+                </div>
+                <div class="panel panel-default confirm">
+                        <textarea placeholder="Nhập ghi chú cho đơn hàng" rows="3" class="form-control" id="confirm_comment" name="comments"></textarea>
+                        <label class="control-label" for="confirm_agree">
+                            <input type="checkbox" checked="checked" value="1" required="" class="validate required" id="confirm_agree" name="confirm agree">
+                            <span>
+                                Tôi đã đọc và đồng ý với
+                                <%= link_to 'Các điều khoản & Điều kiện'.html_safe, "", class: "agree", target: "_blank" %>
+                                </a>
+                            </span>
+                        </label>
+                </div>
+                <button type="button" class="btn btn-large btn-block btn-default btn-checkout">
+                    ĐẶT HÀNG
+                </button>
             </div>
         </div>
         <!--Middle Part End -->
