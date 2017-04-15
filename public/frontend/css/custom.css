@@ -1074,28 +1074,63 @@ h3 {
 table th {
   color: #000;
 }
+.price-network-construction, .price-computer-repairs, .price-printer-repairs, .price-toner-refill, .price-emergency-data, .price-upgrade-warranty, .price-computer-maintenance, .price-security-extended, .price-onsite-warranty {
+  font-family: "Helvetica", "Arial", serif;
+}
 .price-computer-repairs .table thead > tr > th {
-  background: #ef4836;
+  background: #32C5D2;
   color: #fff;
 }
 .price-computer-repairs .table-bordered>tbody>tr>td, .price-computer-repairs .table-bordered>tbody>tr>th, .price-computer-repairs .table-bordered>tfoot>tr>td, .price-computer-repairs .table-bordered>tfoot>tr>th, .price-computer-repairs .table-bordered>thead>tr>td, .price-computer-repairs .table-bordered>thead>tr>th {
-  border: 1px solid #f36a5a;
+  border: 1px solid #5C9BD1;
   font-weight: 500;
 }
 .price-printer-repairs .table thead > tr > th {
-  background: #2ab4c0;
+  background: #E87E04;
   color: #fff;
 }
 .price-printer-repairs .table-bordered>tbody>tr>td, .price-printer-repairs .table-bordered>tbody>tr>th, .price-printer-repairs .table-bordered>tfoot>tr>td, .price-printer-repairs .table-bordered>tfoot>tr>th, .price-printer-repairs .table-bordered>thead>tr>td, .price-printer-repairs .table-bordered>thead>tr>th {
-  border: 1px solid #32c5d2;
+  border: 1px solid #C49F47;
   font-weight: 500;
 }
-.price-toner-refill-repairs .table thead > tr > th {
-  background: #8E44AD;
+.price-toner-refill .table thead > tr > th {
+  background: #F7CA18;
   color: #fff;
 }
-.price-toner-refill-repairs .table-bordered>tbody>tr>td, .price-toner-refill-repairs .table-bordered>tbody>tr>th, .price-toner-refill-repairs .table-bordered>tfoot>tr>td, .price-toner-refill-repairs .table-bordered>tfoot>tr>th, .price-toner-refill-repairs .table-bordered>thead>tr>td, .price-toner-refill-repairs .table-bordered>thead>tr>th {
-  border: 1px solid #8775A7;
+.price-toner-refill .table-bordered>tbody>tr>td, .price-toner-refill .table-bordered>tbody>tr>th, .price-toner-refill .table-bordered>tfoot>tr>td, .price-toner-refill .table-bordered>tfoot>tr>th, .price-toner-refill .table-bordered>thead>tr>td, .price-toner-refill .table-bordered>thead>tr>th {
+  border: 1px solid #C8D046;
+  font-weight: 500;
+}
+.price-network-construction .table thead > tr > th {
+  background: #99cc00;
+  color: #fff;
+}
+.price-network-construction .table-bordered>tbody>tr>td, .price-network-construction .table-bordered>tbody>tr>th, .price-network-construction .table-bordered>tfoot>tr>td, .price-network-construction .table-bordered>tfoot>tr>th, .price-network-construction .table-bordered>thead>tr>td, .price-network-construction .table-bordered>thead>tr>th {
+  border: 1px solid #86b300;
+  font-weight: 500;
+}
+.price-emergency-data .table thead > tr > th {
+  background: #00ccff;
+  color: #fff;
+}
+.price-emergency-data .table-bordered>tbody>tr>td, .price-emergency-data .table-bordered>tbody>tr>th, .price-emergency-data .table-bordered>tfoot>tr>td, .price-emergency-data .table-bordered>tfoot>tr>th, .price-emergency-data .table-bordered>thead>tr>td, .price-emergency-data .table-bordered>thead>tr>th {
+  border: 1px solid #008fb3;
+  font-weight: 500;
+}
+.price-computer-maintenance .table thead > tr > th {
+  background: #6666ff;
+  color: #fff;
+}
+.price-computer-maintenance .table-bordered>tbody>tr>td, .price-computer-maintenance .table-bordered>tbody>tr>th, .price-computer-maintenance .table-bordered>tfoot>tr>td, .price-computer-maintenance .table-bordered>tfoot>tr>th, .price-computer-maintenance .table-bordered>thead>tr>td, .price-computer-maintenance .table-bordered>thead>tr>th {
+  border: 1px solid #3333ff;
+  font-weight: 500;
+}
+.price-security-extended .table thead > tr > th {
+  background: #ff5050;
+  color: #fff;
+}
+.price-security-extended .table-bordered>tbody>tr>td, .price-security-extended .table-bordered>tbody>tr>th, .price-security-extended .table-bordered>tfoot>tr>td, .price-security-extended .table-bordered>tfoot>tr>th, .price-security-extended .table-bordered>thead>tr>td, .price-security-extended .table-bordered>thead>tr>th {
+  border: 1px solid #ff3333;
   font-weight: 500;
 }
 .text-middle-table {
