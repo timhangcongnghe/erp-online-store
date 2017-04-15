@@ -37,7 +37,7 @@ function fixWithProductList(list) {
     rows.forEach(function(entry) {
         entry["boxes"].forEach(function(box) {
             box.height(entry["max_height"]);
-            box.find('.product-item-container').height(entry["max_height"]);
+            box.find('.product-item-container').height(entry["max_height"]-4);
         });
     });
     console.log(rows);
@@ -558,5 +558,5 @@ $(window).scroll(function () {
 });
 $( window ).resize(function() {
     // auto height product list
-    // fixWithProductListAll();
+    fixWithProductListAll();
 });
