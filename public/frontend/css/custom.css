@@ -1048,3 +1048,6 @@ h3 {
 .inner-box-desc td {
     padding: 5px 0;
 }
+.products-list.list-masonry .product-layout .product-item-container, .products-list.grid .product-layout .product-item-container {
+  border: solid 1px rgba(0,0,0,0);
+}

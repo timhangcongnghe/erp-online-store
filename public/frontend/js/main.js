@@ -5,11 +5,11 @@ function fixWithProductListAll() {
 }
 
 function fixWithProductList(list) {
-    var count = list.find('.product-layout').length;
+    var count = list.find('.product-item-container').length;
     var item_width = list.find('.product-layout').width();
     var list_width = list.width();
     var per_row = list_width/item_width;
-    var items = list.find('.product-layout');
+    var items = list.find('.product-item-container');
 
     items.css('height', 'auto');
 
@@ -37,10 +37,8 @@ function fixWithProductList(list) {
     rows.forEach(function(entry) {
         entry["boxes"].forEach(function(box) {
             box.height(entry["max_height"]);
-            box.find('.product-item-container').height(entry["max_height"]-4);
         });
     });
-    console.log(rows);
 }
 
 function countDown(item, year, month, day, hour, minute) {
@@ -550,6 +548,12 @@ $(document).ready(function () {
         setTimeout(function() {
             fixWithProductListAll();
         }, 1000);
+
+        $('div.lazy img').load(function() {
+            setTimeout(function() {
+                fixWithProductListAll();
+            }, 1000);
+        });
     });
 
 });
