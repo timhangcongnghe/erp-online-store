@@ -544,7 +544,7 @@ $(document).ready(function () {
             $('.products-list').each(function() {
                 fixWithProductList($(this));
             });
-        }, 1000);
+        }, 2000);
     });
 
 });
