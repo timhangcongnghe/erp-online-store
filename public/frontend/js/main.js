@@ -552,8 +552,8 @@ $(window).scroll(function () {
     // toogleFixedNav();
 });
 $( window ).resize(function() {
-    // auto height product list
-    $('.products-list').each(function() {
-        fixWithProductList($(this));
-    });
+    //// auto height product list
+    //$('.products-list').each(function() {
+    //    fixWithProductList($(this));
+    //});
 });
