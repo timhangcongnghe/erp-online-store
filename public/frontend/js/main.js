@@ -543,6 +543,7 @@ $(document).ready(function () {
         setTimeout(function() {
             $('.products-list').each(function() {
                 fixWithProductList($(this));
+                fixWithProductList($(this));
             });
         }, 1000);
     });
@@ -552,8 +553,9 @@ $(window).scroll(function () {
     // toogleFixedNav();
 });
 $( window ).resize(function() {
-    //// auto height product list
-    //$('.products-list').each(function() {
-    //    fixWithProductList($(this));
-    //});
+    // auto height product list
+    $('.products-list').each(function() {
+        fixWithProductList($(this));
+        fixWithProductList($(this));
+    });
 });
