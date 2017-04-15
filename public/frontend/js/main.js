@@ -540,9 +540,11 @@ $(document).ready(function () {
         });
 
         // auto height product list
-        $('.products-list').each(function() {
-            fixWithProductList($(this));
-        });
+        setTimeout(function() {
+            $('.products-list').each(function() {
+                fixWithProductList($(this));
+            });
+        }, 1000);
     });
 
 });
