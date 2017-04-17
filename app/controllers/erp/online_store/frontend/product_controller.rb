@@ -77,7 +77,7 @@ module Erp
 
           render json: @products.map { |product| {
             name: product.name,
-            price: format_price(product.product_price) + ' ₫',
+            price: format_price(product.product_price),
             link: product_link(product),
             image: image_src(product.main_image, 'small'),
           }}
