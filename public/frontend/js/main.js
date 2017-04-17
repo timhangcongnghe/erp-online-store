@@ -224,6 +224,7 @@ $(document).ready(function () {
 
     $(document).on('keyup', '.autosearch-input', function(e) {
         var box = $(this).parents('.autosearch');
+        var form = $(this).parents('form');
 
         var code = (e.keyCode ? e.keyCode : e.which);
         if (code === 38) {
@@ -235,9 +236,13 @@ $(document).ready(function () {
             return;
         }
         if (code === 13) {
-            var link = box.find('li.current a').attr('href');
-            window.location = link;
-            return;
+            if (box.find('li.current a').length) {
+                var link = box.find('li.current a').attr('href');
+                window.location = link;
+                return;
+            } else {
+                form.submit();
+            }
         }
         autoSearch(box);
     });
@@ -555,7 +560,6 @@ $(document).ready(function () {
             }, 1000);
         });
     });
-
 });
 $(window).scroll(function () {
     // toogleFixedNav();

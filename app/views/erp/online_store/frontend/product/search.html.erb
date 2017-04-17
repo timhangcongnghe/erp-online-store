@@ -1,0 +1,51 @@
+<% title (params[:menu_id].present? and @menu.present? ? @menu.name : 'TimHangCongNghe.VN') %>
+<div class="main-container container">
+    <ul class="breadcrumb">
+        <li><%= link_to '<i class="fa fa-home"></i>'.html_safe, erp_online_store.root_path %></li>
+        <li>Tìm kiếm</li>
+    </ul>
+    <div class="row">
+        <!--Middle Part Start-->
+        <div id="content" class="col-md-12 col-sm-12">
+            <div class="products-category">
+                <% if @products.count > 0 %>
+                    <% if @keyword.present? %>
+                        <h1>Kết quả tìm kiếm phù hợp với từ khóa <strong>"<%= @keyword %>"</strong>
+                            <% if @menu.present? %>
+                                tại mục <strong>"<%= @menu.name %>"</strong>
+                            <% end %>
+                        </h1>
+                    <% end %>
+                <!--changed listings-->
+                <%= render "erp/online_store/frontend/modules/category/category_middle_part_center", products: @products, menu: @menu %>
+                <!--// End Changed listings-->
+                <!-- Filters -->
+                <%= render "erp/online_store/frontend/modules/category/category_middle_part_bottom", products: @products %>
+                <!-- //end Filters -->
+                <% else %>
+                    <section>
+                        <% if @keyword.present? %>
+                            <div class="report_text">
+                                <h1>Rất tiếc, không tìm thấy kết quả nào phù hợp với từ khóa <strong>"<%= @keyword %>"</strong>
+                                    <% if @menu.present? %>
+                                        tại mục <strong>"<%= @menu.name %>"</strong>
+                                    <% end %>
+                                </h1>
+                            </div>
+                        <% end %>
+                            <div class="noresultsuggestion">
+                                <h3>Để tìm được kết quả chính xác hơn, bạn vui lòng:</h3>
+                                <ul>
+                                    <li>Kiểm tra lỗi chính tả của từ khóa đã nhập</li>
+                                    <li>Thử lại bằng từ khóa khác</li>
+                                    <li>Thử lại bằng những từ khóa tổng quát hơn</li>
+                                    <li>Thử lại bằng những từ khóa ngắn gọn hơn</li>
+                                </ul>
+                            </div>
+                    </section>
+                <% end %>
+            </div>
+        </div>
+        <!--Middle Part End-->
+    </div>
+</div>

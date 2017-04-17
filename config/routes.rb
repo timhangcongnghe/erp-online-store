@@ -3,6 +3,7 @@ Erp::OnlineStore::Engine.routes.draw do
 
   get "category-box" => "frontend/home#category_box", as: :category_box
   # CATEGORY
+  get "tim-kiem.html" => "frontend/product#search", as: :search
   get "san-pham/thuoc-tinh/:product_id.html" => "frontend/product#all_property", as: :all_property
   get "san-pham/:product_id(/:title).html" => "frontend/product#product_detail", as: :product_detail
   get "chuyen-muc(/:menu_id)(/:title).html" => "frontend/category#index", as: :category

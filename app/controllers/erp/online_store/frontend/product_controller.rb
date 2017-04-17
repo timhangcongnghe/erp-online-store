@@ -87,6 +87,14 @@ module Erp
           render "erp/online_store/frontend/modules/product/_all_property", layout: nil
         end
 
+        # Search page
+        def search
+          @keyword = params[:keyword]
+          @body_class = "res layout-subpage"
+          @products = Erp::Products::Product.search(params).paginate(:page => params[:page], :per_page => 12)
+          @menu = Erp::Menus::Menu.find(params[:menu_id])
+        end
+
         private
           def set_comment
             @comment = Erp::Products::Comment.find(params[:comment_id])
