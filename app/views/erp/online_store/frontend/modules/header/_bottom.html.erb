@@ -92,11 +92,21 @@
                                                     </li>
                                                 <% end %>
                                                     <li class="item-vertical">
-                                                        <%= link_to '<strong><span>Dịch Vụ Sửa Chữa - Bảo Trì</span></strong>'.html_safe, erp_online_store.computer_services_path %>
+                                                        <a href="<%= erp_online_store.computer_services_path %>" class="clearfix">
+                                                            <%= image_tag "/frontend/image/computer-repair-01.png", alt: "Dịch Vụ Sửa Chữa - Bảo Trì" %>
+                                                            <strong>
+                                                                <span>Dịch Vụ Sửa Chữa - Bảo Trì</span>
+                                                            </strong>
+                                                        </a>
                                                     </li>
                                                     <li class="item-vertical">
-                                                        <%= link_to '<strong><span>Thi Công Hạ Tầng Mạng</span></strong>'.html_safe, erp_online_store.network_services_path %>
-                                                    </li>                                                    
+                                                        <a href="<%= erp_online_store.computer_services_path %>" class="clearfix">
+                                                            <%= image_tag "/frontend/image/network_elements.png", alt: "Thi Công Hạ Tầng Mạng" %>
+                                                            <strong>
+                                                                <span>Thi Công Hạ Tầng Mạng</span>
+                                                            </strong>
+                                                        </a>
+                                                    </li>                                                 
                                                 </ul>
                                             </div>
                                         </div>
