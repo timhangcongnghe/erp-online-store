@@ -25,7 +25,7 @@
                         <% @cart.cart_items.each do |cart_item| %>
                         <tr>
                             <td class="text-center">
-                                <%= link_to image_tag("/frontend/image/shop/product/e3.jpg", alt: cart_item.product_name, class: "img-thumbnail", width: "70"), product_link(cart_item.product), title: cart_item.product_name %>
+                                <%= link_to image_tag(cart_item.product.product_images.first.image_url.thumb99, alt: cart_item.product_name, class: "img-thumbnail", width: "70"), product_link(cart_item.product), title: cart_item.product_name %>
                             </td>
                             <td class="text-left">
                                 <strong><%= link_to cart_item.product_name, product_link(cart_item.product), title: cart_item.product_name %></strong><br />
