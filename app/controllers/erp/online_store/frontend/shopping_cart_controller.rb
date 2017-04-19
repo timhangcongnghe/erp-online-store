@@ -78,6 +78,9 @@ module Erp
                   }
                 }.to_json
               )
+              @order.save_from_cart(@cart)
+              Erp::Carts::Cart.destroy(session[:cart_id])
+              
               redirect_to :back, notice: "Đặt hàng thành công."
             else
               redirect_to :back, notice: "Đặt hàng không thành công. Thử lại?"
@@ -97,6 +100,7 @@ module Erp
           def contact_params
             params.fetch(:contact, {}).permit(:name, :phone, :address)
           end
+          
           def order_params
             params.fetch(:order, {}).permit(:code, :status, :customer_id, :consignee_id, :data)
           end
