@@ -1216,3 +1216,6 @@ img.mfp-img {
   background-color: #009688;
   color: #fff;
 }
+ul.list-services li.item-service {
+  padding-bottom: 10px;
+}
