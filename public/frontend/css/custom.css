@@ -1146,7 +1146,32 @@ table th {
 .warning-box .feature-icon {
   color: #E87E04;
 }
-.autosearch .select2-container--default .select2-selection--single {
+.container-megamenu.vertical .vertical-wrapper ul.megamenu li .sub-menu .content .static-menu .menu ul li a.main-menu {
+  margin: 0 0 10px;
+  text-transform: none;
+}
+ul.megamenu li .sub-menu .content .static-menu > .menu > ul > li {
+  padding-top: 0px;
+}
+.container-megamenu.vertical .vertical-wrapper ul.megamenu li .sub-menu .content .static-menu .menu ul li a.main-menu:hover {
+  color: #009688;  
+}
+ul.megamenu li .sub-menu .content .static-menu a.main-menu, ul.megamenu .title-submenu {
+  text-transform: none;
+}
+.container-megamenu.vertical .vertical-wrapper ul.megamenu li .sub-menu .content .static-menu .menu ul ul li {
+  line-height: 25px;
+}
+.container-megamenu.vertical .vertical-wrapper ul li {
+  min-height: 25px;
+}
+.container-megamenu.vertical .vertical-wrapper ul.megamenu li .sub-menu .content .static-menu .menu ul ul li a {
+  font-weight: 400;
+  color: #000;
+}
+div.so-vertical-menu ul.megamenu > li a {
+  line-height: 15px;
+}.autosearch .select2-container--default .select2-selection--single {
     border: none;
     padding: 2px;
     height: 32px;

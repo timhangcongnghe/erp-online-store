@@ -1,0 +1,74 @@
+<li class="item-vertical style1 with-sub-menu hover">
+    <p class="close-menu"></p>
+    <a href="<%= menu_link(menu) %>" class="clearfix">
+        <strong>
+            <span><%= menu.name %></span>
+            <b class="fa fa-angle-right"></b>
+        </strong>
+    </a>
+    <div class="sub-menu" data-subwidth="100">
+        <div class="content">
+            <div class="row">
+                <div class="col-sm-8">
+                    <div class="categories ">
+                        <div class="row">                            
+                            <div class="col-sm-6 static-menu">
+                                <div class="menu">
+                                    <ul>
+                                        <% number = 0 %>                         
+                                            <% menu.children.each do |child_1| %>
+                                            <% if number <= 11 %> 
+                                                <li>
+                                                    <%= link_to child_1.name, menu_link(child_1), class: "main-menu" %>
+                                                    <% number += 1 %>
+                                                    <ul>
+                                                        <% child_1.children.each do |child_2| %>
+                                                            <% if number <= 11 %>
+                                                                <li><%= link_to child_2.name, menu_link(child_2) %></li>
+                                                            <% end %>
+                                                            <% number += 1 %>
+                                                        <% end %>
+                                                    </ul>
+                                                </li>                                                                                             
+                                            <% end %>
+                                        <% end %>                                        
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 static-menu">
+                                <div class="menu">
+                                    <ul>
+                                        <% number = 0 %>                                                                               
+                                            <% menu.children.each do |child_1| %>                                            
+                                                <li>
+                                                    <% if number > 11 %> 
+                                                    <%= link_to child_1.name, menu_link(child_1), class: "main-menu" %>
+                                                    <% end %>
+                                                    <% number += 1 %>
+                                                    <ul>
+                                                        <% child_1.children.each do |child_2| %>
+                                                            <% if number > 11 %>
+                                                                <li>
+                                                                    <%= link_to child_2.name, menu_link(child_2) %>
+                                                                </li>
+                                                            <% end %>
+                                                            <% number += 1 %>
+                                                        <% end %>
+                                                    </ul>
+                                                </li>                                                                                                                                                                                            
+                                        <% end %>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="row img-banner">
+                        <%= link_to image_tag("/frontend/image/cms/img-static-megamenu-h.png", alt: ""), "", title: "" %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</li>
