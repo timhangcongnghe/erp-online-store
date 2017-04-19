@@ -1195,10 +1195,10 @@ select:focus {
 .categories ul li.child:first-child a {
   font-weight: normal !important;
   margin-bottom: 0 !important;
-  margin-top: 5px !important;
+  margin-top: 0 !important;
 }
 .categories ul li.child:last-child a {
-  margin-bottom: 10px !important;
+  margin-bottom: 0 !important;
 }
 .categories ul li.parent a {
   margin-bottom: 0 !important;
