@@ -11,51 +11,21 @@
             <div class="row">
                 <div class="col-sm-8">
                     <div class="categories ">
-                        <div class="row">                            
+                        <div class="row">
                             <div class="col-sm-6 static-menu">
                                 <div class="menu">
                                     <ul>
-                                        <% number = 0 %>                         
-                                            <% menu.children.each do |child_1| %>
-                                            <% if number <= 11 %> 
-                                                <li>
-                                                    <%= link_to child_1.name, menu_link(child_1), class: "main-menu" %>
-                                                    <% number += 1 %>
-                                                    <ul>
-                                                        <% child_1.children.each do |child_2| %>
-                                                            <% if number <= 11 %>
-                                                                <li><%= link_to child_2.name, menu_link(child_2) %></li>
-                                                            <% end %>
-                                                            <% number += 1 %>
-                                                        <% end %>
-                                                    </ul>
-                                                </li>                                                                                             
-                                            <% end %>
-                                        <% end %>                                        
+                                        <% menu_array[0..10].each do |child| %>
+                                            <li class="<%= child[:class] %>"><%= link_to child[:menu].name, menu_link(child[:menu]), class: "main-menu" %></li>
+                                        <% end %>
                                     </ul>
                                 </div>
                             </div>
                             <div class="col-sm-6 static-menu">
                                 <div class="menu">
                                     <ul>
-                                        <% number = 0 %>                                                                               
-                                            <% menu.children.each do |child_1| %>                                            
-                                                <li>
-                                                    <% if number > 11 %> 
-                                                    <%= link_to child_1.name, menu_link(child_1), class: "main-menu" %>
-                                                    <% end %>
-                                                    <% number += 1 %>
-                                                    <ul>
-                                                        <% child_1.children.each do |child_2| %>
-                                                            <% if number > 11 %>
-                                                                <li>
-                                                                    <%= link_to child_2.name, menu_link(child_2) %>
-                                                                </li>
-                                                            <% end %>
-                                                            <% number += 1 %>
-                                                        <% end %>
-                                                    </ul>
-                                                </li>                                                                                                                                                                                            
+                                        <% menu_array[11..22].each do |child| %>
+                                            <li class="<%= child[:class] %>"><%= link_to child[:menu].name, menu_link(child[:menu]), class: "main-menu" %></li>
                                         <% end %>
                                     </ul>
                                 </div>

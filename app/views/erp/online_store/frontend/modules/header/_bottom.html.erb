@@ -39,15 +39,17 @@
                                             <div class="container">
                                                 <ul class="megamenu">
                                                     <% Erp::Menus::Menu.get_menus.each do |menu| %>
-                                                        <% count = menu.get_self_and_children_ids.count %>
+                                                        <% menu_array = menu.get_children_array %>
+                                                        <% count = menu_array.count %>
+
                                                         <% if count <= 12 %>
-                                                            <%= render "erp/online_store/frontend/modules/header/menu_1_col", menu: menu %>
+                                                            <%= render "erp/online_store/frontend/modules/header/menu_1_col", menu: menu, menu_array: menu_array %>
                                                         <% elsif (count > 12) && (count <= 24) %>
-                                                            <%= render "erp/online_store/frontend/modules/header/menu_2_col", menu: menu %>
+                                                            <%= render "erp/online_store/frontend/modules/header/menu_2_col", menu: menu, menu_array: menu_array %>
                                                         <% else %>
-                                                            <%= render "erp/online_store/frontend/modules/header/menu_3_col", menu: menu %>
+                                                            <%= render "erp/online_store/frontend/modules/header/menu_3_col", menu: menu, menu_array: menu_array %>
                                                         <% end %>
-                                                    <% end %>                                                
+                                                    <% end %>
                                                     <li class="item-vertical">
                                                         <a href="<%= erp_online_store.computer_services_path %>" class="clearfix">
                                                             <%= image_tag "/frontend/image/computer-repair-01.png", alt: "Dịch Vụ Sửa Chữa - Bảo Trì" %>
@@ -63,7 +65,7 @@
                                                                 <span>Thi Công Hạ Tầng Mạng</span>
                                                             </strong>
                                                         </a>
-                                                    </li>                                                 
+                                                    </li>
                                                 </ul>
                                             </div>
                                         </div>

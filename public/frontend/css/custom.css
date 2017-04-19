@@ -1154,7 +1154,7 @@ ul.megamenu li .sub-menu .content .static-menu > .menu > ul > li {
   padding-top: 0px;
 }
 .container-megamenu.vertical .vertical-wrapper ul.megamenu li .sub-menu .content .static-menu .menu ul li a.main-menu:hover {
-  color: #009688;  
+  color: #009688;
 }
 ul.megamenu li .sub-menu .content .static-menu a.main-menu, ul.megamenu .title-submenu {
   text-transform: none;
@@ -1187,4 +1187,21 @@ div.so-vertical-menu ul.megamenu > li a {
 }
 select:focus {
   box-shadow: 0 0 0 #fff !important;
+}
+.categories ul li.child a {
+  font-weight: normal !important;
+  margin-bottom: 0 !important;
+}
+.categories ul li.child:first-child a {
+  font-weight: normal !important;
+  margin-bottom: 0 !important;
+  margin-top: 5px !important;
+}
+.categories ul li.child:last-child a {
+  margin-bottom: 10px !important;
+}
+.categories ul li.parent a {
+  margin-bottom: 0 !important;
+  margin-top: 0 !important;
+  white-space: nowrap;
 }

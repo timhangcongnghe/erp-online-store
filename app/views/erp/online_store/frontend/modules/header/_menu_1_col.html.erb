@@ -15,17 +15,8 @@
                         <div class="col-md-12 static-menu">
                             <div class="menu">
                                 <ul>
-                                    <% menu.children.each do |child_1| %>
-                                    <li>
-                                        <%= link_to child_1.name, menu_link(child_1), class: "main-menu" %>
-                                        <% if child_1.children.count > 0 %>
-                                        <ul>
-                                            <% child_1.children.each do |child_2| %>
-                                            <li><%= link_to child_1.name, menu_link(child_2), class: "main-menu" %></li>
-                                            <% end %>
-                                        </ul>
-                                        <% end %>
-                                    </li>
+                                    <% menu_array.each do |child| %>
+                                        <li class="<%= child[:class] %>"><%= link_to child[:menu].name, menu_link(child[:menu]), class: "main-menu" %></li>
                                     <% end %>
                                 </ul>
                             </div>

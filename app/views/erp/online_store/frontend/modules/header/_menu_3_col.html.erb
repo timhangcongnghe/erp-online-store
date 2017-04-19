@@ -15,57 +15,27 @@
                             <div class="col-sm-4 static-menu">
                                 <div class="menu">
                                     <ul>
-                                        <li>
-                                            <%= link_to "Máy Vi Tính - Laptop", "", class: "main-menu" %>
-                                            <ul>
-                                                <li><%= link_to "Laptop Apple", "" %></li>
-                                                <li><%= link_to "Laptop HP", "" %></li>
-                                                <li><%= link_to "Laptop Dell", "" %></li>
-                                                <li><%= link_to "Laptop Lenovo", "" %></li>
-                                                <li><%= link_to "Laptop Acer", "" %></li>
-                                                <li><%= link_to "Laptop Asus", "" %></li>
-                                                <li><%= link_to "Laptop Toshiba", "" %></li>
-                                                <li><%= link_to "Laptop MSI Gaming", "" %></li>
-                                                <li><%= link_to "Laptop MSI Workstations", "" %></li>                                            
-                                            </ul>
-                                        </li>                                        
+                                        <% menu_array[0..10].each do |child| %>
+                                            <li class="<%= child[:class] %>"><%= link_to child[:menu].name, menu_link(child[:menu]), class: "main-menu" %></li>
+                                        <% end %>
                                     </ul>
                                 </div>
                             </div>
                             <div class="col-sm-4 static-menu">
                                 <div class="menu">
                                     <ul>
-                                        <li>
-                                            <%= link_to "Máy Tính Để Bàn - PC", "", class: "main-menu" %>
-                                            <ul>
-                                                <li><%= link_to "PC HP", "" %></li>
-                                                <li><%= link_to "PC Dell", "" %></li>
-                                                <li><%= link_to "PC Asus", "" %></li>
-                                                <li><%= link_to "PC HK", "" %></li>
-                                                <li><%= link_to "PC Bộ", "" %></li>
-                                            </ul>
-                                        </li>                                        
+                                        <% menu_array[11..21].each do |child| %>
+                                            <li class="<%= child[:class] %>"><%= link_to child[:menu].name, menu_link(child[:menu]), class: "main-menu" %></li>
+                                        <% end %>
                                     </ul>
                                 </div>
                             </div>
                             <div class="col-sm-4 static-menu">
                                 <div class="menu">
                                     <ul>
-                                        <li>
-                                            <%= link_to "Máy Chủ - Server", "", class: "main-menu" %>
-                                            <ul>
-                                                <li><%= link_to "Máy Chủ HP", "" %></li>
-                                                <li><%= link_to "Máy Chủ Dell", "" %></li>
-                                                <li><%= link_to "Máy Chủ Lenovo", "" %></li>
-                                            </ul>
-                                        </li>
-                                        <li>
-                                            <%= link_to "Máy Chủ - Server", "", class: "main-menu" %>
-                                            <ul>
-                                                <li><%= link_to "HP Workstations", "" %></li>
-                                                <li><%= link_to "Dell Workstations", "" %></li>
-                                            </ul>
-                                        </li>
+                                        <% menu_array[22..32].each do |child| %>
+                                            <li class="<%= child[:class] %>"><%= link_to child[:menu].name, menu_link(child[:menu]), class: "main-menu" %></li>
+                                        <% end %>
                                     </ul>
                                 </div>
                             </div>
