@@ -1,6 +1,9 @@
 <li class="item-vertical with-sub-menu hover">
     <p class="close-menu"></p>
-    <a href="<%= menu_link(menu) %>" class="clearfix">
+    <a href="<%= menu_link(menu) %>">
+        <% if menu.menu_icon.present? %>
+            <%= image_tag menu.menu_icon.icon, alt: menu.name %>
+        <% end %>
         <span class="label"></span>
         <strong>
             <span><%= menu.name %></span>

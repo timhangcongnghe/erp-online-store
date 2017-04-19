@@ -41,7 +41,6 @@
                                                     <% Erp::Menus::Menu.get_menus.each do |menu| %>
                                                         <% menu_array = menu.get_children_array %>
                                                         <% count = menu_array.count %>
-
                                                         <% if count <= 12 %>
                                                             <%= render "erp/online_store/frontend/modules/header/menu_1_col", menu: menu, menu_array: menu_array %>
                                                         <% elsif (count > 12) && (count <= 24) %>

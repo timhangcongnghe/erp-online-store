@@ -1212,3 +1212,7 @@ img.mfp-img {
   border: 2px solid #ff5050;
   border-radius: 4px;
 }
+.jGrowl-closer {
+  background-color: #009688;
+  color: #fff;
+}
