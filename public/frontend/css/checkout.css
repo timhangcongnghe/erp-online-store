@@ -34,7 +34,10 @@
   margin-top: 10px;
 }
 .so-onepagecheckout .is-default {
-    border: 1px dashed #090;
+  border: 1px dashed #090;
+}
+.so-onepagecheckout .is-main {
+  border: 1px solid #090;
 }
 .so-onepagecheckout .btn-custom {
   border-radius: 2px;
@@ -58,10 +61,11 @@
 .so-onepagecheckout .btn-custom.is-black:hover {
   background: #555649;
 }
-.so-onepagecheckout .address-item.is-default .default {
+.so-onepagecheckout .address-item .default,
+.so-onepagecheckout .address-item .default {
   position: absolute;
   margin-top: -25px;
-  right: 20px;
+  right: 30px;
   display: block;
   font-size: 11px;
   color: #090;
@@ -81,6 +85,11 @@
 .address-item .address {
   font-size: 13px;
   margin-bottom: 3px;
+}
+.address-item .name+.address, .address-item .default+.address {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 .address-item .phone {
   font-size: 13px;
