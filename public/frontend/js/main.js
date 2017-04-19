@@ -560,6 +560,12 @@ $(document).ready(function () {
             }, 1000);
         });
     });
+
+    // autosearch
+    $('.autosearch select').select2({
+        minimumResultsForSearch: 30,
+        dropdownAutoWidth: 'true'
+    });
 });
 $(window).scroll(function () {
     // toogleFixedNav();
