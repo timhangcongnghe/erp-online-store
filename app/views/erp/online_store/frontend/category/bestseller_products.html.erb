@@ -61,8 +61,8 @@
                         <div class="product-item-container product-lists">
                             <div class="left-block">
                                 <div class="product-image-container lazy second_img ">
-                                    <%= image_tag product_image(product.product_images, 'first', 'thumb600'), data: {src: product_image(product.product_images, 'first', 'thumb600')}, alt: product.name, class: "img-1 img-responsive" %>
-                                    <%= image_tag product_image(product.product_images, 'second', 'thumb600'), data: {src: product_image(product.product_images, 'second', 'thumb600')}, alt: product.name, class: "img-2 img-responsive" %>
+                                    <%= image_tag product_image(product.product_images.thumb193, 'first', 'thumb193'), data: {src: product_image(product.product_images.thumb193, 'first', 'thumb193')}, alt: product.name, class: "img-1 img-responsive" %>
+                                    <%= image_tag product_image(product.product_images.thumb193, 'second', 'thumb193'), data: {src: product_image(product.product_images.thumb193, 'second', 'thumb193')}, alt: product.name, class: "img-2 img-responsive" %>
                                 </div>
                                 <% if product.is_bestseller? %>
                                 <span class="label label-bestseller">Bán Chạy</span>

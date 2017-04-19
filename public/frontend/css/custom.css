@@ -1214,3 +1214,7 @@ select:focus {
 .vertical ul.megamenu > li > .sub-menu > .content {
   min-height: 370px;
 }
+img.mfp-img {
+  border: 2px solid #ff5050;
+  border-radius: 4px;
+}

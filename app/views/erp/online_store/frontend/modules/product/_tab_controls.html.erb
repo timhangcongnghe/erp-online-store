@@ -1,15 +1,25 @@
 <ul class="nav nav-tabs">
-    <li class="active"><a data-toggle="tab" href="#tab-description">Mô tả sản phẩm</a></li>
-    <li class="item_nonactive"><a data-toggle="tab" href="#tab-review">Đánh giá (<%= product.ratings.count %>)</a></li>
+    <% if product.description.present? %>
+        <li class="active"><a data-toggle="tab" href="#tab-description">Mô tả sản phẩm</a></li>
+        <li class="item_nonactive"><a data-toggle="tab" href="#tab-review">Đánh giá (<%= product.ratings.count %>)</a></li>
+    <% else %>
+        <li class="active"><a data-toggle="tab" href="#tab-review">Đánh giá (<%= product.ratings.count %>)</a></li>
+    <% end %>
     <li class="item_nonactive"><a data-toggle="tab" href="#tab-comment">Bình luận (<%= product.comments.count %>)</a></li>
 </ul>
 <div class="tab-content col-xs-12">
+    <% if product.description.present? %>
     <div id="tab-description" class="tab-pane fade active in">
         <%= product.description.html_safe if product.description.present? %>
     </div>
     <div id="tab-review" class="tab-pane fade comment_box"
          data-url="<%= erp_online_store.product_ratings_path(product_id: product.id) %>">
     </div>
+    <% else %>
+    <div id="tab-review" class="tab-pane fade active in comment_box"
+         data-url="<%= erp_online_store.product_ratings_path(product_id: product.id) %>">
+    </div>
+    <% end %>
     <div id="tab-comment" class="tab-pane fade comment_box"
          data-url="<%= erp_online_store.product_comments_path(product_id: product.id) %>">
     </div>
