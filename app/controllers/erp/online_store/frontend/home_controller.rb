@@ -3,13 +3,13 @@ module Erp
     module Frontend
       class HomeController < Erp::Frontend::FrontendController
         def index
-          @body_class = "common-home res layout-home1"
+          @body_class = "common-home res layout-home1 home-page"
           @hot_deals = Erp::Products::Product.get_deal_products
           @bestsellers = Erp::Products::Product.get_bestseller_products
           @newest_blogs = Erp::Articles::Article.newest_articles(2)
           @testimonials = Erp::Testimonials::Testimonial.get_testimonials
         end
-        
+
         # home category box
         def category_box
           @menu_hot = Erp::Menus::Menu.find(params[:menu_hot_id])
@@ -28,7 +28,7 @@ module Erp
           end
           render layout: nil
         end
-        
+
         def top_right_menu
           render partial: 'erp/online_store/frontend/modules/header/top_right_menu', layout: nil
         end

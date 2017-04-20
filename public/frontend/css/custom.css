@@ -1242,11 +1242,11 @@ a.btn.btn-complete:hover {
   }
 }
 @media (min-width: 1200px) {
-  .common-home .megamenu-style-dev .vertical .vertical-wrapper {
+  .home-page .megamenu-style-dev .vertical .vertical-wrapper {
       display: block !important;
       height: auto !important;
   }
-  .common-home .megamenuToogle-pattern .arrow-circle {
+  .home-page .megamenuToogle-pattern .arrow-circle {
       display: none !important;
   }
 }
