@@ -579,6 +579,18 @@ $(document).ready(function () {
         var parent = $(this).parents('.header-top-right');
         parent.find('.tabBlock.top-right-menu').toggle();
     });
+
+    // hover main menu
+    $('.container-megamenu.vertical').hover(
+        function () {
+           $(this).find('.vertical-wrapper').slideDown();
+        },
+         function () {
+           $(this).find('.vertical-wrapper').hide();
+        }
+    );
+
+
 });
 $(window).scroll(function () {
     // toogleFixedNav();
