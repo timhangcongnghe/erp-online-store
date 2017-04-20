@@ -73,7 +73,7 @@ module Erp
             name: product.product_name,
             price: format_price(product.product_price),
             link: product_link(product),
-            image: image_src(product.main_image, 'small'),
+            image: image_src(product.main_image, 'thumb99'),
           }}
         end
 
