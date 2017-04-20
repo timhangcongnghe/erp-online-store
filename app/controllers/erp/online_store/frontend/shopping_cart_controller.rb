@@ -81,7 +81,7 @@ module Erp
               @order.save_from_cart(@cart)
               Erp::Carts::Cart.destroy(session[:cart_id])
               
-              redirect_to :back, notice: "Đặt hàng thành công."
+              redirect_to erp_online_store.checkout_completed_path, notice: "Đặt hàng thành công."
             else
               redirect_to :back, notice: "Đặt hàng không thành công. Thử lại?"
             end

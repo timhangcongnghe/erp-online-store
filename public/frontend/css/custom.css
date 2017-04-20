@@ -1219,3 +1219,15 @@ img.mfp-img {
 ul.list-services li.item-service {
   padding-bottom: 10px;
 }
+a.btn.btn-complete {
+  color: #fff;
+  padding: 8px 15px;
+  border: 1px solid #eee;
+  outline-color: #ccc;
+  background: linear-gradient(rgb(13, 154, 115),rgb(37, 174, 136));
+  border-radius: 4px;
+  font-size: 15px;
+}
+a.btn.btn-complete:hover {
+  background: #18a27d;
+}
