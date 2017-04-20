@@ -27,7 +27,7 @@ module Erp
 
       # product link helper
       def product_link(product)
-        erp_online_store.product_detail_path(product_id: product.id, title: url_friendly(product.name))
+        erp_online_store.product_detail_path(product_id: product.id, title: url_friendly(product.product_name))
       end
 
       # brand link helper

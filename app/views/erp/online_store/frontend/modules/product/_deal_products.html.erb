@@ -6,36 +6,33 @@
     <%= link_to "Xem toàn bộ", erp_online_store.deal_products_path, class: "view-all-hotdeals", title: "Xem toàn bộ" %>
 </h3>
 <div class="upsell-products">
-    <% Erp::Products::Product.limit_deal_products.limit(12).each do |deal_product| %>
+    <% Erp::Products::Product.limit_deal_products.limit(12).each do |product| %>
     <div class="product-layout">
         <div class="product-item-container">
             <div class="left-block">
                 <div class="product-image-container second_img ">
-                    <%= image_tag product_image(deal_product.product_images.thumb193, 'first', 'thumb193'), data: {src: product_image(deal_product.product_images.thumb193, 'first', 'thumb193')}, alt: deal_product.name, class: "img-1 img-responsive" %>
-                    <%= image_tag product_image(deal_product.product_images.thumb193, 'second', 'thumb193'), data: {src: product_image(deal_product.product_images.thumb193, 'second', 'thumb193')}, alt: deal_product.name, class: "img-2 img-responsive" %>
+                    <%= image_tag product_image(product.product_images, 'first', 'thumb193'), data: {src: product_image(product.product_images.thumb193, 'first', 'thumb193')}, alt: product.product_name, class: "img-1 img-responsive" %>
+                    <%= image_tag product_image(product.product_images, 'second', 'thumb193'), data: {src: product_image(product.product_images.thumb193, 'second', 'thumb193')}, alt: product.product_name, class: "img-2 img-responsive" %>
                 </div>
-                <% if deal_product.is_deal? %>
+                <% if product.is_deal? %>
                 <span class="label label-sale">Giảm giá</span>
                 <% end %>
-                <%= count_down(deal_product.deal_from_date, deal_product.deal_to_date) %>
+                <%= count_down(product.deal_from_date, product.deal_to_date) %>
             </div>
             <div class="right-block">
                 <div class="caption">
-                    <h4><%= link_to deal_product.name, product_link(deal_product) %></h4>
+                    <h4><%= link_to product.product_name, product_link(product), title: product.product_name %></h4>
                     <div class="ratings">
                         <div class="rating-box">
-                            <%= raw stars(deal_product.average_stars) %>
+                            <%= raw stars(product.average_stars) %>
                         </div>
                     </div>
                     <div class="price">
-                        <span class="price-new"><%= format_price(deal_product.product_price) %></span>                       
-                        <br><span class="price-old"><%= format_price(deal_product.price) %></span>
-                        <% if !deal_product.deal_percent.nil? %>
-                            <span class="label label-percent">-<%= deal_product.deal_percent %>%</span>
+                        <span class="price-new"><%= format_price(product.product_price) %></span>
+                        <% if product.is_deal? %>                        
+                        <br><span class="price-old-price"><%= format_price(product.price) %></span>
+                        <span class="product-percent">-<%= product.deal_percent %>%</span>
                         <% end %>
-                    </div>
-                    <div class="description item-desc hidden">
-                        <p><%= deal_product.short_description.html_safe if deal_product.short_description %></p>
                     </div>
                 </div>
             </div>

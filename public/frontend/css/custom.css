@@ -1211,7 +1211,7 @@ select:focus {
   }
 }
 img.mfp-img {
-  border: 2px solid #ff5050;
+  border: 2px solid #009688;
   border-radius: 4px;
 }
 .jGrowl-closer {
@@ -1249,4 +1249,8 @@ a.btn.btn-complete:hover {
   .common-home .megamenuToogle-pattern .arrow-circle {
       display: none !important;
   }
+}
+.module.cus-style-supper-cate .main-right .spcat-items-container.products-list.grid .product-layout .product-item-container .right-block .caption a {
+  color: #000;
+  font-weight: 500;
 }

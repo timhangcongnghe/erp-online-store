@@ -15,14 +15,18 @@
                         <tr>
                             <td>Tên</td>
                             <% @compare.compare_items.get_all_items.each do |compare_item| %>
-                            <td class="product-name"><strong><%= link_to compare_item.product.name, product_link(compare_item.product), title: compare_item.product.name %></strong></td>
+                            <td class="product-name">
+                                <strong>
+                                    <%= link_to compare_item.product_name, product_link(compare_item.product), title: compare_item.product_name %>
+                                </strong>
+                            </td>
                             <% end %>
                         </tr>
                         <tr>
                             <td>Hình ảnh</td>
                             <% @compare.compare_items.get_all_items.each do |compare_item| %>
                             <td class="text-center">
-                                <%= link_to image_tag("/frontend/image/shop/product/e4.jpg", alt: compare_item.product.name, title: compare_item.product.name, width: "100", class: "img-thumbnail"), product_link(compare_item.product) %>
+                                <%= link_to image_tag(product_image(compare_item.product.product_images, 'first', 'thumb99'), alt: compare_item.product_name, width: "100", class: "img-thumbnail"), product_link(compare_item.product), title: compare_item.product_name %>
                             </td>
                             <% end %>
                         </tr>

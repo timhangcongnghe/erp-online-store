@@ -9,8 +9,8 @@
         <div class="product-item-container">
             <div class="left-block">
                 <div class="product-image-container second_img ">
-                    <%= image_tag product_image(accessory_detail.product.product_images.thumb193, 'first', 'thumb193'), data: {src: product_image(accessory_detail.product.product_images.thumb193, 'first', 'thumb193')}, alt: accessory_detail.product.name, class: "img-1 img-responsive" %>
-                    <%= image_tag product_image(accessory_detail.product.product_images.thumb193, 'second', 'thumb193'), data: {src: product_image(accessory_detail.product.product_images.thumb193, 'second', 'thumb193')}, alt: accessory_detail.product.name, class: "img-2 img-responsive" %>
+                    <%= image_tag product_image(accessory_detail.product.product_images, 'first', 'thumb193'), data: {src: product_image(accessory_detail.product.product_images, 'first', 'thumb193')}, alt: accessory_detail.product.product_name, class: "img-1 img-responsive" %>
+                    <%= image_tag product_image(accessory_detail.product.product_images, 'second', 'thumb193'), data: {src: product_image(accessory_detail.product.product_images, 'second', 'thumb193')}, alt: accessory_detail.product.product_name, class: "img-2 img-responsive" %>
                 </div>
                 <% if accessory_detail.product.is_deal? %>
                 <span class="label label-sale">Giảm giá</span>
@@ -19,23 +19,18 @@
             </div>
             <div class="right-block">
                 <div class="caption">
-                    <h4><%= link_to accessory_detail.product.name, product_link(accessory_detail.product), title: accessory_detail.product.name %></h4>
+                    <h4><%= link_to accessory_detail.product.product_name, product_link(accessory_detail.product), title: accessory_detail.product.product_name %></h4>
                     <div class="ratings">
                         <div class="rating-box">
                             <%= stars(accessory_detail.product.average_stars) %>
                         </div>
                     </div>
                     <div class="price">
-                        <span class="price-new"><%= format_number(accessory_detail.product.product_price) %> VNĐ</span>
+                        <span class="price-new"><%= format_price(accessory_detail.product.product_price) %></span>
                         <% if accessory_detail.product.is_deal? %>                        
-                        <br><span class="price-old"><%= format_number(accessory_detail.product.price) %> VNĐ</span>
-                            <% if !accessory_detail.product.deal_percent.nil? %>
-                            <span class="label label-percent">-<%= accessory_detail.product.deal_percent %>%</span>
-                            <% end %>
+                        <br><span class="price-old"><%= format_price(accessory_detail.product.price) %></span>
+                        <span class="label label-percent">-<%= accessory_detail.product.deal_percent %>%</span>
                         <% end %>
-                    </div>
-                    <div class="description item-desc hidden">
-                        <p><%= accessory_detail.product.short_description.html_safe if accessory_detail.product.short_description %></p>
                     </div>
                 </div>
             </div>

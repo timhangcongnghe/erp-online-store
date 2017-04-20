@@ -54,8 +54,8 @@
                     <div class="product-item-container product-lists">
                         <div class="left-block">
                             <div class="product-image-container lazy second_img ">
-                                <%= image_tag "/frontend/image/shop/product/e11.jpg", data: {src: "/frontend/image/shop/product/e11.jpg"}, alt: product.name, class: "img-1 img-responsive" %>
-                                <%= image_tag "/frontend/image/shop/product/e12.jpg", data: {src: "/frontend/image/shop/product/e12.jpg"}, alt: product.name, class: "img-2 img-responsive" %>
+                                <%= image_tag product_image(product.product_images, 'first', 'thumb193'), data: {src: product_image(product.product_images, 'first', 'thumb193')}, alt: product.product_name, class: "img-1 img-responsive" %>
+                                <%= image_tag product_image(product.product_images, 'second', 'thumb193'), data: {src: product_image(product.product_images, 'second', 'thumb193')}, alt: product.product_name, class: "img-2 img-responsive" %>
                             </div>
                             <% if product.is_new? %>
                             <span class="label label-new">Mới</span>
@@ -63,18 +63,16 @@
                             <% if product.is_deal? %>
                             <span class="label label-sale">Giảm giá</span>
                             <% end %>
-                            <div class="countdown_box">
-                                <div class="countdown_inner">
-                                    <div class="defaultCountdown-30"></div>
-                                </div>
-                            </div>
+                            <%= count_down(product.deal_from_date, product.deal_to_date) %>
                         </div>
                         <div class="right-block">
-                            <div class="caption">
-                                <div class="rating">
-                                    <%= raw stars(product.average_stars) %>
+                            <div class="caption">                                
+                                <h4><%= link_to product.product_name, product_link(product), title: product.product_name, class: "hover-product-name" %></h4>
+                                <div class="ratings">
+                                    <div class="rating-box">
+                                        <%= stars(product.average_stars) %>
+                                    </div>
                                 </div>
-                                <h4><%= link_to product.name, product_link(product), title: product.name, class: "hover-product-name" %></h4>
                                 <div class="price">
                                     <span class="price-new"><%= format_price(product.product_price) %></span>
                                     <% if product.is_deal? %>

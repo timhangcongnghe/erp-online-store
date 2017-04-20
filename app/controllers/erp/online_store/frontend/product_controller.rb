@@ -66,16 +66,11 @@ module Erp
           redirect_to :back, notice: 'Nội dung đánh giá đã được xóa'
         end
 
-        def product_quickview
-          @product = Erp::Products::Product.find(params[:product_id])
-          render layout: "erp/frontend/quickview"
-        end
-
         def autosearch
           @products = Erp::Products::Product.search(params).paginate(:page => params[:page], :per_page => 10)
 
           render json: @products.map { |product| {
-            name: product.name,
+            name: product.product_name,
             price: format_price(product.product_price),
             link: product_link(product),
             image: image_src(product.main_image, 'small'),

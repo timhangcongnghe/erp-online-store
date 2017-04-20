@@ -4,8 +4,8 @@
         <div class="product-item-container product-lists">
             <div class="left-block">
                 <div class="product-image-container lazy second_img ">
-                    <%= image_tag product_image(product.product_images, 'first', 'thumb193'), data: {src: product_image(product.product_images, 'first', 'thumb193')}, alt: product.short_name, class: "img-1 img-responsive" %>
-                    <%= image_tag product_image(product.product_images, 'second', 'thumb193'), data: {src: product_image(product.product_images, 'second', 'thumb193')}, alt: product.short_name, class: "img-2 img-responsive" %>
+                    <%= image_tag product_image(product.product_images, 'first', 'thumb268'), data: {src: product_image(product.product_images, 'first', 'thumb268')}, alt: product.product_name, class: "img-1 img-responsive" %>
+                    <%= image_tag product_image(product.product_images, 'second', 'thumb268'), data: {src: product_image(product.product_images, 'second', 'thumb268')}, alt: product.product_name, class: "img-2 img-responsive" %>
                 </div>
                 <% if product.is_new? %>
                 <span class="label label-new">Mới</span>
@@ -17,7 +17,7 @@
             </div>
             <div class="right-block">
                 <div class="caption">
-                    <h4><%= link_to product.short_name, product_link(product), title: product.short_name, class: "hover-product-name" %></h4>
+                    <h4><%= link_to product.product_name, product_link(product), title: product.product_name, class: "hover-product-name" %></h4>
                     <div class="ratings">
                         <div class="rating-box">
                             <%= stars(product.average_stars) %>
