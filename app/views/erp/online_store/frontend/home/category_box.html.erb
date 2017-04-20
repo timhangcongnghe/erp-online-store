@@ -26,7 +26,7 @@
                 <!--Begin Tabs-->
                 <div class="spcat-tabs-wrap">
                     <ul class="spcat-tabs cf">
-                        <% @child_1.children.each do |child_2| %>
+                        <% @child_1.children.is_hot.each do |child_2| %>
                         <li class="spcat-tab">
                             <span class="spcat-tab-label"><%= link_to child_2.name, erp_online_store.category_box_path(menu_hot_id: @menu_hot.id, child_1_id: @child_1.id, child_2_id: child_2.id), title: child_2.name, class: "ajax_link" %></span>
                         </li>
