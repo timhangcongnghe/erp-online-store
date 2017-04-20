@@ -1241,3 +1241,12 @@ a.btn.btn-complete:hover {
     padding-right: 20px;
   }
 }
+@media (min-width: 1200px) {
+  .common-home .megamenu-style-dev .vertical .vertical-wrapper {
+      display: block !important;
+      height: auto !important;
+  }
+  .common-home .megamenuToogle-pattern .arrow-circle {
+      display: none !important;
+  }
+}
