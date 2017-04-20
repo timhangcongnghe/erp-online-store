@@ -79,7 +79,7 @@
             </div>
             <div class="main-right">
                 <div class="banner-pre-text">
-                    <% if @menu_hot.image_url_1.present? %>
+                    <% if @menu_hot.image_url_2.present? %>
                         <% if params[:child_1_id].present? %>
                             <% if @child_1.image_url_2.present? %>
                             <%= link_to image_tag(@child_1.image_url_2.menu_hot_image_2, alt: @child_1.name), @child_1.image_menu_link_2 %>
