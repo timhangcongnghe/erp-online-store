@@ -1199,14 +1199,16 @@ select:focus {
   margin-top: 0 !important;
   white-space: nowrap;
 }
-.container-megamenu.vertical .vertical-wrapper ul.megamenu > li {
-  position: initial;
-}
-.vertical ul.megamenu > li > .sub-menu {
-  top: 0;
-}
-.vertical ul.megamenu > li > .sub-menu > .content {
-  min-height: 370px;
+@media (min-width: 992px) {
+  .container-megamenu.vertical .vertical-wrapper ul.megamenu > li {
+    position: initial;
+  }
+  .vertical ul.megamenu > li > .sub-menu {
+    top: 0;
+  }
+  .vertical ul.megamenu > li > .sub-menu > .content {
+    min-height: 370px;
+  }
 }
 img.mfp-img {
   border: 2px solid #ff5050;
