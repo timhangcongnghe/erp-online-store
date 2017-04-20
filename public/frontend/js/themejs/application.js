@@ -276,6 +276,8 @@ $('.slideshow').owlCarousel2({
     autoplaySpeed: 1000,
     autoplay: true,
     smartSpeed: 500,
+    onTranslated: animateSlide,
+    onTranslate: removeAnimation,
     responsive: {
         0: {
             items: 1,
@@ -288,6 +290,16 @@ $('.slideshow').owlCarousel2({
         }
     }
 });
+// Other Slides
+function removeAnimation() {
+   var item = $(".owl-item");
+  item.removeClass(item.children().data('animate'));
+}
+function animateSlide() {
+  var item = $(".owl-item.active");
+  item.addClass(item.children().data('animate'));
+}
+
 $("#close-posmotion-header").on("click", function() {
     "use strict";
     $('.promotion-top').toggleClass('hidden-promotion');
