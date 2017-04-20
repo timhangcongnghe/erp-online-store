@@ -566,6 +566,12 @@ $(document).ready(function () {
         minimumResultsForSearch: 30,
         dropdownAutoWidth: 'true'
     });
+
+    // Mobile top menu fix
+    $(document).on('click', '.header-top-right .tabBlockTitle', function() {
+        var parent = $(this).parents('.header-top-right');
+        parent.find('.tabBlock.top-right-menu').toggle();
+    });
 });
 $(window).scroll(function () {
     // toogleFixedNav();

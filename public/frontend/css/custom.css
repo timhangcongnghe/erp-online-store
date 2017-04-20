@@ -1233,3 +1233,11 @@ a.btn.btn-complete {
 a.btn.btn-complete:hover {
   background: #18a27d;
 }
+@media (max-width: 767px) {
+  header .collapsed-block .tabBlock .top-link > li {
+    width: auto;
+  }
+  header .collapsed-block .tabBlock {
+    padding-right: 20px;
+  }
+}
