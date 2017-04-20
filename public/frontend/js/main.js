@@ -530,7 +530,14 @@ $(document).ready(function () {
         // validate contact form, comment form, rating form
         $('.contact_form').validate();
         $('.comment_form').validate();
-        $('.rating_form').validate();
+        $('.rating_form').validate({
+            rules: {
+              'rating[content]': {
+                required: true,
+                minlength: 50
+              }
+            }
+        });
         $('.password_form').validate();
         $('.account_form').validate();
 

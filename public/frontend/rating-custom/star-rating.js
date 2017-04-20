@@ -213,4 +213,13 @@ $(function() {
             $('.your-choice-was').hide();
         }
     });
+
+    $('.rating_form').validate({
+        rules: {
+          'rating[content]': {
+            required: true,
+            minlength: 50
+          }
+        }
+    });
 });
