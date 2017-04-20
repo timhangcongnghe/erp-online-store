@@ -45,11 +45,13 @@
                         </div>
                     </div>
                 </div>
+                <% if menu.image_menu.present? %>
                 <div class="col-sm-4">
                     <div class="row img-banner">
-                        <%= link_to image_tag("/frontend/image/cms/img-static-megamenu-h.png", alt: ""), "", title: "" %>
+                        <%= link_to image_tag(menu.image_menu.image_menu, alt: menu.image_menu_title), menu.image_menu_link, title: menu.image_menu_title %>
                     </div>
                 </div>
+                <% end %>
             </div>
         </div>
     </div>
