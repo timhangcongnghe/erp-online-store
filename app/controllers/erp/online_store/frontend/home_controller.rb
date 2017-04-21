@@ -32,6 +32,11 @@ module Erp
         def top_right_menu
           render partial: 'erp/online_store/frontend/modules/header/top_right_menu', layout: nil
         end
+
+        # auth/failer
+        def auth_failure
+          redirect_to erp_online_store.root_path, flash: {notice: "Thao tác không thành công."}
+        end
       end
     end
   end

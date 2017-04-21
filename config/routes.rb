@@ -2,6 +2,7 @@ Erp::OnlineStore::Engine.routes.draw do
   root to: "frontend/home#index"
 
   get "category-box" => "frontend/home#category_box", as: :category_box
+  get "/auth/failure" => "frontend/home#auth_failure", as: :auth_failure
 
   # AREA
   get "district-select-box.html" => "frontend/area#district_select", as: :district_select
