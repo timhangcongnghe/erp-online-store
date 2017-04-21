@@ -1250,7 +1250,13 @@ a.btn.btn-complete:hover {
       display: none !important;
   }
 }
-.module.cus-style-supper-cate .main-right .spcat-items-container.products-list.grid .product-layout .product-item-container .right-block .caption a {
-  color: #000;
-  font-weight: 500;
+*:focus {
+    outline: none;
+}
+.type_7 .select2-container--default.select2-container--open.select2-container--below .select2-selection--single {
+  border-bottom-left-radius: 30px;
+}
+.select2-dropdown {
+  border: 1px solid #ccc !important;
+  box-shadow: 0 6px 12px rgba(0,0,0,.175);
 }
