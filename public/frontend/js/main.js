@@ -319,6 +319,10 @@ $(document).ready(function () {
         });
     });
 
+    $(document).on('mousedown', '.ajax-link', function() {
+        $.fancybox.close( 'all' );
+    });
+
     $('.ajax-link').fancybox({
         closeClickOutside : true,
     });
