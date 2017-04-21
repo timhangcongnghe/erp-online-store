@@ -2,6 +2,10 @@ Erp::OnlineStore::Engine.routes.draw do
   root to: "frontend/home#index"
 
   get "category-box" => "frontend/home#category_box", as: :category_box
+
+  # AREA
+  get "district-select-box.html" => "frontend/area#district_select", as: :district_select
+
   # CATEGORY
   get "tim-kiem.html" => "frontend/product#search", as: :search
   get "san-pham/thuoc-tinh/:product_id.html" => "frontend/product#all_property", as: :all_property
@@ -86,11 +90,11 @@ Erp::OnlineStore::Engine.routes.draw do
   # BRAND
   get "thuong-hieu-san-pham.html" => "frontend/brand#listing", as: :brand_listing
   get "thuong-hieu-san-pham(/:brand_id)(/:title).html" => "frontend/brand#detail", as: :brand_detail
-  
+
   # SERVICES
   get "dich-vu-sua-chua-bao-tri.html" => "frontend/services#computer_services", as: :computer_services
   get "thi-cong-ha-tang-mang.html" => "frontend/services#network_services", as: :network_services
-  
+
   # HOME
   get "top-right-menu.html" => "frontend/home#top_right_menu", as: :top_right_menu
 

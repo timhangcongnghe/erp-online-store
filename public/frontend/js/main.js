@@ -590,6 +590,35 @@ $(document).ready(function () {
         }
     );
 
+    // autosearch
+    $('select').select2({
+        minimumResultsForSearch: 30,
+        dropdownAutoWidth: 'true'
+    });
+
+    // Ajax content
+    $(document).on('change', '.ajax-content-control', function() {
+        var container = $($(this).attr('data-content-selector'));
+        var url = $(this).attr('data-url');
+        var value = $(this).val();
+
+        container.html('');
+
+        $.ajax({
+            url: url,
+            data: {
+                state_id: value
+            }
+        }).done(function( data ) {
+            container.html(data);
+            container.find('select').select2({
+                minimumResultsForSearch: 30,
+                dropdownAutoWidth: 'true'
+            });
+        });
+    });
+
+    $('.contacts-create-hide').hide();
 
 });
 $(window).scroll(function () {

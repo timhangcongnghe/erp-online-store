@@ -1330,3 +1330,14 @@ h3.product-box-name {
 .area_events span .events-deadtime {
     display: none;
 }
+.select2-container--default .select2-selection--single {
+    border: 1px solid #ccc;
+    height: 34px;
+    border-radius: 2px;
+    padding: 4px;
+}
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+  height: 34px;
+}
+.select2-container {
+}
