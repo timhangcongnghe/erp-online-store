@@ -1,11 +1,11 @@
 <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: "login-form ajax-form"}) do |f| %>
     <div class="login-box">
-        <h2><i class="fa fa-sign-in" aria-hidden="true"></i> Đăng nhập tài khoản</h2>        
+        <h2><i class="fa fa-sign-in" aria-hidden="true"></i> Đăng nhập tài khoản</h2>
         <div class="notice">
             <% if flash[:alert] %>
                 <span class='flash_error alert alert-danger'> <%= flash[:alert] %></span>
-            <% end %>                                        
-        </div>        
+            <% end %>
+        </div>
         <div class="form-group">
             <label class="control-label" for="input-email">Email:</label>
             <%= f.email_field :email, autofocus: true, autocomplete: "off", placeholder: "Nhập địa chỉ email", class: "form-control required" %>
@@ -17,7 +17,7 @@
     </div>
     <div class="bottom-form">
         <input type="submit" value="ĐĂNG NHẬP" class="btn btn-default pull-right btn-login-account" />
-        <%= link_to "Quên mật khẩu?", erp.new_user_password_path, class: "forgot ajax-link", 'data-type': 'ajax' %>        
+        <%= link_to "Quên mật khẩu?", erp.new_user_password_path, class: "forgot ajax-link", 'data-type': 'ajax' %>
     </div>
     <hr>
     <div>
@@ -38,6 +38,6 @@
     <script>
         $('.register-form').validate();
         $('.login-form').validate();
-        $('.ajax-link').fancybox({closeClickOutside : true});   
+        $('.ajax-link').fancybox({hideOnOverlayClick : true});
     </script>
 <% end %>

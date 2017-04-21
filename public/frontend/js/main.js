@@ -319,7 +319,7 @@ $(document).ready(function () {
         });
     });
 
-    $('.ajax-link').fancybox({closeClickOutside : true}); // on
+    $('.ajax-link').fancybox({hideOnOverlayClick : true}); // on
 
     $(document).on('submit', '.ajax-form', function(e) {
         e.preventDefault();
