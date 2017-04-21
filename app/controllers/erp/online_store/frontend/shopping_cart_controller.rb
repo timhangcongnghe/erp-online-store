@@ -56,6 +56,9 @@ module Erp
             @order.customer_id = current_user.contact_id
 
             if @order.save
+              @order.save_from_cart(@cart)
+              Erp::Carts::Cart.destroy(session[:cart_id])
+              
               @order.update_columns(
                 data: {
                   "customer": {
@@ -78,8 +81,6 @@ module Erp
                   }
                 }.to_json
               )
-              @order.save_from_cart(@cart)
-              Erp::Carts::Cart.destroy(session[:cart_id])
               
               # send order email for admin + customer
               #Erp::Orders::FrontendOrderMailer.sending_announce_email_order_confirmation(@order).deliver_now
