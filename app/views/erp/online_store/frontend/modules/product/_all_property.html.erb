@@ -1,7 +1,7 @@
 <div class="product-box-desc modal-box" style="max-width: 600px">
     <div class="inner-box-desc">
         Thông tin chi tiết: <h3 class="mt-0 product-box-name"><%= @product.product_name %></h3>
-        <table width="100%">
+        <table width="500px">
             <% @product.product_values_array.each do |group| %>
                 <tr>
                     <td colspan="2"><h4><%= group[:group].name %></h4></td>
