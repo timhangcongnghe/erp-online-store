@@ -461,7 +461,10 @@ a.hover-product-name:hover {
   color: #000;
   font-weight: 500;
 }
-.text-teal {
+a.text-teal {
+  color: #da2723;
+}
+a.text-teal:hover {
   color: #009688;
 }
 .ratingStar.error {
@@ -1348,6 +1351,17 @@ h3.product-box-name {
   color: #000;
   font-weight: 500;
 }
-#sosearchpro .select2-container--default .select2-selection--single .select2-selection__arrow {
-    height: 30px;
+.module h3.modtitle > span {
+  font-size: 15px;
+}
+.footer-bottom a {
+  color: #da2723;
+  font-weight: 500;
+}
+footer {
+  color: #000;
+}
+.footer-bottom a:hover {
+  color: #009688;
+  font-weight: 500;
 }
