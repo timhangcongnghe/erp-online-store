@@ -1,13 +1,13 @@
 <div class="product-box-desc modal-box" style="max-width: 600px">
     <div class="inner-box-desc">
-        <h3 class="mt-0">Thông số chi tiết <%= @product.product_name %></h3>
+        Thông tin chi tiết: <h3 class="mt-0 product-box-name"><%= @product.product_name %></h3>
         <table width="100%">
             <% @product.product_values_array.each do |group| %>
                 <tr>
                     <td colspan="2"><h4><%= group[:group].name %></h4></td>
                 </tr>
                 <% group[:properties].each do |property| %>
-                    <tr>
+                    <tr class="property-value">
                         <td valign="top" class="text-nowrap"><span><%= property[:property].name %></span></td>
                         <td class="pl-10"><%= property[:values].join(", ") %></td>
                     </tr>

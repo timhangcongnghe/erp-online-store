@@ -1260,3 +1260,31 @@ a.btn.btn-complete:hover {
   border: 1px solid #ccc !important;
   box-shadow: 0 6px 12px rgba(0,0,0,.175);
 }
+.inner-box-desc h4 {
+  color: #009688;
+  font-weight: 600;
+}
+.inner-box-desc table tbody tr.property-value {
+  border-bottom: 1px solid #dadada;
+}
+.inner-box-desc {
+  padding: 0 30px 0 30px;
+}
+a.product-property-all {
+  color: #009688;
+  background: #fff;
+  border: 1px solid #009688;
+  border-radius: 4px;
+  text-align: center;
+  font-size: 14px;
+}
+a.product-property-all:hover {
+  background: #009688;
+  color: #fff;
+}
+h3.product-box-name {
+  color: #ef4836;
+}
+.left-content-product .content-product-right .box-review a {
+  color: #000;
+}
