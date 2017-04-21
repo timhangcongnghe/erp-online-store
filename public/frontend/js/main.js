@@ -319,7 +319,9 @@ $(document).ready(function () {
         });
     });
 
-    $('.ajax-link').fancybox({hideOnOverlayClick : true}); // on
+    $('.ajax-link').fancybox({
+        closeClickOutside : true,
+    });
 
     $(document).on('submit', '.ajax-form', function(e) {
         e.preventDefault();
@@ -619,6 +621,14 @@ $(document).ready(function () {
     });
 
     $('.contacts-create-hide').hide();
+
+    $(document).on('click', '.fancybox-slide--current', function(e) {
+        if($(e.target).parents('.product-box-desc').length){
+            e.preventDefault();
+            return;
+        }
+        $.fancybox.close( 'all' );
+    });
 
 });
 $(window).scroll(function () {
