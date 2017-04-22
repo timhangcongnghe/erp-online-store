@@ -628,7 +628,6 @@ $(document).ready(function () {
 
     $(document).on('click', '.fancybox-slide--current', function(e) {
         if($(e.target).parents('.product-box-desc').length || $(e.target).parents('.fancybox-content-no').length){
-            e.preventDefault();
             return;
         }
         $.fancybox.close( 'all' );
