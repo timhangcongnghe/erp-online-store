@@ -1,12 +1,16 @@
 <div class="col-sm-9 custom-profile" id="content">
     <div class="card hovercard">
         <div class="card-background">
-            <img class="card-bkimg" alt="" src="<%= avatar(current_user) %>">
+            <%= image_tag "/frontend/image/background-user.jpg", alt: current_user.name, class: "card-bkimg" %>
         </div>
         <div class="useravatar">
-            <img alt="" src="<%= avatar(current_user) %>">
+            <%= image_tag avatar(current_user), alt: current_user.name %>
         </div>
-        <div class="card-info"> <span class="card-title"><%= current_user.name %></span></div>
+        <div class="card-info">
+            <span class="card-title">
+                <%= current_user.name %>
+            </span>
+        </div>
     </div>
     <div class="btn-pref btn-group btn-group-justified btn-group-lg" role="group" aria-label="...">
         <div class="btn-group" role="group">
