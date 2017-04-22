@@ -4,7 +4,9 @@
         <li><%= link_to '<i class="fa fa-home"></i>'.html_safe, erp_online_store.root_path %></li>
         <% if !@menu.nil? %>
             <% @menu.self_and_parent_menus.each do |menu| %>
-                <li><%= link_to menu.name, menu_link(menu) %></li>
+                <% if @menu.id != menu.id %>
+                    <li><%= link_to menu.name, menu_link(menu) %></li>
+                <% end %>
             <% end %>
         <% end %>
         <li><%= link_to @menu.name, "javascript:void(0)" %></li>
