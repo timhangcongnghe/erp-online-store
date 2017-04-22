@@ -623,8 +623,9 @@ $(document).ready(function () {
             });
         });
     });
+    $('.ajax-content-control').trigger('change');
 
-    $('.contacts-create-hide').hide();
+    setTimeout(function() {$('.contacts-create-hide').hide();}, 2000);
 
     $(document).on('click', '.fancybox-slide--current', function(e) {
         if($(e.target).parents('.product-box-desc').length || $(e.target).parents('.fancybox-content-no').length){
