@@ -627,7 +627,7 @@ $(document).ready(function () {
     $('.contacts-create-hide').hide();
 
     $(document).on('click', '.fancybox-slide--current', function(e) {
-        if($(e.target).parents('.product-box-desc').length){
+        if($(e.target).parents('.product-box-desc').length || $(e.target).parents('.fancybox-content-no').length){
             e.preventDefault();
             return;
         }
