@@ -1,4 +1,4 @@
-<select class="form-control" id="input-payment-zone" name="zone_id">
+<select class="form-control" id="input-payment-zone" name="contact[district_id]">
     <option value=""> --- Chọn quận/huyện/thị xã --- </option>
     <% @districts.each do |district| %>
         <option value="<%= district.id %>"><%= district.name %></option>

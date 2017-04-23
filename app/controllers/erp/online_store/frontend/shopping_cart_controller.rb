@@ -65,19 +65,15 @@ module Erp
                     "name": @order.customer.name,
                     "phone": @order.customer.phone,
                     "address": @order.customer.address,
-                    "ward": "Phường 16",
-                    "district": "Quận Gò Vấp",
-                    "city": "Hồ Chí Minh",
-                    "country": "Việt Nam"
+                    "district": @order.customer.district.name,
+                    "state": @order.customer.state.name
                   },
                   "consignee": {
                     "name": @order.consignee.name,
                     "phone": @order.consignee.phone,
                     "address": @order.consignee.address,
-                    "ward": "Phường 16",
-                    "district": "Quận Gò Vấp",
-                    "city": "Hồ Chí Minh",
-                    "country": "Việt Nam"
+                    "district": @order.consignee.district.name,
+                    "state": @order.consignee.state.name
                   }
                 }.to_json
               )
@@ -103,7 +99,7 @@ module Erp
 
         private
           def contact_params
-            params.fetch(:contact, {}).permit(:name, :phone, :address)
+            params.fetch(:contact, {}).permit(:name, :phone, :email, :state_id, :district_id, :address)
           end
 
           def order_params

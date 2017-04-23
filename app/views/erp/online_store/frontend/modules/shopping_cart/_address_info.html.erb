@@ -1,53 +1,53 @@
 <div class="row">
-    <div class="col-sm-12">
-        <div class="panel panel-default no-padding">
-            <div class="col-sm-12 checkout-shipping-methods">
-                <div class="panel-heading">
-                    <h4 class="panel-title"><i class="fa fa-user"></i> Thông tin người mua hàng</h4>
-                </div>
-                <% if current_user.contact.present? %>
-                    <div class="col-sm-12">
-                        <div class="address-item is-main">
-                            <p class="name"><%= current_user.contact.name %></p>
-                            <span class="default">Thông tin mặc định</span>
-                            <p class="address">Địa chỉ: <%= current_user.contact.address %></p>
-                            <p class="phone">Điện thoại: <%= current_user.contact.phone %></p>
-                            <button type="button" class="btn btn-default btn-custom"><i class="fa fa-edit"></i> Thay đổi thông tin người mua</button>
-                        </div>
+    <% if current_user.contact.present? %>
+        <div class="col-sm-12">
+            <div class="panel panel-default no-padding">
+                <div class="col-sm-12 checkout-shipping-methods">
+                    <div class="panel-heading">
+                        <h4 class="panel-title"><i class="fa fa-user"></i> Thông tin người mua hàng</h4>
                     </div>
-                <% end %>
+                    <% if current_user.contact.present? %>
+                        <div class="col-sm-12">
+                            <div class="address-item is-main">
+                                <p class="name"><%= current_user.contact.name %></p>
+                                <span class="default">Thông tin mặc định</span>
+                                <p class="address">Địa chỉ: <%= current_user.contact.address %></p>
+                                <p class="phone">Điện thoại: <%= current_user.contact.phone %></p>
+                                <button type="button" class="btn btn-default btn-custom"><i class="fa fa-edit"></i> Thay đổi thông tin người mua</button>
+                            </div>
+                        </div>
+                    <% end %>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="col-sm-12">
-        <div class="panel panel-default no-padding">
-            <div class="col-sm-12 checkout-shipping-methods">
-                <div class="panel-heading">
-                    <h4 class="panel-title"><i class="fa fa-truck"></i> Địa chỉ giao/nhận hàng</h4>
-                </div>
-                <% if current_user.contact.present? %>
-                    <div class="col-sm-12">
-                        <div class="address-item is-main">
-                            <p class="name"><%= @selected_contact.name %></p>
-                            <% if current_user.contact == @selected_contact %>
-                            <span class="default">Thông tin mặc định</span>
-                            <% end %>
-                            <p class="address">Địa chỉ: <%= @selected_contact.address %></p>
-                            <p class="phone">Điện thoại: <%= @selected_contact.phone %></p>
-                        </div>
+        <div class="col-sm-12">
+            <div class="panel panel-default no-padding">
+                <div class="col-sm-12 checkout-shipping-methods">
+                    <div class="panel-heading">
+                        <h4 class="panel-title"><i class="fa fa-truck"></i> Địa chỉ giao/nhận hàng</h4>
                     </div>
-                <% end %>
-            </div>
-
-            <div class="col-sm-12 checkout-shipping-methods">
-                <% if current_user.contact.present? %>
+                    <% if current_user.contact.present? %>
+                        <div class="col-sm-12">
+                            <div class="address-item is-main">
+                                <p class="name"><%= @selected_contact.name %></p>
+                                <% if current_user.contact == @selected_contact %>
+                                <span class="default">Thông tin mặc định</span>
+                                <% end %>
+                                <p class="address">Địa chỉ: <%= @selected_contact.address %></p>
+                                <p class="phone">Điện thoại: <%= @selected_contact.phone %></p>
+                            </div>
+                        </div>
+                    <% end %>
+                </div>
+    
+                <div class="col-sm-12 checkout-shipping-methods">
                     <div class="col-sm-12">
                         <p class="other">Bạn muốn giao hàng đến địa chỉ khác?
                         <% if current_user.contact.contacts.count > 0 %>
                             <a href="#contact-select" onclick="$('.contacts-create').hide();$('.contacts-select').toggle()">Chọn trong sổ địa chỉ</a> hoặc
                         <% end %>
                             <a href="#contact-create" onclick="$('.contacts-select').hide();$('.contacts-create').toggle()">Tạo địa chỉ giao hàng mới</a></p>
-
+    
                         <% if current_user.contact.contacts.count > 0 %>
                             <div class="contacts-option contacts-select" style="display: none">
                                 <hr>
@@ -84,7 +84,7 @@
                                 </div>
                             </div>
                         <% end %>
-
+    
                         <div class="contacts-option contacts-create contacts-create-hide">
                             <hr>
                             <p class="title">Tạo mới địa chỉ giao hàng</p>
@@ -106,13 +106,13 @@
                                             </div>
                                         </div>
                                     </div>
-
+    
                                     <div class="row">
                                         <div class="col-sm-6">
                                             <div class="form-group">
                                                 <label for="input-payment-country" class="control-label">Tỉnh/Thành phố</label>
                                                 <div>
-                                                    <select class="form-control select ajax-content-control" id="input-payment-country" name="country_id"
+                                                    <select class="form-control select ajax-content-control" id="input-payment-country" name="contact[state_id]"
                                                         data-content-selector="#payment-district-2"
                                                         data-url="<%= erp_online_store.district_select_path %>"
                                                     >
@@ -134,8 +134,8 @@
                                     <div class="row">
                                         <div class="col-sm-12">
                                             <div class="form-group">
-                                                <label for="input-payment-address-1" class="control-label">Địa chỉ</label>
-                                                <input type="text" class="form-control" id="input-payment-address-1"
+                                                <label class="control-label">Địa chỉ</label>
+                                                <input type="text" class="form-control"
                                                        placeholder="Số nhà, đường, thôn, ấp" name="contact[address]">
                                             </div>
                                         </div>
@@ -151,34 +151,35 @@
                             </fieldset>
                         </div>
                     </div>
-                <% else %>
+                </div>
+            </div>
+        </div>
+    
+    <% else %>
+        <div class="col-sm-12">
+            <div class="panel panel-default no-padding">
+                <div class="col-sm-12 checkout-shipping-methods">
+                    <div class="panel-heading">
+                        <h4 class="panel-title"><i class="fa fa-truck"></i> Thông tin đặt hàng - giao nhận</h4>
+                    </div>
                     <div class="col-sm-12">
-                        <p class="title">Cập nhật thông tin địa chỉ giao hàng</p>
+                        <p class="title">Cập nhật thông tin liên hệ của bạn</p>
                         <fieldset id="address-form" class="required">
-                            <%= form_for '', url: erp_online_store.add_main_contact_path do |f| %>
+                            <%= form_for '', url: erp_online_store.add_main_contact_path, html: {class: "contact_form"} do |f| %>
                                 <div class="row">
                                     <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <label for="input-payment-company" class="control-label">Họ tên</label>
-                                            <input type="text" class="form-control" id="input-payment-company"
+                                        <div class="form-group required">
+                                            <label class="control-label">Họ tên</label>
+                                            <input type="text" class="form-control required"
                                                    placeholder="Nhập họ tên người nhận" name="contact[name]">
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <label for="input-payment-company" class="control-label">Điện thoại di động</label>
-                                            <input type="text" class="form-control" id="input-payment-company"
-                                                   placeholder="Nhập số điện thoại" name="contact[phone]">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <label for="input-payment-country" class="control-label">Tỉnh/Thành phố</label>
+                                        <div class="form-group required">
+                                            <label class="control-label">Tỉnh/Thành phố</label>
                                             <div>
                                                 <select
-                                                    class="form-control select ajax-content-control" id="input-payment-country" name="country_id"
+                                                    class="form-control select ajax-content-control" name="contact[state_id]"
                                                     data-content-selector="#payment-district"
                                                     data-url="<%= erp_online_store.district_select_path %>"
                                                 >
@@ -190,20 +191,36 @@
                                             </div>
                                         </div>
                                     </div>
+                                </div>
+                                <div class="row">
                                     <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <label for="input-payment-zone" class="control-label">Quận/Huyện/Thị xã</label>
+                                        <div class="form-group required">
+                                            <label class="control-label">Điện thoại di động</label>
+                                            <input type="text" class="form-control required"
+                                                   placeholder="Nhập số điện thoại" name="contact[phone]">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group required">
+                                            <label class="control-label">Quận/Huyện/Thị xã</label>
                                             <div class="" id="payment-district">
-
+                                                
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-sm-12">
-                                        <div class="form-group">
-                                            <label for="input-payment-address-1" class="control-label">Địa chỉ</label>
-                                            <input type="text" class="form-control" id="input-payment-address-1"
+                                    <div class="col-sm-6">
+                                        <div class="form-group required">
+                                            <label class="control-label">Địa chỉ email</label>
+                                            <input type="text" class="form-control required"
+                                                   placeholder="Vui lòng cung cấp email của bạn"name="contact[email]">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group required">
+                                            <label class="control-label">Địa chỉ</label>
+                                            <input type="text" class="form-control required"
                                                    placeholder="Số nhà - đường, xã/phường/thị trấn"name="contact[address]">
                                         </div>
                                     </div>
@@ -218,8 +235,8 @@
                             <% end %>
                         </fieldset>
                     </div>
-                <% end %>
+                </div>
             </div>
         </div>
-    </div>
+    <% end %>
 </div>
