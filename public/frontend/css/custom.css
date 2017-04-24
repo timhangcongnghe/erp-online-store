@@ -1365,3 +1365,7 @@ footer {
   color: #009688;
   font-weight: 500;
 }
+.autosearch-empty-line {
+  padding: 10px 10px;
+  text-align: center;
+}

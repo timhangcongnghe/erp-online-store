@@ -182,6 +182,10 @@ function autoSearch(box) {
         });
         if (items.length) {
             result_box.find('li').eq(0).addClass('current');
+        } else {
+            result_box.append(
+                '<li class="autosearch-empty-line">Không có sản phẩm phù hợp</li>'
+            );
         }
     });
 }
