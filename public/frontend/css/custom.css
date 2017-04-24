@@ -1369,3 +1369,6 @@ footer {
   padding: 10px 10px;
   text-align: center;
 }
+.form-group .select2-container {
+  width: 100% !important;
+}
