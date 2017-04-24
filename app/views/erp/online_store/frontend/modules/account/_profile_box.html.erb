@@ -19,12 +19,12 @@
             </button>
         </div>
         <div class="btn-group" role="group">
-            <button type="button" id="following" class="btn btn-default" href="#tab2" data-toggle="tab"><span class="fa fa-map-marker" aria-hidden="true"></span>
+            <button type="button" id="contact" class="btn btn-default" href="#tab2" data-toggle="tab"><span class="fa fa-map-marker" aria-hidden="true"></span>
                 <div class="hidden-xs button-info">Cập Nhật Liên Hệ</div>
             </button>
         </div>
         <div class="btn-group" role="group">
-            <button type="button" id="following" class="btn btn-default" href="#tab3" data-toggle="tab"><span class="fa fa-cog" aria-hidden="true"></span>
+            <button type="button" id="password" class="btn btn-default" href="#tab3" data-toggle="tab"><span class="fa fa-cog" aria-hidden="true"></span>
                 <div class="hidden-xs button-info">Cài Đặt Bảo Mật</div>
             </button>
         </div>
@@ -72,7 +72,7 @@
                     <div class="col-sm-12">
                         <fieldset id="personal-details">
                             <legend>Thông tin cơ bản</legend>
-                            <div class="row">    
+                            <div class="row">
                                 <div class="col-sm-6">
                                     <div class="form-group">
                                         <label for="input-lastname" class="control-label">Thêm/cập nhật hình đại diện: </label>
@@ -134,12 +134,12 @@
                                         <select class="form-control" id="input-zone" name="contact[gender]">
                                             <option value=""> Chọn giới tính </option>
                                             <option <%= 'selected' if @contact.gender == Erp::Contacts::Contact::GENDER_MALE %> value="<%= Erp::Contacts::Contact::GENDER_MALE %>">Nam</option>
-                                            <option <%= 'selected' if @contact.gender == Erp::Contacts::Contact::GENDER_FEMALE %> value="<%= Erp::Contacts::Contact::GENDER_FEMALE %>">Nữ</option> 
+                                            <option <%= 'selected' if @contact.gender == Erp::Contacts::Contact::GENDER_FEMALE %> value="<%= Erp::Contacts::Contact::GENDER_FEMALE %>">Nữ</option>
                                         </select>
                                     </div>
                                 </div>
                             </div>
-                            
+
                             <legend>Địa chỉ đặt hàng</legend>
                             <div class="row">
                                 <div class="col-sm-6">
@@ -181,7 +181,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </fieldset>                    
+                        </fieldset>
                     </div>
                     <div class="col-sm-12">
                         <div class="buttons clearfix">
@@ -190,7 +190,7 @@
                             </div>
                         </div>
                     </div>
-                <% end %>          
+                <% end %>
             </div>
         </div>
         <div class="tab-pane fade in" id="tab3">
@@ -223,7 +223,7 @@
                                                placeholder="Nhập một mật khẩu mới"
                                                name="user[password_confirmation]">
                                     </div>
-                                </div> 
+                                </div>
                             </div>
                         </fieldset>
                     </div>
