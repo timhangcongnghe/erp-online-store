@@ -32,7 +32,7 @@
                                 <% if cart_item.product.short_description.present? %>
                                 <br><small><%= cart_item.product.short_description.html_safe %></small>
                                 <% end %>
-                            </td>                            
+                            </td>
                             <td class="text-center" width="200px">
                                 <div class="input-group btn-block quantity">
                                     <strong><input class="form-control" type="text" name="quantities[<%= cart_item.id %>]" value="<%= cart_item.quantity %>"></strong>
@@ -66,12 +66,16 @@
             </div>
             <div class="buttons">
                 <div class="pull-left"><%= link_to "Tiếp Tục Mua Hàng", erp_online_store.root_path, class: "btn btn-default shopping-continue" %></div>
-                <div class="pull-right"><%= link_to "Tiến Hành Đặt Hàng", erp_online_store.checkout_path, class: "btn btn-primary shopping-order" %></div>
+                <% if user_signed_in? %>
+                    <div class="pull-right"><%= link_to "Tiến Hành Đặt Hàng", erp_online_store.checkout_path, class: "btn btn-primary shopping-order" %></div>
+                <% else %>
+                    <div class="pull-right"><%= link_to "Tiến Hành Đặt Hàng", erp.new_user_session_path, class: "btn btn-primary shopping-order ajax-link", "data-type": "ajax" %></div>
+                <% end %>
             </div>
             <% else %>
                 <h2 class="title">Giỏ hàng hiện tại của bạn đang trống.</h2>
                 <div class="buttons">
-                    <div class="pull-left"><%= link_to "TIẾP TỤC MUA HÀNG", erp_online_store.root_path, class: "btn btn-default shopping-continue" %></div>                
+                    <div class="pull-left"><%= link_to "TIẾP TỤC MUA HÀNG", erp_online_store.root_path, class: "btn btn-default shopping-continue" %></div>
                 </div>
             <% end %>
         </div>

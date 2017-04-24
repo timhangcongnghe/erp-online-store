@@ -58,7 +58,7 @@ module Erp
             if @order.save
               @order.save_from_cart(@cart)
               Erp::Carts::Cart.destroy(session[:cart_id])
-              
+
               @order.update_columns(
                 data: {
                   "customer": {
@@ -77,11 +77,11 @@ module Erp
                   }
                 }.to_json
               )
-              
+
               # send order email for admin + customer
               Erp::Orders::FrontendOrderMailer.sending_admin_email_order_confirmation(@order).deliver_now
               Erp::Orders::FrontendOrderMailer.sending_customer_email_order_confirmation(@order).deliver_now
-              
+
               redirect_to erp_online_store.checkout_completed_path, notice: "Đặt hàng thành công."
             else
               redirect_to :back, notice: "Đặt hàng không thành công. Thử lại?"
