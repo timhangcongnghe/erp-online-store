@@ -72,6 +72,9 @@ module Erp
           render json: @products.map { |product| {
             name: product.product_name,
             price: format_price(product.product_price),
+            is_deal: product.is_deal,
+            old_price: (format_price(product.price) if product.is_deal),
+            deal_percent: (product.deal_percent if product.is_deal),
             link: product_link(product),
             image: image_src(product.main_image, 'thumb99'),
           }}
