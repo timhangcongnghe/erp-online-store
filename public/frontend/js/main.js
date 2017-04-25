@@ -177,7 +177,7 @@ function autoSearch(box) {
                     '<img src="' +item.image+ '" />' +
                     '<span class="title">' + item.name + '</span>' +
                     '<br /><span class="price">' + item.price + '</span>' +
-                    ' <span class="old_price"><span class="num">' + item.old_price + '</span> (giảm ' + item.deal_percent + '%)</span>' +
+                    ' <span class="old_price old_price_'+item.old_price+'"><span class="num">' + item.old_price + '</span> (giảm ' + item.deal_percent + '%)</span>' +
                 '</a></li>'
             );
         });
