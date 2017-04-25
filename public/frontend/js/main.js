@@ -638,7 +638,7 @@ $(document).ready(function () {
         $.fancybox.close( 'all' );
     });
 
-    $(document).on('change', '.category-filter-box input', function() {
+    $(document).on('change', '.category-filter-box input, .category-filter-box select', function() {
         var form = $(this).parents('form');
         var url = form.attr('action');
         var container = $('#content');
