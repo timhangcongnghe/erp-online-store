@@ -654,6 +654,11 @@ $(document).ready(function () {
             data: form.serialize()
         }).done(function( data ) {
             container.html($('<div>').html(data).find('#content').html());
+            setTimeout(function () {
+                container.find('.product-image-container').addClass('lazy-loaded');
+                container.find('.products-list').removeClass('list').addClass('grid');
+                fixWithProductListAll();
+            }, 500);
         });
     });
 
