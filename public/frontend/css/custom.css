@@ -1377,3 +1377,14 @@ footer {
     height: 400px;
     background: url(/frontend/image/loading.gif) top center no-repeat rgba(0,0,0,0);
 }
+.product-box-desc.modal-box table {
+  width: 500px;
+}
+@media (max-width: 767px) {
+  .product-box-desc.modal-box table {
+    width: 100%;
+  }
+  .product-box-desc .inner-box-desc {
+    padding: 0;
+  }
+}
