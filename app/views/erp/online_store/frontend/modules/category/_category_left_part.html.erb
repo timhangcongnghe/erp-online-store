@@ -5,12 +5,25 @@
         </span>
     </h3>
     <div class="modcontent ">
-        <%= form_tag(erp_online_store.category_path, method: "get", class: "type_2") do %>
+        <%= form_tag("", method: "get", class: "category-filter-box") do %>
             <%= hidden_field_tag "menu_id", menu.id %>
             <div class="table_layout filter-shopby">
                 <div class="table_row">
                     <div class="table_cell">
                         <fieldset>
+                            <% if !menu.brands.empty? %>
+                                <legend>Thương hiệu sản phẩm</legend>
+                                <ul class="checkboxes_list">
+                                    <% menu.brands.each do |brand| %>
+                                        <li>
+                                            <input type="checkbox" name="brand_ids[]" id="brand_<%= brand.id %>" value="<%= brand.id %>">
+                                            <label for="brand_<%= brand.id %>"><%= brand.name %></label>
+                                        </li>
+                                    <% end %>
+                                </ul>
+                                <br />
+                            <% end %>
+
                             <legend>Nhóm sản phẩm</legend>
                             <ul class="checkboxes_list">
                                 <li>
@@ -28,26 +41,6 @@
                             </ul>
                         </fieldset>
                     </div>
-                    <% if menu.brand_group_id.present? %>
-                        <% if menu.get_brand_groups.count > 0 %>
-                            <!-- - - - - - - - - - - - - - Brand - - - - - - - - - - - - - - - - -->
-                            <div class="table_cell">
-                                <fieldset>
-                                    <legend>Thương hiệu sản phẩm</legend>
-                                    <ul class="checkboxes_list">
-                                        <% menu.get_brand_groups.each do |brand_group| %>
-                                        <li>
-                                            <input type="checkbox" name="manufacturer_ids[]" id="<%= brand_group.brand_id %>">
-                                            <label for="<%= brand_group.brand_id %>"><%= brand_group.brand_name %></label>
-                                        </li>
-                                        <% end %>
-                                    </ul>
-                                </fieldset>
-                            </div>
-                            <!--/ .table_cell -->
-                            <!-- - - - - - - - - - - - - - End brand - - - - - - - - - - - - - - - - -->
-                        <% end %>
-                    <% end %>
                 </div>
                 <!--/ .table_row -->
             </div>

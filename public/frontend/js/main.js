@@ -192,7 +192,7 @@ function autoSearch(box) {
 
 // Init vars
 var AUTH_TOKEN = $('meta[name=csrf-token]').attr('content');
-
+var category_xhr;
 $(document).ready(function () {
     // Grap link with data-method attribute
     $(document).on('click', 'a.link-method[data-method]', function(e) {
@@ -636,6 +636,25 @@ $(document).ready(function () {
             return;
         }
         $.fancybox.close( 'all' );
+    });
+
+    $(document).on('change', '.category-filter-box input', function() {
+        var form = $(this).parents('form');
+        var url = form.attr('action');
+        var container = $('#content');
+
+        container.html('<div class="category-loading"></div>');
+
+        // ajax autosearch
+        if(category_xhr && category_xhr.readyState != 4){
+            category_xhr.abort();
+        }
+        category_xhr = $.ajax({
+            url: url,
+            data: form.serialize()
+        }).done(function( data ) {
+            container.html($('<div>').html(data).find('#content').html());
+        });
     });
 
 });
