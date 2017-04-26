@@ -384,8 +384,8 @@ $(document).ready(function () {
         $(this).removeClass("btn-default").addClass("btn-primary");
     });
 
-    $(document).on('click', '.product-item-container .left-block, .product-item-container .right-block', function() {
-        var url = $(this).parents('.product-item-container').find('a.hover-product-name').attr('href');
+    $(document).on('click', '.product-item-container', function() {
+        var url = $(this).find('.right-block a').attr('href');
 
         document.location.href = url;
     });
