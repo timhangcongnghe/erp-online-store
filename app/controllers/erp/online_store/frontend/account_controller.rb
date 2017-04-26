@@ -28,7 +28,7 @@ module Erp
               current_user.update_columns(contact_id: @contact.id)
               redirect_to erp_online_store.my_account_path() + "#contact", flash: {success: "Thông tin cá nhân đã được cập nhật."}
             else
-              redirect_to erp_online_store.my_account_path() + "#contact", flash: {error: "Thông tin chưa được cập nhật. Vui lòng thử lại."}
+              redirect_to erp_online_store.my_account_path() + "#contact", flash: {error: "Thông tin chưa được cập nhật. Vui lòng cung cấp đầy đủ thông tin."}
             end
           end
         end
@@ -74,7 +74,7 @@ module Erp
           end
 
           def contact_params
-            params.fetch(:contact, {}).permit(:name, :phone, :email, :birthday, :gender, :address)
+            params.fetch(:contact, {}).permit(:name, :phone, :email, :birthday, :gender, :state_id, :district_id, :address)
           end
       end
     end
