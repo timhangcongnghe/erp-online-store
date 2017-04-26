@@ -53,7 +53,7 @@
                                 <% elsif @contact.gender == Erp::Contacts::Contact::GENDER_FEMALE %>
                                     Nữ
                                 <% else %>
-                                    Không xác định
+                                    Không biết
                                 <% end %>
                             </strong>
                         </p>
@@ -143,41 +143,32 @@
                             <legend>Địa chỉ đặt hàng</legend>
                             <div class="row">
                                 <div class="col-sm-6">
-                                    <div class="form-group">
+                                    <div class="form-group required">
                                         <label for="input-province" class="control-label">Tỉnh/Thành</label>
-                                        <select class="form-control" id="input-province" name="province_id">
-                                            <option value=""> --- Tỉnh/Thành --- </option>
-                                            <option value="1">Hồ Chí Minh</option>
-                                            <option value="2">Hà Nội</option>
+                                        <select class="form-control select ajax-content-control"
+                                            name="contact[state_id]"
+                                            data-content-selector="#payment-district-2"
+                                            data-url="<%= erp_online_store.district_select_path(current_value: @contact.district_id) %>"
+                                        >
+                                            <option value=""> --- Chọn tỉnh/thành phố --- </option>
+                                            <% Erp::Areas::State.get_all.each do |state| %>
+                                                <option <%= 'selected' if @contact.state_id == state.id %> value="<%= state.id %>"><%= state.name %></option>
+                                            <% end %>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
-                                    <div class="form-group">
+                                    <div class="form-group required">
                                         <label for="input-district" class="control-label">Quận/Huyện</label>
-                                        <select class="form-control" id="input-district" name="district_id">
-                                            <option value=""> --- Quận/Huyện --- </option>
-                                            <option value="1">Quận 1</option>
-                                            <option value="2">Quận 2</option>
-                                        </select>
+                                        <div id="payment-district-2"></div>
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <label for="input-ward" class="control-label">Phường/Xã</label>
-                                        <select class="form-control" id="input-ward" name="ward_id">
-                                            <option value=""> --- Phường/Xã --- </option>
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="form-group">
+                                <div class="col-sm-12">
+                                    <div class="form-group required">
                                         <label for="input-address" class="control-label">Số nhà/đường/thôn/ấp: </label>
-                                        <input type="text" class="form-control" id="input-address" placeholder="Số nhà, đường, thôn, ấp" value="<%= @contact.address %>" name="contact[address]">
+                                        <input type="text" class="form-control required" id="input-address" placeholder="Số nhà, đường, thôn, ấp" value="<%= @contact.address %>" name="contact[address]">
                                     </div>
                                 </div>
                             </div>
