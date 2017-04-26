@@ -581,7 +581,7 @@ $(document).ready(function () {
 
     // autosearch
     $('.autosearch select').select2({
-        minimumResultsForSearch: 30,
+        minimumResultsForSearch: 10,
         dropdownAutoWidth: 'true'
     });
 
@@ -603,7 +603,7 @@ $(document).ready(function () {
 
     // autosearch
     $('select').select2({
-        minimumResultsForSearch: 30,
+        minimumResultsForSearch: 10,
         dropdownAutoWidth: 'true'
     });
 
@@ -623,7 +623,7 @@ $(document).ready(function () {
         }).done(function( data ) {
             container.html(data);
             container.find('select').select2({
-                minimumResultsForSearch: 30,
+                minimumResultsForSearch: 10,
                 dropdownAutoWidth: 'true'
             });
         });
