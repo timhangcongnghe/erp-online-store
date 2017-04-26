@@ -89,19 +89,19 @@
                             <hr>
                             <p class="title">Tạo mới địa chỉ giao hàng</p>
                             <fieldset id="address-form" class="required">
-                                <%= form_for '', url: erp_online_store.add_main_contact_path do |f| %>
+                                <%= form_for '', url: erp_online_store.add_main_contact_path, html: {class: "contact_form"} do |f| %>
                                     <div class="row">
                                         <div class="col-sm-6">
-                                            <div class="form-group">
+                                            <div class="form-group required">
                                                 <label for="input-payment-company" class="control-label">Họ tên</label>
-                                                <input type="text" class="form-control" id="input-payment-company"
+                                                <input type="text" class="form-control required"
                                                        placeholder="Nhập họ tên người nhận" name="contact[name]">
                                             </div>
                                         </div>
                                         <div class="col-sm-6">
-                                            <div class="form-group">
+                                            <div class="form-group required">
                                                 <label for="input-payment-company" class="control-label">Điện thoại di động</label>
-                                                <input type="text" class="form-control" id="input-payment-company"
+                                                <input type="text" class="form-control required"
                                                        placeholder="Nhập số điện thoại" name="contact[phone]">
                                             </div>
                                         </div>
@@ -112,7 +112,8 @@
                                             <div class="form-group">
                                                 <label for="input-payment-country" class="control-label">Tỉnh/Thành phố</label>
                                                 <div>
-                                                    <select class="form-control select ajax-content-control" id="input-payment-country" name="contact[state_id]"
+                                                    <select class="form-control select ajax-content-control"
+                                                        name="contact[state_id]"
                                                         data-content-selector="#payment-district-2"
                                                         data-url="<%= erp_online_store.district_select_path %>"
                                                     >
@@ -133,9 +134,9 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-sm-12">
-                                            <div class="form-group">
+                                            <div class="form-group required">
                                                 <label class="control-label">Địa chỉ</label>
-                                                <input type="text" class="form-control"
+                                                <input type="text" class="form-control required"
                                                        placeholder="Số nhà, đường, thôn, ấp" name="contact[address]">
                                             </div>
                                         </div>
