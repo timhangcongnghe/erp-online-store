@@ -12,7 +12,7 @@ module Erp
           @meta_keywords = @product.meta_keywords
           @meta_description = @product.meta_description
           @deal_products = Erp::Products::Product.get_deal_products
-          @menu = @product.find_menu
+          @menu = params[:menu_id].present? ? Erp::Menus::Menu.find(params[:menu_id]) : @product.find_menu
         end
 
         def comments
