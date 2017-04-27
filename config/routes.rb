@@ -46,7 +46,7 @@ Erp::OnlineStore::Engine.routes.draw do
   # SHOPPING CART
   get "topcart.html" => "frontend/shopping_cart#top_cart", as: :top_cart
   get "gio-hang.html" => "frontend/shopping_cart#shopping_cart", as: :shopping_cart
-  get "dat-hang.html" => "frontend/shopping_cart#checkout", as: :checkout
+  get "dat-hang(/coid-:selected_contact_id).html" => "frontend/shopping_cart#checkout", as: :checkout
   post "dat-hang.html" => "frontend/shopping_cart#checkout"
   get "dat-hang/thanh-cong.html" => "frontend/shopping_cart#success", as: :checkout_completed
   get "cap-nhat-lien-he.html" => "frontend/shopping_cart#add_main_contact", as: :add_main_contact

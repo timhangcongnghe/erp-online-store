@@ -11,7 +11,7 @@
                 <div class="table_row">
                     <div class="table_cell">
                         <fieldset>
-                            <% if !menu.brands.empty? %>
+                            <% if menu.brands.count > 1 %>
                                 <legend>Thương hiệu sản phẩm</legend>
                                 <ul class="checkboxes_list">
                                     <% menu.brands.each do |brand| %>
