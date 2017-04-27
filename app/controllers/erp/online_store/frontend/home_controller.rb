@@ -8,13 +8,6 @@ module Erp
           @bestsellers = Erp::Products::Product.get_bestseller_products
           @newest_blogs = Erp::Articles::Article.newest_articles(2)
           @testimonials = Erp::Testimonials::Testimonial.get_testimonials
-
-          if current_user
-            unless session[:display_welcome]
-              flash.now[:notice] = "Welcome!"
-              session[:display_welcome] = true
-            end
-          end
         end
 
         # home category box
