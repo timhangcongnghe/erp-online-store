@@ -84,10 +84,13 @@
             <% ratings.each_with_index do |rating,index| %>
                 <div class="row">
                     <div class="col-sm-4 review-block-author">
-                        <img src="http://dummyimage.com/60x60/666/ffffff&text=No+Image" class="img-rounded">
+                        <img src="<%= avatar(rating.user) %>" class="img-rounded">
                         <div class="author">
                             <div class="review-block-name"><a href="#"><%= rating.user_name %></a></div>
-                            <div class="review-block-date">đến từ Hồ Chí Minh<br/><%= relative_time(rating.created_at) %></div>
+                            <div class="review-block-date">
+                                <%= rating.user.contact.nil? ? '' : "đến từ #{rating.user.contact.state_name} <br/>".html_safe %>
+                                <%= relative_time(rating.created_at) %>
+                            </div>
                         </div>
                     </div>
                     <div class="col-sm-8 border-left">
