@@ -44,6 +44,11 @@ module Erp
       def article_link(article)
         erp_online_store.blog_detail_path(article.id, title:  url_friendly(article.name))
       end
+      
+      # event link
+      def event_link(event)
+        erp_online_store.event_detail_path(event.id, title:  url_friendly(event.name))
+      end
 
       # user avatar
       def avatar(user)
