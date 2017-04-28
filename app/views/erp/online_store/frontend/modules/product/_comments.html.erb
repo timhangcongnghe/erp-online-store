@@ -1,29 +1,33 @@
 <% if user_signed_in? %>
-    <%= form_for '', url: erp_online_store.product_comments_path(product_id: @product.id), html: {class: "comment_form"} do |f| %>
-        <div id="comments" class="blog-comment-info">
-            <h3 id="review-title">Mời <%= current_user.name %> để lại bình luận </h3>
-            <input type="hidden" name="comment[product_id]" value="<%= @product.id %>" />
-            <input type="hidden" name="comment[parent_id]" value="" />
-            <div class="comment-left contacts-form row">
-                <div class="col-sm-12">
-                    <div class="form-group">
-                        <b>Lời bình luận:</b>
-                        <br />
-                        <textarea name="comment[message]"
-                            class="form-control required"
-                            id="btn-radius"
-                            placeholder="Nội dung bình luận, xin vui lòng nhập tiếng Việt có dấu."></textarea>
+    <% if can? :create, Erp::Products::Comment.new %>
+        <%= form_for '', url: erp_online_store.product_comments_path(product_id: @product.id), html: {class: "comment_form"} do |f| %>
+            <div id="comments" class="blog-comment-info">
+                <h3 id="review-title">Mời <%= current_user.name %> để lại bình luận </h3>
+                <input type="hidden" name="comment[product_id]" value="<%= @product.id %>" />
+                <input type="hidden" name="comment[parent_id]" value="" />
+                <div class="comment-left contacts-form row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <b>Lời bình luận:</b>
+                            <br />
+                            <textarea name="comment[message]"
+                                class="form-control required"
+                                id="btn-radius"
+                                placeholder="Nội dung bình luận, xin vui lòng nhập tiếng Việt có dấu."></textarea>
+                        </div>
                     </div>
-                </div>
-                <div class="col-sm-12">
-                    <div class="text-left">
-                        <button class="btn buttonGray" id="btn-radius" type="submit">
-                            <span>Gửi Bình Luận</span>
-                        </button>
+                    <div class="col-sm-12">
+                        <div class="text-left">
+                            <button class="btn buttonGray" id="btn-radius" type="submit">
+                                <span>Gửi Bình Luận</span>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        <% end %>
+    <% else %>
+        <p class="text-warning">Bạn bị mất quyền bình luận</p>
     <% end %>
 <% else %>
     <h3 id="review-title">Vui lòng
@@ -31,9 +35,10 @@
     để bình luận </h3>
 <% end %>
 <hr>
+
 <div id="comments">
     <h3 id="review-title">Có <%= comments.count %> bình luận cho sản phẩm này</h3>
-    
+
     <div class="commentlist">
         <% comments.order('created_at DESC').each do |comment| %>
             <div id="comment-181" class="comment even thread-even depth-1 media">
@@ -54,7 +59,7 @@
                             <p><%= comment.message %></p>
                             <a onclick="" rel="nofollow" class="right comment-reply-link" href="#reply"
                                aria-label="Reply to <%= comment.user_name %>"><i class="fa fa-reply"></i> Trả lời</a>
-                            
+
                             <% if can? :delete, comment %>
                                 <a class="right favor satis remove-comment"
                                     href="<%= erp_online_store.delete_product_comment_path(comment) %>"
@@ -63,7 +68,7 @@
                                     <i class="fa fa-remove"></i> Xóa
                                 </a>
                             <% end %>
-                                
+
                             <time class="right"><%= relative_time(comment.created_at) %></time>
                         </div>
                         <div class="reply-box" style="display: none">

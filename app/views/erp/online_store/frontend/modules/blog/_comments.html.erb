@@ -1,29 +1,33 @@
 <% if user_signed_in? %>
-    <%= form_for '', url: erp_online_store.blog_comments_path(article_id: @blog.id), html: {class: "comment_form"} do |f| %>
-        <div id="comments" class="blog-comment-info">
-            <h3 id="review-title">Mời <%= current_user.name %> để lại bình luận </h3>
-            <input type="hidden" name="comment[article_id]" value="<%= @blog.id %>" />
-            <input type="hidden" name="comment[parent_id]" value="" />
-            <div class="comment-left contacts-form row">
-                <div class="col-sm-12">
-                    <div class="form-group">
-                        <b>Lời bình luận:</b>
-                        <br />
-                        <textarea name="comment[message]"
-                            class="form-control required"
-                            id="btn-radius"
-                            placeholder="Nội dung bình luận, xin vui lòng nhập tiếng Việt có dấu."></textarea>
+    <% if can? :create, Erp::Articles::Comment.new %>
+        <%= form_for '', url: erp_online_store.blog_comments_path(article_id: @blog.id), html: {class: "comment_form"} do |f| %>
+            <div id="comments" class="blog-comment-info">
+                <h3 id="review-title">Mời <%= current_user.name %> để lại bình luận </h3>
+                <input type="hidden" name="comment[article_id]" value="<%= @blog.id %>" />
+                <input type="hidden" name="comment[parent_id]" value="" />
+                <div class="comment-left contacts-form row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <b>Lời bình luận:</b>
+                            <br />
+                            <textarea name="comment[message]"
+                                class="form-control required"
+                                id="btn-radius"
+                                placeholder="Nội dung bình luận, xin vui lòng nhập tiếng Việt có dấu."></textarea>
+                        </div>
                     </div>
-                </div>
-                <div class="col-sm-12">
-                    <div class="text-left">
-                        <button class="btn buttonGray" id="btn-radius" type="submit">
-                            <span>Gửi Bình Luận</span>
-                        </button>
+                    <div class="col-sm-12">
+                        <div class="text-left">
+                            <button class="btn buttonGray" id="btn-radius" type="submit">
+                                <span>Gửi Bình Luận</span>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        <% end %>
+    <% else %>
+        <p class="text-warning">Bạn bị mất quyền bình luận</p>
     <% end %>
 <% else %>
     <h3 id="review-title">Vui lòng
