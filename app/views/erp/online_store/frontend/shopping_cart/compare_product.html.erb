@@ -50,7 +50,7 @@
                                 <td><%= compare_item.product.brand_name %></td>
                             <% end %>
                         </tr>
-                        <% Erp::Carts::CompareItem.get_comparision_hash(@compare.compare_items).each do |row| %>
+                        <% Erp::Carts::CompareItem.get_comparision_hash(@compare.compare_items.get_all_items).each do |row| %>
                             <tr>
                                 <td><%= row[0] %></td>
                                 <% row[1].each do |values| %>
