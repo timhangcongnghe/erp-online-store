@@ -57,4 +57,9 @@
         </div>
     </div>
     <% end %>
+    <% if Erp::Products::Event.get_current_events.count == 0 and Erp::Products::Event.get_past_events.count == 0 %>
+        <div class="alert alert-warning">
+            <i class="fa fa-warning"></i> Hiện danh sách sự kiện chưa có.
+        </div>
+    <% end %>
 </div>
