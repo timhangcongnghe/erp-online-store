@@ -1,4 +1,4 @@
-<% title "Sản Phẩm Khuyến Mãi" %>
+<% title "Chi tiết sự kiện" %>
 <div class="main-container container">
     <ul class="breadcrumb">
         <li><%= link_to '<i class="fa fa-home"></i>'.html_safe, erp_online_store.root_path %></li>
@@ -76,6 +76,11 @@
                             <div class="right-block">
                                 <div class="caption">
                                     <h4><%= link_to product.product_name, product_link(product), title: product.product_name, class: "hover-product-name" %></h4>
+                                    <div class="ratings">
+                                        <div class="rating-box">
+                                            <%= stars(product.average_stars) %>
+                                        </div>
+                                    </div>
                                     <div class="price">
                                         <span class="price-new"><%= format_price(product.product_price) %></span>
                                         <% if product.is_deal? %>
@@ -101,7 +106,7 @@
                 <!-- End Pagination -->
                 <% else %>
                     <div class="alert alert-warning">
-                        <i class="fa fa-warning"></i> Hiện chưa có sản phẩm cho chuyên mục này.
+                        <i class="fa fa-warning"></i> Hiện chưa có sản phẩm cho sự kiện này.
                     </div>
                 <% end %>
             </div>
