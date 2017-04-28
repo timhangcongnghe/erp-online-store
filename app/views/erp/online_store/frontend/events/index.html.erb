@@ -1,38 +1,60 @@
 <% title "Tin Sự Kiện" %>
-<div class="main-container container">
+<div class="main-container container list-event-page">
     <ul class="breadcrumb">
         <li><%= link_to '<i class="fa fa-home"></i>'.html_safe, erp_online_store.root_path %></li>
         <li><%= link_to "Tin Sự Kiện", "javascript:void(0)" %></li>
     </ul>
-    <div class="row">
+    
+    <% if Erp::Products::Event.get_current_events.count > 0 %>
+    <div class="row block-event">
         <div id="content" class="col-sm-12">
             <div class="about-us about-demo-1">
-                <h3>SỰ KIỆN ĐANG DIỄN RA</h3>
-                <% (0..3).each do |event| %>
-                <div class="row">
-                    <div class="col-lg-6 col-md-6">
-                        <div class="module banners-effect-1">
-                            <h3>Diễn ra từ: <span class="date-event">10/04/2017 - 22/04/2017</span></h3>
-                            <div class="banners">
-                                <div>
-                                    <%= link_to image_tag("/frontend/image/cms/banner-01.png", alt: ""), erp_online_store.events_detail_path, title: "" %>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6">
-                        <div class="module banners-effect-2">
-                            <h3>Diễn ra từ: <span class="date-event">10/04/2017 - 22/04/2017</span></h3>
-                            <div class="banners">
-                                <div>
-                                    <%= link_to image_tag("/frontend/image/cms/banner-01.png", alt: ""), erp_online_store.events_detail_path, title: "" %>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="event-tl">
+                    <strong>SỰ KIỆN ĐANG DIỄN RA</strong>
                 </div>
-                <% end %>
+                <div class="row">
+                    <% Erp::Products::Event.get_current_events.each_with_index do |event,index| %>
+                        <div class="col-lg-6 col-md-6">
+                            <div class="module banners-effect-1">
+                                <h3>Diễn ra từ: <span class="date-event"><%= event.from_date.strftime('%d/%m/%Y') %> - <%= event.to_date.strftime('%d/%m/%Y') %></span></h3>
+                                <div class="banners">
+                                    <div>
+                                        <%= link_to image_tag(event.image_url.thumb570222, alt: ""), erp_online_store.events_detail_path, title: "#{event.name}" %>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <%= '</div><div class="row">'.html_safe if index%2 == 1 %>
+                    <% end %>
+                </div>
             </div>
         </div>
     </div>
+    <% end %>
+    <% if Erp::Products::Event.get_past_events.count > 0 %>
+    <div class="row block-event">
+        <div id="content" class="col-sm-12">
+            <div class="about-us about-demo-1">
+                <div class="event-tl">
+                    <strong>SỰ KIỆN ĐÃ KẾT THÚC</strong>
+                </div>
+                <div class="row">
+                    <% Erp::Products::Event.get_past_events.each_with_index do |event,index| %>
+                        <div class="col-lg-6 col-md-6">
+                            <div class="module banners-effect-1">
+                                <h3>Diễn ra từ: <span class="date-event"><%= event.from_date.strftime('%d/%m/%Y') %> - <%= event.to_date.strftime('%d/%m/%Y') %></span></h3>
+                                <div class="banners">
+                                    <div>
+                                        <%= link_to image_tag(event.image_url.thumb570222, alt: ""), erp_online_store.events_detail_path, title: "#{event.name}" %>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <%= '</div><div class="row">'.html_safe if index%2 == 1 %>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+    </div>
+    <% end %>
 </div>

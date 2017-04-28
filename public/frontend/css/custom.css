@@ -1403,3 +1403,11 @@ a:hover .old_price {
 .old_price_null {
   display: none;
 }
+.list-event-page .block-event .event-tl {
+  font-size: 18px;
+  color: #009688;
+  text-transform: uppercase;
+  border-bottom: 2px solid #009688;
+  line-height: 20px;
+  padding-bottom: 5px;
+}
