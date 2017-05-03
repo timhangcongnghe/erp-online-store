@@ -372,7 +372,7 @@ $(document).ready(function () {
             if ( $('<div>').html(data).find('form').length ) {
                 form.find('.form-content').html($('<div>').html(data).find('.form-content').html());
             } else {
-                location.reload();
+                form.find('.form-content').html(data);
             }
         });
     });
