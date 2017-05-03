@@ -9,6 +9,7 @@ vi:
       erp/user:
         password: "Mật khẩu"
         password_confirmation: "Mật khẩu xác nhận"
+        reset_password_token: "Liên kết thay đổi mật khẩu"
     errors:
       models:
         erp/user:
@@ -16,15 +17,25 @@ vi:
             email:
               invalid: "không hợp lệ. Thử lại? (Ví dụ: username@gmail.com)"
               taken: "đã được đăng ký tài khoản thành viên."
+              blank: "không được để trống."
+              
             password:
               blank: "không được để trống."
               too_short: "ngắn thường dễ đoán. Hãy thử mật khẩu có ít nhất 6 ký tự."
             password_confirmation:
               confirmation: "không khớp. Thử lại?"
+            reset_password_token:
+              invalid: "không còn hợp lệ."
   devise:
     failure:
       invalid: "Email hoặc mật khẩu đăng nhập không đúng."
       not_found_in_database: "Email hoặc mật khẩu đăng nhập không đúng."
+    registrations:
+      user:
+        signed_in: "Đăng ký thành công! Tài khoản của bạn đã được đăng nhập."
+    passwords:
+      user:
+        signed_in: "Mật khẩu mới đã được cập nhật. Tài khoản của bạn đã được đăng nhập."
   errors:
     messages:
       not_found: "không tồn tại. Thử lại?"

@@ -1411,3 +1411,34 @@ a:hover .old_price {
   line-height: 20px;
   padding-bottom: 5px;
 }
+
+#pwd-container {
+	background: url(/frontend/image/GHr12sH.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+.edit-password {
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+form[role=edit-password] {
+	color: #5d5d5d;
+	background: #f2f2f2;
+	padding: 26px;
+}
+form[role=edit-password] img {
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 35px;
+}
+form[role=edit-password] input,
+form[role=edit-password] button {
+    font-size: 18px;
+    margin: 0 0 16px 0;
+}
+form[role=edit-password] > div:last-child {
+    text-align: center;
+}
