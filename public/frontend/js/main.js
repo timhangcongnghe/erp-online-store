@@ -457,6 +457,8 @@ $(document).ready(function () {
         var method = form.attr('method');
 
         form.find('.notice').hide();
+        form.find('input[type=submit]').after('<div class="btn-loading text-right">Đang xử lý...</div>')
+        form.find('input[type=submit]').hide();
 
         $.ajax({
             url: url,
