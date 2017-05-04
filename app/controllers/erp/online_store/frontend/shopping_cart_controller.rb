@@ -40,11 +40,14 @@ module Erp
         def checkout
           @body_class = "res layout-subpage"
           redirect_to erp_online_store.shopping_cart_path if @cart.cart_items.empty?
+          redirect_to erp_online_store.shopping_cart_path, notice: "Bạn phải đăng nhập để đặt hàng." if current_user.nil?
 
-          if params[:selected_contact_id].present?
-            @selected_contact = Erp::Contacts::Contact.find(params[:selected_contact_id])
-          else
-            @selected_contact = current_user.contact
+          if !current_user.nil?
+            if params[:selected_contact_id].present?
+              @selected_contact = Erp::Contacts::Contact.find(params[:selected_contact_id])
+            else
+              @selected_contact = current_user.contact
+            end
           end
 
           # @todo check if contact not belongs to user
