@@ -1,4 +1,4 @@
-<% if user_signed_in? %>    
+<% if user_signed_in? %>
     <ul class="top-link list-inline">
         <li class="account" id="my_account">
             <a href="javascript:void(0)" class="btn btn-xs dropdown-toggle" data-toggle="dropdown"> <span><%= current_user.name %></span> <span class="fa fa-angle-down"></span></a>
@@ -25,7 +25,7 @@
                 <li><%= link_to 'Về chúng tôi'.html_safe, erp_online_store.about_us_path %></li>
                 <li><%= link_to 'Góp ý & Liên hệ'.html_safe, erp_online_store.contact_us_path %></li>
                 <li><%= link_to 'Câu hỏi thường gặp'.html_safe, "" %></li>
-                <li><%= link_to 'Hướng dẩn mua hàng'.html_safe, "" %></li>                
+                <li><%= link_to 'Hướng dẩn mua hàng'.html_safe, "" %></li>
                 <li><%= link_to 'Chính sách bảo hành'.html_safe, "" %></li>
                 <li><%= link_to 'Quy định & Hình thức thanh toán'.html_safe, "" %></li>
                 <li><%= link_to 'Chính sách vận chuyển, giao nhận'.html_safe, "" %></li>
@@ -52,9 +52,9 @@
     <ul class="top-link list-inline">
         <li class="account" id="my_account">
             <a href="javascript:void(0)" class="btn btn-xs dropdown-toggle" data-toggle="dropdown"> <span>Tài Khoản</span> <span class="fa fa-angle-down"></span></a>
-            <ul class="dropdown-menu ">                                    
+            <ul class="dropdown-menu ">
                 <li>
-                    <a class="sign-in ajax-link" data-type="ajax" href="<%= erp.new_user_session_path %>">
+                    <a id="sign-in" class="sign-in ajax-link" data-type="ajax" href="<%= erp.new_user_session_path %>">
                         <i class="fa fa-sign-in"></i> Đăng nhập tài khoản
                     </a>
                 </li>
@@ -81,7 +81,7 @@
                 <li><%= link_to 'Về chúng tôi'.html_safe, erp_online_store.about_us_path %></li>
                 <li><%= link_to 'Góp ý & Liên hệ'.html_safe, erp_online_store.contact_us_path %></li>
                 <li><%= link_to 'Câu hỏi thường gặp'.html_safe, "" %></li>
-                <li><%= link_to 'Hướng dẩn mua hàng'.html_safe, "" %></li>                
+                <li><%= link_to 'Hướng dẩn mua hàng'.html_safe, "" %></li>
                 <li><%= link_to 'Chính sách bảo hành'.html_safe, "" %></li>
                 <li><%= link_to 'Quy định & Hình thức thanh toán'.html_safe, "" %></li>
                 <li><%= link_to 'Chính sách vận chuyển, giao nhận'.html_safe, "" %></li>

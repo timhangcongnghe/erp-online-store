@@ -46,6 +46,10 @@
                 speed: 'slow',
                 theme: '<%= classes[key] %>'
             });
+
+            if ('<%= value %>'.includes('xác minh thành công')) {
+              $('.sign-in.ajax-link').trigger('click');
+            }
         </script>
     <% end %>
 <% end %>
