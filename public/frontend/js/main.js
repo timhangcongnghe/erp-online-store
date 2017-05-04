@@ -551,6 +551,7 @@ $(document).ready(function () {
         });
         $('.password_form').validate();
         $('.account_form').validate();
+        $('.checkout_form').validate();
 
         // Count Down
         $('.count-down').each(function() {

@@ -1,4 +1,4 @@
-<%= form_for '', url: erp_online_store.checkout_path do |f| %>
+<%= form_for '', url: erp_online_store.checkout_path, html: {class: 'checkout_form'} do |f| %>
     <div class="panel panel-default fee">
         <% @cart.cart_items.each do |cart_item| %>
             
