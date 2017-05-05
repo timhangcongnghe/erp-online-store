@@ -18,6 +18,7 @@ function loadContactForm(contact_id) {
         box.html(data);
         box.find('.ajax-content-control').trigger('change');
         box.find('.contact_form').validate();
+        box.find('select').select2({language: "vi"});
     });
 }
 
@@ -610,7 +611,8 @@ $(document).ready(function () {
     // autosearch
     $('.autosearch select').select2({
         minimumResultsForSearch: 10,
-        dropdownAutoWidth: 'true'
+        dropdownAutoWidth: 'true',
+        language: "vi"
     });
 
     // Mobile top menu fix
@@ -632,7 +634,8 @@ $(document).ready(function () {
     // autosearch
     $('select').select2({
         minimumResultsForSearch: 10,
-        dropdownAutoWidth: 'true'
+        dropdownAutoWidth: 'true',
+        language: "vi"
     });
 
     // Ajax content
@@ -652,7 +655,8 @@ $(document).ready(function () {
             container.html(data);
             container.find('select').select2({
                 minimumResultsForSearch: 10,
-                dropdownAutoWidth: 'true'
+                dropdownAutoWidth: 'true',
+                language: "vi"
             });
         });
     });
