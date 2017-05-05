@@ -72,6 +72,15 @@ module Erp
           url_for('/frontend/image/shop/product/no-image.png')
         end
       end
+      
+      # display full address
+      def full_address(contact)
+        str = []
+        str << contact.address
+        str << contact.district_name
+        str << contact.state_name
+        str.join(", ")
+      end
 
       # count down to end datetime
       def count_down(from_time, to_time)

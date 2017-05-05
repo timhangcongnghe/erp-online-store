@@ -13,11 +13,8 @@
                                 <span class="default">
                                     <button type="button" class="btn btn-default btn-custom" onclick="$('.main-contact-form').toggle()"><i class="fa fa-edit"></i> Thay đổi thông tin người mua</button>
                                 </span>
-                                <p class="address">Địa chỉ:
-                                    <%= current_user.contact.address %>,
-                                    <%= current_user.contact.district_name %>,
-                                    <%= current_user.contact.state_name %>
-                                </p>
+                                <p class="address" title="<%= full_address(current_user.contact) %>">Địa chỉ: <%= full_address(current_user.contact) %></p>
+                                <p class="address">Việt Nam</p>
                                 <p class="phone">Điện thoại: <%= current_user.contact.phone %></p>
                                 <div class="main-contact-form" style="display: none">
                                     <p class="title"></p>
@@ -112,11 +109,8 @@
                                 <% if current_user.contact == @selected_contact %>
                                 <span class="default">Thông tin mặc định</span>
                                 <% end %>
-                                <p class="address">Địa chỉ:
-                                    <%= @selected_contact.address %>,
-                                    <%= @selected_contact.district_name %>,
-                                    <%= @selected_contact.state_name %>
-                                </p>
+                                <p class="address" title="<%= full_address(@selected_contact) %>">Địa chỉ: <%= full_address(@selected_contact) %></p>
+                                <p class="address">Việt Nam</p>
                                 <p class="phone">Điện thoại: <%= @selected_contact.phone %></p>
                             </div>
                         </div>
@@ -140,11 +134,8 @@
                                         <div class="address-item is-default">
                                             <p class="name"><%= current_user.contact.name %></p>
                                             <span class="default">Giao hàng cho người mua</span>
-                                            <p class="address">Địa chỉ:
-                                                <%= current_user.contact.address %>,
-                                                <%= current_user.contact.district_name %>,
-                                                <%= current_user.contact.state_name %>
-                                            </p>
+                                            <p class="address" title="<%= full_address(current_user.contact) %>">Địa chỉ: <%= full_address(current_user.contact) %></p>
+                                            <p class="address">Việt Nam</p>
                                             <p class="phone">Điện thoại: <%= current_user.contact.phone %></p>
                                             <p class="action">
                                                 <%= link_to 'Giao đến địa chỉ này', erp_online_store.checkout_path(selected_contact_id: current_user.contact.id),
@@ -156,11 +147,8 @@
                                         <div class="col-sm-6">
                                             <div class="address-item">
                                                 <p class="name"><%= contact.name %></p>
-                                                <p class="address">Địa chỉ:
-                                                    <%= contact.address %>,
-                                                    <%= contact.district_name %>,
-                                                    <%= contact.state_name %>
-                                                </p>
+                                                <p class="address" title="<%= full_address(contact) %>">Địa chỉ: <%= full_address(contact) %></p>
+                                                <p class="address">Việt Nam</p>
                                                 <p class="phone">Điện thoại: <%= contact.phone %></p>
                                                 <p class="action">
                                                     <%= link_to 'Giao đến địa chỉ này', erp_online_store.checkout_path(selected_contact_id: contact.id),

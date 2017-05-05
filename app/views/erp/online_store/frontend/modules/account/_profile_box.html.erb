@@ -63,6 +63,9 @@
                         <p>Địa chỉ email: <strong><%= @contact.email %></strong></p>
                         <p>Loại liên hệ: <strong><%= @contact.contact_type == Erp::Contacts::Contact::TYPE_COMPANY ? 'Công ty / Tổ chức / Doanh nghiệp' : 'Cá nhân' %></strong></p>
                     </div>
+                    <div class="col-sm-12">
+                        <p>Địa chỉ: <strong><%= full_address(@contact) %></strong></p>
+                    </div>
                 </div>
             </fieldset>
         </div>
