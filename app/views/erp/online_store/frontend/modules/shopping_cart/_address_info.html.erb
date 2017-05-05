@@ -166,11 +166,11 @@
                                                     <%= link_to 'Giao đến địa chỉ này', erp_online_store.checkout_path(selected_contact_id: contact.id),
                                                                 class: "btn btn-default btn-custom is-black" %>
                                                     <button type="button" class="btn btn-default btn-custom" onclick="loadContactForm(<%= contact.id %>);"><i class="fa fa-edit"></i></button>
-                                                    <a class="btn btn-default btn-custom remove-comment"
+                                                    <a class="btn btn-default btn-custom"
                                                         href="<%= erp_online_store.delete_sub_contact_path(contact) %>"
                                                         link-method="delete"
                                                         title="Xóa đánh giá"
-                                                        data-confirm="Bạn muốn xóa địa chỉ liên hệ này?">
+                                                        link-confirm="Bạn muốn xóa địa chỉ liên hệ này?">
                                                         <i class="fa fa-trash"></i>
                                                     </a>
                                                 </p>

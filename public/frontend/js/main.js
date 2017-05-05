@@ -724,6 +724,35 @@ $(document).ready(function () {
             }, 500);
         });
     });
+    
+    // delete contact confirm form
+    $(document).on('click', '[link-method]', function(e) {
+        e.preventDefault();
+        var method = $(this).attr('link-method');
+        var url = $(this).attr('href');
+        var confirm_text = $(this).attr('link-confirm');
+        var ok = confirm(confirm_text);
+        
+        if (ok) {
+            var newForm = jQuery('<form>', {
+                'action': url,
+                'method': 'POST',
+                'target': '_top'
+            });
+            newForm.append(jQuery('<input>', {
+                'name': 'authenticity_token',
+                'value': AUTH_TOKEN,
+                'type': 'hidden'
+            }));
+            newForm.append(jQuery('<input>', {
+                'name': '_method',
+                'value': method,
+                'type': 'hidden'
+            }));
+            $(document.body).append(newForm);
+            newForm.submit();
+        }
+    });
 
 });
 $(window).scroll(function () {
