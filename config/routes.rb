@@ -48,9 +48,13 @@ Erp::OnlineStore::Engine.routes.draw do
   get "gio-hang.html" => "frontend/shopping_cart#shopping_cart", as: :shopping_cart
   get "dat-hang(/coid-:selected_contact_id).html" => "frontend/shopping_cart#checkout", as: :checkout
   post "dat-hang.html" => "frontend/shopping_cart#checkout"
+  delete "dat-hang/:contact_id-remove.html" => "frontend/shopping_cart#delete_sub_contact", as: :delete_sub_contact
   get "dat-hang/thanh-cong.html" => "frontend/shopping_cart#success", as: :checkout_completed
-  get "cap-nhat-lien-he.html" => "frontend/shopping_cart#add_main_contact", as: :add_main_contact
-  post "cap-nhat-lien-he.html" => "frontend/shopping_cart#add_main_contact"
+  get "tao-moi-lien-he.html" => "frontend/shopping_cart#add_main_contact", as: :add_main_contact
+  post "tao-moi-lien-he.html" => "frontend/shopping_cart#add_main_contact"
+  get "new-contact-form.html" => "frontend/shopping_cart#contact_form", as: :contact_form
+  get "cap-nhat-lien-he.html" => "frontend/shopping_cart#update_contact", as: :update_contact
+  post "cap-nhat-lien-he.html" => "frontend/shopping_cart#update_contact"
   get "so-sanh-san-pham.html" => "frontend/shopping_cart#compare_product", as: :compare_product
 
   # BUSINESS PAGE

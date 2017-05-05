@@ -1,3 +1,26 @@
+// Contact form ajax load
+function loadContactForm(contact_id) {
+    var box = $('.order-contact-form');
+    var url = box.attr('data-url');
+    
+    if (!box.length) {
+        return;
+    }
+    
+    box.show();
+    
+    $.ajax({
+        url: url,
+        data: {
+            contact_id: contact_id
+        }
+    }).done(function( data ) {
+        box.html(data);
+        box.find('.ajax-content-control').trigger('change');
+        box.find('.contact_form').validate();
+    });
+}
+
 function fixWithProductListAll() {
     $('.products-list').each(function() {
         fixWithProductList($(this));

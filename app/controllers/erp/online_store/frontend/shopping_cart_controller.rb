@@ -36,6 +36,28 @@ module Erp
             end
           end
         end
+        
+        def contact_form
+          @contact = params[:contact_id].present? ? Erp::Contacts::Contact.find(params[:contact_id]) : Erp::Contacts::Contact.new
+          render layout: nil
+        end
+        
+        # edit contact
+        def update_contact
+          @contact = Erp::Contacts::Contact.find(params[:contact][:contact_id])
+          if params[:contact].present?
+            @contact.update(contact_params)
+            redirect_to :back, notice: 'Thông tin liên hệ đã được cập nhật.'
+          end
+        end
+        
+        # delete sub-contact
+        def delete_sub_contact
+          @sub_contact = Erp::Contacts::Contact.find(params[:contact_id])
+
+          @sub_contact.destroy
+          redirect_to erp_online_store.checkout_path, notice: 'Địa chỉ giao hàng đã được xóa'
+        end
 
         def checkout
           @body_class = "res layout-subpage"
