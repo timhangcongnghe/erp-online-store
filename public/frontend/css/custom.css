@@ -602,6 +602,15 @@ a.view-all-hotdeals:hover {
 .list-services li a:hover {
     border-color: #ea3a3c;
 }
+.list-services li span {
+  border: 3px solid #ddd;
+  display: block;
+  -webkit-transition: 0.3s;
+  cursor: pointer;
+}
+.list-services li span:hover {
+  border-color: #009688;
+}
 .category-banner {
   margin-top: 30px;
 }
