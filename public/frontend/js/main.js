@@ -651,6 +651,36 @@ $(document).ready(function () {
 
         container.html('<div class="category-loading"></div>');
 
+        $( "body" ).scrollTop( 200 );
+
+        // ajax autosearch
+        if(category_xhr && category_xhr.readyState != 4){
+            category_xhr.abort();
+        }
+        category_xhr = $.ajax({
+            url: url,
+            data: form.serialize()
+        }).done(function( data ) {
+            container.html($('<div>').html(data).find('#content').html());
+            setTimeout(function () {
+                container.find('.product-image-container').addClass('lazy-loaded');
+                container.find('.products-list').removeClass('list').addClass('grid');
+                fixWithProductListAll();
+            }, 500);
+        });
+    });
+
+    $(document).on('click', '.pagination a', function(e) {
+        e.preventDefault();
+
+        var form = $(this).parents('form');
+        var url = $(this).attr('href');
+        var container = $('#content');
+
+        container.html('<div class="category-loading"></div>');
+
+        $( "body" ).scrollTop( 200 );
+
         // ajax autosearch
         if(category_xhr && category_xhr.readyState != 4){
             category_xhr.abort();
