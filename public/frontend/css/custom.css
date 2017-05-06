@@ -1364,15 +1364,18 @@ h3.product-box-name {
   font-size: 15px;
 }
 .footer-bottom a {
-  color: #da2723;
-  font-weight: 500;
+  color: #666;
+  /*font-weight: 500;*/
 }
 footer {
   color: #000;
 }
 .footer-bottom a:hover {
   color: #009688;
-  font-weight: 500;
+  /*font-weight: 500;*/
+}
+footer .footer-bottom {
+  color: #666;
 }
 .autosearch-empty-line {
   padding: 10px 10px;
