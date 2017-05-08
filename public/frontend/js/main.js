@@ -2,13 +2,13 @@
 function loadContactForm(contact_id) {
     var box = $('.order-contact-form');
     var url = box.attr('data-url');
-    
+
     if (!box.length) {
         return;
     }
-    
+
     box.show();
-    
+
     $.ajax({
         url: url,
         data: {
@@ -724,7 +724,7 @@ $(document).ready(function () {
             }, 500);
         });
     });
-    
+
     // delete contact confirm form
     $(document).on('click', '[link-method]', function(e) {
         e.preventDefault();
@@ -732,7 +732,7 @@ $(document).ready(function () {
         var url = $(this).attr('href');
         var confirm_text = $(this).attr('link-confirm');
         var ok = confirm(confirm_text);
-        
+
         if (ok) {
             var newForm = jQuery('<form>', {
                 'action': url,
@@ -751,6 +751,18 @@ $(document).ready(function () {
             }));
             $(document.body).append(newForm);
             newForm.submit();
+        }
+    });
+
+    // prevent autosearch-form
+    $(document).on('submit', '.autosearch-form', function(e) {
+        var val = $(this).find('input[name=keyword]').val();
+
+        if (val.trim() === '') {
+            e.preventDefault();
+            return false;
+        } else {
+            return true;
         }
     });
 
