@@ -295,21 +295,20 @@ div.article-info .article-sub-title span.article-folder a:hover {
   font-size: 13px !important;
 }
 .type_1 .header-top-right ul.dropdown-menu > li > a {
-  font-size: 14px !important;
   padding: 6px 15px;
 }
 .type_1 .header-top-right ul.top-link > li a.btn {
   font-size: 13px !important;
   color: #000;
-  font-weight: 500;
 }
 .header-top ul.dropdown-menu li a {
   color: #000;
-  font-weight: 500;
 }
 .type_1 .header-top .header-top-left .welcome-msg a {
   color: #000;
-  font-weight: 500;
+}
+.type_1 .header-top .header-top-left .welcome-msg .label-msg{
+  font-weight: normal;
 }
 input.error, textarea.error  {
   border-color: #da2723 !important;
@@ -944,6 +943,27 @@ a.group-item.active {
 .type_1 .header-top-right ul.top-link > li.support > a:before {
   content: "\f02d";
 }
+footer .footer-center .module .content-block-footer p {
+  margin-bottom: 0;
+}
+footer .footer-center .module .content-block-footer p > span {
+  font-weight: 500;
+}
+footer .footer-center .contact-address li {
+  line-height: 22px;
+  margin-bottom: 5px;
+}
+footer .footer-center .contact-address li:first-child {
+  font-weight: 500;
+}
+footer .footer-center .contact-address > li:last-child {
+  padding-top: 0;
+  margin-bottom: 0;
+}
+footer .footer-center .contact-address span {
+  top: 5px;
+}
+>>>>>>> fix layout display for top-menu and footer-menu
 .flash_error #error_explanation h2 {
   display: none;
 }
