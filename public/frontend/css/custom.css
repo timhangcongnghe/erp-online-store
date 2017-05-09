@@ -1491,3 +1491,8 @@ form[role=edit-password] > div:last-child {
 .service-nav-placeholder {
   height: 170px;
 }
+.products-category h1.menu-title {
+  border-bottom: 2px solid #cc181e;
+  padding-bottom: 5px;
+  margin-top: 0px;
+}

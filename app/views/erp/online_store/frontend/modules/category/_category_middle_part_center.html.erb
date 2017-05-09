@@ -1,3 +1,6 @@
+<% if !@menu.nil? %>
+    <h1 class="menu-title"><%= @menu.name %></h1>
+<% end %>
 <div class="products-list row list">
     <% products.each do |product| %>
     <div class="product-layout  col-md-3 col-sm-6 col-xs-12">
