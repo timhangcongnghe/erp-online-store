@@ -495,9 +495,9 @@ a.text-teal:hover {
   cursor: pointer;
 }/* custom category - product lists*/
 .products-list.list-masonry .product-layout .product-item-container .right-block .caption h4 a, .products-list.grid .product-layout .product-item-container .right-block .caption h4 a {
-  font-size: 14px;
+  font-size: 15px;
   color: #000;
-  font-weight: 500;
+  line-height: 1.5;
 }
 .products-list {
   padding-left: 0px;
@@ -943,9 +943,6 @@ a.group-item.active {
 }
 .type_1 .header-top-right ul.top-link > li.support > a:before {
   content: "\f02d";
-}
-footer .footer-center .module ul.menu li a, .contact-address {
-  font-weight: 500;
 }
 .flash_error #error_explanation h2 {
   display: none;
