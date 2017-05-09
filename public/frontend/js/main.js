@@ -76,13 +76,39 @@ function countDown(item, year, month, day, hour, minute) {
 }
 
 function toogleFixedNav() {
-    var top = $(window).scrollTop();
-    var nav_top = $('.header-fixed-top').offset().top;
+    if (!$('.sticky-services').length) {
+        var top = $(window).scrollTop();
+        var nav_top = $('.header-fixed-top').offset().top;
 
-    if (top > 165 && nav_top > 265 &&  $(window).width() > 992)  {
-        $('.header-fixed-top').slideDown();
-    } else {
-        $('.header-fixed-top').hide();
+        if (top > 165 && nav_top > 265 &&  $(window).width() > 992)  {
+            $('.header-fixed-top').slideDown();
+        } else {
+            $('.header-fixed-top').hide();
+        }
+    }
+}
+
+function toogleServicesNav() {
+    if ($('.sticky-services').length) {
+        var top = $(window).scrollTop();
+        var nav_top = $('.sticky-services').offset().top;
+
+        if (top > 690 &&  $(window).width() > 992)  {
+            $('.sticky-services').addClass('fixed_nav');
+            if (!$('.service-nav-placeholder').length) {
+                $('.sticky-services').after('<div class="service-nav-placeholder"></div>');
+            }
+        } else {
+            $('.sticky-services').removeClass('fixed_nav');
+            $('.service-nav-placeholder').remove();
+        }
+
+        var scrollBottom = $(document).height() - $(window).height() - $(window).scrollTop();
+        if (scrollBottom < 50) {
+            $('.sticky-services').hide();
+        } else {
+            $('.sticky-services').show();
+        }
     }
 }
 
@@ -768,7 +794,8 @@ $(document).ready(function () {
 
 });
 $(window).scroll(function () {
-    // toogleFixedNav();
+    toogleFixedNav();
+    toogleServicesNav();
 });
 $( window ).resize(function() {
     // auto height product list

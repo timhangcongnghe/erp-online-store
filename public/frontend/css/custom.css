@@ -1454,3 +1454,23 @@ form[role=edit-password] button {
 form[role=edit-password] > div:last-child {
     text-align: center;
 }
+.sticky-services.fixed_nav {
+    position: fixed;
+    bottom: 0;
+    z-index: 10000;
+    background: #fff;
+    padding: 0;
+    width: 1170px;
+    margin: auto;
+    display: block;
+    padding: 10px;
+    border: solid 1px #ccc;
+    background: #f8f8f8;
+    box-shadow: 0 0 8px rgba(0,0,0,0.2);
+}
+.sticky-services.fixed_nav .divider {
+  height: 0;
+}
+.service-nav-placeholder {
+  height: 170px;
+}
