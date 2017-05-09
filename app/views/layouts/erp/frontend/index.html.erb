@@ -2,14 +2,14 @@
 <html lang="en">
 
 <head>
-	<%= csrf_meta_tags %>
+		<%= csrf_meta_tags %>
 
     <!-- Basic page needs ============================================ -->
     <title>
 		<% if content_for?(:title) %>
-			<%= yield(:title) %> | Trang Thương Mại Điện Tử Sản Phẩm Công Nghệ Uy Tín, Chất Lượng.
+				<%= yield(:title) %> | Trang Thương Mại Điện Tử Sản Phẩm Công Nghệ Uy Tín, Chất Lượng | TimHangCongNghe.VN
 		<% else %>
-			TimHangCongNghe.VN | Trang Thương Mại Điện Tử Sản Phẩm Công Nghệ Uy Tín, Chất Lượng.
+				Trang Thương Mại Điện Tử Sản Phẩm Công Nghệ Uy Tín, Chất Lượng | TimHangCongNghe.VN
 		<% end %>
 		</title>
     <meta charset="utf-8">
@@ -17,26 +17,26 @@
     <meta name="keywords" content="<%= @meta_keywords if @meta_keywords.present? %>">
     <meta name="author" content="TimHangCongNghe.VN">
 
-	<!-- Favicon ============================================ -->
-	<link rel="apple-touch-icon" sizes="57x57" href="<%= url_for('/frontend/fav/apple-icon-57x57.png') %>">
-	<link rel="apple-touch-icon" sizes="60x60" href="<%= url_for('/frontend/fav/apple-icon-60x60.png') %>">
-	<link rel="apple-touch-icon" sizes="72x72" href="<%= url_for('/frontend/fav/apple-icon-72x72.png') %>">
-	<link rel="apple-touch-icon" sizes="76x76" href="<%= url_for('/frontend/fav/apple-icon-76x76.png') %>">
-	<link rel="apple-touch-icon" sizes="114x114" href="<%= url_for('/frontend/fav/apple-icon-114x114.png') %>">
-	<link rel="apple-touch-icon" sizes="120x120" href="<%= url_for('/frontend/fav/apple-icon-120x120.png') %>">
-	<link rel="apple-touch-icon" sizes="144x144" href="<%= url_for('/frontend/fav/apple-icon-144x144.png') %>">
-	<link rel="apple-touch-icon" sizes="152x152" href="<%= url_for('/frontend/fav/apple-icon-152x152.png') %>">
-	<link rel="apple-touch-icon" sizes="180x180" href="<%= url_for('/frontend/fav/apple-icon-180x180.png') %>">
-	<link rel="icon" type="image/png" sizes="192x192"  href="<%= url_for('/frontend/fav/android-icon-192x192.png') %>">
-	<link rel="icon" type="image/png" sizes="32x32" href="<%= url_for('/frontend/fav/favicon-32x32.png') %>">
-	<link rel="icon" type="image/png" sizes="96x96" href="<%= url_for('/frontend/fav/favicon-96x96.png') %>">
-	<link rel="icon" type="image/png" sizes="16x16" href="<%= url_for('/frontend/fav/favicon-16x16.png') %>">
-	<link rel="manifest" href="<%= url_for('/frontend/fav/manifest.json') %>">
-	<%= favicon_link_tag '/frontend/fav/favicon-16x16.png', rel: 'shortcut icon', type: '/frontend/image/x-icon' %>
-
-	<meta name="msapplication-TileColor" content="#ffffff">
-	<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
-	<meta name="theme-color" content="#ffffff">
+		<!-- Favicon ============================================ -->
+		<link rel="apple-touch-icon" sizes="57x57" href="<%= url_for('/frontend/fav/apple-icon-57x57.png') %>">
+		<link rel="apple-touch-icon" sizes="60x60" href="<%= url_for('/frontend/fav/apple-icon-60x60.png') %>">
+		<link rel="apple-touch-icon" sizes="72x72" href="<%= url_for('/frontend/fav/apple-icon-72x72.png') %>">
+		<link rel="apple-touch-icon" sizes="76x76" href="<%= url_for('/frontend/fav/apple-icon-76x76.png') %>">
+		<link rel="apple-touch-icon" sizes="114x114" href="<%= url_for('/frontend/fav/apple-icon-114x114.png') %>">
+		<link rel="apple-touch-icon" sizes="120x120" href="<%= url_for('/frontend/fav/apple-icon-120x120.png') %>">
+		<link rel="apple-touch-icon" sizes="144x144" href="<%= url_for('/frontend/fav/apple-icon-144x144.png') %>">
+		<link rel="apple-touch-icon" sizes="152x152" href="<%= url_for('/frontend/fav/apple-icon-152x152.png') %>">
+		<link rel="apple-touch-icon" sizes="180x180" href="<%= url_for('/frontend/fav/apple-icon-180x180.png') %>">
+		<link rel="icon" type="image/png" sizes="192x192"  href="<%= url_for('/frontend/fav/android-icon-192x192.png') %>">
+		<link rel="icon" type="image/png" sizes="32x32" href="<%= url_for('/frontend/fav/favicon-32x32.png') %>">
+		<link rel="icon" type="image/png" sizes="96x96" href="<%= url_for('/frontend/fav/favicon-96x96.png') %>">
+		<link rel="icon" type="image/png" sizes="16x16" href="<%= url_for('/frontend/fav/favicon-16x16.png') %>">
+		<link rel="manifest" href="<%= url_for('/frontend/fav/manifest.json') %>">
+		<%= favicon_link_tag '/frontend/fav/favicon-16x16.png', rel: 'shortcut icon', type: '/frontend/image/x-icon' %>
+	
+		<meta name="msapplication-TileColor" content="#ffffff">
+		<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+		<meta name="theme-color" content="#ffffff">
 
     <!-- Mobile specific metas ============================================ -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
