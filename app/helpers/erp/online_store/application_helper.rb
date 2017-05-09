@@ -81,6 +81,11 @@ module Erp
         str << contact.state_name
         str.join(", ")
       end
+      
+      # display short name for user
+      def user_short_name(str)
+        str.rpartition(' ').last
+      end
 
       # count down to end datetime
       def count_down(from_time, to_time)
