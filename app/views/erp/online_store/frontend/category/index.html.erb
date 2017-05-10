@@ -2,11 +2,9 @@
 <div class="main-container container">
     <ul class="breadcrumb">
         <li><%= link_to '<i class="fa fa-home"></i>'.html_safe, erp_online_store.root_path %></li>
-        <% if !@menu.nil? %>
-            <% @menu.self_and_parent_menus.each do |menu| %>
-                <% if @menu.id != menu.id %>
-                    <li><%= link_to menu.name, menu_link(menu) %></li>
-                <% end %>
+        <% @menu.self_and_parent_menus.each do |menu| %>
+            <% if @menu.id != menu.id %>
+                <li><%= link_to menu.name, menu_link(menu) %></li>
             <% end %>
         <% end %>
         <li><%= link_to @menu.name, "javascript:void(0)" %></li>
@@ -48,6 +46,7 @@
                 </div>
                 <!---//End related ends --->
                 <% end %>
+                <h1 class="menu-title"><%= @menu.name %></h1>
                 <% if @products.count > 0 %>
                 <!--changed listings-->
                 <%= render "erp/online_store/frontend/modules/category/category_middle_part_center", products: @products, menu: @menu %>
