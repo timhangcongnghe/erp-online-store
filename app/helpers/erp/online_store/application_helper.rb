@@ -86,6 +86,20 @@ module Erp
       def user_short_name(str)
         str.rpartition(' ').last
       end
+      
+      # display status for frontend order
+      def order_status(status)
+        if status == 'new'
+          '<span class="pending"><i class="fa fa-info-circle"></i> Đang chờ xác nhận</span>'.html_safe
+        elsif status == 'confirmed'
+          '<span class="confirm"><i class="fa fa-warning"></i> Đã xác nhận</span><br/>
+          <span class="confirm"><i class="fa fa-warning"></i> Đang chờ giao hàng</span>'.html_safe
+        elsif status == 'finished'
+          '<span class="finish"><i class="fa fa-check-circle"></i> Giao dịch thành công</span>'.html_safe
+        elsif status == 'cancelled'
+          '<span class="cancel"><i class="fa fa-ban"></i> Giao dịch thành công</span>'.html_safe
+        end
+      end
 
       # count down to end datetime
       def count_down(from_time, to_time)
