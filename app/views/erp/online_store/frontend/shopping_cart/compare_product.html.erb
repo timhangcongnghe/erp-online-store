@@ -36,7 +36,7 @@
                             <td>
                                 <div class="price">
                                     <span class="price-new"><%= format_price(compare_item.product.product_price) %></span>
-                                    <% if compare_item.product.is_deal %>                        
+                                    <% if compare_item.product.is_deal %>
                                         <br><span class="price-old"><%= format_price(compare_item.product.price) %></span>
                                         <span class="label label-percent"><%= compare_item.product.deal_percent %>%</span>
                                     <% end %>
@@ -55,9 +55,9 @@
                                 <td><%= row[0] %></td>
                                 <% row[1].each do |values| %>
                                     <% if values.nil? %>
-                                        <td class="not-property">Chưa có thông tin.</td>
+                                        <td class="not-property property-value">Chưa có thông tin.</td>
                                     <% else %>
-                                        <td><%= values.join(', ') %></td>
+                                        <td class="property-value"><%= values.join(', ') %></td>
                                     <% end %>
                                 <% end %>
                             </tr>
@@ -69,11 +69,11 @@
                             <% @compare.compare_items.get_all_items.each do |compare_item| %>
                             <td>
                                 <%= form_tag erp_online_store.add_to_cart_frontend_cart_items_path, class: 'add-cart-form' do %>
-                                    <%= hidden_field_tag "product_id", compare_item.product.id %>                                    
+                                    <%= hidden_field_tag "product_id", compare_item.product.id %>
                                     <input type='hidden' class="form-control" type="text" name="quantity" value="1">
                                     <input type="submit" class="btn btn-primary btn-block compare-cart-add-button" value="Thêm vào giỏ hàng">
                                 <% end %>
-                                <%= link_to "Hủy so sánh", erp_online_store.remove_compare_item_frontend_compare_items_path(compare_item_id: compare_item.id), class: "btn btn-danger btn-block", title: "Xóa sản phẩm" %>                                
+                                <%= link_to "Hủy so sánh", erp_online_store.remove_compare_item_frontend_compare_items_path(compare_item_id: compare_item.id), class: "btn btn-danger btn-block", title: "Xóa sản phẩm" %>
                             </td>
                             <% end %>
                         </tr>
@@ -83,7 +83,7 @@
             <% else %>
                 <h2 class="title">Danh sách so sánh hiện tại đang trống.</h2>
                 <div class="buttons">
-                    <div class="pull-left"><%= link_to "TIẾP TỤC MUA HÀNG", erp_online_store.root_path, class: "btn btn-default shopping-continue" %></div>                
+                    <div class="pull-left"><%= link_to "TIẾP TỤC MUA HÀNG", erp_online_store.root_path, class: "btn btn-default shopping-continue" %></div>
                 </div>
             <% end %>
         </div>

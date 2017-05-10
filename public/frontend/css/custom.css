@@ -1501,3 +1501,6 @@ form[role=edit-password] > div:last-child {
 .no-margin-bottom {
   margin-bottom: 0;
 }
+.property-value.diff {
+  background: #eef8f8;
+}

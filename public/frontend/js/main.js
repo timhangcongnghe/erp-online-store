@@ -792,6 +792,23 @@ $(document).ready(function () {
         }
     });
 
+    // compare style
+    $('.product-compare tr').each(function() {
+        if($(this).find('.property-value').length) {
+          var same = true
+          var value = $(this).find('.property-value').first().html();
+          $(this).find('.property-value').each(function() {
+            if ($(this).html() != value) {
+              same = false;
+              return;
+            }
+          });
+          if (!same) {
+            $(this).find('.property-value').addClass('diff');
+          }
+        }
+    })
+
 });
 $(window).scroll(function () {
     toogleFixedNav();

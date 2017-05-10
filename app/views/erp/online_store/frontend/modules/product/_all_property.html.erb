@@ -9,7 +9,9 @@
                 <% group[:properties].each do |property| %>
                     <tr class="property-value">
                         <td valign="top" class="text-nowrap"><span><%= property[:property].name %></span></td>
-                        <td class="pl-10"><%= property[:values].join(", ") %></td>
+                        <td class="pl-10">
+                            <%= property[:values].count <= 5 ? property[:values].join(", ") : property[:values].join("<br>").html_safe %>
+                        </td>
                     </tr>
                 <% end %>
             <% end %>
