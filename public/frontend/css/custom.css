@@ -764,6 +764,9 @@ table.product-compare tr td.product-name {
 .order-status span.finish {
   color: #009688;
 }
+.order-status span.cancel {
+  color: #dc4a3d;
+}
 .info-contact .comment {
   text-align: justify;
 }
@@ -1501,7 +1504,9 @@ form[role=edit-password] > div:last-child {
 .no-margin-bottom {
   margin-bottom: 0;
 }
-.property-value.diff {
+.no-margin-top {
+  margin-top: 0;
+}.property-value.diff {
   background: #eef8f8;
 }
 .property-value ul li {
