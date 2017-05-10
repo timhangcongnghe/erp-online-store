@@ -1498,3 +1498,6 @@ form[role=edit-password] > div:last-child {
 .type_1 .header-top .header-top-left .welcome-msg .list-msg .label-msg, .type_1 .header-top .header-top-left .welcome-msg .list-msg a {
   font-size: 13px;
 }
+.no-margin-bottom {
+  margin-bottom: 0;
+}

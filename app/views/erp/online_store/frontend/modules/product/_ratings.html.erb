@@ -27,50 +27,58 @@
         <div id="post-review-box" style="display:none;">
             <hr>
             <% if @rating.id.present? %>
-                <h2 id="review-title">Đánh giá của <%= current_user.name %></h2>
+                <% if @rating.archived == true %>
+                    <div class="no-margin-bottom alert alert-success">
+                        <i class="fa fa-warning"></i> Cảm ơn bạn đã tham gia đánh giá. Nội dung nhận xét đánh giá của bạn đang chờ kiểm duyệt.
+                    </div>
+                <% else %>
+                    <h2 id="review-title">Đánh giá của <%= current_user.name %></h2>
+                <% end %>
             <% else %>
                 <h2 id="review-title">Mời <%= current_user.name %> đánh giá sản phẩm</h2>
             <% end %>
-
-            <%= form_for Erp::Products::Rating.new, url: erp_online_store.product_ratings_path(product_id: @product.id), html: { class: 'rating_form' } do |f| %>
-                <div class="well well-sm">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <div class="ratingStar">
-                                    <span class="lStar">
-                                        <b>
-                                            <% if @rating.id.present? %>
-                                                Đánh giá của bạn:
-                                            <% else %>
-                                                Chọn đánh giá của bạn:
-                                            <% end %>
-                                        </b>
-                                    </span>
-                                    <div class="stars starrr" data-rating="<%= @rating.star %>"></div>
-                                    <span class='your-choice-was' style='display: none;'>
-                                        Sản phẩm này <span class='stars choice'> </span>
-                                    </span>
+            
+            <% if @rating.archived == false or !@rating.id.present? %>
+                <%= form_for Erp::Products::Rating.new, url: erp_online_store.product_ratings_path(product_id: @product.id), html: { class: 'rating_form' } do |f| %>
+                    <div class="well well-sm">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <div class="ratingStar">
+                                        <span class="lStar">
+                                            <b>
+                                                <% if @rating.id.present? %>
+                                                    Đánh giá của bạn:
+                                                <% else %>
+                                                    Chọn đánh giá của bạn:
+                                                <% end %>
+                                            </b>
+                                        </span>
+                                        <div class="stars starrr" data-rating="<%= @rating.star %>"></div>
+                                        <span class='your-choice-was' style='display: none;'>
+                                            Sản phẩm này <span class='stars choice'> </span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <input id="ratings-hidden" name="rating[star]" type="hidden">
+                                    <input type="hidden" name="rating[product_id]" value="<%= @product.id %>" />
+                                    <input type="hidden" name="rating[id]" value="<%= @rating.id %>" />
+                                    <textarea class="form-control required" name="rating[content]" id="btn-radius" placeholder="Mời bạn để lại nhận xét về sản phẩm tại đây..."><%= @rating.content %></textarea>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="buttons clearfix">
+                                    <button class="btn buttonGray" id="btn-radius" type="submit">
+                                        <span>Gửi Đánh Giá</span>
+                                    </button>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <input id="ratings-hidden" name="rating[star]" type="hidden">
-                                <input type="hidden" name="rating[product_id]" value="<%= @product.id %>" />
-                                <input type="hidden" name="rating[id]" value="<%= @rating.id %>" />
-                                <textarea class="form-control required" name="rating[content]" id="btn-radius" placeholder="Mời bạn để lại nhận xét về sản phẩm tại đây..."><%= @rating.content %></textarea>
-                            </div>
-                        </div>
-                        <div class="col-sm-12">
-                            <div class="buttons clearfix">
-                                <button class="btn buttonGray" id="btn-radius" type="submit">
-                                    <span>Gửi Đánh Giá</span>
-                                </button>
-                            </div>
-                        </div>
                     </div>
-                </div>
+                <% end %>
             <% end %>
         </div>
     <% end %>
