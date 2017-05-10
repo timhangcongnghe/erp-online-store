@@ -62,6 +62,7 @@ module Erp
         def checkout
           @body_class = "res layout-subpage"
           redirect_to erp_online_store.shopping_cart_path if @cart.cart_items.empty?
+          # todo render and/or redirect were called multiple times in this action
           redirect_to erp_online_store.shopping_cart_path, notice: "Bạn phải đăng nhập để đặt hàng." if current_user.nil?
 
           if !current_user.nil?
@@ -77,6 +78,7 @@ module Erp
 
           if params[:order].present?
             @order = Erp::Orders::FrontendOrder.new(order_params)
+            @order.creator = current_user
             @order.status = Erp::Orders::FrontendOrder::STATUS_NEW
             @order.customer_id = current_user.contact_id
 
