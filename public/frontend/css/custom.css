@@ -292,13 +292,13 @@ div.article-info .article-sub-title span.article-folder a:hover {
   color: #009688;
 }
 .type_1 .header-top-right ul > li > a {
-  font-size: 13px !important;
+  font-size: 14px !important;
 }
 .type_1 .header-top-right ul.dropdown-menu > li > a {
   padding: 6px 15px;
 }
 .type_1 .header-top-right ul.top-link > li a.btn {
-  font-size: 13px !important;
+  font-size: 14px !important;
   color: #000;
 }
 .header-top ul.dropdown-menu li a {
@@ -458,7 +458,6 @@ a.hover-product-name:hover {
 }
 .type_1 .header-top-right ul.top-link > li.compare, .type_1 .header-top-right ul.top-link > li > a {
   color: #000;
-  font-weight: 500;
 }
 a.text-teal {
   color: #da2723;
@@ -1495,4 +1494,7 @@ form[role=edit-password] > div:last-child {
   border-bottom: 2px solid #cc181e;
   padding-bottom: 5px;
   margin-top: 0px;
+}
+.type_1 .header-top .header-top-left .welcome-msg .list-msg .label-msg, .type_1 .header-top .header-top-left .welcome-msg .list-msg a {
+  font-size: 13px;
 }
