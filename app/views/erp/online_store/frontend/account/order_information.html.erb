@@ -1,16 +1,16 @@
-<% title "Thông Tin Đơn Hàng - #214521" %>
+<% title "Thông Tin Đơn Hàng - #{@order.code}" %>
 <div class="main-container container">
     <ul class="breadcrumb">
         <li><%= link_to '<i class="fa fa-home"></i>'.html_safe, erp_online_store.root_path %></li>
         <li><%= link_to "Tài Khoản", erp_online_store.my_account_path %></li>
         <li><%= link_to "Lịch Sử Mua Hàng", erp_online_store.order_history_path %></li>
-        <li><%= link_to "Chi Tiết Đơn Hàng", "javascript:void(0)" %></li>
+        <li><%= link_to "Chi Tiết Đơn Hàng (#{@order.code})", "javascript:void(0)" %></li>
     </ul>
 
     <div class="row">
         <!--Middle Part Start-->
         <div id="content" class="col-sm-9">
-            <h2 class="title">Chi tiết đơn hàng: #214521</h2>
+            <h2 class="no-margin-top title">Chi tiết đơn hàng: #<%= @order.code %></h2>
             <table class="table table-bordered table-hover">
                 <thead>
                     <tr>
@@ -20,15 +20,12 @@
                 <tbody>
                     <tr>
                         <td style="width: 50%;" class="text-left">
-                            <b>Mã đơn hàng:</b> #214521<br>
-                            <b>Ngày đặt hàng:</b> 20/06/2016
+                            <b>Mã đơn hàng:</b> #<%= @order.code %><br>
+                            <b>Ngày đặt hàng:</b> <%= @order.created_at.strftime("%d/%m/%Y %I:%M %p") %>
                         </td>
                         <td style="width: 50%;" class="text-left order-status">
                             <b>Trạng thái đơn hàng:</b><br>
-                            <span class="pending"><i class="fa fa-info-circle"></i> Đơn hàng vừa tạo</span><br>
-                            <span class="confirm"><i class="fa fa-warning"></i> Đơn hàng đã xác nhận</span><br>
-                            <span class="confirm"><i class="fa fa-warning"></i> Đơn hàng đang được giao</span><br>
-                            <span class="finish"><i class="fa fa-check-circle"></i> Giao dịch thành công</span>
+                            <%= order_status(@order.status) %>
                         </td>
                     </tr>
                 </tbody>
@@ -43,16 +40,20 @@
                 <tbody>
                     <tr>
                         <td class="text-left">
-                            Nguyễn Ngọc Sơn<br>
-                            188 đường số 1, Phường 16, Quận Gò Vấp, TP.HCM<br>
-                            01644046123<br>
-                            sonnn0811@gmail.com
+                            <%= @order.get_customer_data('name') %><br>
+                            <%= @order.get_customer_data('address') %>, 
+                            <%= @order.get_customer_data('district') %>, 
+                            <%= @order.get_customer_data('state') %><br>
+                            <%= @order.get_customer_data('phone') %><br>
+                            <%= @order.get_customer_data('email') %>
                         </td>
                         <td class="text-left">
-                            Nguyễn Ngọc Sơn<br>
-                            188 đường số 1, Phường 16, Quận Gò Vấp, TP.HCM<br>
-                            01644046123<br>
-                            sonnn0811@gmail.com
+                            <%= @order.get_consignee_data('name') %><br>
+                            <%= @order.get_consignee_data('address') %>, 
+                            <%= @order.get_consignee_data('district') %>, 
+                            <%= @order.get_consignee_data('state') %><br>
+                            <%= @order.get_consignee_data('phone') %><br>
+                            <%= @order.get_consignee_data('email') %>
                         </td>
                     </tr>
                 </tbody>
@@ -68,16 +69,16 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <% (0..3).each do |order_detail| %>
+                        <% @order.frontend_order_details.each do |order_detail| %>
                         <tr>
                             <td class="text-left">
-                                <strong><%= link_to "HP 15 AY072TU N3710/4GB/500GB/Win10", "", title: "" %></strong>
+                                <strong><%= link_to order_detail.product_name, "", title: order_detail.product_name %></strong>
                             </td>
-                            <td class="text-center"><strong>1</strong></td>
+                            <td class="text-center"><strong><%= order_detail.quantity %></strong></td>
                             <td class="text-center">
-                                <strong>6.390.000₫</strong>
+                                <strong><%= format_price(order_detail.price) %></strong>
                             </td>
-                            <td class="text-right"><strong>6.390.000₫</strong></td>
+                            <td class="text-right"><strong><%= format_price(order_detail.total) %></strong></td>
                         </tr>
                         <% end %>
                     </tbody>
@@ -86,7 +87,7 @@
                             <td colspan="2"></td>
                             <td class="text-right"><b>Tổng tiền</b>
                             </td>
-                            <td class="text-right">6.390.000₫</td>
+                            <td class="text-right"><%= format_price(@order.cache_total) %></td>
                         </tr>
                     </tfoot>
                 </table>

@@ -41,7 +41,7 @@ Erp::OnlineStore::Engine.routes.draw do
   get "tai-khoan/cap-nhat-mat-khau.html" => "frontend/account#update_password", as: :update_password
   post "tai-khoan/cap-nhat-mat-khau.html" => "frontend/account#update_password"
   get "tai-khoan/lich-su-mua-hang.html" => "frontend/account#order_history", as: :order_history
-  get "tai-khoan/chi-tiet-don-hang.html" => "frontend/account#order_information", as: :order_information
+  get "tai-khoan/chi-tiet-don-hang/:order_id-:title.html" => "frontend/account#order_information", as: :order_information
 
   # SHOPPING CART
   get "topcart.html" => "frontend/shopping_cart#top_cart", as: :top_cart

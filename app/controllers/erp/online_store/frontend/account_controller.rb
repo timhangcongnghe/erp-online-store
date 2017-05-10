@@ -62,10 +62,20 @@ module Erp
 
         def order_history
           @body_class = "res layout-subpage"
+          
+          @orders = Erp::Orders::FrontendOrder.get_frontend_orders_for_user(current_user)
         end
 
         def order_information
           @body_class = "res layout-subpage"
+          
+          @orders = Erp::Orders::FrontendOrder.get_frontend_orders_for_user(current_user)
+          
+          if @orders.count > 0
+            @order = Erp::Orders::FrontendOrder.find(params[:order_id])
+          else 
+            redirect_to erp_online_store.order_history_path
+          end
         end
 
         private
