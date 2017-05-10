@@ -46,11 +46,11 @@ $(document).ready(function() {
                 url: url,
                 method: 'POST',
                 data: form.serialize()
-            }).done(function() {
+            }).done(function(text) {
                 loadCommentList(box);
 
                 // alert('<%= value %>');
-                var tpl = '<h3>Bạn đã đăng bình luận thành công</h3>';
+                var tpl = '<h3>'+text+'</h3>';
                 $.jGrowl(tpl, {
                     life: 4000,
                     header: 'Thành công',
