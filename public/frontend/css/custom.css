@@ -1513,3 +1513,12 @@ form[role=edit-password] > div:last-child {
   list-style: square;
   margin-left: 15px;
 }
+.order-table.price {
+  font-size: 14px;
+  color: #000;
+}
+.account-report .price {
+  font-size: 14px;
+  color: #000;
+  font-weight: normal;
+}

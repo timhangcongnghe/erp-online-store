@@ -76,9 +76,11 @@
                             </td>
                             <td class="text-center"><strong><%= order_detail.quantity %></strong></td>
                             <td class="text-center">
-                                <strong><%= format_price(order_detail.price) %></strong>
+                                <strong class="order-table price"><%= format_price(order_detail.price) %></strong>
                             </td>
-                            <td class="text-right"><strong><%= format_price(order_detail.total) %></strong></td>
+                            <td class="text-right">
+                                <strong class="order-table price"><%= format_price(order_detail.total) %></strong>
+                            </td>
                         </tr>
                         <% end %>
                     </tbody>
@@ -87,7 +89,9 @@
                             <td colspan="2"></td>
                             <td class="text-right"><b>Tổng tiền</b>
                             </td>
-                            <td class="text-right"><%= format_price(@order.cache_total) %></td>
+                            <td class="text-right">
+                                <span class="order-table price"><%= format_price(@order.cache_total) %></span>
+                            </td>
                         </tr>
                     </tfoot>
                 </table>

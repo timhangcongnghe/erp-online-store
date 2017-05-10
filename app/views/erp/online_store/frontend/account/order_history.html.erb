@@ -29,7 +29,9 @@
                                 <td class="text-left order-status">                                
                                     <%= order_status(order_history.status) %>
                                 </td>
-                                <td class="text-center"><%= format_price(order_history.cache_total) %></td>
+                                <td class="text-center">
+                                    <span class="order-table price"><%= format_price(order_history.cache_total) %></span>
+                                </td>
                                 <td class="text-center">
                                     <a class="btn btn-info" title="Chi tiết đơn hàng"
                                        data-toggle="tooltip"
