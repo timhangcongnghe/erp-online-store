@@ -299,7 +299,7 @@
                                                                     <%= @order.get_customer_data('name') %> <br />
                                                                     <%= @order.get_customer_data('address') %> <br />
                                                                     <%= @order.get_customer_data('district') %>, <%= @order.get_customer_data('state') %> <br />
-                                                                    Việt Nam
+                                                                    <%= @order.get_customer_data('phone') %>
                                                                 </td>
                                                             </tr>
                                                         </table>
@@ -318,7 +318,7 @@
                                                                 <%= @order.get_consignee_data('name') %> <br />
                                                                 <%= @order.get_consignee_data('address') %> <br />
                                                                 <%= @order.get_consignee_data('district') %>, <%= @order.get_consignee_data('state') %> <br />
-                                                                Việt Nam
+                                                                <%= @order.get_consignee_data('phone') %>
                                                             </td>
                                                         </tr>
                                                     </table>
