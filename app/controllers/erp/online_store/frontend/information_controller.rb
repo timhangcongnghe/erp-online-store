@@ -45,6 +45,7 @@ module Erp
         end
     
         def terms_and_conditions
+          @categories = Erp::Articles::Category.get_categories_by_alias_group
           @terms_conditions = Erp::Articles::Article.get_terms_and_conditions
         end
     

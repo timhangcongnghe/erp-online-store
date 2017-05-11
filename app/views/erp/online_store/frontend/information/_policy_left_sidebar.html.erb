@@ -1,0 +1,16 @@
+<div class="module blog-category titleLine">
+    <h3 class="modtitle"><span>Chủ đề</span></h3>
+    <div class="modcontent">
+        <ul class="list-group ">
+            <% @categories.each do |cat| %>
+                <li class="list-group-item">
+                    <%= link_to cat.name,
+                        cat.articles.empty? ? '' : erp_online_store.policy_path(cat.id, url_friendly(cat.articles.last.name))
+                    %>
+                </li>
+            <% end %>
+            <li class="list-group-item"><%= link_to "Các điều khoản & Điều kiện", erp_online_store.terms_and_conditions_path %></li>
+            <li class="list-group-item"><%= link_to "Câu hỏi thường gặp", erp_online_store.faq_path %></li>
+        </ul>
+    </div>
+</div>

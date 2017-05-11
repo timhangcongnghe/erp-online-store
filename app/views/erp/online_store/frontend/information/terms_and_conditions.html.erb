@@ -4,7 +4,13 @@
         <li><%= link_to "Các điều khoản & Điều kiện", "javascript:void(0)" %></li>
     </ul>
     <div class="row">
-        <div id="content" class="col-sm-12">
+        <!--Left Part Start -->
+        <aside class="col-sm-4 col-md-3" id="column-left">
+            <%= render "erp/online_store/frontend/information/policy_left_sidebar" %>
+        </aside>
+        <!--Left Part End -->
+        <!--Middle Part Start-->
+        <div id="content" class="col-sm-8 col-md-9">
             <h3>Điều khoản và Điều kiện sử dụng website TimHangCongNghe.vn</h3>
             <p>
                 Để đảm bảo chính xác các dịch vụ mà chúng tôi cung cấp.
@@ -29,5 +35,6 @@
                 </div>
             </div>
         </div>
+        <!--Middle Part End-->
     </div>
 </div>
