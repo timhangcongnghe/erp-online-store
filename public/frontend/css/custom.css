@@ -963,9 +963,8 @@ footer .footer-center .contact-address > li:last-child {
   margin-bottom: 0;
 }
 footer .footer-center .contact-address span {
-  top: 5px;
+  top: 2px;
 }
->>>>>>> fix layout display for top-menu and footer-menu
 .flash_error #error_explanation h2 {
   display: none;
 }
