@@ -165,7 +165,12 @@ function homeCategoryBox(box) {
 
 function autoSearchMoveUp(box) {
     var current_li = box.find('li.current');
-    var prev = current_li.prev();
+    var prev;
+    if (current_li.length) {
+        prev = current_li.prev();
+    } else {
+        prev = box.find('li').last();
+    }
 
     box.find('li').removeClass('current');
 
@@ -178,14 +183,20 @@ function autoSearchMoveUp(box) {
 
 function autoSearchMoveDown(box) {
     var current_li = box.find('li.current');
-    var next = current_li.next();
+    var next;
+    if (current_li.length) {
+        next = current_li.next();
+    } else {
+        next = box.find('li').first();
+    }
+
 
     box.find('li').removeClass('current');
 
     if (next.length) {
         next.addClass('current');
     } else{
-        current_li.parents('ul').find('li').eq(0).addClass('current');
+        next.parents('ul').find('li').eq(0).addClass('current');
     }
 }
 
@@ -232,7 +243,7 @@ function autoSearch(box) {
             );
         });
         if (items.length) {
-            result_box.find('li').eq(0).addClass('current');
+            // result_box.find('li').eq(0).addClass('current');
         } else {
             result_box.append(
                 '<li class="autosearch-empty-line">Không có sản phẩm phù hợp</li>'
