@@ -133,10 +133,9 @@ fieldset#address-form input, fieldset#address-form select {
   float: right;
 }
 .so-onepagecheckout .fee .total2 {
-  border-top: 2px solid #009688;
+  border-top: 1px solid #009688;
   padding-top: 12px;
-  margin-bottom: 0;
-  line-height: 19px;
+  margin-bottom: 1px;
 }
 .so-onepagecheckout .fee .total2 span {
   color: #009688;
@@ -176,4 +175,74 @@ fieldset#address-form input, fieldset#address-form select {
 }
 .so-onepagecheckout .confirm label {
   font-weight: 500;
+}
+.so-onepagecheckout .confirm p.note {
+  margin: 0;
+  font-style: normal;
+  font-weight: normal;
+  text-align: justify;
+}
+.so-onepagecheckout .confirm p.note a {
+  color: #009688;
+}
+.so-onepagecheckout .confirm p.note a:hover {
+  text-decoration: underline;
+}
+.so-onepagecheckout .fee .order {
+  border-bottom: 1px solid #009688;
+  padding-bottom: 10px;
+  line-height: 32px;
+}
+.so-onepagecheckout .fee .order span.title {
+  font-weight: 500;
+}
+.so-onepagecheckout .fee .order .btn-default {
+  color: #000;
+}
+.so-onepagecheckout .fee .order .btn-custom1 {
+  float: right;
+  border: 1px solid #ccc;
+  font-size: 12px;
+  padding-left: 14px;
+  padding-right: 14px;
+  height: 31px;
+  outline-color: #ccc;
+  background: -webkit-gradient(linear,0 0,0 bottom,from(#fff),to(#f7f7f7));
+  background: -webkit-linear-gradient(#fff,#f7f7f7);
+  background: -moz-linear-gradient(#fff,#f7f7f7);
+  background: -ms-linear-gradient(#fff,#f7f7f7);
+  background: -o-linear-gradient(#fff,#f7f7f7);
+  background: linear-gradient(#fff,#f7f7f7);
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -o-border-radius: 2px;
+  border-radius: 2px;
+}
+.so-onepagecheckout .fee .cart-item {
+  line-height: 25px;
+}
+.so-onepagecheckout .fee .cart-item .price,
+.so-onepagecheckout .fee .list-info-price span.price {
+  color: #000;
+  font-size: 14px;
+  font-weight: normal;
+  font-weight: 600;
+}
+.so-onepagecheckout .fee .cart-item .item:first-child {
+  margin-top: 8px;
+}
+.so-onepagecheckout .fee .cart-item .item a {
+  color: #009688;
+}
+.so-onepagecheckout .fee .cart-item .item a:hover {
+  color: #09b5a5;
+}
+.so-onepagecheckout .fee hr {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+.so-onepagecheckout .fee .total2 span.price {
+  line-height: normal;
+  margin-bottom: 0;
 }

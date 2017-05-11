@@ -1,21 +1,27 @@
 <%= form_for '', url: erp_online_store.checkout_path, html: {class: 'checkout_form'} do |f| %>
     <div class="panel panel-default fee">
-        <% @cart.cart_items.each do |cart_item| %>
-            
-            <div class="row" style="font-size: 13px;">
-                <div class="col-sm-8">
-                    <b><%= cart_item.quantity %> x</b>
-                    <%= link_to cart_item.product_name, product_link(cart_item.product), title: cart_item.product_name %>
+        <div class="order">
+            <span class="title">Đơn Hàng</span>
+            <span class="title"> (<%= @cart.cart_items.number_items %> sản phẩm)</span>
+            <%= link_to 'Sửa', erp_online_store.shopping_cart_path, class: "btn btn-default btn-custom1" %>
+        </div>
+            <div class="cart-item">
+            <% @cart.cart_items.each do |cart_item| %>
+                <div class="row item">
+                    <div class="col-sm-8">
+                        <b><%= cart_item.quantity %> x</b>
+                        <%= link_to cart_item.product_name, product_link(cart_item.product), title: cart_item.product_name, target: "_blank" %>
+                    </div>
+                    <div class="col-sm-4 text-right"><span class="price"><%= format_price(cart_item.total_price) %></span></div>
                 </div>
-                <div class="col-sm-4 text-right"><span><%= format_price(cart_item.total_price) %></span></div>
+            <% end %>
             </div>
-        <% end %>
         <hr>
-        <p class="list-info-price"><b>Tổng tiền:</b> <span><%= format_price(@cart.total_order) %></span></p>
-        <p class="list-info-price"><b>Phí vận chuyển:</b> <span>Miễn phí</span></p>
-        <p class="total2">Số tiền cần thanh toán: <span><%= format_price(@cart.total_order) %></span></p>
+        <p class="list-info-price"><b>Tổng tiền:</b> <span class="price"><%= format_price(@cart.total_order) %></span></p>
+        <p class="list-info-price"><b>Phí vận chuyển:</b> <span>--</span></p>
+        <p class="total2">Số tiền cần thanh toán: <span class="price"><%= format_price(@cart.total_order) %></span></p>
         <p class="text-right">
-            <i>(Chưa bao gồm VAT)</i>
+            <i>(Đã bao gồm VAT)</i>
         </p>
     </div>
     <% if !@selected_contact.nil? %>
@@ -23,18 +29,21 @@
     <% end %>
     
     <div class="panel panel-default confirm">
-        <textarea placeholder="Nhập ghi chú cho đơn hàng" rows="3" class="form-control" id="confirm_comment" name="order[note]"></textarea>
-        <label class="control-label" for="confirm_agree">
-            <input type="checkbox" class="validate required" id="confirm_agree">
+        <textarea placeholder="Nhập ghi chú cho đơn hàng" rows="2" class="form-control" id="confirm_comment" name="order[note]"></textarea>
+        <label class="control-label">
             <span>
-                Tôi đã đọc và đồng ý với
-                <%= link_to 'Các điều khoản & Điều kiện'.html_safe, "", class: "agree", target: "_blank" %>
-                </a>
+                * Lưu ý:
             </span>
+            <p class="note">
+                - Kiểm tra kỹ đơn hàng trước khi xác nhận đặt hàng.<br />
+                - Bằng cách nhấp vào Đặt hàng, bạn đồng ý và rằng bạn đã đọc
+                <%= link_to 'Các điều khoản & điều kiện'.html_safe, erp_online_store.terms_and_conditions_path, target: "_blank" %>
+                của chúng tôi.
+            </p>
         </label>
+        
     </div>
     <% if current_user.contact.present? %>
     <button type="submit" class="btn btn-large btn-block btn-default btn-checkout">ĐẶT HÀNG</button>
-    <p class="other">(Vui lòng kiểm tra kỹ đơn hàng trước khi xác nhận đặt hàng)</p>
     <% end %>
 <% end %>
