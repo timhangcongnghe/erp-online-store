@@ -12,8 +12,13 @@ module Erp
 
         def my_account
           @body_class = "res layout-subpage"
-
-          @contact = !current_user.contact.nil? ? current_user.contact : Erp::Contacts::Contact.new(user_id: current_user.id)
+          
+          if current_user.nil?
+            redirect_to erp_online_store.root_path, notice: "Bạn chưa đăng nhập."
+            return
+          else 
+            @contact = !current_user.contact.nil? ? current_user.contact : Erp::Contacts::Contact.new(user_id: current_user.id)
+          end
 
           # Create contact for currnet_user if contact user does not exists
           if params[:contact].present?
@@ -62,14 +67,22 @@ module Erp
 
         def order_history
           @body_class = "res layout-subpage"
-          
-          @orders = Erp::Orders::FrontendOrder.get_frontend_orders_for_user(current_user)
+          if current_user.nil?
+            redirect_to erp_online_store.root_path, notice: "Bạn chưa đăng nhập."
+            return
+          else 
+            @orders = Erp::Orders::FrontendOrder.get_frontend_orders_for_user(current_user)
+          end
         end
 
         def order_information
           @body_class = "res layout-subpage"
-          
-          @orders = Erp::Orders::FrontendOrder.get_frontend_orders_for_user(current_user)
+          if current_user.nil?
+            redirect_to erp_online_store.root_path, notice: "Bạn chưa đăng nhập."
+            return
+          else 
+            @orders = Erp::Orders::FrontendOrder.get_frontend_orders_for_user(current_user)
+          end
           
           if @orders.count > 0
             @order = Erp::Orders::FrontendOrder.find(params[:order_id])
