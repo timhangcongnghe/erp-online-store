@@ -72,7 +72,7 @@
                         <% @order.frontend_order_details.each do |order_detail| %>
                         <tr>
                             <td class="text-left">
-                                <strong><%= link_to order_detail.product_name, "", title: order_detail.product_name %></strong>
+                                <strong><%= link_to order_detail.product_name, product_link(order_detail.product), title: order_detail.product_name %></strong>
                             </td>
                             <td class="text-center"><strong><%= order_detail.quantity %></strong></td>
                             <td class="text-center">
