@@ -13,6 +13,9 @@ module Erp
           @meta_description = @product.meta_description
           @deal_products = Erp::Products::Product.get_deal_products
           @menu = params[:menu_id].present? ? Erp::Menus::Menu.find(params[:menu_id]) : @product.find_menu
+          if @menu.present?
+            @meta_keywords += @meta_keywords.present? ? ',' + @menu.meta_keywords : @menu.meta_keywords
+          end
         end
 
         def comments
@@ -23,7 +26,7 @@ module Erp
             @comment = Erp::Products::Comment.new(comment_params)
             @comment.user = current_user
             @comment.save
-            
+
             render text: 'Bạn đã đăng bình luận thành công'
             return
           end
@@ -46,7 +49,7 @@ module Erp
             @rating.user = current_user
             @rating.archive
             @rating.save
-            
+
             render text: 'Cảm ơn bạn đã tham gia đánh giá sản phẩm. Nhận xét của bạn sẽ được chúng tôi kiểm duyệt trong 24 giờ.'
             return
           end
