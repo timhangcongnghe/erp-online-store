@@ -61,9 +61,15 @@ module Erp
 
         def checkout
           @body_class = "res layout-subpage"
-          redirect_to erp_online_store.shopping_cart_path if @cart.cart_items.empty?
-          # todo render and/or redirect were called multiple times in this action
-          redirect_to erp_online_store.shopping_cart_path, notice: "Bạn phải đăng nhập để đặt hàng." if current_user.nil?
+          if @cart.cart_items.empty?
+            redirect_to erp_online_store.shopping_cart_path
+            return
+          end
+          
+          if current_user.nil?
+            redirect_to erp_online_store.shopping_cart_path, notice: "Bạn phải đăng nhập để đặt hàng."
+            return
+          end
 
           if !current_user.nil?
             if params[:selected_contact_id].present?
