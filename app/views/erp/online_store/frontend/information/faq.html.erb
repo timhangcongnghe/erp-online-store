@@ -6,8 +6,17 @@
     </ul>
 
     <div class="row">
-        <div id="content" class="col-sm-12">
-            <h3>Những câu hỏi thường gặp khi sử dụng trang thương mại điện tử TimHangCongNghe.vn</h3>
+        <!--Left Part Start -->
+        <aside class="col-sm-4 col-md-3" id="column-left">
+            <%= render "erp/online_store/frontend/information/policy_left_sidebar" %>
+        </aside>
+        <!--Left Part End -->
+        <!--Middle Part Start-->
+        <div id="content" class="col-sm-8 col-md-9">
+            <div class="blog-header">
+                <h3>Những câu hỏi thường gặp khi sử dụng trang TMĐT TimHangCongNghe.vn</h3>
+            </div>
+            
             <p>
                 Chào mừng bạn đến với website thương mại điện tử của Hoàng Khang Incotech.
                 Dưới đây là những câu hỏi trên TimHangCongNghe mà khách hàng thường gặp.
@@ -15,38 +24,25 @@
             </p>
             <div class="about-us about-demo-4">
                 <div class="row">
-                    <div class="col-lg-6 col-md-6 faq-about-us">
-                        <h2 class="about-title">Câu Hỏi Khi Đặt Hàng Trên TimHangCongNghe.Vn</h2>
+                    <div class="col-sm-12 col-md-12 faq-about-us">
+                        <h2 class="about-title"></h2>
                         <div class="content-faq">
                             <div id="accordion" role="tablist" aria-multiselectable="true">
-                                <% (0..5).each_with_index do |faq,index| %>
+                                <% @faqs.each_with_index do |faq,index| %>
                                 <div class="panel">
                                     <div class="panel-head" role="tab" id="headingOne<%= index.to_s %>">
                                         <h4 class="panel-title">
-                                            <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne<%= index.to_s %>" aria-expanded="false" aria-controls="#collapseOne<%= index.to_s %>" class="collapsed"> <span>Tiêu đề câu hỏi faq?</span> </a>
+                                            <a role="button" data-toggle="collapse" data-parent="#accordion"
+                                               href="#collapseOne<%= index.to_s %>"
+                                               aria-expanded="false"
+                                               aria-controls="#collapseOne<%= index.to_s %>"
+                                               class="collapsed">
+                                               <span><%= faq.name %></span>
+                                            </a>
                                         </h4>
                                     </div>
                                     <div id="collapseOne<%= index.to_s %>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne<%= index.to_s %>" aria-expanded="false" style="height: 0px;">
-                                        <div class="panel-body text-justify">Nội dung faq......</div>
-                                    </div>
-                                </div>
-                                <% end %>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6 faq-about-us">
-                        <h2 class="about-title">Câu Hỏi Khi Đặt Hàng Trên TimHangCongNghe.Vn</h2>
-                        <div class="content-faq">
-                            <div id="accordion" role="tablist" aria-multiselectable="true">
-                                <% (0..5).each_with_index do |faq,index| %>
-                                <div class="panel">
-                                    <div class="panel-head" role="tab" id="headingTwo<%= index.to_s %>">
-                                        <h4 class="panel-title">
-                                            <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo<%= index.to_s %>" aria-expanded="false" aria-controls="collapseTwo<%= index.to_s %>" class="collapsed"> <span>Tiêu đề câu hỏi faq?</span> </a>
-                                        </h4>
-                                    </div>
-                                    <div id="collapseTwo<%= index.to_s %>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo<%= index.to_s %>" aria-expanded="false" style="height: 0px;">
-                                        <div class="panel-body text-justify">Nội dung faq......</div>
+                                        <div class="panel-body text-justify"><%= faq.content.html_safe %></div>
                                     </div>
                                 </div>
                                 <% end %>
@@ -56,5 +52,6 @@
                 </div>
             </div>
         </div>
+        <!--Middle Part End-->
     </div>
 </div>

@@ -8,6 +8,7 @@ module Erp
     
         def faq
           @body_class = "res layout-subpage"
+          @categories = Erp::Articles::Category.get_categories_by_alias_group
           @faqs = Erp::Articles::Article.get_faqs
         end
         
