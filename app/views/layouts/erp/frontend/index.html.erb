@@ -2,81 +2,90 @@
 <html lang="en">
 
 <head>
-		<%= csrf_meta_tags %>
+	<%= csrf_meta_tags %>
 
     <!-- Basic page needs ============================================ -->
     <title>
-		<% if content_for?(:title) %>
-				<%= yield(:title) %> | Trang Thương Mại Điện Tử Sản Phẩm Công Nghệ Uy Tín, Chất Lượng | TimHangCongNghe.VN
-		<% else %>
-				Trang Thương Mại Điện Tử Sản Phẩm Công Nghệ Uy Tín, Chất Lượng | TimHangCongNghe.VN
-		<% end %>
-		</title>
-    <meta charset="utf-8">
-    <meta name="description" content="<%= @meta_description if @meta_description.present? %>">
-    <meta name="keywords" content="<%= @meta_keywords if @meta_keywords.present? %>">
-    <meta name="author" content="TimHangCongNghe.VN">
-
-		<!-- Favicon ============================================ -->
-		<link rel="apple-touch-icon" sizes="57x57" href="<%= url_for('/frontend/fav/apple-icon-57x57.png') %>">
-		<link rel="apple-touch-icon" sizes="60x60" href="<%= url_for('/frontend/fav/apple-icon-60x60.png') %>">
-		<link rel="apple-touch-icon" sizes="72x72" href="<%= url_for('/frontend/fav/apple-icon-72x72.png') %>">
-		<link rel="apple-touch-icon" sizes="76x76" href="<%= url_for('/frontend/fav/apple-icon-76x76.png') %>">
-		<link rel="apple-touch-icon" sizes="114x114" href="<%= url_for('/frontend/fav/apple-icon-114x114.png') %>">
-		<link rel="apple-touch-icon" sizes="120x120" href="<%= url_for('/frontend/fav/apple-icon-120x120.png') %>">
-		<link rel="apple-touch-icon" sizes="144x144" href="<%= url_for('/frontend/fav/apple-icon-144x144.png') %>">
-		<link rel="apple-touch-icon" sizes="152x152" href="<%= url_for('/frontend/fav/apple-icon-152x152.png') %>">
-		<link rel="apple-touch-icon" sizes="180x180" href="<%= url_for('/frontend/fav/apple-icon-180x180.png') %>">
-		<link rel="icon" type="image/png" sizes="192x192"  href="<%= url_for('/frontend/fav/android-icon-192x192.png') %>">
-		<link rel="icon" type="image/png" sizes="32x32" href="<%= url_for('/frontend/fav/favicon-32x32.png') %>">
-		<link rel="icon" type="image/png" sizes="96x96" href="<%= url_for('/frontend/fav/favicon-96x96.png') %>">
-		<link rel="icon" type="image/png" sizes="16x16" href="<%= url_for('/frontend/fav/favicon-16x16.png') %>">
-		<link rel="manifest" href="<%= url_for('/frontend/fav/manifest.json') %>">
-		<%= favicon_link_tag '/frontend/fav/favicon-16x16.png', rel: 'shortcut icon', type: '/frontend/image/x-icon' %>
+	<% if content_for?(:title) %>
+		<%= yield(:title) %> | Trang Thương Mại Điện Tử Sản Phẩm Công Nghệ Uy Tín, Chất Lượng | TimHangCongNghe.VN
+	<% else %>
+		Trang Thương Mại Điện Tử Sản Phẩm Công Nghệ Uy Tín, Chất Lượng | TimHangCongNghe.VN
+	<% end %>
+	</title>
+	<meta charset="utf-8">
+	<% if @meta_description.present? %>
+	<meta name="description" content="<%= @meta_description %>">
+	<% else %>
+	<meta name="description" content="TimHangCongNghe.VN là trang thương mại điện tử uy tín chuyên cung cấp đa dạng các sản phẩm, thiết bị công nghệ từ các hãng lớn thế giới.">
+	<% end %>
+	<% if @meta_keywords.present? %>
+	<meta name="keywords" content="<%= @meta_keywords %>">
+	<% else %>
+	<meta name="keywords" content="máy tính xách tay, máy tính để bàn, màn hình máy tính, máy chủ server, linh kiện máy vi tính, phụ kiện máy vi tính, máy in, phụ kiện máy in, camera quan sát, thiết bị mạng">
+	<% end %>
+	<meta name="author" content="TimHangCongNghe.VN">
+	<meta http-equiv="content-language" content="vi">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name='revisit-after' content='1 days'>
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+	<meta name="theme-color" content="#ffffff">
+	<!-- Mobile specific metas ============================================ -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 	
-		<meta name="msapplication-TileColor" content="#ffffff">
-		<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
-		<meta name="theme-color" content="#ffffff">
+	<!-- Favicon ============================================ -->
+	<link rel="apple-touch-icon" sizes="57x57" href="<%= url_for('/frontend/fav/apple-icon-57x57.png') %>">
+	<link rel="apple-touch-icon" sizes="60x60" href="<%= url_for('/frontend/fav/apple-icon-60x60.png') %>">
+	<link rel="apple-touch-icon" sizes="72x72" href="<%= url_for('/frontend/fav/apple-icon-72x72.png') %>">
+	<link rel="apple-touch-icon" sizes="76x76" href="<%= url_for('/frontend/fav/apple-icon-76x76.png') %>">
+	<link rel="apple-touch-icon" sizes="114x114" href="<%= url_for('/frontend/fav/apple-icon-114x114.png') %>">
+	<link rel="apple-touch-icon" sizes="120x120" href="<%= url_for('/frontend/fav/apple-icon-120x120.png') %>">
+	<link rel="apple-touch-icon" sizes="144x144" href="<%= url_for('/frontend/fav/apple-icon-144x144.png') %>">
+	<link rel="apple-touch-icon" sizes="152x152" href="<%= url_for('/frontend/fav/apple-icon-152x152.png') %>">
+	<link rel="apple-touch-icon" sizes="180x180" href="<%= url_for('/frontend/fav/apple-icon-180x180.png') %>">
+	<link rel="icon" type="image/png" sizes="192x192"  href="<%= url_for('/frontend/fav/android-icon-192x192.png') %>">
+	<link rel="icon" type="image/png" sizes="32x32" href="<%= url_for('/frontend/fav/favicon-32x32.png') %>">
+	<link rel="icon" type="image/png" sizes="96x96" href="<%= url_for('/frontend/fav/favicon-96x96.png') %>">
+	<link rel="icon" type="image/png" sizes="16x16" href="<%= url_for('/frontend/fav/favicon-16x16.png') %>">
+	<link rel="manifest" href="<%= url_for('/frontend/fav/manifest.json') %>">
+	<%= favicon_link_tag '/frontend/fav/favicon-16x16.png', rel: 'shortcut icon', type: '/frontend/image/x-icon' %>
 
-    <!-- Mobile specific metas ============================================ -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<!-- Google web fonts ============================================ -->
+	<%= stylesheet_link_tag "https://fonts.googleapis.com/css?family=Open+Sans:400,300,700|Roboto:400,500,700,900" %>
 
-    <!-- Google web fonts ============================================ -->
-    <%= stylesheet_link_tag "https://fonts.googleapis.com/css?family=Open+Sans:400,300,700|Roboto:400,500,700,900" %>
+	<!-- Libs CSS ============================================ -->
+	<%= stylesheet_link_tag "/frontend/css/bootstrap/css/bootstrap.min.css" %>
+	<%= stylesheet_link_tag "/frontend/css/font-awesome/css/font-awesome.min.css" %>
+	<%= stylesheet_link_tag "/frontend/js/datetimepicker/bootstrap-datetimepicker.min.css" %>
+	<%= stylesheet_link_tag "/frontend/js/owl-carousel/owl.carousel.css" %>
+	<%= stylesheet_link_tag "/frontend/css/themecss/lib.css" %>
+	<%= stylesheet_link_tag "/frontend/js/jquery-ui/jquery-ui.min.css" %>
+	<%= stylesheet_link_tag "/frontend/js/lightslider/lightslider.css" %>
+	<%= stylesheet_link_tag "/frontend/fancybox/jquery.fancybox.min.css" %>
 
-    <!-- Libs CSS ============================================ -->
-		<%= stylesheet_link_tag "/frontend/css/bootstrap/css/bootstrap.min.css" %>
-		<%= stylesheet_link_tag "/frontend/css/font-awesome/css/font-awesome.min.css" %>
-		<%= stylesheet_link_tag "/frontend/js/datetimepicker/bootstrap-datetimepicker.min.css" %>
-		<%= stylesheet_link_tag "/frontend/js/owl-carousel/owl.carousel.css" %>
-		<%= stylesheet_link_tag "/frontend/css/themecss/lib.css" %>
-		<%= stylesheet_link_tag "/frontend/js/jquery-ui/jquery-ui.min.css" %>
-		<%= stylesheet_link_tag "/frontend/js/lightslider/lightslider.css" %>
-		<%= stylesheet_link_tag "/frontend/fancybox/jquery.fancybox.min.css" %>
-
-		<!-- Theme CSS ============================================ -->
-		<%= stylesheet_link_tag "/frontend/css/themecss/so_megamenu.css" %>
-		<%= stylesheet_link_tag "/frontend/css/themecss/so-categories.css" %>
-		<%= stylesheet_link_tag "/frontend/css/themecss/so-listing-tabs.css" %>
-		<%= stylesheet_link_tag "/frontend/css/themecss/animate.css" %>
-		<%= stylesheet_link_tag "/frontend/css/themecss/so-super-category.css" %>
-		<%= stylesheet_link_tag "/frontend/css/theme-cyan.css" %>
-		<%= stylesheet_link_tag "/frontend/css/responsive.css" %>
-		<%= stylesheet_link_tag "/frontend/select2/css/select2.min.css" %>
-		<%= stylesheet_link_tag "/frontend/css/custom.css" %>
-		<% if params[:controller] == "erp/online_store/frontend/account" && params[:action] == "my_account" %>
+	<!-- Theme CSS ============================================ -->
+	<%= stylesheet_link_tag "/frontend/css/themecss/so_megamenu.css" %>
+	<%= stylesheet_link_tag "/frontend/css/themecss/so-categories.css" %>
+	<%= stylesheet_link_tag "/frontend/css/themecss/so-listing-tabs.css" %>
+	<%= stylesheet_link_tag "/frontend/css/themecss/animate.css" %>
+	<%= stylesheet_link_tag "/frontend/css/themecss/so-super-category.css" %>
+	<%= stylesheet_link_tag "/frontend/css/theme-cyan.css" %>
+	<%= stylesheet_link_tag "/frontend/css/responsive.css" %>
+	<%= stylesheet_link_tag "/frontend/select2/css/select2.min.css" %>
+	<%= stylesheet_link_tag "/frontend/css/custom.css" %>
+	<% if params[:controller] == "erp/online_store/frontend/account" && params[:action] == "my_account" %>
 		<%= stylesheet_link_tag "/frontend/css/custom-profile.css" %>
-		<% end %>
-		<% if params[:controller] == "erp/online_store/frontend/shopping_cart" && params[:action] == "checkout" %>
+	<% end %>
+	<% if params[:controller] == "erp/online_store/frontend/shopping_cart" && params[:action] == "checkout" %>
 		<%= stylesheet_link_tag "/frontend/css/checkout.css" %>
-		<% end %>
-		<%= stylesheet_link_tag "/frontend/css/starability-minified/starability-all.min.css" %>
-		<% if params[:controller] == "erp/online_store/frontend/product" && params[:action] == "product_detail" %>
+	<% end %>
+	<%= stylesheet_link_tag "/frontend/css/starability-minified/starability-all.min.css" %>
+	<% if params[:controller] == "erp/online_store/frontend/product" && params[:action] == "product_detail" %>
 		<%= stylesheet_link_tag "/frontend/rating-custom/post-review.css" %>
 		<%= render "erp/online_store/frontend/modules/js_include" %>
-		<% end %>
-		<!-- Js use for map-canvas in contact us  -->
-		<% if params[:controller] == "erp/online_store/frontend/information" && params[:action] == "contact_us" %>
+	<% end %>
+	<!-- Js use for map-canvas in contact us  -->
+	<% if params[:controller] == "erp/online_store/frontend/information" && params[:action] == "contact_us" %>
 		<%= javascript_include_tag "/frontend/js-google-map/jquery/jquery.js" %>
 	<% end %>
 </head>

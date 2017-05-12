@@ -42,18 +42,18 @@
                     <% if @menu_hot.image_url_1.present? %>
                         <% if params[:child_1_id].present? %>
                             <% if @child_1.image_url_1.present? %>
-                            <%= link_to image_tag(@child_1.image_url_1.menu_hot_image_1, alt: @child_1.name), @child_1.image_menu_link_1 %>
+                            <%= link_to image_tag(@child_1.image_url_1.menu_hot_image_1, alt: @child_1.name, title: @child_1.name), @child_1.image_menu_link_1, title: @child_1.name %>
                             <% else %>
-                            <%= link_to image_tag(@menu_hot.image_url_1.menu_hot_image_1, alt: @menu_hot.name), @menu_hot.image_menu_link_1 %>
+                            <%= link_to image_tag(@menu_hot.image_url_1.menu_hot_image_1, alt: @menu_hot.name, title: @menu_hot.name), @menu_hot.image_menu_link_1, title: @menu_hot.name %>
                             <% end %>
                         <% elsif params[:child_2_id].present? %>
                             <% if @child_2.image_url_1.present? %>
-                            <%= link_to image_tag(@child_2.image_url_1.menu_hot_image_1, alt: @child_2.name), @child_2.image_menu_link_1 %>
+                            <%= link_to image_tag(@child_2.image_url_1.menu_hot_image_1, alt: @child_2.name, title: @child_2.name), @child_2.image_menu_link_1, title: @child_2.name %>
                             <% else %>
-                            <%= link_to image_tag(@menu_hot.image_url_1.menu_hot_image_1, alt: @menu_hot.name), @menu_hot.image_menu_link_1 %>
+                            <%= link_to image_tag(@menu_hot.image_url_1.menu_hot_image_1, alt: @menu_hot.name, title: @menu_hot.name), @menu_hot.image_menu_link_1, title: @menu_hot.name %>
                             <% end %>
                         <% else %>
-                            <%= link_to image_tag(@menu_hot.image_url_1.menu_hot_image_1, alt: @menu_hot.name), @menu_hot.image_menu_link_1 %>
+                            <%= link_to image_tag(@menu_hot.image_url_1.menu_hot_image_1, alt: @menu_hot.name, title: @menu_hot.name), @menu_hot.image_menu_link_1, title: @menu_hot.name %>
                         <% end %>
                     <% end %>
                 </div>
@@ -83,18 +83,18 @@
                     <% if @menu_hot.image_url_2.present? %>
                         <% if params[:child_1_id].present? %>
                             <% if @child_1.image_url_2.present? %>
-                            <%= link_to image_tag(@child_1.image_url_2.menu_hot_image_2, alt: @child_1.name), @child_1.image_menu_link_2 %>
+                            <%= link_to image_tag(@child_1.image_url_2.menu_hot_image_2, alt: @child_1.name, title: @child_1.name), @child_1.image_menu_link_2, title:  @child_1.name %>
                             <% else %>
-                            <%= link_to image_tag(@menu_hot.image_url_2.menu_hot_image_2, alt: @menu_hot.name), @menu_hot.image_menu_link_2 %>
+                            <%= link_to image_tag(@menu_hot.image_url_2.menu_hot_image_2, alt: @menu_hot.name, title: @menu_hot.name), @menu_hot.image_menu_link_2, title: @menu_hot.name %>
                             <% end %>
                         <% elsif params[:child_2_id].present? %>
                             <% if @child_2.image_url_2.present? %>
-                            <%= link_to image_tag(@child_2.image_url_2.menu_hot_image_2, alt: @child_2.name), @child_2.image_menu_link_2 %>
+                            <%= link_to image_tag(@child_2.image_url_2.menu_hot_image_2, alt: @child_2.name, title: @child_2.name), @child_2.image_menu_link_2, title: @child_2.name %>
                             <% else %>
-                            <%= link_to image_tag(@menu_hot.image_url_2.menu_hot_image_2, alt: @menu_hot.name), @menu_hot.image_menu_link_2 %>
+                            <%= link_to image_tag(@menu_hot.image_url_2.menu_hot_image_2, alt: @menu_hot.name, title: @menu_hot.name), @menu_hot.image_menu_link_2, title: @menu_hot.name %>
                             <% end %>
                         <% else %>
-                            <%= link_to image_tag(@menu_hot.image_url_2.menu_hot_image_2, alt: @menu_hot.name), @menu_hot.image_menu_link_2 %>
+                            <%= link_to image_tag(@menu_hot.image_url_2.menu_hot_image_2, alt: @menu_hot.name, title: @menu_hot.name), @menu_hot.image_menu_link_2, title: @menu_hot.name %>
                         <% end %>
                     <% end %>
                 </div>
