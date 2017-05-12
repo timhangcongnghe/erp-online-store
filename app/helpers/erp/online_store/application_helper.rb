@@ -44,7 +44,7 @@ module Erp
       def article_link(article)
         erp_online_store.blog_detail_path(article.id, title:  url_friendly(article.name))
       end
-      
+
       # event link
       def event_link(event)
         erp_online_store.event_detail_path(event.id, title:  url_friendly(event.name))
@@ -72,7 +72,7 @@ module Erp
           url_for('/frontend/image/shop/product/no-image.png')
         end
       end
-      
+
       # display full address
       def full_address(contact)
         str = []
@@ -81,12 +81,12 @@ module Erp
         str << contact.state_name
         str.join(", ")
       end
-      
+
       # display short name for user
       def user_short_name(str)
         str.rpartition(' ').last
       end
-      
+
       # display status for frontend order
       def order_status(status)
         if status == 'new'
@@ -116,7 +116,7 @@ module Erp
 
       def product_list_description(product)
         props = product.product_list_descipriton_values_array
-        return '' if props.empty? or props.count < 4
+        return '' if props.empty?
 
         html = '<div class="description product-description"><p>'
         rows = []
