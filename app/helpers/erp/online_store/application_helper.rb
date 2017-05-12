@@ -97,7 +97,7 @@ module Erp
         elsif status == 'finished'
           '<span class="finish"><i class="fa fa-check-circle"></i> Giao dịch thành công</span>'.html_safe
         elsif status == 'cancelled'
-          '<span class="cancel"><i class="fa fa-ban"></i> Giao dịch thành công</span>'.html_safe
+          '<span class="cancel"><i class="fa fa-ban"></i> Đơn hàng bị hủy</span>'.html_safe
         end
       end
 
