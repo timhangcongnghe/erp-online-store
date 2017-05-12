@@ -85,7 +85,7 @@ module Erp
           if params[:order].present?
             @order = Erp::Orders::FrontendOrder.new(order_params)
             @order.creator = current_user
-            @order.status = Erp::Orders::FrontendOrder::STATUS_NEW
+            @order.status = Erp::Orders::FrontendOrder::STATUS_DRAFT
             @order.customer_id = current_user.contact_id
 
             if @order.save
