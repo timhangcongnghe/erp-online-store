@@ -234,7 +234,7 @@ function autoSearch(box) {
         result_box.parent().show();
         items.forEach(function(item) {
             result_box.append(
-                '<li><a href="' + item.link + '">' +
+                '<li><a title="' + item.name + '" href="' + item.link + '">' +
                     '<img src="' +item.image+ '" />' +
                     '<span class="title">' + item.name + '</span>' +
                     '<br /><span class="price">' + item.price + '</span>' +

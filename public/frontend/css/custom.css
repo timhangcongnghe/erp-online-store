@@ -976,7 +976,7 @@ form.login-form, input.btn-login-account, form.register-form, input.btn-register
     border-bottom: 0;
 }
 .contact-form input, .contact-form textarea {
-  border-radius: 3px;
+  border-radius: 3px !important;
 }
 .info-store strong.company-name {
     text-transform: uppercase;
@@ -1086,12 +1086,13 @@ h3 {
   border: solid 1px rgba(0,0,0,0);
 }
 .text-services {
-  font-weight: 600;
   color: #ea3a3c;
 }
 .text-brands {
-  font-weight: 600;
   color: #5f87d1;
+}
+.text-detail-services {
+  color: #559302;
 }
 .text-pricing-services {
   font-weight: 600;

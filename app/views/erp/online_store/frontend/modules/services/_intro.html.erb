@@ -1,28 +1,35 @@
 <div class="row">
     <div class="col-sm-6">
-        <%= image_tag "/frontend/image/cms/services-banner.png", alt: "Dịch Vụ Sửa Chữa - Bảo Trì" %>
+        <%= image_tag "/frontend/image/cms/services-banner.png", alt: "Dịch Vụ Sửa Chữa - Bảo Trì", title: "Dịch Vụ Sửa Chữa - Bảo Trì" %>
     </div>
     <div class="col-sm-6 text-justify services-content">
         <p>Ngoài cung cấp các
-        <%= link_to "Sản Phẩm HP", "", class: "text-services", target: "_blank" %>,
-        <%= link_to "Máy Vi Tính", "", class: "text-services", target: "_blank" %>,
-        <%= link_to "Màn Hình Máy Tính", "", class: "text-services", target: "_blank" %>,
-        <%= link_to "Linh Kiện - Phụ Kiện", "", class: "text-services", target: "_blank" %>,
-        thiết bị <%= link_to "Kỹ Thuật Số - Viễn Thông", "", class: "text-services", target: "_blank" %>,
-        <%= link_to "Thiết Bị Văn Phòng", "", class: "text-services", target: "_blank" %>,
-        <%= link_to "Thiết Bị Mạng", "", class: "text-services", target: "_blank" %>,
-        <%= link_to "Thiết Bị Viễn Thông", "", class: "text-services", target: "_blank" %>,
-        <%= link_to "Thiết Bị An Ninh", "", class: "text-services", target: "_blank" %> chính hãng từ các hãng như:
-        <%= link_to "HP", "", class: "text-brands", target: "_blank" %>,
-        <%= link_to "DELL", "", class: "text-brands", target: "_blank" %>,
-        <%= link_to "LENOVO", "", class: "text-brands", target: "_blank" %>,
-        <%= link_to "ASUS", "", class: "text-brands", target: "_blank" %>,
-        <%= link_to "TOSHIBA", "", class: "text-brands", target: "_blank" %>,
-        <%= link_to "CANON", "", class: "text-brands", target: "_blank" %>,
-        <%= link_to "EPSON", "", class: "text-brands", target: "_blank" %>,
-        <%= link_to "D-LINK", "", class: "text-brands", target: "_blank" %>,
-        và <%= link_to "các hãng khác", "", class: "text-brands", target: "_blank" %>.
-        TimHangCongNghe.Vn còn đưa ra các dịch vụ sửa chữa thiết bị vi tính, máy văn phòng, bơm nạp mực, dịch vụ bảo trì, gia hạn bảo hành...</p>
+        <%= link_to "Sản Phẩm HP", "/chuyen-muc/1/san-pham-hp.html", class: "text-services", target: "_blank" %>,
+        <%= link_to "Máy Vi Tính", "/chuyen-muc/42/may-vi-tinh.html", class: "text-services", target: "_blank" %>,
+        <%= link_to "Màn Hình Máy Tính", "/chuyen-muc/68/man-hinh-may-tinh.html", class: "text-services", target: "_blank" %>,
+        <%= link_to "Linh Kiện - Phụ Kiện", "/chuyen-muc/67/linh-kien-phu-kien.html", class: "text-services", target: "_blank" %>,
+        thiết bị <%= link_to "Kỹ Thuật Số - Viễn Thông", "/chuyen-muc/149/ky-thuat-so-vien-thong.html", class: "text-services", target: "_blank" %>,
+        <%= link_to "Sản Phẩm Văn Phòng", "/chuyen-muc/106/san-pham-van-phong.html", class: "text-services", target: "_blank" %>,
+        <%= link_to "Thiết Bị Mạng", "/chuyen-muc/107/thiet-bi-mang.html", class: "text-services", target: "_blank" %>,
+        <%= link_to "Thiết Bị Viễn Thông", "/chuyen-muc/108/thiet-bi-vien-thong.html", class: "text-services", target: "_blank" %>,
+        <%= link_to "Thiết Bị An Ninh", "/chuyen-muc/109/thiet-bi-an-ninh.html", class: "text-services", target: "_blank" %> chính hãng từ các hãng như:
+        <%= link_to "HP", "/thuong-hieu-san-pham/5/hp.html", class: "text-brands", target: "_blank" %>,
+        <%= link_to "DELL", "/thuong-hieu-san-pham/3/dell.html", class: "text-brands", target: "_blank" %>,
+        <%= link_to "LENOVO", "/thuong-hieu-san-pham/2/lenovo.html", class: "text-brands", target: "_blank" %>,
+        <%= link_to "ASUS", "/thuong-hieu-san-pham/41/asus.html", class: "text-brands", target: "_blank" %>,
+        <%= link_to "TOSHIBA", "/thuong-hieu-san-pham/6/toshiba.html", class: "text-brands", target: "_blank" %>,
+        <%= link_to "CANON", "/thuong-hieu-san-pham/15/canon.html", class: "text-brands", target: "_blank" %>,
+        <%= link_to "EPSON", "/thuong-hieu-san-pham/18/epson.html", class: "text-brands", target: "_blank" %>,
+        <%= link_to "D-LINK", "/thuong-hieu-san-pham/22/dlink.html", class: "text-brands", target: "_blank" %>,
+        và <%= link_to "các hãng khác", "/thuong-hieu-san-pham.html", class: "text-brands", target: "_blank" %>.
+        TimHangCongNghe.Vn còn đưa ra các
+        <%= link_to "dịch vụ sửa chữa máy vi tính", "#block1", class: "text-detail-services" %>,
+        <%= link_to "dịch vụ sữa chửa máy in", "#block2", class: "text-detail-services" %>,
+        <%= link_to "dịch vụ nạp mực", "#block3", class: "text-detail-services" %>,
+        <%= link_to "dịch vụ thi công mạng", "#block4", class: "text-detail-services" %>,
+        <%= link_to "dịch vụ cứu dữ liệu", "#block5", class: "text-detail-services" %>,
+        <%= link_to "dịch vụ bảo trì", "#block6", class: "text-detail-services" %>,
+        <%= link_to "dịch vụ nâng cấp bảo hành", "#block7", class: "text-detail-services" %>,...</p>
         <p>Dưới đây là bảng giá dịch vụ để quý khách tham khảo, giá cả thực tế có thể thấp hơn tùy vào điều kiện khảo sát thực tế.</p>
     </div>
 </div>

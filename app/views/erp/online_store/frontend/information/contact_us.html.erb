@@ -9,7 +9,7 @@
             <div class="info-contact clearfix">
                 <div class="col-lg-6 col-sm-6 col-xs-12 info-store">
                     <fieldset>
-                        <legend>Liên hệ với chúng tôi.</legend>
+                        <legend>THÔNG TIN LIÊN HỆ</legend>
                     </fieldset>
                     <% if !@company_info.nil? %>
                         <address>
@@ -20,10 +20,10 @@
                                 <strong>Địa chỉ: </strong><%= full_address(@company_info) %>
                             </div>
                             <div class="clearfix form-group">
-                                <strong>Email: </strong><%= @company_info.email %>
+                                <strong>Email: </strong><%= mail_to @company_info.email, @company_info.email %>
                             </div>
                             <div class="clearfix form-group">
-                                <strong>Điện thoại: </strong><%= @company_info.phone %>
+                                <strong>Điện thoại: </strong><a href="tel:<%= @company_info.phone %>"><%= @company_info.phone %></a>
                             </div>
                             <div class="comment">             
                                 <%= @company_info.note %>
@@ -45,10 +45,10 @@
                                     <strong>Địa chỉ: </strong><%= full_address(contact_child) %>
                                 </div>
                                 <div class="clearfix form-group">
-                                    <strong>Email: </strong><%= contact_child.email %>
+                                    <strong>Email: </strong><%= mail_to contact_child.email, contact_child.email %>
                                 </div>
                                 <div class="clearfix form-group">
-                                    <strong>Điện thoại: </strong><%= contact_child.phone %>
+                                    <strong>Điện thoại: </strong><a href="tel:<%= contact_child.phone %>"><%= contact_child.phone %></a>
                                 </div>
                                 <div class="comment">             
                                     <%= contact_child.note %>
@@ -60,33 +60,33 @@
                 <div class="col-lg-6 col-sm-6 col-xs-12 contact-form">
                     <%= form_for '', url: erp_online_store.contact_us_path, html: {class: "contact_form"} do |f| %>
                         <fieldset>
-                            <legend>Chúng tôi hân hạnh được hỗ trợ Quý khách.</legend>
+                            <legend>GỬI LỜI NHẮN HOẶC GÓP Ý CHO CHÚNG TÔI</legend>
                             <div class="row">
                                 <div class="col-sm-12">
                                     <div class="form-group">
                                         <input type="text" name="contact[name]"
-                                            placeholder="Nhập họ và tên của bạn"
+                                            placeholder="Nhập họ & tên của bạn..."
                                             class="form-control required" />
                                     </div>
                                 </div>
                                 <div class="col-sm-12">
                                     <div class="form-group">
                                         <input type="text" name="contact[email]"
-                                            placeholder="Nhập địa chỉ email của bạn"
+                                            placeholder="Nhập địa chỉ email của bạn..."
                                             class="form-control required" />
                                     </div>
                                 </div>
                                 <div class="col-sm-12">
                                     <div class="form-group">
                                         <input type="text" name="contact[phone]"
-                                            placeholder="Nhập số điện thoại của bạn"
+                                            placeholder="Nhập số điện thoại của bạn..."
                                             class="form-control required" />
                                     </div>
                                 </div>
                                 <div class="col-sm-12">
                                     <div class="form-group">
                                         <textarea name="msg[message]"
-                                            placeholder="Vui lòng ghi rõ và chi tiết nội dung góp ý hoặc liên hệ của bạn"
+                                            placeholder="Vui lòng nhập nội dung góp ý hoặc liên hệ của bạn tại đây..."
                                             rows="6" class="form-control required"></textarea>
                                     </div>
                                 </div>
