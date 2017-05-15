@@ -136,7 +136,7 @@ module Erp
           end
 
           def order_params
-            params.fetch(:order, {}).permit(:code, :status, :customer_id, :consignee_id, :data)
+            params.fetch(:order, {}).permit(:code, :status, :customer_id, :consignee_id, :data, :note)
           end
       end
     end
