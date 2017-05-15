@@ -1533,3 +1533,9 @@ form[role=edit-password] > div:last-child {
 .so-sp-cat .ltabs-item .right-block {
   padding: 0 10px !important;
 }
+.fix_active a.active {
+  color: #000 !important;
+}
+.menu-category .fix_active > li a.current {
+  color: #009688 !important;
+}
