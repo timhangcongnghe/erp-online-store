@@ -41,9 +41,9 @@
                                                     <% Erp::Menus::Menu.get_menus.each do |menu| %>
                                                         <% menu_array = menu.get_children_array %>
                                                         <% count = menu_array.count %>
-                                                        <% if count <= 12 %>
+                                                        <% if count <= 11 %>
                                                             <%= render "erp/online_store/frontend/modules/header/menu_1_col", menu: menu, menu_array: menu_array %>
-                                                        <% elsif (count > 12) && (count <= 24) %>
+                                                        <% elsif (count > 11) && (count <= 22) %>
                                                             <%= render "erp/online_store/frontend/modules/header/menu_2_col", menu: menu, menu_array: menu_array %>
                                                         <% else %>
                                                             <%= render "erp/online_store/frontend/modules/header/menu_3_col", menu: menu, menu_array: menu_array %>
