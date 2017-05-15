@@ -128,7 +128,7 @@ module Erp
         html.html_safe
       end
       
-      def quick_view(product)
+      def quick_actions(product)
         '<div class="view-buy">
             <a href="#" class="btn-cus quick-view btn_view" title="Chi tiết sản phẩm"><span>Chi tiết</span></a>
             <a href="#" class="btn-cus quick-view btn_view" title="So sánh"><span>So sánh sản phẩm</span></a>
