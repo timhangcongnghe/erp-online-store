@@ -1625,6 +1625,20 @@ form[role=edit-password] > div:last-child {
     -ms-transition: all 0.4s ease;
     -o-transition: all 0.4s ease;
   }
+  .view-buy a:last-child {
+    padding: 8px 18px;
+  }
+  @media (min-width: 992px) and (max-width: 1200px) {
+    .view-buy span {
+      font-size: 10px!important;
+    }
+    .view-buy .quick-view {
+      padding: 5px!important;
+    }
+    .view-buy a:last-child {
+      padding: 5px 12px!important;
+    }
+  }
 .view-buy {
   position: absolute;
   top: 50%;
@@ -1658,7 +1672,7 @@ form[role=edit-password] > div:last-child {
 }
 .view-buy .quick-view {
   margin: 0 auto;
-  padding: 8px 20px;
+  padding: 8px 10px;
   position: relative;
 }
 .view-buy .btn_view {
