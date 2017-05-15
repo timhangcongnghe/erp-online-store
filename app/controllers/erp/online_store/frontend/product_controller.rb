@@ -5,7 +5,12 @@ module Erp
         before_action :set_comment, only: [:delete_comment]
         include ActionView::Helpers::NumberHelper
         include Erp::OnlineStore::ApplicationHelper
-
+        
+        def product_quickview
+          # @todo get product with params
+          @product = Erp::Products::Product.first
+        end
+        
         def product_detail
           @body_class = "res layout-subpage"
           @product = Erp::Products::Product.find(params[:product_id])
