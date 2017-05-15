@@ -89,7 +89,7 @@ module Erp
 
       # display status for frontend order
       def order_status(status)
-        if status == 'new'
+        if status == 'draft'
           '<span class="pending"><i class="fa fa-info-circle"></i> Đang chờ xác nhận</span>'.html_safe
         elsif status == 'confirmed'
           '<span class="confirm"><i class="fa fa-warning"></i> Đã xác nhận</span><br/>
