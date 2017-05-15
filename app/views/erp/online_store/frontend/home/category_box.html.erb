@@ -105,6 +105,7 @@
                                                             <%= image_tag product_image(product.product_images, 'second', 'thumb193'), alt: product.product_name, class: "img-2 img-responsive", title: product.product_name %>
                                                         </a>
                                                     </div>
+                                                    <%= quick_actions(product) %>
                                                 </div>
                                                 <% if product.is_new? %>
                                                 <span class="label label-new">Mới</span>

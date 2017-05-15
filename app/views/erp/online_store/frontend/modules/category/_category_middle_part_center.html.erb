@@ -7,6 +7,7 @@
                     <%= image_tag product_image(product.product_images, 'first', 'thumb268'), data: {src: product_image(product.product_images, 'first', 'thumb268')}, alt: product.product_name, title: product.product_name, class: "img-1 img-responsive" %>
                     <%= image_tag product_image(product.product_images, 'second', 'thumb268'), data: {src: product_image(product.product_images, 'second', 'thumb268')}, alt: product.product_name, title: product.product_name, class: "img-2 img-responsive" %>
                 </div>
+                <%= quick_actions(product) %>
                 <% if product.is_new? %>
                 <span class="label label-new">Mới</span>
                 <% end %>
