@@ -1,13 +1,3 @@
-<!-- Banner Content -->
-<div class="module banner">
-    <div class="banners">
-        <div>
-            <%= link_to image_tag("/frontend/image/banner/banner-5-1.png", alt: ""), "", title: "" %>
-        </div>
-    </div>
-</div>
-<!-- End Banner -->
-
 <!-- Mod Supercategory -->
 <div class="module cus-style-supper-cate <%= @menu_hot.style_color%>">
     <div class="header">
@@ -130,9 +120,9 @@
                                                         <%= stars(product.average_stars) %>
                                                     </div>
                                                     <h4><%= link_to truncate(product.product_name, length: 40), product_link(product), title: product.product_name %></h4>
-                                                    <p class="price">                                                    
+                                                    <p class="price">
                                                         <span class="price-new"><%= format_price(product.product_price) %></span>
-                                                        <% if product.is_deal %>                        
+                                                        <% if product.is_deal %>
                                                             <br><span class="price-old"><%= format_price(product.price) %></span>
                                                             <span class="label label-percent">-<%= product.deal_percent %>%</span>
                                                         <% end %>

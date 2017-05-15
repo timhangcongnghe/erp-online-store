@@ -22,8 +22,8 @@
             <div class="row">
                 <% if @hot_deals.count > 0 %>
                 <div class="col-md-9 col-sm-8 col-xs-12">
-                    <!-- HOT DEALS -->                    
-                    <%= render "erp/online_store/frontend/modules/home/hot_deals" %>                            
+                    <!-- HOT DEALS -->
+                    <%= render "erp/online_store/frontend/modules/home/hot_deals" %>
                     <!-- END HOT DEALS -->
                 </div>
                 <% end %>
@@ -44,6 +44,19 @@
         </div>
     </div>
     <!--Block Spotlight4  -->
+    <!-- Banner Content -->
+    <div class="so-spotlight3">
+        <div class="container">
+            <div class="module banner">
+                <div class="banners">
+                    <div>
+                        <%= link_to image_tag("/frontend/image/banner/banner-5-1.png", alt: ""), "/dich-vu-sua-chua-bao-tri.html", title: "" %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Banner -->
     <div class="so-spotlight4">
         <div class="container">
             <div class="row">
