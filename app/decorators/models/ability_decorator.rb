@@ -4,7 +4,7 @@ Erp::Ability.class_eval do
       !user.nil? && user.get_permissions["products_comments"]["create"] == "yes"
     end
     can :delete, Erp::Products::Comment do |comment|
-      !user.nil? && user.backend_access && user.get_permissions["products_comments"]["delete"] == "yes"
+      !user.nil? && user.get_permissions["products_comments"]["delete"] == "yes" # user.backend_access &&
     end
 
 
@@ -12,14 +12,14 @@ Erp::Ability.class_eval do
       !user.nil? && user.get_permissions["products_ratings"]["create"] == "yes"
     end
     can :delete, Erp::Products::Rating do  |rating|
-      !user.nil? && (user.backend_access or rating.user_id == user.id) && user.get_permissions["products_ratings"]["delete"] == "yes"
+      !user.nil? && (rating.user_id == user.id or user.get_permissions["products_ratings"]["delete"] == "yes")
     end
 
     can :create, Erp::Articles::Comment do |comment|
       !user.nil? && user.get_permissions["articles_comments"]["create"] == "yes"
     end
     can :delete, Erp::Articles::Comment do |comment|
-      !user.nil? && user.backend_access && user.get_permissions["articles_comments"]["delete"] == "yes"
+      !user.nil? && user.get_permissions["articles_comments"]["delete"] == "yes" # && user.backend_access
     end
   end
 end
