@@ -1693,3 +1693,6 @@ form[role=edit-password] > div:last-child {
 .products-list .product-layout .product-item-container:hover .left-block .product-image-container .img-2 {
     opacity: .5;
 }
+.refine-search a {
+  color: #000;
+}

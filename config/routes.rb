@@ -23,6 +23,7 @@ Erp::OnlineStore::Engine.routes.draw do
   get "san-pham-khuyen-mai.html" => "frontend/category#deal_products", as: :deal_products
   get "san-pham-ban-chay.html" => "frontend/category#bestseller_products", as: :bestseller_products
   get "lua-chon-tu-doanh-nghiep.html" => "frontend/business_choices#index", as: :business_choices
+  get "xa-hang-ton-kho.html" => "frontend/stock_inventory#index", as: :stock_inventory
 
   # BLOG
   get "tin-cong-nghe.html" => "frontend/blog#index", as: :blog
@@ -110,6 +111,8 @@ Erp::OnlineStore::Engine.routes.draw do
 	# NEWSLETTER
 	# @todo newsletters routes errors
 	Erp::Newsletters::Engine.routes.draw do
+  get 'stock_inventory/index'
+
 		get "dang-ky-nhan-tin.html" => "frontend/newsletters#add_email_to_newsletter", as: :newsletters
 		post "dang-ky-nhan-tin.html" => "frontend/newsletters#add_email_to_newsletter"
 	end

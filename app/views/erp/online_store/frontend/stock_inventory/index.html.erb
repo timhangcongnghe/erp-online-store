@@ -1,8 +1,8 @@
-<% title "Sản Phẩm Khuyến Mãi" %>
+<% title "Sản Phẩm Bán Chạy" %>
 <div class="main-container container">
     <ul class="breadcrumb">
         <li><%= link_to '<i class="fa fa-home"></i>'.html_safe, erp_online_store.root_path %></li>
-        <li><%= link_to "Sản Phẩm Khuyến Mãi", "javascript:void(0)" %></li>
+        <li><%= link_to "Xả Kho Hàng Tồn", "javascript:void(0)" %></li>
     </ul>
     <div class="row">
         <!--Left Part Start -->
@@ -11,7 +11,7 @@
                 <h3 class="modtitle">
                   <span>
                     <i class="fa fa-angle-double-right"></i>
-                    KHUYẾN MÃI
+                    Hàng Xả Kho
                   </span>
                 </h3>
                 <div class="modcontent">
@@ -46,14 +46,14 @@
                     </div>
                 </div>
             </div>
-            <%= render "erp/online_store/frontend/modules/sidebar_best_sellers" %>
+            <%= render "erp/online_store/frontend/modules/sidebar_deal_products" %>
             <%= render "erp/online_store/frontend/modules/hot_banners" %>
         </aside>
         <!--Left Part End -->
         <!--Middle Part Start-->
         <div id="content" class="col-md-9 col-sm-8">
             <div class="products-category">
-                <h1 class="menu-title">Sản Phẩm Khuyến Mãi</h1>
+                <h1 class="menu-title">Xả Kho Hàng Tồn</h1>
                 <% if @products.count > 0 %>
                 <!--changed listings-->
                 <div class="products-list row list">
@@ -66,8 +66,8 @@
                                     <%= image_tag product_image(product.product_images, 'second', 'thumb268'), data: {src: product_image(product.product_images, 'second', 'thumb268')}, alt: product.product_name, title: product.product_name, class: "img-2 img-responsive" %>
                                 </div>
                                 <%= quick_actions(product) %>
-                                <% if product.is_new? %>
-                                <span class="label label-new">Mới</span>
+                                <% if product.is_bestseller? %>
+                                <span class="label label-bestseller">Bán Chạy</span>
                                 <% end %>
                                 <% if product.is_deal? %>
                                 <span class="label label-sale">Giảm giá</span>
