@@ -2036,12 +2036,12 @@ $(document).ready(function() {
     $('#cat_accordion').cutomAccordion({
         eventType: 'click',
         autoClose: true,
-        saveState: true,
+        saveState: false,
         disableLink: true,
         speed: 'slow',
         showCount: false,
-        autoExpand: true,
-        cookie: 'dcjq-accordion-1',
+        // autoExpand: true,
+        // cookie: 'dcjq-accordion-1',
         classExpand: 'button-view'
     });
 });
