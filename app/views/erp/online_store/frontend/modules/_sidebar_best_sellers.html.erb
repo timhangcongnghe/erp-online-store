@@ -1,3 +1,4 @@
+<% if Erp::Products::Product.get_bestseller_products.count > 0 %>
 <div class="moduletable module best-seller">
     <h3 class="modtitle">
         <span>BÁN CHẠY</span>
@@ -54,3 +55,4 @@
         </div>
     </div>
 </div>
+<% end %>
