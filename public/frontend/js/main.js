@@ -447,8 +447,8 @@ $(document).ready(function () {
         $(this).removeClass("btn-default").addClass("btn-primary");
     });
 
-    $(document).on('click', '.product-item-container', function() {
-        var url = $(this).find('.right-block a').attr('href');
+    $(document).on('click', '.product-item-container .right-block', function() {
+        var url = $(this).find('a').attr('href');
 
         document.location.href = url;
     });
