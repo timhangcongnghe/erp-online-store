@@ -377,20 +377,28 @@
                                             <table cellspacing="0" cellpadding="0" width="100%">
                                                 <tr>
                                                     <td class="product">
-                                                      <span style="color: #4d4d4d; font-weight:bold;"><%= order_detail.product_name %></span> <br />
+                                                        <span style="color: #4d4d4d; font-weight:bold;">
+                                                            <% if order_detail.product.present? %>
+                                                                <a href="<%= product_url(order_detail.product) %>">
+                                                                    <%= order_detail.product_name %>
+                                                                </a>
+                                                            <% else %>
+                                                                <%= order_detail.product_name %>
+                                                            <% end %>
+                                                        </span> <br />
                                                       <!--Product Code-->
                                                     </td>
                                                 </tr>
                                             </table>
                                         </td>
                                         <td class="item-col quantity">
-                                            <%= order_detail.price %>
+                                            <%= format_price(order_detail.price) %>
                                         </td>
                                         <td class="item-col quantity">
                                             <%= order_detail.quantity %>
                                         </td>
                                         <td class="item-col">
-                                            <%= order_detail.total %>
+                                            <%= format_price(order_detail.total) %>
                                         </td>
                                     </tr>
                                     <% end %>
@@ -415,10 +423,10 @@
                                             <span class="total-space" style="font-weight: bold; color: #4d4d4d">Tổng thanh toán:</span>
                                         </td>
                                         <td class="item-col price" style="text-align: left; border-top: 1px solid #cccccc;">
-                                            <span class="total-space"><%= @order.cache_total %></span> <br />
-                                            <span class="total-space">-:-</span>  <br />
-                                            <span class="total-space">-:-</span>  <br />
-                                            <span class="total-space" style="font-weight:bold; color: #4d4d4d"><%= @order.cache_total %></span>
+                                            <span class="total-space"><%= format_price(@order.cache_total) %></span> <br />
+                                            <span class="total-space">--</span>  <br />
+                                            <span class="total-space">--</span>  <br />
+                                            <span class="total-space" style="font-weight:bold; color: #4d4d4d"><%= format_price(@order.cache_total) %></span>
                                         </td>
                                     </tr>  
                                 </table>
