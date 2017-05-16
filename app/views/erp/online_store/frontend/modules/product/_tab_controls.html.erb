@@ -1,9 +1,9 @@
 <ul class="nav nav-tabs">
     <% if product.description.present? %>
         <li class="active"><a data-toggle="tab" href="#tab-description">Mô tả sản phẩm</a></li>
-        <li class="item_nonactive"><a data-toggle="tab" href="#tab-review">Đánh giá (<%= product.ratings.count %>)</a></li>
+        <li class="item_nonactive"><a data-toggle="tab" href="#tab-review">Đánh giá (<%= product.ratings_active.count %>)</a></li>
     <% else %>
-        <li class="active"><a data-toggle="tab" href="#tab-review">Đánh giá (<%= product.ratings.count %>)</a></li>
+        <li class="active"><a data-toggle="tab" href="#tab-review">Đánh giá (<%= product.ratings_active.count %>)</a></li>
     <% end %>
     <li class="item_nonactive"><a data-toggle="tab" href="#tab-comment">Bình luận (<%= product.comments.count %>)</a></li>
 </ul>
