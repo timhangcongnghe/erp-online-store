@@ -112,8 +112,8 @@ module Erp
               )
 
               # send order email for admin + customer
-              Erp::Orders::FrontendOrderMailer.sending_admin_email_order_confirmation(@order).deliver_now
-              Erp::Orders::FrontendOrderMailer.sending_customer_email_order_confirmation(@order).deliver_now
+              Erp::Orders::FrontendOrderMailer.sending_admin_email_order_confirmation(@order).deliver_later
+              Erp::Orders::FrontendOrderMailer.sending_customer_email_order_confirmation(@order).deliver_later
 
               redirect_to erp_online_store.checkout_completed_path, notice: "Đặt hàng thành công."
             else
