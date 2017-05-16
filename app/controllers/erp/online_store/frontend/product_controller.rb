@@ -9,6 +9,7 @@ module Erp
         def product_quickview
           # @todo get product with params
           @product = Erp::Products::Product.first
+          render layout: nil
         end
         
         def product_detail

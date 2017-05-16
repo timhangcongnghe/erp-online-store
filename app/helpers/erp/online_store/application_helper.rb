@@ -134,10 +134,10 @@ module Erp
       end
       
       def quick_actions(product)
-        '<div class="view-buy hidden-xs">
-            <a href="#" class="btn-cus quick-view btn_view" title="Xem nhanh sản phẩm"><span>Xem nhanh</span></a>
-            <a href="#" class="btn-cus quick-view btn_view" title="So sánh sản phẩm"><span>So sánh</span></a>
-        </div>'.html_safe
+        "<div class=\'view-buy hidden-xs\'>
+            <a href=\'#{erp_online_store.product_quickview_path(product)}\' class=\'btn-cus quick-view btn_view iframe-link\' title=\'Xem nhanh sản phẩm\'><span>Xem nhanh</span></a>
+            <a href=\'#\' class=\'btn-cus quick-view btn_view\' title=\'So sánh sản phẩm\'><span>So sánh</span></a>
+        </div>".html_safe
       end
 
     end
