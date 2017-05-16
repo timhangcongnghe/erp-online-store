@@ -29,6 +29,11 @@ module Erp
       def product_link(product)
         erp_online_store.product_detail_path(product_id: product.id, title: url_friendly(product.product_name)) #, menu_id: params[:menu_id])
       end
+      
+      # product url helper
+      def product_url(product)
+        erp_online_store.product_detail_url(product_id: product.id, title: url_friendly(product.product_name)) #, menu_id: params[:menu_id])
+      end
 
       # brand link helper
       def brand_link(brand)
