@@ -60,8 +60,7 @@ module Erp
             return
           end
 
-          @ratings = @product.ratings.order('created_at DESC')
-            .where(archived: false)
+          @ratings = @product.ratings_active.order('created_at DESC')
             .paginate(:page => params[:page], :per_page => 5)
 
           render 'erp/online_store/frontend/modules/product/_ratings', locals: {ratings: @ratings}, layout: nil
