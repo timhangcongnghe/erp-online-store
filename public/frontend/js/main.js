@@ -702,7 +702,7 @@ $(document).ready(function () {
     setTimeout(function() {$('.contacts-create-hide').hide();}, 2000);
 
     $(document).on('click', '.fancybox-slide--current', function(e) {
-        if($(e.target).parents('.product-box-desc').length || $(e.target).parents('.fancybox-content-no').length){
+        if($(e.target).parents('.product-box-desc').length || $(e.target).parents('.fancybox-content-no').length || $(e.target).parents('.row').length){
             return;
         }
         $.fancybox.close( 'all' );

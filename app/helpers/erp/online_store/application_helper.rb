@@ -29,7 +29,7 @@ module Erp
       def product_link(product)
         erp_online_store.product_detail_path(product_id: product.id, title: url_friendly(product.product_name)) #, menu_id: params[:menu_id])
       end
-      
+
       # product url helper
       def product_url(product)
         erp_online_store.product_detail_url(product_id: product.id, title: url_friendly(product.product_name)) #, menu_id: params[:menu_id])
@@ -132,10 +132,10 @@ module Erp
         html += '</p></div>'
         html.html_safe
       end
-      
+
       def quick_actions(product)
         "<div class=\'view-buy hidden-xs\'>
-            <a href=\'#{erp_online_store.product_quickview_path(product)}\' class=\'btn-cus quick-view btn_view iframe-link\' title=\'Xem nhanh sản phẩm\'><span>Xem nhanh</span></a>
+            <a href=\'#{erp_online_store.product_quickview_path(product)}\' class=\'btn-cus quick-view btn_view ajax-link\' data-type=\'ajax\' title=\'Xem nhanh sản phẩm\'><span>Xem nhanh</span></a>
             <a href=\'#\' class=\'btn-cus quick-view btn_view\' title=\'So sánh sản phẩm\'><span>So sánh</span></a>
         </div>".html_safe
       end

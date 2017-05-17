@@ -1,4 +1,13 @@
 <div class="main-container container">
+    <ul class="breadcrumb">
+        <li><%= link_to '<i class="fa fa-home"></i>'.html_safe, erp_online_store.root_path %></li>
+            <% if !@menu.nil? %>
+                <% @menu.self_and_parent_menus.each do |menu| %>
+                    <li><%= link_to menu.name, menu_link(menu) %></li>
+                <% end %>
+            <% end %>
+        <li><%= link_to @product.name, "javascript:void(0)" %></li>
+    </ul>
     <div class="row">
         <!--Middle Part Start-->
         <div id="content" class="col-md-12 col-sm-12">
@@ -6,82 +15,124 @@
                 <div class="left-content-product col-lg-12 col-xs-12">
                     <div class="row">
                         <div class="content-product-left  col-sm-6 col-xs-12 ">
-                            <div class="large-image  ">
-                                <img itemprop="image" class="product-image-zoom" src="/frontend/image/shop/product/j9.jpg" data-zoom-image="/frontend/image/shop/product/j9.jpg" title="Bint Beef" alt="Bint Beef" />
-                            </div>
-                            <div id="thumb-slider" class="owl-theme owl-loaded owl-drag full_slider">
-                                <a data-index="0" class="img thumbnail " data-image="/frontend/image/shop/product/j9.jpg" title="Bint Beef">
-                                    <img src="/frontend/image/shop/product/j9.jpg" title="Bint Beef" alt="Bint Beef" />
-                                </a>
-                                <a data-index="1" class="img thumbnail" data-image="/frontend/image/shop/product/j6.jpg" title="Bint Beef">
-                                    <img src="/frontend/image/shop/product/j6.jpg" title="Bint Beef" alt="Bint Beef" />
-                                </a>
-                                <a data-index="2" class="img thumbnail" data-image="/frontend/image/shop/product/j5.jpg" title="Bint Beef">
-                                    <img src="/frontend/image/shop/product/j5.jpg" title="Bint Beef" alt="Bint Beef" />
-                                </a>
-                                <a data-index="3" class="img thumbnail" data-image="/frontend/image/shop/product/j4.jpg" title="Bint Beef">
-                                    <img src="/frontend/image/shop/product/j4.jpg" title="Bint Beef" alt="Bint Beef" />
-                                </a>
-                            </div>
+                            <% if @product.product_images.count > 0 %>
+                                <div id="thumb-slider-vertical" class="thumb-vertical-outer">
+                                    <span class="btn-more prev-thumb nt"><i class="fa fa-chevron-up"></i></span>
+                                    <span class="btn-more next-thumb nt"><i class="fa fa-chevron-down"></i></span>
+                                    <ul class="thumb-vertical">
+                                        <!-- thumb 445x445 -->
+                                        <% @product.product_images.each_with_index do |product_image,index| %>
+                                        <li class="owl2-item">
+                                            <a data-index="<%= index %>" class="img thumbnail " data-image="<%= product_image.image_url.thumb445 %>" title="<%= @product.name %>">
+                                                <%= image_tag product_image.image_url.thumb170, alt: @product.name, title: @product.name %>
+                                            </a>
+                                        </li>
+                                        <% end %>
+                                    </ul>
+                                </div>
+                                <div class="large-image  vertical">
+                                    <img itemprop="imagex" class="product-image-zoomx" src="<%= @product.main_image.image_url.thumb445 %>" data-zoom-image="<%= @product.main_image.image_url.thumb445 %>" title="<%= @product.name %>" alt="<%= @product.name %>">
+                                </div>
+                                <% if @product.product_intro_link.present? %>
+                                    <%= link_to '<i class="fa fa-youtube-play"></i>'.html_safe, @product.product_intro_link, class: "thumb-video pull-left", title: @product.name %>
+                                <% end %>
+                            <% else %>
+                                <div id="thumb-slider-vertical" class="thumb-vertical-outer"></div>
+                                <div class="vertical">
+                                    <img src="<%= url_for('/frontend/image/shop/image-coming-soon.jpg') %>">
+                                </div>
+                            <% end %>
                         </div>
                         <div class="content-product-right col-sm-6 col-xs-12">
                             <div class="title-product">
                                 <h1><%= @product.name %></h1>
                             </div>
-                            <!-- Review ---->
+                            <!-- Review -->
                             <div class="box-review form-group">
                                 <div class="ratings">
                                     <div class="rating-box">
-                                        <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
-                                        <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
-                                        <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
-                                        <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
-                                        <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i></span>
+                                        <%= stars(@product.average_stars) %>
                                     </div>
                                 </div>
-								<%= "0 Đánh giá sản phẩm" %>
+                                <a class="write_review_button" href="<%= product_link(@product) %>">
+									Xem chi tiết sản phẩm
+								</a>
                             </div>
                             <div class="product-label form-group">
-                                <div class="product_page_price price" itemprop="offerDetails" itemscope="" itemtype="http://data-vocabulary.org/Offer">
-                                    <span class="price-new" itemprop="price"><%= format_number(@product.product_price) %> VNĐ</span>
+                                <div class="product_page_price price">
+                                    <span class="price-new" itemprop="price"><%= format_price(@product.product_price) %></span>
                                     <% if @product.is_deal %>
-                                    <span class="price-old"><%= format_number(@product.price) %> VNĐ</span>
+                                    <span class="price-old"><%= format_price(@product.price) %></span>
+                                        <% if !@product.deal_percent.nil? %>
+                                        <span class="label label-percent">-<%= @product.deal_percent %>%</span>
+                                        <% end %>
                                     <% end %>
-                                </div>                                
+                                </div>
                             </div>
+                            <% if @product.get_product_property_array.count > 0 %>
                             <div class="product-box-desc">
                                 <div class="inner-box-desc">
                                     <h3>TÍNH NĂNG SẢN PHẨM</h3>
-									<% @product.get_product_property_array.each do |product_property| %>
-                                    <div>
-                                        <span><%= product_property[:name] %>: </span>
-                                        <%= product_property[:values].join(", ") %>
-                                    </div>
+                                    <% product_short_descipriton_values_array = @product.product_short_descipriton_values_array %>
+                                    <% if product_short_descipriton_values_array.count > 3 %>
+                                        <table>
+                                            <% @product.product_short_descipriton_values_array.each do |row| %>
+                                                <tr>
+                                                    <td valign="top" class="text-nowrap"><span><%= row[:name] %></span></td>
+                                                    <td class="pl-10"><%= row[:values].join(", ") %></td>
+                                                </tr>
+                                            <% end %>
+                                        </table>
+                                    <% else %>
+                                        <table width="100%" style="margin-top: -15px;">
+                                            <% @product.product_values_array.each do |group| %>
+                                                <tr>
+                                                    <td colspan="2"><h4 class=""><%= group[:group].name %></h4></td>
+                                                </tr>
+                                                <% group[:properties].each do |property| %>
+                                                    <tr>
+                                                        <td valign="top" class="text-nowrap"><span><%= property[:property].name %></span></td>
+                                                        <td class="pl-10"><%= property[:values].join(", ") %></td>
+                                                    </tr>
+                                                <% end %>
+                                            <% end %>
+                                        </table>
                                     <% end %>
                                 </div>
+                                <% if product_short_descipriton_values_array.count > 3 %>
+                                    <a class="product-property-all ajax-link"
+                                       data-type="ajax"
+                                        href="<%= erp_online_store.all_property_path(product_id: @product.id) %>">
+                                            Xem thông tin chi tiết
+                                    </a>
+                                <% end %>
                             </div>
+
+                            <% end %>
                             <div id="product">
-								<h3>ĐẶT MUA SẢN PHẨM</h3>
+                                <h3>ĐẶT MUA SẢN PHẨM</h3>
                                 <div class="form-group box-info-product">
-                                    <div class="option quantity">
-                                        <div class="input-group quantity-control" unselectable="on" style="-webkit-user-select: none;">
-                                            <label>Số lượng đặt mua: </label>
-                                            <input class="form-control" type="text" name="quantity" value="1" />
-                                            <input type="hidden" name="product_id" value="50" />
-                                            <span class="input-group-addon product_quantity_down">− </span>
-                                            <span class="input-group-addon product_quantity_up">+ </span>
+                                    <%= form_tag erp_online_store.add_to_cart_frontend_cart_items_path, class: 'add-cart-form' do %>
+                                        <%= hidden_field_tag "product_id", @product.id %>
+                                        <div class="option quantity">
+                                            <div class="input-group quantity-control" unselectable="on" style="-webkit-user-select: none;">
+                                                <label>Số lượng đặt mua: </label>
+                                                <input class="form-control" type="text" name="quantity" value="1">
+                                                <span class="input-group-addon product_quantity_down">−</span>
+                                                <span class="input-group-addon product_quantity_up">+</span>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="cart">
-                                        <input type="button" data-toggle="tooltip" title="" value="Thêm vào giỏ hàng"  class="btn btn-mega btn-lg" data-original-title="Thêm vào giỏ hàng" />
-                                    </div>
+                                        <div class="cart">
+                                            <button class="btn btn-mega btn-lg add-to-cart"><i class="fa fa-cart-plus"></i> Thêm vào giỏ hàng</button>
+                                        </div>
+                                    <% end %>
                                     <div class="add-to-links wish_comp">
                                         <ul class="blank list-inline">
-                                            <li class="wishlist">
-                                                <a class="icon" data-toggle="tooltip" title="Yêu thích sản phẩm" data-original-title="Yêu thích sản phẩm"><i class="fa fa-heart"></i></a>
-                                            </li>
                                             <li class="compare">
-                                                <a class="icon" data-toggle="tooltip" title="So sánh sản phẩm" data-original-title="So sánh sản phẩm"><i class="fa fa-exchange"></i></a>
+                                                <%= form_tag erp_online_store.add_to_compare_frontend_compare_items_path, class: 'add-compare-form' do %>
+                                                    <%= hidden_field_tag "product_id", @product.id %>
+                                                    <button class="btn btn-mega add-to-compare" title="So sánh sản phẩm"><i class="fa fa-exchange"></i></button>
+                                                <% end %>
                                             </li>
                                         </ul>
                                     </div>
@@ -92,23 +143,133 @@
                     </div>
                 </div>
             </div>
+
             <script type="text/javascript">
-                // Cart add remove functions
-                var cart = {
-                    'add': function(product_id, quantity) {
-                        parent.addProductNotice('Product added to Cart', '<img src="/frontend/image/shop/product/e11.jpg" alt="">', '<h3><a href="#">Apple Cinema 30"</a> added to <a href="#">shopping cart</a>!</h3>', 'success');
-                    }
-                }
-                var wishlist = {
-                    'add': function(product_id) {
-                        parent.addProductNotice('Product added to Wishlist', '<img src="/frontend/image/shop/product/e11.jpg" alt="">', '<h3>You must <a href="#">login</a>  to save <a href="#">Apple Cinema 30"</a> to your <a href="#">wish list</a>!</h3>', 'success');
-                    }
-                }
-                var compare = {
-                    'add': function(product_id) {
-                        parent.addProductNotice('Product added to compare', '<img src="/frontend/image/shop/product/e11.jpg" alt="">', '<h3>Success: You have added <a href="#">Apple Cinema 30"</a> to your <a href="#">product comparison</a>!</h3>', 'success');
-                    }
-                }
+                $(document).ready(function() {
+                    var zoomCollection = '.large-image img';
+                    $(zoomCollection).elevateZoom({
+                        zoomType: "inner",
+                        lensSize: "200",
+                        easing: true,
+                        gallery: 'thumb-slider-vertical',
+                        cursor: 'pointer',
+                        galleryActiveClass: "active"
+                    });
+                    $('.large-image').magnificPopup({
+                        items: [
+                            <% @product.product_images.each_with_index do |product_image,index| %>
+                                {
+                                    src: '<%= product_image.image_url.thumb550 %>'
+                                },
+                            <% end %>
+                        ],
+                        gallery: {
+                            enabled: true,
+                            preload: [0, 2]
+                        },
+                        type: 'image',
+                        mainClass: 'mfp-fade custom-fade',
+                        callbacks: {
+                            open: function() {
+                                var activeIndex = parseInt($('#thumb-slider-vertical .img.active').attr('data-index'));
+                                var magnificPopup = $.magnificPopup.instance;
+                                magnificPopup.goTo(activeIndex);
+                            }
+                        }
+                    });
+                    $("#thumb-slider-vertical .owl2-item").each(function() {
+                        $(this).find("[data-index='0']").addClass('active');
+                    });
+
+                    $('.thumb-video').magnificPopup({
+                        type: 'iframe',
+                        iframe: {
+                            patterns: {
+                                youtube: {
+                                    index: 'youtube.com/', // String that detects type of video (in this case YouTube). Simply via url.indexOf(index).
+                                    id: 'v=', // String that splits URL in a two parts, second part should be %id%
+                                    src: '//www.youtube.com/embed/%id%?autoplay=1' // URL that will be set as a source for iframe.
+                                },
+                            }
+                        }
+                    });
+
+                    $('.product-options li.radio').click(function() {
+                        $(this).addClass(function() {
+                            if ($(this).hasClass("active")) return "";
+                            return "active";
+                        });
+
+                        $(this).siblings("li").removeClass("active");
+                        $(this).parent().find('.selected-option').html('<span class="label label-success">' + $(this).find('img').data('original-title') + '</span>');
+                    });
+
+                    var _isMobile = {
+                        iOS: function() {
+                            return navigator.userAgent.match(/iPhone/i);
+                        },
+                        any: function() {
+                            return (_isMobile.iOS());
+                        }
+                    };
+
+                    $(".thumb-vertical-outer .next-thumb").click(function() {
+                        $(".thumb-vertical-outer .lSNext").trigger("click");
+                    });
+
+                    $(".thumb-vertical-outer .prev-thumb").click(function() {
+                        $(".thumb-vertical-outer .lSPrev").trigger("click");
+                    });
+
+                    $(".thumb-vertical-outer .thumb-vertical").lightSlider({
+                        item: 4,
+                        autoWidth: false,
+                        vertical: true,
+                        slideMargin: 7,
+                        verticalHeight: 425,
+                        pager: false,
+                        controls: true,
+                        prevHtml: '<i class="fa fa-chevron-up"></i>',
+                        nextHtml: '<i class="fa fa-chevron-down"></i>',
+                        responsive: [{
+                                breakpoint: 1199,
+                                settings: {
+                                    verticalHeight: 330,
+                                    item: 4,
+                                }
+                            },
+                            {
+                                breakpoint: 1024,
+                                settings: {
+                                    verticalHeight: 235,
+                                    item: 2,
+                                    slideMargin: 5,
+                                }
+                            },
+                            {
+                                breakpoint: 768,
+                                settings: {
+                                    verticalHeight: 340,
+                                    item: 3,
+                                }
+                            },
+                            {
+                                breakpoint: 480,
+                                settings: {
+                                    verticalHeight: 100,
+                                    item: 1,
+                                }
+                            }
+                        ]
+                    });
+                    // Product detial reviews button
+                    $(".reviews_button,.write_review_button").click(function() {
+                        var tabTop = $(".producttab").offset().top;
+                        $("html, body").animate({
+                            scrollTop: tabTop
+                        }, 1000);
+                    });
+                });
             </script>
         </div>
     </div>
