@@ -1777,3 +1777,6 @@ form[role=edit-password] > div:last-child {
 .jGrowl, .mfp-bg, .mfp-wrap {
   z-index: 99999999999;
 }
+.zoomContainer {
+  display: none !important;
+}
