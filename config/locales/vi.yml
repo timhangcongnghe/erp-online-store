@@ -22,6 +22,7 @@ vi:
             password:
               blank: "không được để trống."
               too_short: "ngắn thường dễ đoán. Hãy thử mật khẩu có ít nhất 6 ký tự."
+              too_long: "quá dài. Hãy thử mật khẩu khác?"
             password_confirmation:
               confirmation: "không khớp. Thử lại?"
             reset_password_token:
