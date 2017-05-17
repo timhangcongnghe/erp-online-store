@@ -105,7 +105,7 @@
                     <div class="block-cart" data-url="<%= erp_online_store.top_cart_path %>">
                         <%= render 'erp/online_store/frontend/shopping_cart/top_cart' %>
                     </div>
-                    <div class="header_custom_link hidden-xs">
+                    <div class="header_custom_link hidden-xs hidden-sm hidden-md">
                         <ul>
                             <% if user_signed_in? %>
                             <li><%= link_to '<i class="fa fa-user"></i> Tài Khoản'.html_safe, erp_online_store.my_account_path %></li>
