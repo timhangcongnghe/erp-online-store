@@ -820,6 +820,26 @@ $(document).ready(function () {
         }
     })
 
+    // Compare form
+    $(document).on('click', '.quick-view.btn_compare', function(e) {
+        e.preventDefault();
+
+        var url = $(this).attr('data-url');
+        var product_id = $(this).attr('product_id');
+
+        $.ajax({
+            url: url,
+            method: 'POST',
+            data: {
+                authenticity_token: AUTH_TOKEN,
+                product_id: product_id
+            }
+        }).done(function( data ) {
+            showNotice(data.type, data.title, data.message);
+            loadTopRightMenu();
+        });
+    });
+
 });
 $(window).scroll(function () {
     toogleFixedNav();
