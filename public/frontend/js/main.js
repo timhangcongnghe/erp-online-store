@@ -389,6 +389,9 @@ $(document).ready(function () {
     });
 
     $(document).on('mousedown', '.ajax-link', function() {
+        if (typeof($(this).attr('dont-close')) != 'undefined' && $(this).attr('dont-close') == 'true') {
+            return;
+        }
         $.fancybox.close( 'all' );
     });
 

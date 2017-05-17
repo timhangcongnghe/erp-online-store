@@ -19,7 +19,7 @@ Erp::OnlineStore::Engine.routes.draw do
   get "danh-gia-san-pham.html" => "frontend/product#ratings", as: :product_ratings
   post "danh-gia-san-pham.html" => "frontend/product#ratings"
   delete "danh-gia-san-pham/:rating_id-remove.html" => "frontend/product#delete_rating", as: :delete_product_rating
-  get "xem-nhanh.html" => "frontend/product#product_quickview", as: :product_quickview
+  get "xem-nhanh/:product_id(/:title).html" => "frontend/product#product_quickview", as: :product_quickview
   get "san-pham-khuyen-mai.html" => "frontend/category#deal_products", as: :deal_products
   get "san-pham-ban-chay.html" => "frontend/category#bestseller_products", as: :bestseller_products
   get "lua-chon-tu-doanh-nghiep.html" => "frontend/business_choices#index", as: :business_choices

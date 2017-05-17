@@ -135,7 +135,7 @@ module Erp
 
       def quick_actions(product)
         "<div class=\'view-buy hidden-xs\'>
-            <a href=\'#{erp_online_store.product_quickview_path(product)}\' class=\'btn-cus quick-view btn_view ajax-link\' data-type=\'ajax\' title=\'Xem nhanh sản phẩm\'><span>Xem nhanh</span></a>
+            <a href=\'#{erp_online_store.product_quickview_path(product_id: product, title: url_friendly(product.product_name))}\' class=\'btn-cus quick-view btn_view ajax-link\' data-type=\'ajax\' title=\'Xem nhanh sản phẩm\'><span>Xem nhanh</span></a>
             <a href=\'#\' class=\'btn-cus quick-view btn_view btn_compare\' product_id=\'#{product.id}\' data-url=\'#{erp_online_store.add_to_compare_frontend_compare_items_path}\' title=\'So sánh sản phẩm\'><span>So sánh</span></a>
         </div>".html_safe
       end

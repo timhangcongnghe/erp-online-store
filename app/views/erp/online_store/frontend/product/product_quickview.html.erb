@@ -101,6 +101,7 @@
                                 </div>
                                 <% if product_short_descipriton_values_array.count > 3 %>
                                     <a class="product-property-all ajax-link"
+									   dont-close='true'
                                        data-type="ajax"
                                         href="<%= erp_online_store.all_property_path(product_id: @product.id) %>">
                                             Xem thông tin chi tiết
@@ -269,6 +270,10 @@
                             scrollTop: tabTop
                         }, 1000);
                     });
+
+					$('.ajax-link').fancybox({
+						closeClickOutside : true,
+					});
                 });
             </script>
         </div>
