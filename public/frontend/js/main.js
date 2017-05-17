@@ -160,6 +160,9 @@ function homeCategoryBox(box) {
     }).done(function( data ) {
         box.html(data);
         box.removeClass('loading');
+        box.find('.ajax-link').fancybox({
+            closeClickOutside : true,
+        });
     });
 }
 
@@ -695,6 +698,7 @@ $(document).ready(function () {
                 dropdownAutoWidth: 'true',
                 language: "vi"
             });
+
         });
     });
     $('.ajax-content-control').trigger('change');
