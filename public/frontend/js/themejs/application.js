@@ -1846,15 +1846,15 @@ $(document).ready(function() {
         //    }
         //});
     })
-    var zoomCollection = '.large-image img';
-    $(zoomCollection).elevateZoom({
-        zoomType: "inner",
-        lensSize: "200",
-        easing: true,
-        gallery: 'thumb-slider',
-        cursor: 'pointer',
-        galleryActiveClass: "active"
-    });
+    //var zoomCollection = '.large-image img';
+    //$(zoomCollection).elevateZoom({
+    //    zoomType: "inner",
+    //    lensSize: "200",
+    //    easing: true,
+    //    gallery: 'thumb-slider',
+    //    cursor: 'pointer',
+    //    galleryActiveClass: "active"
+    //});
     $('.product-options li.radio').on("click", function() {
         $(this).addClass(function() {
             if ($(this).hasClass("active")) return "";
@@ -2347,15 +2347,15 @@ $(document).ready(function($) {
 });
 $(document).ready(function() {
     "use strict";
-    var zoomCollection = '.large-image img';
-    $(zoomCollection).elevateZoom({
-        zoomType: "inner",
-        lensSize: "200",
-        easing: true,
-        gallery: 'thumb-slider',
-        cursor: 'pointer',
-        galleryActiveClass: "active"
-    });
+    //var zoomCollection = '.large-image img';
+    //$(zoomCollection).elevateZoom({
+    //    zoomType: "inner",
+    //    lensSize: "200",
+    //    easing: true,
+    //    gallery: 'thumb-slider',
+    //    cursor: 'pointer',
+    //    galleryActiveClass: "active"
+    //});
     $('.large-image').magnificPopup({
         items: [{
             src: 'image/demo/shop/product/1.png'
