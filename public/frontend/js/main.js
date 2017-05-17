@@ -851,8 +851,79 @@ $(document).ready(function () {
 $(window).scroll(function () {
     toogleFixedNav();
     toogleServicesNav();
+    btnMenuFixed();
+    showHideMenuFixed();
 });
 $( window ).resize(function() {
     // auto height product list
     fixWithProductListAll();
 });
+
+
+// Custom js
+
+// show or hide menu fixed
+$('#btn-menu-fixed').click(function () {
+    if ($('#btn-menu-fixed-title').hasClass('active-btn'))
+    {
+        $('#btn-menu-fixed-title').removeClass('active-btn');
+        $('.vertical-wrapper').addClass('transition');
+        $('.vertical-wrapper').removeClass('active-sub-menu');
+    }
+    else {
+        $('#btn-menu-fixed-title').addClass('active-btn');
+        $('.vertical-wrapper').addClass('active-sub-menu');
+    }
+});
+
+// get height show menu fixed
+function getHeightMenuFixed() {
+    var height;
+    if ($('.vertical').hasClass('open'))
+    {
+        height = 560;
+    }
+    else
+    {
+        height = 200;
+    }
+    return height;
+}
+
+// show or hide buttom menu fixed
+function btnMenuFixed() {
+    var top = $(window).scrollTop();
+    var height = getHeightMenuFixed();
+    if (top > height &&  $(window).width() > 992)  {
+        $('.btn-menu-fixed').slideDown();
+    } else {
+        $('.btn-menu-fixed').hide();
+    }
+}
+$(window).resize(function() {
+    var top = $(window).scrollTop();
+    var height = getHeightMenuFixed();
+    if ($(window).width() > 992 && top > height) {
+        $('.btn-menu-fixed').slideDown();
+    }
+    else {
+       $('.btn-menu-fixed').hide();
+    }
+});
+
+// add class active-content-menu into vertical-wrapper
+function showHideMenuFixed() {
+    var height = getHeightMenuFixed();
+    if ($(window).scrollTop() > height && $(window).width() > 992) {
+        $('.vertical-wrapper').addClass('active-content-menu');
+    }
+    else
+    {
+        $('.vertical-wrapper').removeClass('active-content-menu');
+        if ($('.vertical-wrapper').hasClass('transition'))
+        {
+            $('.vertical-wrapper').removeClass('transition');   
+        }
+    }
+}
+
