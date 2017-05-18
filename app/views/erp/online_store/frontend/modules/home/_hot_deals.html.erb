@@ -21,6 +21,7 @@
                                     <%= image_tag product_image(hot_deal.product_images, 'first', 'thumb170'), alt: hot_deal.name, title: hot_deal.name, class: "img-1 img-responsive" %>
                                     <%= image_tag product_image(hot_deal.product_images, 'second', 'thumb170'), alt: hot_deal.name, title: hot_deal.name, class: "img-2 img-responsive" %>
                                 </a>
+                                <%= quick_actions(hot_deal) %>
                                 <%= count_down(hot_deal.deal_from_date, hot_deal.deal_to_date) %>
                             </div>
                         </div>
@@ -33,7 +34,7 @@
                             <h4><%= link_to hot_deal.name, product_link(hot_deal), title: hot_deal.name %></h4>
                             <p class="price">
                                 <span class="price-new"><%= format_price(hot_deal.product_price) %>
-                                <% if hot_deal.is_deal %>                        
+                                <% if hot_deal.is_deal %>
                                     <br><span class="price-old"><%= format_price(hot_deal.price) %></span>
                                     <span class="label label-percent">-<%= hot_deal.deal_percent %>%</span>
                                 <% end %>

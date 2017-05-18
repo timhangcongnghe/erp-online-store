@@ -7,15 +7,16 @@
     <div class="row">
         <!--Middle Part Start-->
         <div id="content" class="col-sm-12 compare-product">
-            <% if @compare.compare_items.count > 0 %>
+            <% c_count = @compare.compare_items.count %>
+            <% if c_count > 0 %>
             <h2 class="title title-compare">DANH SÁCH SO SÁNH</h2>
             <div class="table-responsive">
                 <table class="table table-bordered table-hover product-compare">
                     <tbody>
                         <tr>
-                            <td>Tên sản phẩm</td>
+                            <td class="text-nowrap">Tên sản phẩm</td>
                             <% @compare.compare_items.get_all_items.each do |compare_item| %>
-                            <td class="product-name">
+                            <td class="product-name" width="<%= (85/c_count).to_i %>%">
                                 <strong>
                                     <%= link_to compare_item.product_name, product_link(compare_item.product), title: compare_item.product_name %>
                                 </strong>
@@ -23,7 +24,7 @@
                             <% end %>
                         </tr>
                         <tr>
-                            <td>Hình ảnh</td>
+                            <td class="text-nowrap">Hình ảnh</td>
                             <% @compare.compare_items.get_all_items.each do |compare_item| %>
                             <td class="text-center">
                                 <%= link_to image_tag(product_image(compare_item.product.product_images, 'first', 'thumb99'), alt: compare_item.product_name, width: "100", class: "img-thumbnail"), product_link(compare_item.product), title: compare_item.product_name %>
@@ -31,7 +32,7 @@
                             <% end %>
                         </tr>
                         <tr>
-                            <td>Giá</td>
+                            <td class="text-nowrap">Giá</td>
                             <% @compare.compare_items.get_all_items.each do |compare_item| %>
                             <td>
                                 <div class="price">
@@ -45,14 +46,14 @@
                             <% end %>
                         </tr>
                         <tr>
-                            <td>Thương hiệu</td>
+                            <td class="text-nowrap">Thương hiệu</td>
                             <% @compare.compare_items.get_all_items.each do |compare_item| %>
                                 <td><%= compare_item.product.brand_name %></td>
                             <% end %>
                         </tr>
                         <% Erp::Carts::CompareItem.get_comparision_hash(@compare.compare_items.get_all_items).each do |row| %>
                             <tr>
-                                <td><%= row[0] %></td>
+                                <td class="text-nowrap"><%= row[0] %></td>
                                 <% row[1].each do |values| %>
                                     <% if values.nil? %>
                                         <td class="not-property property-value">Chưa có thông tin.</td>
