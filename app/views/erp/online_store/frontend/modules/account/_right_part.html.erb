@@ -10,14 +10,14 @@
                                         class: 'link-method' %></li>
         </ul>
     </div>    
-    <h2 class="subtitle">Thống kê tài khoản</h2>
+    <h2 class="subtitle">Thống kê đơn hàng</h2>
     <div class="list-group">
         <ul class="list-item account-report">
-            <li>Số lượng đơn hàng: 500</li>
-            <li>Đơn hàng thành công: 450</li>
-            <li>Đơn hàng đã hủy: 50</li>
-            <li>Số lượng mặt hàng: 450</li>
-            <li>Tổng tiền giao dịch: <span class="price">1,000,000,000₫</span></li>
+            <li>Đơn hàng giao dịch thành công: <b><%= current_user.orders_completed.count %></b></li>
+            <li>Đơn hàng đang giao dịch: <b><%= current_user.orders_being_traded.count %></b></li>
+            <li>Đơn hàng bị hủy: <b><%= current_user.orders_cancelled.count %></b></li>
+            <li>Sản phẩm giao dịch thành công: <b><%= current_user.number_of_products_purchased %></b></li>
+            <li>Tổng tiền đã giao dịch: <span class="price"><b><%= format_price(current_user.total_amount_for_orders_completed) %></b></span></li>
         </ul>
     </div>
 </aside>
