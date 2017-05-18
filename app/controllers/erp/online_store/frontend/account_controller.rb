@@ -71,7 +71,7 @@ module Erp
             redirect_to erp_online_store.root_path, notice: "Bạn chưa đăng nhập."
             return
           else 
-            @orders = Erp::Orders::FrontendOrder.get_frontend_orders_for_user(current_user)
+            @orders = current_user.get_frontend_orders_for_user
           end
         end
 
@@ -80,15 +80,8 @@ module Erp
           if current_user.nil?
             redirect_to erp_online_store.root_path, notice: "Bạn chưa đăng nhập."
             return
-          else 
-            @orders = Erp::Orders::FrontendOrder.get_frontend_orders_for_user(current_user)
           end
-          
-          if @orders.count > 0
-            @order = Erp::Orders::FrontendOrder.find(params[:order_id])
-          else 
-            redirect_to erp_online_store.order_history_path
-          end
+          @order = Erp::Orders::FrontendOrder.find(params[:order_id])
         end
 
         private
