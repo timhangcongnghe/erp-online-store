@@ -1780,3 +1780,6 @@ form[role=edit-password] > div:last-child {
 .zoomContainer {
   display: none !important;
 }
+.fancybox-close-small:focus:after {
+  outline: none !important;
+}
