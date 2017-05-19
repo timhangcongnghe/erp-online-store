@@ -676,7 +676,7 @@ $(document).ready(function($) {
                                     nb_column2 = 3,
                                     nb_column3 = 2,
                                     nb_column4 = 1;
-                                tab_active.owlCarousel2x({
+                                tab_active.owlCarousel2({
                                     nav: false,
                                     dots: false,
                                     margin: 10,
@@ -858,7 +858,7 @@ $(document).ready(function($) {
                                     nb_column2 = 3,
                                     nb_column3 = 2,
                                     nb_column4 = 1;
-                                tab_active.owlCarousel2x({
+                                tab_active.owlCarousel2({
                                     nav: false,
                                     dots: false,
                                     margin: 10,
@@ -1040,7 +1040,7 @@ $(document).ready(function($) {
                                     nb_column2 = 3,
                                     nb_column3 = 2,
                                     nb_column4 = 1;
-                                tab_active.owlCarousel2x({
+                                tab_active.owlCarousel2({
                                     nav: false,
                                     dots: false,
                                     margin: 10,
@@ -1268,7 +1268,7 @@ $(document).ready(function($) {
             }
         });
         $tab.on('shown.bs.tab', function(e) {
-            $($(e.target).attr('href')).find('.owl2-carousel').owlCarousel2x('invalidate', 'width').owlCarousel2x('update')
+            $($(e.target).attr('href')).find('.owl2-carousel').owlCarousel2('invalidate', 'width').owlCarousel2('update')
         })
         $tab.on('click.tab', function() {
             var $this = $(this);
@@ -1828,7 +1828,7 @@ $(document).ready(function() {
     "use strict";
     var $nav = $("#thumb-slider");
     $nav.each(function() {
-        //$(this).owlCarousel2x({
+        //$(this).owlCarousel2({
         //    nav: true,
         //    dots: false,
         //    slideBy: 1,
@@ -1870,7 +1870,7 @@ $(document).ready(function() {
         var slider = $(this),
             data = slider.data();
         slider.children(':not(.yt-content-slide)').remove();
-        slider.owlCarousel2x({
+        slider.owlCarousel2({
             mouseDrag: true,
             video: true,
             lazyLoad: (data.lazyload == 'yes') ? true : false,
@@ -1903,7 +1903,7 @@ $(document).ready(function() {
             panels = slider.children('div'),
             data = slider.data();
         slider.children(':not(.yt-content-slide)').remove();
-        slider.owlCarousel2x({
+        slider.owlCarousel2({
             mouseDrag: true,
             video: true,
             lazyLoad: (data.lazyload == 'yes') ? true : false,
@@ -1936,7 +1936,7 @@ $(document).ready(function() {
             panels = slider.children('div'),
             data = slider.data();
         slider.children(':not(.yt-content-slide)').remove();
-        //slider.owlCarousel2x({
+        //slider.owlCarousel2({
         //    mouseDrag: true,
         //    video: true,
         //    lazyLoad: (data.lazyload == 'yes') ? true : false,
@@ -1969,7 +1969,7 @@ $(document).ready(function() {
             panels = slider.children('div'),
             data = slider.data();
         slider.children(':not(.yt-content-slide)').remove();
-        slider.owlCarousel2x({
+        slider.owlCarousel2({
             mouseDrag: true,
             video: true,
             lazyLoad: (data.lazyload == 'yes') ? true : false,
@@ -2002,7 +2002,7 @@ $(document).ready(function() {
             panels = slider.children('div'),
             data = slider.data();
         slider.children(':not(.yt-content-slide)').remove();
-        //slider.owlCarousel2x({
+        //slider.owlCarousel2({
         //    mouseDrag: true,
         //    video: true,
         //    lazyLoad: (data.lazyload == 'yes') ? true : false,
@@ -2131,7 +2131,7 @@ $(document).ready(function($) {
 });
 $(document).ready(function($) {
     "use strict";
-    //$('.slider-clients-say').owlCarousel2x({
+    //$('.slider-clients-say').owlCarousel2({
     //    pagination: false,
     //    center: false,
     //    nav: true,
@@ -2167,7 +2167,7 @@ $(document).ready(function($) {
 $(document).ready(function($) {
     "use strict";
     if ($('.best-seller-slider .item').length > 1) {
-        $('.best-seller-slider').owlCarousel2x({
+        $('.best-seller-slider').owlCarousel2({
             pagination: false,
             center: false,
             nav: true,
@@ -2247,7 +2247,7 @@ $(document).ready(function($) {
 $(document).ready(function($) {
     "use strict";
     if ($('.releate-products').length) {
-        $('.releate-products').owlCarousel2x({
+        $('.releate-products').owlCarousel2({
             pagination: false,
             center: false,
             nav: true,
@@ -2281,7 +2281,7 @@ $(document).ready(function($) {
         });
     }
     if ($('.upsell-products').length) {
-        $('.upsell-products').owlCarousel2x({
+        $('.upsell-products').owlCarousel2({
             pagination: false,
             center: false,
             nav: true,
@@ -2315,7 +2315,7 @@ $(document).ready(function($) {
         });
     }
     if ($('.slider-clients-say').length) {
-        $('.slider-clients-say').owlCarousel2x({
+        $('.slider-clients-say').owlCarousel2({
             pagination: false,
             center: false,
             nav: true,
@@ -2411,7 +2411,7 @@ $(document).ready(function() {
             scrollTop: tabTop
         }, 1000);
     });
-    //$('.slider-clients-say').owlCarousel2x({
+    //$('.slider-clients-say').owlCarousel2({
     //    pagination: false,
     //    center: false,
     //    nav: true,
@@ -2443,7 +2443,7 @@ $(document).ready(function() {
 $(document).ready(function($) {
     "use strict";
     if ($('.list-msg li').length > 1) {
-        $('.list-msg').owlCarousel2x({
+        $('.list-msg').owlCarousel2({
             pagination: false,
             center: false,
             nav: false,

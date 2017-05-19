@@ -49,6 +49,10 @@ footer .social_block ul.social-block li.pinterest a:hover {
 }
 .autosearch-result-box ul li a .title {
     font-size: 13px;
+    white-space: nowrap;
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .autosearch-result-box ul li a .price {
     font-size: 14px;
