@@ -722,7 +722,8 @@ $(document).ready(function () {
 
         container.html('<div class="category-loading"></div>');
 
-        $( "body" ).scrollTop( 200 );
+        //$( "body" ).scrollTop( $('#content').offset().top - 100 );
+        $( "body" ).animate({scrollTop:$('#content').offset().top - 100}, 'slow');
 
         // ajax autosearch
         if(category_xhr && category_xhr.readyState != 4){
