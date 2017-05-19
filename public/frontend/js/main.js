@@ -739,6 +739,9 @@ $(document).ready(function () {
                 container.find('.products-list').removeClass('list').addClass('grid');
                 fixWithProductListAll();
             }, 500);
+            container.find('.ajax-link').fancybox({
+                closeClickOutside : true,
+            });
         });
     });
 
@@ -767,6 +770,9 @@ $(document).ready(function () {
                 container.find('.products-list').removeClass('list').addClass('grid');
                 fixWithProductListAll();
             }, 500);
+            container.find('.ajax-link').fancybox({
+                closeClickOutside : true,
+            });
         });
     });
 
