@@ -847,6 +847,46 @@ $(document).ready(function () {
         });
     });
 
+    // Select2 ajax
+    $(".select-ajax").each(function() {
+        var url = $(this).attr('data-url');
+        var placeholder = $(this).attr('data-placeholder');
+
+        if(typeof(placeholder) === 'undefined') {
+            placeholder = '';
+        }
+
+        $(this).select2({
+            ajax: {
+              url: url,
+              dataType: 'json',
+              delay: 250,
+              data: function (params) {
+                return {
+                  q: params.term, // search term
+                  page: params.page
+                };
+              },
+              processResults: function (data) {
+                return {
+                    results: $.map(data.items, function (item) {
+                        return {
+                            text: item.text,
+                            id: item.value
+                        }
+                    })
+                };
+              },
+              cache: true
+            },
+            escapeMarkup: function (markup) { return markup; }, // let our custom formatter work
+            minimumInputLength: 0,
+            language: "vi",
+            allowClear: true,
+            placeholder: placeholder
+        });
+    });
+
 });
 $(window).scroll(function () {
     toogleFixedNav();

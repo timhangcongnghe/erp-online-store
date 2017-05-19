@@ -7,45 +7,7 @@
     <div class="row">
         <!--Left Part Start -->
         <aside class="col-sm-4 col-md-3" id="column-left">
-              <div class="module menu-category titleLine">
-                <h3 class="modtitle">
-                  <span>
-                    <i class="fa fa-angle-double-right"></i>
-                    KHUYẾN MÃI
-                  </span>
-                </h3>
-                <div class="modcontent">
-                    <div class="box-category">
-                        <ul id="cat_accordion" class="list-group">
-                            <% @menus.each do |menu| %>
-                            <li <% if menu.children.count > 0 %>class="hadchild cutom-parent-li"<% end %>>
-                                <a href="<%= menu_link(menu) %>" class="cutom-parent"><%= menu.name %><span class="dcjq-icon"></span></a>
-                                <% if menu.children.count > 0 %>
-                                <span class="button-view  fa fa-plus-square-o"></span>
-                                <% end %>
-                                <ul style="display: none;">
-                                    <% menu.children.each do |child_1| %>
-                                        <% if child_1.children.count > 0 %>
-                                        <li class="hadchild cutom-parent-li">
-                                            <%= link_to child_1.name, menu_link(child_1), class: "cutom-parent" %>
-                                            <span class="button-view  fa fa-plus-square-o"></span>
-                                            <ul style="display: none;">
-                                                <% child_1.children.each do |child_2| %>
-                                                    <li><%= link_to child_2.name, menu_link(child_2) %></li>
-                                                <% end %>
-                                            </ul>
-                                        </li>
-                                        <% else %>
-                                            <li><%= link_to child_1.name, menu_link(child_1) %></li>
-                                        <% end %>
-                                    <% end %>
-                                </ul>
-                            </li>
-                            <% end %>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+            <%= render "erp/online_store/frontend/modules/leftbar_search" %>
             <%= render "erp/online_store/frontend/modules/sidebar_best_sellers" %>
             <%= render "erp/online_store/frontend/modules/hot_banners" %>
         </aside>

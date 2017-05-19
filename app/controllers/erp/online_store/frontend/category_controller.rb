@@ -16,13 +16,17 @@ module Erp
         end
 
         def deal_products
-          @products = Erp::Products::Product.get_deal_products.paginate(:page => params[:page], :per_page => 16)
+          @products = Erp::Products::Product.get_deal_products.frontend_filter(params).paginate(:page => params[:page], :per_page => 16)
           @menus = Erp::Menus::Menu.get_menus
         end
 
         def bestseller_products
-          @products = Erp::Products::Product.get_bestseller_products.paginate(:page => params[:page], :per_page => 16)
+          @products = Erp::Products::Product.get_bestseller_products.frontend_filter(params).paginate(:page => params[:page], :per_page => 16)
           @menus = Erp::Menus::Menu.get_menus
+        end
+
+        def select2
+          render json: {items: Erp::Menus::Menu.select2(params)}
         end
       end
     end

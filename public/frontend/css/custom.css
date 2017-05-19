@@ -1787,3 +1787,6 @@ form[role=edit-password] > div:last-child {
 .fancybox-close-small:focus:after {
   outline: none !important;
 }
+.filter-shopby .select2-container {
+  width: 100% !important;
+}

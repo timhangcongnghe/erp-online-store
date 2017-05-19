@@ -8,6 +8,7 @@ Erp::OnlineStore::Engine.routes.draw do
   get "district-select-box.html" => "frontend/area#district_select", as: :district_select
 
   # CATEGORY
+  get "chuyen-muc-select2.html" => "frontend/category#select2", as: :category_select2
   get "tim-kiem.html" => "frontend/product#search", as: :search
   get "san-pham/thuoc-tinh/:product_id.html" => "frontend/product#all_property", as: :all_property
   get "san-pham/:product_id(/:title).html" => "frontend/product#product_detail", as: :product_detail
@@ -95,6 +96,7 @@ Erp::OnlineStore::Engine.routes.draw do
   get "site-map.html" => "frontend/information#site_map", as: :site_map
 
   # BRAND
+  get "thuong-hieu-san-pham-select2.html" => "frontend/brand#select2", as: :brand_select2
   get "thuong-hieu-san-pham.html" => "frontend/brand#listing", as: :brand_listing
   get "thuong-hieu-san-pham(/:brand_id)(/:title).html" => "frontend/brand#detail", as: :brand_detail
 
