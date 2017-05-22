@@ -1,12 +1,5 @@
-<div class="img-1 banner1-1">
-    <%= link_to image_tag("/frontend/image/banner/thiet-bi-tin-hoc.png", alt: "Thiết bị tin học", title: "Thiết bị tin học"), "/chuyen-muc/42/may-vi-tinh.html", title: "Thiết Bị Tin Học" %>
+<% @block_banners.each_with_index do |banner,index| %>
+<div class="img-1 banner1-<%= index+1 %>">
+    <%= link_to image_tag(banner.image_url.thumb, alt: banner.name, title: banner.name), banner.link_url, title: banner.name %>
 </div>
-<div class="img-1 banner1-2">
-    <%= link_to image_tag("/frontend/image/banner/san-pham-van-phong.png", alt: "Sản phẩm văn phòng", title: "Sản phẩm văn phòng"), "/chuyen-muc/106/san-pham-van-phong.html", title: "Sản Phẩm Văn Phòng" %>
-</div>
-<div class="img-1 banner1-3">
-    <%= link_to image_tag("/frontend/image/banner/thiet-bi-mang.png", alt: "Thiết bị mạng", title: "Thiết bị mạng"), "/chuyen-muc/107/thiet-bi-mang.html", title: "Thiết Bị Mạng" %>
-</div>
-<div class="img-1 banner1-4">
-    <%= link_to image_tag("/frontend/image/banner/thiet-bi-vien-thong-an-ninh.png", alt: "Thiết bị viễn thông & an ninh", title: "Thiết bị viễn thông & an ninh"), "/chuyen-muc/149/ky-thuat-so-vien-thong.html", title: "Thiết Bị Viễn Thông & An Ninh" %>
-</div>
+<% end %>

@@ -50,7 +50,9 @@
             <div class="module banner">
                 <div class="banners">
                     <div>
-                        <%= link_to image_tag("/frontend/image/banner/banner-5-1.png", alt: ""), "/dich-vu-sua-chua-bao-tri.html", title: "" %>
+                        <% if !@long_banner.nil? %>
+                            <%= link_to image_tag(@long_banner.image_url.thumb, alt: @long_banner.name), @long_banner.link_url, title: @long_banner.name %>
+                        <% end %>
                     </div>
                 </div>
             </div>

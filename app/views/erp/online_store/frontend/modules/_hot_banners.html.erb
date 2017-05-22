@@ -2,7 +2,9 @@
     <div class="modcontent clearfix">
         <div class="banners category-banner">
             <div>
-                <%= link_to image_tag("/frontend/image/cms/left-image-static.png", alt: "left-image"), "/chuyen-muc/43/may-tinh-xach-tay-laptop.html", title: "" %>
+                <% @hot_banners.each do |banner| %>
+                    <%= link_to image_tag(banner.image_url.thumb, alt: "left-image"), banner.link_url, title: banner.name %>
+                <% end %>
             </div>
         </div>
     </div>

@@ -1,18 +1,8 @@
 <div class="module slideshow no-margin">
-    <div class="item" data-animate="fadeIn animated">
-        <%= link_to image_tag("/frontend/image/slider/new/hp-nha-cung-cap.png", alt: "Nhà cung cấp HP", class: "img-responsive"), "/chuyen-muc/1/san-pham-hp.html", title: "Nhà Cung Cấp HP" %>
-    </div>
-    <div class="item">
-        <%= link_to image_tag("/frontend/image/slider/new/ups-zlpower-300w.png", alt: "slider1", class: "img-responsive"), "" %>
-    </div>
-    <div class="item" data-animate="bounceIn animated">
-        <%= link_to image_tag("/frontend/image/slider/new/hp-pro-one-400-g2.png", alt: "slider2", class: "img-responsive"), "" %>
-    </div>
-    <div class="item" data-animate="fadeIn animated">
-        <%= link_to image_tag("/frontend/image/slider/new/hp-pro-desk-400-g3-mt.png", alt: "slider3", class: "img-responsive"), "" %>
-    </div>
-    <div class="item" data-animate="flipInX animated">
-        <%= link_to image_tag("/frontend/image/slider/new/hp-pro-display-p221.png", alt: "slider4", class: "img-responsive"), "" %>
-    </div>
+    <% @sliders.each do |slider| %>
+        <div class="item" data-animate="fadeIn animated">
+            <%= link_to image_tag(slider.image_url.thumb, alt: slider.name, class: "img-responsive"), slider.link_url, title: slider.name %>
+        </div>
+    <% end %>
     <!--<div class="loadeding"></div>-->
 </div>

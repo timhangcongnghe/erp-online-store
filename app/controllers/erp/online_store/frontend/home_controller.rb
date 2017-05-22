@@ -8,6 +8,12 @@ module Erp
           @bestsellers = Erp::Products::Product.get_bestseller_products
           @newest_blogs = Erp::Articles::Article.newest_articles(2)
           @testimonials = Erp::Testimonials::Testimonial.get_testimonials
+          if Erp::Core.available?("banners")
+            @sliders = Erp::Banners::Banner.get_home_sliders
+            @block_banners = Erp::Banners::Banner.get_home_block_banners
+            @long_banner = Erp::Banners::Banner.get_home_long_banners.last
+            @service_banners = Erp::Banners::Banner.get_home_service_banners
+          end
         end
 
         # home category box
