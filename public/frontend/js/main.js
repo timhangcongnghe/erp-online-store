@@ -827,7 +827,6 @@ $(document).ready(function () {
         }
     })
 
-<<<<<<< d62b179b62c0200a2a49dace240011a28091410e
     // Compare form
     $(document).on('click', '.quick-view.btn_compare', function(e) {
         e.preventDefault();
@@ -888,8 +887,6 @@ $(document).ready(function () {
         });
     });
 
-=======
->>>>>>> fix error don't click link logo on topmenu
 });
 $(window).scroll(function () {
     toogleFixedNav();

@@ -1777,8 +1777,8 @@ form[role=edit-password] > div:last-child {
   .header-fixed-top  .navbar-logo {
     padding-left: 50px;
   }
-<<<<<<< d62b179b62c0200a2a49dace240011a28091410e
-}.refine-search a {
+}
+.refine-search a {
   color: #000;
 }
 .jGrowl, .mfp-bg, .mfp-wrap {
@@ -1793,6 +1793,3 @@ form[role=edit-password] > div:last-child {
 .filter-shopby .select2-container {
   width: 100% !important;
 }
-=======
-}
->>>>>>> fix error don't click link logo on topmenu
