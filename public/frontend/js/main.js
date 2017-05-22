@@ -160,9 +160,6 @@ function homeCategoryBox(box) {
     }).done(function( data ) {
         box.html(data);
         box.removeClass('loading');
-        box.find('.ajax-link').fancybox({
-            closeClickOutside : true,
-        });
     });
 }
 
@@ -389,9 +386,6 @@ $(document).ready(function () {
     });
 
     $(document).on('mousedown', '.ajax-link', function() {
-        if (typeof($(this).attr('dont-close')) != 'undefined' && $(this).attr('dont-close') == 'true') {
-            return;
-        }
         $.fancybox.close( 'all' );
     });
 
@@ -453,8 +447,8 @@ $(document).ready(function () {
         $(this).removeClass("btn-default").addClass("btn-primary");
     });
 
-    $(document).on('click', '.product-item-container .right-block', function() {
-        var url = $(this).find('a').attr('href');
+    $(document).on('click', '.product-item-container', function() {
+        var url = $(this).find('.right-block a').attr('href');
 
         document.location.href = url;
     });
@@ -701,7 +695,6 @@ $(document).ready(function () {
                 dropdownAutoWidth: 'true',
                 language: "vi"
             });
-
         });
     });
     $('.ajax-content-control').trigger('change');
@@ -709,7 +702,7 @@ $(document).ready(function () {
     setTimeout(function() {$('.contacts-create-hide').hide();}, 2000);
 
     $(document).on('click', '.fancybox-slide--current', function(e) {
-        if($(e.target).parents('.product-box-desc').length || $(e.target).parents('.fancybox-content-no').length || $(e.target).parents('.row').length){
+        if($(e.target).parents('.product-box-desc').length || $(e.target).parents('.fancybox-content-no').length){
             return;
         }
         $.fancybox.close( 'all' );
@@ -834,6 +827,7 @@ $(document).ready(function () {
         }
     })
 
+<<<<<<< d62b179b62c0200a2a49dace240011a28091410e
     // Compare form
     $(document).on('click', '.quick-view.btn_compare', function(e) {
         e.preventDefault();
@@ -894,6 +888,8 @@ $(document).ready(function () {
         });
     });
 
+=======
+>>>>>>> fix error don't click link logo on topmenu
 });
 $(window).scroll(function () {
     toogleFixedNav();

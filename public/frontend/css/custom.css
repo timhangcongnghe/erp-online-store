@@ -1663,6 +1663,7 @@ form[role=edit-password] > div:last-child {
 }
 .view-buy span {
   font-size: 12px;
+  font-weight: 600;
   border-radius: 5px;
 }
 .view-buy .btn-cus {
@@ -1700,9 +1701,8 @@ form[role=edit-password] > div:last-child {
 /************* Custom menu fixed ************/
 .btn-menu-fixed {
   position: fixed;
-  left: 68px;
-  left: 0px;
-  top: -1px;
+  left: -217px;
+  top: 0px;
   display: none;
   z-index: 9999;
 }
@@ -1712,6 +1712,8 @@ form[role=edit-password] > div:last-child {
   padding-left: 10px;
   color: #fff;
   font-size: 19px;
+  position: fixed;
+  left: 0px;
   cursor: pointer;
   padding-top: 15px;
   height: 50px;
@@ -1723,8 +1725,8 @@ form[role=edit-password] > div:last-child {
     text-transform: uppercase;
     color: #fff;
     position: relative;
-    top: 1px;
-    left: -262px;
+    top: 0px;
+    left: 0px;
     display: inline-block;
     font-size: 19px;
     padding-top: 15px;
@@ -1737,7 +1739,7 @@ form[role=edit-password] > div:last-child {
     -o-transition: all 0.4s ease;
 }
 .active-btn {
-  left: -3px!important;
+  left: 262px!important;
   transition: all 0.4s ease;
   -webkit-transition: all 0.4s ease;
   -moz-transition: all 0.4s ease;
@@ -1775,6 +1777,7 @@ form[role=edit-password] > div:last-child {
   .header-fixed-top  .navbar-logo {
     padding-left: 50px;
   }
+<<<<<<< d62b179b62c0200a2a49dace240011a28091410e
 }.refine-search a {
   color: #000;
 }
@@ -1790,3 +1793,6 @@ form[role=edit-password] > div:last-child {
 .filter-shopby .select2-container {
   width: 100% !important;
 }
+=======
+}
+>>>>>>> fix error don't click link logo on topmenu
