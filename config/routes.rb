@@ -113,8 +113,7 @@ Erp::OnlineStore::Engine.routes.draw do
 	# NEWSLETTER
 	# @todo newsletters routes errors
 	Erp::Newsletters::Engine.routes.draw do
-  get 'stock_inventory/index'
-
+		get 'stock_inventory/index'
 		get "dang-ky-nhan-tin.html" => "frontend/newsletters#add_email_to_newsletter", as: :newsletters
 		post "dang-ky-nhan-tin.html" => "frontend/newsletters#add_email_to_newsletter"
 	end
