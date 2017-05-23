@@ -74,9 +74,9 @@
                                 <div class="inner-box-desc">
                                     <h3>TÍNH NĂNG SẢN PHẨM</h3>
                                     <% product_short_descipriton_values_array = @product.product_short_descipriton_values_array %>
-                                    <% if product_short_descipriton_values_array.count > 3 %>
+                                    <% if product_short_descipriton_values_array.count > 2 %>
                                         <table>
-                                            <% @product.product_short_descipriton_values_array.each do |row| %>
+                                            <% product_short_descipriton_values_array.each do |row| %>
                                                 <tr>
                                                     <td valign="top" class="text-nowrap"><span><%= row[:name] %></span></td>
                                                     <td class="pl-10"><%= row[:values].join(", ") %></td>
