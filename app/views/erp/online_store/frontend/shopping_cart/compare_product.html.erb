@@ -7,8 +7,8 @@
     <div class="row">
         <!--Middle Part Start-->
         <div id="content" class="col-sm-12 compare-product">
-            <% c_count = @compare.compare_items.get_all_items.count %>
             <% all_items = @compare.compare_items.get_all_items %>
+            <% c_count = all_items.count %>
             <% if c_count > 0 %>
             <h2 class="title title-compare">DANH SÁCH SO SÁNH</h2>
             <div class="table-responsive">
@@ -61,6 +61,9 @@
                                     <% else %>
                                         <td class="property-value"><%= values.join(', ') %></td>
                                     <% end %>
+                                <% end %>
+                                <% (1..(c_count - row[1].count)).each do |values| %>
+                                    <td class="not-property property-value">Chưa có thông tin.</td>
                                 <% end %>
                             </tr>
                         <% end %>
