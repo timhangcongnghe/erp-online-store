@@ -80,8 +80,8 @@ function toogleFixedNav() {
         var top = $(window).scrollTop();
         var nav_top = $('.header-fixed-top').offset().top;
 
-        if (top > 165 && nav_top > 265 &&  $(window).width() > 992)  {
-            $('.header-fixed-top').slideDown();
+        if (top > 165 && nav_top > 265 && $(window).width() > 992)  {
+            $('.header-fixed-top').show();
         } else {
             $('.header-fixed-top').hide();
         }
@@ -609,7 +609,7 @@ $(document).ready(function () {
         //// end - js upload image in my account
 
         // toggle fixed bar
-        setInterval('toogleFixedNav()', 200);
+        setInterval(function() {toogleFixedNav();btnMenuFixed();}, 200);
 
         // validate contact form, comment form, rating form
         $('.contact_form').validate();
@@ -943,7 +943,7 @@ function btnMenuFixed() {
     var top = $(window).scrollTop();
     var height = getHeightMenuFixed();
     if (top > height &&  $(window).width() > 992)  {
-        $('.btn-menu-fixed').slideDown();
+        $('.btn-menu-fixed').show();
     } else {
         $('.btn-menu-fixed').hide();
     }
@@ -952,7 +952,7 @@ $(window).resize(function() {
     var top = $(window).scrollTop();
     var height = getHeightMenuFixed();
     if ($(window).width() > 992 && top > height) {
-        $('.btn-menu-fixed').slideDown();
+        $('.btn-menu-fixed').show();
     }
     else {
        $('.btn-menu-fixed').hide();
@@ -962,7 +962,8 @@ $(window).resize(function() {
 // add class active-content-menu into vertical-wrapper
 function showHideMenuFixed() {
     var height = getHeightMenuFixed();
-    if ($(window).scrollTop() > height && $(window).width() > 992) {
+    var top = $(window).scrollTop();
+    if (top > 165 && $(window).scrollTop() > height && $(window).width() > 992) {
         $('.vertical-wrapper').addClass('active-content-menu');
     }
     else
