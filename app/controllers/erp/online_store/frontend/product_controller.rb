@@ -18,7 +18,6 @@ module Erp
           @meta_keywords = @product.meta_keywords.to_s
           @meta_description = @product.meta_description
           @deal_products = Erp::Products::Product.get_deal_products
-          @hot_banners = Erp::Banners::Banner.get_category_banners
           @menu = params[:menu_id].present? ? Erp::Menus::Menu.find(params[:menu_id]) : @product.find_menu
           if @menu.present?
             @meta_keywords += @meta_keywords.present? ? ',' + @menu.meta_keywords : @menu.meta_keywords

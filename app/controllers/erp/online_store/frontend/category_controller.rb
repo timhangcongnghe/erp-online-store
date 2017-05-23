@@ -7,9 +7,6 @@ module Erp
           @menu = Erp::Menus::Menu.find(params[:menu_id])
           @related_menus = @menu.related_menus.limit(5)
           @products = @menu.get_products_for_categories(params).paginate(:page => params[:page], :per_page => 12)
-          if Erp::Core.available?("banners")
-            @hot_banners = Erp::Banners::Banner.get_category_banners
-          end
           @meta_keywords = @menu.meta_keywords
           @meta_desciption = @menu.meta_description
 
