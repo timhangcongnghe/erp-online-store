@@ -26,38 +26,38 @@
                 <li><%= link_to 'Góp ý & Liên hệ'.html_safe, erp_online_store.contact_us_path %></li>
                 <li><%= link_to 'Câu hỏi thường gặp'.html_safe, erp_online_store.faq_path %></li>
                 <li>
-                    <%= link_to 'Hướng dẫn mua hàng'.html_safe, erp_online_store.policy_path(
+                    <%= link_to 'Hướng dẫn mua hàng'.html_safe, Erp::Articles::Category.get_active.find_by_alias(Erp::Articles::Category::ALIAS_SHOPPING_GUIDE).nil? ? "" : erp_online_store.policy_path(
                         Erp::Articles::Category.find_by_alias(Erp::Articles::Category::ALIAS_SHOPPING_GUIDE).id,
                         'huong-dan-mua-hang'
                     ) %>
                 </li>
                 <li>
-                    <%= link_to 'Chính sách bảo hành'.html_safe, erp_online_store.policy_path(
-                        Erp::Articles::Category.find_by_alias(Erp::Articles::Category::ALIAS_WARRANTY).id,
+                    <%= link_to 'Chính sách bảo hành'.html_safe, Erp::Articles::Category.get_active.find_by_alias(Erp::Articles::Category::ALIAS_WARRANTY).nil? ? "" : erp_online_store.policy_path(
+                        Erp::Articles::Category.get_active.find_by_alias(Erp::Articles::Category::ALIAS_WARRANTY).id,
                         'chinh-sach-bao-hanh'
                     ) %>
                 </li>
                 <li>
-                    <%= link_to 'Quy định & Hình thức thanh toán'.html_safe, erp_online_store.policy_path(
-                        Erp::Articles::Category.find_by_alias(Erp::Articles::Category::ALIAS_PAYMENT).id,
+                    <%= link_to 'Quy định & Hình thức thanh toán'.html_safe, Erp::Articles::Category.get_active.find_by_alias(Erp::Articles::Category::ALIAS_PAYMENT).nil? ? "" : erp_online_store.policy_path(
+                        Erp::Articles::Category.get_active.find_by_alias(Erp::Articles::Category::ALIAS_PAYMENT).id,
                         'quy-dinh-hinh-thuc-thanh-toan'
                     ) %>
                 </li>
                 <li>
-                    <%= link_to 'Chính sách vận chuyển, giao nhận'.html_safe, erp_online_store.policy_path(
-                        Erp::Articles::Category.find_by_alias(Erp::Articles::Category::ALIAS_DELIVERY).id,
+                    <%= link_to 'Chính sách vận chuyển, giao nhận'.html_safe, Erp::Articles::Category.get_active.find_by_alias(Erp::Articles::Category::ALIAS_DELIVERY).nil? ? "" : erp_online_store.policy_path(
+                        Erp::Articles::Category.get_active.find_by_alias(Erp::Articles::Category::ALIAS_DELIVERY).id,
                         'chinh-sach-van-chuyen-giao-nhan'
                     ) %>
                 </li>
                 <li>
-                    <%= link_to 'Chính sách đổi trả hàng & hoàn tiền'.html_safe, erp_online_store.policy_path(
-                        Erp::Articles::Category.find_by_alias(Erp::Articles::Category::ALIAS_RETURN_REFUND).id,
+                    <%= link_to 'Chính sách đổi trả hàng & hoàn tiền'.html_safe, Erp::Articles::Category.get_active.find_by_alias(Erp::Articles::Category::ALIAS_RETURN_REFUND).nil? ? "" : erp_online_store.policy_path(
+                        Erp::Articles::Category.get_active.find_by_alias(Erp::Articles::Category::ALIAS_RETURN_REFUND).id,
                         'chinh-sach-doi-tra-hang-va-hoan-tien'
                     ) %>
                 </li>
                 <li>
-                    <%= link_to 'Chính sách bảo mật thông tin'.html_safe, erp_online_store.policy_path(
-                        Erp::Articles::Category.find_by_alias(Erp::Articles::Category::ALIAS_SECURITY).id,
+                    <%= link_to 'Chính sách bảo mật thông tin'.html_safe, Erp::Articles::Category.get_active.find_by_alias(Erp::Articles::Category::ALIAS_SECURITY).nil? ? "" : erp_online_store.policy_path(
+                        Erp::Articles::Category.get_active.find_by_alias(Erp::Articles::Category::ALIAS_SECURITY).id,
                         'quy-dinh-bao-mat-thong-tin'
                     ) %>
                 </li>
@@ -114,38 +114,38 @@
                 <li><%= link_to 'Góp ý & Liên hệ'.html_safe, erp_online_store.contact_us_path %></li>
                 <li><%= link_to 'Câu hỏi thường gặp'.html_safe, erp_online_store.faq_path %></li>
                 <li>
-                    <%= link_to 'Hướng dẫn mua hàng'.html_safe, erp_online_store.policy_path(
+                    <%= link_to 'Hướng dẫn mua hàng'.html_safe, Erp::Articles::Category.get_active.find_by_alias(Erp::Articles::Category::ALIAS_SHOPPING_GUIDE).nil? ? "" : erp_online_store.policy_path(
                         Erp::Articles::Category.find_by_alias(Erp::Articles::Category::ALIAS_SHOPPING_GUIDE).id,
                         'huong-dan-mua-hang'
                     ) %>
                 </li>
                 <li>
-                    <%= link_to 'Chính sách bảo hành'.html_safe, erp_online_store.policy_path(
-                        Erp::Articles::Category.find_by_alias(Erp::Articles::Category::ALIAS_WARRANTY).id,
+                    <%= link_to 'Chính sách bảo hành'.html_safe, Erp::Articles::Category.get_active.find_by_alias(Erp::Articles::Category::ALIAS_WARRANTY).nil? ? "" : erp_online_store.policy_path(
+                        Erp::Articles::Category.get_active.find_by_alias(Erp::Articles::Category::ALIAS_WARRANTY).id,
                         'chinh-sach-bao-hanh'
                     ) %>
                 </li>
                 <li>
-                    <%= link_to 'Quy định & Hình thức thanh toán'.html_safe, erp_online_store.policy_path(
-                        Erp::Articles::Category.find_by_alias(Erp::Articles::Category::ALIAS_PAYMENT).id,
+                    <%= link_to 'Quy định & Hình thức thanh toán'.html_safe, Erp::Articles::Category.get_active.find_by_alias(Erp::Articles::Category::ALIAS_PAYMENT).nil? ? "" : erp_online_store.policy_path(
+                        Erp::Articles::Category.get_active.find_by_alias(Erp::Articles::Category::ALIAS_PAYMENT).id,
                         'quy-dinh-hinh-thuc-thanh-toan'
                     ) %>
                 </li>
                 <li>
-                    <%= link_to 'Chính sách vận chuyển, giao nhận'.html_safe, erp_online_store.policy_path(
-                        Erp::Articles::Category.find_by_alias(Erp::Articles::Category::ALIAS_DELIVERY).id,
+                    <%= link_to 'Chính sách vận chuyển, giao nhận'.html_safe, Erp::Articles::Category.get_active.find_by_alias(Erp::Articles::Category::ALIAS_DELIVERY).nil? ? "" : erp_online_store.policy_path(
+                        Erp::Articles::Category.get_active.find_by_alias(Erp::Articles::Category::ALIAS_DELIVERY).id,
                         'chinh-sach-van-chuyen-giao-nhan'
                     ) %>
                 </li>
                 <li>
-                    <%= link_to 'Chính sách đổi trả hàng & hoàn tiền'.html_safe, erp_online_store.policy_path(
-                        Erp::Articles::Category.find_by_alias(Erp::Articles::Category::ALIAS_RETURN_REFUND).id,
+                    <%= link_to 'Chính sách đổi trả hàng & hoàn tiền'.html_safe, Erp::Articles::Category.get_active.find_by_alias(Erp::Articles::Category::ALIAS_RETURN_REFUND).nil? ? "" : erp_online_store.policy_path(
+                        Erp::Articles::Category.get_active.find_by_alias(Erp::Articles::Category::ALIAS_RETURN_REFUND).id,
                         'chinh-sach-doi-tra-hang-va-hoan-tien'
                     ) %>
                 </li>
                 <li>
-                    <%= link_to 'Chính sách bảo mật thông tin'.html_safe, erp_online_store.policy_path(
-                        Erp::Articles::Category.find_by_alias(Erp::Articles::Category::ALIAS_SECURITY).id,
+                    <%= link_to 'Chính sách bảo mật thông tin'.html_safe, Erp::Articles::Category.get_active.find_by_alias(Erp::Articles::Category::ALIAS_SECURITY).nil? ? "" : erp_online_store.policy_path(
+                        Erp::Articles::Category.get_active.find_by_alias(Erp::Articles::Category::ALIAS_SECURITY).id,
                         'quy-dinh-bao-mat-thong-tin'
                     ) %>
                 </li>
