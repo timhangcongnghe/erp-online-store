@@ -25,7 +25,12 @@
                 <li><%= link_to 'Về chúng tôi'.html_safe, erp_online_store.about_us_path %></li>
                 <li><%= link_to 'Góp ý & Liên hệ'.html_safe, erp_online_store.contact_us_path %></li>
                 <li><%= link_to 'Câu hỏi thường gặp'.html_safe, erp_online_store.faq_path %></li>
-                <li><%= link_to 'Hướng dẫn mua hàng'.html_safe, "" %></li>
+                <li>
+                    <%= link_to 'Hướng dẫn mua hàng'.html_safe, erp_online_store.policy_path(
+                        Erp::Articles::Category.find_by_alias(Erp::Articles::Category::ALIAS_SHOPPING_GUIDE).id,
+                        'huong-dan-mua-hang'
+                    ) %>
+                </li>
                 <li>
                     <%= link_to 'Chính sách bảo hành'.html_safe, erp_online_store.policy_path(
                         Erp::Articles::Category.find_by_alias(Erp::Articles::Category::ALIAS_WARRANTY).id,
@@ -108,7 +113,12 @@
                 <li><%= link_to 'Về chúng tôi'.html_safe, erp_online_store.about_us_path %></li>
                 <li><%= link_to 'Góp ý & Liên hệ'.html_safe, erp_online_store.contact_us_path %></li>
                 <li><%= link_to 'Câu hỏi thường gặp'.html_safe, erp_online_store.faq_path %></li>
-                <li><%= link_to 'Hướng dẫn mua hàng'.html_safe, "" %></li>
+                <li>
+                    <%= link_to 'Hướng dẫn mua hàng'.html_safe, erp_online_store.policy_path(
+                        Erp::Articles::Category.find_by_alias(Erp::Articles::Category::ALIAS_SHOPPING_GUIDE).id,
+                        'huong-dan-mua-hang'
+                    ) %>
+                </li>
                 <li>
                     <%= link_to 'Chính sách bảo hành'.html_safe, erp_online_store.policy_path(
                         Erp::Articles::Category.find_by_alias(Erp::Articles::Category::ALIAS_WARRANTY).id,
