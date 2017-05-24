@@ -1793,3 +1793,7 @@ form[role=edit-password] > div:last-child {
 .filter-shopby .select2-container {
   width: 100% !important;
 }
+@media(min-width: 720px)
+{
+  .mb-0-720 {margin: 0px!important} 
+}
