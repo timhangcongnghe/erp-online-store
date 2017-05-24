@@ -1,13 +1,15 @@
-<div class="module blog-category titleLine">
-    <h3 class="modtitle"><span>Chủ đề</span></h3>
+<div class="module menu-category titleLine">
+    <h3 class="modtitle"><span><i class="fa fa-angle-double-right"></i> Chủ đề quan tâm</span></h3>
     <div class="modcontent">
-        <ul class="list-group ">
-            <% @categories.each do |cat| %>
-                <li class="list-group-item">
-                    <%= link_to cat.name, erp_online_store.blog_with_category_path(cat.id, url_friendly(cat.name)),
-                    class: "group-item#{' active' if cat.id == params[:cat_id].to_i}" %>
-                </li>
-            <% end %>
-        </ul>
+        <div class="box-category">
+            <ul id="cat_accordion" class="list-group fix_active">
+                <% @categories.each do |cat| %>
+                    <li>
+                        <%= link_to cat.name, erp_online_store.blog_with_category_path(cat.id, url_friendly(cat.name)),
+                        class: "#{' current' if cat.id == params[:cat_id].to_i}" %>
+                    </li>
+                <% end %>
+            </ul>
+        </div>
     </div>
 </div>
