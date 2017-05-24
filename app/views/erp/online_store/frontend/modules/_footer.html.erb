@@ -72,9 +72,9 @@
                         <div class="modcontent">
                             <ul class="menu">
                                 <li>
-                                    <%= link_to "Chính sách bảo hành", erp_online_store.policy_path(
-                                        Erp::Articles::Category.find_by_alias(Erp::Articles::Category::ALIAS_WARRANTY).id,
-                                        'chinh-sach-bao-hanh'
+                                    <%= link_to "Hướng dẫn mua hàng", erp_online_store.policy_path(
+                                        Erp::Articles::Category.find_by_alias(Erp::Articles::Category::ALIAS_SHOPPING_GUIDE).id,
+                                        'huong-dan-mua-hang'
                                     ) %>
                                 </li>
                                 <li>
@@ -90,6 +90,12 @@
                                     ) %>
                                 </li>
                                 <li>
+                                    <%= link_to "Chính sách bảo hành", erp_online_store.policy_path(
+                                        Erp::Articles::Category.find_by_alias(Erp::Articles::Category::ALIAS_WARRANTY).id,
+                                        'chinh-sach-bao-hanh'
+                                    ) %>
+                                </li>
+                                <li>
                                     <%= link_to "Chính sách đổi trả hàng và hoàn tiền", erp_online_store.policy_path(
                                         Erp::Articles::Category.find_by_alias(Erp::Articles::Category::ALIAS_RETURN_REFUND).id,
                                         'chinh-sach-doi-tra-hang-va-hoan-tien'
@@ -101,7 +107,6 @@
                                         'quy-dinh-bao-mat-thong-tin'
                                     ) %>
                                 </li>
-                                <li><%= link_to "Câu hỏi thường gặp", erp_online_store.faq_path %></li>
                             </ul>
                         </div>
                     </div>
@@ -116,8 +121,8 @@
                                 <li><%= link_to "Góp ý & Liên hệ", erp_online_store.contact_us_path %></li>
                                 <li><%= link_to "Tin công nghệ", erp_online_store.blog_path %></li>
                                 <li><%= link_to "Tin sự kiện", erp_online_store.events_path %></li>
-                                <li><%= link_to "Lựa chọn từ doanh nghiệp", erp_online_store.business_choices_path %></li>
                                 <li><%= link_to "Các điều khoản & Điều kiện", erp_online_store.terms_and_conditions_path %></li>                                
+                                <li><%= link_to "Câu hỏi thường gặp", erp_online_store.faq_path %></li>
                             </ul>
                         </div>
                     </div>
