@@ -613,9 +613,6 @@ a.view-all-hotdeals:hover {
 .list-services li span:hover {
   /*border-color: #009688;*/
 }
-.category-banner {
-  margin-top: 30px;
-}
 .shopping_cart:hover .content {
   display: block;
 }
