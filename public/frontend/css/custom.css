@@ -1795,5 +1795,8 @@ form[role=edit-password] > div:last-child {
 }
 @media(min-width: 720px)
 {
-  .mb-0-720 {margin: 0px!important} 
+  .mb-0-720 {margin: 0px!important}
+}
+.fancybox-slider .main-container {
+  margin: 0 !important;
 }
