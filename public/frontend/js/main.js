@@ -677,10 +677,19 @@ $(document).ready(function () {
     );
 
     // autosearch
-    $('select').select2({
-        minimumResultsForSearch: 10,
-        dropdownAutoWidth: 'true',
-        language: "vi"
+    $('select').each(function() {
+        var placeholder = $(this).attr('placeholder');
+
+        if (typeof(placeholder) == 'undefined') {
+            placeholder = false;
+        }
+
+        $(this).select2({
+            minimumResultsForSearch: 10,
+            dropdownAutoWidth: 'true',
+            language: "vi",
+            placeholder: placeholder,
+        });
     });
 
     // Ajax content
@@ -716,15 +725,15 @@ $(document).ready(function () {
         $.fancybox.close( 'all' );
     });
 
-    $(document).on('change', '.category-filter-box input, .category-filter-box select', function() {
+    $(document).on('change', '.category-filter-box input, .category-filter-box select, .category-filter-top input, .category-filter-top select', function() {
         var form = $(this).parents('form');
         var url = form.attr('action');
-        var container = $('#content');
+        var container = $('.main-products-list');
 
         container.html('<div class="category-loading"></div>');
 
         //$( "body" ).scrollTop( $('#content').offset().top - 100 );
-        $( "body" ).animate({scrollTop:$('#content').offset().top - 100}, 'slow');
+        //$( "body" ).animate({scrollTop:$('#content').offset().top - 100}, 'slow');
 
         // ajax autosearch
         if(category_xhr && category_xhr.readyState != 4){
@@ -732,9 +741,9 @@ $(document).ready(function () {
         }
         category_xhr = $.ajax({
             url: url,
-            data: form.serialize()
+            data: $('.category-filter-box, .category-filter-top').serialize()
         }).done(function( data ) {
-            container.html($('<div>').html(data).find('#content').html());
+            container.html($('<div>').html(data).find('.main-products-list').html());
             setTimeout(function () {
                 container.find('.product-image-container').addClass('lazy-loaded');
                 container.find('.products-list').removeClass('list').addClass('grid');
