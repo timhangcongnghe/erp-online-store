@@ -34,10 +34,11 @@
             <fieldset id="personal-details">
                 <legend>Thông tin tài khoản</legend>
                 <div class="row">
-                    <div class="col-sm-12">
-                        <p>Tên người dùng: <strong><%= current_user.name %></strong></p>
-                        <p>Email đăng nhập: <strong><%= current_user.email %></strong></p>
-                        <p>Quyền người dùng: <strong>Khách hàng</strong></p>
+                    <div class="col-sm-6">
+                        <p>Người dùng: <strong><%= current_user.name %></strong></p>
+                    </div>
+                    <div class="col-sm-6">
+                        <p>Email chính: <strong><%= current_user.email %></strong></p>
                     </div>
                 </div>
                 <br />
@@ -45,7 +46,7 @@
                 <div class="row">
                     <div class="col-sm-6">
                         <p>Họ và tên: <strong><%= @contact.name %></strong></p>
-                        <p>Sinh nhật: <strong><%= format_date(@contact.birthday) %></strong></p>
+                        <p>Sinh nhật: <strong><%= @contact.birthday.nil? ? 'Chưa cập nhật' : format_date(@contact.birthday) %></strong></p>
                         <p>Giới tính:
                             <strong>
                                 <% if @contact.gender == Erp::Contacts::Contact::GENDER_MALE %>
@@ -53,17 +54,14 @@
                                 <% elsif @contact.gender == Erp::Contacts::Contact::GENDER_FEMALE %>
                                     Nữ
                                 <% else %>
-                                    Không biết
+                                    Chưa cập nhật
                                 <% end %>
                             </strong>
                         </p>
                     </div>
                     <div class="col-sm-6">
-                        <p>Số điện thoại: <strong><%= @contact.phone %></strong></p>
-                        <p>Địa chỉ email: <strong><%= @contact.email %></strong></p>
-                        <p>Loại liên hệ: <strong><%= @contact.contact_type == Erp::Contacts::Contact::TYPE_COMPANY ? 'Công ty / Tổ chức / Doanh nghiệp' : 'Cá nhân' %></strong></p>
-                    </div>
-                    <div class="col-sm-12">
+                        <p>Điện thoại: <strong><%= @contact.phone %></strong></p>
+                        <p>Email: <strong><%= @contact.email %></strong></p>
                         <p>Địa chỉ: <strong><%= full_address(@contact) %></strong></p>
                     </div>
                 </div>

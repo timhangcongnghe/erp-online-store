@@ -8,9 +8,19 @@
                 <div class="form-group required">
                     <label class="control-label">Họ tên</label>
                     <input type="text" class="form-control required"
-                           placeholder="Nhập họ tên người nhận" value="<%= @contact.name %>" name="contact[name]">
+                           placeholder="Nhập họ và tên" value="<%= @contact.name %>" name="contact[name]">
                 </div>
             </div>
+            <div class="col-sm-6">
+                <div class="form-group required">
+                    <label class="control-label">Quận/Huyện/Thị xã</label>
+                    <div class="" id="payment-district-3">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
             <div class="col-sm-6">
                 <div class="form-group required">
                     <label class="control-label">Điện thoại di động</label>
@@ -18,8 +28,6 @@
                            placeholder="Nhập số điện thoại" value="<%= @contact.phone %>" name="contact[phone]">
                 </div>
             </div>
-        </div>
-        <div class="row">
             <div class="col-sm-6">
                 <div class="form-group required">
                     <label class="control-label">Tỉnh/Thành phố</label>
@@ -37,17 +45,16 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm-6">
-                <div class="form-group required">
-                    <label class="control-label">Quận/Huyện/Thị xã</label>
-                    <div class="" id="payment-district-3">
-                        
-                    </div>
-                </div>
-            </div>
         </div>
         <div class="row">
-            <div class="col-sm-12">
+            <div class="col-sm-6">
+                <div class="form-group required">
+                    <label class="control-label">Địa chỉ email</label>
+                    <input type="text" class="form-control required"
+                           placeholder="Nhập địa chỉ email" value="<%= @contact.email %>" name="contact[email]">
+                </div>
+            </div>
+            <div class="col-sm-6">
                 <div class="form-group required">
                     <label class="control-label">Địa chỉ</label>
                     <input type="text" class="form-control required"
