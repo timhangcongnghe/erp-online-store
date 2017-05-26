@@ -17,7 +17,10 @@
             <div class="products-category">
                 <h1 class="menu-title mb-0">Sản Phẩm Khuyến Mãi</h1>
 
-                <%= render "erp/online_store/frontend/modules/category/product_list_filter_line", brands: Erp::Products::Brand.for_filter %>
+                <%= render "erp/online_store/frontend/modules/category/product_list_filter_line",
+                    brands: Erp::Products::Brand.for_filter,
+                    menus: true
+                %>
 
                 <div class="main-products-list">
                     <% if @products.count > 0 %>

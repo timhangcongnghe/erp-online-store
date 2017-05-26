@@ -12,6 +12,17 @@
                     </select>
                     <span class="select2-selection__arrow-mul"></span>
                 </div>
+                <% if defined?(menus) and false %>
+                    <div class="filters-box menus-filter-line" style="margin-top: -2px;">
+                        <select class="select-ajax" name="menu_id"
+                            data-url="<%= erp_online_store.category_select2_path %>"
+                            data-placeholder=""
+                            multiple="multiple"
+                        >
+                        </select>
+                        <span class="select2-selection__arrow-mul"></span>
+                    </div>
+                <% end %>
             </div>
             <div class="col-sm-4 col-md-3">
                 <div class="filters-box pull-right">
