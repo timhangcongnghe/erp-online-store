@@ -689,7 +689,6 @@ $(document).ready(function () {
             dropdownAutoWidth: 'true',
             language: "vi",
             placeholder: placeholder,
-            allowClear: true,
         });
     });
 
