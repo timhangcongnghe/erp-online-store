@@ -984,3 +984,20 @@ function showHideMenuFixed() {
         }
     }
 }
+
+// add function click add new, edit tab content(back end)
+function tabContent() {
+    var height = $('#header').height() + $('.breadcrumb').height() + 68 + $('.account-address-book .title').height() + $('.dashboard-address').height() + $('.add-address').height();
+    $('body,html').animate({
+        scrollTop: height
+    }, 600);
+}
+
+$('.edit-customer-address').click(function() {
+    tabContent();
+});
+
+$('.add-address').click(function() {
+    tabContent();
+});
+
