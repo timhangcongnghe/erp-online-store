@@ -1885,7 +1885,47 @@ form[role=edit-password] > div:last-child {
   color: #009688;
   background: #fff;
 }
-.filters-line {
+
+/******************* Giỏ hàng và so sánh ********************/
+.header-fixed-top .header-center .top-link {
+  line-height: 38px;
+  margin-bottom: 3px;
+}
+.header-fixed-top .header-center .top-link:hover a {
+  color: #009688;
+  transition: all 0.4s ease;
+  -webkit-transition: all 0.4s ease;
+  -moz-transition: all 0.4s ease;
+  -ms-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
+}
+.header-fixed-top .header-center .top-link .icon-sosanh {
+  padding-right: 6px;
+}
+.header-fixed-top .header-center .top-link li {
+  border: 1px #ccc solid;
+  border-radius: 2px;
+  padding: 0px;
+}
+.header-fixed-top .header-center .top-link li a {
+    text-transform: uppercase;
+    display: block;
+    font-size: 13px;
+    padding-right: 18px;
+    padding-left: 18px;
+    color: #444;
+}
+.header-fixed-top .header-center .top-link li a .number {
+  border: 1px #cc181e solid;
+  border-radius: 50%;
+  padding-left: 5px;
+  padding-right: 5px;
+  background: #cc181e;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  color: #fff;
+  margin-left: 6px;
+}.filters-line {
     background: #f6f6f6;
     padding: 5px 10px 0 10px;
 }

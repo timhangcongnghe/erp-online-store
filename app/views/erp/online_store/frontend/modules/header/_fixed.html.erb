@@ -39,12 +39,21 @@
                     </div>
 					<!-- //End Cart Pro -->
 					<!-- Phone -->
-					<div class="phone-contact hidden-xs">
+					<!--<div class="phone-contact hidden-xs">
 						<div class="inner-info">
 							<h2>Hotline:</h2><p>(08) 3984 7690</p>
 						</div>
-					</div>
+					</div>-->
 					<!-- //End Phone -->
+					<!-- -->
+					<ul class="top-link list-inline pull-right">
+						<% if @compare.get_number_items > 0 %>
+						<li class="compare">
+							<a href="<%= erp_online_store.compare_product_path %>" class="top-link-compare" title="So sánh sản phẩm"><i class="fa fa-superpowers icon-sosanh"></i>So sánh<span class="number"><%= @compare.get_number_items %></span></a>
+						</li>
+						<% end %>
+					</ul>
+					<!-- -->
 				</div>
 			</div>
 		</div>
