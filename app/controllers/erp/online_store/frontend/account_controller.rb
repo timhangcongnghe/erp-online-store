@@ -99,9 +99,22 @@ module Erp
           render layout: nil
         end
         
-        # edit contact
+        # create/edit contact
         def contact_update
-          @contact = params[:contact][:contact_id].present? ? Erp::Contacts::Contact.find(params[:contact][:contact_id]) : Erp::Contacts::Contact.new
+          if current_user.contact.nil?
+            @contact = Erp::Contacts::Contact.new(user_id: current_user.id)
+            @contact.creator = current_user
+            @contact.user = current_user
+            @contact.contact_type = params[:contact_type].present? ? params[:contact_type] : Erp::Contacts::Contact::TYPE_PERSON
+          else 
+            if params[:contact][:contact_id].present?
+              @contact = Erp::Contacts::Contact.find(params[:contact][:contact_id])
+            else 
+              @contact = Erp::Contacts::Contact.new(parent_id: current_user.contact.id)
+              @contact.creator = current_user
+              @contact.contact_type = params[:contact_type].present? ? params[:contact_type] : Erp::Contacts::Contact::TYPE_SHIPPING
+            end
+          end
           
           @contact.assign_attributes(contact_params)
           
@@ -125,7 +138,7 @@ module Erp
           end
 
           def contact_params
-            params.fetch(:contact, {}).permit(:name, :phone, :email, :birthday, :gender, :state_id, :district_id, :address)
+            params.fetch(:contact, {}).permit(:name, :phone, :email, :birthday, :gender, :state_id, :district_id, :address, :parent_id)
           end
       end
     end
