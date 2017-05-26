@@ -6,7 +6,7 @@
                 <% @categories.each do |cat| %>
                     <li>
                         <%= link_to cat.name, erp_online_store.blog_with_category_path(cat.id, url_friendly(cat.name)),
-                        class: "#{' current' if cat.id == params[:cat_id].to_i}" %>
+                        class: "#{' current' if (defined?(cat_id) and cat.id == cat_id) or (cat.id == params[:cat_id].to_i)}" %>
                     </li>
                 <% end %>
             </ul>
