@@ -15,7 +15,9 @@
         <!--Middle Part Start-->
         <div id="content" class="col-md-9 col-sm-8">
             <div class="products-category">
-                <h1 class="menu-title">Sản Phẩm Bán Chạy Nhất</h1>
+                <h1 class="menu-title mb-0">Sản Phẩm Bán Chạy Nhất</h1>
+
+                <%= render "erp/online_store/frontend/modules/category/product_list_filter_line", brands: Erp::Products::Brand.for_filter %>
 
                 <div class="main-products-list">
                     <% if @products.count > 0 %>

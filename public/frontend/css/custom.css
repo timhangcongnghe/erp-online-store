@@ -2004,3 +2004,7 @@ form[role=edit-password] > div:last-child {
     border-radius: 3px;
     color: #fff;
 }
+.filter-shopby .table_cell.last, .filter-row .table_cell.last {
+  padding-bottom: 0;
+  border-bottom: none;
+}

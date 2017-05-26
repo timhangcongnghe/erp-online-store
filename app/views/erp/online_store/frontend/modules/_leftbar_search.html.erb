@@ -8,7 +8,7 @@
         <%= form_tag("", method: "get", class: "category-filter-box") do %>
             <div class="table_layout filter-shopby">
                 <div class="table_row">
-                    <div class="table_cell" style="z-index: 103;">
+                    <div class="table_cell last" style="z-index: 103;">
                         <legend>Tìm theo chuyên mục</legend>
                         <div>
                             <select class="select-ajax" name="menu_id"
@@ -16,32 +16,6 @@
                                 data-placeholder="Tất cả chuyên mục">
                             </select>
                         </div>
-                    </div>
-                    <div class="table_cell" style="z-index: 103;">
-                        <legend>Sắp xếp sản phẩm</legend>
-                        <div>
-                            <select class="form-control" name="sort_by">
-                                <option value="" selected="selected">Mặc Định</option>
-                                <option value="name_asc">Tên sản phẩm (A - Z)</option>
-                                <option value="name_desc">Tên sản phẩm (Z - A)</option>
-                                <option value="price_asc">Giá (Thấp - Cao)</option>
-                                <option value="price_desc">Giá (Cao - Thấp)</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="table_cell">
-                        <fieldset>
-                            <% if Erp::Products::Brand.all.count > 1 %>
-                                <legend>Thương hiệu sản phẩm</legend>
-                                <div>
-                                    <select class="select-ajax" name="brand_id"
-                                        data-url="<%= erp_online_store.brand_select2_path %>"
-                                        data-placeholder="Tất cả thương hiệu">
-                                    </select>
-                                </div>
-                                <br />
-                            <% end %>
-                        </fieldset>
                     </div>
                 </div>
                 <!--/ .table_row -->
