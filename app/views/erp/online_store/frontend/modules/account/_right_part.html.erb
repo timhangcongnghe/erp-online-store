@@ -3,11 +3,8 @@
     <div class="list-group">
         <ul class="list-item">
             <li><%= link_to "Thông tin tài khoản", erp_online_store.my_account_path %></li>
-            <li><%= link_to "Lịch sử mua hàng", erp_online_store.order_history_path %></li>
-            <li><%= link_to "Đăng xuất", erp.destroy_user_session_path,
-                                        method: :delete,
-                                        redirect_to: erp.backend_path,
-                                        class: 'link-method' %></li>
+            <li><%= link_to "Quản lý đơn hàng", erp_online_store.order_history_path %></li>
+            <li><%= link_to "Sổ địa chỉ", erp_online_store.address_book_path %></li>
         </ul>
     </div>    
     <h2 class="subtitle">Thống kê đơn hàng</h2>
