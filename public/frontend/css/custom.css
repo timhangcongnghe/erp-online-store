@@ -1797,6 +1797,7 @@ form[role=edit-password] > div:last-child {
 .fancybox-slider .main-container {
   margin: 0 !important;
 }
+
 /* Account Address Book */
 .account-address-book .add-address {
   border: 1px dashed #d8d8d8;
@@ -1911,21 +1912,25 @@ form[role=edit-password] > div:last-child {
     text-transform: uppercase;
     display: block;
     font-size: 13px;
-    padding-right: 18px;
+    padding-right: 45px;
     padding-left: 18px;
     color: #444;
 }
-.header-fixed-top .header-center .top-link li a .number {
+.header-fixed-top .header-center .number {
   border: 1px #cc181e solid;
-  border-radius: 50%;
-  padding-left: 5px;
-  padding-right: 5px;
+  border-radius: 100%;
+  text-align: center;
   background: #cc181e;
-  padding-top: 1px;
-  padding-bottom: 1px;
+  height: 19px;
+  width: 19px;
+  line-height: 18px;
+  top: 10px;
+  font-size: 11px;
+  position: absolute;
   color: #fff;
   margin-left: 6px;
-}.filters-line {
+}
+.filters-line {
     background: #f6f6f6;
     padding: 5px 10px 0 10px;
 }
