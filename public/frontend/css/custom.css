@@ -1797,3 +1797,92 @@ form[role=edit-password] > div:last-child {
 .fancybox-slider .main-container {
   margin: 0 !important;
 }
+
+/* Account Address Book */
+.account-address-book .add-address {
+  border: 1px dashed #d8d8d8;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  display: block;
+  padding: 20px;
+  background: #fff;
+  color: #e67e22;
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 15px;
+  position: relative;
+}
+.account-address-book .dashboard-address .item {
+  position: relative;
+  margin-bottom: 0;
+  margin-top: 10px;
+  box-shadow: none;
+  border-radius: 4px;
+}
+.account-address-book .dashboard-address .panel-body {
+  padding: 17px;
+}
+.account-address-book .dashboard-address .item .name {
+  font-size: 13px;
+  font-weight: 500;
+  margin-bottom: 10px;
+  color: #242424;
+  text-transform: uppercase;
+}
+.account-address-book .dashboard-address .item.is-default .default {
+  display: inline-block;
+  font-size: 13px;
+  color: #26bc4e;
+  text-transform: none;
+  font-weight: 400;
+  position: relative;
+  padding-left: 25px;
+}
+.account-address-book .dashboard-address .item .address {
+  font-size: 13px;
+  margin-bottom: 5px;
+  color: #242424;
+  font-weight: 400;
+}
+.account-address-book .dashboard-address .item .phone {
+  font-size: 13px;
+  margin-bottom: 0;
+}
+.account-address-book .dashboard-address .item .action {
+  margin-bottom: 0;
+  font-size: 0;
+}
+.account-address-book .btn-custom1:first-child, .tiki-account .wrap .btn-custom1:first-child+button {
+  margin-right: 7px;
+}
+.account-address-book .dashboard-address .btn-custom1 {
+  position: absolute;
+}
+.account-address-book .btn-custom1 {
+  border: none;
+  right: 45px;
+  top: 10px;
+  color: #00635a;
+  font-size: 14px;
+  background: 0 0;
+}
+.account-address-book .btn-custom1.btn-delete-address {
+  right: 10px;
+  color: #d42e1d;
+}
+.account-address-book fieldset#address-form {
+  border-radius: 3px;
+  padding: 20px;
+  background-color: #f5f5f5;
+}
+.account-address-book .btn-custom1.btn-delete-address:active {
+  opacity: 1;
+  background: #fff;
+}
+.account-address-book .btn-custom1:focus {
+  outline: none;
+}
+.account-address-book .btn-custom1:active {
+  color: #009688;
+  background: #fff;
+}

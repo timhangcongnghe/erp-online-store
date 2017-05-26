@@ -45,6 +45,11 @@ Erp::OnlineStore::Engine.routes.draw do
   post "tai-khoan/cap-nhat-mat-khau.html" => "frontend/account#update_password"
   get "tai-khoan/danh-sach-don-hang.html" => "frontend/account#order_history", as: :order_history
   get "tai-khoan/chi-tiet-don-hang/:order_id-:title.html" => "frontend/account#order_information", as: :order_information
+  get "tai-khoan/so-dia-chi.html" => "frontend/account#address_book", as: :address_book
+  get "account-contact-form.html" => "frontend/account#contact_form", as: :account_contact_form
+  get "tai-khoan/so-dia-chi/cap-nhat.html" => "frontend/account#contact_update", as: :account_contact_update
+  post "tai-khoan/so-dia-chi/cap-nhat.html" => "frontend/account#contact_update"
+  delete "tai-khoan/:contact_id-remove.html" => "frontend/account#delete_sub_contact", as: :account_sub_contact_delete
 
   # SHOPPING CART
   get "topcart.html" => "frontend/shopping_cart#top_cart", as: :top_cart

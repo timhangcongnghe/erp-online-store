@@ -83,6 +83,41 @@ module Erp
           end
           @order = Erp::Orders::FrontendOrder.find(params[:order_id])
         end
+        
+        def address_book
+          @body_class = "res layout-subpage"
+          if current_user.nil?
+            redirect_to erp_online_store.root_path, notice: "Bạn chưa đăng nhập."
+            return
+          else 
+            @contact = params[:contact_id].present? ? Erp::Contacts::Contact.find(params[:contact_id]) : Erp::Contacts::Contact.new
+          end
+        end
+        
+        def contact_form
+          @contact = params[:contact_id].present? ? Erp::Contacts::Contact.find(params[:contact_id]) : Erp::Contacts::Contact.new
+          render layout: nil
+        end
+        
+        # edit contact
+        def contact_update
+          @contact = params[:contact][:contact_id].present? ? Erp::Contacts::Contact.find(params[:contact][:contact_id]) : Erp::Contacts::Contact.new
+          
+          @contact.assign_attributes(contact_params)
+          
+          if params[:contact].present?
+            @contact.save
+            redirect_to :back, notice: 'Thông tin liên hệ đã được cập nhật.'
+          end
+        end
+        
+        # delete contact in address book
+        def delete_sub_contact
+          @sub_contact = Erp::Contacts::Contact.find(params[:contact_id])
+        
+          @sub_contact.destroy
+          redirect_to erp_online_store.address_book_path, notice: 'Thông tin liên hệ đã được xóa.'
+        end
 
         private
           def user_params
