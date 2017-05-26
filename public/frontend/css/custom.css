@@ -1982,11 +1982,20 @@ form[role=edit-password] > div:last-child {
 }
 .filters-box .select2-container .select2-search--inline .select2-search__field {
   margin-top: 1px;
-  min-width: 50px;
+  min-width: 135px;
   cursor: pointer;
-  background: url(../image/arrow-dropdown.png) right 5px no-repeat;
+  background: url(../image/arrow-dropdown.png?v=2) right 0px no-repeat;
   height: 22px;
   padding-top: 2px;
+  color: rgba(0,0,0,0);
+}
+.filters-box .select2-container .select2-search--inline:after {
+    content: "Chọn Hãng cần tìm";
+    display: block;
+    position: absolute;
+    bottom: 7px;
+    cursor: pointer;
+    color: #555;
 }
 .select2-results__option[aria-selected=true] {
     display: none;

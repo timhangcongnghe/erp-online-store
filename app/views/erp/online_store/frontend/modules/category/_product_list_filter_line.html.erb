@@ -3,8 +3,7 @@
         <div class="row">
             <div class="col-sm-8 col-md-9">
                 <div class="filters-box" style="margin-top: -2px;">
-                    <label>Theo hãng:</label>
-                    <select class="form-control" name="brand_ids[]" multiple="multiple" placeholder="Tất cả">
+                    <select class="form-control" name="brand_ids[]" multiple="multiple" placeholder="">
                         <% brands.each do |brand| %>
                             <li>
                                 <option value="<%= brand.id %>"><%= brand.name %></option>

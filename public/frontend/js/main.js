@@ -760,7 +760,7 @@ $(document).ready(function () {
 
         var form = $(this).parents('form');
         var url = $(this).attr('href');
-        var container = $('#content');
+        var container = $('.main-products-list');
 
         container.html('<div class="category-loading"></div>');
 
@@ -772,9 +772,9 @@ $(document).ready(function () {
         }
         category_xhr = $.ajax({
             url: url,
-            data: form.serialize()
+            data: $('.category-filter-box, .category-filter-top').serialize()
         }).done(function( data ) {
-            container.html($('<div>').html(data).find('#content').html());
+            container.html($('<div>').html(data).find('.main-products-list').html());
             setTimeout(function () {
                 container.find('.product-image-container').addClass('lazy-loaded');
                 container.find('.products-list').removeClass('list').addClass('grid');
@@ -1000,4 +1000,3 @@ $('.edit-customer-address').click(function() {
 $('.add-address').click(function() {
     tabContent();
 });
-
