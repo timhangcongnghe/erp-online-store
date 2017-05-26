@@ -1990,7 +1990,7 @@ form[role=edit-password] > div:last-child {
   color: rgba(0,0,0,0);
 }
 .filters-box .select2-container .select2-search--inline:after {
-    content: "Chọn Hãng cần tìm";
+    content: "Thêm Hãng cần tìm";
     display: block;
     position: absolute;
     bottom: 7px;
