@@ -43,10 +43,10 @@
                                 </div>
                             </td>
                             <td class="text-center">
-                                <strong><%= format_price(cart_item.product_price) %></strong>
+                                <strong class="price"><%= format_price(cart_item.product_price) %></strong>
                             </td>
                             <td class="text-center">
-                                <strong><%= format_price(cart_item.total_price) %></strong>
+                                <strong class="price"><%= format_price(cart_item.total_price) %></strong>
                             </td>
                         </tr>
                         <% end %>
@@ -59,7 +59,7 @@
                     <table class="table table-bordered">
                         <tr>
                             <td class="text-right"><strong>TỔNG TIỀN:</strong></td>
-                            <td class="text-right total-price"><%= format_price(@cart.total_order) %></td>
+                            <td class="text-right price"><%= format_price(@cart.total_order) %></td>
                         </tr>
                     </table>
                 </div>

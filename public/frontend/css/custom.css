@@ -792,6 +792,12 @@ table.product-compare tr td.product-name {
 .default-margin {
   margin-bottom: 10px !important;
 }
+.shopping-cart form.edit_cart .price, .shopping-cart table.table .price {
+  font-size: 14px;
+}
+.shopping-cart form.edit_cart .price {
+  color: #333;
+}
 .shopping-cart, .compare-product, a, .btn-link {
   color: #000;
 }
