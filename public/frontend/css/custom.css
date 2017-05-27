@@ -883,6 +883,10 @@ table.product-compare tr td.product-name {
   color: #fff;
   text-transform: uppercase;
 }
+.type_7 .shopping_cart .btn-shopping-cart:hover {
+  background-color: #00635a;
+  border-radius: 3px;
+}
 .type_7 .shopping_cart .btn-shopping-cart ul {
   font-weight: bold;
   font-size: 14px;
@@ -905,7 +909,7 @@ table.product-compare tr td.product-name {
   padding: 2px 0;
 }
 .type_7 .header-center {
-    padding: 4px 0 2px;
+    padding: 4px 0 1px;
     border-bottom: solid 1px #ddd;
 }
 #sosearchpro.search-pro .select_category select {
@@ -925,7 +929,8 @@ table.product-compare tr td.product-name {
   margin: 1px 0;
 }
 .type_7 .shopping_cart .btn-shopping-cart ul {
-  margin-top: -1px;
+  margin-top: 6px;
+  border-radius: 3px;
 }
 .custom-menu {
   font-weight: 500;
@@ -1895,8 +1900,8 @@ form[role=edit-password] > div:last-child {
 
 /******************* Giỏ hàng và so sánh ********************/
 .header-fixed-top .header-center .top-link {
-  line-height: 38px;
-  margin-bottom: 3px;
+  line-height: 37px;
+  margin-bottom: 4px;
 }
 .header-fixed-top .header-center .top-link:hover a {
   color: #009688;
@@ -1910,17 +1915,21 @@ form[role=edit-password] > div:last-child {
   padding-right: 6px;
 }
 .header-fixed-top .header-center .top-link li {
-  border: 1px #ccc solid;
-  border-radius: 2px;
+  border: 2px #009688 solid;
+  border-radius: 3px;
   padding: 0px;
 }
 .header-fixed-top .header-center .top-link li a {
-    text-transform: uppercase;
-    display: block;
-    font-size: 13px;
-    padding-right: 45px;
-    padding-left: 18px;
-    color: #444;
+  text-transform: uppercase;
+  display: block;
+  font-size: 13px;
+  padding-right: 45px;
+  padding-left: 18px;
+  color: #009688;
+}
+.header-fixed-top .header-center .top-link li a:hover {
+  background-color: #009688;
+  color: #fff;
 }
 .header-fixed-top .header-center .number {
   border: 1px #cc181e solid;
