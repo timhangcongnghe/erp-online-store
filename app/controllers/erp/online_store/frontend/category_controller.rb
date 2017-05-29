@@ -8,7 +8,7 @@ module Erp
           @related_menus = @menu.related_menus.limit(5)
           @products = @menu.get_products_for_categories(params).paginate(:page => params[:page], :per_page => 12)
           @meta_keywords = @menu.meta_keywords
-          @meta_desciption = @menu.meta_description
+          @meta_description = @menu.meta_description
 
           if request.xhr?
             render layout: nil
