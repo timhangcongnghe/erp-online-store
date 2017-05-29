@@ -2,9 +2,9 @@ module Erp
   module OnlineStore
     module Frontend
       class ErrorController < Erp::Frontend::FrontendController
+        layout 'erp/frontend/error_page'
         def not_found          
           render(:status => 404)
-          render layout: "erp/frontend/error_page"
         end      
       end
     end

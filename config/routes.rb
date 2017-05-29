@@ -1,6 +1,6 @@
 Erp::OnlineStore::Engine.routes.draw do
   root to: "frontend/home#index"
-	match "/404", :to => "frontend/errors#not_found", :via => :all
+	match "/404", :to => "frontend/error#not_found", :via => :all
   get "category-box" => "frontend/home#category_box", as: :category_box
   get "/auth/failure" => "frontend/home#auth_failure", as: :auth_failure
 

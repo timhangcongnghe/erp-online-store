@@ -8,61 +8,11 @@
   <%= stylesheet_link_tag "/frontend/error-page-template/css/style.css" %>
   <%= stylesheet_link_tag "/frontend/error-page-template/css/simpletextrotator.css" %>
   <%= stylesheet_link_tag "http://fonts.googleapis.com/css?family=Open+Sans:400,700" %>
-  <%= javasript_include_tag "/frontend/error-page-template/js/jquery.min.js" %>
-  <%= javasript_include_tag "/frontend/error-page-template/js/jquery.simple-text-rotator.min.js" %>
-  <%= javasript_include_tag "/frontend/error-page-template/js/main.js" %>
+  <%= javascript_include_tag "/frontend/error-page-template/js/jquery.min.js" %>
+  <%= javascript_include_tag "/frontend/error-page-template/js/jquery.simple-text-rotator.min.js" %>
+  <%= javascript_include_tag "/frontend/error-page-template/js/main.js" %>
 </head>
 <body>
-	<div class="main">
-		<div class="container page-text">
-			<div class="row">
-				<div class="col-sm-12">
-					<img src="/frontend/error-page-template/logo.png" title="" class="logo-page">
-				</div>
-			</div>
-			<div class="row">			
-				<div class="col-sm-12">
-					<h1 class="rotate">Trang không tồn tại, Lỗi 404!</h1>
-					<span>
-						Rất tiếc, Trang của bạn tìm kiếm không được tìm thấy.<br>
-						Vui lòng trở về <%= link_to "Trang Chủ", erp_online_store.root_path %>
-					</span>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="footer">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-6">
-						<div class="menu-container clearfix">
-							<ul class="menu">
-								<!-- start menu links -->
-								<!-- replace the # with menu links -->
-								<li><%= link_to "Trang chủ", erp_online_store.root_path %></li>
-								<li><%= link_to "Về chúng tôi", erp_online_store.about_us_path %></li>
-								<li><%= link_to "Liên hệ", erp_online_store.contact_us_path %></li>
-								<!-- end menu links -->
-							</ul>
-						</div>
-					</div>
-					<div class="col-md-6">
-						<div class="socila-container clearfix">
-							<ul class="social pull-right">
-								<!-- start social links -->
-								<!-- replace the # with your own profile link address -->
-								<li><a href=""><i class="fa fa-facebook"></i></a></li>
-								<li><a href=""><i class="fa fa-youtube"></i></a></li>
-								<li><a href=""><i class="fa fa-google-plus"></i></a></li>
-								<li><a href=""><i class="fa fa-instagram"></i></a></li>
-								<li><a href=""><i class="fa fa-pinterest"></i></a></li>
-								<!-- end social links -->
-							</ul>
-						</div>
-						<div class="copyright pull-right">Copyright &copy; 2017 <%= link_to "TimHangCongNghe.VN", erp_online_store.root_path %> - All Rights Reserved.</div>
-					</div>
-				</div>
-			</div>
-		</div>
+	<%= yield %>
 </body>
 </html>
