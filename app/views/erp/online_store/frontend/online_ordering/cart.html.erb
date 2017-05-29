@@ -1,0 +1,62 @@
+<div class="container">
+    <header class="page-header">
+        <h1 class="page-title">GIỎ HÀNG CỦA BẠN</h1>
+    </header>
+    <div class="row">
+        <div class="col-md-10">
+            <table class="table table table-shopping-cart">
+                <thead>
+                    <tr>
+                        <th>Hình ảnh</th>
+                        <th>Tên sản phẩm</th>
+                        <th>Màu sắc/Kích thước</th>
+                        <th>Giá</th>
+                        <th>Số lượng</th>
+                        <th>Thành tiền</th>
+                        <th>Xóa</th>
+                    </tr>
+                </thead>
+                <tbody>
+                  <% (0..3).each do |online_cart_item| %>
+                    <tr>
+                        <td class="table-shopping-cart-img">
+                            <%= link_to image_tag("/frontend/online_ordering/img/cart/3.jpg", alt: "", title: ""), erp_online_store.online_ordering_product_detail_path, title: "" %>
+                        </td>
+                        <td class="table-shopping-cart-title">
+                            <%= link_to "XPERIA Z Ultra 16GB", erp_online_store.online_ordering_product_detail_path, title: "" %>
+                        </td>
+                        <td>Green</td>
+                        <td>$50</td>
+                        <td>
+                            <input class="form-control table-shopping-qty" type="text" value="1" />
+                        </td>
+                        <td>$50</td>
+                        <td>
+                            <a class="fa fa-close table-shopping-remove" href="#"></a>
+                        </td>
+                    </tr>
+                    <% end %>
+                </tbody>
+            </table>
+            <div class="gap gap-small"></div>
+        </div>
+        <div class="col-md-2">
+            <ul class="shopping-cart-total-list">
+                <li><span>Subtotal</span><span>$2199</span></li>
+                <li><span>Shopping</span><span>Free</span></li>
+                <li><span>Taxes</span><span>$0</span></li>
+                <li><span>Total</span><span>$2199</span></li>
+            </ul>
+            <%= link_to "Đặt Hàng", erp_online_store.online_ordering_checkout_path, class: "btn btn-primary" %>
+        </div>
+    </div>
+    <ul class="list-inline">
+        <li>
+          <%= link_to "Tiếp Tục Mua Hàng", "", class: "btn btn-default" %>
+        </li>
+        <li>
+          <%= link_to "Cập Nhật Giỏ Hàng", "", class: "btn btn-default" %>
+        </li>
+    </ul>
+</div>
+<div class="gap"></div>

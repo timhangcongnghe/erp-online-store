@@ -90,6 +90,13 @@ Erp::OnlineStore::Engine.routes.draw do
       end
     end
 	end
+  
+  # ONLINE ORDERING
+  get "dat-hang-truc-tuyen.html" => "frontend/online_ordering#index", as: :online_ordering
+  get "dat-hang-truc-tuyen/chi-tiet-san-pham.html" => "frontend/online_ordering#product_detail", as: :online_ordering_product_detail
+  get "dat-hang-truc-tuyen/gio-hang.html" => "frontend/online_ordering#cart", as: :online_ordering_cart
+  get "dat-hang-truc-tuyen/dat-hang.html" => "frontend/online_ordering#checkout", as: :online_ordering_checkout
+  get "dat-hang-truc-tuyen/dat-hang-thanh-cong.html" => "frontend/online_ordering#summary", as: :online_ordering_summary
 
   # INFORMATION
   get "gioi-thieu.html" => "frontend/information#about_us", as: :about_us

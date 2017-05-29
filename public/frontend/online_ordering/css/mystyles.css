@@ -1,0 +1,9 @@
+.navbar-main {
+	background: #17c3b9;
+}
+.navbar-brand > img {
+	width: 120px;
+}
+.navbar-brand {
+	padding: 9px 15px 15px 15px;
+}

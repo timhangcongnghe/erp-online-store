@@ -107,15 +107,7 @@
                     </div>
                     <div class="header_custom_link hidden-xs hidden-sm hidden-md">
                         <ul>
-                            <% if user_signed_in? %>
-                            <li><%= link_to '<i class="fa fa-user"></i> Tài Khoản'.html_safe, erp_online_store.my_account_path %></li>
-                            <% else %>
-                            <li>
-                                <a class="ajax-link" data-type="ajax" href="<%= erp.new_user_session_path %>">
-                                    <i class="fa fa-sign-in"></i> Đăng Nhập
-                                </a>
-                            </li>
-                            <% end %>
+                            <li><%= link_to '<i class="fa fa-amazon"></i> ĐẶT HÀNG'.html_safe, erp_online_store.online_ordering_path, target: "_blank" %></li>
                         </ul>
                     </div>
                 </div>
