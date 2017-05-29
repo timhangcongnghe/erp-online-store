@@ -14,11 +14,11 @@
                 <table class="table table-bordered">
                     <thead>
                         <tr>
-                            <td class="text-center">HÌNH ẢNH</td>
-                            <td class="text-left">TÊN SẢN PHẨM</td>
-                            <td class="text-center">SỐ LƯỢNG</td>
-                            <td class="text-center">GIÁ</td>
-                            <td class="text-center">THÀNH TIỀN</td>
+                            <td class="text-center">Hình ảnh</td>
+                            <td class="text-left">Tên sản phẩm</td>
+                            <td class="text-center">Số lượng</td>
+                            <td class="text-center">Giá</td>
+                            <td class="text-center">Thành tiền</td>
                         </tr>
                     </thead>
                     <tbody>
@@ -30,24 +30,20 @@
                             <td class="text-left">
                                 <strong><%= link_to cart_item.product_name, product_link(cart_item.product), title: cart_item.product_name %></strong><br />
                                 <% if cart_item.product.short_description.present? %>
-                                <br><small><%= cart_item.product.short_description.html_safe %></small>
-                            <% end %>
-                            
-                            <ul class="product-sale">
-                                <li class="item-product-sale list-inline">
-                                    <div class="icon-product-sale">
-                                        <img alt="Máy Tính Đồng Bộ HP Pavilion" class="img-thumbnail" width="70" src="/uploads/erp/products/product_image/image_url/7439/thumb99_hp-pavilion-20-2224x-ai-o-k5l71aa-pc-non-touch-01.jpg">
-                                    </div>
-                                    <a href="#">Màn Hình Lenovo 21.5-inch LI2215SD (<span class="red">Sản phẩm khuyến mãi</span>)</a>
-                                </li>
-                                <li class="item-product-sale list-inline">
-                                    <div class="icon-product-sale">
-                                        <img alt="Máy Tính Đồng Bộ HP Pavilion" class="img-thumbnail" width="70" src="/uploads/erp/products/product_image/image_url/7439/thumb99_hp-pavilion-20-2224x-ai-o-k5l71aa-pc-non-touch-01.jpg">
-                                    </div>
-                                    <a href="#">Màn Hình Lenovo 21.5-inch LI2215SD (<span class="red">Sản phẩm khuyến mãi</span>)</a>
-                                </li>
-                            </ul>
-                            
+                                    <br><small><%= cart_item.product.short_description.html_safe %></small>
+                                <% end %>
+                                <% if cart_item.product.products_gifts.count > 0 %>
+                                    <ul class="product-sale">
+                                        <% cart_item.product.products_gifts.each do |gift| %>
+                                            <li class="item-product-sale list-inline">
+                                                <div class="icon-product-sale">
+                                                    <img alt="Máy Tính Đồng Bộ HP Pavilion" class="img-thumbnail" width="70" src="/uploads/erp/products/product_image/image_url/7439/thumb99_hp-pavilion-20-2224x-ai-o-k5l71aa-pc-non-touch-01.jpg">
+                                                </div>
+                                                <a href="#"><%= gift.gift_name %> (<span class="red">tặng kèm</span>)</a>
+                                            </li>
+                                        <% end %>
+                                    </ul>
+                                <% end %>
                             </td>
                             <td class="text-center vertical" width="200px">
                                 <div class="input-group btn-block quantity">
