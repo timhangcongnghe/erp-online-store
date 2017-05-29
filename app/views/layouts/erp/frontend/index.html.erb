@@ -4,14 +4,8 @@
 <head>
 	<%= csrf_meta_tags %>
 
-    <!-- Basic page needs ============================================ -->
-    <title>
-	<% if content_for?(:title) %>
-		<%= yield(:title) %> | TimHangCongNghe.vn
-	<% else %>
-		Trang Thương Mại Điện Tử Sản Phẩm Công Nghệ Uy Tín, Chất Lượng | TimHangCongNghe.vn
-	<% end %>
-	</title>
+  <!-- Basic page needs ============================================ -->
+  <title><% if content_for?(:title) %><%= yield(:title) %> | TimHangCongNghe.VN<% else %>Trang Thương Mại Điện Tử Sản Phẩm Công Nghệ Uy Tín, Chất Lượng<% end %></title>
 	<meta charset="utf-8">
 	<% if @meta_description.present? %>
 	<meta name="description" content="<%= @meta_description %>">
