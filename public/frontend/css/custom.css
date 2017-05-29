@@ -2040,3 +2040,51 @@ form[role=edit-password] > div:last-child {
   padding-bottom: 0;
   border-bottom: none;
 }
+/************************* Sản Phẩm khuyến mãi Trong Đơn Hàng ************************/
+@media (max-width: 992px) and (min-width: 768px)
+{
+  .item-product-sale .icon-product-sale {
+    width: 100px!important;
+  }
+  .item-product-sale a {
+    line-height: 23px!important;
+    font-size: 12px!important;
+  }
+  .table-bordered strong a {
+    line-height: 25px!important;
+  }
+}
+  
+.table-bordered strong a { 
+  line-height: 48px;
+}
+.table-bordered tbody tr .img-center {
+    width: 100px!important;
+    vertical-align: middle!important;
+}
+.vertical {
+  vertical-align: middle!important;
+}
+.product-sale {
+  margin-left: 10px;
+}
+.red {
+  color: #cb2027!important;
+}
+.item-product-sale {
+    line-height: 28px;
+    padding-left: 5px;
+    padding-bottom: 10px;
+    display: flex!important;
+}
+.item-product-sale .icon-product-sale {
+  float: left;
+  width: 40px;
+  height: 40px;
+}
+.item-product-sale a {
+  float: left;
+  line-height: 40px;
+  padding-left: 20px;
+}
+

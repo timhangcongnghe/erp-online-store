@@ -24,16 +24,32 @@
                     <tbody>
                         <% @cart.cart_items.each do |cart_item| %>
                         <tr>
-                            <td class="text-center">
+                            <td class="text-center img-center">
                                 <%= link_to image_tag(product_image(cart_item.product.product_images, 'first', 'thumb99'), alt: cart_item.product_name, class: "img-thumbnail", width: "70"), product_link(cart_item.product), title: cart_item.product_name %>
                             </td>
                             <td class="text-left">
                                 <strong><%= link_to cart_item.product_name, product_link(cart_item.product), title: cart_item.product_name %></strong><br />
                                 <% if cart_item.product.short_description.present? %>
                                 <br><small><%= cart_item.product.short_description.html_safe %></small>
-                                <% end %>
+                            <% end %>
+                            
+                            <ul class="product-sale">
+                                <li class="item-product-sale list-inline">
+                                    <div class="icon-product-sale">
+                                        <img alt="Máy Tính Đồng Bộ HP Pavilion" class="img-thumbnail" width="70" src="/uploads/erp/products/product_image/image_url/7439/thumb99_hp-pavilion-20-2224x-ai-o-k5l71aa-pc-non-touch-01.jpg">
+                                    </div>
+                                    <a href="#">Màn Hình Lenovo 21.5-inch LI2215SD (<span class="red">Sản phẩm khuyến mãi</span>)</a>
+                                </li>
+                                <li class="item-product-sale list-inline">
+                                    <div class="icon-product-sale">
+                                        <img alt="Máy Tính Đồng Bộ HP Pavilion" class="img-thumbnail" width="70" src="/uploads/erp/products/product_image/image_url/7439/thumb99_hp-pavilion-20-2224x-ai-o-k5l71aa-pc-non-touch-01.jpg">
+                                    </div>
+                                    <a href="#">Màn Hình Lenovo 21.5-inch LI2215SD (<span class="red">Sản phẩm khuyến mãi</span>)</a>
+                                </li>
+                            </ul>
+                            
                             </td>
-                            <td class="text-center" width="200px">
+                            <td class="text-center vertical" width="200px">
                                 <div class="input-group btn-block quantity">
                                     <strong><input class="form-control" type="text" name="quantities[<%= cart_item.id %>]" value="<%= cart_item.quantity %>"></strong>
                                     <span class="input-group-btn">
@@ -47,6 +63,11 @@
                             </td>
                             <td class="text-center">
                                 <strong class="price"><%= format_price(cart_item.total_price) %></strong>
+                            <td class="text-center vertical">
+                                <strong><%= format_price(cart_item.product_price) %></strong>
+                            </td>
+                            <td class="text-center vertical">
+                                <strong><%= format_price(cart_item.total_price) %></strong>
                             </td>
                         </tr>
                         <% end %>
