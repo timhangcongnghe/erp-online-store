@@ -2,16 +2,18 @@
     <div class="filters-line">
         <div class="row">
             <div class="col-sm-8 col-md-9">
-                <div class="filters-box" style="margin-top: -2px;">
-                    <select class="form-control" name="brand_ids[]" multiple="multiple" placeholder="">
-                        <% brands.each do |brand| %>
-                            <li>
-                                <option value="<%= brand.id %>"><%= brand.name %></option>
-                            </li>
-                        <% end %>
-                    </select>
-                    <span class="select2-selection__arrow-mul"></span>
-                </div>
+                <% if brands.count > 1 %>
+                    <div class="filters-box" style="margin-top: -2px;">
+                        <select class="form-control" name="brand_ids[]" multiple="multiple" placeholder="">
+                            <% brands.each do |brand| %>
+                                <li>
+                                    <option value="<%= brand.id %>"><%= brand.name %></option>
+                                </li>
+                            <% end %>
+                        </select>
+                        <span class="select2-selection__arrow-mul"></span>
+                    </div>
+                <% end %>
                 <% if defined?(menus) and false %>
                     <div class="filters-box menus-filter-line" style="margin-top: -2px;">
                         <select class="select-ajax" name="menu_id"
