@@ -14,38 +14,39 @@
                 <table class="table table-bordered">
                     <thead>
                         <tr>
-                            <td class="text-center">Hình ảnh</td>
-                            <td class="text-left">Tên sản phẩm</td>
-                            <td class="text-center">Số lượng</td>
-                            <td class="text-center">Giá</td>
-                            <td class="text-center">Thành tiền</td>
+                            <td class="no-border-bottom text-center">Hình ảnh</td>
+                            <td class="no-border-bottom text-left">Tên sản phẩm</td>
+                            <td class="no-border-bottom text-center">Số lượng</td>
+                            <td class="no-border-bottom text-center">Giá</td>
+                            <td class="no-border-bottom text-center">Thành tiền</td>
                         </tr>
                     </thead>
                     <tbody>
                         <% @cart.cart_items.each do |cart_item| %>
                         <tr>
                             <td class="text-center img-center">
-                                <%= link_to image_tag(product_image(cart_item.product.product_images, 'first', 'thumb99'), alt: cart_item.product_name, class: "img-thumbnail", width: "70"), product_link(cart_item.product), title: cart_item.product_name %>
+                                <%= link_to image_tag(product_image(cart_item.product.product_images, 'first', 'thumb99'), alt: cart_item.product_name, class: "img-thumbnail", width: "90"), product_link(cart_item.product), title: cart_item.product_name %>
                             </td>
-                            <td class="text-left">
+                            <td class="text-left vertical">
                                 <strong><%= link_to cart_item.product_name, product_link(cart_item.product), title: cart_item.product_name %></strong><br />
                                 <% if cart_item.product.short_description.present? %>
                                     <br><small><%= cart_item.product.short_description.html_safe %></small>
                                 <% end %>
-                                <% if cart_item.product.products_gifts.count > 0 %>
+                                <% if cart_item.product.gifts.count > 0 %>
+                                    <span class="red">Quà tặng kèm:</span>
                                     <ul class="product-sale">
-                                        <% cart_item.product.products_gifts.each do |gift| %>
+                                        <% cart_item.product.gifts.each do |gift| %>
                                             <li class="item-product-sale list-inline">
                                                 <div class="icon-product-sale">
-                                                    <img alt="Máy Tính Đồng Bộ HP Pavilion" class="img-thumbnail" width="70" src="/uploads/erp/products/product_image/image_url/7439/thumb99_hp-pavilion-20-2224x-ai-o-k5l71aa-pc-non-touch-01.jpg">
+                                                    <%= image_tag(product_image(gift.product_images, 'first', 'thumb99'), alt: gift.name, class: "img-thumbnail", width: "80") %>
                                                 </div>
-                                                <a href="#"><%= gift.gift_name %> (<span class="red">tặng kèm</span>)</a>
+                                                <span><%= gift.name %></span>
                                             </li>
                                         <% end %>
                                     </ul>
                                 <% end %>
                             </td>
-                            <td class="text-center vertical" width="200px">
+                            <td class="text-center vertical" width="150px">
                                 <div class="input-group btn-block quantity">
                                     <strong><input class="form-control" type="text" name="quantities[<%= cart_item.id %>]" value="<%= cart_item.quantity %>"></strong>
                                     <span class="input-group-btn">

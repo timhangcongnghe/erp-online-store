@@ -985,7 +985,7 @@ form.login-form, input.btn-login-account, form.register-form, input.btn-register
   font-weight: 500;
 }
 .info-store legend {
-    border-bottom: 0;
+  border-bottom: 0;
 }
 .contact-form input, .contact-form textarea {
   border-radius: 3px !important;
@@ -2059,32 +2059,41 @@ form[role=edit-password] > div:last-child {
   line-height: 48px;
 }
 .table-bordered tbody tr .img-center {
-    width: 100px!important;
-    vertical-align: middle!important;
+  width: 10%;
 }
 .vertical {
   vertical-align: middle!important;
 }
 .product-sale {
-  margin-left: 10px;
+  margin-left: 15px;
+  border-left: 3px solid #999;
+  padding: 5px 10px;
 }
 .red {
   color: #cb2027!important;
 }
 .item-product-sale {
-    line-height: 28px;
-    padding-left: 5px;
-    padding-bottom: 10px;
-    display: flex!important;
+  line-height: 28px;
+  padding-left: 5px;
+  padding-bottom: 10px;
+  display: flex!important;
+}
+.item-product-sale:last-child {
+  padding-bottom: 0;
 }
 .item-product-sale .icon-product-sale {
   float: left;
   width: 40px;
   height: 40px;
 }
-.item-product-sale a {
+.item-product-sale a, .item-product-sale span {
   float: left;
   line-height: 40px;
-  padding-left: 20px;
+  padding-left: 10px;
 }
-
+.shopping-cart .img-thumbnail {
+  border: none;
+}
+td.no-border-bottom {
+  border-bottom: none !important;
+}
