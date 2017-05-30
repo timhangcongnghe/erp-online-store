@@ -90,8 +90,9 @@ Erp::OnlineStore::Engine.routes.draw do
       end
     end
 	end
-  
+
   # ONLINE ORDERING
+  get "dat-hang-truc-tuyen/tim-kiem.html" => "frontend/online_ordering#search", as: :online_ordering_search
   get "dat-hang-truc-tuyen.html" => "frontend/online_ordering#index", as: :online_ordering
   get "dat-hang-truc-tuyen/chi-tiet-san-pham.html" => "frontend/online_ordering#product_detail", as: :online_ordering_product_detail
   get "dat-hang-truc-tuyen/gio-hang.html" => "frontend/online_ordering#cart", as: :online_ordering_cart

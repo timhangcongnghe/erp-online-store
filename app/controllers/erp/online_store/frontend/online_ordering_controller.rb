@@ -2,23 +2,32 @@ module Erp
   module OnlineStore
     module Frontend
       class OnlineOrderingController < Erp::Frontend::FrontendController
-        layout 'erp/frontend/order'        
+        layout 'erp/frontend/order'
         def index
         end
-        
-        def product_detail
+
+        def search
+          @page = params[:page].present? ? params[:page] : 1
+
+          @ebay_result = Erp::Products::Product::ebay_find_items_by_keywords(params[:keywords], {
+            per_page: 16,
+            page: @page
+          })
         end
-        
+
+        def product_detail
+          @ebay_item = Erp::Products::Product::ebay_get_single_item(params[:id])
+        end
+
         def cart
         end
-    
+
         def checkout
         end
-    
+
         def summary
-        end     
+        end
       end
     end
   end
 end
-

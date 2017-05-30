@@ -20,6 +20,7 @@
     <%= stylesheet_link_tag "/frontend/online_ordering/css/styles.css" %>
     <%= stylesheet_link_tag "/frontend/online_ordering/css/mystyles.css" %>
     <%= stylesheet_link_tag "/frontend/online_ordering/css/switcher.css" %>
+    <%= stylesheet_link_tag "/frontend/online_ordering/css/custom.css" %>
     <link rel="alternate stylesheet" type="text/css" href="/frontend/online_ordering/css/schemes/bright-turquoise.css" title="bright-turquoise" media="all" />
     <link rel="alternate stylesheet" type="text/css" href="/frontend/online_ordering/css/schemes/turkish-rose.css" title="turkish-rose" media="all" />
     <link rel="alternate stylesheet" type="text/css" href="/frontend/online_ordering/css/schemes/salem.css" title="salem" media="all" />
@@ -35,12 +36,13 @@
     <link rel="alternate stylesheet" type="text/css" href="/frontend/online_ordering/css/schemes/leather.css" title="leather" media="all" />
     <link rel="alternate stylesheet" type="text/css" href="/frontend/online_ordering/css/schemes/denim.css" title="denim" media="all" />
     <link rel="alternate stylesheet" type="text/css" href="/frontend/online_ordering/css/schemes/scarlet.css" title="scarlet" media="all" />
+
 </head>
 
 <body>
-    <div class="global-wrapper clearfix" id="global-wrapper">            
-        <%= render "erp/online_store/frontend/modules/online_ordering/header" %>        
-        <%= yield %>    
+    <div class="global-wrapper clearfix" id="global-wrapper">
+        <%= render "erp/online_store/frontend/modules/online_ordering/header" %>
+        <%= yield %>
         <%= render "erp/online_store/frontend/modules/online_ordering/banner" %>
         <%= render "erp/online_store/frontend/modules/online_ordering/copyright" %>
     </div>

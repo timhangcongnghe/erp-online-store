@@ -9,7 +9,7 @@
                     <li><%= link_to "Tìm Hàng Công Nghệ", erp_online_store.root_path %></li>
                     <li><a href="">Hướng dẩn đặt hàng</a></li>
                     <li><%= link_to "Về chúng tôi", erp_online_store.about_us_path %></li>
-                    <li><%= link_to "Góp ý & Liên hệ", erp_online_store.contact_us_path %></li>                            
+                    <li><%= link_to "Góp ý & Liên hệ", erp_online_store.contact_us_path %></li>
                 </ul>
             </div>
         </div>
@@ -23,12 +23,18 @@
             </button>
             <%= link_to image_tag("/frontend/online_ordering/img/logo.png", alt: "", title: ""), erp_online_store.online_ordering_path, title: "", class: "navbar-brand" %>
         </div>
-        <div class="collapse navbar-collapse" id="main-nav-collapse">                    
-            <form class="navbar-form navbar-left navbar-main-search" role="search">
+        <div class="collapse navbar-collapse" id="main-nav-collapse">
+            <form class="navbar-form navbar-left navbar-main-search" role="search" action="<%= erp_online_store.online_ordering_search_path %>">
                 <div class="form-group">
-                    <input class="form-control" type="text" placeholder="Nhập link sản phẩm cần đặt mua tại đây..." />
+                    <input
+                        name="keywords"
+                        value="<%= params[:keywords] %>"
+                        class="form-control"
+                        type="text"
+                        placeholder="Nhập từ khóa hoặc link sản phẩm từ Amazon / Ebay tại đây..."
+                    />
                 </div>
-                <a class="fa fa-search navbar-main-search-submit" href="#"></a>
+                <a class="fa fa-search navbar-main-search-submit" href="#submit" onclick="$(this).parents('form').submit()"></a>
             </form>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="#nav-login-dialog" data-effect="mfp-move-from-top" class="popup-text">ĐĂNG NHẬP</a>
@@ -54,7 +60,7 @@
                             <%= link_to "Đặt Hàng", erp_online_store.online_ordering_checkout_path, class: "dropdown-menu-shipping-cart-checkout btn btn-primary" %>
                         </li>
                     </ul>
-                </li>                
+                </li>
             </ul>
         </div>
     </div>

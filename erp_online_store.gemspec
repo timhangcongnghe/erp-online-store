@@ -24,4 +24,6 @@ Gem::Specification.new do |s|
   s.add_dependency "rails", "~> 5.0.0.1"
   s.add_dependency "erp_core"
   s.add_dependency "deface"
+  s.add_dependency "amazon-ecs"
+  s.add_dependency "rebay"
 end
