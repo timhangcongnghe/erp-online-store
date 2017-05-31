@@ -9,8 +9,16 @@ module Erp
         end
 
         def search
-          @page = params[:page].present? ? params[:page] : 1
+          # check if keywords is ebay details link
+          if params[:keywords].include?("ebay.com/itm")
+            id = params[:keywords].split('?')[0].split('/').last
+            if (true if Float(id) rescue false)
+              redirect_to erp_online_store.online_ordering_product_detail_path(id: id)
+              return
+            end
+          end
 
+          @page = params[:page].present? ? params[:page] : 1
           @ebay_result = Erp::Products::Product::ebay_find_items_by_keywords(params[:keywords], {
             per_page: 16,
             page: @page

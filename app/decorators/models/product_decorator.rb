@@ -44,16 +44,9 @@ Erp::Products::Product.class_eval do
 
   # Amazon ECS configuration
   def self.amazon_ecs_configure
-    options[:AWS_access_key_id] = 'AKIAJZIFHLI25GQKZKUA'
-    options[:AWS_secret_key] = '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'
-    options[:associate_tag] = 'tag'
-  end
-
-  # Amazon ECS configuration
-  def self.amazon_ecs_configure
     Amazon::Ecs.configure do |options|
-      options[:AWS_access_key_id] = 'AKIAJZIFHLI25GQKZKUA'
-      options[:AWS_secret_key] = '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'
+      options[:AWS_access_key_id] = 'AKIAINAMNQTAEC66BZRA'
+      options[:AWS_secret_key] = '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'
       options[:associate_tag] = 'tag'
     end
   end
