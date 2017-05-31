@@ -259,6 +259,7 @@ function autoSearch(box) {
 // Init vars
 var AUTH_TOKEN = $('meta[name=csrf-token]').attr('content');
 var category_xhr;
+var online_search_xhr;
 $(document).ready(function () {
     // Grap link with data-method attribute
     $(document).on('click', 'a.link-method[data-method]', function(e) {
@@ -755,7 +756,7 @@ $(document).ready(function () {
         });
     });
 
-    $(document).on('click', '.pagination a', function(e) {
+    $(document).on('click', '.box-pagination .pagination a', function(e) {
         e.preventDefault();
 
         var form = $(this).parents('form');
@@ -901,6 +902,66 @@ $(document).ready(function () {
             language: "vi",
             allowClear: true,
             placeholder: placeholder
+        });
+    });
+
+    // Online search
+    $(document).on('submit', '.online_search_form', function(e) {
+        e.preventDefault();
+
+        var form = $(this);
+        var url = form.attr('action');
+        var method = form.attr('method');
+        var keywords = form.find('input[name=keywords]').val();
+        var container = $('.online_search_result_container');
+
+        if (keywords.trim() === '') {
+            return;
+        }
+
+        container.html('<div class="category-loading"></div>');
+
+        if(online_search_xhr && online_search_xhr.readyState != 4){
+            online_search_xhr.abort();
+        }
+        online_search_xhr = $.ajax({
+            url: url,
+            method: method,
+            data: form.serialize()
+        }).done(function( data ) {
+            container.html(data);
+            setTimeout(function () {
+                container.find('.product-image-container').addClass('lazy-loaded');
+                container.find('.products-list').removeClass('list').addClass('grid');
+                fixWithProductListAll();
+            }, 500);
+        });
+    });
+
+    $(document).on('click', '.service_box_list .pagination a', function(e) {
+        e.preventDefault();
+
+        var link = $(this);
+        var url = link.attr('href');
+        var method = 'GET';
+        var container = $('.online_search_result_container');
+
+        container.html('<div class="category-loading"></div>');
+
+        if(online_search_xhr && online_search_xhr.readyState != 4){
+            online_search_xhr.abort();
+        }
+        online_search_xhr = $.ajax({
+            url: url,
+            method: method
+        }).done(function( data ) {
+            container.html(data);
+            setTimeout(function () {
+                container.find('.product-image-container').addClass('lazy-loaded');
+                container.find('.products-list').removeClass('list').addClass('grid');
+                fixWithProductListAll();
+            }, 500);
+            $(window).scrollTop();
         });
     });
 

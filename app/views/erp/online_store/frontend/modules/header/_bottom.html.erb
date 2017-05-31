@@ -107,7 +107,13 @@
                     </div>
                     <div class="header_custom_link hidden-xs hidden-sm hidden-md">
                         <ul>
-                            <li><%= link_to '<i class="fa fa-amazon"></i> ĐẶT HÀNG'.html_safe, erp_online_store.online_ordering_path, target: "_blank" %></li>
+                            <li>
+                            <%= link_to '<i class="fa fa-amazon"></i> ĐẶT HÀNG'.html_safe,
+                                erp_online_store.online_ordering_path,
+                                class: "ajax-link",
+                                "data-type": "ajax"
+                            %>
+                            </li>
                         </ul>
                     </div>
                 </div>

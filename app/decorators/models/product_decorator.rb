@@ -80,7 +80,6 @@ Erp::Products::Product.class_eval do
 
     finder = Rebay::Shopping.new
     item = finder.get_single_item({:ItemID => item_id, IncludeSelector: "Description,Details"}).response["Item"]
-    puts item
     {
       'id' => item["ItemId"],
       'name' => item["Title"],
@@ -125,5 +124,47 @@ Erp::Products::Product.class_eval do
       'price' => item["sellingStatus"]["currentPrice"]["__value__"],
       'url' => item["viewItemURL"]
     }
+  end
+
+  # get ebay product. create new if not exist
+  def self.get_ebay_product(eid)
+    include ActionView::Helpers::SanitizeHelper
+
+    product = self.where(ebay_id: eid).first
+
+    if product.nil?
+      # create new if not exist
+      ebay_item = self.ebay_get_single_item(eid)
+
+      product = self.new
+      product.ebay_id = eid
+      product.name = ebay_item["name"]
+      product.short_name = ebay_item["name"]
+      product.price = ebay_item["price"].to_f*22000
+      product.description = ebay_item["description"].gsub(/<\s*script\s*>([^\<]*)<\s*\/\s*script\s*>/, '')
+      product.short_description = ebay_item["short_description"]
+
+      # brand
+      brand = Erp::Products::Brand.where(name: 'Unknown').first
+      brand = Erp::Products::Brand.create(name: 'Unknown') if brand.nil?
+      product.brand_id = brand.id
+
+      # category
+      category = Erp::Products::Category.where(name: 'Ebay.com').first
+      category = Erp::Products::Category.create(name: 'Ebay.com') if category.nil?
+      product.category_id = category.id
+
+      # picture
+      ebay_item["pictures"] = [ebay_item["pictures"].to_s] if !ebay_item["pictures"].kind_of?(Array)
+      ebay_item["pictures"].each do |url|
+        image = product.product_images.new
+        image.remote_image_url_url = url
+        image.save!
+      end
+
+      product.save
+    end
+
+    product
   end
 end

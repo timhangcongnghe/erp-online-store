@@ -2054,8 +2054,8 @@ form[role=edit-password] > div:last-child {
     line-height: 25px!important;
   }
 }
-  
-.table-bordered strong a { 
+
+.table-bordered strong a {
   line-height: 48px;
 }
 .table-bordered tbody tr .img-center {
@@ -2096,4 +2096,25 @@ form[role=edit-password] > div:last-child {
 }
 td.no-border-bottom {
   border-bottom: none !important;
+}
+.mt-20 {
+  margin-top: 20px;
+}
+.service_box_list .product-image-container {
+  height: 150px;
+  position: relative;
+}
+.service_box_list .product-image-container img {
+  max-height: 150px;
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  right: 0;
+  left: 0;
+}
+.service_box_list .product-image-container .img-2 {
+  position: inherit;
+  width: auto;
 }
