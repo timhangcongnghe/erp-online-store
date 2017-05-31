@@ -1,0 +1,60 @@
+<div class="">
+    <h4 class="mt-20">Tìm kiếm sản phẩm trực tuyến với từ khóa: <strong><i><%= params[:keywords] %></i></strong></h4>
+    <hr>
+
+    <% if !@ebay_result[:items].empty? %>
+        <div class="service_box_list">
+            <h3 class="widget-title-lg">Sản phẩm từ <strong>Ebay.com</strong></h3>
+            <div class="products-list row list">
+                <% @ebay_result[:items].each_with_index do |ebay_item,index| %>
+                <div class="product-layout  col-md-3 col-sm-6 col-xs-12">
+                    <div class="product-item-container product-lists">
+                        <div class="left-block">
+                            <div class="product-image-container lazy second_img " style="text-align: center">
+                                <img
+                                    data-src="<%= ebay_item["thumb"].present? ? ebay_item["thumb"] : "http://ir.ebaystatic.com/pictures/aw/pics/nextGenVit/imgNoImg.gif" %>"
+                                    alt="<%= ebay_item["name"] %>"
+                                    title="<%= ebay_item["name"] %>"
+                                    class=""
+                                    src="<%= ebay_item["thumb"].present? ? ebay_item["thumb"] : "http://ir.ebaystatic.com/pictures/aw/pics/nextGenVit/imgNoImg.gif" %>"
+                                />
+                            </div>
+                        </div>
+                        <div class="right-block">
+                            <div class="caption">
+                                <h4><%= link_to ebay_item["name"], erp_online_store.online_ordering_product_detail_path(id: ebay_item["id"]), title: ebay_item["name"], class: "hover-product-name" %></h4>
+                                <div class="price">
+                                    <span class="price-new">$<%= ebay_item["price"] %></span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- right block -->
+                    </div>
+                </div>
+                <% end %>
+            </div>
+            <hr/>
+            <div class="row">
+                <div class="col-md-6">
+                    <!--<p class="category-pagination-sign"><%= @ebay_result[:total_entries] %> sản phẩm được tìm thấy.</p>-->
+                </div>
+                <div class="col-md-6">
+                    <nav>
+                        <ul style="margin: 0" class="pagination category-pagination pull-right">
+                            <% (1..(@ebay_result[:total_pages].to_i > 5 ? 5 : @ebay_result[:total_pages].to_i)).each do |number| %>
+                                <% if @page.to_i == number %>
+                                    <li class="active"><a href="#"><%= number %></a>
+                                    </li>
+                                <% else %>
+                                    <li><a href="<%= erp_online_store.online_ordering_search_path(keywords: params[:keywords], page: number) %>"><%= number %></a>
+                                    </li>
+                                <% end %>
+                            <% end %>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    <% end %>
+
+</div>

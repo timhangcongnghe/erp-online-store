@@ -1,41 +1,72 @@
-<div class="row" style="max-width: 1020px">
-    <div class="col-md-12">
-        <div class="row">
-            <div class="col-md-2"></div>
-            <div class="col-md-8">
-                <div class="text-center">
-                    <h2 class="mt-0 mb-20">Tìm kiếm sản phẩm từ Ebay/Amazon</h2>
+<%= render "erp/online_store/frontend/modules/online_ordering/slider" %>
+<div class="container">
+    <div class="row" data-gutter="15">
+        <div class="col-md-4">
+            <div class="banner" style="background-color:#83599A;">
+                <a class="banner-link" href="#"></a>
+                <div class="banner-caption-top-left">
+                    <h5 class="banner-title">Backpack Collection</h5>
+                    <p class="banner-desc">Don't Be Vague. Ask for Backpack .</p>
+                    <p class="banner-shop-now">Shop Now <i class="fa fa-caret-right"></i>
+                    </p>
                 </div>
-                <form class="online_search_form" method="GET" action="<%= erp_online_store.online_ordering_search_path %>">
-                    <div id="search0" class="search input-group">
-                        <input
-                            class="form-control"
-                            type="text"
-                            value=""
-                            size="50"
-                            autocomplete="off"
-                            placeholder="Nhập từ khóa hoặc link sản phẩm từ Amazon / Ebay tại đây..."
-                            name="keywords"
-                        />
-                        <span class="input-group-btn">
-                            <button type="submit" class="button-search btn btn-primary" name="submit_search">
-                                <i class="fa fa-search"></i>
-                            </button>
-                        </span>
-                    </div>
-                    <input type="hidden" name="route" value="product/search">
-                </form>
+                <img class="banner-img" src="/frontend/online_ordering/img/test_banner/7.png" alt="Image Alternative text" title="Image Title" style="bottom: -8px; right: -32px;" />
             </div>
-            <div class="col-md-2"></div>
         </div>
-        <div class="row">
-            <div class="col-md-12 online_search_result_container">
-                <br>
-                <div class=" text-center">
-                    <img width="200" src="<%= url_for("/frontend/image/amazon.png") %>" />
-                    <img width="200" src="<%= url_for("/frontend/image/ebay.png") %>" />
+        <div class="col-md-4">
+            <div class="banner" style="background-color:#EF4D9C;">
+                <a class="banner-link" href="#"></a>
+                <div class="banner-caption-top-right">
+                    <h5 class="banner-title">Best 2015 Tablets</h5>
+                    <p class="banner-desc">Double the Pleasure, Double the Tablets.</p>
+                    <p class="banner-shop-now">Shop Now <i class="fa fa-caret-right"></i>
+                    </p>
                 </div>
+                <img class="banner-img" src="/frontend/online_ordering/img/test_banner/8.png" alt="" title="" style="bottom: -22px; left: 0; width: 235px;" />
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="banner" style="background-color:#FEA92E;">
+                <a class="banner-link" href="#"></a>
+                <div class="banner-caption-bottom-left">
+                    <h5 class="banner-title">Top Glasses</h5>
+                    <p class="banner-desc">My Goodness, My Glasses!</p>
+                    <p class="banner-shop-now">Shop Now <i class="fa fa-caret-right"></i>
+                    </p>
+                </div>
+                <img class="banner-img" src="/frontend/online_ordering/img/test_banner/9.png" alt="" title="" style="top: -4px; right: -15px; width: 220px;" />
             </div>
         </div>
     </div>
+    <div class="gap"></div>
+    <h3 class="widget-title-lg">SẢN PHẨM BÁN CHẠY</h3>
+    <% (0..3).each do |bestseller| %>
+    <div class="row" data-gutter="15">
+        <% (0..3).each do |product| %>
+        <div class="col-md-3">
+            <div class="product product-sm-left ">
+                <ul class="product-labels"></ul>
+                <div class="product-img-wrap">
+                    <%= image_tag "/frontend/online_ordering/img/test_product/29.jpg", alt: "", title: "", class: "product-img" %>
+                </div>
+                <%= link_to "", erp_online_store.online_ordering_product_detail_path, class: "product-link" %>
+                <div class="product-caption">
+                    <ul class="product-caption-rating">
+                        <li class="rated"><i class="fa fa-star"></i></li>
+                        <li class="rated"><i class="fa fa-star"></i></li>
+                        <li class="rated"><i class="fa fa-star"></i></li>
+                        <li class="rated"><i class="fa fa-star"></i></li>
+                        <li><i class="fa fa-star"></i></li>
+                    </ul>
+                    <h5 class="product-caption-title">XPERIA Z Ultra 16GB</h5>
+                    <div class="product-caption-price">
+                        <span class="product-caption-price-old">$1,000</span><br>
+                        <span class="product-caption-price-new">$980</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <% end %>
+    </div>
+    <% end %>
 </div>

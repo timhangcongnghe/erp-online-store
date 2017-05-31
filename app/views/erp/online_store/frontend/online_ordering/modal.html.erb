@@ -1,0 +1,41 @@
+<div class="row" style="max-width: 1020px">
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+                <div class="text-center">
+                    <h2 class="mt-0 mb-20">Tìm kiếm sản phẩm từ Ebay/Amazon</h2>
+                </div>
+                <form class="online_search_form" method="GET" action="<%= erp_online_store.online_ordering_search_path %>">
+                    <div id="search0" class="search input-group">
+                        <input
+                            class="form-control"
+                            type="text"
+                            value=""
+                            size="50"
+                            autocomplete="off"
+                            placeholder="Nhập từ khóa hoặc link sản phẩm từ Amazon / Ebay tại đây..."
+                            name="keywords"
+                        />
+                        <span class="input-group-btn">
+                            <button type="submit" class="button-search btn btn-primary" name="submit_search">
+                                <i class="fa fa-search"></i>
+                            </button>
+                        </span>
+                    </div>
+                    <input type="hidden" name="route" value="product/search">
+                </form>
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 online_search_result_container">
+                <br>
+                <div class=" text-center">
+                    <img width="200" src="<%= url_for("/frontend/image/amazon.png") %>" />
+                    <img width="200" src="<%= url_for("/frontend/image/ebay.png") %>" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
