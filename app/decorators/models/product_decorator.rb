@@ -45,8 +45,8 @@ Erp::Products::Product.class_eval do
   # Amazon ECS configuration
   def self.amazon_ecs_configure
     Amazon::Ecs.configure do |options|
-      options[:AWS_access_key_id] = 'AKIAINAMNQTAEC66BZRA'
-      options[:AWS_secret_key] = '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'
+      options[:AWS_access_key_id] = 'AKIAILNYG24X6XR4UMTQ'
+      options[:AWS_secret_key] = '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'
       options[:associate_tag] = 'tag'
     end
   end
@@ -54,10 +54,34 @@ Erp::Products::Product.class_eval do
   # Amazon ECS item search
   def self.amazon_ecs_item_search
     self.amazon_ecs_configure
-
     res = Amazon::Ecs.item_search('ruby', {:response_group => 'Medium', :sort => 'salesrank', :search_index => 'All'})
-
     puts res.items
+  end
+
+  # Amazon find products by keywords
+  def self.amazon_find_items_by_keywords(keywords, options={})
+    require 'mechanize'
+
+    agent = Mechanize.new
+    page = agent.get('https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias%3Daps&field-keywords='+URI::escape(keywords))
+    items = []
+    page.search("ul#s-results-list-atf li").each do |node|
+      if node.css('h2').text.present?
+        items << {
+          'id' => "ssss",
+          'name' => node.css('h2').text,
+          'thumb' => (node.css('img.s-access-image').first.nil? ? nil : node.css('img.s-access-image').first["src"]),
+          'price' => (node.css('span.sx-price-whole').nil? ? nil : node.css('span.sx-price-whole').text),
+          'url' => "ssss"
+        }
+      end
+    end
+
+    {
+      items: items,
+      total_pages: 1,
+      total_entries: items.count,
+    }
   end
 
   # Ebay configuration

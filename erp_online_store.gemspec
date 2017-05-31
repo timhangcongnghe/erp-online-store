@@ -26,4 +26,5 @@ Gem::Specification.new do |s|
   s.add_dependency "deface"
   s.add_dependency "amazon-ecs"
   s.add_dependency "rebay"
+  s.add_dependency "mechanize"
 end

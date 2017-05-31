@@ -23,6 +23,11 @@ module Erp
             per_page: 16,
             page: @page
           })
+
+          @amazon_result = Erp::Products::Product::amazon_find_items_by_keywords(params[:keywords], {
+            per_page: 16,
+            page: @page
+          })
         end
 
         def product_detail
