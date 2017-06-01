@@ -68,11 +68,11 @@ Erp::Products::Product.class_eval do
     page.search("ul#s-results-list-atf li").each do |node|
       if node.css('h2').text.present?
         items << {
-          'id' => "ssss",
+          'id' => node.css('a.a-link-normal').first["href"].split('dp/')[1].split('/')[0],
           'name' => node.css('h2').text,
           'thumb' => (node.css('img.s-access-image').first.nil? ? nil : node.css('img.s-access-image').first["src"]),
           'price' => (node.css('span.sx-price-whole').nil? ? nil : node.css('span.sx-price-whole').text),
-          'url' => "ssss"
+          'url' => node.css('a.a-link-normal').first["href"]
         }
       end
     end
@@ -173,10 +173,57 @@ Erp::Products::Product.class_eval do
 
       # picture
       ebay_item["pictures"] = [ebay_item["pictures"].to_s] if !ebay_item["pictures"].kind_of?(Array)
+      ebay_item["pictures"] = ebay_item["pictures"].reverse!
       ebay_item["pictures"].each do |url|
         image = product.product_images.new
         image.remote_image_url_url = url
         image.save!
+      end
+
+      product.save
+    end
+
+    product
+  end
+
+  # get amazon product. create new if not exist
+  def self.get_amazon_product(eid)
+    require 'mechanize'
+    include ActionView::Helpers::SanitizeHelper
+
+    product = self.where(amazon_id: eid).first
+
+    if product.nil?
+      # create new if not exist
+      agent = Mechanize.new
+      page = agent.get('https://www.amazon.com/gp/product/'+eid)
+
+      product = self.new
+      product.amazon_id = eid
+      product.name = page.search('#productTitle').text.strip
+      product.short_name = product.name
+      product.price = page.search('#priceblock_ourprice').text.strip.gsub('$','')*22000
+      product.description = page.search('#productDescription').text.strip
+      product.short_description = page.search('#featurebullets_feature_div').text.strip
+
+      # brand
+      brand = Erp::Products::Brand.where(name: 'Unknown').first
+      brand = Erp::Products::Brand.create(name: 'Unknown') if brand.nil?
+      product.brand_id = brand.id
+
+      # category
+      category = Erp::Products::Category.where(name: 'Ebay.com').first
+      category = Erp::Products::Category.create(name: 'Ebay.com') if category.nil?
+      product.category_id = category.id
+
+      # picture
+      pictures = page.search('body').text.scan(/"large":"([^"]*)"/)
+      pictures[0..5].each do |url|
+        if url[0].present? and !url[0].empty?
+          image = product.product_images.new
+          image.remote_image_url_url = url[0]
+          image.save!
+        end
       end
 
       product.save

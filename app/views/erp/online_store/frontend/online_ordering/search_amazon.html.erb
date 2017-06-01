@@ -12,7 +12,7 @@
                             <%= image_tag "http://ir.ebaystatic.com/pictures/aw/pics/nextGenVit/imgNoImg.gif", alt: "", title: "", class: "product-img max-height-100" %>
                         <% end %>
                     </div>
-                    <%= link_to "", erp_online_store.online_ordering_product_detail_path(id: amazon_item["id"]), class: "product-link" %>
+                    <%= link_to "", erp_online_store.online_ordering_product_detail_path(id: amazon_item["id"], service: 'amazon'), class: "product-link" %>
                     <!--<%= link_to "", amazon_item["url"], class: "product-link", target: '_blank' %>-->
                     <div class="product-caption">
                         <!--<ul class="product-caption-rating">

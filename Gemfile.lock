@@ -22,6 +22,7 @@ PATH
       amazon-ecs
       deface
       erp_core
+      mechanize
       rails (~> 5.0.0.1)
       rebay
 
@@ -88,12 +89,16 @@ GEM
       railties (>= 4.1.0, < 5.1)
       responders
       warden (~> 1.2.3)
+    domain_name (0.5.20170404)
+      unf (>= 0.0.5, < 1.0.0)
     erubis (2.7.0)
     faraday (0.11.0)
       multipart-post (>= 1.2, < 3)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
     hashie (3.5.5)
+    http-cookie (1.0.3)
+      domain_name (~> 0.5)
     i18n (0.8.1)
     json (2.1.0)
     jwt (1.5.6)
@@ -101,6 +106,15 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.6.4)
       mime-types (>= 1.16, < 4)
+    mechanize (2.7.5)
+      domain_name (~> 0.5, >= 0.5.1)
+      http-cookie (~> 1.0)
+      mime-types (>= 1.17.2)
+      net-http-digest_auth (~> 1.1, >= 1.1.1)
+      net-http-persistent (~> 2.5, >= 2.5.2)
+      nokogiri (~> 1.6)
+      ntlm-http (~> 0.1, >= 0.1.1)
+      webrobots (>= 0.0.9, < 0.2)
     method_source (0.8.2)
     mime-types (3.1)
       mime-types-data (~> 3.2015)
@@ -111,9 +125,12 @@ GEM
     multi_json (1.12.1)
     multi_xml (0.6.0)
     multipart-post (2.0.0)
+    net-http-digest_auth (1.4.1)
+    net-http-persistent (2.9.4)
     nio4r (1.2.1)
     nokogiri (1.6.8.1)
       mini_portile2 (~> 2.1.0)
+    ntlm-http (0.1.1)
     oauth2 (1.3.1)
       faraday (>= 0.8, < 0.12)
       jwt (~> 1.0)
@@ -183,9 +200,13 @@ GEM
     thread_safe (0.3.6)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
+    unf (0.1.4)
+      unf_ext
+    unf_ext (0.0.7.4)
     unidecoder (1.1.2)
     warden (1.2.7)
       rack (>= 1.0)
+    webrobots (0.1.2)
     websocket-driver (0.6.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.2)
