@@ -92,6 +92,8 @@ Erp::OnlineStore::Engine.routes.draw do
 	end
 
   # ONLINE ORDERING
+  get "dat-hang-truc-tuyen/tim-kiem/amazon.html" => "frontend/online_ordering#search_amazon", as: :online_ordering_search_amazon
+  get "dat-hang-truc-tuyen/tim-kiem/ebay.html" => "frontend/online_ordering#search_ebay", as: :online_ordering_search_ebay
   get "dat-hang-truc-tuyen/tim-kiem.html" => "frontend/online_ordering#search", as: :online_ordering_search
   get "dat-hang-truc-tuyen.html" => "frontend/online_ordering#index", as: :online_ordering
   get "dat-hang-truc-tuyen/chi-tiet-san-pham.html" => "frontend/online_ordering#product_detail", as: :online_ordering_product_detail

@@ -1,0 +1,55 @@
+<% if !@amazon_result[:items].empty? %>
+    <div class="row" data-gutter="15">
+        <% @amazon_result[:items][0..15].each_with_index do |amazon_item,index| %>
+            <%= '</div><div class="row" data-gutter="15">'.html_safe if index != 0 and index%4 == 0 %>
+            <div class="col-md-3">
+                <div class="product product-sm-left ">
+                    <ul class="product-labels"></ul>
+                    <div class="product-img-wrap">
+                        <% if amazon_item["thumb"].present? %>
+                            <%= image_tag amazon_item["thumb"], alt: "", title: "", class: "product-img max-height-100" %>
+                        <% else %>
+                            <%= image_tag "http://ir.ebaystatic.com/pictures/aw/pics/nextGenVit/imgNoImg.gif", alt: "", title: "", class: "product-img max-height-100" %>
+                        <% end %>
+                    </div>
+                    <%= link_to "", erp_online_store.online_ordering_product_detail_path(id: amazon_item["id"]), class: "product-link" %>
+                    <!--<%= link_to "", amazon_item["url"], class: "product-link", target: '_blank' %>-->
+                    <div class="product-caption">
+                        <!--<ul class="product-caption-rating">
+                            <li class="rated"><i class="fa fa-star"></i></li>
+                            <li class="rated"><i class="fa fa-star"></i></li>
+                            <li class="rated"><i class="fa fa-star"></i></li>
+                            <li class="rated"><i class="fa fa-star"></i></li>
+                            <li><i class="fa fa-star"></i></li>
+                        </ul>-->
+                        <h5 class="product-caption-title"><%= amazon_item["name"] %></h5>
+                        <div class="product-caption-price">
+                            <!--<span class="product-caption-price-old"></span><br>-->
+                            <% if amazon_item["price"].present? %><span class="product-caption-price-new">$<%= amazon_item["price"] %></span><% end %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <% end %>
+    </div>
+    <div class="row hide">
+        <div class="col-md-6">
+            <!--<p class="category-pagination-sign"><%= @amazon_result[:total_entries] %> sản phẩm được tìm thấy.</p>-->
+        </div>
+        <div class="col-md-6">
+            <nav>
+                <ul class="pagination category-pagination pull-right">
+                    <% (1..(@amazon_result[:total_pages].to_i > 5 ? 5 : @amazon_result[:total_pages].to_i)).each do |number| %>
+                        <% if @page.to_i == number %>
+                            <li class="active"><a href="#"><%= number %></a>
+                            </li>
+                        <% else %>
+                            <li><a href="<%= erp_online_store.online_ordering_search_path(keywords: params[:keywords], page: number) %>"><%= number %></a>
+                            </li>
+                        <% end %>
+                    <% end %>
+                </ul>
+            </nav>
+        </div>
+    </div>
+<% end %>

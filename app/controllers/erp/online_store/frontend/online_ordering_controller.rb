@@ -9,6 +9,9 @@ module Erp
         end
 
         def search
+        end
+
+        def search_ebay
           # check if keywords is ebay details link
           if params[:keywords].include?("ebay.com/itm")
             id = params[:keywords].split('?')[0].split('/').last
@@ -24,14 +27,19 @@ module Erp
             page: @page
           })
 
+          render layout: nil
+        end
+
+        def search_amazon
           @amazon_result = Erp::Products::Product::amazon_find_items_by_keywords(params[:keywords], {
             per_page: 16,
             page: @page
           })
+
+          render layout: nil
         end
 
         def product_detail
-          @ebay_item = Erp::Products::Product::ebay_get_single_item(params[:id])
           @product = Erp::Products::Product::get_ebay_product(params[:id])
         end
 
