@@ -135,7 +135,7 @@ fieldset#address-form input, fieldset#address-form select {
 .so-onepagecheckout .fee .total2 {
   border-top: 1px solid #009688;
   padding-top: 12px;
-  margin-bottom: 1px;
+  margin-bottom: 3px;
 }
 .so-onepagecheckout .fee .total2 span {
   color: #009688;
@@ -245,4 +245,40 @@ fieldset#address-form input, fieldset#address-form select {
 .so-onepagecheckout .fee .total2 span.price {
   line-height: normal;
   margin-bottom: 0;
+}
+/*-----Left Tooltip w/ Right Arrow-----*/
+.tooltip-col i {
+  color: #dc4a3d;
+  font-size: 120%;
+}
+.tooltiptext {
+    visibility: hidden;
+    width: 250px;
+    height: auto;
+    background: rgb(115, 187, 208) ;
+    line-height: 1.5;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 5px;
+    box-sizing: border-box;
+    position: absolute;
+    z-index: 1;
+    top: 0px;
+    right: 247px;
+}
+.tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 3px;
+    right: -15px;
+    border-width: 10px;
+    border-style: solid;
+    border-color: transparent transparent transparent rgb(115, 187, 208);
+}
+.tooltip-col:hover .tooltiptext {
+    visibility: visible;
+}
+small.tooltiptext em {
+  font-weight: 500;
 }

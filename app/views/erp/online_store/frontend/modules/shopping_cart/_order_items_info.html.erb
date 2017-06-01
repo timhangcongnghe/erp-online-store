@@ -1,7 +1,7 @@
 <%= form_for '', url: erp_online_store.checkout_path, html: {class: 'checkout_form'} do |f| %>
     <div class="panel panel-default fee">
         <div class="order">
-            <span class="title">Đơn Hàng</span>
+            <span class="title">Đơn Đặt Hàng</span>
             <span class="title"> (<%= @cart.cart_items.number_items %> sản phẩm)</span>
             <%= link_to 'Sửa', erp_online_store.shopping_cart_path, class: "btn btn-default btn-custom1" %>
         </div>
@@ -9,7 +9,20 @@
             <% @cart.cart_items.each do |cart_item| %>
                 <div class="row item">
                     <div class="col-sm-8">
-                        <b><%= cart_item.quantity %> x</b>
+                        <% if cart_item.product.gifts.count > 0 %>
+                            <span class="tooltip-col">
+                                <i class="fa fa-gift" aria-hidden="true"></i>
+                                <small class="tooltiptext">
+                                    <em>Tặng kèm:</em>
+                                    <% gift_names = [] %>
+                                    <% cart_item.product.gifts.each do |gift| %>
+                                        <% gift_names << gift.product_name.to_s %>
+                                    <% end %>
+                                    <%= gift_names.join(', ') %>
+                                </small>
+                            </span>
+                        <% end %>
+                        <b><%= cart_item.quantity %> x </b>
                         <%= link_to cart_item.product_name, product_link(cart_item.product), title: cart_item.product_name, target: "_blank" %>
                     </div>
                     <div class="col-sm-4 text-right"><span class="price"><%= format_price(cart_item.total_price) %></span></div>
@@ -17,9 +30,14 @@
             <% end %>
             </div>
         <hr>
-        <p class="list-info-price"><b>Tổng tiền:</b> <span class="price"><%= format_price(@cart.total_order) %></span></p>
-        <p class="list-info-price"><b>Phí vận chuyển:</b> <span>--</span></p>
-        <p class="total2">Số tiền cần thanh toán: <span class="price"><%= format_price(@cart.total_order) %></span></p>
+        <p class="list-info-price"><b>Tạm tính:</b> <span class="price"><%= format_price(@cart.total_order) %></span></p>
+        <p class="list-info-price">
+            <b>Phí vận chuyển:</b>
+            <span>
+                <a href="http://timhangcongnghe.vn/thong-tin/3/chinh-sach-van-chuyen-giao-nhan.html" target="_blank"><span class="fa fa-question-circle"></span></a>
+            </span>
+        </p>
+        <p class="total2">Tổng thành tiền: <span class="price"><%= format_price(@cart.total_order) %></span></p>
         <p class="text-right">
             <i>(Đã bao gồm VAT)</i>
         </p>
