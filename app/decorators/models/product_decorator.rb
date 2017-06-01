@@ -201,7 +201,7 @@ Erp::Products::Product.class_eval do
       product.amazon_id = eid
       product.name = page.search('#productTitle').text.strip
       product.short_name = product.name
-      product.price = page.search('#priceblock_ourprice').text.strip.gsub('$','')*22000
+      product.price = page.search('#priceblock_ourprice').text.strip.gsub('$','').to_f*22000
       product.description = page.search('#productDescription').text.strip
       product.short_description = page.search('#featurebullets_feature_div').text.strip
 
