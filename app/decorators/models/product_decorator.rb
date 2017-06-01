@@ -96,7 +96,10 @@ Erp::Products::Product.class_eval do
     self.ebay_configure
 
     finder = Rebay::Shopping.new
+
     item = finder.get_single_item({:ItemID => item_id, IncludeSelector: "Description,Details"}).response["Item"]
+    puts item
+
     {
       'id' => item["ItemId"],
       'name' => item["Title"],
@@ -105,7 +108,8 @@ Erp::Products::Product.class_eval do
       'url' => item["viewItemURL"],
       'description' => item["Description"].to_s,
       'short_description' => item["ConditionDescription"].to_s,
-      'pictures' => item["PictureURL"]
+      'pictures' => item["PictureURL"],
+      'category_id' => item["PrimaryCategoryID"],
     }
   end
 
@@ -125,11 +129,36 @@ Erp::Products::Product.class_eval do
 
     return [] if response["searchResult"]["item"].nil?
 
-  {
-    items: response["searchResult"]["item"].map { |item| self.ebay_item_map(item) },
-    total_pages: response["paginationOutput"]["totalPages"],
-    total_entries: response["paginationOutput"]["totalEntries"],
-  }
+    {
+      items: response["searchResult"]["item"].map { |item| self.ebay_item_map(item) },
+      total_pages: response["paginationOutput"]["totalPages"],
+      total_entries: response["paginationOutput"]["totalEntries"],
+    }
+  end
+
+  # Ebay find related items
+  def self.ebay_find_related_items(eid, options={})
+    self.ebay_configure
+
+    per_page = options[:per_page].present? ? options[:per_page] : 5
+    page = options[:page].present? ? options[:page] : 1
+
+    item = self.ebay_get_single_item(eid)
+
+    finder = Rebay::Finding.new
+    response = finder.find_items_by_category({
+      categoryId: item["category_id"],
+      'paginationInput.entriesPerPage' => per_page,
+      'paginationInput.pageNumber' => page,
+    }).response
+
+    return [] if response["searchResult"]["item"].nil?
+
+    {
+      items: response["searchResult"]["item"].map { |item| self.ebay_item_map(item) },
+      total_pages: response["paginationOutput"]["totalPages"],
+      total_entries: response["paginationOutput"]["totalEntries"],
+    }
   end
 
   # Ebay item map
@@ -183,6 +212,11 @@ Erp::Products::Product.class_eval do
     end
 
     product
+  end
+
+  # Get ebay related items
+  def self.get_ebay_related_items(eid)
+
   end
 
   # get amazon product. create new if not exist

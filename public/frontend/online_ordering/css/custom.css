@@ -10,3 +10,6 @@
     height: 400px;
     background: url(/frontend/image/loading.gif) top center no-repeat rgba(255,255,255,0.2);
 }
+.product-img-wrap {
+    height: 120px;
+}

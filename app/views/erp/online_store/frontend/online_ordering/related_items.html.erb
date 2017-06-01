@@ -1,0 +1,41 @@
+<% if !@related_items[:items].empty? %>
+    <div class="gap"></div>
+    <h3 class="widget-title">You Might Also Like</h3>
+    <div class="row" data-gutter="15">
+        <% @related_items[:items].each_with_index do |item, index| %>
+        <%= '</div><div class="row" data-gutter="15">'.html_safe if index != 0 and index%6 == 0 %>
+            <div class="col-md-2">
+                <div class="product ">
+                    <!--<ul class="product-labels">
+                        <li>hot</li>
+                    </ul>-->
+                    <div class="product-img-wrap">
+                        <img class="product-img-primary" src="<%= item["thumb"] %>" alt="<%= item["name"] %>" title="<%= item["name"] %>" />
+                        <img class="product-img-alt" src="<%= item["thumb"] %>" alt="<%= item["name"] %>" title="<%= item["name"] %>" />
+                    </div>
+                    <a class="product-link" href="<%= erp_online_store.online_ordering_product_detail_path(id: item["id"], service: params[:service]) %>"></a>
+                    <div class="product-caption">
+                        <!--<ul class="product-caption-rating">
+                            <li class="rated"><i class="fa fa-star"></i>
+                            </li>
+                            <li class="rated"><i class="fa fa-star"></i>
+                            </li>
+                            <li class="rated"><i class="fa fa-star"></i>
+                            </li>
+                            <li class="rated"><i class="fa fa-star"></i>
+                            </li>
+                            <li><i class="fa fa-star"></i>
+                            </li>
+                        </ul>-->
+                        <h5 class="product-caption-title"><%= item["name"] %></h5>
+                        <div class="product-caption-price"><span class="product-caption-price-new">$<%= item["price"] %></span>
+                        </div>
+                        <!--<ul class="product-caption-feature-list">
+                            <li>Free Shipping</li>
+                        </ul>-->
+                    </div>
+                </div>
+            </div>
+        <% end %>
+    </div>
+<% end %>

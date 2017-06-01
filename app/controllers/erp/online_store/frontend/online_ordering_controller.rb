@@ -57,8 +57,21 @@ module Erp
         end
 
         def product_detail
-          @product = Erp::Products::Product::get_ebay_product(params[:id]) if params[:service] == 'ebay'
-          @product = Erp::Products::Product::get_amazon_product(params[:id]) if params[:service] == 'amazon'
+          if params[:service] == 'ebay'
+            @product = Erp::Products::Product::get_ebay_product(params[:id])
+          elsif params[:service] == 'amazon'
+            @product = Erp::Products::Product::get_amazon_product(params[:id])
+          end
+        end
+
+        def related_items
+          if params[:service] == 'ebay'
+            @related_items = Erp::Products::Product::ebay_find_related_items(params[:id], options={per_page: 12, page: 1})
+          elsif params[:service] == 'amazon'
+            @related_items = {items: []}
+          end
+
+          render layout: nil
         end
 
         def cart
