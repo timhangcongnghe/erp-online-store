@@ -173,7 +173,6 @@ Erp::Products::Product.class_eval do
 
       # picture
       ebay_item["pictures"] = [ebay_item["pictures"].to_s] if !ebay_item["pictures"].kind_of?(Array)
-      ebay_item["pictures"] = ebay_item["pictures"].reverse!
       ebay_item["pictures"].each do |url|
         image = product.product_images.new
         image.remote_image_url_url = url
