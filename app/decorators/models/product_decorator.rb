@@ -211,8 +211,8 @@ Erp::Products::Product.class_eval do
       product.brand_id = brand.id
 
       # category
-      category = Erp::Products::Category.where(name: 'Ebay.com').first
-      category = Erp::Products::Category.create(name: 'Ebay.com') if category.nil?
+      category = Erp::Products::Category.where(name: 'Amazon.com').first
+      category = Erp::Products::Category.create(name: 'Amazon.com') if category.nil?
       product.category_id = category.id
 
       # picture
