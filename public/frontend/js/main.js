@@ -17,7 +17,24 @@ function loadContactForm(contact_id) {
     }).done(function( data ) {
         box.html(data);
         box.find('.ajax-content-control').trigger('change');
-        box.find('.contact_form').validate();
+        box.find('.contact_form').validate({
+            //put error message behind each form element
+            errorPlacement: function (error, element) {
+                var elem = $(element);
+
+                if (elem.hasClass('select2-hidden-accessible')) {
+                    error.insertAfter(elem.parent().find('.select2-container')[0]);
+                } else {
+                    error.insertAfter(element);
+                }
+                $('.select2-selection').click(function() {
+                    document.getElementById("select-city-error").style.display = "none";
+                });
+                $('#select2-input-payment-zone-container').click(function() {
+                    document.getElementById("input-payment-zone-error").style.display = "none";
+                });
+            },
+        });
         box.find('select').select2({language: "vi"});
     });
 }
@@ -1060,4 +1077,21 @@ $('.edit-customer-address').click(function() {
 
 $('.add-address').click(function() {
     tabContent();
+});
+
+// Custom sidebar menu
+var flag = 0;
+$('.megamenu').hover(function() {
+        flag = 1;
+    }, function() {
+        flag = 0;
+});
+
+$('.item-vertical').hover(function() {
+        if (flag === 0)
+        {
+            $(this).addClass('active1');   
+        }
+    }, function() {
+        $(this).removeClass('active1');
 });

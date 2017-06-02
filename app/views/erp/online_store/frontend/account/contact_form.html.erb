@@ -16,7 +16,7 @@
                     <label class="control-label">Tỉnh/Thành phố</label>
                     <div>
                         <select
-                            class="form-control select ajax-content-control" name="contact[state_id]"
+                            class="form-control select ajax-content-control required" id="select-city" name="contact[state_id]"
                             data-content-selector="#payment-district-3"
                             data-url="<%= erp_online_store.district_select_path(current_value: @contact.district_id) %>"
                         >
