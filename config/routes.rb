@@ -30,8 +30,8 @@ Erp::OnlineStore::Engine.routes.draw do
   get "tin-cong-nghe.html" => "frontend/blog#index", as: :blog
   get "tin-cong-nghe/:blog_id(/:title).html" => "frontend/blog#detail", as: :blog_detail
   get "tin-cong-nghe/chu-de/:cat_id(/:title).html" => "frontend/blog#index", as: :blog_with_category
-  get "binh-luan-bai-viet.html/:blog_id" => "frontend/blog#comments", as: :blog_comments
-  post "binh-luan-bai-viet.html/:blog_id" => "frontend/blog#comments"
+  get "binh-luan-bai-viet/:blog_id.html" => "frontend/blog#comments", as: :blog_comments
+  post "binh-luan-bai-viet/:blog_id.html" => "frontend/blog#comments"
   delete "binh-luan-bai-viet/:comment_id-remove.html" => "frontend/blog#delete_comment", as: :delete_blog_comment
 
   # EVENTS

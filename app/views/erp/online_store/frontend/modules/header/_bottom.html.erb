@@ -107,13 +107,31 @@
                     </div>
                     <div class="header_custom_link hidden-xs hidden-sm hidden-md">
                         <ul>
-                            <li>
-                            <%= link_to '<i class="fa fa-amazon"></i> ĐẶT HÀNG'.html_safe,
-                                erp_online_store.online_ordering_path #,
-                                #class: "ajax-link",
-                                #"data-type": "ajax"
-                            %>
-                            </li>
+                            <% if current_user.present? && current_user.backend_access %>
+                                <li>
+                                <%= link_to '<i class="fa fa-amazon"></i> ĐẶT HÀNG'.html_safe,
+                                    erp_online_store.online_ordering_path #,
+                                    #class: "ajax-link",
+                                    #"data-type": "ajax"
+                                %>
+                                </li>
+                            <% end %>
+                            <% if current_user.present? %>
+                                <li>
+                                <%= link_to '<i class="fa fa-user"></i> TÀI KHOẢN'.html_safe,
+                                    erp_online_store.my_account_path
+                                %>
+                                </li>
+                            <% else %>
+                                <li>
+                                <%= link_to '<i class="fa fa-sign-in"></i> ĐĂNG NHẬP'.html_safe,
+                                    erp.new_user_session_path,
+                                    class: "sign-in ajax-link",
+                                    "data-type": "ajax",
+                                    id: "sign-in"
+                                %>
+                                </li>
+                            <% end %>
                         </ul>
                     </div>
                 </div>
