@@ -1,7 +1,9 @@
 <% if Erp::Products::Product.get_bestseller_products.count > 0 %>
 <div class="moduletable module best-seller">
     <h3 class="modtitle">
-        <span>BÁN CHẠY</span>
+        <span>
+            <i class="fa fa-line-chart"></i> BÁN CHẠY
+        </span>
         <%= link_to "Xem tất cả", erp_online_store.bestseller_products_path, class: "view-all-bestseller", title: "Xem toàn bộ" %>
     </h3>
     <div class="so-extraslider">

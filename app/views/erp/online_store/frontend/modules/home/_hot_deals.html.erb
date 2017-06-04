@@ -1,42 +1,43 @@
+<% if @hot_deals.count > 3 %>
 <div class="module so-deals">
     <h3 class="modtitle">
         <span>
             <i class="fa fa-empire"></i> Khuyến Mãi
         </span>
-        <%= link_to "Xem toàn bộ", erp_online_store.deal_products_path, class: "view-all-hotdeals", title: "Xem toàn bộ" %>
+        <%= link_to "Xem toàn bộ", erp_online_store.deal_products_path, class: "view-all-bestseller", title: "Xem toàn bộ" %>
     </h3>
     <div class="modcontent">
         <div class="so-deal modcontent products-list grid clearfixbutton-type1 style2">
             <div class="extraslider-inner product-layout deal-slider">
-                <% @hot_deals.each do |hot_deal| %>
+                <% @hot_deals.each do |product| %>
                 <div class="product-thumb transition product-item-container">
                     <div class="left-block">
                         <div class="product-image-container">
                             <div class="image">
-                                <% if hot_deal.is_new? %>
+                                <% if product.is_new? %>
                                 <span class="label label-new">Mới</span>
                                 <% end %>
                                 <span class="label label-sale">Giảm giá</span>
-                                <a class="lt-image" href="<%= product_link(hot_deal) %>" target="_self">
-                                    <%= image_tag product_image(hot_deal.product_images, 'first', 'thumb170'), alt: hot_deal.name, title: hot_deal.name, class: "img-1 img-responsive" %>
-                                    <%= image_tag product_image(hot_deal.product_images, 'second', 'thumb170'), alt: hot_deal.name, title: hot_deal.name, class: "img-2 img-responsive" %>
+                                <a class="lt-image" href="<%= product_link(product) %>" target="_self">
+                                    <%= image_tag product_image(product.product_images, 'first', 'thumb170'), alt: product.name, title: product.name, class: "img-1 img-responsive" %>
+                                    <%= image_tag product_image(product.product_images, 'second', 'thumb170'), alt: product.name, title: product.name, class: "img-2 img-responsive" %>
                                 </a>
-                                <%= quick_actions(hot_deal) %>
-                                <%= count_down(hot_deal.deal_from_date, hot_deal.deal_to_date) %>
+                                <%= quick_actions(product) %>
+                                <%= count_down(product.deal_from_date, product.deal_to_date) %>
                             </div>
                         </div>
                     </div>
                     <div class="right-block">
                         <div class="caption">
                             <div class="rating">
-                                <%= stars(hot_deal.average_stars) %>
+                                <%= stars(product.average_stars) %>
                             </div>
-                            <h4><%= link_to hot_deal.name, product_link(hot_deal), title: hot_deal.name %></h4>
+                            <h4><%= link_to product.name, product_link(product), title: product.name %></h4>
                             <p class="price">
-                                <span class="price-new"><%= format_price(hot_deal.product_price) %>
-                                <% if hot_deal.is_deal %>
-                                    <br><span class="price-old"><%= format_price(hot_deal.price) %></span>
-                                    <span class="label label-percent">-<%= hot_deal.deal_percent %>%</span>
+                                <span class="price-new"><%= format_price(product.product_price) %>
+                                <% if product.is_deal %>
+                                    <br><span class="price-old"><%= format_price(product.price) %></span>
+                                    <span class="label label-percent">-<%= product.deal_percent %>%</span>
                                 <% end %>
                             </p>
                         </div>
@@ -49,3 +50,4 @@
     </div>
     <!--/.modcontent-->
 </div>
+<% end %>

@@ -1,9 +1,9 @@
-<% if Erp::Products::Product.get_deal_products.count > 1 %>
+<% if Erp::Products::Product.limit_deal_products.count > 0 %>
 <h3 class="modtitle">
     <span>
         <i class="fa fa-empire"></i> KHUYẾN MÃI
     </span>
-    <%= link_to "Xem toàn bộ", erp_online_store.deal_products_path, class: "view-all-hotdeals", title: "Xem toàn bộ" %>
+    <%= link_to "Xem toàn bộ", erp_online_store.deal_products_path, class: "view-all-bestseller", title: "Xem toàn bộ" %>
 </h3>
 <div class="upsell-products">
     <% Erp::Products::Product.limit_deal_products.limit(12).each do |product| %>
@@ -17,6 +17,7 @@
                 <% if product.is_deal? %>
                 <span class="label label-sale">Giảm giá</span>
                 <% end %>
+                <%= quick_actions(product) %>
                 <%= count_down(product.deal_from_date, product.deal_to_date) %>
             </div>
             <div class="right-block">
