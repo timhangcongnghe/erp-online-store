@@ -4,7 +4,7 @@ module Erp
       class BrandController < Erp::Frontend::FrontendController
         def listing
           @body_class = "res layout-subpage"
-          @brands = Erp::Products::Brand.get_brands
+          @brands = Erp::Products::Brand.get_brands_order_name
         end
 
         def detail
