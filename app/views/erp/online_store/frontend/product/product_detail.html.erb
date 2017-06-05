@@ -1,11 +1,14 @@
 <% title @product.name %>
+<% product_images = @product.product_images %>
 
 <% content_for :metas do %>
 
     <!-- for Facebook -->
     <meta property="og:title" content="<%= @product.product_name %>" />
     <meta property="og:type" content="product" />
-    <meta property="og:image" content="<%= @product.product_images.first.image_url.thumb550 if !@product.product_images.empty? %>" />
+    <% product_images.each_with_index do |product_image,index| %>
+        <meta property="og:image" content="<%= product_image.image_url.thumb550 %>" />
+    <% end %>
 
 <% end %>
 
@@ -26,18 +29,18 @@
                 <div class="left-content-product col-lg-12 col-xs-12">
                     <div class="row">
                         <div class="content-product-left  col-sm-6 col-xs-12 ">
-                            <% if @product.product_images.count > 0 %>
+                            <% if product_images.count > 0 %>
                                 <div id="thumb-slider-vertical" class="thumb-vertical-outer">
                                     <span class="btn-more prev-thumb nt"><i class="fa fa-chevron-up"></i></span>
                                     <span class="btn-more next-thumb nt"><i class="fa fa-chevron-down"></i></span>
                                     <ul class="thumb-vertical">
                                         <!-- thumb 445x445 -->
-                                        <% @product.product_images.each_with_index do |product_image,index| %>
-                                        <li class="owl2-item">
-                                            <a data-index="<%= index %>" class="img thumbnail " data-image="<%= product_image.image_url.thumb445 %>" title="<%= @product.name %>">
-                                                <%= image_tag product_image.image_url.thumb170, alt: @product.name, title: @product.name %>
-                                            </a>
-                                        </li>
+                                        <% product_images.each_with_index do |product_image,index| %>
+                                            <li class="owl2-item">
+                                                <a data-index="<%= index %>" class="img thumbnail " data-image="<%= product_image.image_url.thumb445 %>" title="<%= @product.name %>">
+                                                    <%= image_tag product_image.image_url.thumb170, alt: @product.name, title: @product.name %>
+                                                </a>
+                                            </li>
                                         <% end %>
                                     </ul>
                                 </div>
