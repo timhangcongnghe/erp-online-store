@@ -5,10 +5,11 @@
 
     <!-- for Facebook -->
     <meta property="og:title" content="<%= @product.product_name %>" />
-    <meta property="og:type" content="product" />
+    <meta property="og:type" content="article" />
     <% product_images.each_with_index do |product_image,index| %>
         <meta property="og:image" content="<%= product_image.image_url.thumb550 %>" />
     <% end %>
+
 
 <% end %>
 
