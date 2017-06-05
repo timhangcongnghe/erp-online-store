@@ -361,7 +361,7 @@
                                            Sản phẩm
                                         </td>
                                         <td class="title-dark" width="163">
-                                          Đơn giá
+                                          Giá bán
                                         </td>
                                         <td class="title-dark" width="163">
                                           Số lượng
@@ -385,6 +385,7 @@
                                                             <% else %>
                                                                 <%= order_detail.product_name %>
                                                             <% end %>
+                                                            <%= ' (Tặng kèm)' if order_detail.description == Erp::Orders::FrontendOrderDetail::STYLE_GIFT %>
                                                         </span> <br />
                                                       <!--Product Code-->
                                                     </td>
@@ -392,13 +393,13 @@
                                             </table>
                                         </td>
                                         <td class="item-col quantity">
-                                            <%= format_price(order_detail.price) %>
+                                            <%= order_detail.price == 0 ? 'Miễn phí' : format_price(order_detail.price) %>
                                         </td>
                                         <td class="item-col quantity">
                                             <%= order_detail.quantity %>
                                         </td>
                                         <td class="item-col">
-                                            <%= format_price(order_detail.total) %>
+                                            <%= order_detail.total == 0 ? 'Miễn phí' : format_price(order_detail.total) %>
                                         </td>
                                     </tr>
                                     <% end %>
