@@ -264,4 +264,18 @@ Erp::Products::Product.class_eval do
 
     product
   end
+
+  # Amazon find related items
+  def self.amazon_find_related_items(aid, options={})
+    agent = Mechanize.new
+    page = agent.get('https://www.amazon.com/gp/product/'+aid)
+
+    page.search('#sp_detail')
+
+    {
+      items: nil,
+      total_pages: nil,
+      total_entries: nil,
+    }
+  end
 end

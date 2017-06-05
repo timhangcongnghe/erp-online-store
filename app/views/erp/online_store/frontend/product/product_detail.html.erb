@@ -1,4 +1,14 @@
 <% title @product.name %>
+
+<% content_for :metas do %>
+
+    <!-- for Facebook -->
+    <meta property="og:title" content="<%= @product.product_name %>" />
+    <meta property="og:type" content="product" />
+    <meta property="og:image" content="<%= @product.product_images.first.image_url.thumb550 if !@product.product_images.empty? %>" />
+
+<% end %>
+
 <div class="main-container container">
     <ul class="breadcrumb">
         <li><%= link_to '<i class="fa fa-home"></i>'.html_safe, erp_online_store.root_path %></li>
