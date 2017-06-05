@@ -16,11 +16,12 @@ module Erp
           @body_class = "res layout-subpage"
           @product = Erp::Products::Product.find(params[:product_id])
           @meta_keywords = @product.meta_keywords.to_s
-          @meta_description = @product.meta_description
+          @meta_description = @product.meta_description.to_s
           @deal_products = Erp::Products::Product.get_deal_products
           @menu = params[:menu_id].present? ? Erp::Menus::Menu.find(params[:menu_id]) : @product.find_menu
           if @menu.present?
             @meta_keywords += @meta_keywords.present? ? ',' + @menu.meta_keywords : @menu.meta_keywords
+            @meta_description += @meta_description.present? ? @meta_description : @meta_description
           end
         end
 

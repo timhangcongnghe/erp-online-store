@@ -1,4 +1,11 @@
 <% title "Sản Phẩm Khuyến Mãi" %>
+
+<% content_for :metas do %>
+    <!-- for Facebook -->
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="<%= url_for('/frontend/image/timhangcongnghe-vn-logo-500.png') %>" />
+<% end %>
+
 <div class="main-container container">
     <ul class="breadcrumb">
         <li><%= link_to '<i class="fa fa-home"></i>'.html_safe, erp_online_store.root_path %></li>

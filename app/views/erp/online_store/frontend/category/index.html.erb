@@ -1,4 +1,15 @@
 <% title (params[:menu_id].present? ? @menu.name : 'TimHangCongNghe.VN') %>
+
+<% content_for :metas do %>
+    <!-- for Facebook -->
+    <meta property="og:type" content="article" />
+    <% if @menu.image_url_2.present? %>
+        <meta property="og:image" content="<%= @menu.image_url_2 %>" />
+    <% else %>
+        <meta property="og:image" content="<%= url_for('/frontend/image/timhangcongnghe-vn-logo-500.png') %>" />
+    <% end %>
+<% end %>
+
 <div class="main-container container">
     <ul class="breadcrumb">
         <li><%= link_to '<i class="fa fa-home"></i>'.html_safe, erp_online_store.root_path %></li>
