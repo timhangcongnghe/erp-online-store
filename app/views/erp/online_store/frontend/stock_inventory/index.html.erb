@@ -9,7 +9,7 @@
         <div id="content" class="col-md-9 col-sm-8">
             <% @menus.each do |menu| %>
                 <% if !menu.get_products.get_stock_inventory_products.empty? %>
-                    <div class="products-category">
+                    <div class="products-category" id="menu_<%= menu.id %>">
                         <h1 class="menu-title mb-0"><%= menu.name %></h1>
 
                         <%= render "erp/online_store/frontend/modules/category/product_list_filter_line",

@@ -806,7 +806,7 @@ $(document).ready(function () {
 
         container.html('<div class="category-loading"></div>');
 
-        $( "body" ).scrollTop( 200 );
+        $( "body" ).scrollTop( form.offset().top - 100 );
 
         // ajax autosearch
         //if(category_xhr && category_xhr.readyState != 4){
