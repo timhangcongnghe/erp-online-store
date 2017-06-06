@@ -7,6 +7,10 @@
     <div class="row">
         <!--Middle Part Start-->
         <div id="content" class="col-md-9 col-sm-8">
+
+            <img src="<%= url_for('/frontend/image/stock_banner.png') %>" width="100%" />
+            <br /><br />
+
             <% @menus.each do |menu| %>
                 <% if menu.id != 1 and !menu.get_products.get_stock_inventory_products.empty? %>
                     <div class="products-category" id="menu_<%= menu.id %>">
