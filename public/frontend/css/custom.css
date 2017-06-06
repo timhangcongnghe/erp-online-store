@@ -458,7 +458,7 @@ a.hover-product-name:hover {
   height: 33px;
 }
 .type_1 .header-top-right ul.top-link > li.compare a:before {
-  content: "\f2dd";
+  content: "\f2d2";
 }
 .type_1 .header-top-right ul.top-link > li.compare, .type_1 .header-top-right ul.top-link > li > a {
   color: #000;
@@ -880,12 +880,13 @@ table.product-compare tr td.product-name {
 }
 .type_7 .shopcart {
   white-space: nowrap;
-  padding-right: 30px;
+  padding-right: 20px;
 }
 .type_7 .shopping_cart .btn-shopping-cart a.top_cart .shopcart .text-shopping-cart {
   display: block;
   color: #fff;
-  text-transform: uppercase;
+  /*text-transform: uppercase;*/
+  font-size: 14px;
 }
 .type_7 .shopping_cart .btn-shopping-cart:hover {
   background-color: #00635a;
@@ -1905,7 +1906,7 @@ form[role=edit-password] > div:last-child {
 
 /******************* Giỏ hàng và so sánh ********************/
 .header-fixed-top .header-center .top-link {
-  line-height: 37px;
+  line-height: 38px;
   margin-bottom: 4px;
 }
 .header-fixed-top .header-center .top-link:hover a {
@@ -1920,20 +1921,20 @@ form[role=edit-password] > div:last-child {
   padding-right: 6px;
 }
 .header-fixed-top .header-center .top-link li {
-  border: 2px #009688 solid;
+  border: 1px #009688 solid;
   border-radius: 3px;
   padding: 0px;
 }
 .header-fixed-top .header-center .top-link li a {
-  text-transform: uppercase;
+  /*text-transform: uppercase;*/
   display: block;
-  font-size: 13px;
-  padding-right: 45px;
-  padding-left: 18px;
+  font-size: 14px;
+  padding-right: 36px;
+  padding-left: 15px;
   color: #009688;
 }
 .header-fixed-top .header-center .top-link li a:hover {
-  background-color: #009688;
+  background-color: rgba(0, 150, 136, 0.7);
   color: #fff;
 }
 .header-fixed-top .header-center .number {
@@ -1941,8 +1942,8 @@ form[role=edit-password] > div:last-child {
   border-radius: 100%;
   text-align: center;
   background: #cc181e;
-  height: 19px;
-  width: 19px;
+  height: 18px;
+  width: 18px;
   line-height: 18px;
   top: 10px;
   font-size: 11px;
@@ -2136,4 +2137,43 @@ td.no-border-bottom {
 #content .article-description img {
   border: 1px solid #ea3a3c;
   height: auto;
+}
+.type_1 .shopping_cart .btn-shopping-cart a.top_cart {
+  padding-right: 30px;
+}
+.type_1 .shopping_cart .btn-shopping-cart a.top_cart:after {
+  display: none;
+}
+.type_1 .shopping_cart {
+  padding-left: 25px;
+}
+.type_1 .shopping_cart .shopcart span.num.cart-qty, .type_7 .shopping_cart .shopcart span.num.cart-qty {
+  border: 1px #ffffff solid;
+  border-radius: 100%;
+  text-align: center;
+  background: #ffffff;
+  height: 18px;
+  width: 18px;
+  line-height: 18px;
+  font-size: 11px;
+  position: absolute;
+  color: #e5101d;
+  margin-left: 6px;
+}
+.type_1 .shopping_cart .shopcart span.num.cart-qty {
+  top: 12px;
+}
+.type_7 .shopping_cart .shopcart span.icon:before {
+  content: "\f291";
+  font: normal normal normal 14px/1 FontAwesome;
+}
+.type_7 .shopping_cart .shopcart span.text-shopping-cart {
+  padding-left: 20px;
+}
+.type_7 .shopping_cart .shopcart span.num.cart-qty {
+  top: 10px;
+  right: -3px;
+}
+.type_1 .shopping_cart .btn-shopping-cart a:hover .shopcart .num.cart-qty, .type_7 .shopping_cart .btn-shopping-cart a:hover .shopcart .num.cart-qty {
+  color: #e5101d !important;
 }

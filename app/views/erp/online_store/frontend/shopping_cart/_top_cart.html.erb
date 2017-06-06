@@ -3,11 +3,12 @@
     <div id="cart" class=" btn-group btn-shopping-cart">
         <a data-loading-text="Đang tải giỏ hàng..." class="btn-group top_cart dropdown-toggle" data-toggle="dropdown">
             <div class="shopcart">
-                 <span class="handle pull-left"></span> 
-                 <span class="text-shopping-cart hidden-xs">Giỏ hàng (<%= @cart.cart_items.number_items %>)</span> 
+                <span class="pull-left icon"></span>
+                <span class="text-shopping-cart hidden-xs">Giỏ hàng</span>
+                <span class="num cart-qty hidden-xs"><%= @cart.cart_items.number_items %></span>
                 <!--<span class="icon-cart-top-menu"><i class="fa fa-shopping-cart"></i></span>-->
                 <!--<span class="text-shopping-cart-top-menu hidden-xs"><%= @cart.cart_items.number_items %></span>-->
-                <span class="text-shopping-cart-mobi hidden-lg hidden-md hidden-sm ">
+                <span class="text-shopping-cart-mobi hidden-lg hidden-md hidden-sm">
                     <i class="fa fa-opencart"></i>
                 </span>
             </div>
