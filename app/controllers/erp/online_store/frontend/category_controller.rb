@@ -18,11 +18,13 @@ module Erp
         def deal_products
           @products = Erp::Products::Product.get_deal_products.frontend_filter(params).paginate(:page => params[:page], :per_page => 16)
           @menus = Erp::Menus::Menu.get_menus
+          @meta_description = "Các sản phẩm đang có chương trình khuyến mãi, giảm giá đều được giới thiệu tại KHUYẾN MÃI trên trang TimHangCongNghe.VN"
         end
 
         def bestseller_products
           @products = Erp::Products::Product.get_bestseller_products.frontend_filter(params).paginate(:page => params[:page], :per_page => 16)
           @menus = Erp::Menus::Menu.get_menus
+          @meta_description = "Các sản phẩm được khách hàng đặt hàng được chúng tôi thống kê, chọn lọc để sắp xếp vào nhóm sản phẩm BÁN CHẠY trên trang TimHangCongNghe.VN"
         end
 
         def select2

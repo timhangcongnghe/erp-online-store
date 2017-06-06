@@ -4,6 +4,7 @@ module Erp
       class StockInventoryController < Erp::Frontend::FrontendController
         def index
           @menus = Erp::Menus::Menu.get_menus
+          @meta_description = "Chào quý khách hàng, các sản phẩm trong mục XẢ KHO HÀNG TỒN là những sản phẩm tồn lại trong kho của chúng tôi chưa qua sử dụng nên hoàn toàn mới nhé"
         end
 
         def module
