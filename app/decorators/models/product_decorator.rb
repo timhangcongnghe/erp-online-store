@@ -17,6 +17,10 @@ Erp::Products::Product.class_eval do
       records = records.where(brand_id: params[:brand_ids])
     end
 
+    if params[:category_ids].present?
+      records = records.where(category_id: params[:category_ids])
+    end
+
     if params[:brand_id].present?
       records = records.where(brand_id: params[:brand_id])
     end
@@ -277,5 +281,15 @@ Erp::Products::Product.class_eval do
       total_pages: nil,
       total_entries: nil,
     }
+  end
+
+  # get all categories with products
+  def self.get_related_categories
+    Erp::Products::Category.where(id: self.distinct.pluck(:category_id))
+  end
+
+  # get all brands with products
+  def self.get_related_brands
+    Erp::Products::Brand.where(id: self.distinct.pluck(:brand_id))
   end
 end

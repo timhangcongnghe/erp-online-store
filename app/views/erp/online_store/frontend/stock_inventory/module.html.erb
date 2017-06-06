@@ -1,0 +1,58 @@
+<div class="main-products-list">
+    <% if @products.count > 0 %>
+    <!--changed listings-->
+    <div class="products-list row list">
+        <% @products.each do |product| %>
+        <div class="product-layout  col-md-3 col-sm-6 col-xs-12">
+            <div class="product-item-container product-lists">
+                <div class="left-block">
+                    <div class="product-image-container lazy second_img ">
+                        <%= image_tag product_image(product.product_images, 'first', 'thumb268'), data: {src: product_image(product.product_images, 'first', 'thumb268')}, alt: product.product_name, title: product.product_name, class: "img-1 img-responsive" %>
+                        <%= image_tag product_image(product.product_images, 'second', 'thumb268'), data: {src: product_image(product.product_images, 'second', 'thumb268')}, alt: product.product_name, title: product.product_name, class: "img-2 img-responsive" %>
+                    </div>
+                    <%= quick_actions(product) %>
+                    <% if product.is_bestseller? %>
+                    <span class="label label-bestseller">Bán Chạy</span>
+                    <% end %>
+                    <% if product.is_deal? %>
+                    <span class="label label-sale">Giảm giá</span>
+                    <% end %>
+                    <%= count_down(product.deal_from_date, product.deal_to_date) %>
+                </div>
+                <div class="right-block">
+                    <div class="caption">
+                        <h4><%= link_to product.product_name, product_link(product), title: product.product_name, class: "hover-product-name" %></h4>
+                        <div class="ratings">
+                            <div class="rating-box">
+                                <%= stars(product.average_stars) %>
+                            </div>
+                        </div>
+                        <div class="price">
+                            <span class="price-new"><%= format_price(product.product_price) %></span>
+                            <% if product.is_deal? %>
+                            <br><span class="price-old"><%= format_price(product.price) %></span>
+                            <span class="label label-percent">-<%= product.deal_percent %>%</span>
+                            <% end %>
+                        </div>
+                        <%= product_list_description(product) %>
+                    </div>
+                </div>
+                <!-- right block -->
+            </div>
+        </div>
+        <% end %>
+    </div>
+    <!--// End Changed listings-->
+    <!-- Pagination -->
+    <div class="product-filter product-filter-bottom filters-panel">
+        <div class="box-pagination text-center">
+            <%= will_paginate @products, previous_label: '←', next_label: '→', renderer: BootstrapPagination::Rails %>
+        </div>
+    </div>
+    <!-- End Pagination -->
+    <% else %>
+        <div class="alert alert-warning">
+            <i class="fa fa-warning"></i> Hiện chưa có sản phẩm cho chuyên mục này.
+        </div>
+    <% end %>
+</div>

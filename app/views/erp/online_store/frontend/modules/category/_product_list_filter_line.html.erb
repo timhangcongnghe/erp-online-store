@@ -1,4 +1,4 @@
-<%= form_tag("", method: "get", class: "category-filter-top") do %>
+<%= form_tag((defined?(action) ? action : ''), method: "get", class: "category-filter-top "+(defined?(auto_load) ? 'auto-load' : '')) do %>
     <div class="filters-line">
         <div class="row">
             <div class="col-sm-8 col-md-9">
@@ -14,7 +14,19 @@
                         <span class="select2-selection__arrow-mul"></span>
                     </div>
                 <% end %>
-                <% if defined?(menus) and false %>
+                <% if defined?(categories) and categories.count > 1 %>
+                    <div class="filters-box categories-filter-line" style="margin-top: -2px;">
+                        <select class="form-control" name="category_ids[]" multiple="multiple" placeholder="">
+                            <% categories.each do |category| %>
+                                <li>
+                                    <option value="<%= category.id %>"><%= category.name %></option>
+                                </li>
+                            <% end %>
+                        </select>
+                        <span class="select2-selection__arrow-mul"></span>
+                    </div>
+                <% end %>
+                <% if defined?(menus) and true %>
                     <div class="filters-box menus-filter-line" style="margin-top: -2px;">
                         <select class="select-ajax" name="menu_id"
                             data-url="<%= erp_online_store.category_select2_path %>"

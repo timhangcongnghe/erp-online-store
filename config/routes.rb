@@ -24,6 +24,7 @@ Erp::OnlineStore::Engine.routes.draw do
   get "san-pham-khuyen-mai.html" => "frontend/category#deal_products", as: :deal_products
   get "san-pham-ban-chay.html" => "frontend/category#bestseller_products", as: :bestseller_products
   get "lua-chon-tu-doanh-nghiep.html" => "frontend/business_choices#index", as: :business_choices
+  get "xa-hang-ton-kho/module.html" => "frontend/stock_inventory#module", as: :stock_inventory_module
   get "xa-hang-ton-kho.html" => "frontend/stock_inventory#index", as: :stock_inventory
 
   # BLOG

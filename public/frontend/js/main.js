@@ -1,3 +1,14 @@
+// Generate unique id
+function guid() {
+  function s4() {
+    return Math.floor((1 + Math.random()) * 0x10000)
+      .toString(16)
+      .substring(1);
+  }
+  return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
+    s4() + '-' + s4() + s4() + s4();
+}
+
 // Contact form ajax load
 function loadContactForm(contact_id) {
     var box = $('.order-contact-form');
@@ -746,20 +757,27 @@ $(document).ready(function () {
     $(document).on('change', '.category-filter-box input, .category-filter-box select, .category-filter-top input, .category-filter-top select', function() {
         var form = $(this).parents('form');
         var url = form.attr('action');
-        var container = $('.main-products-list');
+        var container = form.parent().find('.main-products-list');
 
         container.html('<div class="category-loading"></div>');
+
+        // Add uniq id to form
+        var uuid = form.attr('id');
+        if (typeof(uuid) === 'undefined') {
+            uuid = guid();
+        }
 
         //$( "body" ).scrollTop( $('#content').offset().top - 100 );
         //$( "body" ).animate({scrollTop:$('#content').offset().top - 100}, 'slow');
 
         // ajax autosearch
-        if(category_xhr && category_xhr.readyState != 4){
-            category_xhr.abort();
-        }
-        category_xhr = $.ajax({
+        //if(category_xhr && category_xhr.readyState != 4){
+        //    category_xhr.abort();
+        //}
+        //category_xhr =
+        $.ajax({
             url: url,
-            data: $('.category-filter-box, .category-filter-top').serialize()
+            data: $('.category-filter-box, #' + uuid).serialize()
         }).done(function( data ) {
             container.html($('<div>').html(data).find('.main-products-list').html());
             setTimeout(function () {
@@ -780,15 +798,22 @@ $(document).ready(function () {
         var url = $(this).attr('href');
         var container = $('.main-products-list');
 
+        // Add uniq id to form
+        var uuid = form.attr('id');
+        if (typeof(uuid) === 'undefined') {
+            uuid = guid();
+        }
+
         container.html('<div class="category-loading"></div>');
 
         $( "body" ).scrollTop( 200 );
 
         // ajax autosearch
-        if(category_xhr && category_xhr.readyState != 4){
-            category_xhr.abort();
-        }
-        category_xhr = $.ajax({
+        //if(category_xhr && category_xhr.readyState != 4){
+        //    category_xhr.abort();
+        //}
+        //category_xhr =
+        $.ajax({
             url: url,
             data: $('.category-filter-box, .category-filter-top').serialize()
         }).done(function( data ) {
@@ -803,6 +828,8 @@ $(document).ready(function () {
             });
         });
     });
+
+    $('.category-filter-top.auto-load input, .category-filter-top.auto-load select').trigger('change');
 
     // delete contact confirm form
     $(document).on('click', '[link-method]', function(e) {
@@ -1090,7 +1117,7 @@ $('.megamenu').hover(function() {
 $('.item-vertical').hover(function() {
         if (flag === 0)
         {
-            $(this).addClass('active1');   
+            $(this).addClass('active1');
         }
     }, function() {
         $(this).removeClass('active1');

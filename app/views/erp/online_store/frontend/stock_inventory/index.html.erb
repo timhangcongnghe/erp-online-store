@@ -1,117 +1,35 @@
-<% title "Sản Phẩm Bán Chạy" %>
+<% title "Xả Kho Hàng Tồn" %>
 <div class="main-container container">
     <ul class="breadcrumb">
         <li><%= link_to '<i class="fa fa-home"></i>'.html_safe, erp_online_store.root_path %></li>
         <li><%= link_to "Xả Kho Hàng Tồn", "javascript:void(0)" %></li>
     </ul>
     <div class="row">
+        <!--Middle Part Start-->
+        <div id="content" class="col-md-9 col-sm-8">
+            <% @menus.each do |menu| %>
+                <% if !menu.get_products.get_stock_inventory_products.empty? %>
+                    <div class="products-category">
+                        <h1 class="menu-title mb-0"><%= menu.name %></h1>
+
+                        <%= render "erp/online_store/frontend/modules/category/product_list_filter_line",
+                            categories: menu.get_products.get_stock_inventory_products.get_related_categories,
+                            brands: menu.get_products.get_stock_inventory_products.get_related_brands,
+                            action: erp_online_store.stock_inventory_module_path(menu_id: menu.id),
+                            auto_load: true
+                        %>
+
+                        <div class="main-products-list"></div>
+                    </div>
+                <% end %>
+            <% end %>
+        </div>
+        <!--Middle Part End-->
         <!--Left Part Start -->
         <aside class="col-sm-4 col-md-3" id="column-left">
-              <div class="module menu-category titleLine">
-                <h3 class="modtitle">
-                  <span>
-                    <i class="fa fa-angle-double-right"></i>
-                    Hàng Xả Kho
-                  </span>
-                </h3>
-                <div class="modcontent">
-                    <div class="box-category">
-                        <ul id="cat_accordion" class="list-group">
-                            <% @menus.each do |menu| %>
-                            <li <% if menu.children.count > 0 %>class="hadchild cutom-parent-li"<% end %>>
-                                <a href="<%= menu_link(menu) %>" class="cutom-parent"><%= menu.name %><span class="dcjq-icon"></span></a>
-                                <% if menu.children.count > 0 %>
-                                <span class="button-view  fa fa-plus-square-o"></span>
-                                <% end %>
-                                <ul style="display: none;">
-                                    <% menu.children.each do |child_1| %>
-                                        <% if child_1.children.count > 0 %>
-                                        <li class="hadchild cutom-parent-li">
-                                            <%= link_to child_1.name, menu_link(child_1), class: "cutom-parent" %>
-                                            <span class="button-view  fa fa-plus-square-o"></span>
-                                            <ul style="display: none;">
-                                                <% child_1.children.each do |child_2| %>
-                                                    <li><%= link_to child_2.name, menu_link(child_2) %></li>
-                                                <% end %>
-                                            </ul>
-                                        </li>
-                                        <% else %>
-                                            <li><%= link_to child_1.name, menu_link(child_1) %></li>
-                                        <% end %>
-                                    <% end %>
-                                </ul>
-                            </li>
-                            <% end %>
-                        </ul>
-                    </div>
-                </div>
-            </div>
             <%= render "erp/online_store/frontend/modules/sidebar_deal_products" %>
             <%= render "erp/online_store/frontend/modules/hot_banners" %>
         </aside>
         <!--Left Part End -->
-        <!--Middle Part Start-->
-        <div id="content" class="col-md-9 col-sm-8">
-            <div class="products-category">
-                <h1 class="menu-title">Xả Kho Hàng Tồn</h1>
-                <% if @products.count > 0 %>
-                <!--changed listings-->
-                <div class="products-list row list">
-                    <% @products.each do |product| %>
-                    <div class="product-layout  col-md-3 col-sm-6 col-xs-12">
-                        <div class="product-item-container product-lists">
-                            <div class="left-block">
-                                <div class="product-image-container lazy second_img ">
-                                    <%= image_tag product_image(product.product_images, 'first', 'thumb268'), data: {src: product_image(product.product_images, 'first', 'thumb268')}, alt: product.product_name, title: product.product_name, class: "img-1 img-responsive" %>
-                                    <%= image_tag product_image(product.product_images, 'second', 'thumb268'), data: {src: product_image(product.product_images, 'second', 'thumb268')}, alt: product.product_name, title: product.product_name, class: "img-2 img-responsive" %>
-                                </div>
-                                <%= quick_actions(product) %>
-                                <% if product.is_bestseller? %>
-                                <span class="label label-bestseller">Bán Chạy</span>
-                                <% end %>
-                                <% if product.is_deal? %>
-                                <span class="label label-sale">Giảm giá</span>
-                                <% end %>
-                                <%= count_down(product.deal_from_date, product.deal_to_date) %>
-                            </div>
-                            <div class="right-block">
-                                <div class="caption">
-                                    <h4><%= link_to product.product_name, product_link(product), title: product.product_name, class: "hover-product-name" %></h4>
-                                    <div class="ratings">
-                                        <div class="rating-box">
-                                            <%= stars(product.average_stars) %>
-                                        </div>
-                                    </div>
-                                    <div class="price">
-                                        <span class="price-new"><%= format_price(product.product_price) %></span>
-                                        <% if product.is_deal? %>
-                                        <br><span class="price-old"><%= format_price(product.price) %></span>
-                                        <span class="label label-percent">-<%= product.deal_percent %>%</span>
-                                        <% end %>
-                                    </div>
-                                    <%= product_list_description(product) %>
-                                </div>
-                            </div>
-                            <!-- right block -->
-                        </div>
-                    </div>
-                    <% end %>
-                </div>
-                <!--// End Changed listings-->
-                <!-- Pagination -->
-                <div class="product-filter product-filter-bottom filters-panel">
-                    <div class="box-pagination text-center">
-                        <%= will_paginate @products, previous_label: '←', next_label: '→', renderer: BootstrapPagination::Rails %>
-                    </div>
-                </div>
-                <!-- End Pagination -->
-                <% else %>
-                    <div class="alert alert-warning">
-                        <i class="fa fa-warning"></i> Hiện chưa có sản phẩm cho chuyên mục này.
-                    </div>
-                <% end %>
-            </div>
-        </div>
-        <!--Middle Part End-->
     </div>
 </div>
