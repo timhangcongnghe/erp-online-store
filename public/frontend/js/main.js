@@ -796,7 +796,7 @@ $(document).ready(function () {
 
         var form = $(this).parents('form');
         var url = $(this).attr('href');
-        var container = $('.main-products-list');
+        var container = $(this).parents('.main-products-list');
 
         // Add uniq id to form
         var uuid = form.attr('id');
