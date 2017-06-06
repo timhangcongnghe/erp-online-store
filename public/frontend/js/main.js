@@ -765,6 +765,7 @@ $(document).ready(function () {
         var uuid = form.attr('id');
         if (typeof(uuid) === 'undefined') {
             uuid = guid();
+            form.attr('id', uuid);
         }
 
         //$( "body" ).scrollTop( $('#content').offset().top - 100 );
@@ -794,14 +795,15 @@ $(document).ready(function () {
     $(document).on('click', '.box-pagination .pagination a', function(e) {
         e.preventDefault();
 
-        var form = $(this).parents('form');
         var url = $(this).attr('href');
         var container = $(this).parents('.main-products-list');
+        var form = container.find('form');
 
         // Add uniq id to form
         var uuid = form.attr('id');
         if (typeof(uuid) === 'undefined') {
             uuid = guid();
+            form.attr('id', uuid);
         }
 
         container.html('<div class="category-loading"></div>');
