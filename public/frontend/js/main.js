@@ -806,7 +806,7 @@ $(document).ready(function () {
 
         container.html('<div class="category-loading"></div>');
 
-        $( "body" ).scrollTop( form.offset().top - 100 );
+        $( "body" ).scrollTop( container.offset().top - 100 );
 
         // ajax autosearch
         //if(category_xhr && category_xhr.readyState != 4){
@@ -815,7 +815,7 @@ $(document).ready(function () {
         //category_xhr =
         $.ajax({
             url: url,
-            data: $('.category-filter-box, .category-filter-top').serialize()
+            data: $('.category-filter-box, #' + uuid).serialize()
         }).done(function( data ) {
             container.html($('<div>').html(data).find('.main-products-list').html());
             setTimeout(function () {
