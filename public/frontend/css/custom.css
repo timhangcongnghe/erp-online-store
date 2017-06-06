@@ -2133,3 +2133,7 @@ td.no-border-bottom {
   position: inherit;
   width: auto;
 }
+#content .article-description img {
+  border: 1px solid #ea3a3c;
+  height: auto;
+}
