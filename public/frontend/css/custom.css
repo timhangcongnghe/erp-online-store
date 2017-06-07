@@ -2154,7 +2154,7 @@ td.no-border-bottom {
   background: #ffffff;
   height: 18px;
   width: 18px;
-  line-height: 18px;
+  line-height: 17px;
   font-size: 11px;
   position: absolute;
   color: #e5101d;
@@ -2176,4 +2176,7 @@ td.no-border-bottom {
 }
 .type_1 .shopping_cart .btn-shopping-cart a:hover .shopcart .num.cart-qty, .type_7 .shopping_cart .btn-shopping-cart a:hover .shopcart .num.cart-qty {
   color: #e5101d !important;
+}
+ul.shoppingcart-box .shopping-cart-price {
+  font-family: Arial, sans-serif;
 }
