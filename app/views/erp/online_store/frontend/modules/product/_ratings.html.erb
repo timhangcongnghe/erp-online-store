@@ -92,7 +92,7 @@
             <% ratings.each_with_index do |rating,index| %>
                 <div class="row">
                     <div class="col-sm-4 review-block-author">
-                        <img src="<%= avatar(rating.user) %>" class="img-rounded">
+                        <img src="<%= avatar(rating.user) %>" class="img-rounded" width="24%">
                         <div class="author">
                             <div class="review-block-name"><a href="#"><%= rating.user_name %></a></div>
                             <div class="review-block-date">
