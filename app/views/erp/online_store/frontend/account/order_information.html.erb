@@ -72,14 +72,21 @@
                         <% @order.frontend_order_details.each do |order_detail| %>
                         <tr>
                             <td class="text-left">
-                                <strong><%= link_to order_detail.product_name, product_link(order_detail.product), title: order_detail.product_name %></strong>
+                                <strong>
+                                    <% if order_detail.product.present? %>
+                                        <%= link_to order_detail.product_name, product_link(order_detail.product), title: order_detail.product_name %>
+                                    <% else %>
+                                        <%= order_detail.product_name %>
+                                    <% end %>
+                                </strong>
+                                <%= ' (Tặng kèm)' if order_detail.description == Erp::Orders::FrontendOrderDetail::STYLE_GIFT %>
                             </td>
                             <td class="text-center"><strong><%= order_detail.quantity %></strong></td>
                             <td class="text-center">
-                                <strong class="order-table price"><%= format_price(order_detail.price) %></strong>
+                                <%= order_detail.price == 0 ? 'Miễn phí' : ('<strong class="order-table price">' + format_price(order_detail.price) + '</strong>').html_safe %>
                             </td>
                             <td class="text-right">
-                                <strong class="order-table price"><%= format_price(order_detail.total) %></strong>
+                                <%= order_detail.total == 0 ? 'Miễn phí' : ('<strong class="order-table price">' + format_price(order_detail.total) + '</strong>').html_safe %>
                             </td>
                         </tr>
                         <% end %>
