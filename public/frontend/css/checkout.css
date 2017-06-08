@@ -149,7 +149,8 @@ fieldset#address-form input, fieldset#address-form select {
 }
 .btn-checkout {
   color: #fff;
-  padding: 12px;
+  font-size: 120%;
+  padding: 8px;
   border: 1px solid #cd1233;
   border-radius: 4px;
   outline-color: #ccc;
@@ -166,9 +167,11 @@ fieldset#address-form input, fieldset#address-form select {
   -o-transistion: all .5s linear;
   transistion: all .5s linear;
 }
-.btn-checkout:hover {
+.btn-checkout:hover, .btn-checkout:active, .btn-checkout:focus, .btn-checkout:active:focus {
   background: #e54d42;
   border-color: #e54d42;
+  outline: none;
+  color: #fff;
 }
 .so-onepagecheckout .confirm #confirm_comment {
   margin-bottom: 10px;
