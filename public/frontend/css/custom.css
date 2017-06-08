@@ -2211,3 +2211,6 @@ ul.shoppingcart-box .shopping-cart-total {
 .shopping-cart .quantity span a.btn-danger {
   border-radius: 0 3px 3px 0;
 }
+.shoppingcart-box .btn.shopping-actions {
+  border-radius: 3px;
+}
