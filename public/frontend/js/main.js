@@ -151,6 +151,11 @@ function loadTopRightMenu(callback) {
         if (typeof(callback) !== 'undefined') {
             callback();
         }
+
+        if ( $('.type_1 .compare a span').length) {
+          var compare_count = $('.type_1 .compare a span').html().split('(')[1].split(')')[0];
+          $('.type_7 .compare a span').html(compare_count);
+        }
     });
 }
 

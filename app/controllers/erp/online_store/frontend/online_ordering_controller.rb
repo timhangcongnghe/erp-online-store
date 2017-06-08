@@ -19,8 +19,8 @@ module Erp
           end
 
           # check if keywords is ebay details link
-          if params[:keywords].include?("amazon.com/dp/")
-            id = params[:keywords].split('amazon.com/dp/')[1].split('/').first
+          if params[:keywords].include?("amazon.com") and params[:keywords].include?("/dp/")
+            id = params[:keywords].split('/dp/')[1].split('/').first
             if id.length > 8 and id.length < 12
               redirect_to erp_online_store.online_ordering_product_detail_path(id: id, service: 'amazon')
               return
@@ -28,10 +28,10 @@ module Erp
           end
 
           # check if keywords is ebay details link
-          if params[:keywords].include?("ebay.com/itm")
+          if params[:keywords].include?("ebay.") and params[:keywords].include?("/itm")
             id = params[:keywords].split('?')[0].split('/').last
             if (true if Float(id) rescue false)
-              redirect_to erp_online_store.online_ordering_product_detail_path(id: id)
+              redirect_to erp_online_store.online_ordering_product_detail_path(id: id, service: 'ebay')
               return
             end
           end
