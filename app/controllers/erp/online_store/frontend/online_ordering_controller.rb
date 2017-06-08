@@ -20,7 +20,7 @@ module Erp
 
           # check if keywords is ebay details link
           if params[:keywords].include?("amazon.com") and params[:keywords].include?("/dp/")
-            id = params[:keywords].split('/dp/')[1].split('/').first
+            id = params[:keywords].split('/dp/')[1].split('/').first.split('?').first
             if id.length > 8 and id.length < 12
               redirect_to erp_online_store.online_ordering_product_detail_path(id: id, service: 'amazon')
               return
