@@ -2183,3 +2183,31 @@ ul.shoppingcart-box .shopping-cart-price, ul.shoppingcart-box .shopping-cart-tot
 ul.shoppingcart-box .shopping-cart-total {
   color: #F44336;
 }
+
+.shopping-cart .btn.shopping-order {
+  display: inline-block;
+  font-weight: normal;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+.shopping-cart .btn.shopping-continue {
+  color: #fff;
+  background-color: #f0ad4e;
+  border-color: #eea236;
+  display: inline-block;
+  font-weight: normal;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+.shopping-cart .btn.shopping-continue:hover {
+  background-color: rgba(240, 173, 78, 0.9);
+}
+.shopping-cart .btn.shopping-continue:active {
+  background-color: rgba(240, 173, 100, 1);
+}
+.shopping-cart .quantity input.item-qty {
+  border-radius: 3px 0 0 3px;
+}
+.shopping-cart .quantity span a.btn-danger {
+  border-radius: 0 3px 3px 0;
+}
