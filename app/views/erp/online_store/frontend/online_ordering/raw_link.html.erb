@@ -1,0 +1,18 @@
+<div class="container">
+    <header class="page-header">
+        <h1 class="page-title">Đặt hàng trực tuyến</h1>
+        <ol class="breadcrumb page-breadcrumb">
+            <li><%= link_to "Đặt hàng qua liên kết", erp_online_store.online_ordering_path %></li>
+        </ol>
+    </header>
+    <div class="row">
+        <div class="col-md-12">
+            <h4 class="text-center"><%= params[:keywords] %></h4>
+            <p class="text-center">
+                <a class="btn btn-primary" href="<%= params[:keywords] %>">
+                    <i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng
+                </a>
+            </p>
+        </div>
+    </div>
+</div>

@@ -35,6 +35,11 @@ module Erp
               return
             end
           end
+
+          # Check if raw link
+          if params[:keywords].include?("http")
+            render "raw_link"
+          end
         end
 
         def search_ebay
@@ -58,9 +63,13 @@ module Erp
 
         def product_detail
           if params[:service] == 'ebay'
-            @product = Erp::Products::Product::get_ebay_product(params[:id])
+            result = Erp::Products::Product::get_ebay_product(params[:id])
+            @product = result[:product]
+            @item = result[:item]
           elsif params[:service] == 'amazon'
-            @product = Erp::Products::Product::get_amazon_product(params[:id])
+            result = Erp::Products::Product::get_amazon_product(params[:id])
+            @product = result[:product]
+            @item = result[:item]
           end
         end
 

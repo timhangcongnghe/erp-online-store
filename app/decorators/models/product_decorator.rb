@@ -114,6 +114,7 @@ Erp::Products::Product.class_eval do
       'short_description' => item["ConditionDescription"].to_s,
       'pictures' => item["PictureURL"],
       'category_id' => item["PrimaryCategoryID"],
+      'url' => item["ViewItemURLForNaturalSearch"],
     }
   end
 
@@ -181,6 +182,7 @@ Erp::Products::Product.class_eval do
     include ActionView::Helpers::SanitizeHelper
 
     product = self.where(ebay_id: eid).first
+    ebay_item = self.ebay_get_single_item(eid)
 
     if product.nil?
       # create new if not exist
@@ -215,7 +217,7 @@ Erp::Products::Product.class_eval do
       product.save
     end
 
-    product
+    {product: product, item: ebay_item}
   end
 
   # Get ebay related items
@@ -266,7 +268,7 @@ Erp::Products::Product.class_eval do
       product.save
     end
 
-    product
+    {product: product, item: {"url" => 'https://www.amazon.com/gp/product/'+eid}}
   end
 
   # Amazon find related items
