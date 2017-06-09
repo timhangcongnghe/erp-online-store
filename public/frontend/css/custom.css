@@ -2180,7 +2180,8 @@ td.no-border-bottom {
 
 .border-error .select2-selection--single {
   border-color: #da2723 !important;
-}ul.shoppingcart-box .shopping-cart-price, ul.shoppingcart-box .shopping-cart-total {
+}
+ul.shoppingcart-box .shopping-cart-price, ul.shoppingcart-box .shopping-cart-total {
   font-family: Arial, sans-serif;
 }
 ul.shoppingcart-box .shopping-cart-total {
@@ -2216,4 +2217,16 @@ ul.shoppingcart-box .shopping-cart-total {
 }
 .shoppingcart-box .btn.shopping-actions {
   border-radius: 3px;
+}
+
+/* fix lổi giao diện top header bị che lấp trên di động*/
+@media (max-width: 480px)
+{
+  header .collapsed-block .account .dropdown-menu {
+    right: inherit!important;
+  }
+  header .top-right-menu .dropdown-menu {
+    right: inherit!important;
+    left: -1px!important;    
+  }
 }
