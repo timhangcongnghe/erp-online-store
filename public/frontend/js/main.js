@@ -375,7 +375,10 @@ $(document).ready(function () {
 
     $(document).on('focusin', '.autosearch-input', function() {
         var box = $(this).parents('.autosearch');
-        box.find('.autosearch-result-box').show();
+        var value = $(this).val();
+        if (value.trim() != '') {
+          box.find('.autosearch-result-box').show();
+        }
     });
 
     $('.category_box').each(function() {
