@@ -2177,7 +2177,10 @@ td.no-border-bottom {
 .type_1 .shopping_cart .btn-shopping-cart a:hover .shopcart .num.cart-qty, .type_7 .shopping_cart .btn-shopping-cart a:hover .shopcart .num.cart-qty {
   color: #e5101d !important;
 }
-ul.shoppingcart-box .shopping-cart-price, ul.shoppingcart-box .shopping-cart-total {
+
+.border-error .select2-selection--single {
+  border-color: #da2723 !important;
+}ul.shoppingcart-box .shopping-cart-price, ul.shoppingcart-box .shopping-cart-total {
   font-family: Arial, sans-serif;
 }
 ul.shoppingcart-box .shopping-cart-total {
