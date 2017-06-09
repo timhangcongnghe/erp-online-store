@@ -114,7 +114,7 @@ Erp::Products::Product.class_eval do
       'short_description' => item["ConditionDescription"].to_s,
       'pictures' => item["PictureURL"],
       'category_id' => item["PrimaryCategoryID"],
-      'url' => item["ViewItemURLForNaturalSearch"],
+      #'url' => item["ViewItemURLForNaturalSearch"],
     }
   end
 
