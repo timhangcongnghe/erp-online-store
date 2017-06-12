@@ -1129,3 +1129,28 @@ $('.item-vertical').hover(function() {
     }, function() {
         $(this).removeClass('active1');
 });
+
+// zoom images detail product
+$( document ).ready(function() {
+    $('.large-image').click( function() {
+        setTimeout(function(){
+            autoWidthImg();
+        }, 70);
+    });
+    
+    function autoWidthImg() {
+        if ($('.mfp-arrow-right').length>0)
+        {
+            var width = ((($(document).width() - $('.mfp-content').width()) / 2) - 15);
+            $('.mfp-arrow-left').attr("id","my-mft-left");
+            $('.mfp-arrow-right').attr("id","my-mft-right");
+            document.getElementById("my-mft-left").style.left = width + "px";
+            document.getElementById("my-mft-right").style.right = width + "px";
+        }
+    }
+    
+    $( window ).resize(function() {
+        fixWithProductListAll();
+        autoWidthImg();
+    });
+});
