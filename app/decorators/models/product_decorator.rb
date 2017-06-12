@@ -294,4 +294,33 @@ Erp::Products::Product.class_eval do
   def self.get_related_brands
     Erp::Products::Brand.where(id: self.distinct.pluck(:brand_id))
   end
+
+  ############ OVERIDE METHODS #####################
+  # overide search method
+  def self.search(params)
+    query = self.no_online
+    query = self.filter(query, params)
+
+    # order
+    if params[:sort_by].present?
+      order = params[:sort_by]
+      order += " #{params[:sort_direction]}" if params[:sort_direction].present?
+
+      query = query.order(order)
+    else
+      query = query.order('created_at desc')
+    end
+
+    return query
+  end
+
+  # no online
+  def self.no_online
+    self.where(amazon_id: nil).where(ebay_id: nil)
+  end
+
+  # no online
+  def self.get_active
+    self.no_online.where(archived: false)
+  end
 end
