@@ -50,8 +50,12 @@ function loadContactForm(contact_id) {
     });
 }
 
-function fixWithProductListAll() {
-    $('.products-list').each(function() {
+function fixWithProductListAll(container) {
+    var items = $('.products-list');
+    if (typeof(container) !== 'undefined' ) {
+      items = container.find('.products-list');
+    }
+    items.each(function() {
         fixWithProductList($(this));
     });
 }
@@ -789,7 +793,7 @@ $(document).ready(function () {
             setTimeout(function () {
                 container.find('.product-image-container').addClass('lazy-loaded');
                 container.find('.products-list').removeClass('list').addClass('grid');
-                fixWithProductListAll();
+                fixWithProductListAll(container);
             }, 500);
             container.find('.ajax-link').fancybox({
                 closeClickOutside : true,
@@ -1137,7 +1141,7 @@ $( document ).ready(function() {
             autoWidthImg();
         }, 70);
     });
-    
+
     function autoWidthImg() {
         if ($('.mfp-arrow-right').length>0)
         {
@@ -1148,7 +1152,7 @@ $( document ).ready(function() {
             document.getElementById("my-mft-right").style.right = width + "px";
         }
     }
-    
+
     $( window ).resize(function() {
         fixWithProductListAll();
         autoWidthImg();
