@@ -45,7 +45,7 @@
                                         <% end %>
                                     </ul>
                                 </div>
-                                <div class="large-image  vertical">
+                                <div id="large-image" class="large-image  vertical">
                                     <img itemprop="image" class="product-image-zoom" src="<%= @product.main_image.image_url.thumb445 %>" data-zoom-image="<%= @product.main_image.image_url.thumb445 %>" title="<%= @product.name %>" alt="<%= @product.name %>">
                                 </div>
                                 <% if @product.product_intro_link.present? %>

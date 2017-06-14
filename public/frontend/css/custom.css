@@ -2230,3 +2230,21 @@ ul.shoppingcart-box .shopping-cart-total {
     left: -1px!important;    
   }
 }
+
+/* fix lổi giao diện footer không tương đối trên di động*/
+footer .box-footer {
+  margin-top: 25px!important;
+}
+footer .box-footer {
+    padding-left: 15px!important;
+}
+@media (max-width: 470px) {
+  footer .footer-bottom {
+    font-size: 10px!important;
+  }
+}
+@media (max-width: 620px) {
+  footer .box-footer {
+    width: 100% !important;
+  }
+}

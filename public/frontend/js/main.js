@@ -1136,7 +1136,7 @@ $('.item-vertical').hover(function() {
 
 // zoom images detail product
 $( document ).ready(function() {
-    $('.large-image').click( function() {
+    $('#large-image').click( function() {
         setTimeout(function(){
             autoWidthImg();
         }, 70);
