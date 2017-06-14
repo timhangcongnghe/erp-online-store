@@ -109,12 +109,12 @@ Erp::Products::Product.class_eval do
       'name' => item["Title"],
       'thumb' => item["galleryURL"],
       'price' => item["ConvertedCurrentPrice"]["Value"],
-      'url' => item["viewItemURL"],
+      #'url' => item["viewItemURL"],
       'description' => item["Description"].to_s,
       'short_description' => item["ConditionDescription"].to_s,
       'pictures' => item["PictureURL"],
       'category_id' => item["PrimaryCategoryID"],
-      #'url' => item["ViewItemURLForNaturalSearch"],
+      'url' => item["ViewItemURLForNaturalSearch"],
     }
   end
 
