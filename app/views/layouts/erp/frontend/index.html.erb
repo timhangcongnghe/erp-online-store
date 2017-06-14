@@ -5,12 +5,12 @@
 	<%= csrf_meta_tags %>
 
   <!-- Basic page needs ============================================ -->
-  <title><% if content_for?(:title) %><%= yield(:title) %> | TimHangCongNghe.VN<% else %>Trang Thương Mại Điện Tử Sản Phẩm Công Nghệ Uy Tín, Chất Lượng<% end %></title>
+  <title><% if content_for?(:title) %><%= yield(:title) %> | Tìm Hàng Công Nghệ<% else %>Trang Thương Mại Điện Tử Sản Phẩm Công Nghệ Uy Tín, Chất Lượng<% end %></title>
 	<meta charset="utf-8">
 	<% if @meta_description.present? %>
 	<meta name="description" content="<%= @meta_description %>">
 	<% else %>
-	<meta name="description" content="TimHangCongNghe.VN là trang thương mại điện tử uy tín chuyên cung cấp đa dạng các sản phẩm, thiết bị công nghệ từ các hãng lớn thế giới.">
+	<meta name="description" content="Tìm Hàng Công Nghệ là trang thương mại điện tử uy tín chuyên cung cấp đa dạng các sản phẩm, thiết bị công nghệ từ các hãng lớn thế giới.">
 	<% end %>
 	<% if @meta_keywords.present? %>
 	<meta name="keywords" content="<%= @meta_keywords %>">
@@ -82,7 +82,7 @@
 	<% if params[:controller] == "erp/online_store/frontend/information" && params[:action] == "contact_us" %>
 		<%= javascript_include_tag "/frontend/js-google-map/jquery/jquery.js" %>
 	<% end %>
-	<link rel="alternate" href="http://timhangcongnghe.vn/" hreflang="vi-vn" />
+	<link rel="alternate" href="http://timhangcongnghe.com/" hreflang="vi-vn" />
 	<!-- Facebook Pixel Code -->
 	<script>
 		!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
