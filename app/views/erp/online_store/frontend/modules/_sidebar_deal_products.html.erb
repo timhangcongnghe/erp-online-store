@@ -28,7 +28,7 @@
                                     <%= stars(product.average_stars) %>
                                 </div>
                                 <div class="item-title">
-                                    <%= link_to product.product_name, product_link(product), title: product.product_name %>
+                                    <%= link_to truncate(product.product_name, length: 40), product_link(product), title: product.product_name %>
                                 </div>
                                 <!-- Begin item-content -->
                                 <div class="item-content">

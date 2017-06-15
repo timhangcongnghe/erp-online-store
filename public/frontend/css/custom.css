@@ -777,6 +777,7 @@ table.product-compare tr td.product-name {
 }
 .best-seller .so-extraslider .extraslider-inner .item .item-wrap.style1 .media-body .item-info .item-title a {
   font-weight: 500;
+  font-size: 13px;
 }
 .footer-center .content, footer .footer-center .contact-address li, footer a {
   color: #000;
