@@ -30,7 +30,9 @@
                 <% if @bestsellers.count > 0 %>
                 <div class="col-md-3 col-sm-4 col-xs-12">
                     <!-- BESTSELERS -->
+                    <% if @hot_deals.count > 3 %>
                     <%= render "erp/online_store/frontend/modules/sidebar_best_sellers" %>
+                    <% end %>
                     <!-- END BESTSELERS -->
                 </div>
                 <% end %>
