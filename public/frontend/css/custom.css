@@ -617,8 +617,10 @@ a.view-all-hotdeals:hover {
 .list-services li span:hover {
   /*border-color: #009688;*/
 }
-.shopping_cart:hover .content {
-  display: block;
+@media (min-width: 500px) {
+  .shopping_cart:hover .content {
+    display: block;
+  }
 }
 .add-cart-form.loading, .add-compare-form.loading, .add-wishlist-form.loading {
   opacity: 0.4;
@@ -2248,4 +2250,12 @@ footer .box-footer {
   footer .box-footer {
     width: 100% !important;
   }
+}
+
+/* fix Giỏ hàng nhanh trên di động không ẩn lại được */
+.shoppingcart-box {
+  display: none;
+}
+.open .shoppingcart-box {
+  display: block!important;
 }
