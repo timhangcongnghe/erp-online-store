@@ -776,6 +776,16 @@ table.product-compare tr td.product-name {
 }
 .info-contact .comment {
   text-align: justify;
+  color: #999;
+}
+.info-contact .comment, .info-contact .comment i.fa {
+  font-style: italic;
+}
+.info-contact .comment i.fa {
+  color: rgba(193, 193, 193, 0.9);
+}
+.info-contact .topfix {
+  margin-top: 2px;
 }
 .best-seller .so-extraslider .extraslider-inner .item .item-wrap.style1 .media-body .item-info .item-title a {
   font-weight: 500;
