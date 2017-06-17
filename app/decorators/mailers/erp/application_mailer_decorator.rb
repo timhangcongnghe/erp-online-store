@@ -1,5 +1,5 @@
 Erp::ApplicationMailer.class_eval do
-  default from: "TimHangCongNghe.vn <no-reply@timhangcongnghe.vn>"
+  default from: "TimHangCongNghe.com <noreply@timhangcongnghe.com>"
   layout 'mailer'
 
   private
@@ -8,8 +8,8 @@ Erp::ApplicationMailer.class_eval do
     delivery_options = {
       address: 'smtp.zoho.com',
       port: 465,
-      domain: 'timhangcongnghe.vn',
-      user_name: 'no-reply@timhangcongnghe.vn',
+      domain: 'timhangcongnghe.com',
+      user_name: 'noreply@timhangcongnghe.com',
       password: 'aA456321@#$',
       authentication: 'plain',
       ssl: true,
