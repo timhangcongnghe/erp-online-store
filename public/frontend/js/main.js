@@ -793,7 +793,7 @@ $(document).ready(function () {
             setTimeout(function () {
                 //container.find('.product-image-container').addClass('lazy-loaded');
                 //container.find('.product-image-container').removeClass('lazy');
-                //container.find('.products-list').removeClass('list').addClass('grid');
+                container.find('.products-list').removeClass('list').addClass('grid');
                 fixWithProductListAll(container);
             }, 500);
             container.find('.ajax-link').fancybox({
@@ -833,7 +833,7 @@ $(document).ready(function () {
             setTimeout(function () {
                 //container.find('.product-image-container').addClass('lazy-loaded');
                 //container.find('.product-image-container').removeClass('lazy');
-                //container.find('.products-list').removeClass('list').addClass('grid');
+                container.find('.products-list').removeClass('list').addClass('grid');
                 fixWithProductListAll(container);
             }, 500);
             container.find('.ajax-link').fancybox({
@@ -990,7 +990,7 @@ $(document).ready(function () {
             setTimeout(function () {
                 //container.find('.product-image-container').addClass('lazy-loaded');
                 //container.find('.product-image-container').removeClass('lazy');
-                //container.find('.products-list').removeClass('list').addClass('grid');
+                container.find('.products-list').removeClass('list').addClass('grid');
                 fixWithProductListAll(container);
             }, 500);
         });
@@ -1017,7 +1017,7 @@ $(document).ready(function () {
             setTimeout(function () {
                 //container.find('.product-image-container').addClass('lazy-loaded');
                 //container.find('.product-image-container').removeClass('lazy');
-                //container.find('.products-list').removeClass('list').addClass('grid');
+                container.find('.products-list').removeClass('list').addClass('grid');
                 fixWithProductListAll(container);
             }, 500);
             $(window).scrollTop();
