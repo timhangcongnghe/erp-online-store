@@ -61,40 +61,40 @@ function fixWithProductListAll(container) {
 }
 
 function fixWithProductList(list) {
-    //var count = list.find('.product-item-container').length;
-    //var item_width = list.find('.product-layout').width();
-    //var list_width = list.width();
-    //var per_row = list_width/item_width;
-    //var items = list.find('.product-item-container');
-    //
-    //items.css('height', 'auto');
-    //
-    //var num = -1;
-    //var rows = [];
-    //var max_height = 0;
-    //items.each(function(index) {
-    //    if (parseInt(index%per_row) === 0) {
-    //        num = num + 1;
-    //        max_height = 0;
-    //        rows[num] = [];
-    //        rows[num]["boxes"] = [];
-    //    }
-    //
-    //    var box = $(this);
-    //    rows[num]["boxes"].push(box);
-    //    if (box.height() > max_height) {
-    //        max_height = box.height();
-    //    }
-    //
-    //    if (index%per_row == per_row-1 || index == items.length-1) {
-    //        rows[num]["max_height"] = max_height;
-    //    }
-    //});
-    //rows.forEach(function(entry) {
-    //    entry["boxes"].forEach(function(box) {
-    //        box.height(entry["max_height"]);
-    //    });
-    //});
+    var count = list.find('.product-item-container').length;
+    var item_width = list.find('.product-layout').width();
+    var list_width = list.width();
+    var per_row = list_width/item_width;
+    var items = list.find('.product-item-container');
+
+    items.css('height', 'auto');
+
+    var num = -1;
+    var rows = [];
+    var max_height = 0;
+    items.each(function(index) {
+        if (parseInt(index%per_row) === 0) {
+            num = num + 1;
+            max_height = 0;
+            rows[num] = [];
+            rows[num]["boxes"] = [];
+        }
+
+        var box = $(this);
+        rows[num]["boxes"].push(box);
+        if (box.height() > max_height) {
+            max_height = box.height();
+        }
+
+        if (index%per_row == per_row-1 || index == items.length-1) {
+            rows[num]["max_height"] = max_height;
+        }
+    });
+    rows.forEach(function(entry) {
+        entry["boxes"].forEach(function(box) {
+            box.height(entry["max_height"]);
+        });
+    });
 }
 
 function countDown(item, year, month, day, hour, minute) {
