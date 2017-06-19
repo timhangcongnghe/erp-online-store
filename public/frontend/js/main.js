@@ -843,7 +843,7 @@ $(document).ready(function () {
         });
     });
 
-    $('.category-filter-top.auto-load input, .category-filter-top.auto-load select').trigger('change');
+    // $('.category-filter-top.auto-load input, .category-filter-top.auto-load select').trigger('change');
 
     // delete contact confirm form
     $(document).on('click', '[link-method]', function(e) {
