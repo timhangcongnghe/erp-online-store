@@ -2290,7 +2290,38 @@ footer .box-footer {
 .header-bottom-inner .header-bottom-right .block-cart .shopping_cart #cart {
   z-index: 12!important;
 }
-.products-category .lazy {
+
+/* Thêm icon giỏ hàng trên thanh menu của didong */
+.shopping_cart .btn-shopping-cart .shopcart .fa-cart-plus {
+  font-size: 24px;
+  position: relative;
+  top: 4px;
+}
+.shopping_cart .btn-shopping-cart .shopcart .fa-angle-down {
+  font-size: 16px;
+  position: relative;
+  top: 2px;
+  font-weight: bold;
+  right: -16px;
+}
+.shopping_cart .open .fa-angle-down:before {
+  content: "\f106"!important;
+}
+.cart-qty-mobile {
+  right: 2px!important;
+  top: 6px!important;
+  background: #cc181e!important;
+  border-color: #cc181e!important;
+  color: #fff!important;
+  border-radius: 100%;
+  text-align: center;
+  height: 18px;
+  width: 18px;
+  line-height: 17px;
+  font-size: 11px;
+  position: absolute;
+  margin-left: 6px;
+}.products-category .lazy {
   background: none !important;
 }
 .products-category .lazy img {

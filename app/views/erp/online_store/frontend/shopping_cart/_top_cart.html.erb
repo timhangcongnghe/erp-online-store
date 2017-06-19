@@ -9,11 +9,13 @@
                 <!--<span class="icon-cart-top-menu"><i class="fa fa-shopping-cart"></i></span>-->
                 <!--<span class="text-shopping-cart-top-menu hidden-xs"><%= @cart.cart_items.number_items %></span>-->
                 <span class="text-shopping-cart-mobi hidden-lg hidden-md hidden-sm">
-                    <i class="fa fa-opencart"></i>
+                    <i class="fa fa-cart-plus"></i>
+                    <i class="fa fa-angle-down"></i>
+                    <span class="num cart-qty-mobile">0</span>
                 </span>
             </div>
         </a>
-        <ul class="tab-content content dropdown-menu pull-right shoppingcart-box" role="menu">
+        <ul id ="shoppingcart-box" class="tab-content content dropdown-menu pull-right shoppingcart-box" role="menu">
             <% if @cart.cart_items.number_items > 0 %>
             <li>
                 <table class="table table-striped">

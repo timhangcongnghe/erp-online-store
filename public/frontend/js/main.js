@@ -1161,4 +1161,10 @@ $( document ).ready(function() {
         fixWithProductListAll();
         autoWidthImg();
     });
+    
+    // auto set width box-Cart
+    if ($(window).width() < 560) {   
+      var box_cart_width = $('.header-bottom-inner').width();
+      document.getElementById("shoppingcart-box").style.width = box_cart_width + "px";
+    }
 });
