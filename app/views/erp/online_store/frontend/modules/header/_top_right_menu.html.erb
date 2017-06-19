@@ -1,7 +1,7 @@
 <% if user_signed_in? %>
     <ul class="top-link list-inline">
         <% if @compare.get_number_items > 0 %>
-        <li class="compare">
+        <li class="compare hide-compare">
             <a href="<%= erp_online_store.compare_product_path %>" class="top-link-compare" title="So sánh sản phẩm"><span>So sánh (<%= @compare.get_number_items %>)</span></a>
         </li>
         <% end %>
@@ -83,7 +83,7 @@
 <% else %>
     <ul class="top-link list-inline">
         <% if @compare.get_number_items > 0 %>
-        <li class="compare">
+        <li class="compare hide-compare">
             <a href="<%= erp_online_store.compare_product_path %>" class="top-link-compare" title="So sánh sản phẩm"><span>So sánh (<%= @compare.get_number_items %>)</span></a>
         </li>
         <% end %>

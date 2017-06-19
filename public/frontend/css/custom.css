@@ -2322,3 +2322,21 @@ footer .box-footer {
   position: absolute;
   margin-left: 6px;
 }
+
+/* Thêm button sosanh trên top header */
+.blockTitle {
+  width: 115px;
+  float: right;
+}
+.blockCompare {
+  width: calc(100% - 115px);
+  float: right;
+}
+.compare {
+  line-height: 37px;
+}
+@media (max-width: 768px) {
+  .hide-compare {
+    display: none!important;
+  }
+}
