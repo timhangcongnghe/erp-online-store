@@ -685,8 +685,9 @@ $(document).ready(function () {
         }, 1000);
 
         $('div.lazy img').load(function() {
+            var container = $(this).parents('.products-list').parent();
             setTimeout(function() {
-                fixWithProductListAll();
+                fixWithProductListAll(container);
             }, 1000);
         });
     });
