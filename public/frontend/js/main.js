@@ -844,6 +844,9 @@ $(document).ready(function () {
     });
 
     // $('.category-filter-top.auto-load input, .category-filter-top.auto-load select').trigger('change');
+    $('.products-category').each(function() {
+      $(this).find('.category-filter-top.auto-load input, .category-filter-top.auto-load select').eq(0).trigger('change');
+    });
 
     // delete contact confirm form
     $(document).on('click', '[link-method]', function(e) {
