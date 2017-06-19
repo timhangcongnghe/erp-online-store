@@ -2269,3 +2269,17 @@ footer .box-footer {
 .open .shoppingcart-box {
   display: block!important;
 }
+
+/* fix box hướng dẫn, giỏ hàng trên di động không ẩn lại được */
+.top-link #my_account .dropdown-menu {
+  display: none;
+}
+.top-link #my_account .dropdown-toggle {
+  color: #000;
+}
+.top-link .open .dropdown-menu {
+  display: block!important;
+}
+.top-link .open .dropdown-toggle {
+  color: #009688!important;
+}
