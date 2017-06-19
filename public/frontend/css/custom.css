@@ -2283,3 +2283,8 @@ footer .box-footer {
 .top-link .open .dropdown-toggle {
   color: #009688!important;
 }
+
+/* fix lổi hiện thị mobile box giỏ hàng hiển thị btn plus của menu */
+.header-bottom-inner .header-bottom-right .block-cart .shopping_cart #cart {
+  z-index: 12!important;
+}
