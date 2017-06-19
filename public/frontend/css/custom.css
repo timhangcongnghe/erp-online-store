@@ -2321,9 +2321,4 @@ footer .box-footer {
   font-size: 11px;
   position: absolute;
   margin-left: 6px;
-}.products-category .lazy {
-  background: none !important;
-}
-.products-category .lazy img {
-  opacity: 1 !important;
 }
