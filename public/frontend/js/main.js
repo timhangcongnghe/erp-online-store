@@ -790,12 +790,12 @@ $(document).ready(function () {
             data: $('.category-filter-box, #' + uuid).serialize()
         }).done(function( data ) {
             container.html($('<div>').html(data).find('.main-products-list').html());
-            //setTimeout(function () {
-                //container.find('.product-image-container').addClass('lazy-loaded');
-                //container.find('.product-image-container').removeClass('lazy');
+            setTimeout(function () {
+                container.find('.product-image-container').addClass('lazy-loaded');
+                container.find('.product-image-container').removeClass('lazy');
                 container.find('.products-list').removeClass('list').addClass('grid');
                 fixWithProductListAll(container);
-            //}, 500);
+            }, 500);
             container.find('.ajax-link').fancybox({
                 closeClickOutside : true,
             });
@@ -830,12 +830,12 @@ $(document).ready(function () {
             data: $('.category-filter-box, #' + uuid).serialize()
         }).done(function( data ) {
             container.html($('<div>').html(data).find('.main-products-list').html());
-            //setTimeout(function () {
-                //container.find('.product-image-container').addClass('lazy-loaded');
-                //container.find('.product-image-container').removeClass('lazy');
+            setTimeout(function () {
+                container.find('.product-image-container').addClass('lazy-loaded');
+                container.find('.product-image-container').removeClass('lazy');
                 container.find('.products-list').removeClass('list').addClass('grid');
                 fixWithProductListAll(container);
-            //}, 500);
+            }, 500);
             container.find('.ajax-link').fancybox({
                 closeClickOutside : true,
             });
@@ -987,12 +987,12 @@ $(document).ready(function () {
             data: form.serialize()
         }).done(function( data ) {
             container.html(data);
-            //setTimeout(function () {
-                //container.find('.product-image-container').addClass('lazy-loaded');
-                //container.find('.product-image-container').removeClass('lazy');
+            setTimeout(function () {
+                container.find('.product-image-container').addClass('lazy-loaded');
+                container.find('.product-image-container').removeClass('lazy');
                 container.find('.products-list').removeClass('list').addClass('grid');
                 fixWithProductListAll(container);
-            //}, 500);
+            }, 500);
         });
     });
 
@@ -1014,12 +1014,12 @@ $(document).ready(function () {
             method: method
         }).done(function( data ) {
             container.html(data);
-            //setTimeout(function () {
-                //container.find('.product-image-container').addClass('lazy-loaded');
-                //container.find('.product-image-container').removeClass('lazy');
+            setTimeout(function () {
+                container.find('.product-image-container').addClass('lazy-loaded');
+                container.find('.product-image-container').removeClass('lazy');
                 container.find('.products-list').removeClass('list').addClass('grid');
                 fixWithProductListAll(container);
-            //}, 500);
+            }, 500);
             $(window).scrollTop();
         });
     });
