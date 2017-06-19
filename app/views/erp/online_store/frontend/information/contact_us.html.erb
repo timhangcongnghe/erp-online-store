@@ -29,10 +29,7 @@
                                 <strong>Địa chỉ: </strong><%= full_address(@company_info) %>
                             </div>
                             <div class="clearfix form-group">
-                                <strong>Email: </strong><%= mail_to @company_info.email, @company_info.email %>
-                            </div>
-                            <div class="clearfix form-group">
-                                <strong>Điện thoại: </strong><a href="tel:<%= @company_info.phone %>"><%= @company_info.phone %></a>
+                                <strong>Email: </strong><%= mail_to @company_info.email, @company_info.email %> | <strong>Điện thoại: </strong><a href="tel:<%= @company_info.phone %>"><%= @company_info.phone %></a>
                             </div>
                         </address>
                     <% end %>
