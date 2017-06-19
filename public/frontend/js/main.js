@@ -792,7 +792,7 @@ $(document).ready(function () {
             container.html($('<div>').html(data).find('.main-products-list').html());
             setTimeout(function () {
                 container.find('.product-image-container').addClass('lazy-loaded');
-                container.find('.product-image-container').addClass('lazy');
+                container.find('.product-image-container').removeClass('lazy');
                 container.find('.products-list').removeClass('list').addClass('grid');
                 fixWithProductListAll(container);
             }, 500);
@@ -832,7 +832,7 @@ $(document).ready(function () {
             container.html($('<div>').html(data).find('.main-products-list').html());
             setTimeout(function () {
                 container.find('.product-image-container').addClass('lazy-loaded');
-                container.find('.product-image-container').addClass('lazy');
+                container.find('.product-image-container').removeClass('lazy');
                 container.find('.products-list').removeClass('list').addClass('grid');
                 fixWithProductListAll();
             }, 500);
@@ -989,7 +989,7 @@ $(document).ready(function () {
             container.html(data);
             setTimeout(function () {
                 container.find('.product-image-container').addClass('lazy-loaded');
-                container.find('.product-image-container').addClass('lazy');
+                container.find('.product-image-container').removeClass('lazy');
                 container.find('.products-list').removeClass('list').addClass('grid');
                 fixWithProductListAll();
             }, 500);
@@ -1016,7 +1016,7 @@ $(document).ready(function () {
             container.html(data);
             setTimeout(function () {
                 container.find('.product-image-container').addClass('lazy-loaded');
-                container.find('.product-image-container').addClass('lazy');
+                container.find('.product-image-container').removeClass('lazy');
                 container.find('.products-list').removeClass('list').addClass('grid');
                 fixWithProductListAll();
             }, 500);
