@@ -791,8 +791,8 @@ $(document).ready(function () {
         }).done(function( data ) {
             container.html($('<div>').html(data).find('.main-products-list').html());
             setTimeout(function () {
-                container.find('.product-image-container').addClass('lazy-loaded');
-                container.find('.product-image-container').removeClass('lazy');
+                //container.find('.product-image-container').addClass('lazy-loaded');
+                //container.find('.product-image-container').removeClass('lazy');
                 container.find('.products-list').removeClass('list').addClass('grid');
                 fixWithProductListAll(container);
             }, 500);
@@ -831,8 +831,8 @@ $(document).ready(function () {
         }).done(function( data ) {
             container.html($('<div>').html(data).find('.main-products-list').html());
             setTimeout(function () {
-                container.find('.product-image-container').addClass('lazy-loaded');
-                container.find('.product-image-container').removeClass('lazy');
+                //container.find('.product-image-container').addClass('lazy-loaded');
+                //container.find('.product-image-container').removeClass('lazy');
                 container.find('.products-list').removeClass('list').addClass('grid');
                 fixWithProductListAll(container);
             }, 500);
@@ -988,8 +988,8 @@ $(document).ready(function () {
         }).done(function( data ) {
             container.html(data);
             setTimeout(function () {
-                container.find('.product-image-container').addClass('lazy-loaded');
-                container.find('.product-image-container').removeClass('lazy');
+                //container.find('.product-image-container').addClass('lazy-loaded');
+                //container.find('.product-image-container').removeClass('lazy');
                 container.find('.products-list').removeClass('list').addClass('grid');
                 fixWithProductListAll(container);
             }, 500);
@@ -1015,8 +1015,8 @@ $(document).ready(function () {
         }).done(function( data ) {
             container.html(data);
             setTimeout(function () {
-                container.find('.product-image-container').addClass('lazy-loaded');
-                container.find('.product-image-container').removeClass('lazy');
+                //container.find('.product-image-container').addClass('lazy-loaded');
+                //container.find('.product-image-container').removeClass('lazy');
                 container.find('.products-list').removeClass('list').addClass('grid');
                 fixWithProductListAll(container);
             }, 500);
