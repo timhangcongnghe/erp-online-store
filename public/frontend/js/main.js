@@ -684,11 +684,11 @@ $(document).ready(function () {
             fixWithProductListAll();
         }, 1000);
 
-        $('div.lazy img').load(function() {
-            setTimeout(function() {
-                fixWithProductListAll();
-            }, 1000);
-        });
+        //$('div.lazy img').load(function() {
+        //    setTimeout(function() {
+        //        fixWithProductListAll();
+        //    }, 1000);
+        //});
     });
 
     // autosearch
