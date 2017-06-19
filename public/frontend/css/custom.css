@@ -2240,7 +2240,7 @@ ul.shoppingcart-box .shopping-cart-total {
   }
   header .top-right-menu .dropdown-menu {
     right: inherit!important;
-    left: -1px!important;    
+    left: -1px!important;
   }
 }
 
@@ -2289,4 +2289,10 @@ footer .box-footer {
 /* fix lổi hiện thị mobile box giỏ hàng hiển thị btn plus của menu */
 .header-bottom-inner .header-bottom-right .block-cart .shopping_cart #cart {
   z-index: 12!important;
+}
+.products-category .lazy {
+  background: none !important;
+}
+.products-category .lazy img {
+  opacity: 1 !important;
 }
