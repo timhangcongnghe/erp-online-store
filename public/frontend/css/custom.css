@@ -582,6 +582,14 @@ ul.megamenu li .sub-menu .content .hover-menu .menu ul ul {
 .left-content-product .content-product-right .product_page_price .price-new {
   font-size: 20px;
 }
+.product_page_price .price-sold-out {
+  line-height: 25px;
+  color: #c10017;
+  font-size: 20px;
+}
+.no_border_button {
+  border-bottom: none !important;
+}
 .view-all-bestseller {
   margin-left: 22px;
 }
@@ -2231,7 +2239,6 @@ ul.shoppingcart-box .shopping-cart-total {
 .shoppingcart-box .btn.shopping-actions {
   border-radius: 3px;
 }
-
 /* fix lổi giao diện top header bị che lấp trên di động*/
 @media (max-width: 480px)
 {
