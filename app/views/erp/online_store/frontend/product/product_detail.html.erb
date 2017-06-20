@@ -74,17 +74,21 @@
                             </div>
                             <div class="product-label form-group">
                                 <div class="product_page_price price">
-                                    <span class="price-new" itemprop="price"><%= format_price(@product.product_price) %></span>
-                                    <% if @product.is_deal %>
-                                    <span class="price-old"><%= format_price(@product.price) %></span>
-                                        <% if !@product.deal_percent.nil? %>
-                                        <span class="label label-percent">-<%= @product.deal_percent %>%</span>
+                                    <% if @product.is_sold_out %>
+                                        <span class="price-sold-out">ĐÃ BÁN HẾT</span>
+                                    <% else %>
+                                        <span class="price-new" itemprop="price"><%= format_price(@product.product_price) %></span>
+                                        <% if @product.is_deal %>
+                                        <span class="price-old"><%= format_price(@product.price) %></span>
+                                            <% if !@product.deal_percent.nil? %>
+                                            <span class="label label-percent">-<%= @product.deal_percent %>%</span>
+                                            <% end %>
                                         <% end %>
                                     <% end %>
                                 </div>
                             </div>
                             <% if @product.get_product_property_array.count > 0 %>
-                            <div class="product-box-desc">
+                            <div class="product-box-desc <%= 'no_border_button' if @product.is_sold_out %>">
                                 <div class="inner-box-desc">
                                     <h3>THÔNG SỐ SẢN PHẨM</h3>
                                     <% product_short_descipriton_values_array = @product.product_short_descipriton_values_array %>
@@ -123,6 +127,7 @@
                             </div>
 
                             <% end %>
+                            <% if !@product.is_sold_out %>
                             <div id="product">
                                 <h3>ĐẶT MUA SẢN PHẨM</h3>
                                 <div class="form-group box-info-product">
@@ -152,6 +157,7 @@
                                     </div>
                                 </div>
                             </div>
+                            <% end %>
                             <!-- end box info product -->
                         </div>
                     </div>
