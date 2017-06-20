@@ -2340,3 +2340,7 @@ footer .box-footer {
     display: none!important;
   }
 }
+.top-link li:hover ul.dropdown-menu {
+  display: block !important;
+  visibility: visible !important;
+}
