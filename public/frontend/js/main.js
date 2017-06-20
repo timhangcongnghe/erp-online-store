@@ -769,6 +769,10 @@ $(document).ready(function () {
         var url = form.attr('action');
         var container = form.parent().find('.main-products-list');
 
+        if(container.length === 0) {
+          container = $('.main-products-list');
+        }
+
         container.html('<div class="category-loading"></div>');
 
         // Add uniq id to form
