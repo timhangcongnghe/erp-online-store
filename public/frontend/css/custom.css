@@ -2332,7 +2332,7 @@ footer .box-footer {
   width: calc(100% - 115px);
   float: right;
 }
-.compare {
+.list-inline>li .compare {
   line-height: 37px;
 }
 @media (max-width: 768px) {
