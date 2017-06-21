@@ -1175,4 +1175,27 @@ $( document ).ready(function() {
       var box_cart_width = $('.header-bottom-inner').width();
       document.getElementById("shoppingcart-box").style.width = box_cart_width + "px";
     }
+    
+    // Main Submenu box still apear when scrolling window down
+    $(window).scroll(function () {
+      if ($(window).width() >= 1010 && $(window).scrollTop() > ($('#header').height() + $('#yt_header_right').height()))
+      {
+        if ($('#btn-menu-fixed-title').hasClass('active-btn'))
+        {
+          $('.megamenu').removeClass("display_none");
+        }
+        else
+        {
+          $('.megamenu').addClass("display_none"); 
+        }
+      }
+      else
+      {
+        $('.megamenu').removeClass("display_none");
+      }
+      $('#btn-menu-fixed').click(function() {
+        $('.megamenu').removeClass("display_none");
+      });
+  });
+    
 });

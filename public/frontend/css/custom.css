@@ -2361,3 +2361,8 @@ footer .box-footer {
     min-width: 250px!important;
   }
 }
+
+/* Main Submenu box still apear when scrolling window down */
+.display_none .sub-menu {
+  display: none!important;
+}
