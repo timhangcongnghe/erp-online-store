@@ -320,6 +320,11 @@ Erp::Products::Product.class_eval do
   end
 
   # no online
+  def self.no_soldout
+    self.where(amazon_id: nil).where(ebay_id: nil)
+  end
+
+  # no online
   def self.get_active
     self.no_online.where(archived: false)
   end
