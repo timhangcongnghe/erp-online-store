@@ -47,16 +47,17 @@
                                 <span class="article-date">
                                   <i class="fa fa-calendar"></i><%= blog.created_at.strftime("%d/%m/%Y %I:%M%p") %>
                                 </span>
+                                
                             </div>
                             <div class="article-description">
-                                <%= short_text(blog.content, 100) %>
+                                <%= short_text(blog.content, 90) %>...
                             </div>
                             <div class="blog-meta">
                                 <span class="comment_count">
                                     <span><%= blog.comments.count %> bình luận</span>
                                 </span>
                                 <span class="author">
-                                    <span>Đăng bởi </span><%= blog.post_by %>
+                                    <span>Đăng bởi </span>THCN
                                 </span>
                             </div>
                         </div>

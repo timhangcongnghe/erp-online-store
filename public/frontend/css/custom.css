@@ -857,13 +857,12 @@ table.product-compare tr td.product-name {
 .label-new, .label-sale {
   z-index: 4;
 }
-.article-description {
+.article-info .article-description {
   margin-bottom: 20px;
 }
 .article-description p {
   font-size: 15px;
   line-height: 26px;
-  margin-bottom: 15px;
 }
 .post_footer {
   margin-top: 20px;
@@ -1028,6 +1027,9 @@ form.login-form, input.btn-login-account, form.register-form, input.btn-register
 }
 .best-seller .so-extraslider .extraslider-inner .item .item-wrap.style1 .media-body .item-info a, .blog-listitem .blog-item .itemBlogContent .article-description {
   color: #000;
+}
+.blog-listitem .blog-item .itemBlogContent .article-description {
+  text-align: justify;
 }
 .blog-listitem .blog-item .itemBlogContent .article-sub-title .article-date, .blog-listitem .blog-item .itemBlogContent .blog-meta {
   color: #000;

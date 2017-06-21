@@ -23,7 +23,7 @@
                     <h3><%= @blog.name %></h3>
                 </div>
                 <div class="article-sub-title">
-                    <span class="article-author"><i class="fa fa-user"></i> <a href="#"> TimHangCongNghe.vn</a></span>
+                    <span class="article-author"><i class="fa fa-user"></i> Đăng bởi <a href="#"> THCN</a></span>
                     <span class="article-date"><i class="fa fa-clock-o"></i> <%= relative_time(@blog.created_at) %></span>
                     <span class="article-folder"><i class="fa fa-folder-open"></i>
                         <%= link_to @blog.category_name, erp_online_store.blog_with_category_path(@blog.category_id, url_friendly(@blog.category_name)) %>
