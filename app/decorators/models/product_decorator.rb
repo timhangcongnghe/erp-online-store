@@ -296,22 +296,27 @@ Erp::Products::Product.class_eval do
   end
 
   ############ OVERIDE METHODS #####################
-  # overide search method
-  def self.search(params)
-    query = self.no_online
-    query = self.filter(query, params)
-
+  # def set_order
+  def self.set_order(params)
     # order
     if params[:sort_by].present?
       order = params[:sort_by]
       order += " #{params[:sort_direction]}" if params[:sort_direction].present?
 
-      query = query.order(order)
+      query = self.order(order)
     else
-      query = query.order('created_at desc')
+      query = self.order('created_at desc')
     end
 
     return query
+  end
+
+  # overide search method
+  def self.search(params)
+    query = self.no_online
+    query = self.filter(query, params)
+
+    return query.set_order(params)
   end
 
   # no online
@@ -320,12 +325,12 @@ Erp::Products::Product.class_eval do
   end
 
   # no online
-  def self.no_soldout
-    self.where(amazon_id: nil).where(ebay_id: nil)
+  def self.not_sold_out
+    self.where(is_sold_out: false)
   end
 
   # no online
   def self.get_active
-    self.no_online.where(archived: false)
+    self.no_online.where(archived: false).not_sold_out
   end
 end
