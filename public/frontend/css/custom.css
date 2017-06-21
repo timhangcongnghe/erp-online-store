@@ -2366,3 +2366,6 @@ footer .box-footer {
 .display_none .sub-menu {
   display: none!important;
 }
+.sold_out_true {
+  color: #ff9601
+}

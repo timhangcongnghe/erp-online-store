@@ -93,6 +93,7 @@ module Erp
             old_price: (format_price(product.price) if product.is_deal),
             deal_percent: (product.deal_percent if product.is_deal),
             link: product_link(product),
+            is_sold_out: product.is_sold_out,
             image: image_src(product.main_image, 'thumb99'),
           }}
         end

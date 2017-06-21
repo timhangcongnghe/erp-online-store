@@ -278,7 +278,7 @@ function autoSearch(box) {
                 '<li><a title="' + item.name + '" href="' + item.link + '">' +
                     '<img src="' +item.image+ '" />' +
                     '<span class="title">' + item.name + '</span>' +
-                    '<span class="price">' + item.price + '</span>' +
+                    '<span class="price sold_out_' +item.is_sold_out+ '">' + (item.is_sold_out ? 'Đã bán hết' : item.price) + '</span>' +
                     ' <span class="old_price old_price_'+item.old_price+'"><span class="num">' + item.old_price + '</span> (giảm ' + item.deal_percent + '%)</span>' +
                 '</a></li>'
             );
@@ -1175,7 +1175,7 @@ $( document ).ready(function() {
       var box_cart_width = $('.header-bottom-inner').width();
       document.getElementById("shoppingcart-box").style.width = box_cart_width + "px";
     }
-    
+
     // Main Submenu box still apear when scrolling window down
     $(window).scroll(function () {
       if ($(window).width() >= 1010 && $(window).scrollTop() > ($('#header').height() + $('#yt_header_right').height()))
@@ -1186,7 +1186,7 @@ $( document ).ready(function() {
         }
         else
         {
-          $('.megamenu').addClass("display_none"); 
+          $('.megamenu').addClass("display_none");
         }
       }
       else
@@ -1197,5 +1197,5 @@ $( document ).ready(function() {
         $('.megamenu').removeClass("display_none");
       });
   });
-    
+
 });
