@@ -33,6 +33,8 @@ module Erp
             @comment = Erp::Articles::Comment.new(comment_params)
             @comment.user = current_user
             @comment.save
+            render text: 'Bạn đã đăng bình luận thành công'
+            return
           end
           
           @comments = @blog.comments.order('created_at DESC')
