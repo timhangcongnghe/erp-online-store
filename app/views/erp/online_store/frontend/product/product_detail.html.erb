@@ -87,6 +87,25 @@
                                     <% end %>
                                 </div>
                             </div>
+                            <% if @related_events.count > 0 %>
+                                <div class="area_events">
+                                    <strong>
+                                        <% if @related_events.count == 1 %>
+                                            khuyến mãi đang áp dụng
+                                            <i><sup>*</sup>Áp dụng đến <%= @related_events.first.to_date.strftime("%d/%m/%Y") %></i>
+                                        <% else %>
+                                            <%= @related_events.count %> khuyến mãi đang áp dụng
+                                        <% end %>
+                                    </strong>
+                                    <% @related_events.each do |event| %>
+                                        <% if event.description.present? %>
+                                            <%= event.description.html_safe %>
+                                        <% else %>
+                                            <span class="event-text"><%= event.name %><!--<label class="events-deadtime">(đến 30/04)</label>--></span>
+                                        <% end %>
+                                    <% end %>
+                                </div>
+                            <% end %>
                             <% if @product.get_product_property_array.count > 0 %>
                             <div class="product-box-desc <%= 'no_border_button' if @product.is_sold_out %>">
                                 <div class="inner-box-desc">

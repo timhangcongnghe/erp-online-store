@@ -1378,14 +1378,19 @@ h3.product-box-name {
     border-bottom: 1px solid #ddd;
     font-weight: normal;
 }
-.area_events span {
+.area_events strong i {
+  float: right;
+  font-size: 11px;
+  text-transform: initial;
+}
+.area_events span.event-text {
     display: block;
     overflow: hidden;
     font-size: 14px;
     color: #000;
     padding: 8px 10px 0 22px;
 }
-.area_events span::before {
+.area_events span.event-text::before {
     content: "•";
     color: #009688;
     display: inline-block;
@@ -1396,6 +1401,9 @@ h3.product-box-name {
 }
 .area_events a {
     color: #288ad6;
+}
+.area_events a:hover {
+    text-decoration: underline;
 }
 .area_events span .events-deadtime {
     display: none;
@@ -2238,6 +2246,16 @@ ul.shoppingcart-box .shopping-cart-total {
 }
 .shoppingcart-box .btn.shopping-actions {
   border-radius: 3px;
+}
+.product-view .area_events p {
+  padding: 8px 10px 0;
+  margin-bottom: 0;
+}
+
+.product-view .area_events ul {
+  list-style-type: square;
+  padding-left: 18px;
+  margin-left: 10px;
 }
 /* fix lổi giao diện top header bị che lấp trên di động*/
 @media (max-width: 480px)
