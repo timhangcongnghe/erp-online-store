@@ -586,6 +586,7 @@ ul.megamenu li .sub-menu .content .hover-menu .menu ul ul {
   line-height: 25px;
   color: #c10017;
   font-size: 20px;
+  text-transform: uppercase;
 }
 .no_border_button {
   border-bottom: none !important;
@@ -2387,5 +2388,6 @@ footer .box-footer {
   display: none!important;
 }
 .sold_out_true {
-  color: #ff9601
+  color: #9e800a !important;
+  font-weight: initial;
 }

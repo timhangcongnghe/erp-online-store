@@ -61,7 +61,7 @@
                             <div class="product-label form-group">
                                 <div class="product_page_price price">
 									<% if @product.is_sold_out %>
-                                        <span class="price-sold-out">ĐÃ BÁN HẾT</span>
+                                        <span class="price-sold-out sold_out_true">Giá liên hệ</span>
                                     <% else %>
 										<span class="price-new" itemprop="price"><%= format_price(@product.product_price) %></span>
 										<% if @product.is_deal %>

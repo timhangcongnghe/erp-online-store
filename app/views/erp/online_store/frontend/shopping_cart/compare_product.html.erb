@@ -37,10 +37,14 @@
                             <% all_items.each do |compare_item| %>
                             <td>
                                 <div class="price">
-                                    <span class="price-new"><%= format_price(compare_item.product.product_price) %></span>
-                                    <% if compare_item.product.is_deal %>
-                                        <br><span class="price-old"><%= format_price(compare_item.product.price) %></span>
-                                        <span class="label label-percent"><%= compare_item.product.deal_percent %>%</span>
+                                    <% if compare_item.product.is_sold_out? %>
+                                        <span class="price price-sold-out sold_out_true">Giá liên hệ</span>
+                                    <% else %>
+                                        <span class="price-new"><%= format_price(compare_item.product.product_price) %></span>
+                                        <% if compare_item.product.is_deal %>
+                                            <br><span class="price-old"><%= format_price(compare_item.product.price) %></span>
+                                            <span class="label label-percent"><%= compare_item.product.deal_percent %>%</span>
+                                        <% end %>
                                     <% end %>
                                 </div>
                             </td>
@@ -73,10 +77,12 @@
                             <td></td>
                             <% all_items.each do |compare_item| %>
                             <td>
-                                <%= form_tag erp_online_store.add_to_cart_frontend_cart_items_path, class: 'add-cart-form' do %>
-                                    <%= hidden_field_tag "product_id", compare_item.product.id %>
-                                    <input type='hidden' class="form-control" type="text" name="quantity" value="1">
-                                    <input type="submit" class="btn btn-primary btn-block compare-cart-add-button" value="Thêm vào giỏ hàng">
+                                <% if !compare_item.product.is_sold_out? %>
+                                    <%= form_tag erp_online_store.add_to_cart_frontend_cart_items_path, class: 'add-cart-form' do %>
+                                        <%= hidden_field_tag "product_id", compare_item.product.id %>
+                                        <input type='hidden' class="form-control" type="text" name="quantity" value="1">
+                                        <input type="submit" class="btn btn-primary btn-block compare-cart-add-button" value="Thêm vào giỏ hàng">
+                                    <% end %>
                                 <% end %>
                                 <%= link_to "Hủy so sánh", erp_online_store.remove_compare_item_frontend_compare_items_path(compare_item_id: compare_item.id), class: "btn btn-danger btn-block", title: "Xóa sản phẩm" %>
                             </td>
