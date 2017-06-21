@@ -2351,3 +2351,13 @@ footer .box-footer {
   display: block !important;
   visibility: visible !important;
 }
+
+/* update cart icon on mobile */
+@media (max-width: 480px) {
+  .type_1 .shopping_cart .btn-shopping-cart a.top_cart {
+    padding-right: 8px!important;
+  }
+  header .btn-shopping-cart .dropdown-menu {
+    min-width: 250px!important;
+  }
+}
