@@ -1070,7 +1070,7 @@ function getHeightMenuFixed() {
     }
     else
     {
-        height = 200;
+        height = 265;
     }
     return height;
 }
