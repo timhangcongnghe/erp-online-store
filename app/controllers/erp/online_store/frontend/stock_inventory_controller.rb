@@ -9,7 +9,7 @@ module Erp
 
         def module
           @menu = Erp::Menus::Menu.find(params[:menu_id])
-          @products = @menu.get_products.get_stock_inventory_products.frontend_filter(params).paginate(:page => params[:page], :per_page => 8)
+          @products = @menu.get_products_with_sold_out.get_stock_inventory_products.frontend_filter(params).paginate(:page => params[:page], :per_page => 8)
 
           render layout: nil
         end

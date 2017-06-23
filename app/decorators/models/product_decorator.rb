@@ -313,7 +313,7 @@ Erp::Products::Product.class_eval do
 
   # overide search method
   def self.search(params)
-    query = self.no_online
+    query = self.no_online.where(archived: false)
     query = self.filter(query, params)
 
     return query.set_order(params)
@@ -330,7 +330,17 @@ Erp::Products::Product.class_eval do
   end
 
   # no online
+  def self.get_active_with_sold_out
+    self.no_online.where(archived: false)
+  end
+
+  # no online
   def self.get_active
-    self.no_online.where(archived: false).not_sold_out
+    self.get_active_with_sold_out.not_sold_out
+  end
+
+  # no online
+  def self.get_stock_inventory_products
+    self.get_active_with_sold_out.where(is_stock_inventory: true)
   end
 end
