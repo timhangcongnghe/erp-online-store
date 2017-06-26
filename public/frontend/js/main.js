@@ -962,7 +962,9 @@ $(document).ready(function () {
               },
               cache: true
             },
-            escapeMarkup: function (markup) { return markup; }, // let our custom formatter work
+            escapeMarkup: function (markup) {
+              return markup;
+            }, // let our custom formatter work
             minimumInputLength: 0,
             language: "vi",
             allowClear: true,
@@ -1118,7 +1120,7 @@ function tabContent() {
     var height = $('#header').height() + $('.breadcrumb').height() + 68 + $('.account-address-book .title').height() + $('.dashboard-address').height() + $('.add-address').height();
     $('body,html').animate({
         scrollTop: height
-    }, 600);
+    }, 400);
 }
 
 $('.edit-customer-address').click(function() {
@@ -1136,7 +1138,6 @@ $('.megamenu').hover(function() {
     }, function() {
         flag = 0;
 });
-
 $('.item-vertical').hover(function() {
         if (flag === 0)
         {
@@ -1145,7 +1146,6 @@ $('.item-vertical').hover(function() {
     }, function() {
         $(this).removeClass('active1');
 });
-
 // zoom images detail product
 $( document ).ready(function() {
     $('#large-image').click( function() {
