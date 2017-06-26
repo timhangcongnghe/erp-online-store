@@ -1050,7 +1050,21 @@ $( window ).resize(function() {
 // Custom js
 
 // show or hide menu fixed
-$('#btn-menu-fixed').click(function () {
+$('#btn-menu-fixed').hover(function () {
+    if ($('#btn-menu-fixed-title').hasClass('active-btn'))
+    {
+        $('#btn-menu-fixed-title').removeClass('active-btn');
+        $('.vertical-wrapper').addClass('transition');
+        $('.vertical-wrapper').removeClass('active-sub-menu');
+    }
+    else {
+        $('#btn-menu-fixed-title').addClass('active-btn');
+        $('.vertical-wrapper').addClass('active-sub-menu');
+    }
+}, function() {});
+
+// show or hide menu fixed
+$('.vertical-wrapper').hover(function() {}, function () {
     if ($('#btn-menu-fixed-title').hasClass('active-btn'))
     {
         $('#btn-menu-fixed-title').removeClass('active-btn');
