@@ -11,11 +11,15 @@
                         <%= image_tag product_image(product.product_images, 'second', 'thumb268'), data: {src: product_image(product.product_images, 'second', 'thumb268')}, alt: product.product_name, title: product.product_name, class: "img-2 img-responsive" %>
                     </div>
                     <%= quick_actions(product) %>
-                    <% if product.is_bestseller? %>
-                    <span class="label label-bestseller">Bán Chạy</span>
-                    <% end %>
-                    <% if product.is_deal? %>
-                    <span class="label label-sale">Giảm giá</span>
+                    <% if product.is_sold_out? %>
+                        <span class="label label-soldout">Hết hàng</span>
+                    <% else %>
+                        <% if product.is_bestseller? %>
+                        <span class="label label-bestseller">Bán Chạy</span>
+                        <% end %>
+                        <% if product.is_deal? %>
+                        <span class="label label-sale">Giảm giá</span>
+                        <% end %>
                     <% end %>
                     <%= count_down(product.deal_from_date, product.deal_to_date) %>
                 </div>
@@ -28,10 +32,14 @@
                             </div>
                         </div>
                         <div class="price">
-                            <span class="price-new"><%= format_price(product.product_price) %></span>
-                            <% if product.is_deal? %>
-                            <br><span class="price-old"><%= format_price(product.price) %></span>
-                            <span class="label label-percent">-<%= product.deal_percent %>%</span>
+                            <% if product.is_sold_out? %>
+                                <span class="price sold_out_true">Giá liên hệ</span>
+                            <% else %>
+                                <span class="price-new"><%= format_price(product.product_price) %></span>
+                                <% if product.is_deal? %>
+                                <br><span class="price-old"><%= format_price(product.price) %></span>
+                                <span class="label label-percent">-<%= product.deal_percent %>%</span>
+                                <% end %>
                             <% end %>
                         </div>
                         <%= product_list_description(product) %>
