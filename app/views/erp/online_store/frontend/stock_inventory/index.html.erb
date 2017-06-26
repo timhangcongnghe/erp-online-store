@@ -12,7 +12,7 @@
             <br /><br />
 
             <% @menus.each do |menu| %>
-                <% if menu.id != 1 and !menu.get_products.get_stock_inventory_products.empty? %>
+                <% if menu.id != 1 and !menu.get_products_with_sold_out.get_stock_inventory_products.empty? %>
                     <div class="products-category" id="menu_<%= menu.id %>">
                         <h1 class="menu-title mb-0"><%= menu.name %></h1>
 
