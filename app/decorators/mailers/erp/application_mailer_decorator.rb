@@ -3,7 +3,7 @@ Erp::ApplicationMailer.class_eval do
   layout 'mailer'
 
   private
-  def send_email(email, subject)
+  def send_email(email, email_bcc, subject)
     #@todo static email!!
     delivery_options = {
       address: 'smtp.zoho.com',
@@ -18,6 +18,7 @@ Erp::ApplicationMailer.class_eval do
       openssl_verify_mode: 'none'
     }
     mail(to: email,
+      bcc: email_bcc,
       subject: subject,
       delivery_method_options: delivery_options)
   end
