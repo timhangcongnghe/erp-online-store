@@ -1192,9 +1192,9 @@ $( document ).ready(function() {
       {
         $('.megamenu').removeClass("display_none");
       }
-      $('#btn-menu-fixed').click(function() {
+      $('#btn-menu-fixed').hover(function() {
         $('.megamenu').removeClass("display_none");
-      });
+      }, function() {});
   });
 
 });
