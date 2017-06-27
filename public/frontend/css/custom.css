@@ -2417,3 +2417,12 @@ footer .box-footer {
   bottom: -6px;
   left: 0;
 }
+.mfp-iframe-holder .mfp-close, .mfp-image-holder .mfp-close {
+    position: fixed;
+    top: 0;
+    color: #ccc;
+    right: 20px;
+}
+.mfp-iframe-holder .mfp-close:hover, .mfp-image-holder .mfp-close:hover {
+    color: #fff;
+}
