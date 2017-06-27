@@ -382,6 +382,7 @@ Erp::Products::Product.class_eval do
 
   after_create :hkerp_set_imported
   after_save :hkerp_update_price
+  after_save :hkerp_set_sold_out
   before_destroy :hkerp_set_not_imported
 
   def hkerp_update_price(force=false)
@@ -415,6 +416,17 @@ Erp::Products::Product.class_eval do
 
       uri = URI(url)
       Net::HTTP.post_form(uri, 'id' => self.hkerp_product.hkerp_product_id, 'value' => 'false')
+
+      self.product_images.where(image_url: nil).destroy_all
+    end
+  end
+
+  def hkerp_set_sold_out
+    if self.hkerp_product.present?
+      url = ErpSystem::Application.config.hkerp_endpoint + "products/erp_set_sold_out"
+
+      uri = URI(url)
+      Net::HTTP.post_form(uri, 'id' => self.hkerp_product.hkerp_product_id, 'value' => self.is_sold_out)
 
       self.product_images.where(image_url: nil).destroy_all
     end
