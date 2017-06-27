@@ -2426,3 +2426,6 @@ footer .box-footer {
 .mfp-iframe-holder .mfp-close:hover, .mfp-image-holder .mfp-close:hover {
     color: #fff;
 }
+.mfp-bg {
+  opacity: 0.6;
+}
