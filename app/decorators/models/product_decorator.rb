@@ -343,4 +343,81 @@ Erp::Products::Product.class_eval do
   def self.get_stock_inventory_products
     self.get_active_with_sold_out.where(is_stock_inventory: true)
   end
+
+  #@todo HK-ERP connector
+  has_one :hkerp_product, dependent: :destroy
+
+  def updateHkerpInfo(pid)
+    url = ErpSystem::Application.config.hkerp_endpoint + "products/erp_get_info?id=" + pid.to_s
+    uri = URI(url)
+    begin
+      res = Net::HTTP.get_response(uri)
+    rescue
+    end
+
+    if res.is_a?(Net::HTTPSuccess)
+      data = JSON.parse(res.body)
+
+      if self.hkerp_product.nil?
+        self.hkerp_product = Erp::Products::HkerpProduct.new(
+          hkerp_product_id: data["id"],
+          price: data["price"],
+          stock: data["stock"],
+          data: res.body
+        )
+      else
+        self.hkerp_product.update_attributes(
+          hkerp_product_id: data["id"],
+          price: data["price"],
+          stock: data["stock"],
+          data: res.body
+        )
+      end
+
+      self.price = data["price"]
+      self.name = data["name"] if !self.name.present?
+      self.code = data["product_code"] if !self.code.present?
+    end
+  end
+
+  after_create :hkerp_set_imported
+  after_save :hkerp_update_price
+  before_destroy :hkerp_set_not_imported
+
+  def hkerp_update_price(force=false)
+    if self.hkerp_product.present?
+      if force
+        self.update_column(:price, self.hkerp_product.price)
+      end
+      if self.price.to_f == self.hkerp_product.get_data["price"].to_f
+        url = ErpSystem::Application.config.hkerp_endpoint + "products/erp_price_update"
+
+        uri = URI(url)
+        Net::HTTP.post_form(uri, 'id' => self.hkerp_product.hkerp_product_id)
+      end
+    end
+  end
+
+  def hkerp_set_imported
+    if self.hkerp_product.present?
+      url = ErpSystem::Application.config.hkerp_endpoint + "products/erp_set_imported"
+
+      uri = URI(url)
+      Net::HTTP.post_form(uri, 'id' => self.hkerp_product.hkerp_product_id)
+
+      self.product_images.where(image_url: nil).destroy_all
+    end
+  end
+
+  def hkerp_set_not_imported
+    if self.hkerp_product.present?
+      url = ErpSystem::Application.config.hkerp_endpoint + "products/erp_set_imported"
+
+      uri = URI(url)
+      Net::HTTP.post_form(uri, 'id' => self.hkerp_product.hkerp_product_id, 'value' => 'false')
+
+      self.product_images.where(image_url: nil).destroy_all
+    end
+  end
+  ##########################
 end
