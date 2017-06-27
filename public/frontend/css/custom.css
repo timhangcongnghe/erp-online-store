@@ -1284,8 +1284,8 @@ select:focus {
   }
 }
 img.mfp-img {
-  border: 2px solid #009688;
-  border-radius: 4px;
+  border: 1px solid #009688;
+  border-radius: 0px;
 }
 .jGrowl-closer {
   background-color: #009688;
