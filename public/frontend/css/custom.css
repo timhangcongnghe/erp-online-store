@@ -2432,3 +2432,6 @@ footer .box-footer {
 .fancybox-container {
   z-index: 999999999;
 }
+.hide-album {
+  display: none;
+}
