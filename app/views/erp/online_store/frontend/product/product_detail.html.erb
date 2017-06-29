@@ -342,8 +342,8 @@
                     });
 
                     $('[data-fancybox]').fancybox({
-                        arrows : false,
-                        loop   : false
+                        arrows : true,
+                        infobar   : true
                     });
                 });
             </script>
@@ -355,7 +355,7 @@
 <div class="hide-album">
     <% product_images.each_with_index do |product_image,index| %>
         <a href="<%= product_image.image_url.thumb550 %>" data-fancybox="images">
-            <%= image_tag product_image.image_url.thumb170, alt: @product.name, title: @product.name %>
+            <%= image_tag product_image.image_url.thumb170, alt: @product.name, title: @product.name, caption: @product.name %>
         </a>
     <% end %>
 </div>
