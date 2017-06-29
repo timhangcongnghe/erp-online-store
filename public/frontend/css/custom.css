@@ -2435,3 +2435,6 @@ footer .box-footer {
 .hide-album {
   display: none;
 }
+.fancybox-thumbs>ul>li {
+  height: 105px;
+}
