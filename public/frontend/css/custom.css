@@ -2429,3 +2429,6 @@ footer .box-footer {
 .mfp-bg {
   opacity: 0.6;
 }
+.fancybox-container {
+  z-index: 999999999;
+}
