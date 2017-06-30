@@ -14,7 +14,7 @@
                                         <!-- thumb 445x445 -->
                                         <% @product.product_images.each_with_index do |product_image,index| %>
                                         <li class="owl2-item">
-                                            <a data-index="<%= index %>" class="img thumbnail " data-image="<%= product_image.image_url.thumb445 %>" title="<%= @product.name %>">
+                                            <a data-index="<%= index %>" class="img thumbnail " data-image="<%= product_image.image_url.thumb550 %>" title="<%= @product.name %>">
                                                 <%= image_tag product_image.image_url.thumb170, alt: @product.name, title: @product.name %>
                                             </a>
                                         </li>
@@ -275,7 +275,7 @@
 					$.initQuantity($(".quantity-control"));
 
 					// Product detial reviews button
-                    $(".product-image-zoom").click(function() {
+                    $(document).on("click", ".product-image-zoom", function() {
                         $('.hide-album a[href="'+$(this).attr('src')+'"]').trigger('click');
                     });
 
