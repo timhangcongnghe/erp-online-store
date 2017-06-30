@@ -275,13 +275,16 @@
 					$.initQuantity($(".quantity-control"));
 
 					// Product detial reviews button
-                    $(document).on("click", ".product-image-zoom", function() {
+                    $(document).on("click", ".product-image-zoom", function(e) {
+						e.stopPropagation();
+						e.stopImmediatePropagation();
                         $('.hide-album a[href="'+$(this).attr('src')+'"]').trigger('click');
                     });
 
                     $('[data-fancybox]').fancybox({
                         arrows : true,
-                        infobar   : true
+                        infobar   : true,
+						live: false
                     });
                 });
             </script>
