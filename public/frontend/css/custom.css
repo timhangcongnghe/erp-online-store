@@ -2438,3 +2438,6 @@ footer .box-footer {
 .fancybox-thumbs>ul>li {
   height: 105px;
 }
+.fancybox-inner #content, .fancybox-inner .left-content-product {
+  margin-bottom: 0;
+}
