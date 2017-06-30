@@ -2441,3 +2441,6 @@ footer .box-footer {
 .fancybox-inner #content, .fancybox-inner .left-content-product {
   margin-bottom: 0;
 }
+.fancybox-inner .main-container {
+  padding-top: 30px;
+}
