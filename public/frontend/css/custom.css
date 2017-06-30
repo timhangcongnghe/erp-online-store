@@ -2444,3 +2444,9 @@ footer .box-footer {
 .fancybox-inner .main-container {
   padding-top: 30px;
 }
+.left-content-product .content-product-right .title-product h1 {
+  line-height: 26px;
+}
+.inner-box-desc h3 {
+  margin-top: 0;
+}
