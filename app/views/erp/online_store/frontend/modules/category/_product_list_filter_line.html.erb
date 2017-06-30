@@ -2,7 +2,7 @@
     <div class="filters-line">
         <div class="row">
             <div class="col-sm-8 col-md-9">
-                <% if brands.count > 1 %>
+                <% if defined?(brands) and brands.count > 1 %>
                     <div class="filters-box" style="margin-top: -2px;">
                         <select class="form-control" name="brand_ids[]" multiple="multiple" placeholder="">
                             <% brands.each do |brand| %>
