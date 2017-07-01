@@ -2450,3 +2450,6 @@ footer .box-footer {
 .inner-box-desc h3 {
   margin-top: 0;
 }
+#content p.preface_text {
+  text-align: justify;
+}
