@@ -842,6 +842,9 @@ table.product-compare tr td.product-name {
   min-width: 380px;
   color: #000;
 }
+.shopping_cart .shoppingcart-box p {
+  margin: 0;
+}
 .shopping_cart .shoppingcart-box .table-striped a {
   color: #000;
   font-weight: 500;
