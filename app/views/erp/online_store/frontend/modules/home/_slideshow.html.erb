@@ -1,7 +1,7 @@
 <div class="module slideshow no-margin">
     <% @sliders.each do |slider| %>
         <div class="item" data-animate="fadeIn animated">
-            <%= link_to image_tag(slider.image_url.thumb, alt: slider.name, class: "img-responsive"), slider.link_url, title: slider.name %>
+            <%= link_to image_tag(slider.image_url, alt: slider.name, class: "img-responsive"), slider.link_url, title: slider.name %>
         </div>
     <% end %>
     <!--<div class="loadeding"></div>-->
