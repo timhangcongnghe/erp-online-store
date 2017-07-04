@@ -104,7 +104,7 @@
                                 <li>
                                     <%= link_to "Quy định bảo mật thông tin", Erp::Articles::Category.get_active.find_by_alias(Erp::Articles::Category::ALIAS_SECURITY).nil? ? "" : erp_online_store.policy_path(
                                         Erp::Articles::Category.get_active.find_by_alias(Erp::Articles::Category::ALIAS_SECURITY).id,
-                                        'quy-dinh-bao-mat-thong-tin'
+                                        'chinh-sach-bao-mat-thong-tin'
                                     ) %>
                                 </li>
                             </ul>
@@ -119,8 +119,13 @@
                             <ul class="menu">
                                 <li><%= link_to "Về chúng tôi", 'javascript:void(0)', title: 'Nội dung đang được cập nhật' %></li>
                                 <li><%= link_to "Góp ý & Liên hệ", erp_online_store.contact_us_path %></li>
-                                <li><%= link_to "Tin công nghệ", erp_online_store.blog_path %></li>
-                                <li><%= link_to "Tin sự kiện", erp_online_store.events_path %></li>
+                                <li><%= link_to "Tin tức công nghệ", erp_online_store.blog_path %></li>
+                                <li>
+                                    <%= link_to "Quy chế hoạt động trang TMĐT", Erp::Articles::Category.get_active.find_by_alias(Erp::Articles::Category::ALIAS_OPERATING_REGULATIONS).nil? ? "" : erp_online_store.policy_path(
+                                        Erp::Articles::Category.get_active.find_by_alias(Erp::Articles::Category::ALIAS_OPERATING_REGULATIONS).id,
+                                        'quy-che-hoat-dong-giao-dich-tmdt'
+                                    ) %>
+                                </li>
                                 <li><%= link_to "Các điều khoản & Điều kiện", erp_online_store.terms_and_conditions_path %></li>                                
                                 <li><%= link_to "Câu hỏi thường gặp", erp_online_store.faq_path %></li>
                             </ul>
