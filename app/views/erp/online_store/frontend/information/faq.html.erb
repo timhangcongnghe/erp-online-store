@@ -28,7 +28,7 @@
                         <h2 class="about-title"></h2>
                         <div class="content-faq">
                             <div id="accordion" role="tablist" aria-multiselectable="true">
-                                <% @faqs.each_with_index do |faq,index| %>
+                                <% @faqs.order('custom_order ASC').each_with_index do |faq,index| %>
                                 <div class="panel">
                                     <div class="panel-head" role="tab" id="headingOne<%= index.to_s %>">
                                         <h4 class="panel-title">
