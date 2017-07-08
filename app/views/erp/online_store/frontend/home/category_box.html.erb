@@ -80,7 +80,7 @@
                                     <div class="item">
                                         <div class="item-inner">
                                             <div class="cat_slider_title view_all">
-                                                <%= link_to 'Xem tất cả'.html_safe, menu_link((@child_2.present? ? @child_2 : @child_1)), title: @child_1.name, class: "" %>
+                                                <%= link_to 'Xem tất cả'.html_safe, menu_link((@child_2.present? ? @child_2 : @child_1)), title: (@child_2.present? ? @child_2.name : @child_1.name), class: "" %>
                                             </div>
                                         </div>
                                     </div>
@@ -106,7 +106,7 @@
                                     <div class="item">
                                         <div class="item-inner">
                                             <div class="cat_slider_title view_all">
-                                                <%= link_to 'Xem tất cả'.html_safe, menu_link(@menu_hot), title: @menu_hot.name, class: "" %>
+                                                <%= link_to 'Xem tất cả'.html_safe, menu_link((@child_1.present? ? @child_1 : @menu_hot)), title: (@child_1.present? ? @child_1.name : @menu_hot.name), class: "" %>
                                             </div>
                                         </div>
                                     </div>
