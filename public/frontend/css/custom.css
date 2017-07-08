@@ -2456,3 +2456,11 @@ footer .box-footer {
 #content p.preface_text {
   text-align: justify;
 }
+.cat_slider_title.view_all {
+    text-align: right;
+    /* margin-top: -10px; */
+    font-weight: normal;
+}
+.cat_slider_title.current a {
+  color: #00635a !important;
+}
