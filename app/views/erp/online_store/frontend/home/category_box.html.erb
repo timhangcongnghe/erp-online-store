@@ -91,13 +91,13 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <!--<div class="item">
+                                    <div class="item">
                                         <div class="item-inner">
                                             <div class="cat_slider_title view_all">
                                                 <%= link_to 'Xem tất cả'.html_safe, menu_link(@child_2), title: @child_2.name, class: "" %>
                                             </div>
                                         </div>
-                                    </div>-->
+                                    </div>
                                 <% elsif params[:child_1_id].present? and @child_1.children.is_hot.count > 0 %>
                                     <% @child_1.children.is_hot.each do |child_2| %>
                                         <div class="item child_hot_item">
@@ -115,13 +115,13 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <!--<div class="item">
+                                    <div class="item">
                                         <div class="item-inner">
                                             <div class="cat_slider_title view_all">
                                                 <%= link_to 'Xem tất cả'.html_safe, menu_link(@child_1), title: @child_1.name, class: "" %>
                                             </div>
                                         </div>
-                                    </div>-->
+                                    </div>
                                 <% else %>
                                     <% @menu_hot.children.is_hot.each do |child_1| %>
                                         <div class="item">
@@ -141,6 +141,13 @@
                                             </div>
                                         </div>
                                     <% end %>
+                                    <div class="item">
+                                        <div class="item-inner">
+                                            <div class="cat_slider_title view_all">
+                                                <%= link_to 'Xem tất cả'.html_safe, menu_link(@menu_hot), title: @menu_hot.name, class: "" %>
+                                            </div>
+                                        </div>
+                                    </div>
                                 <% end %>
                             </div>
                         </div>

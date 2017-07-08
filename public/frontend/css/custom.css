@@ -2461,6 +2461,10 @@ footer .box-footer {
     /* margin-top: -10px; */
     font-weight: normal;
 }
+.module.cus-style-supper-cate .main-left .hot-category .category-wrap-cat .slider .cat_slider_inner .item .cat_slider_title.view_all a {
+    font-weight: normal;
+    font-style: italic;
+}
 .cat_slider_title.current a {
   color: #00635a !important;
 }
