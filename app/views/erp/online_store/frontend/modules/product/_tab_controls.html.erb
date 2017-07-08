@@ -5,7 +5,7 @@
     <% else %>
         <li class="active"><a id="a-tab-review" data-toggle="tab" href="#tab-review">Đánh giá (<%= product.ratings_active.count %>)</a></li>
     <% end %>
-    <li class="item_nonactive"><a data-toggle="tab" href="#tab-comment">Bình luận (<%= product.comments.count %>)</a></li>
+    <li class="item_nonactive"><a data-toggle="tab" href="#tab-comment">Bình luận (<%= @total_comments %>)</a></li>
 </ul>
 <div class="tab-content col-xs-12">
     <% if product.description.present? %>

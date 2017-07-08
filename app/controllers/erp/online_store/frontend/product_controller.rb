@@ -24,6 +24,7 @@ module Erp
             @meta_keywords += @meta_keywords.present? ? ',' + @menu.meta_keywords : @menu.meta_keywords
             @meta_description += @meta_description.present? ? @meta_description : @meta_description
           end
+          @total_comments = @product.comments.where(parent_id: nil).where(archived: false).count
         end
 
         def comments
