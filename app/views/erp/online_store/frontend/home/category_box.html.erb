@@ -74,31 +74,7 @@
                         </div>
                         <div id="cat_slider_3" class="slider">
                             <div class="cat_slider_inner so_category_type_default">
-                                <% if params[:child_2_id].present? and @child_2.children.is_hot.count > 0 %>
-                                    <% @child_2.children.is_hot.each do |child_2| %>
-                                        <div class="item child_hot_item">
-                                            <div class="item-inner">
-                                                <div class="cat_slider_title <%= 'current' if child_2.id == params[:child_2_id].to_i %>">
-                                                    <%= link_to '<i class="fa fa-caret-right"></i> '.html_safe + child_2.name, erp_online_store.category_box_path(menu_hot_id: @menu_hot.id, child_1_id: @child_1.id, child_2_id: child_2.id), title: child_2.name, class: "ajax_link" %>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    <% end %>
-                                    <div class="item">
-                                        <div class="item-inner">
-                                            <div class="cat_slider_title">
-                                                <%= link_to '<i class="fa fa-arrow-left"></i> Trở lại'.html_safe, erp_online_store.category_box_path(menu_hot_id: @menu_hot.id, child_1_id: @child_1.id), title: @child_1.name, class: "ajax_link" %>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="item">
-                                        <div class="item-inner">
-                                            <div class="cat_slider_title view_all">
-                                                <%= link_to 'Xem tất cả'.html_safe, menu_link(@child_2), title: @child_2.name, class: "" %>
-                                            </div>
-                                        </div>
-                                    </div>
-                                <% elsif params[:child_1_id].present? and @child_1.children.is_hot.count > 0 %>
+                                <% if params[:child_1_id].present? and @child_1.children.is_hot.count > 0 %>
                                     <% @child_1.children.is_hot.each do |child_2| %>
                                         <div class="item child_hot_item">
                                             <div class="item-inner">
@@ -111,7 +87,7 @@
                                     <div class="item">
                                         <div class="item-inner">
                                             <div class="cat_slider_title">
-                                                <%= link_to '<i class="fa fa-arrow-left"></i> Trở lại'.html_safe, erp_online_store.category_box_path(menu_hot_id: @menu_hot.id), title: @menu_hot.name, class: "ajax_link" %>
+                                                <%= link_to '<i class="fa fa-arrow-left"></i> Trở lại'.html_safe, erp_online_store.category_box_path(menu_hot_id: @menu_hot.id, child_1_id: (params[:child_2_id].present? ? @child_1.id : nil)), title: @menu_hot.name, class: "ajax_link" %>
                                             </div>
                                         </div>
                                     </div>
