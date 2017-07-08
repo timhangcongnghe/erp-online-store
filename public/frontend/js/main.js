@@ -1196,5 +1196,9 @@ $( document ).ready(function() {
         $('.megamenu').removeClass("display_none");
       }, function() {});
   });
+    
+  $(".shopping_cart_form").on("keypress", function(event) { 
+    return event.keyCode != 13;
+  });
 
 });

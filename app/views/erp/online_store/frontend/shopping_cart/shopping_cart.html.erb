@@ -9,7 +9,7 @@
         <div id="content" class="col-sm-12 shopping-cart">
             <% if @cart.cart_items.number_items > 0 %>
             <h2 class="title">GIỎ HÀNG CỦA BẠN</h2>
-            <%= form_for([erp_online_store, :frontend, @cart]) do |f| %>
+            <%= form_for([erp_online_store, :frontend, @cart], html: {class: "shopping_cart_form"}) do |f| %>
             <div class="table-responsive form-group">
                 <table class="table table-bordered">
                     <thead>
@@ -47,7 +47,7 @@
                                 <% end %>
                             </td>
                             <td class="text-center vertical" width="150px">
-                                <div class="input-group btn-block quantity">
+                                <div class="input-group btn-block quantity-control quantity" unselectable="on" style="-webkit-user-select: none;">
                                     <strong><input class="form-control item-qty" type="text" name="quantities[<%= cart_item.id %>]" value="<%= cart_item.quantity %>"></strong>
                                     <span class="input-group-btn">
                                         <button type="submit" data-toggle="tooltip" title="Cập nhật số lượng" class="btn btn-primary"><i class="fa fa-refresh"></i></button>
