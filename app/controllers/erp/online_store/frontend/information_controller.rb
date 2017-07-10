@@ -15,7 +15,7 @@ module Erp
         
         def policy
           @categories = Erp::Articles::Category.get_categories_by_alias_group
-          @article = Erp::Articles::Category.find(params[:category_id]).articles.last
+          @article = Erp::Articles::Category.find(params[:category_id]).articles.where(archived: false).last
         end
     
         def contact_us
