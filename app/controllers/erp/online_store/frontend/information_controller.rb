@@ -4,6 +4,7 @@ module Erp
       class InformationController < Erp::Frontend::FrontendController
         def about_us
           @body_class = "res layout-subpage"
+          @testimonials = Erp::Testimonials::Testimonial.get_testimonials
         end
     
         def faq
