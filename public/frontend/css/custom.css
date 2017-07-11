@@ -1006,6 +1006,11 @@ footer .footer-center .contact-address > li:last-child {
 footer .footer-center .contact-address span {
   top: 2px;
 }
+footer .footer-center .contact-address span.fa-mobile-phone {
+  left: 3px;
+  font-size: 18px;
+  top: 0px;
+}
 .flash_error #error_explanation h2 {
   display: none;
 }
