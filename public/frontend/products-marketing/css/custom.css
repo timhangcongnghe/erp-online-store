@@ -47,3 +47,6 @@ header .topbar #topmenu li a.top-instagram:hover, header .topbar #topsocial li a
 	opacity: 0.4;
 	border-radius: 70px;
 }
+p span {
+	color: #cd1d1f;
+}
