@@ -16,9 +16,11 @@
       <div class="grid">
         <% inventory_category.inventory_products.get_old_products.each do |inventory_old_product| %>
           <div class="item-grid">
+            <% if inventory_old_product.gift.present? %>
             <div class="ribbon red">
-              <span>Tặng túi</span>
+              <span><%= inventory_old_product.gift %></span>
             </div>
+            <% end %>
             <%= link_to '<i class="icon-plus"></i>'.html_safe, inventory_old_product.product_link, class: "more", title: inventory_old_product.name, target: "_blank" %>
             <%= image_tag inventory_old_product.image_url, alt: inventory_old_product.name, title: inventory_old_product.name %>
             <p>
