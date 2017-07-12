@@ -134,4 +134,9 @@ Erp::OnlineStore::Engine.routes.draw do
 		get "dang-ky-nhan-tin.html" => "frontend/newsletters#add_email_to_newsletter", as: :newsletters
 		post "dang-ky-nhan-tin.html" => "frontend/newsletters#add_email_to_newsletter"
 	end
+	
+	# PRODUCTS SELLERS
+	scope "(:locale)", locale: /vi/ do
+		get "xa-hang-gia-re.html" => "frontend/stock_inventory#index_2", as: :stock_inventory_2
+	end
 end

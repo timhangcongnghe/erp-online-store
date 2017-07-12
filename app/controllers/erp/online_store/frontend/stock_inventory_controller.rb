@@ -13,6 +13,10 @@ module Erp
 
           render layout: nil
         end
+        
+        def index_2
+          render layout: "erp/frontend/product_sellers"
+        end
       end
     end
   end

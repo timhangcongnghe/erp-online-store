@@ -1,0 +1,49 @@
+<div class="row intoduction">
+  <div class="col-md-6 text-justify">
+    <strong class="title">Các sản phẩm đang xả kho - giá hấp dẫn</strong><br>
+    <br>
+    <p>Nội dung mô tả</p>
+  </div>
+  <div class="col-md-6">
+    <img src="/frontend/products-marketing/img/banner-quang-cao-trang-xa-kho-hang-ton.jpg" alt="//">
+  </div>
+</div>
+
+<% Erp::Products::InventoryCategory.get_active.each do |inventory_category| %>
+  <div class="row">
+    <div class="col-md-9">
+      <h3><%= inventory_category.name %></h3>
+      <div class="grid">
+        <% inventory_category.inventory_products.get_old_products.each do |inventory_old_product| %>
+          <div class="item-grid">
+            <div class="ribbon red">
+              <span>Tặng túi</span>
+            </div>
+            <%= link_to '<i class="icon-plus"></i>'.html_safe, inventory_old_product.product_link, class: "more", title: inventory_old_product.name, target: "_blank" %>
+            <%= image_tag inventory_old_product.image_url, alt: inventory_old_product.name, title: inventory_old_product.name %>
+            <p>
+                <%= truncate(inventory_old_product.name, length: 26) %>
+                <span><%= format_price(inventory_old_product.price) %></span>
+            </p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="list-group alt">
+        <h3><%= inventory_category.hot_name %></h3>
+        <% inventory_category.inventory_products.get_new_products.each do |inventory_new_product| %>
+          <a href="<%= inventory_new_product.product_link %>" title="<%= inventory_new_product.name %>" class="list-group-item">
+            <div class="hot-item">
+              <%= image_tag inventory_new_product.image_url, alt: inventory_new_product.name, title: inventory_new_product.name %>
+              <strong><%= truncate(inventory_new_product.name, length: 26) %></strong>
+              <span><%= format_price(inventory_new_product.price) %></span>
+              <div class="clearfix"></div>
+            </div>
+          </a>      
+        <% end %>
+        <div class="clearfix"></div>
+      </div>
+    </div>
+  </div>
+<% end %>

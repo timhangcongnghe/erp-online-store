@@ -1,0 +1,49 @@
+footer .middlefoot .bread-top {
+	margin: 0;
+}
+footer .middlefoot {
+	padding: 0;
+}
+header .navbar {
+	background: #eee;
+}
+header .topbar {
+	background: #009688;
+}
+header .navbar .navbar-nav li a {
+	color: #000;
+}
+.list-group.alt {
+	margin-top: 42px;
+}
+.grid .item-grid .ribbon span {
+	font-size: 0.5em;
+}
+.text-justify {
+	text-align: justify;
+}
+.grid .item-grid p {
+	font-size: 0.7em;
+}
+footer {
+	margin-top: 2%;
+}
+header .topbar #topmenu li a.top-facebook:hover, header .topbar #topsocial li a.top-facebook:hover {
+	color: #3b5998;
+}
+header .topbar #topmenu li a.top-pinterest:hover, header .topbar #topsocial li a.top-pinterest:hover {
+	color: #cb2027;
+}
+header .topbar #topmenu li a.top-gplus:hover, header .topbar #topsocial li a.top-gplus:hover {
+	color: #dd4b39;
+}
+header .topbar #topmenu li a.top-instagram:hover, header .topbar #topsocial li a.top-instagram:hover {
+	color: #ff0084;
+}
+.contact-info {
+	text-align: right;
+}
+.bannercontainer .tp-leftarrow.default, .bannercontainer .tp-rightarrow.default {
+	opacity: 0.4;
+	border-radius: 70px;
+}
