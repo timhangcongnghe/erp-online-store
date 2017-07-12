@@ -24,7 +24,7 @@
             <%= link_to '<i class="icon-plus"></i>'.html_safe, inventory_old_product.product_link, class: "more", title: inventory_old_product.name, target: "_blank" %>
             <%= image_tag inventory_old_product.image_url, alt: inventory_old_product.name, title: inventory_old_product.name %>
             <p>
-                <%= truncate(inventory_old_product.name, length: 24) %>
+                <%= link_to truncate(inventory_old_product.name, length: 24), inventory_old_product.product_link, title: inventory_old_product.name, target: "_blank" %>
                 <span><%= format_price(inventory_old_product.price) %></span>
             </p>
           </div>
