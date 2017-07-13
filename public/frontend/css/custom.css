@@ -246,8 +246,36 @@ footer .social_block ul.social-block li.pinterest a:hover {
 }
 .post_tags li a:hover {
   color: #009688;
-}#so-slideshow .owl2-controls .owl2-nav div {
+}
+#so-slideshow .owl2-controls .owl2-nav div {
   top: 45%;
+}
+#so-slideshow .owl2-controls .owl2-nav div.owl2-prev, #so-slideshow .owl2-controls .owl2-nav div.owl2-next {
+  position: absolute;
+  padding: 9px 0 0;
+  margin: 0;
+  background: rgba(0,0,0,.3);
+  width: 40px;
+  height: 48px; 
+  text-align: center;
+  font-size: 46px;
+  color: #fff;
+  font-family: -webkit-body;
+}
+#so-slideshow .owl2-controls .owl2-nav div.owl2-prev {
+  left: 10px;
+  border-radius: 0 5px 5px 0;
+  -webkit-border-radius: 0 5px 5px 0;
+  -moz-border-radius: 0 5px 5px 0;
+}
+#so-slideshow .owl2-controls .owl2-nav div.owl2-next {
+  right: 10px;
+  border-radius: 5px 0 0 5px;
+  -webkit-border-radius: 5px 0 0 5px;
+  -moz-border-radius: 5px 0 0 5px;
+}
+#so-slideshow .owl2-controls .owl2-nav div.owl2-prev:hover, #so-slideshow .owl2-controls .owl2-nav div.owl2-next:hover {
+  background: rgba(0,0,0,.5);
 }
 body {
   font-size: 14px;
