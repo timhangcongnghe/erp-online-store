@@ -87,11 +87,6 @@ module Erp
         str.join(", ")
       end
 
-      # display short name for user
-      def user_short_name(str)
-        str.rpartition(' ').last
-      end
-
       # display status for frontend order
       def order_status(status)
         if status == 'draft'
