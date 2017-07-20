@@ -44,7 +44,7 @@
       <div class="list-group alt">
         <h3><%= inventory_category.hot_name %></h3>
         <% inventory_category.inventory_products.get_new_products.each do |inventory_new_product| %>
-          <a href="<%= inventory_new_product.product_link %>" title="<%= inventory_new_product.name %>" class="list-group-item">
+          <a href="<%= inventory_new_product.product_link %>" target="_blank" title="<%= inventory_new_product.name %>" class="list-group-item">
             <div class="hot-item">
               <%= image_tag inventory_new_product.image_url, alt: inventory_new_product.name, title: inventory_new_product.name %>
               <strong><%= truncate(inventory_new_product.name, length: 22) %></strong>
