@@ -36,7 +36,7 @@ module Erp
             @comment.user = current_user
             @comment.save
 
-            render text: 'Bạn đã đăng bình luận thành công'
+            render plain: 'Bạn đã đăng bình luận thành công'
             return
           end
 
@@ -59,7 +59,7 @@ module Erp
             @rating.archive
             @rating.save
 
-            render text: 'Cảm ơn bạn đã tham gia đánh giá sản phẩm. Nhận xét của bạn sẽ được chúng tôi kiểm duyệt trong 24 giờ.'
+            render plain: 'Cảm ơn bạn đã tham gia đánh giá sản phẩm. Nhận xét của bạn sẽ được chúng tôi kiểm duyệt trong 24 giờ.'
             return
           end
 
