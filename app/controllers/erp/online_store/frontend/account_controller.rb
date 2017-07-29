@@ -123,7 +123,7 @@ module Erp
             if current_user.contact.nil?
               current_user.update_columns(contact_id: @contact.id)
             end
-            redirect_to :back, notice: 'Thông tin liên hệ đã được cập nhật.'
+            redirect_back(fallback_location: @contact, notice: 'Thông tin liên hệ đã được cập nhật.')
           end
         end
         

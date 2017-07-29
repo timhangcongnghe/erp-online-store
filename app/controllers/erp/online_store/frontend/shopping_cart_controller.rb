@@ -20,7 +20,7 @@ module Erp
                 redirect_to erp_online_store.checkout_path(selected_contact_id: @contact.id),
                             flash: {success: "Thông tin khách hàng đã được cập nhật."}
               else
-                redirect_to :back, flash: {error: "Thông tin chưa được cập nhật. Vui lòng thử lại."}
+                redirect_back(fallback_location: @contact, flash: {error: "Thông tin chưa được cập nhật. Vui lòng thử lại."})
               end
             else
               @contact = Erp::Contacts::Contact.new(parent_id: current_user.contact.id)
@@ -31,7 +31,7 @@ module Erp
               if @contact.save
                 redirect_to erp_online_store.checkout_path(selected_contact_id: @contact.id), flash: {success: "Địa chỉ giao hàng đã thêm thành công."}
               else
-                redirect_to :back, flash: {error: "Địa chỉ giao hàng chưa được cập nhật. Vui lòng thử lại."}
+                redirect_back(fallback_location: @contact, flash: {error: "Địa chỉ giao hàng chưa được cập nhật. Vui lòng thử lại."})
               end
             end
           end
@@ -47,7 +47,7 @@ module Erp
           @contact = Erp::Contacts::Contact.find(params[:contact][:contact_id])
           if params[:contact].present?
             @contact.update(contact_params)
-            redirect_to :back, notice: 'Thông tin liên hệ đã được cập nhật.'
+            redirect_back(fallback_location: @contact, notice: 'Thông tin liên hệ đã được cập nhật.')
           end
         end
         
@@ -117,7 +117,7 @@ module Erp
 
               redirect_to erp_online_store.checkout_completed_path, notice: "Đặt hàng thành công."
             else
-              redirect_to :back, notice: "Đặt hàng không thành công. Thử lại?"
+              redirect_back(fallback_location: @order, notice: "Đặt hàng không thành công. Thử lại?")
             end
           end
         end

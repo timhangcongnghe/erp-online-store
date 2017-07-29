@@ -56,7 +56,7 @@ module Erp
           if params[:rating].present?
             @rating.update(rating_params)
             @rating.user = current_user
-            @rating.archive
+            #@rating.archive
             @rating.save
 
             render plain: 'Cảm ơn bạn đã tham gia đánh giá sản phẩm. Nhận xét của bạn sẽ được chúng tôi kiểm duyệt trong 24 giờ.'
@@ -73,7 +73,7 @@ module Erp
           authorize! :delete, @comment
 
           @comment.destroy
-          redirect_to :back, notice: 'Nội dung bình luận đã được xóa'
+          redirect_back(fallback_location: @comment, notice: 'Nội dung bình luận đã được xóa')
         end
 
         def delete_rating
@@ -82,7 +82,7 @@ module Erp
           authorize! :delete, @rating
 
           @rating.destroy
-          redirect_to :back, notice: 'Nội dung đánh giá đã được xóa'
+          redirect_back(fallback_location: @rating, notice: 'Nội dung đánh giá đã được xóa')
         end
 
         def autosearch

@@ -35,12 +35,12 @@ module Erp
                 if @msg.save
                   Erp::Contacts::ContactMailer.sending_email_contact(@msg).deliver_now
                   format.html {
-                    redirect_to :back, notice: 'Yêu cầu đã gửi thành công.\n Chúng tôi sẽ liên hệ cho bạn trong thời gian sớm nhất.'
+                    redirect_back(fallback_location: @contact, notice: 'Yêu cầu đã gửi thành công.\n Chúng tôi sẽ liên hệ cho bạn trong thời gian sớm nhất.')
                   }
                 end
               end
             else
-              redirect_to :back, flash: { error: 'Không thể gửi đi do một số trường đang bị bỏ trống.' }
+              redirect_back(fallback_location: @contact, flash: { error: 'Không thể gửi đi do một số trường đang bị bỏ trống.' })
             end
           end
         end

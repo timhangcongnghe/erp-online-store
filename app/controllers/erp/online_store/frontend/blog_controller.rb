@@ -47,7 +47,7 @@ module Erp
 
         def delete_comment
           @comment.destroy
-          redirect_to :back, notice: 'Nội dung bình luận đã được xóa'
+          redirect_back(fallback_location: @comment, notice: 'Nội dung bình luận đã được xóa')
         end
 
         private
