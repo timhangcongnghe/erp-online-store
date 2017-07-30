@@ -5,6 +5,32 @@
         <li><%= link_to "Tin Sự Kiện", "javascript:void(0)" %></li>
     </ul>
     
+    <% if Erp::Products::Event.get_future_events.count > 0 %>
+    <div class="row block-event">
+        <div id="content" class="col-sm-12">
+            <div class="about-us about-demo-1">
+                <div class="event-tl">
+                    <strong>SỰ KIỆN SẮP DIỄN RA</strong>
+                </div>
+                <div class="row">
+                    <% Erp::Products::Event.get_future_events.each_with_index do |event,index| %>
+                        <div class="col-lg-6 col-md-6">
+                            <div class="module banners-effect-1">
+                                <h3>Diễn ra từ: <span class="date-event"><%= event.from_date.strftime('%d/%m/%Y') %> - <%= event.to_date.strftime('%d/%m/%Y') %></span></h3>
+                                <div class="banners">
+                                    <div>
+                                        <%= link_to image_tag(event.image_url.thumb570222, alt: ""), event_link(event), title: "#{event.name}" %>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <%= '</div><div class="row">'.html_safe if index%2 == 1 %>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+    </div>
+    <% end %>    
     <% if Erp::Products::Event.get_current_events.count > 0 %>
     <div class="row block-event">
         <div id="content" class="col-sm-12">
@@ -57,7 +83,7 @@
         </div>
     </div>
     <% end %>
-    <% if Erp::Products::Event.get_current_events.count == 0 and Erp::Products::Event.get_past_events.count == 0 %>
+    <% if Erp::Products::Event.get_current_events.count == 0 and Erp::Products::Event.get_past_events.count == 0 and Erp::Products::Event.get_future_events.count == 0 %>
         <div class="alert alert-warning">
             <i class="fa fa-warning"></i> Hiện danh sách sự kiện chưa có.
         </div>
