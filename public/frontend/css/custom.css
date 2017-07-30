@@ -1530,6 +1530,16 @@ a:hover .old_price {
   padding-bottom: 5px;
 }
 
+.event-detail-page .event-tl {
+  font-size: 18px;
+  color: #009688;
+  text-transform: uppercase;
+  border-bottom: 2px solid #e67e22;
+  line-height: 20px;
+  padding-bottom: 5px;
+  margin-bottom: 5px;
+}
+
 #pwd-container {
 	background: url(/frontend/image/GHr12sH.jpg) no-repeat center center fixed;
     -webkit-background-size: cover;
