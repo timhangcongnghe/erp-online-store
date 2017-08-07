@@ -460,11 +460,11 @@ form label.error {
   overflow: hidden;
   margin-right: 6px;
 }
-.quick-cart button.add-to-quick-cart {
+.quick-cart a.add-to-quick-cart {
   color: #fff;
   height: 30px;
-  line-height: 30px;
-  padding: 0 10px 0 10px;
+  line-height: 27px;
+  padding: 1px 10px 0 10px;
   font-size: 13px;
   background-position: 8px center;
   text-transform: uppercase;

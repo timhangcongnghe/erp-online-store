@@ -164,9 +164,9 @@
                                         </div>
                                     <% end %>
                                     <div class="quick-cart">
-                                        <button class="btn btn-mega btn-lg add-to-quick-cart">
-                                            <i class="fa fa-opencart"></i> Mua ngay
-                                        </button>
+                                        <%= link_to '<i class="fa fa-opencart"></i> Mua ngay'.html_safe,
+                                                    erp_online_store.quick_order_path(product_id: @product.id),
+                                                    class: "btn btn-mega btn-lg add-to-quick-cart" %>
                                     </div>
                                     <div class="add-to-links wish_comp">
                                         <ul class="blank list-inline">
