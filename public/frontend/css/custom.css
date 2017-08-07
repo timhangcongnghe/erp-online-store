@@ -2512,3 +2512,6 @@ footer .box-footer {
 .cat_slider_title.current a {
   color: #00635a !important;
 }
+.price span.total-fee {
+  color: #009688;
+}

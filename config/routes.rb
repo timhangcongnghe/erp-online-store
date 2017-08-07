@@ -59,6 +59,8 @@ Erp::OnlineStore::Engine.routes.draw do
 	post "dat-hang.html" => "frontend/shopping_cart#checkout"
 	delete "dat-hang/:contact_id-remove.html" => "frontend/shopping_cart#delete_sub_contact", as: :delete_sub_contact
 	get "dat-hang/thanh-cong.html" => "frontend/shopping_cart#success", as: :checkout_completed
+	get "dat-hang/dat-hang-nhanh.html" => "frontend/quick_order#quick_order", as: :quick_order
+	post "dat-hang/dat-hang-nhanh.html" => "frontend/quick_order#quick_order"
 	get "tao-moi-lien-he.html" => "frontend/shopping_cart#add_main_contact", as: :add_main_contact
 	post "tao-moi-lien-he.html" => "frontend/shopping_cart#add_main_contact"
 	get "new-contact-form.html" => "frontend/shopping_cart#contact_form", as: :contact_form
