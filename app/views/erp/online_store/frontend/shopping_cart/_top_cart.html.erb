@@ -50,7 +50,7 @@
                         <% if user_signed_in? %>
                             <%= link_to '<i class="fa fa-hand-o-right"></i> Đặt hàng'.html_safe, erp_online_store.checkout_path, class: "btn btn-mega checkout-cart shopping-actions" %>
                         <% else %>
-                            <%= link_to '<i class="fa fa-share"></i> Đặt hàng'.html_safe, erp.new_user_session_path, class: "btn btn-mega checkout-cart shopping-actions ajax-link", "data-type": "ajax" %>
+                            <%= link_to '<i class="fa fa-share"></i> Đặt hàng'.html_safe, erp_online_store.quick_order_path, class: "btn btn-mega checkout-cart shopping-actions" %>
                         <% end %>
                     </p>
                 </div>
