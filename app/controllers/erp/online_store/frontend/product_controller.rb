@@ -56,7 +56,7 @@ module Erp
           if params[:rating].present?
             @rating.update(rating_params)
             @rating.user = current_user
-            #@rating.archive
+            @rating.archive
             @rating.save
 
             render plain: 'Cảm ơn bạn đã tham gia đánh giá sản phẩm. Nhận xét của bạn sẽ được chúng tôi kiểm duyệt trong 24 giờ.'
