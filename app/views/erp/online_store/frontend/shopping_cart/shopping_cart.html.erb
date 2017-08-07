@@ -82,7 +82,7 @@
                 <% if user_signed_in? %>
                     <div class="pull-right"><%= link_to 'Tiến Hành Đặt Hàng <span class="fa fa-angle-double-right"></span>'.html_safe, erp_online_store.checkout_path, class: "btn btn-primary shopping-order" %></div>
                 <% else %>
-                    <div class="pull-right"><%= link_to 'Tiến Hành Đặt Hàng <span class="fa fa-angle-double-right"></span>'.html_safe, erp.new_user_session_path, class: "btn btn-primary shopping-order ajax-link", "data-type": "ajax" %></div>
+                    <div class="pull-right"><%= link_to 'Đăng Nhập Tài Khoản <span class="fa fa-angle-double-right"></span>'.html_safe, erp.new_user_session_path, class: "btn btn-primary shopping-order ajax-link", "data-type": "ajax" %></div>
                 <% end %>
             </div>
             <% else %>
