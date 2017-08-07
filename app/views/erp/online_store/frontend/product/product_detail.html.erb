@@ -144,7 +144,6 @@
                                     </a>
                                 <% end %>
                             </div>
-
                             <% end %>
                             <% if !@product.is_sold_out? %>
                             <div id="product">
@@ -154,22 +153,27 @@
                                         <%= hidden_field_tag "product_id", @product.id %>
                                         <div class="option quantity">
                                             <div class="input-group quantity-control" unselectable="on" style="-webkit-user-select: none;">
-                                                <label>Số lượng đặt mua: </label>
+                                                <label>Số lượng: </label>
                                                 <input class="form-control" type="text" name="quantity" value="1">
                                                 <span class="input-group-addon product_quantity_down">−</span>
                                                 <span class="input-group-addon product_quantity_up">+</span>
                                             </div>
-                                        </div>
+                                        </div>                                        
                                         <div class="cart">
-                                            <button class="btn btn-mega btn-lg add-to-cart"><i class="fa fa-cart-plus"></i> Thêm vào giỏ hàng</button>
+                                            <button class="btn btn-mega btn-lg add-to-cart"><i class="fa fa-shopping-cart"></i> Thêm vào giỏ hàng</button>
                                         </div>
                                     <% end %>
+                                    <div class="quick-cart">
+                                        <button class="btn btn-mega btn-lg add-to-quick-cart">
+                                            <i class="fa fa-opencart"></i> Mua ngay
+                                        </button>
+                                    </div>
                                     <div class="add-to-links wish_comp">
                                         <ul class="blank list-inline">
                                             <li class="compare">
                                                 <%= form_tag erp_online_store.add_to_compare_frontend_compare_items_path, class: 'add-compare-form' do %>
                                                     <%= hidden_field_tag "product_id", @product.id %>
-                                                    <button class="btn btn-mega add-to-compare" title="So sánh sản phẩm"><i class="fa fa-exchange"></i></button>
+                                                    <button class="btn btn-mega btn-lg add-to-compare" title="So sánh sản phẩm"><i class="fa fa-window-restore"></i> So sánh</button>
                                                 <% end %>
                                             </li>
                                         </ul>
@@ -177,6 +181,9 @@
                                 </div>
                             </div>
                             <% end %>
+                            <div class="call-center">
+                                <span>Liên hệ đặt mua: <a href="tel:02822129454">(028) 2212 9454</a> </span> hoặc <span><a href="tel:02839847690">(028) 3984 7690</a> (Giờ làm việc: 7:30-17:00)</span>
+                            </div>
                             <!-- end box info product -->
                         </div>
                     </div>

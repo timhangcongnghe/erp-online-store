@@ -444,31 +444,54 @@ form label.error {
   height: 30px;
   line-height: 30px;
   padding: 0 10px 0 10px;
-  font-weight: normal;
   font-size: 13px;
-  border-radius: 0;
-  background: #009688 no-repeat;
   background-position: 8px center;
   text-transform: uppercase;
+  display: table;
+  width: 100%;
+  text-align: center;
+  position: relative;
+  border-radius: 5px;
+  background-color: #e60d0d;
+  font-weight: bold;
 }
-.cart button.add-to-cart:hover {
-  background-color: #ea3a3c;
+.left-content-product .content-product-right .box-info-product .quick-cart {
+  float: left;
+  overflow: hidden;
+  margin-right: 6px;
 }
-.compare button.add-to-compare {
-  margin-left: 3px;
+.quick-cart button.add-to-quick-cart {
   color: #fff;
   height: 30px;
   line-height: 30px;
   padding: 0 10px 0 10px;
-  font-weight: normal;
   font-size: 13px;
-  border-radius: 0;
-  background: #5f87d1 no-repeat;
   background-position: 8px center;
   text-transform: uppercase;
+  display: table;
+  width: 100%;
+  text-align: center;
+  position: relative;
+  border-radius: 5px;
+  background-color: #fd6e1d;
+  font-weight: bold;
 }
-.compare button.add-to-compare:hover {
-  background-color: #F4A137;
+.compare button.add-to-compare {
+  margin-left: 3px;
+  height: 30px;
+  line-height: 30px;
+  padding: 0 10px 0 10px;
+  font-size: 13px;
+  background-position: 8px center;
+  text-transform: uppercase;
+  display: table;
+  width: 100%;
+  text-align: center;
+  position: relative;
+  color: #fff;
+  border-radius: 5px;
+  background-color: #029900;
+  font-weight: bold;
 }
 a.hover-product-name:hover {
   color: #009688 !important;
@@ -1157,7 +1180,7 @@ h3 {
   padding-left: 10px !important;
 }
 .inner-box-desc td {
-    padding: 5px 0;
+  padding: 3px 0;
 }
 .products-list.list-masonry .product-layout .product-item-container, .products-list.grid .product-layout .product-item-container {
   border: solid 1px rgba(0,0,0,0);
@@ -1774,6 +1797,7 @@ form[role=edit-password] > div:last-child {
 }
 .view-buy .btn_view {
   line-height: 30px;
+  border-radius: 5px;
 }
 .view-buy .btn-cus:hover {
   background: #009688;
@@ -2514,4 +2538,7 @@ footer .box-footer {
 }
 .price span.total-fee {
   color: #009688;
+}
+.call-center a {
+  color: #288ad6;
 }
