@@ -7,7 +7,6 @@ Erp::Ability.class_eval do
       !user.nil? && user.get_permissions["products_comments"]["delete"] == "yes" # user.backend_access &&
     end
 
-
     can :create, Erp::Products::Rating do |rating|
       !user.nil? && user.get_permissions["products_ratings"]["create"] == "yes"
     end
