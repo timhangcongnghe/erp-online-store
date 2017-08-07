@@ -158,7 +158,7 @@
                                                 <span class="input-group-addon product_quantity_down">−</span>
                                                 <span class="input-group-addon product_quantity_up">+</span>
                                             </div>
-                                        </div>                                        
+                                        </div>
                                         <div class="cart">
                                             <button class="btn btn-mega btn-lg add-to-cart"><i class="fa fa-shopping-cart"></i> Thêm vào giỏ hàng</button>
                                         </div>
@@ -166,7 +166,8 @@
                                     <div class="quick-cart">
                                         <%= link_to '<i class="fa fa-opencart"></i> Mua ngay'.html_safe,
                                                     erp_online_store.quick_order_path(product_id: @product.id),
-                                                    class: "btn btn-mega btn-lg add-to-quick-cart add-to-cart" %>
+                                                    class: "btn btn-mega btn-lg add-to-quick-cart add-to-cart quick-buy-ajax ajax-link",
+                                                    'data-type': 'ajax' %>
                                     </div>
                                     <div class="add-to-links wish_comp">
                                         <ul class="blank list-inline">

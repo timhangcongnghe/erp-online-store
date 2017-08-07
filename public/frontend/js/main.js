@@ -1034,6 +1034,10 @@ $(document).ready(function () {
         });
     });
 
+    $(document).on('submit', '.checkout_form', function(e) {
+      return $(this).valid();
+    });
+
 });
 $(window).scroll(function () {
     toogleFixedNav();
@@ -1196,8 +1200,8 @@ $( document ).ready(function() {
         $('.megamenu').removeClass("display_none");
       }, function() {});
   });
-    
-  $(".shopping_cart_form").on("keypress", function(event) { 
+
+  $(".shopping_cart_form").on("keypress", function(event) {
     return event.keyCode != 13;
   });
 

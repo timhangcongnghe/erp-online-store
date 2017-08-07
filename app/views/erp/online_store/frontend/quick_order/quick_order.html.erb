@@ -6,10 +6,9 @@
     </ul>
     <div class="row">
         <!--Middle Part Start-->
-        <div class="col-sm-2"></div>
-        <div id="content" class="col-sm-8 shopping-cart">
+        <div id="content" class="col-sm-12 shopping-cart">
             <% if @cart.cart_items.number_items > 0 %>
-                <h2 class="title">THÔNG TIN ĐẶT HÀNG</h2>
+                <h2 class="title mt-0">THÔNG TIN SẢN PHẨM</h2>
                 <%= form_for([erp_online_store, :frontend, @cart], html: {class: "shopping_cart_form"}) do |f| %>
                 <div class="table-responsive form-group">
                     <table class="table table-bordered">
@@ -76,9 +75,10 @@
                 </div>
                 <% end %>
 
+                <h2 class="title mt-0">VUI LÒNG ĐIỀN THÔNG TIN CỦA BẠN VÀ NHẤN ĐẶT HÀNG</h2>
                 <%= form_for '', url: erp_online_store.quick_order_path, html: {class: 'checkout_form'} do |f| %>
                     <fieldset id="personal-details">
-                        <legend></legend>
+
                         <div class="row">
                             <div class="col-sm-4">
                                 <div class="form-group required">
@@ -107,13 +107,13 @@
                         </div>
                     </fieldset>
                     <div class="buttons">
-                        <div class="pull-left"><%= link_to '<span class="fa fa-angle-double-left"></span> Tiếp Tục Mua Hàng'.html_safe, erp_online_store.root_path, class: "btn btn-default shopping-continue" %></div>
-                        <div class="pull-right">
-                            <button type="submit" class="btn btn-primary shopping-order">Đặt Hàng Ngay <span class="fa fa-angle-double-right"></span></button>
+                        <!--<div class="pull-left"><%= link_to '<span class="fa fa-angle-double-left"></span> Tiếp Tục Mua Hàng'.html_safe, erp_online_store.root_path, class: "btn btn-default shopping-continue" %></div>-->
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary shopping-order btn-lg">ĐẶT HÀNG</button>
                         </div>
                     </div>
                 <% end %>
-                
+
             <% else %>
                 <h2 class="title">Chưa có sản phẩm nào được chọn.</h2>
                 <div class="buttons">
@@ -121,7 +121,6 @@
                 </div>
             <% end %>
         </div>
-        <div class="col-sm-2"></div>
         <!--Middle Part End -->
     </div>
 </div>

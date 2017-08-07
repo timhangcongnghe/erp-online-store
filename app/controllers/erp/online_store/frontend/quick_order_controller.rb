@@ -4,18 +4,19 @@ module Erp
       class QuickOrderController < Erp::Frontend::FrontendController
         def quick_order
           @body_class = "res layout-subpage"
-          
+
+          if params[:product_id].present?
+            quantity = 1
+            product = Erp::Products::Product.find(params[:product_id])
+            @cart_item = @cart.add_product(product.id, quantity)
+            @cart.cart_items << @cart_item
+          end
+
           if @cart.cart_items.empty?
             redirect_to erp_online_store.root_path, notice: "Chưa có sản phẩm nào được chọn."
             return
-          else
-            if params[:product_id].present?
-              quantity = 1
-              product = Erp::Products::Product.find(params[:product_id])
-              @cart_item = @cart.add_product(product.id, quantity)
-            end
           end
-          
+
           if params[:quick_order].present?
             @quick_order = Erp::QuickOrders::Order.new(quick_order_params)
 
@@ -31,8 +32,12 @@ module Erp
               redirect_back(fallback_location: @quick_order, notice: "Thông tin đặt hàng chưa được gửi. Vui lòng kiểm tra và thử lại?")
             end
           end
+
+          if request.xhr?
+            render layout: nil
+          end
         end
-        
+
         private
           def quick_order_params
             params.fetch(:quick_order, {}).permit(:customer_name, :phone, :email, :note)
