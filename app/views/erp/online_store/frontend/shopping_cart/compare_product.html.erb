@@ -84,7 +84,7 @@
                                         <input type="submit" class="btn btn-primary btn-block compare-cart-add-button" value="Thêm vào giỏ hàng">
                                     <% end %>
                                 <% end %>
-                                <%= link_to "Hủy so sánh", erp_online_store.remove_compare_item_frontend_compare_items_path(compare_item_id: compare_item.id), class: "btn btn-danger btn-block", title: "Xóa sản phẩm" %>
+                                <%= link_to "Hủy so sánh", erp_online_store.remove_compare_item_frontend_compare_items_path(compare_item_id: compare_item.id), class: "btn btn-danger btn-block btn-cancel-compare", title: "Xóa sản phẩm" %>
                             </td>
                             <% end %>
                         </tr>

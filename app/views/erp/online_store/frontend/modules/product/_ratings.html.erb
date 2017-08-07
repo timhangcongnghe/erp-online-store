@@ -6,17 +6,17 @@
             <% if user_signed_in? %>
                 <% if can? :create, Erp::Products::Rating.new %>
                     <% if @rating.id.present? %>
-                        <a class="btn btn-primary" href="#reviews-anchor" id="open-review-box">Xem đánh giá của bạn</a>
+                        <a class="btn btn-primary btn-rating" href="#reviews-anchor" id="open-review-box">Cập nhật nội dung đánh giá</a>
                     <% else %>
-                        <a class="btn btn-primary" href="#reviews-anchor" id="open-review-box">Tham gia đánh giá ngay</a>
+                        <a class="btn btn-primary btn-rating" href="#reviews-anchor" id="open-review-box">Tham gia đánh giá ngay</a>
                     <% end %>
                 <% else %>
                     <p class="text-warning">Bạn bị mất quyền đánh giá</p>
                 <% end %>
             <% else %>
-                <a class="btn btn-primary ajax-link" data-type="ajax" href="<%= erp.new_user_session_path %>">Vui lòng đăng nhập để đánh giá</a>
+                <a class="btn btn-primary ajax-link btn-rating" data-type="ajax" href="<%= erp.new_user_session_path %>">Vui lòng đăng nhập để đánh giá</a>
             <% end %>
-            <a class="btn btn-danger" href="#" id="close-review-box" style="display:none;">Đóng</a>
+            <a class="btn btn-danger btn-close-rating" href="#" id="close-review-box" style="display:none;">Đóng</a>
         </div>
     </div>
 </div>
@@ -66,7 +66,7 @@
                                     <input id="ratings-hidden" name="rating[star]" type="hidden">
                                     <input type="hidden" name="rating[product_id]" value="<%= @product.id %>" />
                                     <input type="hidden" name="rating[id]" value="<%= @rating.id %>" />
-                                    <textarea class="form-control required" name="rating[content]" id="btn-radius" placeholder="Mời bạn để lại nhận xét về sản phẩm tại đây..."><%= @rating.content %></textarea>
+                                    <textarea class="form-control required input-content" name="rating[content]" id="btn-radius" placeholder="Mời bạn để lại nhận xét về sản phẩm tại đây..."><%= @rating.content %></textarea>
                                 </div>
                             </div>
                             <div class="col-sm-12">

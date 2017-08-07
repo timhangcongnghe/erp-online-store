@@ -2,11 +2,11 @@
     <div class="col-sm-4">
         <div class="rating-block text-center">
             <h4 class="no-margin-top">Đánh giá trung bình</h4>
-            <h1 class="bold"><%= @product.average_stars %> / 5</h1>
+            <h1 class="bold"><%= @product.average_stars %> / 5.0</h1>
             <div class="rating">
                 <%= stars(@product.average_stars) %>
             </div>
-            <a href="#">(<%= @product.ratings_active.count %> đánh giá)</a>
+            <span class="count-rating">(<%= @product.ratings_active.count %> đánh giá)</span>
         </div>
     </div>
     <div class="col-sm-4 breakdown">

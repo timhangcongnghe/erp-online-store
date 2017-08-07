@@ -86,9 +86,9 @@
                 <% end %>
             </div>
             <% else %>
-                <h2 class="title">Giỏ hàng hiện tại của bạn đang trống.</h2>
-                <div class="buttons">
-                    <div class="pull-left"><%= link_to "TIẾP TỤC MUA HÀNG", erp_online_store.root_path, class: "btn btn-default shopping-continue" %></div>
+                <div class="empty-cart">                    
+                    <h2 class="title">Giỏ hàng của bạn hiện chưa có sản phẩm nào cả!</h2>
+                    <%= link_to "Tiếp tục mua hàng", erp_online_store.root_path, class: "btn btn-default shopping-continue" %>
                 </div>
             <% end %>
         </div>
