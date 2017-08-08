@@ -124,11 +124,11 @@
                                         </div>
                                     <% end %>
                                     <div class="quick-cart">
-                                        <a href="<%= erp_online_store.quick_order_path(product_id: @product.id) %>"
-											class="btn btn-mega btn-lg add-to-quick-cart add-to-cart">
-                                            <i class="fa fa-opencart"></i> Mua ngay
-                                        </a>
-                                    </div>									
+                                        <%= link_to '<i class="fa fa-opencart"></i> Mua ngay'.html_safe,
+											erp_online_store.quick_order_path(product_id: @product.id),
+											class: "btn btn-mega btn-lg add-to-quick-cart add-to-cart quick-buy-ajax ajax-link",
+											'data-type': 'ajax' %>
+                                    </div>
                                 </div>
                             </div>
 							<% end %>
