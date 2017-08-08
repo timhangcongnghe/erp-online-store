@@ -454,6 +454,7 @@ form label.error {
   border-radius: 5px;
   background-color: #e60d0d;
   font-weight: bold;
+  outline: none;
 }
 .left-content-product .content-product-right .box-info-product .quick-cart {
   float: left;
@@ -475,6 +476,7 @@ form label.error {
   border-radius: 5px;
   background-color: #fd6e1d;
   font-weight: bold;
+  outline: none;
 }
 .compare button.add-to-compare {
   margin-left: 3px;
@@ -492,6 +494,7 @@ form label.error {
   border-radius: 5px;
   background-color: #029900;
   font-weight: bold;
+  outline: none;
 }
 a.hover-product-name:hover {
   color: #009688 !important;
@@ -2580,6 +2583,11 @@ form.rating_form textarea.input-content {
   font-weight: bold;
 }
 .shopping-cart .empty-cart {
+  text-align: center;
+  padding: 0 30px 30px;
+  border-radius: 4px;
+}
+.compare-product .empty-compare {
   text-align: center;
   padding: 0 30px 30px;
   border-radius: 4px;
