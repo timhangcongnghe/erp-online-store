@@ -1089,7 +1089,12 @@ $(document).ready(function () {
       return false;
     });
 
-
+    // Quick view form
+    $(document).on('click', '.quick-cart', function() {
+      setTimeout(function() {
+        loadTopCart();
+      }, 2000);
+    });
 });
 $(window).scroll(function () {
     toogleFixedNav();

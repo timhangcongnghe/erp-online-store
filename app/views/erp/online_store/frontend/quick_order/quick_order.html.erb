@@ -8,7 +8,7 @@
         <!--Middle Part Start-->
         <div id="content" class="col-sm-12 shopping-cart" data-url="<%= erp_online_store.quick_order_path %>">
             <% if @cart.cart_items.number_items > 0 %>
-                <h2 class="title mt-0">THÔNG TIN SẢN PHẨMsss</h2>
+                <h2 class="title mt-0">THÔNG TIN SẢN PHẨM</h2>
                 <%= form_for([erp_online_store, :frontend, @cart], html: {class: "shopping_cart_form quick-view-form"}) do |f| %>
                 <div class="table-responsive form-group">
                     <table class="table table-bordered">
@@ -113,7 +113,6 @@
                         </div>
                     </div>
                 <% end %>
-
             <% else %>
                 <h2 class="title">Chưa có sản phẩm nào được chọn.</h2>
                 <div class="buttons">
