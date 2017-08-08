@@ -2,7 +2,9 @@
     <!--Left Part Start -->
     <aside class="col-sm-4 col-md-3" id="column-left">
         <%= render "erp/online_store/frontend/modules/leftbar_search" %>
+        <%= render "erp/online_store/frontend/modules/sidebar_deal_products" %>
         <%= render "erp/online_store/frontend/modules/sidebar_best_sellers" %>
+        <%= render "erp/online_store/frontend/modules/hot_banners" %>
     </aside>
     <!--Left Part End -->
     <!--Middle Part Start-->
@@ -24,6 +26,7 @@
                                     <%= image_tag product_image(product.product_images, 'first', 'thumb193'), data: {src: product_image(product.product_images, 'first', 'thumb193')}, alt: product.product_name, class: "img-1 img-responsive" %>
                                     <%= image_tag product_image(product.product_images, 'second', 'thumb193'), data: {src: product_image(product.product_images, 'second', 'thumb193')}, alt: product.product_name, class: "img-2 img-responsive" %>
                                 </div>
+                                <%= quick_actions(product) %>
                                 <% if product.is_new? %>
                                 <span class="label label-new">Mới</span>
                                 <% end %>

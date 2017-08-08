@@ -2,49 +2,46 @@
   <div class="module so-deals top-choices">
       <h3 class="modtitle">
         <span>
+          <i class="fa fa-line-chart"></i>
           Lựa Chọn Hàng Đầu
         </span>
       </h3>
       <div class="modcontent">
           <div class="so-deal modcontent products-list grid clearfixbutton-type1 style2">
               <div class="extraslider-inner product-layout deal-slider-home7">
-                  <% Erp::Products::Product.get_top_business_choices.each do |top_choice| %>
+                  <% Erp::Products::Product.get_top_business_choices.each do |product| %>
                   <div class="product-thumb transition product-item-container">
                       <div class="left-block">
                           <div class="product-image-container">
                               <div class="image">                                            
-                                  <a class="lt-image" href="<%= product_link(top_choice) %>" target="_self">
-                                      <%=  %>
-                                      <img src="/frontend/image/shop/product/e11.jpg" alt="img" title="Juren tima chuk" class="img-1 img-responsive" />
-                                      <img src="/frontend/image/shop/product/e12.jpg" alt="img" title="Juren tima chuk" class="img-2 img-responsive" />
-                                  </a>
-                                  <% if top_choice.is_new? %>
+                                  <div class="product-image-container lazy second_img ">
+                                      <%= image_tag product_image(product.product_images, 'first', 'thumb268'), data: {src: product_image(product.product_images, 'first', 'thumb268')}, alt: product.product_name, title: product.product_name, class: "img-1 img-responsive" %>
+                                      <%= image_tag product_image(product.product_images, 'second', 'thumb268'), data: {src: product_image(product.product_images, 'second', 'thumb268')}, alt: product.product_name, title: product.product_name, class: "img-2 img-responsive" %>
+                                  </div>
+                                  <%= quick_actions(product) %>
+                                  <% if product.is_new? %>
                                   <span class="label label-new">Mới</span>
                                   <% end %>
-                                  <% if top_choice.is_deal? %>
+                                  <% if product.is_deal? %>
                                   <span class="label label-sale">Giảm giá</span>
                                   <% end %>
-                                  <div class="item-time">
-                                      <div class="item-timer">
-                                          <div class="defaultCountdown-30"></div>
-                                      </div>
-                                  </div>
+                                  <%= count_down(product.deal_from_date, product.deal_to_date) %>
                               </div>
                           </div>
                       </div>
                       <div class="right-block">
                           <div class="caption">
                               <div class="rating">
-                                <%= raw stars(top_choice.average_stars) %>
+                                <%= raw stars(product.average_stars) %>
                               </div>
                               <h4>
-                                <%= link_to top_choice.name, product_link(top_choice), title: top_choice.name %>
+                                <%= link_to product.name, product_link(product), title: product.name %>
                               </h4>
                               <p class="price">                                                    
-                                  <span class="price-new"><%= format_price(top_choice.product_price) %></span>
-                                  <% if top_choice.is_deal %>                        
-                                      <br><span class="price-old"><%= format_price(top_choice.price) %></span>
-                                      <span class="label label-percent">-<%= top_choice.deal_percent %>%</span>
+                                  <span class="price-new"><%= format_price(product.product_price) %></span>
+                                  <% if product.is_deal %>                        
+                                      <br><span class="price-old"><%= format_price(product.price) %></span>
+                                      <span class="label label-percent">-<%= product.deal_percent %>%</span>
                                   <% end %>
                               </p>
                           </div>
