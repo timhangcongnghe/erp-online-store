@@ -10,6 +10,9 @@
             <ul class="dropdown-menu ">
                 <li><%= link_to '<i class="fa fa-user"></i> Tài khoản của tôi'.html_safe, erp_online_store.my_account_path %></li>
                 <li><%= link_to '<i class="fa fa-shopping-cart"></i> Đơn hàng của tôi'.html_safe, erp_online_store.order_history_path %></li>
+                <% if current_user.backend_access %>
+                    <li><%= link_to '<i class="fa fa-pie-chart"></i> Vào trang quản trị'.html_safe, erp.backend_path %></li>
+                <% end %>
                 <li><%= link_to '<i class="fa fa-sign-out"></i> Thoát tài khoản'.html_safe,
                         erp.destroy_user_session_path,
                         method: :delete,
