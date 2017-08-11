@@ -2624,3 +2624,9 @@ form.rating_form textarea.input-content {
   color: #fff;
   border-radius: 3px;
 }
+.related.products-list.module .owl2-nav div.owl2-prev, .upsell.products-list.module .owl2-nav div.owl2-prev {
+  border-radius: 3px;
+}
+.related.products-list.module .owl2-nav div.owl2-next, .upsell.products-list.module .owl2-nav div.owl2-next {
+  border-radius: 3px;
+}
