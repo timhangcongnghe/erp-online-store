@@ -16,6 +16,18 @@ module Erp
             redirect_to erp_online_store.root_path, notice: "Chưa có sản phẩm nào được chọn."
             return
           end
+          
+          if !current_user.nil? 
+            @quick_order = Erp::QuickOrders::Order.new
+            if current_user.contact.nil?
+              @quick_order.customer_name = current_user.name
+              @quick_order.email = current_user.email
+            else
+              @quick_order.customer_name = current_user.contact.name
+              @quick_order.phone = current_user.contact.phone
+              @quick_order.email = current_user.contact.email
+            end
+          end
 
           if params[:quick_order].present?
             @quick_order = Erp::QuickOrders::Order.new(quick_order_params)

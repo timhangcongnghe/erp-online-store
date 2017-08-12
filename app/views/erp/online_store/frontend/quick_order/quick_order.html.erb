@@ -82,17 +82,23 @@
                         <div class="row">
                             <div class="col-sm-4">
                                 <div class="form-group required">
-                                    <input type="text" class="form-control required" id="input-lastname" placeholder="Họ và tên" name="quick_order[customer_name]">
+                                    <input type="text" class="form-control required" id="input-lastname"
+                                           placeholder="Họ và tên" value="<%= @quick_order.customer_name if user_signed_in? %>"
+                                           name="quick_order[customer_name]">
                                 </div>
                             </div>
                             <div class="col-sm-4">
                                 <div class="form-group required">
-                                    <input type="tel" class="form-control required" id="input-telephone" placeholder="Số điện thoại" name="quick_order[phone]">
+                                    <input type="tel" class="form-control required" id="input-telephone"
+                                           placeholder="Số điện thoại" value="<%= @quick_order.phone if user_signed_in? %>"
+                                           name="quick_order[phone]">
                                 </div>
                             </div>
                             <div class="col-sm-4">
                                 <div class="form-group required">
-                                    <input type="email" class="form-control required" id="input-email" placeholder="Địa chỉ email" name="quick_order[email]">
+                                    <input type="email" class="form-control required" id="input-email"
+                                           placeholder="Địa chỉ email" value="<%= @quick_order.email if user_signed_in? %>"
+                                           name="quick_order[email]">
                                 </div>
                             </div>
                         </div>
