@@ -637,10 +637,11 @@ ul.megamenu li .sub-menu .content .hover-menu .menu ul ul {
   font-size: 20px;
 }
 .product_page_price .price-sold-out {
-  line-height: 25px;
+  line-height: 40px;
   color: #c10017;
-  font-size: 20px;
+  font-size: 30px;
   text-transform: uppercase;
+  font-weight: bold;
 }
 .no_border_button {
   border-bottom: none !important;
@@ -2629,4 +2630,7 @@ form.rating_form textarea.input-content {
 }
 .related.products-list.module .owl2-nav div.owl2-next, .upsell.products-list.module .owl2-nav div.owl2-next {
   border-radius: 3px;
+}
+.form-group-price-sold-out {
+  margin-bottom: 0px;
 }
