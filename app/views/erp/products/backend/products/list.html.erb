@@ -1,0 +1,267 @@
+<div class="">
+    <table class="table table-advance table-hover table-striped table-checkable order-column" id="">
+        <thead>
+            <tr>
+                <th width='1%'>
+                    <%= erp_datalist_check_all %>
+                </th>
+                <% if get_columns(params).include?("code") %>
+                    <th>
+                        <%= t('.code') %>
+                    </th>
+                <% end %>
+                <% if get_columns(params).include?("name") %>
+                    <th class="sortable" sort-by='erp_products_products.name'>
+                        <%= t('.name') %>
+                    </th>
+                <% end %>
+                <% if get_columns(params).include?("category") %>
+                    <th>
+                        <%= t('.category') %>
+                    </th>
+                <% end %>
+                <% if get_columns(params).include?("price") %>
+                    <th>
+                        <%= t('.price') %>
+                    </th>
+                <% end %>
+                <% if get_columns(params).include?("cost") %>
+                    <th>
+                        <%= t('.cost') %>
+                    </th>
+                <% end %>
+                <% if get_columns(params).include?("on_hand") %>
+                    <th>
+                        <%= t('.on_hand') %>
+                    </th>
+                <% end %>
+                <% if get_columns(params).include?("stock_min") %>
+                    <th>
+                        <%= t('.stock_min') %>
+                    </th>
+                <% end %>
+                <% if get_columns(params).include?("stock_max") %>
+                    <th>
+                        <%= t('.stock_max') %>
+                    </th>
+                <% end %>
+                <% if get_columns(params).include?("status") %>
+                    <th>
+                        <%= t('status') %>
+                    </th>
+                <% end %>
+                <% if get_columns(params).include?("creator") %>
+                    <th>
+                        <%= t('creator') %>
+                    </th>
+                <% end %>
+                <% if get_columns(params).include?("created_at") %>
+                    <th class="sortable" sort-by='erp_products_products.created_at'>
+                        <%= t('created_at') %>
+                    </th>
+                <% end %>
+                <th width="7%"><%= t('actions') %></th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @products.each do |product| %>
+                <tr class="odd gradeX">
+                    <td>
+                        <%= erp_datalist_check_row(id: product.id) %>
+                    </td>
+                    <% if get_columns(params).include?("code") %>
+                        <td><%= product.code %></td>
+                    <% end %>
+                    <% if get_columns(params).include?("name") %>
+                        <td><%= link_to product.name, erp_products.edit_backend_product_path(product) %></td>
+                    <% end %>
+                    <% if get_columns(params).include?("category") %>
+                        <td><%= product.category_name %></td>
+                    <% end %>
+                    <% if get_columns(params).include?("price") %>
+                        <td><%= format_number(product.price) %></td>
+                    <% end %>
+                    <% if get_columns(params).include?("cost") %>
+                        <td><%= format_number(product.cost) %></td>
+                    <% end %>
+                    <% if Erp::Core.available?("qdeliveries") %>
+                        <% if get_columns(params).include?("on_hand") %>
+                            <td><%= product.get_stock %></td>
+                        <% end %>
+                    <% else %>
+                        <% if get_columns(params).include?("on_hand") %>
+                            <td><%= product.on_hand %></td>
+                        <% end %>
+                    <% end %>
+                    <% if get_columns(params).include?("stock_min") %>
+                        <td><%= product.stock_min %></td>
+                    <% end %>
+                    <% if get_columns(params).include?("stock_max") %>
+                        <td><%= product.stock_max %></td>
+                    <% end %>
+                    <% if get_columns(params).include?("status") %>
+                    <td>
+                        <% if product.archived == true %>
+                        <span class="label label-sm label-danger"><%= t('.archived') %></span>
+                        <% else %>
+                        <span class="label label-sm label-success"><%= t('.active') %></span>
+                        <% end %>
+                        <% if product.is_deal? %>
+                        <br /><span class="label label-sm label-orange"><%= t('.deal') %></span>
+                        <% end %>
+                        <% if product.is_bestseller? %>
+                        <br /><span class="label label-sm label-orange"><%= t('.bestseller') %></span>
+                        <% end %>
+                        <% if product.is_sold_out? %>
+                        <br /><span class="label label-sm label-warning"><%= t('.sold_out') %></span>
+                        <% end %>
+                        <% if product.is_stock_inventory? %>
+                        <br /><span class="label label-sm label-info"><%= t('.stock_inventory') %></span>
+                        <% end %>
+                        <% if product.is_business_choices? %>
+                        <br /><span class="label label-sm label-info"><%= t('.business_choices') %></span>
+                        <% end %>
+                        <% if product.is_top_business_choices? %>
+                        <br /><span class="label label-sm label-info"><%= t('.top_business_choices') %></span>
+                        <% end %>
+                    </td>
+                    <% end %>
+                    <% if get_columns(params).include?("creator") %>
+                        <td>
+                            <%= erp_component('avatar', {
+                                user: product.creator
+                            }) %>
+                        </td>
+                    <% end %>
+                    <% if get_columns(params).include?("created_at") %>
+                        <td><%= product.created_at.strftime("%d/%m/%Y") %></td>
+                    <% end %>
+                    <td>
+                        <%= erp_datalist_row_actions(
+                            [
+                                {
+                                    text: '<i class="fa fa-edit"></i> '+t('edit'),
+                                    href: erp_products.edit_backend_product_path(product)
+                                },
+                                {
+                                    text: '<i class="fa fa-ban"></i> '+t('archive'),
+                                    url: erp_products.archive_backend_products_path(id: product),
+                                    data_method: 'PUT',
+                                    hide: product.archived,
+                                    class: 'ajax-link',
+                                    data_confirm: t('.archive_confirm')
+                                },
+                                {
+                                    text: '<i class="fa fa-check"></i> '+t('unarchive'),
+                                    url: erp_products.unarchive_backend_products_path(id: product),
+                                    data_method: 'PUT',
+                                    hide: !product.archived,
+                                    class: 'ajax-link',
+                                    data_confirm: t('.unarchive_confirm')
+                                },
+                                {
+                                    text: '<i class="fa fa-check-square-o"></i> '+t('.check_is_bestseller'),
+                                    url: erp_products.check_is_bestseller_backend_products_path(id: product),
+                                    data_method: 'PUT',
+                                    hide: product.is_bestseller,
+                                    class: 'ajax-link',
+                                    data_confirm: t('.check_is_bestseller_confirm')
+                                },
+                                {
+                                    text: '<i class="fa fa-square-o"></i> '+t('.uncheck_is_bestseller'),
+                                    url: erp_products.uncheck_is_bestseller_backend_products_path(id: product),
+                                    data_method: 'PUT',
+                                    hide: !product.is_bestseller,
+                                    class: 'ajax-link',
+                                    data_confirm: t('.uncheck_is_bestseller_confirm')
+                                },
+                                {
+                                    text: '<i class="fa fa-plus"></i> '+t('.check_is_sold_out'),
+                                    url: erp_products.check_is_sold_out_backend_products_path(id: product),
+                                    data_method: 'PUT',
+                                    hide: product.is_sold_out,
+                                    class: 'ajax-link',
+                                    data_confirm: t('.check_is_sold_out_confirm')
+                                },
+                                {
+                                    text: '<i class="fa fa-remove"></i> '+t('.uncheck_is_sold_out'),
+                                    url: erp_products.uncheck_is_sold_out_backend_products_path(id: product),
+                                    data_method: 'PUT',
+                                    hide: !product.is_sold_out,
+                                    class: 'ajax-link',
+                                    data_confirm: t('.uncheck_is_sold_out_confirm')
+                                },
+                                {
+                                    text: '<i class="fa fa-plus"></i> '+t('.check_is_stock_inventory'),
+                                    url: erp_products.check_is_stock_inventory_backend_products_path(id: product),
+                                    data_method: 'PUT',
+                                    hide: product.is_stock_inventory,
+                                    class: 'ajax-link',
+                                    data_confirm: t('.check_is_stock_inventory_confirm')
+                                },
+                                {
+                                    text: '<i class="fa fa-remove"></i> '+t('.uncheck_is_stock_inventory'),
+                                    url: erp_products.uncheck_is_stock_inventory_backend_products_path(id: product),
+                                    data_method: 'PUT',
+                                    hide: !product.is_stock_inventory,
+                                    class: 'ajax-link',
+                                    data_confirm: t('.uncheck_is_stock_inventory_confirm')
+                                },
+                                
+                                
+                                
+                                {
+                                    text: '<i class="fa fa-plus"></i> '+t('.check_is_business_choices'),
+                                    url: erp_products.check_is_business_choices_backend_products_path(id: product),
+                                    data_method: 'PUT',
+                                    hide: product.is_business_choices,
+                                    class: 'ajax-link',
+                                    data_confirm: t('.check_is_business_choices_confirm')
+                                },
+                                {
+                                    text: '<i class="fa fa-remove"></i> '+t('.uncheck_is_business_choices'),
+                                    url: erp_products.uncheck_is_business_choices_backend_products_path(id: product),
+                                    data_method: 'PUT',
+                                    hide: !product.is_business_choices,
+                                    class: 'ajax-link',
+                                    data_confirm: t('.uncheck_is_business_choices_confirm')
+                                },
+                                {
+                                    text: '<i class="fa fa-plus"></i> '+t('.check_is_top_business_choices'),
+                                    url: erp_products.check_is_top_business_choices_backend_products_path(id: product),
+                                    data_method: 'PUT',
+                                    hide: product.is_top_business_choices,
+                                    class: 'ajax-link',
+                                    data_confirm: t('.check_is_top_business_choices_confirm')
+                                },
+                                {
+                                    text: '<i class="fa fa-remove"></i> '+t('.uncheck_is_top_business_choices'),
+                                    url: erp_products.uncheck_is_top_business_choices_backend_products_path(id: product),
+                                    data_method: 'PUT',
+                                    hide: !product.is_top_business_choices,
+                                    class: 'ajax-link',
+                                    data_confirm: t('.uncheck_is_top_business_choices_confirm')
+                                },
+                                {
+                                    divider: true
+                                },
+                                {
+                                    text: '<i class="fa fa-trash"></i> '+t('.delete'),
+                                    url: erp_products.backend_product_path(product),
+                                    data_method: 'DELETE',
+                                    class: 'ajax-link',
+                                    data_confirm: t('.delete_confirm')
+                                }
+                            ]
+                        ) %>
+                    </td>
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
+    <% if @products.empty? %>
+        <div class="datalist-empty-line"><%= t('.no_matching_records_found') %></div>
+    <% end %>
+</div>
+
+<%= erp_datalist_pagination(@products) %>
