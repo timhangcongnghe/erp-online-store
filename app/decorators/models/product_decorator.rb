@@ -431,5 +431,14 @@ Erp::Products::Product.class_eval do
       self.product_images.where(image_url: nil).destroy_all
     end
   end
+
+  # set is sold out
+  def check_is_sold_out
+    update_attributes(is_sold_out: true)
+  end
+
+  def uncheck_is_sold_out
+    update_attributes(is_sold_out: false)
+  end
   ##########################
 end
