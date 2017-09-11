@@ -1257,13 +1257,15 @@ $( document ).ready(function() {
 
   // mobile cart fix
   $(".shopping_cart").on("click", function() {
-    setTimeout(function() {
+
       if ($('.shoppingcart-box').hasClass('chide')) {
         $('.shoppingcart-box').removeClass('chide');
       } else {
-        $('.shoppingcart-box').addClass('chide');
+        setTimeout(function() {
+          $('.shoppingcart-box').addClass('chide');
+        }, 1000);
       }
-    }, 200);
+
   });
 
 });
