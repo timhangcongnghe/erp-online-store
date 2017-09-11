@@ -1255,4 +1255,15 @@ $( document ).ready(function() {
     return event.keyCode != 13;
   });
 
+  // mobile cart fix
+  $(".shopping_cart").on("click", function() {
+    setTimeout(function() {
+      if ($('.shoppingcart-box').hasClass('chide')) {
+        $('.shoppingcart-box').removeClass('chide');
+      } else {
+        $('.shoppingcart-box').addClass('chide');
+      }
+    }, 200);
+  });
+
 });

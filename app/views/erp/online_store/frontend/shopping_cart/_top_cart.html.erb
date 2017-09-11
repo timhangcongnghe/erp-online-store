@@ -13,11 +13,11 @@
                     <i class="fa fa-angle-down"></i>
 
                         <span class="num cart-qty-mobile"><%= @cart.cart_items.number_items %></span>
-                    
+
                 </span>
             </div>
         </a>
-        <ul id ="shoppingcart-box" class="tab-content content dropdown-menu pull-right shoppingcart-box" role="menu">
+        <ul id ="shoppingcart-box" class="tab-content content dropdown-menu pull-right shoppingcart-box chide" role="menu">
             <% if @cart.cart_items.number_items > 0 %>
             <li>
                 <table class="table table-striped">
