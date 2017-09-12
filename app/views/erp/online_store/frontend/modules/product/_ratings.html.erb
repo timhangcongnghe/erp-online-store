@@ -1,7 +1,7 @@
 <div class="row">
     <%= render "erp/online_store/frontend/modules/product/rating_breakdown" %>
     <div class="col-sm-4">
-        <div class="text-right">
+        <div class="text-left phone-text-center">
             <label>Chia sẻ đánh giá về sản phẩm</label> <br />
             <% if user_signed_in? %>
                 <% if can? :create, Erp::Products::Rating.new %>

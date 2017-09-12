@@ -1,5 +1,5 @@
 <% if Erp::Products::Product.get_bestseller_products.count > 0 %>
-<div class="moduletable module best-seller">
+<div class="moduletable module best-seller phone-best-seller">
     <h3 class="modtitle">
         <span>
             <i class="fa fa-line-chart"></i> BÁN CHẠY
@@ -9,7 +9,7 @@
     <div class="so-extraslider">
         <div class="extraslider-inner best-seller-slider">
             <div class="item ">
-            <% count = Erp::Products::Product.get_bestseller_products.count %>
+            <% count = Erp::Products::Product.get_bestseller_products.limit(12).count %>
             <% Erp::Products::Product.get_bestseller_products.limit(12).each_with_index do |product,index| %>
                 <div class="item-wrap style1">
                     <div class="item-wrap-inner media">

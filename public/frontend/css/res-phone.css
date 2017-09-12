@@ -1,0 +1,349 @@
+/* ----------- iPhone 4 and 4S ----------- */
+
+/* Portrait and Landscape */
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 480px)
+  and (-webkit-min-device-pixel-ratio: 2) {
+    .sidebar-tablet-pd, .best-seller .so-extraslider .owl2-controls {
+      display: none;
+    }
+    .fancybox-inner .main-container {
+      width: 100%;
+    }
+    .phone-text-center {
+      text-align: center;
+    }
+    .header-top-right .compare {
+      display: none !important;
+    }
+    .shopping-cart .quantity input.item-qty {
+      width: 40px;
+    }
+    .phone-hot-banner, .phone-best-seller {
+      display: none;
+    }
+    .breadcrumb {
+      font-size: 10px;
+    }
+}
+
+/* Portrait */
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 480px)
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: portrait) {
+    .left-content-product .content-product-right .box-info-product .add-to-links li {
+      margin-top: 5px;
+    }    
+    .inner-box-desc td {
+      display: block;
+    }
+    .shopping_cart a.view-cart {
+      margin-left: 12px;
+    }
+}
+
+/* Landscape */
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 480px)
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: landscape) {
+    .header-bottom-right span.hidden-xs {
+      display: inherit !important;
+    }
+    .type_1 .shopping_cart {
+      padding-left: 21px;
+    }
+    .select2-container {
+      width: 130px !important;
+    }
+    .cart-qty-mobile {
+      display: none;
+    }
+}
+
+/* ----------- iPhone 5 and 5S ----------- */
+
+/* Portrait and Landscape */
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 568px)
+  and (-webkit-min-device-pixel-ratio: 2) {
+    .sidebar-tablet-pd, .best-seller .so-extraslider .owl2-controls {
+      display: none;
+    }
+    .fancybox-inner .main-container {
+      width: 100%;
+    }
+    .phone-text-center {
+      text-align: center;
+    }
+    .header-top-right .compare  {
+      display: none !important;
+    }
+    .shopping-cart .quantity input.item-qty {
+      width: 40px;
+    }
+    .phone-hot-banner, .phone-best-seller {
+      display: none;
+    }
+    .breadcrumb {
+      font-size: 10px;
+    }
+}
+
+/* Portrait */
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 568px)
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: portrait) {
+    .left-content-product .content-product-right .box-info-product .add-to-links li, .left-content-product .content-product-right .box-info-product .quick-cart, .left-content-product .content-product-right .box-info-product .cart {
+      margin-top: 5px;
+    }
+    .inner-box-desc td {
+      display: block;
+    }
+    .shopping_cart a.view-cart {
+      margin-left: 12px;
+    }
+}
+
+/* Landscape */
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 568px)
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: landscape) {
+    .header-bottom-right span.hidden-xs {
+      display: inherit !important;
+    }
+    .type_1 .shopping_cart {
+      padding-left: 21px;
+    }
+    .select2-container {
+      width: 130px !important;
+    }
+}
+
+/* ----------- iPhone 6 ----------- */
+
+/* Portrait and Landscape */
+@media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 667px) 
+  and (-webkit-min-device-pixel-ratio: 2) { 
+    .sidebar-tablet-pd, .best-seller .so-extraslider .owl2-controls {
+      display: none;
+    }
+    .fancybox-inner .main-container {
+      width: 100%;
+    }
+    .phone-text-center {
+      text-align: center;
+    }
+    .header-top-right .compare  {
+      display: none !important;
+    }
+    .shopping-cart .quantity input.item-qty {
+      width: 40px;
+    }
+    .phone-hot-banner, .phone-best-seller {
+      display: none;
+    }
+    .breadcrumb {
+      font-size: 10px;
+    }
+}
+
+/* Portrait */
+@media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 667px) 
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: portrait) { 
+    .left-content-product .content-product-right .box-info-product .add-to-links li, .left-content-product .content-product-right .box-info-product .quick-cart {
+      margin-top: 5px;
+    }
+    .shopping_cart a.view-cart {
+      margin-left: 12px;
+    }
+}
+
+/* Landscape */
+@media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 667px) 
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: landscape) { 
+    .header-bottom-right span.hidden-xs {
+      display: inherit !important;
+    }
+}
+
+/* ----------- iPhone 6+ ----------- */
+
+/* Portrait and Landscape */
+@media only screen 
+  and (min-device-width: 414px) 
+  and (max-device-width: 736px) 
+  and (-webkit-min-device-pixel-ratio: 3) { 
+    .sidebar-tablet-pd, .best-seller .so-extraslider .owl2-controls {
+      display: none;
+    }
+    .fancybox-inner .main-container {
+      width: 100%;
+    }
+    .phone-text-center {
+      text-align: center;
+    }
+    .header-top-right .compare  {
+      display: none !important;
+    }
+    .shopping-cart .quantity input.item-qty {
+      width: 40px;
+    }
+    .phone-hot-banner, .phone-best-seller {
+      display: none;
+    }
+    .breadcrumb {
+      font-size: 10px;
+    }
+}
+
+/* Portrait */
+@media only screen 
+  and (min-device-width: 414px) 
+  and (max-device-width: 736px) 
+  and (-webkit-min-device-pixel-ratio: 3)
+  and (orientation: portrait) { 
+    .left-content-product .content-product-right .box-info-product .add-to-links li, .left-content-product .content-product-right .box-info-product .quick-cart {
+      margin-top: 5px;
+    } 
+}
+
+/* Landscape */
+@media only screen 
+  and (min-device-width: 414px) 
+  and (max-device-width: 736px) 
+  and (-webkit-min-device-pixel-ratio: 3)
+  and (orientation: landscape) {
+    .header-bottom-right span.hidden-xs {
+      display: inherit !important;
+    }
+}
+
+/* ----------- Galaxy S3 ----------- */
+
+/* Portrait and Landscape */
+@media screen 
+  and (device-width: 320px) 
+  and (device-height: 640px) 
+  and (-webkit-device-pixel-ratio: 2) {
+
+}
+
+/* Portrait */
+@media screen 
+  and (device-width: 320px) 
+  and (device-height: 640px) 
+  and (-webkit-device-pixel-ratio: 2) 
+  and (orientation: portrait) {
+
+}
+
+/* Landscape */
+@media screen 
+  and (device-width: 320px) 
+  and (device-height: 640px) 
+  and (-webkit-device-pixel-ratio: 2) 
+  and (orientation: landscape) {
+
+}
+
+/* ----------- Galaxy S4 ----------- */
+
+/* Portrait and Landscape */
+@media screen 
+  and (device-width: 320px) 
+  and (device-height: 640px) 
+  and (-webkit-device-pixel-ratio: 3) {
+
+}
+
+/* Portrait */
+@media screen 
+  and (device-width: 320px) 
+  and (device-height: 640px) 
+  and (-webkit-device-pixel-ratio: 3) 
+  and (orientation: portrait) {
+
+}
+
+/* Landscape */
+@media screen 
+  and (device-width: 320px) 
+  and (device-height: 640px) 
+  and (-webkit-device-pixel-ratio: 3) 
+  and (orientation: landscape) {
+
+}
+
+/* ----------- Galaxy S5 ----------- */
+
+/* Portrait and Landscape */
+@media screen 
+  and (device-width: 360px) 
+  and (device-height: 640px) 
+  and (-webkit-device-pixel-ratio: 3) {
+
+}
+
+/* Portrait */
+@media screen 
+  and (device-width: 360px) 
+  and (device-height: 640px) 
+  and (-webkit-device-pixel-ratio: 3) 
+  and (orientation: portrait) {
+
+}
+
+/* Landscape */
+@media screen 
+  and (device-width: 360px) 
+  and (device-height: 640px) 
+  and (-webkit-device-pixel-ratio: 3) 
+  and (orientation: landscape) {
+
+}
+
+/* ----------- HTC One ----------- */
+
+/* Portrait and Landscape */
+@media screen 
+  and (device-width: 360px) 
+  and (device-height: 640px) 
+  and (-webkit-device-pixel-ratio: 3) {
+
+}
+
+/* Portrait */
+@media screen 
+  and (device-width: 360px) 
+  and (device-height: 640px) 
+  and (-webkit-device-pixel-ratio: 3) 
+  and (orientation: portrait) {
+
+}
+
+/* Landscape */
+@media screen 
+  and (device-width: 360px) 
+  and (device-height: 640px) 
+  and (-webkit-device-pixel-ratio: 3) 
+  and (orientation: landscape) {
+
+}

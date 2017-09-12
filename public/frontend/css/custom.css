@@ -1116,7 +1116,7 @@ select, .form-control:focus {
   border: none;
 }
 .type_1 #sosearchpro.search-pro .select_category select, .type_1 #sosearchpro.search-pro .autosearch-input {
-  height: 31px;
+  height: 32px;
 }
 .business-special a {
   color: red !important;
@@ -2601,9 +2601,6 @@ form.rating_form textarea.input-content {
 }
 .box-pagination ul.pagination li.disabled span {
   border-radius: 3px;
-  background: #ed4934;
-  border: 1px solid #cb230e;
-  color: #fff;
 }
 .box-pagination ul.pagination li.disabled span:hover {
   background: #ed4934;

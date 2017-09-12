@@ -8,7 +8,7 @@
     <div class="so-extraslider">
         <div class="extraslider-inner best-seller-slider">
             <div class="item ">
-            <% count = Erp::Products::Product.get_deal_products.count %>
+            <% count = Erp::Products::Product.get_deal_products.limit(12).count %>
             <% Erp::Products::Product.get_deal_products.limit(12).each_with_index do |product,index| %>
                 <div class="item-wrap style1">
                     <div class="item-wrap-inner media">

@@ -4,11 +4,7 @@
         <h3 class="modtitle">
             <span>
                 <i class="fa fa-futbol-o "></i>
-                <% if @menu.children.empty? %>
-                    Chuyên mục liên quan
-                <% else %>
-                    <%= @menu.name %>
-                <% end %>
+                    Chuyên mục
             </span>
         </h3>
         <div class="modcontent">
@@ -44,43 +40,5 @@
         </div>
     </div>
 <% end %>
-
-<div class="module block-shopby titleLine">
-    <h3 class="modtitle">
-        <span>
-            <i class="fa fa-futbol-o "></i> Tìm Hàng Công Nghệ
-        </span>
-    </h3>
-    <div class="modcontent ">
-        <%= form_tag("", method: "get", class: "category-filter-box") do %>
-            <%= hidden_field_tag "menu_id", menu.id %>
-            <div class="table_layout filter-shopby">
-                <div class="table_row">
-                    <div class="table_cell">
-                        <fieldset>
-                            <legend>Nhóm sản phẩm</legend>
-                            <ul class="checkboxes_list">
-                                <li>
-                                    <input type="checkbox" name="is_business_choises" id="product_is_business_choises">
-                                    <label for="product_is_business_choises">Doanh nghiệp lựa chọn</label>
-                                </li>
-                                <li>
-                                    <input type="checkbox" name="is_deal" id="product_is_deal">
-                                    <label for="product_is_deal">Đang có khuyến mãi</label>
-                                </li>
-                                <li>
-                                    <input type="checkbox" name="is_bestseller" id="product_is_bestseller">
-                                    <label for="product_is_bestseller">Bán chạy nhất</label>
-                                </li>
-                            </ul>
-                        </fieldset>
-                    </div>
-                </div>
-                <!--/ .table_row -->
-            </div>
-            <!--/ .table_layout -->
-        <% end %>
-    </div>
-</div>
 <%= render "erp/online_store/frontend/modules/sidebar_best_sellers" %>
 <%= render "erp/online_store/frontend/modules/hot_banners" %>

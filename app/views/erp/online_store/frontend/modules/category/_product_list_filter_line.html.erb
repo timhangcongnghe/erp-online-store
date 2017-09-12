@@ -1,7 +1,7 @@
 <%= form_tag((defined?(action) ? action : ''), method: "get", class: "category-filter-top "+(defined?(auto_load) ? 'auto-load' : '')) do %>
     <div class="filters-line">
         <div class="row">
-            <div class="col-sm-8 col-md-9">
+            <div class="col-sm-7 col-md-9">
                 <% if defined?(brands) and brands.count > 1 %>
                     <div class="filters-box" style="margin-top: -2px;">
                         <select class="form-control" name="brand_ids[]" multiple="multiple" placeholder="">
@@ -38,7 +38,7 @@
                     </div>-->
                 <% end %>
             </div>
-            <div class="col-sm-4 col-md-3">
+            <div class="col-sm-5 col-md-3">
                 <div class="filters-box pull-right">
                     <label>Sắp xếp:</label>
                     <select class="form-control" name="sort_by">
