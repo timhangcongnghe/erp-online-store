@@ -43,6 +43,18 @@
     .shopping_cart a.view-cart {
       margin-left: 12px;
     }
+    .filters-box, .filters-box label {
+      font-size: 11px;
+    }
+    .left-content-product .content-product-right .box-review a, .module h3.modtitle > span {
+      font-size: 10px;
+    }
+    .left-content-product .content-product-right .box-review .ratings {
+      margin-right: 10px;
+    }
+    .btn {
+      font-size: 11px;
+    }
 }
 
 /* Landscape */
@@ -110,6 +122,9 @@
     .shopping_cart a.view-cart {
       margin-left: 12px;
     }
+    .filters-box, .filters-box label {
+      font-size: 11px;
+    }
 }
 
 /* Landscape */
@@ -170,6 +185,9 @@
     }
     .shopping_cart a.view-cart {
       margin-left: 12px;
+    }
+    .btn {
+      font-size: 13px;
     }
 }
 

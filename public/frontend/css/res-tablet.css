@@ -33,99 +33,65 @@
   and (max-device-width: 1024px) 
   and (orientation: landscape) 
   and (-webkit-min-device-pixel-ratio: 1) {
-
-}
-
-/* ----------- iPad 1 and 2 ----------- */
-/* Portrait and Landscape */
-@media only screen 
-  and (min-device-width: 768px) 
-  and (max-device-width: 1024px) 
-  and (-webkit-min-device-pixel-ratio: 1) {
-
-}
-
-/* Portrait */
-@media only screen 
-  and (min-device-width: 768px) 
-  and (max-device-width: 1024px) 
-  and (orientation: portrait) 
-  and (-webkit-min-device-pixel-ratio: 1) {
-
-}
-
-/* Landscape */
-@media only screen 
-  and (min-device-width: 768px) 
-  and (max-device-width: 1024px) 
-  and (orientation: landscape) 
-  and (-webkit-min-device-pixel-ratio: 1) {
-
-}
-
-@media only screen 
-and (min-device-width : 1024px) 
-and (max-device-width : 1366px) {
-  .module h3.modtitle > span {
-    font-size: 13px;
+  .megamenu-pattern .hidden-md, .page-business-choices .hidden-md {
+      display: block !important;
   }
-  .left-content-product .content-product-right .box-info-product .quick-cart {
-    margin-top: 0px;
+  .type_1 .megamenu-style-dev .horizontal ul.megamenu > li > a {
+    font-size: 12px;
+    padding: 0 11px;
   }
-  .sidebar-tablet-pd {
-    display: block;
+  .container-megamenu.vertical .vertical-wrapper ul.megamenu > li.with-sub-menu > a {
+    pointer-events: none;
+    cursor: default;
   }
-  #tab-review a.btn-rating {
+  .view-all-bestseller, .best-seller .so-extraslider .extraslider-inner .item .item-wrap.style1 .media-body .item-info .item-title a {
     font-size: 11px;
   }
 }
 
-/* ----------- iPad 3 and 4 ----------- */
+/* ----------- iPad Pro ----------- */
 /* Portrait and Landscape */
 @media only screen 
-  and (min-device-width: 768px) 
-  and (max-device-width: 1024px) 
-  and (-webkit-min-device-pixel-ratio: 2) {
-
+  and (min-device-width: 1024px) 
+  and (max-device-width: 1366px) 
+  and (-webkit-min-device-pixel-ratio: 1) {
+    .module h3.modtitle > span {
+      font-size: 13px;
+    }
+    .left-content-product .content-product-right .box-info-product .quick-cart {
+      margin-top: 0px;
+    }
+    .sidebar-tablet-pd {
+      display: block;
+    }
+    #tab-review a.btn-rating {
+      font-size: 11px;
+    }
 }
 
 /* Portrait */
 @media only screen 
-  and (min-device-width: 768px) 
-  and (max-device-width: 1024px) 
+  and (min-device-width: 1024px) 
+  and (max-device-width: 1366px) 
   and (orientation: portrait) 
-  and (-webkit-min-device-pixel-ratio: 2) {
-
+  and (-webkit-min-device-pixel-ratio: 1) {
+    .megamenu-pattern .hidden-md {
+        display: block !important;
+    }
+    .type_1 .megamenu-style-dev .horizontal ul.megamenu > li > a {
+      font-size: 12px;
+      padding: 0 11px;
+    }
+    .container-megamenu.vertical .vertical-wrapper ul.megamenu > li.with-sub-menu > a {
+      pointer-events: none;
+      cursor: default;
+    }
 }
 
 /* Landscape */
 @media only screen 
-  and (min-device-width: 768px) 
-  and (max-device-width: 1024px) 
+  and (min-device-width: 1024px) 
+  and (max-device-width: 1366px) 
   and (orientation: landscape) 
-  and (-webkit-min-device-pixel-ratio: 2) {
-
-}
-
-/* ----------- Galaxy Tab 10.1 ----------- */
-
-/* Portrait and Landscape */
-@media 
-  (min-device-width: 800px) 
-  and (max-device-width: 1280px) {
-
-}
-
-/* Portrait */
-@media 
-  (max-device-width: 800px) 
-  and (orientation: portrait) { 
-
-}
-
-/* Landscape */
-@media 
-  (max-device-width: 1280px) 
-  and (orientation: landscape) { 
-
+  and (-webkit-min-device-pixel-ratio: 1) {
 }
