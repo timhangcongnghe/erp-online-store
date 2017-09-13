@@ -47,6 +47,9 @@
   .view-all-bestseller, .best-seller .so-extraslider .extraslider-inner .item .item-wrap.style1 .media-body .item-info .item-title a {
     font-size: 11px;
   }
+  .type_1 .header-bottom .container .header-bottom-inner {
+    height: 45px;
+  }
 }
 
 /* ----------- iPad Pro ----------- */
@@ -85,6 +88,9 @@
     .container-megamenu.vertical .vertical-wrapper ul.megamenu > li.with-sub-menu > a {
       pointer-events: none;
       cursor: default;
+    }
+    .type_1 .header-bottom .container .header-bottom-inner {
+      height: 45px;
     }
 }
 
