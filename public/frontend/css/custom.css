@@ -2631,12 +2631,3 @@ form.rating_form textarea.input-content {
 .form-group-price-sold-out {
   margin-bottom: 0px;
 }
-@media (max-width: 767px)
-{
-  .shoppingcart-box {
-      display: block !important;
-  }
-  .shoppingcart-box.chide {
-      display: none !important;
-  }
-}

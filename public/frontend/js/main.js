@@ -1262,18 +1262,18 @@ $( document ).ready(function() {
     return event.keyCode != 13;
   });
 
-  // mobile cart fix
-  $(document).on("click", ".shopping_cart", function() {
-
-      if ($('.shoppingcart-box').hasClass('chide')) {
-        $('.shoppingcart-box').removeClass('chide');
-      } else {
-        setTimeout(function() {
-          $('.shoppingcart-box').addClass('chide');
-        }, 500);
-      }
-
-  });
+  //// mobile cart fix
+  //$(document).on("click", ".shopping_cart", function() {
+  //
+  //    if ($('.shoppingcart-box').hasClass('chide')) {
+  //      $('.shoppingcart-box').removeClass('chide');
+  //    } else {
+  //      setTimeout(function() {
+  //        $('.shoppingcart-box').addClass('chide');
+  //      }, 500);
+  //    }
+  //
+  //});
 
 
 
