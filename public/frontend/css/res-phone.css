@@ -55,6 +55,9 @@
     .btn {
       font-size: 11px;
     }
+    .shopping_cart_form .quantity-control .btn {
+      font-size: 14px;
+    }
 }
 
 /* Landscape */
