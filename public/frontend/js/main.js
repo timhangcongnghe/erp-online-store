@@ -64,7 +64,7 @@ function fixWithProductList(list) {
     var count = list.find('.product-item-container').length;
     var item_width = list.find('.product-layout').width();
     var list_width = list.width();
-    var per_row = list_width/item_width;
+    var per_row = list_width/(item_width-5);
     var items = list.find('.product-item-container');
 
     items.css('height', 'auto');
