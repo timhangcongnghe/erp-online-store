@@ -2631,3 +2631,6 @@ form.rating_form textarea.input-content {
 .form-group-price-sold-out {
   margin-bottom: 0px;
 }
+.dropdown-backdrop {
+  display: none;
+}
