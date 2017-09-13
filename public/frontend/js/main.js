@@ -1088,6 +1088,13 @@ $(document).ready(function () {
 
       return false;
     });
+
+    // Click product in mobile
+    $(document).on('click', '.product-layout', function() {
+        if ($(window).width() < 767) {
+            window.location = $(this).find('.right-block a').attr('href');
+        }
+    });
 });
 $(window).scroll(function () {
     toogleFixedNav();
@@ -1267,5 +1274,7 @@ $( document ).ready(function() {
       }
 
   });
+
+
 
 });
