@@ -4,7 +4,7 @@
 <% content_for :metas do %>
     <!-- for Facebook -->
     <meta property="og:url" content="<%= request.url %>"/>
-    <meta property="og:type" content="article" />
+    <meta property="og:type" content="website" />
     <meta property="og:title" content="<%= @product.product_name %>"/>
     <% if @meta_description.present? %>
         <meta property="og:description" content="<%= @meta_description %>"/>
