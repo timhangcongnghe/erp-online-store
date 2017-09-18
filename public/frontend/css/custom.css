@@ -2634,3 +2634,7 @@ form.rating_form textarea.input-content {
 .dropdown-backdrop {
   display: none;
 }
+#tab-description img {
+  width: 100%;
+  height: auto;
+}
