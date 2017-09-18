@@ -22,7 +22,9 @@ module Erp
           @related_events = @product.get_related_events(Time.now)
           if @menu.present?
             @meta_keywords += @meta_keywords.present? ? ',' + @menu.meta_keywords : @menu.meta_keywords
-            @meta_description += @meta_description.present? ? @meta_description : @meta_description
+            if !@product.meta_description.present?
+              @meta_description += @meta_description.present? ? @meta_description : @meta_description
+            end
           end
           @total_comments = @product.comments.where(parent_id: nil).where(archived: false).count
         end
