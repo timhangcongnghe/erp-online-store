@@ -4,8 +4,14 @@
 <head>
 	<%= csrf_meta_tags %>
 
-  <!-- Basic page needs ============================================ -->
-  <title><% if content_for?(:title) %><%= yield(:title) %> | Tìm Hàng Công Nghệ<% else %>Trang Thương Mại Điện Tử Sản Phẩm Công Nghệ Uy Tín, Chất Lượng<% end %></title>
+	<!-- Basic page needs ============================================ -->
+	<title>
+		<% if content_for?(:title) %>
+			<%= yield(:title) %> | Tìm Hàng Công Nghệ
+		<% else %>
+			Trang Thương Mại Điện Tử Sản Phẩm Công Nghệ Uy Tín, Chất Lượng
+		<% end %>
+	</title>
 	<meta charset="utf-8">
 	<% if @meta_description.present? %>
 	<meta name="description" content="<%= @meta_description %>">

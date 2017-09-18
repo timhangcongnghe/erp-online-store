@@ -2,11 +2,22 @@
 
 <% content_for :metas do %>
     <!-- for Facebook -->
-    <meta property="og:type" content="article" />
-    <% if @menu.image_url_2.present? %>
-        <meta property="og:image" content="<%= @menu.image_url_2 %>" />
+    <meta property="og:url" content="<%= request.url %>"/>
+    <meta property="og:type" content="website" />
+    <% if params[:menu_id].present? %>
+        <meta property="og:title" content="<%= @menu.name %>"/>
     <% else %>
-        <meta property="og:image" content="<%= url_for('/frontend/image/timhangcongnghe-vn-logo-500.png') %>" />
+        <meta property="og:title" content="Trang Thương Mại Điện Tử Sản Phẩm Công Nghệ Uy Tín, Chất Lượng"/>
+    <% end %>
+    <% if @meta_description.present? %>
+        <meta property="og:description" content="<%= @meta_description %>"/>
+    <% else %>
+        <meta property="og:description" content="Tìm Hàng Công Nghệ là trang thương mại điện tử uy tín chuyên cung cấp đa dạng các sản phẩm, thiết bị công nghệ từ các hãng lớn thế giới."/>
+    <% end %>
+    <% if @menu.image_url_2.present? %>
+        <meta property="og:image" content="http://timhangcongnghe.com<%= @menu.image_url_2 %>"/>
+    <% else %>
+        <meta property="og:image" content="http://timhangcongnghe.com/frontend/image/image-for-share.jpg"/>
     <% end %>
 <% end %>
 

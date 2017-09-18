@@ -5,7 +5,7 @@ module Erp
         def listing
           @body_class = "res layout-subpage"
           @brands = Erp::Products::Brand.get_brands_order_name
-          @meta_description = "Danh sách các thương hiệu sản phẩm được kinh doanh nhiều nhất tại TimHangCongNghe.VN để quý khách hàng tiện lựa chọn."
+          @meta_description = "Danh sách các thương hiệu sản phẩm được kinh doanh nhiều nhất tại TimHangCongNghe để quý khách hàng tiện lựa chọn."
         end
 
         def detail

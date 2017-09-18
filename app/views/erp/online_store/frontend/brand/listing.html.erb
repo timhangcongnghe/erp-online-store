@@ -1,4 +1,14 @@
 <% title 'Thương hiệu sản phẩm' %>
+
+<% content_for :metas do %>
+    <!-- for Facebook -->
+    <meta property="og:url" content="<%= request.url %>"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="Thương Hiệu Sản Phẩm"/>
+    <meta property="og:description" content="Danh sách các thương hiệu sản phẩm được kinh doanh nhiều nhất tại TimHangCongNghe để quý khách hàng tiện lựa chọn."/>
+    <meta property="og:image" content="http://timhangcongnghe.com/frontend/image/image-for-share.jpg"/>
+<% end %>
+
 <div class="main-container container">
     <ul class="breadcrumb">
         <li><%= link_to '<i class="fa fa-home"></i>'.html_safe, erp_online_store.root_path %></li>

@@ -3,10 +3,16 @@
 
 <% content_for :metas do %>
     <!-- for Facebook -->
-    <meta property="og:title" content="<%= @product.product_name %>" />
+    <meta property="og:url" content="<%= request.url %>"/>
     <meta property="og:type" content="article" />
-    <% product_images.each_with_index do |product_image,index| %>
-        <meta property="og:image" content="<%= product_image.image_url.thumb550 %>" />
+    <meta property="og:title" content="<%= @product.product_name %>"/>
+    <% if @meta_description.present? %>
+        <meta property="og:description" content="<%= @meta_description %>"/>
+    <% else %>
+        <meta property="og:description" content="Tìm Hàng Công Nghệ là trang thương mại điện tử uy tín chuyên cung cấp đa dạng các sản phẩm, thiết bị công nghệ từ các hãng lớn thế giới."/>
+    <% end %>
+    <% product_images.limit(1).each_with_index do |product_image,index| %>
+        <meta property="og:image" content="http://timhangcongnghe.com<%= product_image.image_url.thumb550 %>" />
     <% end %>
 <% end %>
 

@@ -1,4 +1,14 @@
 <% title "Xả Kho Hàng Tồn" %>
+
+<% content_for :metas do %>
+    <!-- for Facebook -->
+    <meta property="og:url" content="<%= request.url %>"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="Xả Kho Hàng Tồn"/>
+    <meta property="og:description" content="Chào quý khách hàng, các sản phẩm trong mục XẢ KHO HÀNG TỒN là những sản phẩm tồn lại trong kho của chúng tôi chưa qua sử dụng nên hoàn toàn mới nhé."/>
+    <meta property="og:image" content="http://timhangcongnghe.com/frontend/image/image-for-share.jpg"/>
+<% end %>
+
 <div class="main-container container">
     <ul class="breadcrumb">
         <li><%= link_to '<i class="fa fa-home"></i>'.html_safe, erp_online_store.root_path %></li>

@@ -2,8 +2,11 @@
 
 <% content_for :metas do %>
     <!-- for Facebook -->
-    <meta property="og:type" content="article" />
-    <meta property="og:image" content="<%= url_for('/frontend/image/timhangcongnghe-vn-logo-500.png') %>" />
+    <meta property="og:url" content="<%= request.url %>"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="Sản Phẩm Bán Chạy"/>
+    <meta property="og:description" content="Các sản phẩm được khách hàng đặt hàng được chúng tôi thống kê, chọn lọc để sắp xếp vào nhóm sản phẩm BÁN CHẠY trên trang TimHangCongNghe"/>
+    <meta property="og:image" content="http://timhangcongnghe.com/frontend/image/image-for-share.jpg"/>
 <% end %>
 
 <div class="main-container container">
