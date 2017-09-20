@@ -12,7 +12,7 @@
     <ul class="sub-menu">
         <li class="nav-item <%= "active open" if ["erp/products/backend/frontend_orders"].include?(params[:controller]) %>">
             <a href="<%= erp_orders.backend_frontend_orders_path %>" class="nav-link ">
-                <span class="title">Bình luận sản phẩm</span>
+                <span class="title">Danh sách đặt hàng</span>
                 <% if ["erp/orders/backend/frontend_orders"].include?(params[:controller]) %>
                 <span class="selected"></span>
                 <% end %>
@@ -20,7 +20,7 @@
         </li>
         <li class="nav-item">
             <a href="" class="nav-link ">
-                <span class="title">Đặt hàng nhanh</span>
+                <span class="title">Đơn đặt hàng nhanh</span>
             </a>
         </li> 
     </ul>
