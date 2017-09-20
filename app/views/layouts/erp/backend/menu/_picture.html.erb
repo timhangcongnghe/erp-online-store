@@ -1,0 +1,32 @@
+<li class="nav-item <%= "active open" if ["erp/banners/backend/banners",
+                                          "erp/banners/backend/categories"].include?(params[:controller]) %>">
+    <a href="javascript:;" class="nav-link nav-toggle">
+        <i class="fa fa-photo"></i>
+        <span class="title">Quản lý hình ảnh</span>
+        <% if ["erp/banners/backend/banners",
+               "erp/banners/backend/categories"].include?(params[:controller]) %>
+            <span class="selected"></span>
+            <span class="arrow open"></span>
+        <% else %>
+            <span class="arrow"></span>
+        <% end %>
+    </a>
+    <ul class="sub-menu">
+        <li class="nav-item <%= "active open" if ["erp/banners/backend/banners"].include?(params[:controller]) %>">
+            <a href="<%= erp_banners.backend_banners_path %>" class="nav-link ">
+                <span class="title">Tất cả hình ảnh</span>
+                <% if ["erp/banners/backend/banners"].include?(params[:controller]) %>
+                <span class="selected"></span>
+                <% end %>
+            </a>
+        </li>
+        <li class="nav-item <%= "active open" if ["erp/banners/backend/categories"].include?(params[:controller]) %>">
+            <a href="<%= erp_banners.backend_categories_path %>" class="nav-link ">
+                <span class="title">Chuyên mục hình ảnh</span>
+                <% if ["erp/banners/backend/categories"].include?(params[:controller]) %>
+                <span class="selected"></span>
+                <% end %>
+            </a>
+        </li>
+    </ul>
+</li>

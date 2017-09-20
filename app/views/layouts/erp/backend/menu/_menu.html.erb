@@ -1,0 +1,22 @@
+<li class="nav-item <%= "active open" if ["erp/menus/backend/menus"].include?(params[:controller]) %>">
+    <a href="javascript:;" class="nav-link nav-toggle">
+        <i class="fa fa-sitemap"></i>
+        <span class="title">Menu website</span>
+        <% if ["erp/menus/backend/menus"].include?(params[:controller]) %>
+            <span class="selected"></span>
+            <span class="arrow open"></span>
+        <% else %>
+            <span class="arrow"></span>
+        <% end %>
+    </a>
+    <ul class="sub-menu">
+        <li class="nav-item <%= "active open" if ["erp/menus/backend/menus"].include?(params[:controller]) %>">
+            <a href="<%= erp_menus.backend_menus_path %>" class="nav-link ">
+                <span class="title">Danh sách menu</span>
+                <% if ["erp/menus/backend/menus"].include?(params[:controller]) %>
+                <span class="selected"></span>
+                <% end %>
+            </a>
+        </li>
+    </ul>
+</li>
