@@ -8,3 +8,7 @@
 .page-content-wrapper .page-content {
   padding: 25px 20px 25px;
 }
+.login .content .form-actions {
+    padding: 0 0 15px 0;
+    text-align: center;
+}
