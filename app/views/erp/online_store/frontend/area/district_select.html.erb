@@ -1,4 +1,4 @@
-<select class="form-control required" id="input-payment-zone" name="contact[district_id]">
+<select class="form-control required" id="" name="<%= params[:input_name].present? ? params[:input_name] : 'contact[district_id]' %>">
     <option value=""> --- Chọn quận/huyện/thị xã --- </option>
     <% @districts.each do |district| %>
         <option <%= 'selected' if params[:current_value].present? and params[:current_value].to_s == district.id.to_s %> value="<%= district.id %>"><%= district.name %></option>
