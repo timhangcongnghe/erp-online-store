@@ -202,8 +202,7 @@
                                                 <select
                                                     class="form-control select ajax-content-control" name="contact[state_id]"
                                                     data-content-selector="#payment-district"
-                                                    data-url="<%= erp_online_store.district_select_path %>"
-                                                >
+                                                    data-url="<%= erp_online_store.district_select_path %>">
                                                         <option value=""> --- Chọn tỉnh/thành phố --- </option>
                                                         <% Erp::Areas::State.get_all.each do |state| %>
                                                             <option value="<%= state.id %>"><%= state.name %></option>
