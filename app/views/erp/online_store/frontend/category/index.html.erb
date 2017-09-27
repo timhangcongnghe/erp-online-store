@@ -69,9 +69,6 @@
                 <!---//End related ends --->
                 <% end %>
                 <h1 class="menu-title mb-0"><%= @menu.name %></h1>
-
-                <%= render "erp/online_store/frontend/modules/category/product_list_filter_line", brands: @menu.brands %>
-
                 <div class="main-products-list">
                     <% if @products.count > 0 %>
                         <!--changed listings-->

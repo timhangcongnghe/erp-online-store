@@ -1,0 +1,93 @@
+<div class="module block-shopby titleLine">
+    <h3 class="modtitle">
+        <span>
+            <i class="fa fa-filter"></i>
+            Bộ lọc sản phẩm
+        </span>
+    </h3>
+    <div class="modcontent ">
+        <%= form_tag((defined?(action) ? action : ''), method: "get", class: "type_2 category-filter-top "+(defined?(auto_load) ? 'auto-load' : '')) do %>
+            <div class="table_layout filter-shopby">
+                <div class="table_row">
+                    <% if defined?(brands) and brands.count > 1 %>
+                    <!-- - - - - - - - - - - - - - Brand - - - - - - - - - - - - - - - - -->
+                    <!-- .table_cell -->
+                    <div class="table_cell">
+                        <fieldset>
+                            <legend>Thương Hiệu</legend>
+                            <ul class="checkboxes_list">                                
+                                <% brands.each do |brand| %>
+                                <li>
+                                    <input type="checkbox" value="<%= brand.id %>" name="brand_ids[]" id="brand_<%= brand.id %>">
+                                    <label for="brand_<%= brand.id %>"><%= brand.name %></label>
+                                </li>
+                                <% end %>                               
+                            </ul>
+                        </fieldset>
+                    </div>
+                    <!--/ .table_cell -->
+                    <!-- - - - - - - - - - - - - - End Brand - - - - - - - - - - - - - - - - -->
+                     <% end %>
+                    <!-- - - - - - - - - - - - - - Product Price - - - - - - - - - - - - - - - - -->
+                    <!-- .table_cell -->
+                    <div class="table_cell">
+                        <fieldset>
+                            <legend>Giá bán</legend>
+                            <ul class="checkboxes_list">
+                                <li>
+                                    <input type="checkbox" value="0-999999" name="price_list[]" id="price_1">
+                                    <label for="price_1">Dưới 1 triệu</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" value="1000000-2999999" name="price_list[]" id="price_2">
+                                    <label for="price_2">Từ 1 - 3 triệu</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" value="3000000-5999999" name="price_list[]" id="price_3">
+                                    <label for="price_3">Từ 3 - 6 triệu</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" value="6000000-9999999" name="price_list[]" id="price_4">
+                                    <label for="price_4">Từ 6 - 10 triệu</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" value="10000000-14999999" name="price_list[]" id="price_5">
+                                    <label for="price_5">Từ 10 - 15 triệu</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" value="15000000-1000000000" name="price_list[]" id="price_6">
+                                    <label for="price_6">Trên 15 triệu</label>
+                                </li>
+                            </ul>
+                        </fieldset>
+                    </div>
+                    <!--/ .table_cell -->
+                    <!-- - - - - - - - - - - - - - End Product Price - - - - - - - - - - - - - - - - -->                    
+                    <% if @menu.use_filter == true %>
+                        <% @menu.menu_get_properties_array.each do |group| %>
+                        <!-- - - - - - - - - - - - - - Property Values - - - - - - - - - - - - - - - - -->
+                        <!-- .table_cell -->
+                        <div class="table_cell">
+                            <fieldset>
+                                <legend><%= group[:name] %></legend>
+                                <ul class="checkboxes_list">
+                                    <% group[:values].each do |value| %>
+                                    <li>
+                                        <input type="checkbox" value="<%= value[:id] %>" name="property_value_ids[]" id="value_<%= value[:id] %>">
+                                        <label for="value_<%= value[:id] %>"><%= value[:value] %></label>
+                                    </li>
+                                    <% end %>
+                                </ul>
+                            </fieldset>
+                        </div>
+                        <!--/ .table_cell -->
+                        <!-- - - - - - - - - - - - - - End Property Values - - - - - - - - - - - - - - - - -->
+                        <% end %>
+                    <% end %>                    
+                </div>
+                <!--/ .table_row -->
+            </div>
+            <!--/ .table_layout -->
+        <% end %>
+    </div>
+</div>

@@ -78,11 +78,14 @@ footer .social_block ul.social-block li.pinterest a:hover {
   top: 0px;
   width: 18px;
   height: 18px;
-  background: #ea3a3d;
+  background: #fff;
+  border: 1px solid #010407;
+  border-radius: 2px;
 }
 .simple_vertical_list input[type="checkbox"] + label::before, .checkboxes_list input[type="checkbox"] + label::before {
   font-size: 13px;
-  margin: 0 1px;
+  margin: 0 2px;
+  color: #010407;
 }
 .type_1 .header-center {
   padding: 25px 0 10px;
@@ -631,7 +634,7 @@ ul.megamenu li .sub-menu .content .hover-menu .menu ul ul {
 }
 /* Custom checkbox list */
 .checkboxes_list {
-  color: #ea3a3d;
+  color: #010407;
 }
 .left-content-product .content-product-right .product_page_price .price-new {
   font-size: 20px;
@@ -2641,4 +2644,8 @@ form.rating_form textarea.input-content {
 .products-list.list-masonry .product-layout .product-item-container:hover, .products-list.grid .product-layout .product-item-container:hover {
   border: solid 0px rgba(0,0,0,0);
   box-shadow: 0 0 0px rgba(0,0,0,0.15);
+}
+.filter-shopby legend, .filter-row legend {
+  color: #d91e18;
+  font-size: 16px;
 }
