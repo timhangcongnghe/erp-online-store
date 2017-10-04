@@ -49,7 +49,7 @@
                                     </ul>
                                 </div>
                                 <div id="large-image" class="large-image vertical">
-                                    <img class="product-image-zoom" data-src="<%= @product.main_image.image_url.thumb650 %>" src="<%= @product.main_image.image_url.thumb650 %>" title="<%= @product.name %>" alt="<%= @product.name %>">
+                                    <img class="product-image-zoom" data-src="<%= @product.main_image.image_url.thumb550 %>" src="<%= @product.main_image.image_url.thumb550 %>" title="<%= @product.name %>" alt="<%= @product.name %>">
                                 </div>
                                 <% if @product.product_intro_link.present? %>
                                     <%= link_to '<i class="fa fa-youtube-play"></i>'.html_safe, @product.product_intro_link, class: "thumb-video pull-left", title: @product.name %>
