@@ -42,14 +42,14 @@
                                         <% product_images.each_with_index do |product_image,index| %>
                                             <li class="owl2-item">
                                                 <a data-index="<%= index %>" class="img thumbnail " data-image="<%= product_image.image_url.thumb445 %>" title="<%= @product.name %>">
-                                                    <%= image_tag product_image.image_url.thumb99, alt: @product.name, title: @product.name %>
+                                                    <%= image_tag product_image.image_url.thumb170, alt: @product.name, title: @product.name %>
                                                 </a>
                                             </li>
                                         <% end %>
                                     </ul>
                                 </div>
                                 <div id="large-image" class="large-image vertical">
-                                    <img class="product-image-zoom" data-src="<%= @product.main_image.image_url.thumb650 %>" src="<%= @product.main_image.image_url.thumb650 %>" title="<%= @product.name %>" alt="<%= @product.name %>">
+                                    <img class="product-image-zoom" data-src="<%= @product.main_image.image_url.thumb550 %>" src="<%= @product.main_image.image_url.thumb550 %>" title="<%= @product.name %>" alt="<%= @product.name %>">
                                 </div>
                                 <% if @product.product_intro_link.present? %>
                                     <%= link_to '<i class="fa fa-youtube-play"></i>'.html_safe, @product.product_intro_link, class: "thumb-video pull-left", title: @product.name %>
