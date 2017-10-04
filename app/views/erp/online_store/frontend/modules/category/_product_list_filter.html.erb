@@ -73,7 +73,7 @@
                                 <ul class="checkboxes_list">
                                     <% group[:values].each do |value| %>
                                     <li>
-                                        <input type="checkbox" value="<%= value[:id] %>" name="property_value_ids[]" id="value_<%= value[:id] %>">
+                                        <input type="checkbox" value="<%= value[:id] %>" name="property_value_ids[<%= value[:property_id] %>][]" id="value_<%= value[:id] %>">
                                         <label for="value_<%= value[:id] %>"><%= value[:value] %></label>
                                     </li>
                                     <% end %>
