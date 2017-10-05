@@ -8,6 +8,9 @@
     .sidebar-tablet-pd, .best-seller .so-extraslider .owl2-controls {
       display: none;
     }
+    .main-container .wrap .nav-register {
+      display: none;
+    }
 }
 
 /* Portrait */
@@ -24,6 +27,9 @@
     }
     .left-content-product .content-product-right .box-info-product .add-to-links li, .left-content-product .content-product-right .box-info-product .quick-cart {
       margin-top: 5px;
+    }
+    .main-container .wrap .register-content {
+      width: 470px;
     }
 }
 
@@ -91,6 +97,9 @@
     }
     .type_1 .header-bottom .container .header-bottom-inner {
       height: 45px;
+    }
+    .main-container .wrap .nav-register {
+      display: none;
     }
 }
 

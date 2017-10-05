@@ -36,8 +36,8 @@ module Erp
               @quick_order.save_from_cart(@cart)
               Erp::Carts::Cart.destroy(session[:cart_id])
 
-              # Erp::QuickOrders::QuickOrderMailer.sending_admin_email_order_confirmation(@quick_order).deliver_now
-              # Erp::QuickOrders::QuickOrderMailer.sending_customer_email_order_confirmation(@quick_order).deliver_now
+              Erp::QuickOrders::QuickOrderMailer.sending_admin_email_order_confirmation(@quick_order).deliver_now
+              Erp::QuickOrders::QuickOrderMailer.sending_customer_email_order_confirmation(@quick_order).deliver_now
 
               redirect_to erp_online_store.checkout_completed_path, notice: "Thông tin đặt hàng được gửi thành công."
             else

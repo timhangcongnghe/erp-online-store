@@ -295,11 +295,12 @@
                                                         <table cellspacing="0" cellpadding="0" width="100%" style="border-collapse:separate !important;">
                                                             <tr>
                                                                 <td class="mini-block">
-                                                                    <span class="header-sm">Thông tin đặt hàng</span><br />
-                                                                    Họ tên: <b><%= @quick_order.customer_name %></b> <br />
-                                                                    Email: <b><%= @quick_order.email %></b> <br />
-                                                                    Điện thoại: <b><%= @quick_order.phone %></b> <br />
-                                                                    Ghi chú: <%= @quick_order.note %>
+                                                                    <span class="header-sm">Thông tin đặt hàng</span><br>
+                                                                    Họ tên: <b><%= @quick_order.customer_name %></b><br>
+                                                                    Email: <b><%= @quick_order.email %></b><br>
+                                                                    Điện thoại: <b><%= @quick_order.phone %></b><br>
+                                                                    Ghi chú: <%= @quick_order.note %><br>
+                                                                    Xuất hóa đơn: <% if @quick_order.invoice == true %><strong>Có xuất hóa đơn</strong><% else %><strong>Không xuất hóa đơn</strong><% end %>
                                                                 </td>
                                                             </tr>
                                                         </table>

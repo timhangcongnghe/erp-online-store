@@ -45,12 +45,12 @@
                         </tbody>
                     </table>
                     <p class="text-center">
-                        <%= link_to '<i class="fa fa-shopping-bag"></i> Chi tiết giỏ hàng'.html_safe, erp_online_store.shopping_cart_path, class: "btn view-cart shopping-actions" %>
+                        <%= link_to '<i class="fa fa-shopping-bag"></i> CHI TIẾT GIỎ HÀNG'.html_safe, erp_online_store.shopping_cart_path, class: "btn view-cart shopping-actions" %>
                         &nbsp;&nbsp;&nbsp;
                         <% if user_signed_in? %>
-                            <%= link_to '<i class="fa fa-hand-o-right"></i> Đặt hàng'.html_safe, erp_online_store.checkout_path, class: "btn btn-mega checkout-cart shopping-actions" %>
+                            <%= link_to '<i class="fa fa-hand-o-right"></i> ĐẶT HÀNG NGAY'.html_safe, erp_online_store.checkout_path, class: "btn btn-mega checkout-cart shopping-actions" %>
                         <% else %>
-                            <%= link_to '<i class="fa fa-share"></i> Đặt hàng nhanh'.html_safe, erp_online_store.quick_order_path, class: "btn btn-mega checkout-cart shopping-actions" %>
+                            <%= link_to '<i class="fa fa-share"></i> ĐẶT HÀNG NGAY'.html_safe, erp_online_store.quick_order_path, class: "btn btn-mega checkout-cart shopping-actions" %>
                         <% end %>
                     </p>
                 </div>

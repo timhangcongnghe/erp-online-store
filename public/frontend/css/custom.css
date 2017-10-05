@@ -2360,7 +2360,7 @@ ul.shoppingcart-box .shopping-cart-total {
 
 /* fix lổi giao diện footer không tương đối trên di động*/
 footer .box-footer {
-  margin-top: 25px!important;
+  margin-top: 0px!important;
 }
 footer .box-footer {
     padding-left: 15px!important;

@@ -4,7 +4,32 @@
         <li><%= link_to '<i class="fa fa-home"></i>'.html_safe, erp_online_store.root_path %></li>
         <li><%= link_to "Giỏ Hàng", "javascript:void(0)" %></li>
     </ul>
-    <div class="row">
+    <div class="row wrap">
+        <% if !user_signed_in? %>
+        <div class="container">
+            <div class="payment-top">
+                <p class="text">Đăng nhập để theo dõi đơn hàng hoặc xem lại lịch sử mua hàng.</p>
+                <div class="form-group last">
+                    <%= link_to '<i class="fa fa-sign-in"></i> <span>Đăng nhập tài khoản</span>'.html_safe,
+                        erp.new_user_session_path,
+                        class: "btn btn-block btn-social btn-account user-name-loginaccount sign-in ajax-link",
+                        "data-type": "ajax",
+                        id: "sign-in"
+                    %>
+                    <p class="or">Hoặc</p>
+                    <a class="btn btn-block btn-social btn-facebook user-name-loginfb" title="Đăng nhập bằng Facebook" href="/auth/facebook" data-url="">
+                        <i class="fa fa-facebook"></i>
+                        <span>Đăng nhập bằng Facebook</span>
+                    </a>
+                    <p class="or">Hoặc</p>
+                    <a class="btn btn-block btn-social btn-google user-name-login-google" title="Đăng nhập bằng Google" href="/auth/google_oauth2" data-url="">
+                        <i class="fa fa-google-plus"></i>
+                        <span>Đăng nhập bằng Google</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <% end %>
         <!--Middle Part Start-->
         <div id="content" class="col-sm-12 shopping-cart">
             <% if @cart.cart_items.number_items > 0 %>
@@ -82,7 +107,7 @@
                 <% if user_signed_in? %>
                     <div class="pull-right"><%= link_to 'Tiến Hành Đặt Hàng <span class="fa fa-angle-double-right"></span>'.html_safe, erp_online_store.checkout_path, class: "btn btn-primary shopping-order" %></div>
                 <% else %>
-                    <div class="pull-right"><%= link_to 'Đăng Nhập Tài Khoản <span class="fa fa-angle-double-right"></span>'.html_safe, erp.new_user_session_path, class: "btn btn-primary shopping-order ajax-link", "data-type": "ajax" %></div>
+                    <div class="pull-right"><%= link_to 'Đặt Hàng Nhanh <span class="fa fa-angle-double-right"></span>'.html_safe, erp_online_store.quick_order_path, class: "btn btn-primary shopping-order" %></div>
                 <% end %>
             </div>
             <% else %>

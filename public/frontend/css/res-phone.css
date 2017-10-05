@@ -37,6 +37,12 @@
     .autosearch-result-box ul li a .title {
       font-size: 11px;
     }
+    .main-container .wrap .nav-register {
+      display: none;
+    }
+    .main-container .wrap .register-content {
+      width: 100%
+    }
 }
 
 /* Portrait */
@@ -130,6 +136,12 @@
     .autosearch-result-box ul li a .title {
       font-size: 11px;
     }
+    .main-container .wrap .nav-register {
+      display: none;
+    }
+    .main-container .wrap .register-content {
+      width: 100%
+    }
 }
 
 /* Portrait */
@@ -208,6 +220,12 @@
     .autosearch-result-box ul li a .title {
       font-size: 11px;
     }
+    .main-container .wrap .nav-register {
+      display: none;
+    }
+    .main-container .wrap .register-content {
+      width: 100%
+    }
 }
 
 /* Portrait */
@@ -276,6 +294,12 @@
     }
     .autosearch-result-box ul li a .title {
       font-size: 11px;
+    }
+    .main-container .wrap .nav-register {
+      display: none;
+    }
+    .main-container .wrap .register-content {
+      width: 100%
     }
 }
 

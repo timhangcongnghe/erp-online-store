@@ -87,7 +87,7 @@
                                                             <table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="15" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
 
                                                             <div class="h2" style="color:#ffffff; font-family:Georgia, serif; min-width:auto !important; font-size:30px; line-height:35px; text-align:center">
-                                                                <em>Hello, <%= @quick_order.customer_name %></em>
+                                                                <em>Xin chào, <%= @quick_order.customer_name %></em>
                                                             </div>
                                                             <table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="15" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
 
@@ -114,13 +114,10 @@
                                                 <table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="35" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
 
                                                 <div class="h3-1-center" style="color:#1e1e1e; min-width:auto !important; font-size:20px; line-height:26px; text-align:center">
-                                                    Chúng tôi rất hân hạnh được phục vụ Quý khách hàng. 
-                                                    <br>Chúng tôi gửi thông báo này cho bạn biết, thông tin đơn hàng bạn vừa đặt như bên dưới:
+                                                    Chúng tôi rất hân hạnh được phục vụ Quý khách hàng.<br> 
+                                                    Đơn hàng của Quý khách hàng đã được đặt thành công.
                                                 </div>
-
                                                 <table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="40" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
-
-
                                                 <table width="100%" border="0" cellspacing="0" cellpadding="0">
                                                     <tr>
                                                         <th class="column-top" style="font-size:0pt; line-height:0pt; padding:0; margin:0; font-weight:normal; vertical-align:top; Margin:0" valign="top" width="270">
@@ -134,7 +131,7 @@
                                                                                     <table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="10" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
 
                                                                                     <div class="text-1" style="color:#00635a; font-family:Arial, sans-serif; min-width:auto !important; font-size:14px; line-height:20px; text-align:left">
-                                                                                        <strong>NGƯỜI ĐẶT HÀNG:</strong>
+                                                                                        <strong>THÔNG TIN KHÁCH HÀNG:</strong>
                                                                                     </div>
                                                                                     <table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="10" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
 
@@ -150,10 +147,12 @@
 
                                                                                     <div class="text" style="color:#1e1e1e; font-family:Arial, sans-serif; min-width:auto !important; font-size:14px; line-height:20px; text-align:left">
                                                                                         <strong><%= @quick_order.customer_name %></strong>
-                                                                                        <br />
+                                                                                        <br>
                                                                                         <%= @quick_order.email %>
-                                                                                        <br />
+                                                                                        <br>
                                                                                         <%= @quick_order.phone %>
+                                                                                        <br>
+                                                                                        <% if @quick_order.invoice == true %>Có xuất hóa đơn<% else %>Không xuất hóa đơn<% end %>
                                                                                     </div>
                                                                                     <table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="15" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
 
@@ -224,7 +223,7 @@
                                                                                     </table>
 
                                                                                     <div class="text" style="color:#1e1e1e; font-family:Arial, sans-serif; min-width:auto !important; font-size:14px; line-height:20px; text-align:left">
-                                                                                        <%= @quick_order.created_at.utc.in_time_zone("Hanoi").strftime("%d/%m/%Y") %> - <%= @quick_order.created_at.utc.in_time_zone("Hanoi").strftime("%H:%M") %>
+                                                                                        <%= @quick_order.created_at.utc.in_time_zone("Hanoi").strftime("%H:%M") %> - <%= @quick_order.created_at.utc.in_time_zone("Hanoi").strftime("%d/%m/%Y") %>
                                                                                     </div>
                                                                                     <table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="15" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
 
@@ -285,16 +284,15 @@
     
                                                                 <div class="text" style="color:#1e1e1e; font-family:Arial, sans-serif; min-width:auto !important; font-size:14px; line-height:20px; text-align:left">
                                                                     <% if order_detail.product.present? %>
-                                                                        <a href="<%= product_url(order_detail.product) %>">
+                                                                        <strong><a href="<%= product_url(order_detail.product) %>">
                                                                             <%= order_detail.product_name %>
-                                                                        </a>
+                                                                        </a></strong>
                                                                     <% else %>
-                                                                        <%= order_detail.product_name %>
+                                                                        <strong><%= order_detail.product_name %></strong>
                                                                     <% end %>
                                                                     <%= ' (Tặng kèm)' if order_detail.description == Erp::Orders::FrontendOrderDetail::STYLE_GIFT %>
                                                                 </div>
                                                                 <table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="8" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
-    
                                                             </td>
                                                             <td>&nbsp;</td>
                                                             <td>
@@ -344,7 +342,7 @@
                                                                     <td>
                                                                         <table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="3" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
 
-                                                                        <div class="text-right" style="color:#1e1e1e; font-family:Arial, sans-serif; min-width:auto !important; font-size:14px; line-height:20px; text-align:right">Tổng cộng:</div>
+                                                                        <div class="text-right" style="color:#1e1e1e; font-family:Arial, sans-serif; min-width:auto !important; font-size:16px; line-height:20px; text-align:right"><strong>TỔNG CỘNG:</strong></div>
                                                                         <table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="3" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
 
                                                                     </td>
@@ -352,7 +350,7 @@
                                                                     <td width="100">
                                                                         <table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="3" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
 
-                                                                        <div class="text" style="color:#1e1e1e; font-family:Arial, sans-serif; min-width:auto !important; font-size:14px; line-height:20px; text-align:right"><%= format_price(@quick_order.cache_total) %></div>
+                                                                        <div class="text" style="color:#1e1e1e; font-family:Arial, sans-serif; min-width:auto !important; font-size:16px; line-height:20px; text-align:right"><strong><%= format_price(@quick_order.cache_total) %></strong></div>
                                                                         <table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="3" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
 
                                                                     </td>
@@ -365,7 +363,18 @@
                                                 <table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%; margin-top:15px">
                                                     <tbody>
                                                         <tr>
-                                                            <td height="35" style="color:#1e1e1e; font-family:Arial, sans-serif; min-width:auto !important; font-size:14px; line-height:20px; text-align:left;padding: 0 20px">Mọi thắc mắc về đơn hàng của bạn, vui lòng liên hệ bộ phận CSKH của Tìm Hàng Công Nghệ theo số điện thoại '<a href="tel:(028) 2212 9454">(028) 2212 9454</a>' hoặc gửi email về địa chỉ <a href="mailto:cskh@timhangcongnghe.com">cskh@timhangcongnghe.com</a></td>
+                                                            <td height="35" style="color:#1e1e1e; font-family:Arial, sans-serif; min-width:auto !important; font-size:14px; line-height:20px; text-align:left;padding: 0 20px">
+                                                                Mọi thắc mắc về đơn hàng của bạn, vui lòng liên hệ bộ phận CSKH của Tìm Hàng Công Nghệ theo số điện thoại '<a href="tel:(+84 028) 2212 9454">(+84 028) 2212 9454</a>' hoặc gửi email về địa chỉ <a href="mailto:cskh@timhangcongnghe.com">cskh@timhangcongnghe.com</a>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                                <table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%; margin-top:15px">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td height="35" style="color:#1e1e1e; font-family:Arial, sans-serif; min-width:auto !important; font-size:14px; line-height:20px; text-align:left;padding: 0 20px">
+                                                                Chính sách vận chuyển, giao nhận. <a href="http://timhangcongnghe.com/thong-tin/3/chinh-sach-van-chuyen-giao-nhan.html" title="Xem chính sách vận chuyển, giao nhận.">Xem tại đây...</a>
+                                                            </td>
                                                         </tr>
                                                     </tbody>
                                                 </table>
@@ -388,9 +397,9 @@
                                                             <table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="20" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
 
                                                             <div class="text" style="color:rgba(255,255,255,0.8); font-family:Arial, sans-serif; min-width:auto !important; font-size:14px; line-height:20px; text-align:center">
-                                                                <strong>Trang thương mại điện tử TimHangCongNghe - thuộc Công ty TNHH Giải Pháp CNTT &amp; TT Hoàng Khang</strong>
+                                                                <strong>Trang Thương Mại Điện Tử TimHangCongNghe - Thuộc Công ty TNHH Giải Pháp CNTT và TT Hoàng Khang</strong>
                                                                 <br>188 Đường Số 1, Phường 16, Quận Gò Vấp, TP. Hồ Chí Minh, Việt Nam
-                                                                <br>Điện thoại: (+84-8) 3984 7690 - Fax: (+84-8) 3984 7691
+                                                                <br>Điện thoại: (+84 028) 3984 7690 - Fax: (+84 028) 3984 7691
                                                             </div>
                                                             <table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="15" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
 
