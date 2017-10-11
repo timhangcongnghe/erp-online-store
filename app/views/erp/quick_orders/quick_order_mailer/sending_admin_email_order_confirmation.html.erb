@@ -300,6 +300,7 @@
                                                                     Email: <b><%= @quick_order.email %></b><br>
                                                                     Điện thoại: <b><%= @quick_order.phone %></b><br>
                                                                     Ghi chú: <%= @quick_order.note %><br>
+                                                                    Địa chỉ giao hàng: <%= @quick_order.address + ', ' + @quick_order.district_name + ', ' + @quick_order.state_name %><br>
                                                                     Xuất hóa đơn: <% if @quick_order.invoice == true %><strong>Có xuất hóa đơn</strong><% else %><strong>Không xuất hóa đơn</strong><% end %>
                                                                 </td>
                                                             </tr>
