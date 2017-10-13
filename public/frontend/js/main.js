@@ -775,7 +775,8 @@ $(document).ready(function () {
           container = $('.main-products-list');
         }
 
-        container.html('<div class="category-loading"></div>');
+        container.prepend('<div class="category-loading"></div>');
+        container.find(".products-list").css('opacity', '0.6');
 
         // Add uniq id to form
         var uuid = form.attr('id');
@@ -823,9 +824,10 @@ $(document).ready(function () {
             form.attr('id', uuid);
         }
 
-        container.html('<div class="category-loading"></div>');
+        container.prepend('<div class="category-loading"></div>');
+        container.find(".products-list").css('opacity', '0.6');
 
-        $( "body" ).scrollTop( container.offset().top - 100 );
+        $( window ).scrollTop( $('#content').offset().top - 100 );
 
         // ajax autosearch
         //if(category_xhr && category_xhr.readyState != 4){
