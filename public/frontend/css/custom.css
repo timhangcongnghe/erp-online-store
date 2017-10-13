@@ -2642,7 +2642,6 @@ form.rating_form textarea.input-content {
   height: auto;
 }
 .products-list.list-masonry .product-layout .product-item-container:hover, .products-list.grid .product-layout .product-item-container:hover {
-  border: solid 0px rgba(0,0,0,0);
   box-shadow: 0 0 0px rgba(0,0,0,0.15);
 }
 .filter-shopby legend, .filter-row legend {

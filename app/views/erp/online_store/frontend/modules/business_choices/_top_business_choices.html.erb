@@ -35,7 +35,7 @@
                                 <%= raw stars(product.average_stars) %>
                               </div>
                               <h4>
-                                <%= link_to truncate(product.product_name, length: 50), product_link(product), title: product.product_name %>
+                                <%= link_to truncate(product.product_name, length: 40), product_link(product), title: product.product_name %>
                               </h4>
                               <p class="price">                                                    
                                   <span class="price-new"><%= format_price(product.product_price) %></span>

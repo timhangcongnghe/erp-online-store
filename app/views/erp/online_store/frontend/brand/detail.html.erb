@@ -18,7 +18,6 @@
     <div class="row">
         <!--Left Part Start -->
         <aside class="col-sm-4 col-md-3" id="column-left">
-            <%= render "erp/online_store/frontend/modules/leftbar_search" %>
             <%= render "erp/online_store/frontend/modules/sidebar_best_sellers" %>
             <%= render "erp/online_store/frontend/modules/hot_banners" %>
         </aside>
@@ -27,9 +26,6 @@
         <div id="content" class="col-md-9 col-sm-8">
             <div class="products-category">
                 <h1 class="menu-title mb-0">Sản Phẩm Hãng <%= @brand.name %></h1>
-
-                <%= render "erp/online_store/frontend/modules/category/product_list_filter_line"%>
-
                 <div class="main-products-list">
                     <% if @products.count > 0 %>
                     <!--changed listings-->

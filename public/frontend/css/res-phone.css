@@ -41,7 +41,10 @@
       display: none;
     }
     .main-container .wrap .register-content {
-      width: 100%
+      width: 100%;
+    }
+    .logo img {
+      max-width: 70%;
     }
 }
 
@@ -162,6 +165,9 @@
     .filters-box, .filters-box label {
       font-size: 11px;
     }
+    .logo img {
+      max-width: 70%;
+    }
 }
 
 /* Landscape */
@@ -178,6 +184,9 @@
     }
     .select2-container {
       width: 130px !important;
+    }
+    .logo img {
+      max-width: 50%;
     }
 }
 
@@ -254,6 +263,9 @@
     .header-bottom-right span.hidden-xs {
       display: inherit !important;
     }
+    .logo img {
+      max-width: 50%;
+    }
 }
 
 /* ----------- iPhone 6+ ----------- */
@@ -322,6 +334,9 @@
   and (orientation: landscape) {
     .header-bottom-right span.hidden-xs {
       display: inherit !important;
+    }
+    .logo img {
+      max-width: 50%;
     }
 }
 
