@@ -12,7 +12,7 @@
         <meta property="og:description" content="Tìm Hàng Công Nghệ là trang thương mại điện tử uy tín chuyên cung cấp đa dạng các sản phẩm, thiết bị công nghệ từ các hãng lớn thế giới."/>
     <% end %>
     <% product_images.limit(1).each_with_index do |product_image,index| %>
-        <meta property="og:image" content="http://timhangcongnghe.com<%= product_image.image_url.thumb550 %>" />
+        <meta property="og:image" content="http://timhangcongnghe.com<%= product_image.image_url.thumb650 %>" />
     <% end %>
 <% end %>
 
@@ -41,7 +41,7 @@
                                         <!-- thumb 445x445 -->
                                         <% product_images.each_with_index do |product_image,index| %>
                                             <li class="owl2-item">
-                                                <a data-index="<%= index %>" class="img thumbnail " data-image="<%= product_image.image_url.thumb445 %>" title="<%= @product.name %>">
+                                                <a data-index="<%= index %>" class="img thumbnail " data-image="<%= product_image.image_url.thumb650 %>" title="<%= @product.name %>">
                                                     <%= image_tag product_image.image_url.thumb170, alt: @product.name, title: @product.name %>
                                                 </a>
                                             </li>
@@ -49,7 +49,7 @@
                                     </ul>
                                 </div>
                                 <div id="large-image" class="large-image vertical">
-                                    <img class="product-image-zoom" data-src="<%= @product.main_image.image_url.thumb550 %>" src="<%= @product.main_image.image_url.thumb550 %>" title="<%= @product.name %>" alt="<%= @product.name %>">
+                                    <img class="product-image-zoom" data-src="<%= @product.main_image.image_url.thumb650 %>" src="<%= @product.main_image.image_url.thumb650 %>" title="<%= @product.name %>" alt="<%= @product.name %>">
                                 </div>
                                 <% if @product.product_intro_link.present? %>
                                     <%= link_to '<i class="fa fa-youtube-play"></i>'.html_safe, @product.product_intro_link, class: "thumb-video pull-left", title: @product.name %>
@@ -366,7 +366,7 @@
 
 <div class="hide-album">
     <% product_images.each_with_index do |product_image,index| %>
-        <a href="<%= product_image.image_url.thumb550 %>" data-fancybox="images2">
+        <a href="<%= product_image.image_url.thumb650 %>" data-fancybox="images2">
             <%= image_tag product_image.image_url.thumb170, alt: @product.name, title: @product.name, caption: @product.name %>
         </a>
     <% end %>
