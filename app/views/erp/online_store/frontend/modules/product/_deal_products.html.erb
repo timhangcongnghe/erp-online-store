@@ -11,8 +11,8 @@
         <div class="product-item-container">
             <div class="left-block">
                 <div class="product-image-container second_img ">
-                    <%= image_tag product_image(product.product_images, 'first', 'thumb650'), data: {src: product_image(product.product_images, 'first', 'thumb650')}, alt: product.product_name, class: "img-1 img-responsive" %>
-                    <%= image_tag product_image(product.product_images, 'second', 'thumb650'), data: {src: product_image(product.product_images, 'second', 'thumb650')}, alt: product.product_name, class: "img-2 img-responsive" %>
+                    <%= image_tag product_image(product.product_images, 'first', 'thumb550'), data: {src: product_image(product.product_images, 'first', 'thumb550')}, alt: product.product_name, class: "img-1 img-responsive" %>
+                    <%= image_tag product_image(product.product_images, 'second', 'thumb550'), data: {src: product_image(product.product_images, 'second', 'thumb550')}, alt: product.product_name, class: "img-2 img-responsive" %>
                 </div>
                 <% if product.is_deal? %>
                 <span class="label label-sale">Giảm giá</span>
