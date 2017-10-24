@@ -72,12 +72,10 @@
                                 <legend><%= group[:name] %></legend>
                                 <ul class="checkboxes_list">
                                     <% group[:values].each do |value| %>
-                                        <% if value.product_count > 0 %>
-                                            <li>
-                                                <input type="checkbox" value="<%= value[:id] %>" name="property_value_ids[<%= value[:property_id] %>][]" id="value_<%= value[:id] %>">
-                                                <label for="value_<%= value[:id] %>"><%= value[:value] %></label>
-                                            </li>
-                                        <% end %>
+                                        <li>
+                                            <input type="checkbox" value="<%= value[:id] %>" name="property_value_ids[<%= value[:property_id] %>][]" id="value_<%= value[:id] %>">
+                                            <label for="value_<%= value[:id] %>"><%= value[:value] %></label>
+                                        </li>
                                     <% end %>
                                 </ul>
                             </fieldset>
