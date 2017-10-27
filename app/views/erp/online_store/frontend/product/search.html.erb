@@ -17,7 +17,11 @@
                         </h1>
                     <% end %>
                 <!--changed listings-->
-                <%= render "erp/online_store/frontend/modules/category/category_middle_part_center", products: @products, menu: @menu %>
+                <% if @menu.present? %>
+                    <%= render "erp/online_store/frontend/modules/category/category_middle_part_center", products: @products, menu: @menu %>
+                <% else %>
+                    <%= render "erp/online_store/frontend/modules/category/category_middle_part_center_search", products: @products %>
+                <% end %>
                 <!--// End Changed listings-->
                 <!-- Filters -->
                 <%= render "erp/online_store/frontend/modules/category/category_middle_part_bottom", products: @products %>
@@ -33,15 +37,15 @@
                                 </h1>
                             </div>
                         <% end %>
-                            <div class="noresultsuggestion">
-                                <h3>Để tìm được kết quả chính xác hơn, bạn vui lòng:</h3>
-                                <ul>
-                                    <li>Kiểm tra lỗi chính tả của từ khóa đã nhập</li>
-                                    <li>Thử lại bằng từ khóa khác</li>
-                                    <li>Thử lại bằng những từ khóa tổng quát hơn</li>
-                                    <li>Thử lại bằng những từ khóa ngắn gọn hơn</li>
-                                </ul>
-                            </div>
+                        <div class="noresultsuggestion">
+                            <h3>Để tìm được kết quả chính xác hơn, bạn vui lòng:</h3>
+                            <ul>
+                                <li>Kiểm tra lỗi chính tả của từ khóa đã nhập</li>
+                                <li>Thử lại bằng từ khóa khác</li>
+                                <li>Thử lại bằng những từ khóa tổng quát hơn</li>
+                                <li>Thử lại bằng những từ khóa ngắn gọn hơn</li>
+                            </ul>
+                        </div>
                     </section>
                 <% end %>
             </div>
