@@ -37,8 +37,8 @@
                             <% all_items.each do |compare_item| %>
                             <td>
                                 <div class="price">
-                                    <% if compare_item.product.is_sold_out? %>
-                                        <span class="price price-sold-out sold_out_true">Giá liên hệ</span>
+                                    <% if compare_item.product.is_sold_out? || compare_item.product.is_call? %>
+                                        <span class="price price-sold-out sold_out_true">Liên hệ: (028) 2212 9454</span>
                                     <% else %>
                                         <span class="price-new"><%= format_price(compare_item.product.product_price) %></span>
                                         <% if compare_item.product.is_deal %>

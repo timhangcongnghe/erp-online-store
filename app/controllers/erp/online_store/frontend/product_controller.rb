@@ -98,6 +98,7 @@ module Erp
             deal_percent: (product.deal_percent if product.is_deal),
             link: product_link(product),
             is_sold_out: product.is_sold_out,
+            is_call: product.is_call,
             image: image_src(product.main_image, 'thumb99'),
           }}
         end
@@ -112,7 +113,7 @@ module Erp
         def search
           @keyword = params[:keyword]
           @body_class = "res layout-subpage"
-          @products = Erp::Products::Product.search(params).paginate(:page => params[:page], :per_page => 12)
+          @products = Erp::Products::Product.search(params).paginate(:page => params[:page], :per_page => 32)
           @menu = Erp::Menus::Menu.find(params[:menu_id]) if params[:menu_id].present?
         end
 

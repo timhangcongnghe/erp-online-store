@@ -2475,7 +2475,7 @@ footer .box-footer {
 .display_none .sub-menu {
   display: none!important;
 }
-.sold_out_true {
+.sold_out_true, .is_call_true {
   color: #9e800a !important;
   font-weight: initial;
 }

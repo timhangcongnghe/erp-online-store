@@ -11,8 +11,8 @@
                         <%= image_tag product_image(product.product_images, 'second', 'thumb268'), data: {src: product_image(product.product_images, 'second', 'thumb268')}, alt: product.product_name, title: product.product_name, class: "img-2 img-responsive" %>
                     </div>
                     <%= quick_actions(product) %>
-                    <% if product.is_sold_out? %>
-                        <span class="label label-soldout">Hết hàng</span>
+                    <% if product.is_sold_out? || product.is_call? %>
+                        <span class="label label-soldout">Liên hệ: (028) 2212 9454</span>
                     <% else %>
                         <% if product.is_bestseller? %>
                         <span class="label label-bestseller">Bán Chạy</span>

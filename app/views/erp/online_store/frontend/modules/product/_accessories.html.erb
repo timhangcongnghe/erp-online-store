@@ -30,10 +30,14 @@
                         </div>
                     </div>
                     <div class="price">
-                        <span class="price-new"><%= format_price(accessory_detail.product.product_price) %></span>
-                        <% if accessory_detail.product.is_deal? %>                        
-                        <br><span class="price-old"><%= format_price(accessory_detail.product.price) %></span>
-                        <span class="label label-percent">-<%= accessory_detail.product.deal_percent %>%</span>
+                        <% if accessory_detail.product.is_sold_out? || accessory_detail.product.is_call? %>
+                            <span class="price sold_out_true">Giá liên hệ</span>
+                        <% else %>
+                            <span class="price-new"><%= format_price(accessory_detail.product.product_price) %></span>
+                            <% if accessory_detail.product.is_deal? %>                        
+                            <br><span class="price-old"><%= format_price(accessory_detail.product.price) %></span>
+                            <span class="label label-percent">-<%= accessory_detail.product.deal_percent %>%</span>
+                            <% end %>
                         <% end %>
                     </div>
                 </div>

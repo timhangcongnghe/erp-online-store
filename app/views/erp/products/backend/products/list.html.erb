@@ -115,6 +115,9 @@
                         <% if product.is_sold_out? %>
                         <br /><span class="label label-sm label-warning"><%= t('.sold_out') %></span>
                         <% end %>
+                        <% if product.is_call? %>
+                        <br /><span class="label label-sm label-orange"><%= t('.is_call') %></span>
+                        <% end %>
                         <% if product.is_stock_inventory? %>
                         <br /><span class="label label-sm label-info"><%= t('.stock_inventory') %></span>
                         <% end %>
@@ -192,6 +195,22 @@
                                     data_confirm: t('.uncheck_is_sold_out_confirm')
                                 },
                                 {
+                                    text: '<i class="fa fa-plus"></i> '+t('.check_is_call'),
+                                    url: erp_products.check_is_call_backend_products_path(id: product),
+                                    data_method: 'PUT',
+                                    hide: product.is_call,
+                                    class: 'ajax-link',
+                                    data_confirm: t('.check_is_call_confirm')
+                                },
+                                {
+                                    text: '<i class="fa fa-remove"></i> '+t('.uncheck_is_call'),
+                                    url: erp_products.uncheck_is_call_backend_products_path(id: product),
+                                    data_method: 'PUT',
+                                    hide: !product.is_call,
+                                    class: 'ajax-link',
+                                    data_confirm: t('.uncheck_is_call_confirm')
+                                },
+                                {
                                     text: '<i class="fa fa-plus"></i> '+t('.check_is_stock_inventory'),
                                     url: erp_products.check_is_stock_inventory_backend_products_path(id: product),
                                     data_method: 'PUT',
@@ -206,10 +225,7 @@
                                     hide: !product.is_stock_inventory,
                                     class: 'ajax-link',
                                     data_confirm: t('.uncheck_is_stock_inventory_confirm')
-                                },
-                                
-                                
-                                
+                                },                                                                                    
                                 {
                                     text: '<i class="fa fa-plus"></i> '+t('.check_is_business_choices'),
                                     url: erp_products.check_is_business_choices_backend_products_path(id: product),

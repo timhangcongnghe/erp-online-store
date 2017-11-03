@@ -77,6 +77,21 @@
             divider: true
         },
         {
+            text: '<i class="fa fa-plus"></i> '+t('.check_is_call'),
+            url: erp_products.check_is_call_all_backend_products_path,
+            data_method: 'PUT',
+            data_confirm: t('.check_is_call_confirm')
+        },
+        {
+            text: '<i class="fa fa-remove"></i> '+t('.uncheck_is_call'),
+            url: erp_products.uncheck_is_call_all_backend_products_path,
+            data_method: 'PUT',
+            data_confirm: t('.uncheck_is_call_confirm')
+        },
+        {
+            divider: true
+        },
+        {
             text: '<i class="fa fa-plus"></i> '+t('.check_is_stock_inventory'),
             url: erp_products.check_is_stock_inventory_all_backend_products_path,
             data_method: 'PUT',

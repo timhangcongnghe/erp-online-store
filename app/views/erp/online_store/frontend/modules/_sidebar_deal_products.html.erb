@@ -30,13 +30,17 @@
                                 <!-- Begin item-content -->
                                 <div class="item-content">
                                     <div class="content_price">
-                                        <span class="price product-price">
-                                            <%= format_price(product.product_price) %>
-                                        </span>
-                                        <% if product.is_deal? %>                        
-                                        <br><span class="price-old-price"><%= format_price(product.price) %></span>
-                                        <span class="product-percent">-<%= product.deal_percent %>%</span>
-                                        <% end %>
+                                        <% if product.is_sold_out? || product.is_call? %>
+                                            <span class="price sold_out_true">Giá liên hệ</span>
+                                        <% else %>
+                                            <span class="price product-price">
+                                                <%= format_price(product.product_price) %>
+                                            </span>
+                                            <% if product.is_deal? %>                        
+                                                <br><span class="price-old-price"><%= format_price(product.price) %></span>
+                                                <span class="product-percent">-<%= product.deal_percent %>%</span>
+                                            <% end %>
+                                         <% end %>
                                     </div>
                                 </div>
                                 <!-- End item-content -->

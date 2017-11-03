@@ -278,7 +278,7 @@ function autoSearch(box) {
                 '<li><a title="' + item.name + '" href="' + item.link + '">' +
                     '<img src="' +item.image+ '" />' +
                     '<span class="title">' + item.name + '</span>' +
-                    '<span class="price sold_out_' +item.is_sold_out+ '">' + (item.is_sold_out ? 'Giá liên hệ' : item.price) + '</span>' +
+                    '<span class="price sold_out_' +item.is_sold_out+ ' is_call_' +item.is_call+ '">' + (item.is_sold_out || item.is_call ? 'Giá liên hệ' : item.price) + '</span>' +
                     ' <span class="old_price old_price_'+item.old_price+'"><span class="num">' + item.old_price + '</span> (giảm ' + item.deal_percent + '%)</span>' +
                 '</a></li>'
             );
