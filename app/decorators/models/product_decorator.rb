@@ -381,6 +381,8 @@ Erp::Products::Product.class_eval do
   end
 
   after_create :hkerp_set_imported
+  after_create :hkerp_set_cache_thcn_url
+  after_save :hkerp_set_cache_thcn_url
   after_save :hkerp_update_price
   after_save :hkerp_set_sold_out
   before_destroy :hkerp_set_not_imported
