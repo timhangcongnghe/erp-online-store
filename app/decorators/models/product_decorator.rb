@@ -432,6 +432,17 @@ Erp::Products::Product.class_eval do
     end
   end
 
+  def hkerp_set_cache_thcn_url
+    if self.hkerp_product.present?
+      url = ErpSystem::Application.config.hkerp_endpoint + "products/erp_set_cache_thcn_url"
+
+      uri = URI(url)
+      Net::HTTP.post_form(uri, 'id' => self.hkerp_product.hkerp_product_id, 'url' => "http://timhangcongnghe.com/san-pham/#{self.id}/#{self.alias}.html")
+
+      self.product_images.where(image_url: nil).destroy_all
+    end
+  end
+
   # set is sold out
   def check_is_sold_out
     update_attributes(is_sold_out: true)
