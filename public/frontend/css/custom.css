@@ -1352,7 +1352,7 @@ select:focus {
     top: 0;
   }
   .vertical ul.megamenu > li > .sub-menu > .content {
-    min-height: 370px;
+    min-height: 450px;
   }
 }
 img.mfp-img {
