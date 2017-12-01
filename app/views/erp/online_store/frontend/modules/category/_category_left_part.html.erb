@@ -10,20 +10,20 @@
         <div class="modcontent">
             <div class="box-category">
                 <ul id="cat_accordion" class="list-group fix_active">
-                    <% children.each do |menu| %>
-                    <li class="<% if menu.children.count > 0 %>hadchild cutom-parent-li<% end %>">
+                    <% children.get_active.each do |menu| %>
+                    <li class="<% if menu.children.get_active.count > 0 %>hadchild cutom-parent-li<% end %>">
                         <a href="<%= menu_link(menu) %>" class="cutom-parent <% if menu.id == @menu.id %> current<% end %>"><%= menu.name %><span class="dcjq-icon"></span></a>
-                        <% if menu.children.count > 0 %>
+                        <% if menu.children.get_active.count > 0 %>
                         <span class="button-view  fa fa-plus-square-o"></span>
                         <% end %>
                         <ul style="display: none;">
-                            <% menu.children.each do |child_1| %>
-                                <% if child_1.children.count > 0 %>
+                            <% menu.children.get_active.each do |child_1| %>
+                                <% if child_1.children.get_active.count > 0 %>
                                 <li class="hadchild cutom-parent-li">
                                     <%= link_to child_1.name, menu_link(child_1), class: "cutom-parent" %>
                                     <span class="button-view  fa fa-plus-square-o"></span>
                                     <ul style="display: none;">
-                                        <% child_1.children.each do |child_2| %>
+                                        <% child_1.children.get_active.each do |child_2| %>
                                             <li><%= link_to child_2.name, menu_link(child_2) %></li>
                                         <% end %>
                                     </ul>
