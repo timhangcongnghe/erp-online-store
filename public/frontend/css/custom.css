@@ -2672,3 +2672,24 @@ form.rating_form textarea.input-content {
 .module h3.modtitle {
   border-color: #999999;
 }
+img.logo-about-us {
+  margin-bottom: 20px;
+}
+.about-demo-1 .about-image, .about-demo-1 .about-info {
+  margin-bottom: 10px;
+}
+.about-us-slogan {
+  text-align: center;
+}
+.about-us-slogan h2 {
+  margin-top: 10px;
+  font-size: 30px;
+}
+a.footer-hotline {
+  color: #c10017;
+  font-weight: bold;
+}
+a.footer-hotline:hover {
+  opacity: 0.8;
+  color: #c10017 !important; 
+}

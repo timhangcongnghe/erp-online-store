@@ -138,7 +138,5 @@ Erp::OnlineStore::Engine.routes.draw do
 	end
 	
 	# PRODUCTS SELLERS
-	scope "(:locale)", locale: /vi/ do
-		get "xa-hang-gia-re.html" => "frontend/stock_inventory#index_2", as: :stock_inventory_2
-	end
+	get "xa-hang-gia-re.html" => "frontend/stock_inventory#index_2", as: :stock_inventory_2
 end
