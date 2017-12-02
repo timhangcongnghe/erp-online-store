@@ -2684,6 +2684,11 @@ img.logo-about-us {
 .about-us-slogan h2 {
   margin-top: 10px;
   font-size: 30px;
+  font-style: italic;
+}
+.about-us-slogan h2:hover {
+  opacity: 0.8;
+  cursor: default;
 }
 a.footer-hotline {
   color: #c10017;
@@ -2692,4 +2697,7 @@ a.footer-hotline {
 a.footer-hotline:hover {
   opacity: 0.8;
   color: #c10017 !important; 
+}
+.about-us .about-title {
+  margin-top: 10px;
 }
