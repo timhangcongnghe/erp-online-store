@@ -1406,8 +1406,11 @@ a.btn.btn-complete:hover {
   box-shadow: 0 6px 12px rgba(0,0,0,.175);
 }
 .inner-box-desc h4 {
-  color: #009688;
+  color: #444;
   font-weight: 600;
+}
+.inner-box-desc table tbody tr td.text-nowrap span {
+  color: #333;
 }
 .inner-box-desc table tbody tr.property-value {
   border-bottom: 1px solid #dadada;
@@ -1428,7 +1431,7 @@ a.product-property-all:hover {
   color: #fff;
 }
 h3.product-box-name {
-  color: #ef4836;
+  color: #444;
 }
 .left-content-product .content-product-right .box-review a {
   color: #000;
