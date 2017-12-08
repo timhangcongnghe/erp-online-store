@@ -45,6 +45,11 @@ Erp::Products::Product.class_eval do
 
     return records
   end
+  
+  def count_keywords_arr
+    arr = self.meta_keywords.split(', ') if self.meta_keywords.present?
+    return arr.count
+  end
 
   # Amazon ECS configuration
   def self.amazon_ecs_configure

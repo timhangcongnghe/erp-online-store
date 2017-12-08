@@ -107,25 +107,28 @@
                         <span class="label label-sm label-success"><%= t('.active') %></span>
                         <% end %>
                         <% if product.is_deal? %>
-                        <br /><span class="label label-sm label-orange"><%= t('.deal') %></span>
+                        <br><span class="label label-sm label-orange"><%= t('.deal') %></span>
                         <% end %>
                         <% if product.is_bestseller? %>
-                        <br /><span class="label label-sm label-orange"><%= t('.bestseller') %></span>
+                        <br><span class="label label-sm label-orange"><%= t('.bestseller') %></span>
                         <% end %>
                         <% if product.is_sold_out? %>
                         <br /><span class="label label-sm label-warning"><%= t('.sold_out') %></span>
                         <% end %>
                         <% if product.is_call? %>
-                        <br /><span class="label label-sm label-orange"><%= t('.is_call') %></span>
+                        <br><span class="label label-sm label-orange"><%= t('.is_call') %></span>
                         <% end %>
                         <% if product.is_stock_inventory? %>
-                        <br /><span class="label label-sm label-info"><%= t('.stock_inventory') %></span>
+                        <br><span class="label label-sm label-info"><%= t('.stock_inventory') %></span>
                         <% end %>
                         <% if product.is_business_choices? %>
-                        <br /><span class="label label-sm label-info"><%= t('.business_choices') %></span>
+                        <br><span class="label label-sm label-info"><%= t('.business_choices') %></span>
                         <% end %>
                         <% if product.is_top_business_choices? %>
-                        <br /><span class="label label-sm label-info"><%= t('.top_business_choices') %></span>
+                        <br><span class="label label-sm label-info"><%= t('.top_business_choices') %></span>
+                        <% end %>
+                        <% if product.meta_keywords.present? && product.meta_description.present? %>
+                            <br><span class="label label-sm label-danger"><%= t('.seo_success') %> <%= product.count_keywords_arr %> từ khóa</span>
                         <% end %>
                     </td>
                     <% end %>
