@@ -153,7 +153,20 @@
                                         <div class="col-sm-8">
                                             <p class="title">
                                                 <strong><%= cart_item.quantity %> x </strong>
-                                                <%= link_to cart_item.product_name, product_link(cart_item.product), class: "cart_product_name top_cart_list", title: cart_item.product_name %>
+                                                <%= link_to cart_item.product_name, product_link(cart_item.product), class: "cart_product_name top_cart_list", title: cart_item.product_name %> |
+                                                <% if cart_item.product.gifts.count > 0 %>
+                                                    <span class="tooltip-col">
+                                                        <i class="fa fa-gift" aria-hidden="true"></i>
+                                                        <small class="tooltiptext">
+                                                            <em>Tặng kèm:</em>
+                                                            <% gift_names = [] %>
+                                                            <% cart_item.product.gifts.each do |gift| %>
+                                                                <% gift_names << gift.product_name.to_s %>
+                                                            <% end %>
+                                                            <%= gift_names.join(', ') %>
+                                                        </small>
+                                                    </span>
+                                                <% end %>
                                             </p>
                                         </div>
                                         <div class="col-sm-4">

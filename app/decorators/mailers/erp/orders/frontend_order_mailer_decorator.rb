@@ -5,6 +5,9 @@ Erp::Orders::FrontendOrderMailer.class_eval do
     @recipients = ['Kinh Doanh THCN <kinhdoanh@timhangcongnghe.com>']
     @bccmails = ['Hùng Nguyễn <hungnt@hoangkhang.com.vn>', 'Luân Phạm <luanpm@hoangkhang.com.vn>', 'Sơn Nguyễn <sonnn@hoangkhang.com.vn>']
     
+    #@recipients = ['Sơn Nguyễn <sonnn@hoangkhang.com.vn>']
+    #@bccmails = []
+    
     @order = order
     send_email(@recipients.join("; "), @bccmails.join("; "), "##{@order.code} - Thông tin đơn hàng vừa được đặt trên hệ thống")
   end

@@ -25,7 +25,22 @@
                             <td class="text-center" style="width:70px">
                                 <%= link_to image_tag(product_image(cart_item.product.product_images, 'first', 'thumb99'), width: "70px", alt: cart_item.product_name, title: cart_item.product_name, class: "preview"), product_link(cart_item.product) %>
                             </td>
-                            <td class="text-left"><%= link_to cart_item.product_name, product_link(cart_item.product), class: "cart_product_name top_cart_list", title: cart_item.product_name %></td>
+                            <td class="text-left">
+                                <%= link_to cart_item.product_name, product_link(cart_item.product), class: "cart_product_name top_cart_list", title: cart_item.product_name %><br>
+                                <% if cart_item.product.gifts.count > 0 %>
+                                    <span class="tooltip-col">
+                                        <i class="fa fa-gift" aria-hidden="true"></i>
+                                        <small class="tooltiptext">
+                                            <em>Tặng kèm:</em>
+                                            <% gift_names = [] %>
+                                            <% cart_item.product.gifts.each do |gift| %>
+                                                <% gift_names << gift.product_name.to_s %>
+                                            <% end %>
+                                            <%= gift_names.join(', ') %>
+                                        </small>
+                                    </span>
+                                <% end %>                                
+                            </td>
                             <% if cart_item.product.is_sold_out? || cart_item.product.is_call? %>
                                 <td class="text-center shopping-cart-price">Giá liên hệ</td>
                             <% else %>

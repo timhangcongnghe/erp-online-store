@@ -1444,6 +1444,7 @@ h3.product-box-name {
     position: relative;
     background: #fff;
     padding-bottom: 10px;
+    margin-top: 10px;
 }
 .area_events strong {
     display: block;
@@ -1454,7 +1455,7 @@ h3.product-box-name {
     text-transform: uppercase;
     background: #f7f7f7;
     border-bottom: 1px solid #ddd;
-    font-weight: normal;
+    font-weight: 500;
 }
 .area_events strong i {
   float: right;
@@ -1478,10 +1479,13 @@ h3.product-box-name {
     margin-left: -12px;
 }
 .area_events a {
-    color: #288ad6;
+    color: #f1111b;
+    font-weight: 500;
+    text-align: justify;
 }
 .area_events a:hover {
     text-decoration: underline;
+    opacity: 0.9;
 }
 .area_events span .events-deadtime {
     display: none;
@@ -2703,4 +2707,15 @@ a.footer-hotline:hover {
 }
 .about-us .about-title {
   margin-top: 10px;
+}
+.christmas-gift {
+  width: 30px;
+  height: auto;
+  padding-right: 5px;
+}
+span.christmas-title {
+  font-weight: 500;
+}
+.shopping_cart .shoppingcart-box a.btn {
+  font-size: 13px;
 }

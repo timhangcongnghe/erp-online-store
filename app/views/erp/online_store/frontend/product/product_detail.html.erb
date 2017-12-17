@@ -90,21 +90,30 @@
                                     <% end %>
                                 </div>
                             </div>
-                            <% if @related_events.count > 0 %>
+                            <% if @related_events.count > 0 || @product.gifts.count > 0 %>
                                 <div class="area_events">
-                                    <strong>
-                                        <% if @related_events.count == 1 %>
-                                            khuyến mãi đang áp dụng
-                                            <i><sup>*</sup>Áp dụng đến <%= @related_events.first.to_date.strftime("%d/%m/%Y") %></i>
-                                        <% else %>
-                                            <%= @related_events.count %> khuyến mãi đang áp dụng
+                                    <% if @related_events.count > 0 %>
+                                        <strong>
+                                            <%= image_tag "/frontend/image/christmas-sales.png", alt: "", class: "christmas-gift" %>
+                                            <% if @related_events.count == 1 %>
+                                                khuyến mãi đang áp dụng
+                                                <i><sup>*</sup>Áp dụng đến <%= @related_events.first.to_date.strftime("%d/%m/%Y") %></i>
+                                            <% else %>
+                                                <%= @related_events.count %> khuyến mãi đang áp dụng
+                                            <% end %>
+                                        </strong>
+                                        <% @related_events.each do |event| %>
+                                            <span class="event-text"><%= link_to event.name, event_link(event), title: event.name, target: "_blank" %></span>
                                         <% end %>
-                                    </strong>
-                                    <% @related_events.each do |event| %>
-                                        <% if event.description.present? %>
-                                            <%= event.description.html_safe %>
-                                        <% else %>
-                                            <span class="event-text"><%= event.name %><!--<label class="events-deadtime">(đến 30/04)</label>--></span>
+                                    <% end %>
+                                
+                                    <% if @product.gifts.count > 0 %>
+                                        <strong>
+                                            <%= image_tag "/frontend/image/christmas-gift.png", alt: "", class: "christmas-gift" %>
+                                            <span class="christmas-title">Tặng kèm</span>
+                                        </strong>
+                                        <% @product.gifts.each do |gift| %>
+                                            <span class="event-text"><%= link_to gift.product_name, product_link(gift), title: gift.product_name, target: "_blank" %></span>
                                         <% end %>
                                     <% end %>
                                 </div>
