@@ -64,6 +64,34 @@
 									<% end %>
                                 </div>
                             </div>
+                            <% if @product.get_related_events(Time.now).count > 0 || @product.gifts.count > 0 %>
+                                <div class="area_events">
+                                    <% if@product.get_related_events(Time.now).count > 0 %>
+                                        <strong>
+                                            <%= image_tag "/frontend/image/christmas-sales.png", alt: "", class: "christmas-gift" %>
+                                            <% if @product.get_related_events(Time.now).count == 1 %>
+                                                khuyến mãi đang áp dụng
+                                                <i><sup>*</sup>Áp dụng đến <%= @product.get_related_events(Time.now).first.to_date.strftime("%d/%m/%Y") %></i>
+                                            <% else %>
+                                                <%=@product.get_related_events(Time.now).count %> khuyến mãi đang áp dụng
+                                            <% end %>
+                                        </strong>
+                                        <% @product.get_related_events(Time.now).each do |event| %>
+                                            <span class="event-text"><%= link_to event.name, event_link(event), title: event.name, target: "_blank" %></span>
+                                        <% end %>
+                                    <% end %>
+                                
+                                    <% if @product.gifts.count > 0 %>
+                                        <strong>
+                                            <%= image_tag "/frontend/image/christmas-gift.png", alt: "", class: "christmas-gift" %>
+                                            <span class="christmas-title">Tặng kèm</span>
+                                        </strong>
+                                        <% @product.gifts.each do |gift| %>
+                                            <span class="event-text"><%= link_to gift.product_name, product_link(gift), title: gift.product_name, target: "_blank" %></span>
+                                        <% end %>
+                                    <% end %>
+                                </div>
+                            <% end %>
                             <% if @product.get_product_property_array.count > 0 %>
                             <div class="product-box-desc <%= 'no_border_button' if @product.is_sold_out %>">
                                 <div class="inner-box-desc">
