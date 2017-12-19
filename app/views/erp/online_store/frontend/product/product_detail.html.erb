@@ -151,9 +151,7 @@
                                 <% if product_short_descipriton_values_array.count > 3 %>
                                     <a class="product-property-all ajax-link"
                                        data-type="ajax"
-                                        href="<%= erp_online_store.all_property_path(product_id: @product.id) %>">
-                                            Xem thông tin chi tiết
-                                    </a>
+                                       href="<%= product_property_url(@product) %>">Xem thông tin chi tiết</a>
                                 <% end %>
                             </div>
                             <% end %>

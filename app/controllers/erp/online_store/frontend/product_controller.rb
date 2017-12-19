@@ -108,7 +108,11 @@ module Erp
         # view all product properties
         def all_property
           @product = Erp::Products::Product.find(params[:product_id])
-          render "erp/online_store/frontend/modules/product/_all_property", layout: nil
+          if request.xhr?
+            render "erp/online_store/frontend/modules/product/_all_property", layout: nil
+          else
+            render "erp/online_store/frontend/modules/product/_all_property", layout: "erp/frontend/property"
+          end          
         end
 
         # Search page

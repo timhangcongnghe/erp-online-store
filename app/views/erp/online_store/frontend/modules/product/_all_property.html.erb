@@ -1,3 +1,21 @@
+<% title @product.name %>
+<% product_images = @product.product_images %>
+
+<% content_for :metas do %>
+    <!-- for Facebook -->
+    <meta property="og:url" content="<%= request.url %>"/>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="<%= @product.product_name %>"/>
+    <% if @meta_description.present? %>
+        <meta property="og:description" content="<%= @meta_description %>"/>
+    <% else %>
+        <meta property="og:description" content="Tìm Hàng Công Nghệ là trang thương mại điện tử uy tín chuyên cung cấp đa dạng các sản phẩm Laptop, PC, Server, Workstations, Máy In,...từ các hãng lớn thế giới."/>
+    <% end %>
+    <% product_images.limit(1).each_with_index do |product_image,index| %>
+        <meta property="og:image" content="http://timhangcongnghe.com<%= product_image.image_url.thumb650 %>" />
+    <% end %>
+<% end %>
+
 <div class="product-box-desc modal-box mt-0 mb-0-720" style="max-width: 600px">
     <div class="inner-box-desc">
         Thông tin kỹ thuật chi tiết: <h3 class="mt-0 product-box-name"><%= link_to @product.name, product_link(@product), title: @product.name %></h3>

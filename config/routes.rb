@@ -10,7 +10,7 @@ Erp::OnlineStore::Engine.routes.draw do
 	# CATEGORY
 	get "chuyen-muc-select2.html" => "frontend/category#select2", as: :category_select2
 	get "tim-kiem.html" => "frontend/product#search", as: :search
-	get "san-pham/thuoc-tinh/:product_id.html" => "frontend/product#all_property", as: :all_property
+	get "san-pham/thuoc-tinh/:product_id(/:title).html" => "frontend/product#all_property", as: :all_property
 	get "san-pham/:product_id(/:title).html" => "frontend/product#product_detail", as: :product_detail
 	get "chuyen-muc(/:menu_id)(/:title).html" => "frontend/category#index", as: :category
 	post "chuyen-muc/chi-tiet-san-pham.html" => "frontend/product#product_detail"
