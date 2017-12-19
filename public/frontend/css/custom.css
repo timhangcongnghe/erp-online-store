@@ -1003,7 +1003,7 @@ table.product-compare tr td.product-name {
   padding: 2px 0;
 }
 .type_7 .header-center {
-    padding: 4px 0 1px;
+    padding: 0px 0 1px;
     border-bottom: solid 1px #ddd;
 }
 #sosearchpro.search-pro .select_category select {
@@ -1856,7 +1856,7 @@ form[role=edit-password] > div:last-child {
   left: 0px;
   cursor: pointer;
   padding-top: 15px;
-  height: 50px;
+  height: 52px;
 }
 .btn-menu-fixed .btn-menu-fixed-title {
     background-color: #009688;
@@ -1870,7 +1870,7 @@ form[role=edit-password] > div:last-child {
     display: inline-block;
     font-size: 19px;
     padding-top: 15px;
-    height: 50px;
+    height: 52px;
     z-index: -1;
     transition: all 0.4s ease;
     -webkit-transition: all 0.4s ease;
