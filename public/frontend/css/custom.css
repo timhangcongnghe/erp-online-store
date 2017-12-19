@@ -358,6 +358,7 @@ input.error, textarea.error  {
 @media (min-width: 990px) {
 .header-center-right .megamenu {
   float: right;
+  padding-top: 10px
 }
 }
 .vertical-wrapper ul.megamenu {
