@@ -1,6 +1,6 @@
 <div class="product-box-desc modal-box mt-0 mb-0-720" style="max-width: 600px">
     <div class="inner-box-desc">
-        Thông tin kỹ thuật chi tiết: <h3 class="mt-0 product-box-name"><%= link_to @product.product_name, product_link(@product), title: @product.product_name %></h3>
+        Thông tin kỹ thuật chi tiết: <h3 class="mt-0 product-box-name"><%= link_to @product.name, product_link(@product), title: @product.name %></h3>
         <table width="100%">
             <% @product.product_values_array.each do |group| %>
                 <tr>

@@ -73,7 +73,15 @@
                         <td><%= product.code %></td>
                     <% end %>
                     <% if get_columns(params).include?("name") %>
-                        <td><%= link_to product.name, erp_products.edit_backend_product_path(product) %></td>
+                        <td>
+                            <%= link_to product.name, erp_products.edit_backend_product_path(product) %><br>
+                            <% if product.gifts.count > 0 %>
+                                Tặng kèm:
+                                <% product.gifts.each do |gift| %>
+                                    <br><em><%= link_to gift.product_name, erp_products.edit_backend_product_path(gift), title: gift.product_name %></em>
+                                <% end %>
+                            <% end %>
+                        </td>
                     <% end %>
                     <% if get_columns(params).include?("category") %>
                         <td><%= product.category_name %></td>

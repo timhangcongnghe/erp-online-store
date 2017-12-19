@@ -2720,3 +2720,12 @@ span.christmas-title {
 .shopping_cart .shoppingcart-box a.btn {
   font-size: 13px;
 }
+.left-content-product .content-product-right .product-box-desc {
+  padding: 10px 10px 0px 20px;
+}
+.left-content-product {
+  margin-bottom: 20px;
+}
+footer .footer-center {
+  padding-bottom: 20px;
+}
