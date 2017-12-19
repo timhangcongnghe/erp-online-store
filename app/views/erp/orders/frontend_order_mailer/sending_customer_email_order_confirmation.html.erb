@@ -336,7 +336,7 @@
     
                                                                 <div class="text" style="color:#1e1e1e; font-family:Arial, sans-serif; min-width:auto !important; font-size:14px; line-height:20px; text-align:left">
                                                                     <% if order_detail.product.present? %>
-                                                                        <a href="<%= product_url(order_detail.product) %>">
+                                                                        <a href="<%= product_link(order_detail.product) %>">
                                                                             <%= order_detail.product_name %>
                                                                         </a>
                                                                     <% else %>

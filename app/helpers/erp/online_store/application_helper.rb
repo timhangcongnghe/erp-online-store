@@ -29,14 +29,9 @@ module Erp
       def product_link(product)
         erp_online_store.product_detail_path(product_id: product.id, title: product.alias)
       end
-
-      # product url helper
-      def product_url(product)
-        erp_online_store.product_detail_url(product_id: product.id, title: product.alias)
-      end
       
       # product url helper
-      def product_property_url(product)
+      def product_property_link(product)
         erp_online_store.all_property_path(product_id: product.id, title: product.alias)
       end
 
