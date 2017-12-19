@@ -88,7 +88,7 @@ footer .social_block ul.social-block li.pinterest a:hover {
   color: #010407;
 }
 .type_1 .header-center {
-  padding: 25px 0 10px;
+  padding: 10px 0 10px;
 }
 .logo img {
   max-width: none;
@@ -358,7 +358,7 @@ input.error, textarea.error  {
 @media (min-width: 990px) {
 .header-center-right .megamenu {
   float: right;
-  padding-top: 10px;
+  padding-top: 18px;
 }
 }
 .vertical-wrapper ul.megamenu {
