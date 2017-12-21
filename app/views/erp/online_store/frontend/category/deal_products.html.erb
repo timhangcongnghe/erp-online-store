@@ -81,8 +81,11 @@
                         </div>
                         <!-- End Pagination -->
                     <% else %>
-                        <div class="alert alert-warning">
-                            <i class="fa fa-warning"></i> Hiện chưa có sản phẩm cho chuyên mục này.
+                        <div id="content" class="col-sm-12 shopping-cart">
+                            <div class="empty-cart">                    
+                                <h2 class="title">Chuyên mục sản phẩm hoặc lựa chọn chưa có sản phẩm phù hợp.</h2>
+                                <%= link_to 'Quay lại trang chủ', erp_online_store.root_path, class: 'btn btn-default shopping-continue', title: 'Quay lại trang chủ' %>
+                            </div>
                         </div>
                     <% end %>
                 </div>
