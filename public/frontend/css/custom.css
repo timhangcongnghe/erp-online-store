@@ -2727,5 +2727,21 @@ span.christmas-title {
   margin-bottom: 20px;
 }
 footer .footer-center {
-  padding-bottom: 20px;
+  padding: 15px 0;
+}
+.common-home .module {
+  margin-bottom: 20px;
+}
+ul.search-result {
+  margin-bottom: 0px;
+}
+.report_text h1 {
+  color: #a9a9a9;
+  margin: 10px 0;
+}
+.report_text h1 strong {
+  color: #000;  
+}
+.noresultsuggestion h3 {
+  margin: 5px 0;
 }
