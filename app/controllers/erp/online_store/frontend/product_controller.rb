@@ -30,6 +30,26 @@ module Erp
           end
           @total_comments = @product.comments.where(parent_id: nil).where(archived: false).count
         end
+        
+        # view all product properties
+        def all_property
+          @product = Erp::Products::Product.find(params[:product_id])
+          @menu = @product.find_menu
+          @meta_keywords = @product.meta_keywords
+          @meta_description = @product.meta_description
+          
+          if @menu.present?
+            @meta_keywords += @meta_keywords.present? ? ', ' + @menu.meta_keywords : @menu.meta_keywords
+            if !@product.meta_description.present?
+              @meta_description = @menu.meta_description
+            end
+          end
+          if request.xhr?
+            render "erp/online_store/frontend/modules/product/_all_property", layout: nil
+          else
+            render "erp/online_store/frontend/modules/product/_all_property", layout: "erp/frontend/property"
+          end          
+        end
 
         def comments
           @product = Erp::Products::Product.find(params[:product_id])
@@ -103,17 +123,7 @@ module Erp
             is_call: product.is_call,
             image: image_src(product.main_image, 'thumb99'),
           }}
-        end
-
-        # view all product properties
-        def all_property
-          @product = Erp::Products::Product.find(params[:product_id])
-          if request.xhr?
-            render "erp/online_store/frontend/modules/product/_all_property", layout: nil
-          else
-            render "erp/online_store/frontend/modules/product/_all_property", layout: "erp/frontend/property"
-          end          
-        end
+        end        
 
         # Search page
         def search
