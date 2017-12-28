@@ -1431,8 +1431,9 @@ a.product-property-all:hover {
   background: #009688;
   color: #fff;
 }
-h3.product-box-name {
+h1.product-box-name {
   color: #444;
+  font-size: 22px;
 }
 .left-content-product .content-product-right .box-review a {
   color: #000;
