@@ -1114,18 +1114,7 @@ $( window ).resize(function() {
 
 // Custom js
 
-// show or hide menu fixed
-$('#btn-menu-fixed').hover(function () {
-  $('#btn-menu-fixed-title').addClass('active-btn');
-  $('.vertical-wrapper').addClass('active-sub-menu');
-}, function() {});
 
-// show or hide menu fixed
-$('.vertical-wrapper').hover(function() {}, function () {
-  $('#btn-menu-fixed-title').removeClass('active-btn');
-  $('.vertical-wrapper').addClass('transition');
-  $('.vertical-wrapper').removeClass('active-sub-menu');
-});
 
 // get height show menu fixed
 function getHeightMenuFixed() {
@@ -1279,6 +1268,17 @@ $( document ).ready(function() {
   //
   //});
 
+  // show or hide menu fixed
+  $('#btn-menu-fixed').hover(function () {
+    $('#btn-menu-fixed-title').addClass('active-btn');
+    $('.vertical-wrapper').addClass('active-sub-menu');
+  }, function() {});
 
+  // show or hide menu fixed
+  $('.vertical-wrapper').hover(function() {}, function () {
+    $('#btn-menu-fixed-title').removeClass('active-btn');
+    $('.vertical-wrapper').addClass('transition');
+    $('.vertical-wrapper').removeClass('active-sub-menu');
+  });
 
 });
