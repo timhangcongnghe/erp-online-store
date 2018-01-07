@@ -23,7 +23,10 @@ module Erp
           @meta_description = @product.meta_description
           
           if @menu.present?
-            @meta_keywords += @meta_keywords.present? ? ', ' + @menu.meta_keywords : @menu.meta_keywords
+	    if !@product.meta_keywords.present?
+              @meta_keywords = @menu.meta_keywords
+ 	    end
+
             if !@product.meta_description.present?
               @meta_description = @menu.meta_description
             end
@@ -39,7 +42,10 @@ module Erp
           @meta_description = @product.meta_description
           
           if @menu.present?
-            @meta_keywords += @meta_keywords.present? ? ', ' + @menu.meta_keywords : @menu.meta_keywords
+            if !@product.meta_keywords.present?
+              @meta_keywords = @menu.meta_keywords
+            end
+
             if !@product.meta_description.present?
               @meta_description = @menu.meta_description
             end
