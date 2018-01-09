@@ -45,7 +45,7 @@ Erp::Products::Product.class_eval do
 
     return records
   end
-  
+
   def count_keywords_arr
     arr = self.meta_keywords.split(', ') if self.meta_keywords.present?
     return arr.count
@@ -388,6 +388,7 @@ Erp::Products::Product.class_eval do
   after_create :hkerp_set_imported
   after_create :hkerp_set_cache_thcn_url
   after_save :hkerp_set_cache_thcn_url
+  after_save :hkerp_set_cache_thcn_properties
   after_save :hkerp_update_price
   after_save :hkerp_set_sold_out
   before_destroy :hkerp_set_not_imported
@@ -447,6 +448,29 @@ Erp::Products::Product.class_eval do
       Net::HTTP.post_form(uri, 'id' => self.hkerp_product.hkerp_product_id, 'url' => "http://timhangcongnghe.com/san-pham/#{self.id}/#{self.alias}.html")
 
       self.product_images.where(image_url: nil).destroy_all
+    end
+  end
+
+  def hkerp_set_cache_thcn_properties
+    result = {short: nil, long: []}
+
+    # Long
+    self.product_values_array.each do |group|
+      result[:long] << {
+        group: group[:group].name,
+        properties: group[:properties]
+      }
+    end
+
+    # Short
+    result[:short] = self.product_short_descipriton_values_array
+
+    data = result.to_json
+
+    if self.hkerp_product.present?
+      url = ErpSystem::Application.config.hkerp_endpoint + "products/erp_set_cache_thcn_properties"
+      uri = URI(url)
+      Net::HTTP.post_form(uri, 'id' => self.hkerp_product.hkerp_product_id, 'data' => data)
     end
   end
 
