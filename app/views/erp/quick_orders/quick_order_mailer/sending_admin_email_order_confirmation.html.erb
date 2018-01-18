@@ -362,7 +362,7 @@
                                                     <td class="product">
                                                         <span style="color: #4d4d4d; font-weight:bold;">
                                                             <% if order_detail.product.present? %>
-                                                                <a href="<%= product_link(order_detail.product) %>">
+                                                                <a href="http://timhangcongnghe.com/san-pham/<%= order_detail.product_id.to_s + '/' + order_detail.product.alias + '.html' %>">
                                                                     <%= order_detail.product_name %>
                                                                 </a>
                                                             <% else %>

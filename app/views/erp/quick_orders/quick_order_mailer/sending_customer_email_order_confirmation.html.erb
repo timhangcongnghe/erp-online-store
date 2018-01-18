@@ -285,9 +285,11 @@
     
                                                                 <div class="text" style="color:#1e1e1e; font-family:Arial, sans-serif; min-width:auto !important; font-size:14px; line-height:20px; text-align:left">
                                                                     <% if order_detail.product.present? %>
-                                                                        <strong><a href="<%= product_link(order_detail.product) %>">
-                                                                            <%= order_detail.product_name %>
-                                                                        </a></strong>
+                                                                        <strong>
+                                                                            <a href="http://timhangcongnghe.com/san-pham/<%= order_detail.product_id.to_s + '/' + order_detail.product.alias + '.html' %>">
+                                                                                <%= order_detail.product_name %>
+                                                                            </a>
+                                                                        </strong>
                                                                     <% else %>
                                                                         <strong><%= order_detail.product_name %></strong>
                                                                     <% end %>
