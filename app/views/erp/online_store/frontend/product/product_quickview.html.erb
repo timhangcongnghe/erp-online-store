@@ -80,7 +80,7 @@
                                             <span class="event-text"><%= link_to event.name, event_link(event), title: event.name, target: "_blank" %></span>
                                         <% end %>
                                     <% end %>
-                                
+
                                     <% if @product.gifts.count > 0 %>
                                         <strong>
                                             <%= image_tag "/frontend/image/christmas-gift.png", alt: "", class: "christmas-gift" %>
@@ -312,7 +312,10 @@
                     $('[data-fancybox]').fancybox({
                         arrows : true,
                         infobar   : true,
-						live: false
+						live: false,
+                        thumbs : {
+                            autoStart   : true,
+                        }
                     });
                 });
             </script>
@@ -322,7 +325,7 @@
 </div>
 <div class="hide-album">
     <% @product.product_images.each_with_index do |product_image,index| %>
-        <a href="<%= product_image.image_url.thumb650 %>" data-fancybox="images">
+        <a href="<%= product_image.image_url.thumb650 %>" data-fancybox="images" data-caption="<%= @product.name %> - Hình <%= index+1 %>">
             <%= image_tag product_image.image_url.thumb170, alt: @product.name, title: @product.name %>
         </a>
     <% end %>
