@@ -2,7 +2,7 @@
 <table width="100%" class="table-tab-specs">
     <tbody>
         <% product.product_values_array.each do |group| %>
-            <tr>
+            <tr class="property-group-name">
                 <td colspan="2"><h4><%= group[:group].name %></h4></td>
             </tr>
             <% group[:properties].each do |property| %>
