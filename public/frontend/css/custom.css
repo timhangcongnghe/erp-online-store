@@ -2758,6 +2758,7 @@ a.open-video-link:hover {
 .mfp-iframe-scaler iframe {
   padding: 5px;
   border-radius: 5px;
+  background: black url(../image/theme/lazy-loader.gif) no-repeat center center;
 }
 .table-tab-specs {
   font-size: 16px;
