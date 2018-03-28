@@ -52,7 +52,7 @@
                                     <img class="product-image-zoom" data-src="<%= @product.main_image.image_url.thumb650 %>" src="<%= @product.main_image.image_url.thumb650 %>" title="<%= @product.name %>" alt="<%= @product.name %>">
                                 </div>
                                 <% if @product.product_intro_link.present? %>
-                                    <%= link_to '<i class="fa fa-youtube-play"></i>'.html_safe, @product.product_intro_link, class: "thumb-video pull-left", title: @product.name %>
+                                    <%= link_to '<i class="fa fa-youtube-play"></i>'.html_safe, @product.product_intro_link, class: "open-video-link thumb-video pull-left", title: @product.name %>
                                 <% end %>
                             <% else %>
                                 <div id="thumb-slider-vertical" class="thumb-vertical-outer"></div>

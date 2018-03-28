@@ -2749,3 +2749,22 @@ ul.search-result {
 .type_1 .header-center .navbar-logo {
   top: 0;
 }
+a.open-video-link {
+  color: hsl(0, 100%, 50%);
+}
+a.open-video-link:hover {
+  opacity: 0.8;
+}
+.mfp-iframe-scaler iframe {
+  padding: 5px;
+  border-radius: 5px;
+}
+.table-tab-specs {
+  font-size: 16px;
+}
+.table-tab-specs tr td h4 {
+  font-size: 18px;
+}
+.table-tab-specs tr.property-value {
+  line-height: 2;
+}

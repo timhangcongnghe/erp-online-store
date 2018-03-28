@@ -23,9 +23,9 @@ module Erp
           @meta_description = @product.meta_description
           
           if @menu.present?
-	    if !@product.meta_keywords.present?
+            if !@product.meta_keywords.present?
               @meta_keywords = @menu.meta_keywords
- 	    end
+            end
 
             if !@product.meta_description.present?
               @meta_description = @menu.meta_description

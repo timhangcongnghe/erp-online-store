@@ -1,0 +1,18 @@
+<h2 class="mt-0 product-box-name"><%= link_to product.name, product_link(product), title: product.name %></h2>
+<table width="100%" class="table-tab-specs">
+    <tbody>
+        <% product.product_values_array.each do |group| %>
+            <tr>
+                <td colspan="2"><h4><%= group[:group].name %></h4></td>
+            </tr>
+            <% group[:properties].each do |property| %>
+                <tr class="property-value">
+                    <td valign="top" class="text-nowrap"><span><%= property[:property].name %></span></td>
+                    <td class="pl-10">
+                        <%= property[:values].count <= 4 ? property[:values].join(", ") : ('<ul><li>' + property[:values].join('</li><li>') + '</li></ul>').html_safe %>
+                    </td>
+                </tr>
+            <% end %>
+        <% end %>
+    </tbody>
+</table>
