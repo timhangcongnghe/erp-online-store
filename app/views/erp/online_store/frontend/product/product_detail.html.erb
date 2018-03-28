@@ -147,12 +147,7 @@
                                             <% end %>
                                         </table>
                                     <% end %>
-                                </div>
-                                <% if product_short_descipriton_values_array.count > 3 %>
-                                    <a class="product-property-all ajax-link"
-                                       data-type="ajax"
-                                       href="<%= product_property_link(@product) %>">Xem thông tin chi tiết</a>
-                                <% end %>
+                                </div>                                
                             </div>
                             <% end %>
                             <% if @product.is_sold_out? || @product.is_call? %>
