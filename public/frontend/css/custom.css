@@ -1654,7 +1654,7 @@ form[role=edit-password] > div:last-child {
   background: #eef8f8;
 }
 .property-value ul li {
-  list-style: square;
+  list-style: disc;
   margin-left: 15px;
 }
 .order-table.price {
