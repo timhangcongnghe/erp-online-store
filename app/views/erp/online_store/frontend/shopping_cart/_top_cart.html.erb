@@ -41,7 +41,7 @@
                                     </span>
                                 <% end %>                                
                             </td>
-                            <% if cart_item.product.is_sold_out? || cart_item.product.is_call? || (cart_item.product.product_price == 0) %>
+                            <% if cart_item.product.is_sold_out? || cart_item.product.is_call? || cart_item.product.product_price.nil? %>
                                 <td class="text-center shopping-cart-price">Giá liên hệ</td>
                             <% else %>
                                 <td class="text-center shopping-cart-price"><%= format_price(cart_item.product_price) %>x<%= cart_item.quantity %></td>

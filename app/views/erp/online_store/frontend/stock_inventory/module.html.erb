@@ -11,7 +11,7 @@
                         <%= image_tag product_image(product.product_images, 'second', 'thumb268'), data: {src: product_image(product.product_images, 'second', 'thumb268')}, alt: product.product_name, title: product.product_name, class: "img-2 img-responsive" %>
                     </div>
                     <%= quick_actions(product) %>
-                    <% if product.is_sold_out? || product.is_call? || (product.product_price == 0) %>
+                    <% if product.is_sold_out? || product.is_call? || product.product_price.nil? %>
                         <span class="label label-soldout">Liên hệ: (028) 3984 7690</span>
                     <% else %>
                         <% if product.is_bestseller? %>

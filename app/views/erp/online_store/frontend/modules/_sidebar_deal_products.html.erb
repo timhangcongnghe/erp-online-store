@@ -30,7 +30,7 @@
                                 <!-- Begin item-content -->
                                 <div class="item-content">
                                     <div class="content_price">
-                                        <% if product.is_sold_out? || product.is_call? || (product.product_price == 0) %>
+                                        <% if product.is_sold_out? || product.is_call? || product.product_price.nil? %>
                                             <span class="price sold_out_true">Giá liên hệ</span>
                                         <% else %>
                                             <span class="price product-price">

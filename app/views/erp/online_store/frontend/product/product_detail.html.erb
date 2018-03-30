@@ -77,7 +77,7 @@
                             </div>
                             <div class="product-label form-group form-group-price-sold-out">
                                 <div class="product_page_price price">
-                                    <% if @product.is_sold_out? || @product.is_call? || (@product.product_price == 0) %>
+                                    <% if @product.is_sold_out? || @product.is_call? || @product.product_price.nil? %>
                                         <span class="price-sold-out sold_out_true">Liên hệ: (028) 3984 7690</span>
                                     <% else %>
                                         <span class="price-new" itemprop="price"><%= format_price(@product.product_price) %></span>
@@ -150,7 +150,7 @@
                                 </div>                                
                             </div>
                             <% end %>
-                            <% if @product.is_sold_out? || @product.is_call? || (@product.product_price == 0) %>
+                            <% if @product.is_sold_out? || @product.is_call? || @product.product_price.nil? %>
                             <% else %>
                             <div id="product">
                                 <h3>ĐẶT MUA SẢN PHẨM</h3>

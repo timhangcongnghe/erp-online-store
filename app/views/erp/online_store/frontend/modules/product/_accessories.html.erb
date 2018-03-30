@@ -30,7 +30,7 @@
                         </div>
                     </div>
                     <div class="price">
-                        <% if accessory_detail.product.is_sold_out? || accessory_detail.product.is_call? || (accessory_detail.product.product_price == 0) %>
+                        <% if accessory_detail.product.is_sold_out? || accessory_detail.product.is_call? || accessory_detail.product.product_price.nil? %>
                             <span class="price sold_out_true">Giá liên hệ</span>
                         <% else %>
                             <span class="price-new"><%= format_price(accessory_detail.product.product_price) %></span>
