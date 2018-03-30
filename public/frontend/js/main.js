@@ -287,7 +287,7 @@ function autoSearch(box) {
             // result_box.find('li').eq(0).addClass('current');
         } else {
             result_box.append(
-                '<li class="autosearch-empty-line">Không có sản phẩm phù hợp</li>'
+                '<li class="autosearch-empty-line">Không tìm thấy sản phẩm phù hợp...</li>'
             );
         }
     });

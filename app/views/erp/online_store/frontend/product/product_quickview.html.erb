@@ -25,7 +25,7 @@
                                     <img class="product-image-zoom" data-src="<%= @product.main_image.image_url.thumb650 %>" src="<%= @product.main_image.image_url.thumb650 %>" title="<%= @product.name %>" alt="<%= @product.name %>">
                                 </div>
                                 <% if @product.product_intro_link.present? %>
-                                    <%= link_to '<i class="fa fa-youtube-play"></i>'.html_safe, @product.product_intro_link, class: "thumb-video pull-left", title: @product.name %>
+                                    <%= link_to '<i class="fa fa-youtube-play"></i>'.html_safe, @product.product_intro_link, class: "open-video-link thumb-video pull-left", title: @product.name %>
                                 <% end %>
                             <% else %>
                                 <div id="thumb-slider-vertical" class="thumb-vertical-outer"></div>
@@ -51,8 +51,8 @@
                             </div>
                             <div class="product-label form-group">
                                 <div class="product_page_price price">
-									<% if @product.is_sold_out? || @product.is_call? %>
-                                        <span class="price-sold-out sold_out_true">Liên hệ: (028) 2212 9454</span>
+									<% if @product.is_sold_out? || @product.is_call?|| (@product.product_price == 0) %>
+                                        <span class="price-sold-out sold_out_true">Liên hệ: (028) 3984 7690</span>
                                     <% else %>
 										<span class="price-new" itemprop="price"><%= format_price(@product.product_price) %></span>
 										<% if @product.is_deal %>
@@ -133,7 +133,7 @@
                             </div>
 
                             <% end %>
-                            <% if @product.is_sold_out? || @product.is_call? %>
+                            <% if @product.is_sold_out? || @product.is_call? || (@product.product_price == 0) %>
                             <% else %>
 							<div id="product">
                                 <h3>ĐẶT MUA SẢN PHẨM</h3>
