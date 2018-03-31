@@ -2777,3 +2777,15 @@ a.open-video-link:hover {
 .table-tab-specs tr.property-value {
   line-height: 2.5;
 }
+.breadcrumb li a:hover {
+  color: #a52a2a;
+}
+.breadcrumb li:last-child a {
+  cursor: default;
+}
+.breadcrumb li:last-child a:hover {
+  color: #009688;
+}
+.breadcrumb li + li:before {
+  color: #029900;
+}
