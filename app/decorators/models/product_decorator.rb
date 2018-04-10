@@ -386,7 +386,7 @@ Erp::Products::Product.class_eval do
   end
   
   def getHkerpInfo
-    return nil if !hkerp_product.present?
+    return {} if !hkerp_product.present?
     
     pid = self.hkerp_product.hkerp_product_id
     
@@ -400,6 +400,8 @@ Erp::Products::Product.class_eval do
     if res.is_a?(Net::HTTPSuccess)
       data = JSON.parse(res.body)
       return data
+    else
+      return {}
     end
   end
 
