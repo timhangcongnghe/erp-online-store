@@ -384,6 +384,24 @@ Erp::Products::Product.class_eval do
       self.code = data["product_code"] if !self.code.present?
     end
   end
+  
+  def getHkerpInfo
+    return nil if !hkerp_product.present?
+    
+    pid = self.hkerp_product.hkerp_product_id
+    
+    url = ErpSystem::Application.config.hkerp_endpoint + "products/erp_get_info?id=" + pid.to_s
+    uri = URI(url)
+    begin
+      res = Net::HTTP.get_response(uri)
+    rescue
+    end
+
+    if res.is_a?(Net::HTTPSuccess)
+      data = JSON.parse(res.body)
+      return data
+    end
+  end
 
   after_create :hkerp_set_imported
   after_create :hkerp_set_cache_thcn_url
