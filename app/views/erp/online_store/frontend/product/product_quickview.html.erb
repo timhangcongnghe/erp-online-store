@@ -5,8 +5,8 @@
             <div class="product-view row">
                 <div class="left-content-product col-lg-12 col-xs-12">
                     <div class="row">
-                        <div class="content-product-left  col-sm-6 col-xs-12 ">
-                            <% if @product.product_images.count > 0 %>
+                        <% if @product.product_images.count > 1 %>
+                            <div class="content-product-left  col-sm-6 col-xs-12 ">
                                 <div id="thumb-slider-vertical" class="thumb-vertical-outer">
                                     <span class="btn-more prev-thumb nt"><i class="fa fa-chevron-up"></i></span>
                                     <span class="btn-more next-thumb nt"><i class="fa fa-chevron-down"></i></span>
@@ -27,14 +27,29 @@
                                 <% if @product.product_intro_link.present? %>
                                     <%= link_to '<i class="fa fa-youtube-play"></i>'.html_safe, @product.product_intro_link, class: "open-video-link thumb-video pull-left", title: @product.name %>
                                 <% end %>
-                            <% else %>
-                                <div id="thumb-slider-vertical" class="thumb-vertical-outer"></div>
-                                <div class="vertical">
-                                    <img src="<%= url_for('/frontend/image/shop/image-coming-soon.jpg') %>">
-                                </div>
-                            <% end %>
-                        </div>
-                        <div class="content-product-right col-sm-6 col-xs-12">
+                            
+                            </div>
+                        <% else %>
+                            <div class="content-product-left  col-sm-5 col-xs-12 ">
+                                <% if @product.product_images.count == 0 %>
+                                    <div class="vertical">
+                                        <img src="<%= url_for('/frontend/image/shop/image-coming-soon.jpg') %>">
+                                    </div>
+                                <% else %>
+                                    <div id="large-image" class="large-image vertical">
+                                        <img class="product-image-zoom" data-src="<%= @product.main_image.image_url.thumb650 %>" src="<%= @product.main_image.image_url.thumb650 %>" title="<%= @product.name %>" alt="<%= @product.name %>">
+                                    </div>
+                                    <% if @product.product_intro_link.present? %>
+                                        <%= link_to '<i class="fa fa-youtube-play"></i>'.html_safe, @product.product_intro_link, class: "open-video-link thumb-video pull-left", title: @product.name %>
+                                    <% end %>
+                                <% end %>
+                            </div>
+                        <% end %>
+                        <% if @product.product_images.count > 1 %>
+                            <div class="content-product-right col-sm-6 col-xs-12">
+                        <% else %>
+                            <div class="content-product-right col-sm-7 col-xs-12">
+                        <% end %>
                             <div class="title-product">
                                 <h1><%= link_to @product.name, product_link(@product), title: @product.name %></h1>
                             </div>
