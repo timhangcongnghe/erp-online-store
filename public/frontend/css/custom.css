@@ -2051,6 +2051,7 @@ form[role=edit-password] > div:last-child {
   border: 1px #009688 solid;
   border-radius: 3px;
   padding: 0px;
+  margin-top: 3px;
 }
 .header-fixed-top .header-center .top-link li a {
   /*text-transform: uppercase;*/
@@ -2063,6 +2064,9 @@ form[role=edit-password] > div:last-child {
 .header-fixed-top .header-center .top-link li a:hover {
   background-color: rgba(0, 150, 136, 0.7);
   color: #fff;
+}
+.type_7 .block-cart {
+  margin-top: 3px;
 }
 .header-fixed-top .header-center .number {
   border: 1px #cc181e solid;
@@ -2573,7 +2577,16 @@ footer .box-footer {
   color: #009688;
 }
 .call-center a {
-  color: #288ad6;
+  color: #288ad6;  
+}
+.call-center {
+  margin-top: 10px;
+}
+.call-center a:hover {
+  opacity: 0.8; 
+}
+.call-center span strong {
+  color: #333;
 }
 #tab-review a.btn-rating {
   color: #000;

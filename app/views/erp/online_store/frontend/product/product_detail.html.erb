@@ -32,8 +32,8 @@
             <div class="product-view row">
                 <div class="left-content-product col-lg-12 col-xs-12">
                     <div class="row">
-                        <div class="content-product-left  col-sm-6 col-xs-12 ">
-                            <% if product_images.count > 0 %>
+                        <% if product_images.count > 1 %>
+                            <div class="content-product-left  col-sm-6 col-xs-12 ">                            
                                 <div id="thumb-slider-vertical" class="thumb-vertical-outer">
                                     <span class="btn-more prev-thumb nt"><i class="fa fa-chevron-up"></i></span>
                                     <span class="btn-more next-thumb nt"><i class="fa fa-chevron-down"></i></span>
@@ -53,15 +53,29 @@
                                 </div>
                                 <% if @product.product_intro_link.present? %>
                                     <%= link_to '<i class="fa fa-youtube-play"></i>'.html_safe, @product.product_intro_link, class: "open-video-link thumb-video pull-left", title: @product.name %>
+                                <% end %>                            
+                            </div>
+                        <% else %>
+                            <div class="content-product-left  col-sm-5 col-xs-12 ">
+                                <% if product_images.count == 0 %>
+                                    <div class="vertical">
+                                        <img src="<%= url_for('/frontend/image/shop/image-coming-soon.jpg') %>">
+                                    </div>
+                                <% else %>
+                                    <div id="large-image" class="large-image vertical">
+                                        <img class="product-image-zoom" data-src="<%= @product.main_image.image_url.thumb650 %>" src="<%= @product.main_image.image_url.thumb650 %>" title="<%= @product.name %>" alt="<%= @product.name %>">
+                                    </div>
+                                    <% if @product.product_intro_link.present? %>
+                                        <%= link_to '<i class="fa fa-youtube-play"></i>'.html_safe, @product.product_intro_link, class: "open-video-link thumb-video pull-left", title: @product.name %>
+                                    <% end %>
                                 <% end %>
-                            <% else %>
-                                <div id="thumb-slider-vertical" class="thumb-vertical-outer"></div>
-                                <div class="vertical">
-                                    <img src="<%= url_for('/frontend/image/shop/image-coming-soon.jpg') %>">
-                                </div>
-                            <% end %>
-                        </div>
-                        <div class="content-product-right col-sm-6 col-xs-12">
+                            </div>
+                        <% end %>
+                        <% if product_images.count > 1 %>
+                            <div class="content-product-right col-sm-6 col-xs-12">
+                        <% else %>
+                            <div class="content-product-right col-sm-7 col-xs-12">
+                        <% end %>
                             <div class="title-product">
                                 <h1><%= @product.name %></h1>
                             </div>
@@ -187,11 +201,17 @@
                                     </div>
                                 </div>
                             </div>
-                            <% end %>
-                            <div class="call-center">
-                                <span>Liên hệ đặt mua: <a href="tel:02822129454">(028) 2212 9454</a> </span> hoặc <span><a href="tel:02839847690">(028) 3984 7690</a> (Giờ làm việc: 7:30 - 17:00)</span>
-                            </div>
-                            <!-- end box info product -->
+                        <% end %>
+                        <div class="call-center">
+                            <span><strong>SĐT liên hệ:</strong> <a href="tel:02839847690">(028) 3984 7690</a> (Giờ làm việc: 7:30 - 17:00)</span><br>
+                            <span><strong>Email liên hệ:</strong> <a href="mailto:kinhdoanh@timhangcongnghe.com">kinhdoanh@timhangcongnghe.com</a></span><br>
+                            <span><strong>Phòng kinh doanh:</strong>
+                                <a title="Kinh Doanh Tìm Hàng Công Nghệ" class="chat-skype" href="skype:info_854929?chat">
+                                    <img alt="Kinh Doanh Tìm Hàng Công Nghệ" src="/frontend/image/skype.png">
+                                </a>
+                            </span>
+                        </div>
+                        <!-- end box info product -->
                         </div>
                     </div>
                 </div>
