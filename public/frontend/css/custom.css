@@ -1019,7 +1019,7 @@ table.product-compare tr td.product-name {
   font-size: 12px;
 }
 .header-fixed-top .navbar-logo img {
-  width: 140px;
+  width: 170px;
   margin: 1px 0;
 }
 .type_7 .shopping_cart .btn-shopping-cart ul {
@@ -1849,7 +1849,7 @@ form[role=edit-password] > div:last-child {
 }
 .btn-menu-fixed span {
   background-color: #00635a;
-  width: 46px;
+  width: 49px;
   padding-left: 10px;
   color: #fff;
   font-size: 19px;
@@ -1857,7 +1857,7 @@ form[role=edit-password] > div:last-child {
   left: 0px;
   cursor: pointer;
   padding-top: 15px;
-  height: 46px;
+  height: 49px;
 }
 .btn-menu-fixed .btn-menu-fixed-title {
     background-color: #009688;
@@ -2791,6 +2791,13 @@ a.open-video-link:hover {
 }
 .table-tab-specs tr.property-value {
   line-height: 2.5;
+}
+.table-tab-specs tr.property-value td.text-nowrap span {
+  font-weight: bold;
+  color: #333;
+}
+.table-tab-specs tr.property-value td.pl-10 {
+  text-align: justify;
 }
 .breadcrumb li a:hover {
   color: #a52a2a;
