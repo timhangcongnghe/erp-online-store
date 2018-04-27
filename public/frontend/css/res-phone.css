@@ -145,6 +145,9 @@
     .main-container .wrap .register-content {
       width: 100%
     }
+    .table-tab-specs {
+      font-size: 11px;
+    }
 }
 
 /* Portrait */
@@ -312,6 +315,9 @@
     }
     .main-container .wrap .register-content {
       width: 100%
+    }
+    .table-tab-specs {
+      font-size: 14px;
     }
 }
 

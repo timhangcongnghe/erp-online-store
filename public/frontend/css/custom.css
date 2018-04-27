@@ -1871,7 +1871,7 @@ form[role=edit-password] > div:last-child {
     display: inline-block;
     font-size: 19px;
     padding-top: 15px;
-    height: 46px;
+    height: 49px;
     z-index: -1;
     transition: all 0.4s ease;
     -webkit-transition: all 0.4s ease;
