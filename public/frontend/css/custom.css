@@ -2811,3 +2811,7 @@ a.open-video-link:hover {
 .breadcrumb li + li:before {
   color: #029900;
 }
+.cart button.add-to-cart:hover, .quick-cart a.add-to-quick-cart:hover, .compare button.add-to-compare:hover {
+  opacity: 0.8;
+  text-shadow: 2px 2px 4px #000000;
+}
