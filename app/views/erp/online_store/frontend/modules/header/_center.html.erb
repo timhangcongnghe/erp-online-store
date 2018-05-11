@@ -32,6 +32,7 @@
                                                     <span class="label"></span>
                                                 </a>
                                             </li>
+                                            <% if Erp::Products::Product.get_deal_products.count > 0 %>
                                             <li>
                                                 <p class="close-menu"></p>
                                                 <a href="<%= erp_online_store.deal_products_path %>" class="clearfix">
@@ -39,6 +40,7 @@
                                                     <span class="label"></span>
                                                 </a>
                                             </li>
+                                            <% end %>
 											<li>
                                                 <p class="close-menu"></p>
                                                 <a href="<%= erp_online_store.bestseller_products_path %>" class="clearfix">
