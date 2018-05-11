@@ -28,6 +28,14 @@
                 name: 'erp_products_categories.id',
                 data_url: erp_products.dataselect_backend_categories_path
             }
+        },
+        {
+            text: t('.brand'),
+            name: 'erp_products_brands.name',
+            select: {
+                name: 'erp_products_brands.id',
+                data_url: erp_products.dataselect_backend_brands_path
+            }
         }
     ],
     actions: [
@@ -171,6 +179,9 @@
             text: t('.code'), name: 'code', value: true, checked: false
         },
         {
+            text: t('.brand'), name: 'brand', value: true, checked: true
+        },
+        {
             text: t('.name'), name: 'name', value: true, checked: true
         },
         {
@@ -178,18 +189,6 @@
         },
         {
             text: t('.price'), name: 'price', value: true, checked: true
-        },
-        {
-            text: t('.cost'), name: 'cost', value: true, checked: true
-        },
-        {
-            text: t('.on_hand'), name: 'on_hand', value: true, checked: true
-        },
-        {
-            text: t('.stock_min'), name: 'stock_min', value: true, checked: false
-        },
-        {
-            text: t('.stock_max'), name: 'stock_max', value: true, checked: false
         },
         {
             text: t('status'), name: 'status', value: true, checked: true

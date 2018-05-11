@@ -10,7 +10,7 @@ module Erp
 
         def detail
           @brand = Erp::Products::Brand.find(params[:brand_id])
-          @products = Erp::Products::Product.get_products_for_brand(params).frontend_filter(params).paginate(:page => params[:page], :per_page => 16)
+          @products = Erp::Products::Product.get_products_for_brand(params).frontend_filter(params).paginate(:page => params[:page], :per_page => 32)
           @menus = Erp::Menus::Menu.get_menus
         end
 

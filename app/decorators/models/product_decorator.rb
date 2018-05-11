@@ -318,7 +318,7 @@ Erp::Products::Product.class_eval do
 
   # overide search method
   def self.search(params)
-    query = self.no_online.where(archived: false)
+    query = self.no_online
     query = self.filter(query, params)
 
     return query.set_order(params)

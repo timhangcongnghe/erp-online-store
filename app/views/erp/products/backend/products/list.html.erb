@@ -10,6 +10,11 @@
                         <%= t('.code') %>
                     </th>
                 <% end %>
+                <% if get_columns(params).include?("brand") %>
+                    <th>
+                        <%= t('.brand') %>
+                    </th>
+                <% end %>
                 <% if get_columns(params).include?("name") %>
                     <th class="sortable" sort-by='erp_products_products.name'>
                         <%= t('.name') %>
@@ -24,27 +29,7 @@
                     <th>
                         <%= t('.price') %>
                     </th>
-                <% end %>
-                <% if get_columns(params).include?("cost") %>
-                    <th>
-                        <%= t('.cost') %>
-                    </th>
-                <% end %>
-                <% if get_columns(params).include?("on_hand") %>
-                    <th>
-                        <%= t('.on_hand') %>
-                    </th>
-                <% end %>
-                <% if get_columns(params).include?("stock_min") %>
-                    <th>
-                        <%= t('.stock_min') %>
-                    </th>
-                <% end %>
-                <% if get_columns(params).include?("stock_max") %>
-                    <th>
-                        <%= t('.stock_max') %>
-                    </th>
-                <% end %>
+                <% end %>                
                 <% if get_columns(params).include?("status") %>
                     <th>
                         <%= t('status') %>
@@ -72,6 +57,9 @@
                     <% if get_columns(params).include?("code") %>
                         <td><%= product.code %></td>
                     <% end %>
+                    <% if get_columns(params).include?("brand") %>
+                        <td><%= product.brand_name %></td>
+                    <% end %>
                     <% if get_columns(params).include?("name") %>
                         <td>
                             <%= link_to product.name, erp_products.edit_backend_product_path(product) %><br>
@@ -87,33 +75,10 @@
                         <td><%= product.category_name %></td>
                     <% end %>
                     <% if get_columns(params).include?("price") %>
-                        <td><%= format_number(product.price) %></td>
-                    <% end %>
-                    <% if get_columns(params).include?("cost") %>
-                        <td><%= format_number(product.cost) %></td>
-                    <% end %>
-                    <% if Erp::Core.available?("qdeliveries") %>
-                        <% if get_columns(params).include?("on_hand") %>
-                            <td><%= product.get_stock %></td>
-                        <% end %>
-                    <% else %>
-                        <% if get_columns(params).include?("on_hand") %>
-                            <td><%= product.on_hand %></td>
-                        <% end %>
-                    <% end %>
-                    <% if get_columns(params).include?("stock_min") %>
-                        <td><%= product.stock_min %></td>
-                    <% end %>
-                    <% if get_columns(params).include?("stock_max") %>
-                        <td><%= product.stock_max %></td>
+                        <td><%= format_price(product.price) %></td>
                     <% end %>
                     <% if get_columns(params).include?("status") %>
                     <td>
-                        <% if product.archived == true %>
-                        <span class="label label-sm label-danger"><%= t('.archived') %></span>
-                        <% else %>
-                        <span class="label label-sm label-success"><%= t('.active') %></span>
-                        <% end %>
                         <% if product.is_deal? %>
                         <br><span class="label label-sm label-orange"><%= t('.deal') %></span>
                         <% end %>
@@ -156,23 +121,7 @@
                                 {
                                     text: '<i class="fa fa-edit"></i> '+t('edit'),
                                     href: erp_products.edit_backend_product_path(product)
-                                },
-                                {
-                                    text: '<i class="fa fa-ban"></i> '+t('archive'),
-                                    url: erp_products.archive_backend_products_path(id: product),
-                                    data_method: 'PUT',
-                                    hide: product.archived,
-                                    class: 'ajax-link',
-                                    data_confirm: t('.archive_confirm')
-                                },
-                                {
-                                    text: '<i class="fa fa-check"></i> '+t('unarchive'),
-                                    url: erp_products.unarchive_backend_products_path(id: product),
-                                    data_method: 'PUT',
-                                    hide: !product.archived,
-                                    class: 'ajax-link',
-                                    data_confirm: t('.unarchive_confirm')
-                                },
+                                },                                
                                 {
                                     text: '<i class="fa fa-check-square-o"></i> '+t('.check_is_bestseller'),
                                     url: erp_products.check_is_bestseller_backend_products_path(id: product),
@@ -268,16 +217,6 @@
                                     hide: !product.is_top_business_choices,
                                     class: 'ajax-link',
                                     data_confirm: t('.uncheck_is_top_business_choices_confirm')
-                                },
-                                {
-                                    divider: true
-                                },
-                                {
-                                    text: '<i class="fa fa-trash"></i> '+t('.delete'),
-                                    url: erp_products.backend_product_path(product),
-                                    data_method: 'DELETE',
-                                    class: 'ajax-link',
-                                    data_confirm: t('.delete_confirm')
                                 }
                             ]
                         ) %>

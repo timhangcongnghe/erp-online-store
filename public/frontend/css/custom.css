@@ -2815,3 +2815,9 @@ a.open-video-link:hover {
   opacity: 0.8;
   text-shadow: 2px 2px 4px #000000;
 }
+a.img-brand img:hover {
+  transform: scale(1.2);
+}
+a.img-marketing img:hover {
+  opacity: 0.8;
+}
