@@ -142,7 +142,12 @@ module Erp
         def images
           hkerp_product = Erp::Products::HkerpProduct.find(params[:hkerp_id])
           product = hkerp_product.product
-          render json: product.product_images.map {|pi| front_end_hkerp_image_url(title: params[:title], image_id: pi.id, type: params[:type]) }
+          render json: product.product_images.map {|pi|
+            {
+              'origin' => front_end_hkerp_image_url(title: params[:title], image_id: pi.id),
+              'thumb650' => front_end_hkerp_image_url(title: params[:title], image_id: pi.id, type: 'thumb650')
+            }
+          }
         end
         
         def image
