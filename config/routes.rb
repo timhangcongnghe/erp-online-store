@@ -139,4 +139,8 @@ Erp::OnlineStore::Engine.routes.draw do
 	
 	# PRODUCTS SELLERS
 	get "xa-hang-gia-re.html" => "frontend/stock_inventory#index_2", as: :stock_inventory_2
+	
+	# PRODUCTS SELLERS
+	get "tat-ca-hinh-anh-sp/:title/:hkerp_id.html" => "frontend/product#images", as: :front_end_hkerp_images
+	get "hinh-anh-sp/:title/:image_id(/:type).html" => "frontend/product#image", as: :front_end_hkerp_image
 end
