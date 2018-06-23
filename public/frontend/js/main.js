@@ -680,16 +680,16 @@ $(document).ready(function () {
         });
 
         //// auto height product list
-        setTimeout(function() {
+        setInterval(function() {
             fixWithProductListAll();
         }, 1000);
 
-        $('div.lazy img').load(function() {
-            var container = $(this).parents('.products-list').parent();
-            setTimeout(function() {
-                fixWithProductListAll(container);
-            }, 1000);
-        });
+        //$('div.lazy img').load(function() {
+        //    var container = $(this).parents('.products-list').parent();
+        //    setTimeout(function() {
+        //        fixWithProductListAll(container);
+        //    }, 1000);
+        //});
     });
 
     // autosearch
@@ -802,7 +802,7 @@ $(document).ready(function () {
                 container.find('.product-image-container').addClass('lazy-loaded');
                 container.find('.product-image-container').removeClass('lazy');
                 container.find('.products-list').removeClass('list').addClass('grid');
-                fixWithProductListAll(container);
+                //fixWithProductListAll(container);
             }, 500);
             container.find('.ajax-link').fancybox({
                 closeClickOutside : true,
@@ -843,7 +843,7 @@ $(document).ready(function () {
                 container.find('.product-image-container').addClass('lazy-loaded');
                 container.find('.product-image-container').removeClass('lazy');
                 container.find('.products-list').removeClass('list').addClass('grid');
-                fixWithProductListAll(container);
+                //fixWithProductListAll(container);
             }, 500);
             container.find('.ajax-link').fancybox({
                 closeClickOutside : true,
@@ -1005,7 +1005,7 @@ $(document).ready(function () {
                 container.find('.product-image-container').addClass('lazy-loaded');
                 container.find('.product-image-container').removeClass('lazy');
                 container.find('.products-list').removeClass('list').addClass('grid');
-                fixWithProductListAll(container);
+                //fixWithProductListAll(container);
             }, 500);
         });
     });
@@ -1032,7 +1032,7 @@ $(document).ready(function () {
                 container.find('.product-image-container').addClass('lazy-loaded');
                 container.find('.product-image-container').removeClass('lazy');
                 container.find('.products-list').removeClass('list').addClass('grid');
-                fixWithProductListAll(container);
+                //fixWithProductListAll(container);
             }, 500);
             $(window).scrollTop();
         });
@@ -1108,7 +1108,7 @@ $(window).scroll(function () {
 });
 $( window ).resize(function() {
     // auto height product list
-    fixWithProductListAll();
+    //fixWithProductListAll();
 });
 
 
@@ -1219,7 +1219,7 @@ $( document ).ready(function() {
     //}
 
     $( window ).resize(function() {
-        fixWithProductListAll();
+        //fixWithProductListAll();
         // autoWidthImg();
     });
 
