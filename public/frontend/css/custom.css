@@ -1643,7 +1643,11 @@ form[role=edit-password] > div:last-child {
   margin-top: 0px;
 }
 .type_1 .header-top .header-top-left .welcome-msg .list-msg .label-msg, .type_1 .header-top .header-top-left .welcome-msg .list-msg a {
-  font-size: 13px;
+  font-size: 12px;
+}
+.type_1 .header-top .header-top-left .welcome-msg .list-msg a:hover {
+  opacity: 0.8;
+  color: #cc181e;
 }
 .no-margin-bottom {
   margin-bottom: 0;
@@ -2820,4 +2824,10 @@ a.img-brand img:hover {
 }
 a.img-marketing img:hover {
   opacity: 0.8;
+}
+.producttab .tabsslider {
+  margin-bottom: 0px;
+}
+.upsell.products-list.module {
+  padding-top: 20px;
 }
