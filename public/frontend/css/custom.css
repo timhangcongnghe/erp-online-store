@@ -2831,3 +2831,9 @@ a.img-marketing img:hover {
 .upsell.products-list.module {
   padding-top: 20px;
 }
+.cus-size-btc {
+  max-width: 49%;
+}
+.box-dcma {
+  margin-bottom: 5px;
+}
