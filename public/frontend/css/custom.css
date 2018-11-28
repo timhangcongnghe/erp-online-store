@@ -2834,6 +2834,6 @@ a.img-marketing img:hover {
 .cus-size-btc {
   max-width: 49%;
 }
-.box-dcma {
+.box-dcma, #content {
   margin-bottom: 5px;
 }
