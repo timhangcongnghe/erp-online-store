@@ -1,7 +1,7 @@
 <h2 class="mt-0 product-box-name"><%= link_to product.name, product_link(product), title: product.name %></h2>
 <div class="specs-content">
-    <% if product.description.present? %>
-    <%= product.specs.html_safe if product.specs.present? %>
+    <% if product.specs.present? %>
+        <%= product.specs.html_safe if product.specs.present? %>
     <% else %>
         <table width="100%" class="table-tab-specs specs-content">
             <tbody>
