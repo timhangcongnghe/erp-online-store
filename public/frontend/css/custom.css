@@ -2751,6 +2751,7 @@ span.christmas-title {
 }
 .left-content-product .content-product-right .product-box-desc {
   padding: 20px 10px 10px 20px;
+  border-bottom: none;
 }
 .left-content-product {
   margin-bottom: 20px;
@@ -2875,9 +2876,15 @@ footer .footer-center .module ul.menu li a {
 .producttab .tabsslider .tab-content {
   padding: 5px;
 }
-table.table-tab-specs, table.table-tab-specs tbody tr, table.table-tab-specs tr td {
+table, table tbody tr, table tr td {
   height: inherit !important;
 }
 table.table-tab-specs tbody tr:first-child {
   max-width: 30%;
+}
+.content-product-right hr {
+  margin-top: 3px;
+  margin-bottom: 3px;
+  border: 0;
+  border-top: 1px solid #eee;
 }
