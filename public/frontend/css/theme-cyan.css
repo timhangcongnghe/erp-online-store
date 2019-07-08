@@ -1496,7 +1496,7 @@ div.horizontal .image-link:hover .btn {
 div.horizontal .image-link .figcaption {
   font-size: 13px;
   text-align: center;
-  font-weight: 600;
+  font-weight: 500;;
   text-transform: uppercase; }
 div.horizontal ul.megamenu .sub-menu .content {
   border-top: 3px solid #009688; }
@@ -1751,7 +1751,7 @@ footer {
     footer .news-letter .page-heading {
       font-size: 16px;
       text-transform: uppercase;
-      font-weight: 600;
+      font-weight: 500;;
       color: #fff;
       margin: 2px 2px 0; }
     footer .news-letter .pre-text {
@@ -1790,7 +1790,7 @@ footer {
           text-transform: uppercase;
           font-size: 12px;
           transition: 0.3s all ease 0s;
-          font-weight: 500;
+          font-weight: 500;;
           text-transform: uppercase;
           background-color: #009688;
           border-color: #009688;
@@ -2201,7 +2201,7 @@ footer.typefooter-3 div.clients_say {
       padding: 17px 0px 0; }
       footer.typefooter-3 div.clients_say .block-info .info .author {
         font-size: 15px;
-        font-weight: 600;
+        font-weight: 500;;
         margin-top: -3px;
         font-style: normal;
         color: #e74c3c; }
@@ -2248,7 +2248,7 @@ footer.typefooter-3 .news-letter {
   footer.typefooter-3 .news-letter .page-heading {
     font-size: 150%;
     text-transform: uppercase;
-    font-weight: 600;
+    font-weight: 500;;
     color: #fff;
     margin: 0px 0 6px; }
   footer.typefooter-3 .news-letter .pre-text {
@@ -3355,7 +3355,7 @@ body {
 
 .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
   font-family: inherit;
-  font-weight: 500;
+  font-weight: 500;;
   line-height: 1.1; }
 
 /* Override the bootstrap defaults */
@@ -4128,7 +4128,7 @@ span.fa-stack {
   line-height: 24px;
   color: #e74c3c;
   font-size: 18px;
-  font-weight: 600; }
+  font-weight: 600;; }
   .price .price-old {
     line-height: 20px;
     padding: 0 5px;
@@ -4651,7 +4651,7 @@ h2.title-category {
     overflow: hidden; }
     .left-content-product .content-product-right .product-label .price {
       font-size: 24px;
-      font-weight: 600;
+      font-weight: 600;;
       margin-bottom: 5px; }
       @media (min-width: 1200px) {
         .left-content-product .content-product-right .product-label .price {
@@ -4867,7 +4867,7 @@ h2.title-category {
     margin-bottom: 0; }
     .producttab .tabsslider .nav-tabs li a {
       font-size: 16px;
-      font-weight: 600;
+      font-weight: 500;;
       text-transform: uppercase;
       border-radius: 0px;
       margin: 0px;
@@ -9192,7 +9192,7 @@ div.so-latest-blog.module {
   .testimonial .block-info .author {
     padding: 17px 0px 0;
     font-size: 15px;
-    font-weight: 600;
+    font-weight: 500;;
     margin-top: -3px;
     font-style: normal;
     color: #e74c3c;

@@ -1,4 +1,122 @@
 Erp::Products::Product.class_eval do
+  has_many :accessory_details, class_name: "Erp::Products::AccessoryDetail", dependent: :destroy
+  has_many :product_gifts, class_name: "Erp::Products::ProductGift", dependent: :destroy
+  
+  # backend for thcn
+  def self.filter(query, params)
+    params = params.to_unsafe_hash
+    and_conds = []
+
+    # show archived items condition - default: false
+    show_archived = false
+
+    #filters
+    if params["filters"].present?
+      params["filters"].each do |ft|
+        or_conds = []
+        ft[1].each do |cond|
+          # in case filter is show archived
+          if cond[1]["name"] == 'show_archived'
+            # show archived items
+            show_archived = true
+          else
+            or_conds << "#{cond[1]["name"]} = '#{cond[1]["value"]}'"
+          end
+        end
+        and_conds << '('+or_conds.join(' OR ')+')' if !or_conds.empty?
+      end
+    end
+
+    #keywords
+    if params["keywords"].present?
+      params["keywords"].each do |kw|
+        or_conds = []
+        kw[1].each do |cond|
+          or_conds << "LOWER(#{cond[1]["name"]}) LIKE '%#{cond[1]["value"].downcase.strip}%'"
+        end
+        and_conds << '('+or_conds.join(' OR ')+')'
+      end
+    end
+
+    # global filter
+    global_filter = params[:global_filter]
+
+    if global_filter.present?
+
+      @global_filters = global_filter
+
+      # get categories
+      brand_ids = @global_filters[:brands].present? ? @global_filters[:brands] : nil
+      @brands = Erp::Products::Brand.where(id: brand_ids)
+
+      # get categories
+      category_ids = @global_filters[:categories].present? ? @global_filters[:categories] : nil
+      @categories = Erp::Products::Category.where(id: category_ids)
+      
+      if Erp::Core.available?("warehouses")
+        # warehouses
+        @warehouses = Erp::Warehouses::Warehouse.all
+      end
+      # product query
+      query = query.where(brand_id: brand_ids) if brand_ids.present?
+      query = query.where(category_id: category_ids) if category_ids.present?
+
+    end
+    # end// global filter
+    
+    # join with categories table for search with category
+    query = query.joins(:brand)
+
+    # join with categories table for search with category
+    query = query.joins(:category)
+
+    # showing archived items if show_archived is not true
+    if show_archived == true
+      query = query.where(archived: true)
+    else
+      query = query.where(archived: false)
+    end
+
+    query = query.where(and_conds.join(' AND ')) if !and_conds.empty?
+
+    # single keyword
+    if params[:keyword].present?
+      keyword = params[:keyword].strip.downcase
+      keyword.split(' ').each do |q|
+        q = q.strip        
+        query = query.where('LOWER(erp_products_products.cache_search) LIKE ? OR LOWER(erp_products_products.cache_search) LIKE ? OR LOWER(erp_products_products.cache_search) LIKE ?', q+'%', '% '+q+'%', '%-'+q+'%')
+      end
+    end
+
+    if Erp::Core.available?("menus")
+      # menu id
+      if params[:menu_id].present?
+        menu = Erp::Menus::Menu.find(params[:menu_id])
+        query = query.where(category_id: menu.get_all_related_category_ids)
+      end
+    end
+
+    return query
+  end
+  
+  def self.search(params)
+    query = self.all
+    query = self.filter(query, params)
+
+    # order
+    if params[:sort_by].present?
+      order = params[:sort_by]
+      order += " #{params[:sort_direction]}" if params[:sort_direction].present?
+
+      query = query.order(order)
+    else
+      query = query.order('erp_products_products.created_at desc')
+    end
+
+    return query
+  end
+  # end backend for thcn
+  
   # filter for frontend
   def self.frontend_filter(params={})
     records = self.where("1=1")

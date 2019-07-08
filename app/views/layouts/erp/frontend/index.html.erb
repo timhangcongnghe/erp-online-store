@@ -54,7 +54,7 @@
 	<%= favicon_link_tag '/frontend/fav/favicon-16x16.png', rel: 'shortcut icon', type: '/frontend/image/x-icon' %>
 
 	<!-- Google web fonts ============================================ -->
-	<%= stylesheet_link_tag "https://fonts.googleapis.com/css?family=Open+Sans:400,300,700|Roboto:400,500,700,900" %>
+	<%= stylesheet_link_tag "https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,900|Roboto:400,500,700,900" %>
 
 	<!-- Libs CSS ============================================ -->
 	<%= stylesheet_link_tag "/frontend/css/bootstrap/css/bootstrap.min.css" %>
@@ -76,7 +76,7 @@
 	<%= stylesheet_link_tag "/frontend/css/responsive.css" %>
 	<%= stylesheet_link_tag "/frontend/select2/css/select2.min.css" %>
 	<%= stylesheet_link_tag "/frontend/css/quick_order.css" %>
-	<%= stylesheet_link_tag "/frontend/css/custom.css?v=2.1" %>
+	<%= stylesheet_link_tag "/frontend/css/custom.css?v=2.2" %>
 	<%= stylesheet_link_tag "/frontend/css/res-tablet.css" %>
 	<%= stylesheet_link_tag "/frontend/css/res-phone.css" %>
 	<% if params[:controller] == "erp/online_store/frontend/account" && params[:action] == "my_account" %>
@@ -144,13 +144,6 @@
         <!-- //end Footer Container -->
 
     </div>
-
-	<!-- Social widgets -->
-	<!-- End Social widgets -->
-
-    <!-- Preloading Screen -->
-    <!--<%= render "erp/online_store/frontend/modules/preloading_screen" %>-->
-    <!-- End Preloading Screen -->
 
     <% if params[:controller] == "erp/online_store/frontend/product" && params[:action] == "product_detail" %>
 		<% else %>

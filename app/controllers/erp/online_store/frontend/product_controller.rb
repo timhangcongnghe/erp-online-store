@@ -12,26 +12,31 @@ module Erp
           render layout: nil
         end
 
-        def product_detail
+        def product_detail          
           @body_class = "res layout-subpage"
-          @product = Erp::Products::Product.find(params[:product_id])                    
-          @deal_products = Erp::Products::Product.get_deal_products
-          @menu = params[:menu_id].present? ? Erp::Menus::Menu.find(params[:menu_id]) : @product.find_menu                    
-          @related_events = @product.get_related_events(Time.now)
-          
-          @meta_keywords = @product.meta_keywords
-          @meta_description = @product.meta_description
-          
-          if @menu.present?
-            if !@product.meta_keywords.present?
-              @meta_keywords = @menu.meta_keywords
+          @product = Erp::Products::Product.find(params[:product_id])
+          if @product.archived == true
+            render layout: 'erp/frontend/error_page'
+            render(:status => 404)
+          else
+            @deal_products = Erp::Products::Product.get_deal_products
+            @menu = params[:menu_id].present? ? Erp::Menus::Menu.find(params[:menu_id]) : @product.find_menu                    
+            @related_events = @product.get_related_events(Time.now)
+            
+            @meta_keywords = @product.meta_keywords
+            @meta_description = @product.meta_description
+            
+            if @menu.present?
+              if !@product.meta_keywords.present?
+                @meta_keywords = @menu.meta_keywords
+              end
+  
+              if !@product.meta_description.present?
+                @meta_description = @menu.meta_description
+              end
             end
-
-            if !@product.meta_description.present?
-              @meta_description = @menu.meta_description
-            end
+            @total_comments = @product.comments.where(parent_id: nil).where(archived: false).count
           end
-          @total_comments = @product.comments.where(parent_id: nil).where(archived: false).count
         end
         
         # view all product properties
