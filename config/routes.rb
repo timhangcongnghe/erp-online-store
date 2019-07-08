@@ -140,4 +140,7 @@ Erp::OnlineStore::Engine.routes.draw do
 	# PRODUCTS SELLERS
 	get "tat-ca-hinh-anh-sp/:title/:hkerp_id.html" => "frontend/product#images", as: :front_end_hkerp_images
 	get "hinh-anh-sp/:title/:image_id(/:type).html" => "frontend/product#image", as: :front_end_hkerp_image
+	
+	# API PRODUCT INFO
+	get "api/product-info/:id" => "frontend/product#api_info", as: :api_product_info
 end

@@ -159,6 +159,11 @@ module Erp
           image = Erp::Products::ProductImage.find(params[:image_id])
           send_file image.image_url_url(params[:type]), :disposition => 'inline'
         end
+        
+        def api_info
+          product = Erp::Products::Product.find(params[:id])
+          render :json => product
+        end
 
         private
           def set_comment
