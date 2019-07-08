@@ -3,7 +3,13 @@ vi:
   flash_warning: "Cảnh báo!"
   flash_error: "Lỗi!"
   flash_notice: "Thông báo"
-  
+  erp:
+    products:
+      backend:
+        products:
+          form:
+            specs: "Thông số sản phẩm"
+            enter_specs: "Nhập thông số sản phẩm"  
   activerecord:
     attributes:
       erp/user:

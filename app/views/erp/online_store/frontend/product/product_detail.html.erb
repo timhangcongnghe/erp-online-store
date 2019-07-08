@@ -24,7 +24,7 @@
                     <li><%= link_to menu.name, menu_link(menu) %></li>
                 <% end %>
             <% end %>
-        <li><%= link_to @product.product_name, "javascript:void(0)" %></li>
+        <li><%= link_to truncate(@product.product_name, length: 50), "javascript:void(0)", title: @product.product_name %></li>
     </ul>
     <div class="row">
         <!--Middle Part Start-->

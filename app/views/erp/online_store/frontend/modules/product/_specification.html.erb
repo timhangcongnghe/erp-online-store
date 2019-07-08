@@ -1,21 +1,24 @@
-<h2 class="mt-0 product-box-name">Thông Số Kỹ Thuật: <%= link_to product.name, product_link(product), title: product.name %></h2>
+<h2 class="mt-0 product-box-name"><%= link_to product.name, product_link(product), title: product.name %></h2>
 <div class="specs-content">
-    <%= product.description.html_safe if product.description.present? %><br>
-    <table width="100%" class="table-tab-specs specs-content">
-        <tbody>
-            <% product.product_values_array.each do |group| %>
-                <tr class="property-group-name">
-                    <td colspan="2"><h4><%= group[:group].name %></h4></td>
-                </tr>
-                <% group[:properties].each do |property| %>
-                    <tr class="property-value">
-                        <td valign="top" class="text-nowrap"><span><%= property[:property].name %></span></td>
-                        <td>
-                            <%= property[:values].count <= 4 ? property[:values].join(", ") : ('<ul><li>' + property[:values].join('</li><li>') + '</li></ul>').html_safe %>
-                        </td>
+    <% if product.description.present? %>
+    <%= product.specs.html_safe if product.specs.present? %>
+    <% else %>
+        <table width="100%" class="table-tab-specs specs-content">
+            <tbody>
+                <% product.product_values_array.each do |group| %>
+                    <tr class="property-group-name">
+                        <td colspan="2"><h4><%= group[:group].name %></h4></td>
                     </tr>
+                    <% group[:properties].each do |property| %>
+                        <tr class="property-value">
+                            <td valign="top" class="text-nowrap"><span><%= property[:property].name %></span></td>
+                            <td>
+                                <%= property[:values].count <= 4 ? property[:values].join(", ") : ('<ul><li>' + property[:values].join('</li><li>') + '</li></ul>').html_safe %>
+                            </td>
+                        </tr>
+                    <% end %>
                 <% end %>
-            <% end %>
-        </tbody>
-    </table>
+            </tbody>
+        </table>
+    <% end %>
 </div>
