@@ -2859,6 +2859,14 @@ a.img-marketing img:hover {
   font-size: 12px;
   color: #333;
 }
+.specs-content table tbody tr td a {
+  color: #0000ff;
+  text-decoration: underline;
+}
+.specs-content table tbody tr td a:hover {
+  color: #c10017;
+  opacity: 0.8;
+}
 .table-tab-specs tr td h4 {
   margin-top: 3px;
   margin-bottom: 3px;
