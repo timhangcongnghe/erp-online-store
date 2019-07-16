@@ -98,7 +98,7 @@
                                         <% if @product.is_deal %>
                                         <span class="price-old"><%= format_price(@product.price) %></span>
                                             <% if !@product.deal_percent.nil? %>
-                                            <span class="label label-percent">-<%= @product.deal_percent %>%</span>
+                                            <span class="label label-percent">-<%= @product.deal_percent %>%</span>                                
                                             <% end %>
                                         <% end %>
                                     <% end %>
@@ -141,8 +141,9 @@
                                         <table>
                                             <% product_short_descipriton_values_array.each do |row| %>
                                                 <tr>
-                                                    <td valign="top" class="text-nowrap"><span><%= row[:name] %></span></td>
-                                                    <td class="pl-10"><%= row[:values].join(", ") %></td>
+                                                    <td valign="top" class="text-nowrap">
+                                                        <span><%= row[:name] %>: </span><%= row[:values].join(", ") %>
+                                                    </td>
                                                 </tr>
                                             <% end %>
                                         </table>
@@ -154,8 +155,10 @@
                                                 </tr>
                                                 <% group[:properties].each do |property| %>
                                                     <tr>
-                                                        <td valign="top" class="text-nowrap"><span><%= property[:property].name %></span></td>
-                                                        <td class="pl-10"><%= property[:values].join(", ") %></td>
+                                                        <td valign="top" class="text-nowrap">
+                                                            <span><%= property[:property].name %>: </span>
+                                                            <%= property[:values].join(", ") %>
+                                                        </td>
                                                     </tr>
                                                 <% end %>
                                             <% end %>
