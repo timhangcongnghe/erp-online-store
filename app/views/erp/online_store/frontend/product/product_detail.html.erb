@@ -141,7 +141,7 @@
                                         <table>
                                             <% product_short_descipriton_values_array.each do |row| %>
                                                 <tr>
-                                                    <td valign="top" class="text-nowrap">
+                                                    <td valign="top">
                                                         <span><%= row[:name] %>: </span><%= row[:values].join(", ") %>
                                                     </td>
                                                 </tr>
@@ -155,7 +155,7 @@
                                                 </tr>
                                                 <% group[:properties].each do |property| %>
                                                     <tr>
-                                                        <td valign="top" class="text-nowrap">
+                                                        <td valign="top">
                                                             <span><%= property[:property].name %>: </span>
                                                             <%= property[:values].join(", ") %>
                                                         </td>

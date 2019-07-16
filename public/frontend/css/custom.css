@@ -1158,7 +1158,7 @@ span.fa.fa-stack {
     margin: 10px 0 5px 0;
 }
 .inner-box-desc span {
-    padding-left: 10px;
+    padding-left: 0px;
 }
 .content-product-left .owl2-item {
     align-items: center;
