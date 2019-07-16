@@ -233,15 +233,18 @@
                             </div>
                         </div>
                         <!-- //Product Tabs -->
-                        <!-- Accessory Products -->
-                        <div class="related upsell titleLine products-list grid module ">
-                            <% if @product.accessory.present? %>
-                                <% if @product.accessory.accessory_details.count > 0 %>
+                        <% if @product.accessory.present? %>
+                            <% if @product.accessory.accessory_details.count > 0 %>
+                                <div class="related upsell titleLine products-list grid module ">                            
                                     <%= render "/erp/online_store/frontend/modules/product/accessories", accessory: @product.accessory %>
-                                <% end %>
+                                </div>
                             <% end %>
-                            <%= render "/erp/online_store/frontend/modules/product/deal_products" %>
-                        </div>
+                        <% end %>
+                        <% if Erp::Products::Product.limit_deal_products.count > 0 %>
+                            <div class="related upsell titleLine products-list grid module ">    
+                                <%= render "/erp/online_store/frontend/modules/product/deal_products" %>
+                            </div>
+                        <% end %>
                     </div>
                 </div>
             </div>
