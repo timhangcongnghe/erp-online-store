@@ -550,7 +550,8 @@ a.text-teal:hover {
 }
 .back-to-top {
   background-color: #009688;
-  padding: 7px 0;
+  padding: 9px 0;
+  bottom: 100px;
 }
 .back-to-top i {
   line-height: 22px;
@@ -1004,7 +1005,7 @@ table.product-compare tr td.product-name {
 }
 .type_7 .header-center {
     padding: 0px 0 1px;
-    border-bottom: solid 1px #ddd;
+    border-bottom: solid 0px #ddd;
 }
 #sosearchpro.search-pro .select_category select {
   width: auto !important;
@@ -2961,6 +2962,9 @@ table.table-tab-specs tbody tr:first-child {
 .best-seller .so-extraslider .owl2-controls .owl2-nav > div {
   color: #c10017;
 }
-#shoppingcart-box .table {
-  margin-bottom: 5px;
+#shoppingcart-box .table, .main-products-list .products-list .right-block .price {
+  margin-bottom: 3px;
+}
+.main-products-list .products-list .right-block h4, .products-list.list-masonry .product-layout .product-item-container .right-block .caption .ratings, .products-list.grid .product-layout .product-item-container .right-block .caption .ratings {
+  margin: 3px 0;
 }

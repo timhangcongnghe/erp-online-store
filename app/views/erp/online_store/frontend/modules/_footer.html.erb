@@ -12,33 +12,7 @@
                             <li class="instagram"><%= link_to '<i class="fa fa-instagram"></i>'.html_safe, "https://www.instagram.com/timhangcongnghe/", target: "_blank" %></li>
                             <li class="pinterest"><%= link_to '<i class="fa fa-pinterest"></i>'.html_safe, "https://www.pinterest.com/timhangcongnghe/", target: "_blank" %></li>
                         </ul>
-                    </div>
-                    <div class="module news-letter col-md-9 col-sm-12 col-xs-12">
-                        <div class="newsletter">
-                            <div class="title-block">
-                                <div class="page-heading">Nhận thông tin ưu đãi</div>
-                                <div class="pre-text">
-                                    Chúng tôi không spam và chia sẻ email của bạn với bất kì ai.<br> Bạn có thể hủy đăng ký bất cứ lúc nào bạn muốn.
-                                </div>
-                            </div>
-                            <div class="block_content">
-                                <%= form_for Erp::Newsletters::Newsletter.new, url: erp_newsletters.newsletters_path, html: {class: "btn-group form-inline signup"} do |f| %>
-                                    <div class="form-group required send-mail">
-                                        <div class="input-box">
-                                            <input type="text" name="newsletter[email]"
-                                                   placeholder="Email đăng ký nhận tin..."
-                                                   class="form-control" size="55" />
-                                        </div>
-                                        <div class="subcribe">
-                                            <button class="btn btn-default btn-lg">
-                                                Đăng ký
-                                            </button>
-                                        </div>
-                                    </div>
-                                <% end %>
-                            </div>
-                        </div>
-                    </div>
+                    </div>                    
                 </div>
             </div>
         </div>
@@ -165,7 +139,7 @@
                     Đơn vị chủ quản: <strong>Công Ty TNHH Giải Pháp Công Nghệ Thông Tin Và Truyền Thông Hoàng Khang</strong><br>
                     GPĐKKD số 0306146736 do Sở KH&ĐT TPHCM cấp lần đầu ngày 06/08/2008.
                 </div>
-                <!--<div class="back-to-top"><i class="fa fa-angle-up"></i></div>-->
+                <div class="back-to-top"><i class="fa fa-angle-up"></i></div>
             </div>
         </div>
     </div>
