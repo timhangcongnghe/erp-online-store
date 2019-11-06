@@ -621,4 +621,13 @@ Erp::Products::Product.class_eval do
     update_attributes(is_sold_out: false)
   end
   ##########################
+  
+  def self.check_hkerp_product_imported(pid)
+    if Erp::Products::HkerpProduct.where(hkerp_product_id: pid).empty?
+      url = ErpSystem::Application.config.hkerp_endpoint + "products/erp_set_imported"
+
+      uri = URI(url)
+      Net::HTTP.post_form(uri, 'id' => pid, 'value' => 'false')
+    end
+  end
 end
