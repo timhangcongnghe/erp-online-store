@@ -7,7 +7,11 @@
             <tbody>
                 <% product.product_values_array.each do |group| %>
                     <tr class="property-group-name">
-                        <td colspan="2"><h4><%= group[:group].get_show_name %></h4></td>
+                        <% if group[:group].get_show_name.present? %>
+                            <td colspan="2"><h4><%= group[:group].get_show_name %></h4></td>
+                        <% else %>
+                            <td colspan="2"><h4><%= group[:group].name %></h4></td>
+                        <% end %>
                     </tr>
                     <% group[:properties].each do |property| %>
                         <tr class="property-value">
