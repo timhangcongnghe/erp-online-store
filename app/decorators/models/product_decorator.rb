@@ -2,6 +2,32 @@ Erp::Products::Product.class_eval do
   has_many :accessory_details, class_name: "Erp::Products::AccessoryDetail", dependent: :destroy
   has_many :product_gifts, class_name: "Erp::Products::ProductGift", dependent: :destroy
   
+  #THCN Using Start
+  
+  #get product long name
+  def get_long_name
+    return self.name
+  end
+  
+  #get product price
+  def product_price
+    # not deal
+    return self.price if !self.is_deal
+    
+    # is deal
+    from_conds = !self.deal_from_date.present? || (self.deal_from_date.present? && Time.now >= self.deal_from_date.beginning_of_day)
+    to_conds = !self.deal_to_date.present? || (self.deal_to_date.present? && Time.now <= self.deal_to_date.end_of_day)
+    
+    if from_conds && to_conds
+      return self.deal_price
+    else
+      self.update_column(:is_deal, false)
+      return self.price
+    end
+  end
+  
+  #THCN Using End
+  
   # backend for thcn
   def self.filter(query, params)
     params = params.to_unsafe_hash

@@ -1,17 +1,16 @@
-<% title @product.name %>
+<% title @product.get_long_name %>
 <% product_images = @product.product_images %>
 
 <% content_for :metas do %>
-    <!-- for Facebook -->
     <meta property="og:url" content="<%= request.url %>"/>
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="<%= @product.product_name %>"/>
+    <meta property="og:title" content="<%= @product.get_long_name %>"/>
     <% if @meta_description.present? %>
         <meta property="og:description" content="<%= @meta_description %>"/>
     <% else %>
         <meta property="og:description" content="Tìm Hàng Công Nghệ là trang thương mại điện tử uy tín chuyên cung cấp đa dạng các sản phẩm, thiết bị công nghệ từ các hãng lớn thế giới."/>
     <% end %>
-    <% product_images.limit(1).each_with_index do |product_image,index| %>
+    <% product_images.limit(1).each do |product_image| %>
         <meta property="og:image" content="http://timhangcongnghe.com<%= product_image.image_url.thumb650 %>" />
     <% end %>
 <% end %>
@@ -24,211 +23,12 @@
                     <li><%= link_to menu.name, menu_link(menu) %></li>
                 <% end %>
             <% end %>
-        <li><%= link_to truncate(@product.product_name, length: 50), "javascript:void(0)", title: @product.product_name %></li>
+        <li><%= link_to truncate(@product.get_long_name, length: 50), "javascript:void(0)", title: @product.get_long_name %></li>
     </ul>
     <div class="row">
-        <!--Middle Part Start-->
         <div id="content" class="col-md-12 col-sm-12">
             <div class="product-view row">
-                <div class="left-content-product col-lg-12 col-xs-12">
-                    <div class="row">
-                        <% if product_images.count > 1 %>
-                            <div class="content-product-left  col-sm-6 col-xs-12 ">                            
-                                <div id="thumb-slider-vertical" class="thumb-vertical-outer">
-                                    <span class="btn-more prev-thumb nt"><i class="fa fa-chevron-up"></i></span>
-                                    <span class="btn-more next-thumb nt"><i class="fa fa-chevron-down"></i></span>
-                                    <ul class="thumb-vertical">
-                                        <!-- thumb 445x445 -->
-                                        <% product_images.each_with_index do |product_image,index| %>
-                                            <li class="owl2-item">
-                                                <a data-caption="<%= @product.name %> - Hình <%= index+1 %>" data-index="<%= index %>" class="img thumbnail " data-image="<%= product_image.image_url.thumb650 %>" title="<%= @product.name %>">
-                                                    <%= image_tag product_image.image_url.thumb170, alt: @product.name, title: @product.name %>
-                                                </a>
-                                            </li>
-                                        <% end %>
-                                    </ul>
-                                </div>
-                                <div id="large-image" class="large-image vertical">
-                                    <img class="product-image-zoom" data-src="<%= @product.main_image.image_url.thumb650 %>" src="<%= @product.main_image.image_url.thumb650 %>" title="<%= @product.name %>" alt="<%= @product.name %>">
-                                </div>
-                                <% if @product.product_intro_link.present? %>
-                                    <%= link_to '<i class="fa fa-youtube-play"></i>'.html_safe, @product.product_intro_link, class: "open-video-link thumb-video pull-left", title: @product.name %>
-                                <% end %>                            
-                            </div>
-                        <% else %>
-                            <div class="content-product-left  col-sm-5 col-xs-12 ">
-                                <% if product_images.count == 0 %>
-                                    <div class="vertical">
-                                        <img src="<%= url_for('/frontend/image/shop/image-coming-soon.jpg') %>">
-                                    </div>
-                                <% else %>
-                                    <div id="large-image" class="large-image vertical">
-                                        <img class="product-image-zoom" data-src="<%= @product.main_image.image_url.thumb650 %>" src="<%= @product.main_image.image_url.thumb650 %>" title="<%= @product.name %>" alt="<%= @product.name %>">
-                                    </div>
-                                    <% if @product.product_intro_link.present? %>
-                                        <%= link_to '<i class="fa fa-youtube-play"></i>'.html_safe, @product.product_intro_link, class: "open-video-link thumb-video pull-left", title: @product.name %>
-                                    <% end %>
-                                <% end %>
-                            </div>
-                        <% end %>
-                        <% if product_images.count > 1 %>
-                            <div class="content-product-right col-sm-6 col-xs-12">
-                        <% else %>
-                            <div class="content-product-right col-sm-7 col-xs-12">
-                        <% end %>
-                            <div class="title-product">
-                                <h1><%= @product.name %></h1>
-                            </div>
-                            <!-- Review -->
-                            <div class="box-review form-group">
-                                <div class="ratings">
-                                    <div class="rating-box">
-                                        <%= stars(@product.average_stars) %>
-                                    </div>
-                                </div>
-                                <a class="write_review_button" href="" onclick="$('a[href=\'#tab-review\']').trigger('click'); return false;">Đánh giá sản phẩm</a> |
-                                <a class="write_review_button" href="" onclick="$('a[href=\'#tab-comment\']').trigger('click'); return false;">Bình luận về sản phẩm</a>
-                            </div>
-                            <div class="product-label form-group form-group-price-sold-out">
-                                <div class="product_page_price price">
-                                    <% if @product.is_sold_out? || @product.is_call? || @product.product_price.nil? %>
-                                        <span class="price-sold-out sold_out_true">Liên hệ: (028) 3984 7690</span>
-                                    <% else %>
-                                        <span class="price-new" itemprop="price"><%= format_price(@product.product_price) %></span>
-                                        <% if @product.is_deal %>
-                                        <span class="price-old"><%= format_price(@product.price) %></span>
-                                            <% if !@product.deal_percent.nil? %>
-                                            <span class="label label-percent">-<%= @product.deal_percent %>%</span>                                
-                                            <% end %>
-                                        <% end %>
-                                    <% end %>
-                                </div>
-                            </div>
-                            <% if @related_events.count > 0 || @product.gifts.count > 0 %>
-                                <div class="area_events">
-                                    <% if @related_events.count > 0 %>
-                                        <strong>
-                                            <%= image_tag "/frontend/image/christmas-sales.png", alt: "", class: "christmas-gift" %>
-                                            <% if @related_events.count == 1 %>
-                                                khuyến mãi đang áp dụng
-                                                <i><sup>*</sup>Áp dụng đến <%= @related_events.first.to_date.strftime("%d/%m/%Y") %></i>
-                                            <% else %>
-                                                <%= @related_events.count %> khuyến mãi đang áp dụng
-                                            <% end %>
-                                        </strong>
-                                        <% @related_events.each do |event| %>
-                                            <span class="event-text"><%= link_to event.name, event_link(event), title: event.name, target: "_blank" %></span>
-                                        <% end %>
-                                    <% end %>
-
-                                    <% if @product.gifts.count > 0 %>
-                                        <strong>
-                                            <%= image_tag "/frontend/image/christmas-gift.png", alt: "", class: "christmas-gift" %>
-                                            <span class="christmas-title">Tặng kèm</span>
-                                        </strong>
-                                        <% @product.gifts.each do |gift| %>
-                                            <span class="event-text"><%= link_to gift.product_name, product_link(gift), title: gift.product_name, target: "_blank" %></span>
-                                        <% end %>
-                                    <% end %>
-                                </div>
-                            <% end %>
-                            <% if @product.get_product_property_array.count > 0 %>
-                            <div class="product-box-desc <%= 'no_border_button' if @product.is_sold_out %>">
-                                <div class="inner-box-desc">
-                                    <!--<h3>THÔNG SỐ SẢN PHẨM</h3>-->
-                                    <% product_short_descipriton_values_array = @product.product_short_descipriton_values_array %>
-                                    <% if product_short_descipriton_values_array.count > 2 %>
-                                        <table>
-                                            <% product_short_descipriton_values_array.each do |row| %>
-                                                <tr>
-                                                    <td valign="top">
-                                                        <span><%= row[:name] %>: </span><%= row[:values].join(", ") %>
-                                                    </td>
-                                                </tr>
-                                            <% end %>
-                                        </table>
-                                    <% else %>
-                                        <table width="100%" style="margin-top: -15px;">
-                                            <% @product.product_values_array.each do |group| %>
-                                                <tr>
-                                                    <td colspan="2"><h4 class=""><%= group[:group].name %></h4></td>
-                                                </tr>
-                                                <% group[:properties].each do |property| %>
-                                                    <tr>
-                                                        <td valign="top">
-                                                            <span><%= property[:property].name %>: </span>
-                                                            <%= property[:values].join(", ") %>
-                                                        </td>
-                                                    </tr>
-                                                <% end %>
-                                            <% end %>
-                                        </table>
-                                    <% end %>
-                                </div>                                
-                            </div>
-                            <% end %>
-                            <hr>
-                            <% if @product.is_sold_out? || @product.is_call? || @product.product_price.nil? %>
-                            <div id="product">
-                                <h3>SO SÁNH SẢN PHẨM</h3>
-                                <div class="form-group box-info-product">                                    
-                                    <div class="add-to-links wish_comp">
-                                        <ul class="blank list-inline">
-                                            <li class="compare">
-                                                <%= form_tag erp_online_store.add_to_compare_frontend_compare_items_path, class: 'add-compare-form' do %>
-                                                    <%= hidden_field_tag "product_id", @product.id %>
-                                                    <button class="btn btn-mega btn-lg add-to-compare" title="So sánh sản phẩm"><i class="fa fa-window-restore"></i> So sánh</button>
-                                                <% end %>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <% else %>
-                            <div id="product">
-                                <h3>ĐẶT MUA SẢN PHẨM</h3>
-                                <div class="form-group box-info-product">
-                                    <%= form_tag erp_online_store.add_to_cart_frontend_cart_items_path, class: 'add-cart-form' do %>
-                                        <%= hidden_field_tag "product_id", @product.id %>
-                                        <div class="option quantity">
-                                            <div class="input-group quantity-control" unselectable="on" style="-webkit-user-select: none;">
-                                                <label>Số lượng: </label>
-                                                <input class="form-control" type="text" name="quantity" value="1">
-                                                <span class="input-group-addon product_quantity_down">−</span>
-                                                <span class="input-group-addon product_quantity_up">+</span>
-                                            </div>
-                                        </div>
-                                        <div class="cart">
-                                            <button class="btn btn-mega btn-lg add-to-cart"><i class="fa fa-shopping-cart"></i> Thêm vào giỏ hàng</button>
-                                        </div>
-                                    <% end %>
-                                    <div class="quick-cart">
-                                        <%= link_to '<i class="fa fa-opencart"></i> Mua ngay'.html_safe,
-                                                    erp_online_store.quick_order_path(product_id: @product.id),
-                                                    class: "btn btn-mega btn-lg add-to-quick-cart add-to-cart quick-buy-ajax ajax-link",
-                                                    'data-type': 'ajax' %>
-                                    </div>
-                                    <div class="add-to-links wish_comp">
-                                        <ul class="blank list-inline">
-                                            <li class="compare">
-                                                <%= form_tag erp_online_store.add_to_compare_frontend_compare_items_path, class: 'add-compare-form' do %>
-                                                    <%= hidden_field_tag "product_id", @product.id %>
-                                                    <button class="btn btn-mega btn-lg add-to-compare" title="So sánh sản phẩm"><i class="fa fa-window-restore"></i> So sánh</button>
-                                                <% end %>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        <% end %>
-                        <div class="call-center">
-                            <span><strong>SĐT liên hệ:</strong> <a href="tel:02839847690">(028) 3984 7690</a> (Giờ làm việc: 7:30 - 17:00)</span><br>
-                            <span><strong>Email liên hệ:</strong> <a href="mailto:kinhdoanh@hoangkhang.com.vn">kinhdoanh@hoangkhang.com.vn</a></span><br>
-                        </div>
-                        <!-- end box info product -->
-                        </div>
-                    </div>
-                </div>
+                <%= render "/erp/online_store/frontend/modules/product/overview", product_images: product_images %>
             </div>
             <div class="bototm-detail">
                 <div class="row">
@@ -239,25 +39,12 @@
                         </div>
                     </div>
                     <div class="col-lg-9 col-md-8  col-xs-12">
-                        <!-- Product Tabs -->
                         <div class="producttab ">
                             <div class="tabsslider  col-xs-12">
                                 <%= render "/erp/online_store/frontend/modules/product/tab_controls", product: @product %>
                             </div>
                         </div>
-                        <!-- //Product Tabs -->
-                        <% if @product.accessory.present? %>
-                            <% if @product.accessory.accessory_details.count > 0 %>
-                                <div class="related upsell titleLine products-list grid module ">                            
-                                    <%= render "/erp/online_store/frontend/modules/product/accessories", accessory: @product.accessory %>
-                                </div>
-                            <% end %>
-                        <% end %>
-                        <% if Erp::Products::Product.limit_deal_products.count > 0 %>
-                            <div class="related upsell titleLine products-list grid module ">    
-                                <%= render "/erp/online_store/frontend/modules/product/deal_products" %>
-                            </div>
-                        <% end %>
+                        
                     </div>
                 </div>
             </div>
@@ -272,28 +59,6 @@
                         cursor: 'pointer',
                         galleryActiveClass: "active"
                     });
-                    //$('.large-image').magnificPopup({
-                    //    items: [
-                    //        <% @product.product_images.each_with_index do |product_image,index| %>
-                    //            {
-                    //                src: '<%= product_image.image_url.thumb550 %>'
-                    //            },
-                    //        <% end %>
-                    //    ],
-                    //    gallery: {
-                    //        enabled: true,
-                    //        preload: [0, 2]
-                    //    },
-                    //    type: 'image',
-                    //    mainClass: 'mfp-fade custom-fade',
-                    //    callbacks: {
-                    //        open: function() {
-                    //            var activeIndex = parseInt($('#thumb-slider-vertical .img.active').attr('data-index'));
-                    //            var magnificPopup = $.magnificPopup.instance;
-                    //            magnificPopup.goTo(activeIndex);
-                    //        }
-                    //    }
-                    //});
                     $("#thumb-slider-vertical .owl2-item").each(function() {
                         $(this).find("[data-index='0']").addClass('active');
                     });
@@ -303,9 +68,9 @@
                         iframe: {
                             patterns: {
                                 youtube: {
-                                    index: 'youtube.com/', // String that detects type of video (in this case YouTube). Simply via url.indexOf(index).
-                                    id: 'v=', // String that splits URL in a two parts, second part should be %id%
-                                    src: '//www.youtube.com/embed/%id%?autoplay=1' // URL that will be set as a source for iframe.
+                                    index: 'youtube.com/',
+                                    id: 'v=',
+                                    src: '//www.youtube.com/embed/%id%?autoplay=1'
                                 },
                             }
                         }
@@ -409,8 +174,8 @@
 
 <div class="hide-album">
     <% product_images.each_with_index do |product_image,index| %>
-        <a href="<%= product_image.image_url.thumb650 %>" data-fancybox="images2" data-caption="<%= @product.name %> - Hình <%= index+1 %>">
-            <%= image_tag product_image.image_url.thumb170, alt: @product.name, title: @product.name, caption: @product.name %>
+        <a href="<%= product_image.image_url.thumb650 %>" data-fancybox="images2" data-caption="<%= @product.get_long_name %> - Hình <%= index+1 %>">
+            <%= image_tag product_image.image_url.thumb170, alt: @product.get_long_name, title: @product.get_long_name, caption: @product.get_long_name %>
         </a>
     <% end %>
 </div>

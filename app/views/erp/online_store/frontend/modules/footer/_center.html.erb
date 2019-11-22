@@ -1,0 +1,131 @@
+<div class="footer-center">
+    <div class="container content">
+        <div class="row">
+            <div class="col-md-3 col-sm-12 col-xs-12 collapsed-block footer-links box-footer">
+                <div class="module ">
+                    <div class="content-block-footer">
+                        <div class="footer-logo">
+                            <%= link_to image_tag("/frontend/image/logos/logo-timhangcongnghe-web.svg",
+                                alt: "Tìm Hàng Công Nghệ - Trang thương mại điện tử sản phẩm công nghệ chất lượng, uy tín.",
+                                title: "Tìm Hàng Công Nghệ - Trang thương mại điện tử sản phẩm công nghệ chất lượng, uy tín."),
+                                erp_online_store.about_us_path,
+                                title: "Tìm Hàng Công Nghệ - Trang thương mại điện tử sản phẩm công nghệ chất lượng, uy tín.",
+                                target: "_blank" %>
+                        </div>
+                        <p class="text-justify">
+                            <span>Tìm Hàng Công Nghệ</span> là trang thương mại điện tử về các sản phẩm công nghệ thông tin do <span>Công Ty TNHH Giải Pháp Công Nghệ Thông Tin Và Truyền Thông Hoàng Khang (Hoang Khang Incotech)</span> đầu tư và phát triển với tiêu chí phục vụ Khách hàng theo hướng chuyên nghiệp và hiện đại.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-12 col-xs-12 box-account box-footer">
+                <div class="module clearfix">
+                    <h3 class="modtitle">Chăm sóc khách hàng</h3>
+                    <div class="modcontent">
+                        <ul class="menu">
+                            <li>
+                                <%= link_to "Hướng dẫn mua hàng",
+                                    Erp::Articles::Category.get_active.find_by_alias(Erp::Articles::Category::ALIAS_SHOPPING_GUIDE).nil? ? "" : erp_online_store.policy_path(
+                                    Erp::Articles::Category.get_active.find_by_alias(Erp::Articles::Category::ALIAS_SHOPPING_GUIDE).id,
+                                    'huong-dan-mua-hang'
+                                ) %>
+                            </li>
+                            <li>
+                                <%= link_to "Hướng dẫn thanh toán",
+                                    Erp::Articles::Category.find_by_alias(Erp::Articles::Category::ALIAS_PAYMENT).nil? ? "" : erp_online_store.policy_path(
+                                    Erp::Articles::Category.get_active.find_by_alias(Erp::Articles::Category::ALIAS_PAYMENT).id,
+                                    'huong-dan-thanh-toan'
+                                ) %>
+                            </li>
+                            <li>
+                                <%= link_to "Chính sách vận chuyển, giao nhận",
+                                    Erp::Articles::Category.get_active.find_by_alias(Erp::Articles::Category::ALIAS_DELIVERY).nil? ? "" : erp_online_store.policy_path(
+                                    Erp::Articles::Category.get_active.find_by_alias(Erp::Articles::Category::ALIAS_DELIVERY).id,
+                                    'chinh-sach-van-chuyen-giao-nhan'
+                                ) %>
+                            </li>
+                            <li>
+                                <%= link_to "Chính sách bảo hành",
+                                    Erp::Articles::Category.get_active.find_by_alias(Erp::Articles::Category::ALIAS_WARRANTY).nil? ? "" : erp_online_store.policy_path(
+                                    Erp::Articles::Category.get_active.find_by_alias(Erp::Articles::Category::ALIAS_WARRANTY).id,
+                                    'chinh-sach-bao-hanh'
+                                ) %>
+                            </li>
+                            <li>
+                                <%= link_to "Chính sách đổi trả hàng và hoàn tiền",
+                                    Erp::Articles::Category.get_active.find_by_alias(Erp::Articles::Category::ALIAS_RETURN_REFUND).nil? ? "" : erp_online_store.policy_path(
+                                    Erp::Articles::Category.get_active.find_by_alias(Erp::Articles::Category::ALIAS_RETURN_REFUND).id,
+                                    'chinh-sach-doi-tra-hang-va-hoan-tien'
+                                ) %>
+                            </li>
+                            <li>
+                                <%= link_to "Quy định bảo mật thông tin",
+                                    Erp::Articles::Category.get_active.find_by_alias(Erp::Articles::Category::ALIAS_SECURITY).nil? ? "" : erp_online_store.policy_path(
+                                    Erp::Articles::Category.get_active.find_by_alias(Erp::Articles::Category::ALIAS_SECURITY).id,
+                                    'chinh-sach-bao-mat-thong-tin'
+                                ) %>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-12 col-xs-12 box-information box-dcma box-footer">
+                <div class="module clearfix">
+                    <h3 class="modtitle">Thông tin website</h3>
+                    <div class="modcontent">
+                        <ul class="menu">
+                            <li><%= link_to "Về chúng tôi", erp_online_store.about_us_path %></li>
+                            <li><%= link_to "Góp ý & Liên hệ", erp_online_store.contact_us_path %></li>
+                            <li><%= link_to "Tin tức công nghệ", erp_online_store.blog_path %></li>
+                            <li>
+                                <%= link_to "Quy chế hoạt động trang TMĐT",
+                                    Erp::Articles::Category.get_active.find_by_alias(Erp::Articles::Category::ALIAS_OPERATING_REGULATIONS).nil? ? "" : erp_online_store.policy_path(
+                                    Erp::Articles::Category.get_active.find_by_alias(Erp::Articles::Category::ALIAS_OPERATING_REGULATIONS).id,
+                                    'quy-che-hoat-dong-giao-dich-tmdt'
+                                ) %>
+                            </li>
+                            <li><%= link_to "Các điều khoản & Điều kiện", erp_online_store.terms_and_conditions_path %></li>                                
+                            <li><%= link_to "Câu hỏi thường gặp", erp_online_store.faq_path %></li>
+                            <a href="//www.dmca.com/Protection/Status.aspx?ID=15549fa4-f1d5-4262-8cfa-fa3a58c79b54"
+                               title="DMCA.com Protection Status" class="dmca-badge" target="_blank">
+                                <img src="//images.dmca.com/Badges/dmca_protected_sml_120aj.png?ID=15549fa4-f1d5-4262-8cfa-fa3a58c79b54"
+                                     alt="DMCA.com Protection Status">
+                            </a>
+                            <script src="//images.dmca.com/Badges/DMCABadgeHelper.min.js"></script> 
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-12 col-xs-12 collapsed-block box-footer">
+                <div class="module ">
+                    <h3 class="modtitle">Liên hệ</h3>
+                    <div class="modcontent">
+                        <ul class="contact-address">
+                            <li>
+                                <span class="fa fa-home"></span>
+                                Công Ty TNHH Giải Pháp CNTT Và Truyền Thông Hoàng Khang
+                            </li>
+                            <li>
+                                <span class="fa fa-map-marker"></span>
+                                Số 188 Đường Số 1, Phường 16, Quận Gò Vấp, TP. Hồ Chí Minh
+                            </li>
+                            <li>
+                                <span class="fa fa-phone"></span>
+                                Điện thoại: <%= link_to "(028) 3984 7690", "tel:+842839847690", class: "footer-hotline" %>
+                            </li>
+                            <li>
+                                <span class="fa fa-envelope"></span>
+                                <%= mail_to "kinhdoanh@hoangkhang.com.vn", "kinhdoanh@hoangkhang.com.vn" %>
+                            </li>
+                        </ul>
+                        <a href="http://online.gov.vn/HomePage/CustomWebsiteDisplay.aspx?DocId=45817"
+                           title="Đã Thông Báo Bộ Công Thương" class="dmca-badge" target="_blank">
+                            <img src="http://online.gov.vn/PublicImages/2015/08/27/11/20150827110756-dathongbao.png"
+                                 alt="Đã Thông Báo Bộ Công Thương" class="cus-size-btc">
+                        </a>                            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
