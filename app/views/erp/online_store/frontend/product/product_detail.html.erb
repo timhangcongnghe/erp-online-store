@@ -62,7 +62,6 @@
                     $("#thumb-slider-vertical .owl2-item").each(function() {
                         $(this).find("[data-index='0']").addClass('active');
                     });
-
                     $('.thumb-video').magnificPopup({
                         type: 'iframe',
                         iframe: {
@@ -75,17 +74,14 @@
                             }
                         }
                     });
-
                     $('.product-options li.radio').click(function() {
                         $(this).addClass(function() {
                             if ($(this).hasClass("active")) return "";
                             return "active";
                         });
-
                         $(this).siblings("li").removeClass("active");
                         $(this).parent().find('.selected-option').html('<span class="label label-success">' + $(this).find('img').data('original-title') + '</span>');
                     });
-
                     var _isMobile = {
                         iOS: function() {
                             return navigator.userAgent.match(/iPhone/i);
@@ -94,15 +90,12 @@
                             return (_isMobile.iOS());
                         }
                     };
-
                     $(".thumb-vertical-outer .next-thumb").click(function() {
                         $(".thumb-vertical-outer .lSNext").trigger("click");
                     });
-
                     $(".thumb-vertical-outer .prev-thumb").click(function() {
                         $(".thumb-vertical-outer .lSPrev").trigger("click");
                     });
-
                     $(".thumb-vertical-outer .thumb-vertical").lightSlider({
                         item: 4,
                         autoWidth: false,
@@ -144,19 +137,15 @@
                             }
                         ]
                     });
-                    // Product detial reviews button
                     $(".reviews_button,.write_review_button").click(function() {
                         var tabTop = $(".producttab").offset().top;
                         $("html, body").animate({
                             scrollTop: tabTop
                         }, 1000);
                     });
-
-                    // Product detial reviews button
                     $(".product-image-zoom").click(function() {
                         $('.hide-album a[href="'+$(this).attr('src')+'"]').trigger('click');
                     });
-
                     $('[data-fancybox]').fancybox({
                         arrows : true,
                         infobar   : true,

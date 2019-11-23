@@ -4,15 +4,19 @@
         <div class="product-item-container product-lists">
             <div class="left-block">
                 <div class="product-image-container lazy second_img ">
-                    <%= image_tag product_image(product.product_images, 'first', 'thumb268'), data: {src: product_image(product.product_images, 'first', 'thumb268')}, alt: product.product_name, title: product.product_name, class: "img-1 img-responsive" %>
-                    <%= image_tag product_image(product.product_images, 'second', 'thumb268'), data: {src: product_image(product.product_images, 'second', 'thumb268')}, alt: product.product_name, title: product.product_name, class: "img-2 img-responsive" %>
+                    <%= image_tag product_image(product.product_images, 'first', 'thumb268'),
+                        data: {src: product_image(product.product_images, 'first', 'thumb268')},
+                        alt: product.product_name, title: product.product_name, class: "img-1 img-responsive" %>
+                    <%= image_tag product_image(product.product_images, 'second', 'thumb268'),
+                        data: {src: product_image(product.product_images, 'second', 'thumb268')},
+                        alt: product.product_name, title: product.product_name, class: "img-2 img-responsive" %>
                 </div>
                 <%= quick_actions(product) %>
                 <% if product.is_new? %>
-                <span class="label label-new">Mới</span>
+                    <span class="label label-new">Mới</span>
                 <% end %>
                 <% if product.is_deal? %>
-                <span class="label label-sale">Giảm giá</span>
+                    <span class="label label-sale">Giảm giá</span>
                 <% end %>
                 <%= count_down(product.deal_from_date, product.deal_to_date) %>
             </div>
@@ -35,8 +39,10 @@
                             <% end %>
                         <% end %>
                     </div>
-                    <% if menu.is_show_detail == true %>
-                        <%= product_list_description(product) %>
+                    <% if product.meta_description.present? %>
+                        <div class="list-product-specs">
+                            <%= product.meta_description %>
+                        </div>
                     <% end %>
                 </div>
             </div>

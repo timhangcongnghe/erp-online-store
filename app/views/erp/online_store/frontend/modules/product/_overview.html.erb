@@ -131,6 +131,26 @@
                             <% end %>
                         </table>
                     <% end %>
+                    <table>
+                        <tr>
+                            <td valign="top"><span>Thương hiệu: </span><%= @product.brand_name %></td>
+                        </tr>
+                        <tr>
+                            <% if @product.warranty.present? %>
+                                <td valign="top"><span>Bảo hành: </span><%= @product.warranty %></td>
+                            <% end %>
+                        </tr>
+                        <tr>
+                            <% if @product.dimentions.present? %>
+                                <td valign="top"><span>Kích thước gói hàng: </span><%= @product.dimentions %></td>
+                            <% end %>
+                        </tr>
+                        <tr>
+                            <% if @product.weights.present? %>
+                                <td valign="top"><span>Trọng lượng gói hàng: </span><%= @product.weights %></td>
+                            <% end %>
+                        </tr>
+                    </table>
                 </div>                                
             </div>
             <% end %>

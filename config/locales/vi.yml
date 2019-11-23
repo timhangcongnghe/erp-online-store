@@ -9,7 +9,13 @@ vi:
         products:
           form:
             specs: "Thông số sản phẩm"
-            enter_specs: "Nhập thông số sản phẩm"  
+            enter_specs: "Nhập thông số sản phẩm"
+            warranty: "Thời gian bảo hành"
+            placeholder_warranty: "Nhập thời gian bảo hành"
+            weights: "Cân nặng"
+            placeholder_weights: "Nhập cân nặng sản phẩm"
+            dimentions: "Kích thước"
+            placeholder_dimentions: "Nhập kích thước sản phẩm"
   activerecord:
     attributes:
       erp/user:

@@ -5,7 +5,7 @@
                 <div class="portlet light bordered">
                     <div class="portlet-body form">
                         <div class="row">
-                            <div class="col-md-5">
+                            <div class="col-md-5 col-xs-12">
                                 <% if Erp::Core.available?("online_store") %>
                                     <% if product.hkerp_product.present? %>
                                         <div class="form-group">
@@ -97,7 +97,7 @@
                     <div class="tab-content">
                         <div class="tab-pane active" id="tab_5_1">
                             <div class="row">
-                                <div class="col-md-6">
+                                <div class="col-md-4">
                                     <% if Erp::Core.available?("online_store") and product.hkerp_product.present? %>
                                         <div class="form-group ">
                                             <label>Giá bán
@@ -118,7 +118,7 @@
                                         }) %>
                                     <% end %>
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-4">
                                     <%= erp_form_control("dataselect", {
                                         name: 'product[category_id]',
                                         value: product.category_id,
@@ -142,9 +142,7 @@
                                         errors: product.errors.full_messages_for(:category_id)
                                     }) %>
                                 </div>
-                            </div>                            
-                            <div class="row">
-                                <div class="col-md-6">
+                                <div class="col-md-4">
                                     <%= erp_form_control("dataselect", {
                                         name: 'product[brand_id]',
                                         value: product.brand_id,
@@ -161,6 +159,42 @@
                                         },
                                         required: true,
                                         errors: product.errors.full_messages_for(:brand_id)
+                                    }) %>
+                                </div>
+                            </div>                            
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <%= erp_form_control("text", {
+                                        name: 'product[warranty]',
+                                        value: product.warranty,
+                                        label: t('.warranty'),
+                                        placeholder: t('.placeholder_warranty')
+                                    }) %>                                    
+                                </div>
+                                <div class="col-md-4">
+                                    <%= erp_form_control("text", {
+                                        name: 'product[dimentions]',
+                                        value: product.dimentions,
+                                        label: t('.dimentions'),
+                                        placeholder: t('.placeholder_dimentions')
+                                    }) %>
+                                </div>
+                                <div class="col-md-4">
+                                    <%= erp_form_control("text", {
+                                        name: 'product[weights]',
+                                        value: product.weights,
+                                        label: t('.weights'),
+                                        placeholder: t('.placeholder_weights')
+                                    }) %>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <%= erp_form_control("text", {
+                                        name: 'product[product_intro_link]',
+                                        value: product.product_intro_link,
+                                        label: t('.product_intro_link'),
+                                        placeholder: t('.placeholder_product_intro_link')
                                     }) %>
                                 </div>
                                 <div class="col-md-6">
@@ -181,12 +215,6 @@
                                     }) %>
                                 </div>
                             </div>                            
-                            <%= erp_form_control("text", {
-                                name: 'product[product_intro_link]',
-                                value: product.product_intro_link,
-                                label: t('.product_intro_link'),
-                                placeholder: t('.placeholder_product_intro_link')
-                            }) %>
                             <div class="row">
                                 <div class="col-md-6">
                                     <%= erp_form_control("textarea", {
@@ -202,16 +230,6 @@
                                         value: product.meta_description,
                                         placeholder: t('.enter_meta_description'),
                                         label: t('.meta_description')
-                                    }) %>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <h4><%= t('.specs') %></h4>
-                                    <%= erp_form_control("editor", {
-                                        name: 'product[specs]',
-                                        value: product.specs,
-                                        placeholder: t('.enter_specs')
                                     }) %>
                                 </div>
                             </div>
