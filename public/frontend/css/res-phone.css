@@ -55,6 +55,29 @@
     .left-content-product .content-product-right .title-product h1 {
       font-size: 13px;
     }
+    .breadcrumb, .left-content-product .content-product-right .product-label .price {
+      margin-bottom: 3px;
+    }
+    .product-view .content-product-right {
+      margin-top: 5px;
+    }
+    .product_page_price .price-sold-out {
+      font-size: 22px;
+      line-height: 30px;
+    }
+    .left-content-product .content-product-right .product-box-desc .inner-box-desc {
+      font-size: 12px;
+      padding: 0 5px;
+    }
+    .left-content-product .content-product-right .product-box-desc {
+      padding: 3px 0 0 3px;
+    }
+    .left-content-product .content-product-right .product-box-desc .inner-box-desc:before {
+      top: 4px;
+    }
+    .call-center {
+      font-size: 12px;
+    }
 }
 
 /* Portrait */
@@ -166,6 +189,29 @@
     .left-content-product .content-product-right .title-product h1 {
       font-size: 14px;
     }
+    .breadcrumb, .left-content-product .content-product-right .product-label .price {
+      margin-bottom: 3px;
+    }
+    .product-view .content-product-right {
+      margin-top: 5px;
+    }
+    .product_page_price .price-sold-out {
+      font-size: 22px;
+      line-height: 30px;
+    }
+    .left-content-product .content-product-right .product-box-desc .inner-box-desc {
+      font-size: 12px;
+      padding: 0 5px;
+    }
+    .left-content-product .content-product-right .product-box-desc {
+      padding: 3px 0 0 3px;
+    }
+    .left-content-product .content-product-right .product-box-desc .inner-box-desc:before {
+      top: 4px;
+    }
+    .call-center {
+      font-size: 12px;
+    }
 }
 
 /* Portrait */
@@ -265,6 +311,29 @@
     .left-content-product .content-product-right .title-product h1 {
       font-size: 14px;
     }
+    .breadcrumb, .left-content-product .content-product-right .product-label .price {
+      margin-bottom: 3px;
+    }
+    .product-view .content-product-right {
+      margin-top: 5px;
+    }
+    .product_page_price .price-sold-out {
+      font-size: 22px;
+      line-height: 30px;
+    }
+    .left-content-product .content-product-right .product-box-desc .inner-box-desc {
+      font-size: 12px;
+      padding: 0 5px;
+    }
+    .left-content-product .content-product-right .product-box-desc {
+      padding: 3px 0 0 3px;
+    }
+    .left-content-product .content-product-right .product-box-desc .inner-box-desc:before {
+      top: 4px;
+    }
+    .call-center {
+      font-size: 13px;
+    }
 }
 
 /* Portrait */
@@ -354,6 +423,29 @@
     }
     .left-content-product .content-product-right .title-product h1 {
       font-size: 14px;
+    }
+    .breadcrumb, .left-content-product .content-product-right .product-label .price {
+      margin-bottom: 3px;
+    }
+    .product-view .content-product-right {
+      margin-top: 5px;
+    }
+    .product_page_price .price-sold-out {
+      font-size: 22px;
+      line-height: 30px;
+    }
+    .left-content-product .content-product-right .product-box-desc .inner-box-desc {
+      font-size: 12px;
+      padding: 0 5px;
+    }
+    .left-content-product .content-product-right .product-box-desc {
+      padding: 3px 0 0 3px;
+    }
+    .left-content-product .content-product-right .product-box-desc .inner-box-desc:before {
+      top: 4px;
+    }
+    .call-center {
+      font-size: 13px;
     }
 }
 

@@ -23,13 +23,15 @@
 
 <div class="main-container container">
     <ul class="breadcrumb">
-        <li><%= link_to '<i class="fa fa-home"></i>'.html_safe, erp_online_store.root_path %></li>
+        <li><%= link_to '<i class="fa fa-home"></i>'.html_safe,
+                'https://timhangcongnghe.com/',
+                title: 'Tìm Hàng Công Nghệ' %></li>
         <% @menu.self_and_parent_menus.each do |menu| %>
             <% if @menu.id != menu.id %>
-                <li><%= link_to menu.name, menu_link(menu) %></li>
+                <li><%= link_to menu.name, menu_link(menu), title: menu.name %></li>
             <% end %>
         <% end %>
-        <li><%= link_to @menu.name, "javascript:void(0)" %></li>
+        <li><%= link_to @menu.name, menu_link(@menu), title: @menu.name %></li>
     </ul>
     <div class="row">
         <!--Left Part Start -->

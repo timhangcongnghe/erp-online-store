@@ -11,20 +11,20 @@
                     </th>
                 <% end %>
                 <% if get_columns(params).include?("brand") %>
-                    <th>
+                    <th width='7%'>
                         <%= t('.brand') %>
                     </th>
                 <% end %>
-                <% if get_columns(params).include?("name") %>
-                    <th class="sortable" sort-by='erp_products_products.name'>
-                        <%= t('.name') %>
-                    </th>
-                <% end %>
                 <% if get_columns(params).include?("category") %>
-                    <th>
+                    <th width='10%'>
                         <%= t('.category') %>
                     </th>
                 <% end %>
+                <% if get_columns(params).include?("name") %>
+                    <th width='40%' class="sortable" sort-by='erp_products_products.name'>
+                        <%= t('.name') %>
+                    </th>
+                <% end %>                
                 <% if get_columns(params).include?("price") %>
                     <th>
                         <%= t('.price') %>
@@ -58,7 +58,14 @@
                         <td><%= product.code %></td>
                     <% end %>
                     <% if get_columns(params).include?("brand") %>
-                        <td><%= product.brand_name %></td>
+                        <td><%= link_to product.brand_name,
+                                erp_products.edit_backend_brand_path(product.brand),
+                                target: '_blank' %></td>
+                    <% end %>
+                    <% if get_columns(params).include?("category") %>
+                        <td><%= link_to product.category_name,
+                                erp_products.edit_backend_category_path(product.category),
+                                target: '_blank' %></td>
                     <% end %>
                     <% if get_columns(params).include?("name") %>
                         <td>
@@ -73,11 +80,17 @@
                             <% if product.product_intro_link.present? %>
                                 <em><%= link_to 'Xem video: ' + product.product_intro_link, product.product_intro_link, target: '_blank' %></em>
                             <% end %>
+                            <% if product.dimentions.present? %>
+                                <em>Kích thước đóng gói: <%= product.dimentions %></em>
+                            <% end %>
+                            <% if product.weights.present? %>
+                                <em>Trọng lượng đóng thùng: <%= product.weights %></em>
+                            <% end %>
+                            <% if product.warranty.present? %>
+                                <em>Bảo hành: <%= product.warranty %></em>
+                            <% end %>
                         </td>
-                    <% end %>
-                    <% if get_columns(params).include?("category") %>
-                        <td><%= product.category_name %></td>
-                    <% end %>
+                    <% end %>                    
                     <% if get_columns(params).include?("price") %>
                         <td><%= format_price(product.price) %></td>
                     <% end %>

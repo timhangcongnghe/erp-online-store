@@ -623,7 +623,7 @@ ul.megamenu li .sub-menu .content .hover-menu .menu ul ul {
   color: #000;
 }
 .price {
-  line-height: 25px;
+  line-height: 20px;
   font-family: Helvetica, sans-serif;
 }
 .module.cus-style-supper-cate .main-left {
@@ -638,18 +638,19 @@ ul.megamenu li .sub-menu .content .hover-menu .menu ul ul {
 }
 .module.cus-style-supper-cate .main-right .spcat-items-container.products-list.grid .product-layout .product-item-container {
   border-width: 1px;
+  border-color: #eee;
 }
 /* Custom checkbox list */
 .checkboxes_list {
   color: #333;
 }
 .left-content-product .content-product-right .product_page_price .price-new {
-  font-size: 30px;
+  font-size: 28px;
 }
 .product_page_price .price-sold-out {
-  line-height: 40px;
+  line-height: 30px;
   color: #c10017;
-  font-size: 30px;
+  font-size: 25px;
   text-transform: uppercase;
   font-weight: bold;
 }
@@ -1202,6 +1203,7 @@ h3 {
 .products-list.list-masonry .product-layout .product-item-container, .products-list.grid .product-layout .product-item-container {
   border: solid 1px rgba(0,0,0,0);
   padding: 14px;
+  border-color: #eee;
 }
 .text-services {
   color: #ea3a3c;
@@ -2691,9 +2693,6 @@ form.rating_form textarea.input-content {
   width: 100%;
   height: auto;
 }
-.products-list.list-masonry .product-layout .product-item-container:hover, .products-list.grid .product-layout .product-item-container:hover {
-  box-shadow: 0 0 0px rgba(0,0,0,0.15);
-}
 .filter-shopby legend, .filter-row legend {
   color: #212121;
   font-size: 18px;
@@ -2967,7 +2966,7 @@ table.table-tab-specs tbody tr:first-child {
   margin: 0;
 }
 .best-seller .so-extraslider .owl2-controls .owl2-nav > div {
-  color: #c10017;
+  color: #999;
 }
 #shoppingcart-box .table, .main-products-list .products-list .right-block .price {
   margin-bottom: 3px;
@@ -3001,6 +3000,11 @@ footer .footer-top {
   height: 60px;
 }
 .list-product-specs {
-  font-size: 13px;
+  font-size: 12px;
+}
+.products-list.list-masonry .product-layout .product-item-container .right-block .caption, .products-list.grid .product-layout .product-item-container .right-block .caption {
   text-align: center;
+}
+.left-content-product .content-product-right .box-review .ratings {
+  margin-right: 5px;
 }

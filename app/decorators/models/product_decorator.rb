@@ -9,6 +9,16 @@ Erp::Products::Product.class_eval do
     return self.name
   end
   
+  # brand name
+  def brand_name
+    brand.present? ? brand.name : ''
+  end
+  
+  # category name
+  def category_name
+    category.present? ? category.name : ''
+  end
+  
   #get product price
   def product_price
     # not deal
