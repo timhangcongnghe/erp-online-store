@@ -23,7 +23,7 @@
 	<% else %>
 	<meta name="keywords" content="tim hang cong nghe, hàng công nghệ, máy tính xách tay, máy tính để bàn, màn hình máy tính, máy chủ, máy in, ram pc, ram laptop, camera quan sát">
 	<% end %>
-	<meta name="author" content="Công Ty TNHH Giải Pháp Công Nghệ Thông Tin Và Truyền Thông Hoàng Khang, Tìm Hàng Công Nghệ, Nguyễn Ngọc Sơn">
+	<meta name="author" content="Công Ty TNHH Giải Pháp Công Nghệ Thông Tin Và Truyền Thông Hoàng Khang, Tìm Hàng Công Nghệ, Sơn Nguyễn">
 	<meta http-equiv="content-language" content="vi-VN">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<meta name="google-site-verification" content="QjLSyCa5_gKR4ZHGAJjl8dfTFvTRzrvnRsvVtX0ELBY" />
@@ -263,6 +263,35 @@
 			"price": "<%= format_number(@product.product_price) %>"
 			<% end %>
 		}
+	}
+	</script>
+	<% end %>
+	<% if params[:controller] == "erp/online_store/frontend/blog" && params[:action] == "detail" %>
+	<script type="application/ld+json">
+	{
+		"@context": "https://schema.org",
+		"@type": "Article",
+		"mainEntityOfPage": {
+			"@type": "WebPage",
+			"@id": "https://timhangcongnghe.com/"
+		},
+		"headline": "<%= @blog.name %>",
+		"image": "https://timhangcongnghe.com<%= @blog.image %>",
+		"datePublished": "<%= @blog.created_at.strftime("%d/%m/%Y %I:%M%p") %>",
+		"dateModified": "<%= @blog.updated_at.strftime("%d/%m/%Y %I:%M%p") %>",
+		"author": {
+			"@type": "Organization",
+			"name": "Tìm Hàng Công Nghệ"
+		},
+		 "publisher": {
+			"@type": "Organization",
+			"name": "Tìm Hàng Công Nghệ",
+			"logo": {
+				"@type": "ImageObject",
+				"url": "https://timhangcongnghe.com/frontend/image/schema-logo.png"
+			}
+		},
+		"description": "<%= short_text(@blog.content, 45) %>"
 	}
 	</script>
 	<% end %>
