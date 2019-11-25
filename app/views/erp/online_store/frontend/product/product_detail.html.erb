@@ -2,16 +2,18 @@
 <% product_images = @product.product_images %>
 
 <% content_for :metas do %>
-    <meta property="og:url" content="<%= request.url %>"/>
+<meta property="og:url" content="<%= request.url %>"/>
     <meta property="og:type" content="website" />
     <meta property="og:title" content="<%= @product.get_long_name %>"/>
-    <% if @meta_description.present? %>
-        <meta property="og:description" content="<%= @meta_description %>"/>
+    <% if @product.filter_meta_description.present? %>
+    <% filter_meta_description = @product.filter_meta_description %>
+    <% count = @product.filter_meta_description.count %>
+    <meta property="og:description" content="<% filter_meta_description.each_with_index do |row,index| %><% if (index+1)<count %><%= row[:values].join(" ") %> - <% else %><%= row[:values].join(" ") %><% end %><% end %>"/>
     <% else %>
-        <meta property="og:description" content="Tìm Hàng Công Nghệ là trang thương mại điện tử uy tín chuyên cung cấp đa dạng các sản phẩm, thiết bị công nghệ từ các hãng lớn thế giới."/>
+    <meta property="og:description" content="Tìm Hàng Công Nghệ là trang thương mại điện tử uy tín chuyên cung cấp đa dạng các sản phẩm, thiết bị công nghệ từ các hãng lớn thế giới."/>
     <% end %>
     <% product_images.limit(1).each do |product_image| %>
-        <meta property="og:image" content="http://timhangcongnghe.com<%= product_image.image_url.thumb650 %>" />
+    <meta property="og:image" content="http://timhangcongnghe.com<%= product_image.image_url.thumb650 %>" />
     <% end %>
 <% end %>
 

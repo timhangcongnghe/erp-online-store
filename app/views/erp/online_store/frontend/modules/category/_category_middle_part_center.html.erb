@@ -39,9 +39,11 @@
                             <% end %>
                         <% end %>
                     </div>
-                    <% if product.meta_description.present? %>
+                    <% if product.filter_meta_description.present? %>
+                        <% filter_meta_description = product.filter_meta_description %>
+                        <% count = product.filter_meta_description.count %>
                         <div class="list-product-specs">
-                            <%= product.meta_description %>
+                            <% filter_meta_description.each_with_index do |row,index| %><% if (index+1)<count %><%= row[:values].join(" ") %> - <% else %><%= row[:values].join(" ") %><% end %><% end %>
                         </div>
                     <% end %>
                 </div>
