@@ -91,7 +91,7 @@ footer .social_block ul.social-block li.pinterest a:hover {
   color: #010407;
 }
 .type_1 .header-center {
-  padding: 10px 0 10px;
+  padding: 5px 0 5px;
 }
 .logo img {
   max-width: none;
@@ -154,6 +154,9 @@ footer .social_block ul.social-block li.pinterest a:hover {
   .col-slideshow {
     margin-left: 270px;
     width: 930px;
+  }
+  .module.cus-style-supper-cate {
+    min-height: 600px;
   }
 }
 .slider-container {
@@ -328,13 +331,13 @@ div.article-info .article-sub-title span.article-folder a:hover {
   color: #009688;
 }
 .type_1 .header-top-right ul > li > a {
-  font-size: 14px !important;
+  font-size: 13px !important;
 }
 .type_1 .header-top-right ul.dropdown-menu > li > a {
   padding: 6px 15px;
 }
 .type_1 .header-top-right ul.top-link > li a.btn {
-  font-size: 14px !important;
+  font-size: 13px !important;
   color: #000;
 }
 .header-top ul.dropdown-menu li a {
@@ -364,7 +367,7 @@ input.error, textarea.error  {
 }
 }
 .vertical-wrapper ul.megamenu {
-  padding: 3px 0 3px 0;
+  padding: 3px 0 2.5px 0;
   background: #222;
 }
 .ratingStar span.lStar:first-child {
@@ -2766,7 +2769,7 @@ span.christmas-title {
   margin-bottom: 13px;
 }
 footer .footer-center {
-  padding: 15px 0;
+  padding: 13px 0 5px 0;
 }
 ul.search-result {
   margin-bottom: 0px;
@@ -2884,7 +2887,7 @@ footer .footer-center .module ul.menu li a {
   font-weight: 500;
 }
 .common-home .banner-sn-1, .common-home .so-spotlight2 {
-  margin-top: 13px;
+  margin-top: 5px;
 }
 .common-home .module {
   margin-bottom: 0px;
@@ -2893,7 +2896,10 @@ footer .footer-center .module ul.menu li a {
   margin: 5px 0 5px;
 }
 .type_1 .megamenu-style-dev .horizontal ul.megamenu > li > a {
-  font-size: 14px;
+  font-size: 15px;
+}
+.type_1 .megamenu-style-dev .horizontal ul.megamenu > li:last-child > a {
+  padding-right: 0;
 }
 .producttab .tabsslider .tab-content {
   padding: 5px;
@@ -3007,4 +3013,8 @@ footer .footer-top {
 }
 .left-content-product .content-product-right .box-review .ratings {
   margin-right: 5px;
+}
+.container-megamenu.horizontal ul.megamenu > li > a strong img {
+  top: -7px;
+  right: -5px;
 }
