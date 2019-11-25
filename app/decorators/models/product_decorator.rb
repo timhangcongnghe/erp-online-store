@@ -36,6 +36,22 @@ Erp::Products::Product.class_eval do
     end
   end
   
+  def filter_meta_description
+    groups = []
+    return [] if self.category.nil?
+    self.category.property_groups.each do |group|
+      row = {}
+      row[:values] = []
+      group.properties.where(is_meta_description: true).each do |property|
+        values = self.products_values_by_property(property).map {|pv| pv.properties_value.value }
+        row[:values] += values if !values.empty?
+      end
+      groups << row if !row[:values].empty?
+    end
+
+    return groups
+  end
+  
   #THCN Using End
   
   # backend for thcn
