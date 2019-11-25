@@ -15,13 +15,12 @@
 	<meta charset="utf-8">
 	
 	<% if params[:controller] == "erp/online_store/frontend/product" && params[:action] == "product_detail" %>
-			<% if @product.filter_meta_description.present? %>
-					<% filter_meta_description = @product.filter_meta_description %>
-					<% count = @product.filter_meta_description.count %>
-	<meta name="description" content="<% filter_meta_description.each_with_index do |row,index| %><% if (index+1)<count %><%= row[:values].join(" ") %> - <% else %><%= row[:values].join(" ") %><% end %><% end %>">
-			<% else %>
+	<% if @filter_meta_description.present? %>
+	<% count = @filter_meta_description.count %>
+	<meta name="description" content="<% @filter_meta_description.each_with_index do |row,index| %><% if (index+1)<count %><%= row[:values].join(" ") %> - <% else %><%= row[:values].join(" ") %><% end %><% end %>">
+	<% else %>
 	<meta name="description" content="Tìm Hàng Công Nghệ là trang thương mại điện tử uy tín chuyên cung cấp đa dạng các sản phẩm Hàng Công Nghệ Laptop, Máy Tính Để Bàn, Server, Workstations, Máy In,...từ các hãng lớn thế giới.">
-			<% end %>
+	<% end %>
 	<% end %>
 	<% if !(params[:controller] == "erp/online_store/frontend/product" && params[:action] == "product_detail") %>
 			<% if @meta_description.present? %>
@@ -258,10 +257,9 @@
 		"@type": "Product",
 		"name": "<%= @product.get_long_name %>",
 		"image": "https://timhangcongnghe.com<%= @product.product_images.first.image_url.thumb75 %>",
-		<% if @product.filter_meta_description.present? %>
-		<% filter_meta_description = @product.filter_meta_description %>
-		<% count = @product.filter_meta_description.count %>
-		"description": "<% filter_meta_description.each_with_index do |row,index| %><% if (index+1)<count %><%= row[:values].join(" ") %> - <% else %><%= row[:values].join(" ") %><% end %><% end %>",
+		<% if @filter_meta_description.present? %>
+		<% count = @filter_meta_description.count %>
+		"description": "<% @filter_meta_description.each_with_index do |row,index| %><% if (index+1)<count %><%= row[:values].join(" ") %> - <% else %><%= row[:values].join(" ") %><% end %><% end %>",
 		<% end %>
 		"brand": "<%= @product.brand_name %>",
 		<% if @product.code.present? %>

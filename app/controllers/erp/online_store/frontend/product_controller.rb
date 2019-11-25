@@ -25,7 +25,10 @@ module Erp
             @related_events = @product.get_related_events(Time.now)
             
             @meta_keywords = @product.meta_keywords
-            
+            if @product.filter_meta_description.present?
+              @filter_meta_description = @product.filter_meta_description
+            end
+          
             if @menu.present?
               if !@product.meta_keywords.present?
                 @meta_keywords = @menu.meta_keywords
