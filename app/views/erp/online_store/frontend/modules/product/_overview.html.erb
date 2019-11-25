@@ -103,6 +103,22 @@
             <% if @product.get_product_property_array.count > 0 %>
             <div class="product-box-desc <%= 'no_border_button' if @product.is_sold_out %>">
                 <div class="inner-box-desc">
+                    <table>
+                        <tr>
+                            <td valign="top"><span>Thương hiệu: </span>
+                                <strong><%= link_to @product.brand_name,
+                                            brand_link(@product.brand),
+                                            title: @product.brand_name, target: '_blank' %></strong>
+                            </td>
+                        </tr>
+                        <tr>
+                            <% if @product.warranty.present? %>
+                                <td valign="top"><span>Bảo hành: </span>
+                                    <%= @product.warranty %>
+                                </td>
+                            <% end %>
+                        </tr>
+                    </table>
                     <% product_short_descipriton_values_array = @product.product_short_descipriton_values_array %>
                     <% if product_short_descipriton_values_array.count > 2 %>
                         <table>
@@ -131,23 +147,19 @@
                             <% end %>
                         </table>
                     <% end %>
-                    <table>
-                        <tr>
-                            <td valign="top"><span>Thương hiệu: </span><%= @product.brand_name %></td>
-                        </tr>
-                        <tr>
-                            <% if @product.warranty.present? %>
-                                <td valign="top"><span>Bảo hành: </span><%= @product.warranty %></td>
-                            <% end %>
-                        </tr>
+                    <table
                         <tr>
                             <% if @product.dimentions.present? %>
-                                <td valign="top"><span>Kích thước gói hàng: </span><%= @product.dimentions %></td>
+                                <td valign="top"><span>Kích thước vận chuyển: </span>
+                                    <%= @product.dimentions %>
+                                </td>
                             <% end %>
                         </tr>
                         <tr>
                             <% if @product.weights.present? %>
-                                <td valign="top"><span>Trọng lượng gói hàng: </span><%= @product.weights %></td>
+                                <td valign="top"><span>Trọng lượng vận chuyển: </span>
+                                    <%= @product.weights %>
+                                </td>
                             <% end %>
                         </tr>
                     </table>
