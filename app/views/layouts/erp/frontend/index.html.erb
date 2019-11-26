@@ -281,7 +281,7 @@
 			<% if @product.is_sold_out? || @product.is_call? || @product.product_price.nil? %>
 			"price": "0",
 			<% else %>
-			"price": "<%= format_number(@product.product_price) %>",
+			"price": "<%= @product.product_price.to_i %>",
 			<% end %>
 			"priceValidUntil": "<%= (@product.created_at+730.days).strftime("%d/%m/%Y") %>",
 			"availability": "https://schema.org/InStock",
