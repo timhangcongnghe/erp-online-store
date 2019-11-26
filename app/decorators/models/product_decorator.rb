@@ -35,22 +35,6 @@ Erp::Products::Product.class_eval do
       return self.price
     end
   end
-  
-  def filter_meta_description
-    groups = []
-    return [] if self.category.nil?
-    self.category.property_groups.each do |group|
-      row = {}
-      row[:values] = []
-      group.properties.where(is_meta_description: true).each do |property|
-        values = self.products_values_by_property(property).map {|pv| pv.properties_value.value }
-        row[:values] += values if !values.empty?
-      end
-      groups << row if !row[:values].empty?
-    end
-
-    return groups
-  end
 
   def get_meta_description
     return "" if self.category.nil?
@@ -63,7 +47,14 @@ Erp::Products::Product.class_eval do
       end
     end
 
-    return data.join(' ')
+    return data.join(' - ')
+  end
+  
+  after_save :save_meta_description
+  def save_meta_description
+    str = self.get_meta_description
+
+    self.update_columns(meta_description: str)
   end
   
   #THCN Using End

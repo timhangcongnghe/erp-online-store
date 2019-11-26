@@ -5,15 +5,12 @@
 <meta property="og:url" content="<%= request.url %>"/>
     <meta property="og:type" content="website" />
     <meta property="og:title" content="<%= @product.get_long_name %>"/>
-    <% if @filter_meta_description.present? %>
-    <% count = @filter_meta_description.count %>
-    <meta property="og:description" content="<% @filter_meta_description.each_with_index do |row,index| %><% if (index+1)<count %><%= row[:values].join(" ") %> - <% else %><%= row[:values].join(" ") %><% end %><% end %>"/>
+    <% if @meta_description.present? %>
+    <meta property="og:description" content="<%= @meta_description %>"/>
     <% else %>
-    <meta property="og:description" content="Tìm Hàng Công Nghệ là trang thương mại điện tử uy tín chuyên cung cấp đa dạng các sản phẩm, thiết bị công nghệ từ các hãng lớn thế giới."/>
+    <meta property="og:description" content="Tìm Hàng Công Nghệ là trang thương mại điện tử về các sản phẩm công nghệ thông tin do Công Ty TNHH Giải Pháp Công Nghệ Thông Tin Và Truyền Thông Hoàng Khang (Hoang Khang Incotech) đầu tư và phát triển với tiêu chí phục vụ Khách hàng theo hướng chuyên nghiệp và hiện đại."/>
     <% end %>
-    <% product_images.limit(1).each do |product_image| %>
-    <meta property="og:image" content="http://timhangcongnghe.com<%= product_image.image_url.thumb650 %>" />
-    <% end %>
+    <meta property="og:image" content="http://timhangcongnghe.com<%= product_images.first.image_url %>" />
 <% end %>
 
 <div class="main-container container">

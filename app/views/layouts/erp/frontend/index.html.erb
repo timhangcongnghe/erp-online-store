@@ -14,26 +14,18 @@
 	
 	<meta charset="utf-8">
 	
-	<% if params[:controller] == "erp/online_store/frontend/product" && params[:action] == "product_detail" %>
-	<% if @filter_meta_description.present? %>
-	<% count = @filter_meta_description.count %>
-	<meta name="description" content="<% @filter_meta_description.each_with_index do |row,index| %><% if (index+1)<count %><%= row[:values].join(" ") %> - <% else %><%= row[:values].join(" ") %><% end %><% end %>">
-	<% else %>
-	<meta name="description" content="Tìm Hàng Công Nghệ là trang thương mại điện tử uy tín chuyên cung cấp đa dạng các sản phẩm Hàng Công Nghệ Laptop, Máy Tính Để Bàn, Server, Workstations, Máy In,...từ các hãng lớn thế giới.">
-	<% end %>
-	<% end %>
-	<% if !(params[:controller] == "erp/online_store/frontend/product" && params[:action] == "product_detail") %>
-			<% if @meta_description.present? %>
-	<meta name="description" content="<%= @meta_description %>">
-			<% else %>
-	<meta name="description" content="Tìm Hàng Công Nghệ là trang thương mại điện tử uy tín chuyên cung cấp đa dạng các sản phẩm Hàng Công Nghệ Laptop, Máy Tính Để Bàn, Server, Workstations, Máy In,...từ các hãng lớn thế giới.">
-			<% end %>
-	<% end %>
 	<% if @meta_keywords.present? %>
 	<meta name="keywords" content="<%= @meta_keywords %>">
 	<% else %>
 	<meta name="keywords" content="tim hang cong nghe, hàng công nghệ, máy tính xách tay, máy tính để bàn, màn hình máy tính, máy chủ, máy in, ram pc, ram laptop, camera quan sát">
 	<% end %>
+
+	<% if @meta_description.present? %>
+	<meta name="description" content="<%= @meta_description %>">
+	<% else %>
+	<meta name="description" content="Tìm Hàng Công Nghệ là trang thương mại điện tử về các sản phẩm công nghệ thông tin do Công Ty TNHH Giải Pháp Công Nghệ Thông Tin Và Truyền Thông Hoàng Khang (Hoang Khang Incotech) đầu tư và phát triển với tiêu chí phục vụ Khách hàng theo hướng chuyên nghiệp và hiện đại.">
+	<% end %>
+
 	<meta name="author" content="Công Ty TNHH Giải Pháp Công Nghệ Thông Tin Và Truyền Thông Hoàng Khang, Tìm Hàng Công Nghệ, Sơn Nguyễn">
 	<meta http-equiv="content-language" content="vi-VN">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -256,24 +248,47 @@
 		"@context": "https://schema.org/",
 		"@type": "Product",
 		"name": "<%= @product.get_long_name %>",
-		"image": "https://timhangcongnghe.com<%= @product.product_images.first.image_url.thumb75 %>",
-		<% if @filter_meta_description.present? %>
-		<% count = @filter_meta_description.count %>
-		"description": "<% @filter_meta_description.each_with_index do |row,index| %><% if (index+1)<count %><%= row[:values].join(" ") %> - <% else %><%= row[:values].join(" ") %><% end %><% end %>",
+		"image": "https://timhangcongnghe.com<%= @product.product_images.first.image_url %>",
+		<% if @meta_description.present? %>
+		"description": "<%= @meta_description %>",
 		<% end %>
 		"brand": "<%= @product.brand_name %>",
 		<% if @product.code.present? %>
 		"sku": "<%= @product.code %>",
+		"mpn": "<%= @product.code %>",
 		<% end %>
+		"review": {
+			"@type": "Review",
+			"reviewRating": {
+				"@type": "Rating",
+				"ratingValue": "5",
+				"bestRating": "5"
+			},
+			"author": {
+				"@type": "Person",
+				"name": "Nguyễn Ngọc Sơn"
+			}
+		},
+		"aggregateRating": {
+			"@type": "AggregateRating",
+			"ratingValue": "5",
+			"reviewCount": "1"
+		},
 		"offers": {
 			"@type": "Offer",
 			"url": "https://timhangcongnghe.com<%= product_link(@product) %>",
 			"priceCurrency": "VND",
 			<% if @product.is_sold_out? || @product.is_call? || @product.product_price.nil? %>
-			"price": "0"
+			"price": "0",
 			<% else %>
-			"price": "<%= format_number(@product.product_price) %>"
+			"price": "<%= format_number(@product.product_price) %>",
 			<% end %>
+			"priceValidUntil": "<%= (@product.created_at+730.days).strftime("%d/%m/%Y") %>",
+			"availability": "https://schema.org/InStock",
+			"seller": {
+				"@type": "Organization",
+				"name": "Tìm Hàng Công Nghệ"
+			}
 		}
 	}
 	</script>
