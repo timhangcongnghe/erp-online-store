@@ -51,6 +51,20 @@ Erp::Products::Product.class_eval do
 
     return groups
   end
+
+  def get_meta_description
+    return "" if self.category.nil?
+
+    data = []
+    self.category.property_groups.each do |group|
+      group.properties.where(is_meta_description: true).each do |property|
+        values = self.products_values_by_property(property).map {|pv| pv.properties_value.value }
+        data += values if !values.empty?
+      end
+    end
+
+    return data.join(' ')
+  end
   
   #THCN Using End
   
