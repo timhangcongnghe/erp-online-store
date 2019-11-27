@@ -5,7 +5,6 @@ module Erp
         layout 'erp/frontend/error_page'
         def not_found          
           render(:status => 404)
-          render(:status => 500)
         end   
       end
     end

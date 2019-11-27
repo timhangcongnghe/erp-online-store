@@ -10,7 +10,11 @@
     <% else %>
     <meta property="og:description" content="Tìm Hàng Công Nghệ là trang thương mại điện tử về các sản phẩm Công Nghệ Thông Tin uy tín, chất lượng."/>
     <% end %>
+    <% if product_images.count == 0 %>
+    <meta property="og:image" content="https://timhangcongnghe.com/frontend/image/schema-logo.png"
+    <% else %>
     <meta property="og:image" content="https://timhangcongnghe.com<%= product_images.first.image_url.thumb650 %>" />
+    <% end %>
 <% end %>
 
 <div class="main-container container">

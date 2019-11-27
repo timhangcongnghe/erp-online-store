@@ -250,7 +250,11 @@
 		"@context": "https://schema.org/",
 		"@type": "Product",
 		"name": "<%= @product.get_long_name %>",
+		<% if @product.product_images.count == 0 %>
+		"image": "https://timhangcongnghe.com/frontend/image/schema-logo.png",
+		<% else %>
 		"image": "https://timhangcongnghe.com<%= @product.product_images.first.image_url.thumb650 %>",
+		<% end %>
 		<% if @meta_description.present? %>
 		"description": "<%= @meta_description %>",
 		<% end %>

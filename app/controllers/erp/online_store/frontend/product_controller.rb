@@ -18,7 +18,6 @@ module Erp
           if @product.archived == true
             render layout: 'erp/frontend/error_page'
             render(:status => 404)
-            render(:status => 500)
           else
             @deal_products = Erp::Products::Product.get_deal_products
             @menu = params[:menu_id].present? ? Erp::Menus::Menu.find(params[:menu_id]) : @product.find_menu                    
