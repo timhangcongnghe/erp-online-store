@@ -81,7 +81,7 @@
 	<%= stylesheet_link_tag "/frontend/css/responsive.css" %>
 	<%= stylesheet_link_tag "/frontend/select2/css/select2.min.css" %>
 	<%= stylesheet_link_tag "/frontend/css/quick_order.css" %>
-	<%= stylesheet_link_tag "/frontend/css/custom.css?v=3.1" %>
+	<%= stylesheet_link_tag "/frontend/css/custom.css?v=3.2" %>
 	<%= stylesheet_link_tag "/frontend/css/res-tablet.css" %>
 	<%= stylesheet_link_tag "/frontend/css/res-phone.css" %>
 	<% if params[:controller] == "erp/online_store/frontend/account" && params[:action] == "my_account" %>
@@ -102,17 +102,6 @@
 	<% end %>
 	
 	<link rel="alternate" href="//timhangcongnghe.com/" hreflang="vi-VN" />
-	<!-- Facebook Pixel Code -->
-	
-	<script>
-		!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-		n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
-		n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
-		t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
-		document,'script','//connect.facebook.net/en_US/fbevents.js');
-		fbq('init', '1413763228669879'); // Insert your pixel ID here.
-		fbq('track', 'PageView');
-	</script>
 	
 	<script>
 		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -123,10 +112,6 @@
 		ga('create', 'UA-101029174-1', 'auto');
 		ga('send', 'pageview');
 	</script>
-	
-	<noscript>
-		<img height="1" width="1" style="display:none" src="//www.facebook.com/tr?id=1413763228669879&ev=PageView&noscript=1"/>
-	</noscript>
 	
 	<script type="application/ld+json">
 		{
@@ -331,32 +316,29 @@
 </head>
 
 <body class="<%= @body_class %>">
-
-<!-- Load Facebook SDK for JavaScript -->
-		<div id="fb-root"></div>
 		<script>
-			window.fbAsyncInit = function() {
-				FB.init({
-					xfbml            : true,
-					version          : 'v4.0'
-				});
-			};
+		window.fbAsyncInit = function() {
+			FB.init({
+				xfbml            : true,
+				version          : 'v4.0'
+			});
+		};
 
-			(function(d, s, id) {
-					var js, fjs = d.getElementsByTagName(s)[0];
-					if (d.getElementById(id)) return;
-					js = d.createElement(s); js.id = id;
-					js.src = 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js';
-					fjs.parentNode.insertBefore(js, fjs);
-			}(document, 'script', 'facebook-jssdk'));</script>
+		(function(d, s, id) {
+				var js, fjs = d.getElementsByTagName(s)[0];
+				if (d.getElementById(id)) return;
+				js = d.createElement(s); js.id = id;
+				js.src = 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js';
+				fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));</script>
 
 			<!-- Your customer chat code -->
-			<div class="fb-customerchat"
-					attribution=setup_tool
-					page_id="1266398623441170"
-					theme_color="#009688"
-					logged_in_greeting="Xin chào! Tìm Hàng Công Nghệ có thể giúp gì cho bạn không?"
-					logged_out_greeting="Xin tạm biệt! Tìm Hàng Công Nghệ chúc bạn một ngày thật vui!">
+		<div class="fb-customerchat"
+				attribution=setup_tool
+				page_id="1266398623441170"
+				theme_color="#009688"
+				logged_in_greeting="Xin chào! Tìm Hàng Công Nghệ có thể giúp gì cho bạn không?"
+				logged_out_greeting="Xin tạm biệt! Tìm Hàng Công Nghệ chúc bạn một ngày thật vui!">
 		</div>
 
     <div id="wrapper" class="wrapper-full banners-effect-7">

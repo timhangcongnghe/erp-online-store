@@ -19,7 +19,7 @@
             </div>
             <div class="right-block">
                 <div class="caption">
-                    <h4><%= link_to truncate(product.product_name, length: 55), product_link(product), title: product.product_name, class: "hover-product-name" %></h4>
+                    <h4><%= link_to truncate(product.product_name, length: 52), product_link(product), title: product.product_name, class: "hover-product-name" %></h4>
                     <div class="ratings">
                         <div class="rating-box">
                             <%= stars(product.average_stars) %>
