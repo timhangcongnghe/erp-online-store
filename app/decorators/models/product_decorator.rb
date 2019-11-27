@@ -647,22 +647,23 @@ Erp::Products::Product.class_eval do
   end
 
   def hkerp_set_cache_thcn_properties
-    result = {short: nil, long: []}
+    result = {short: nil, long: nil}
 
     # Long
-    self.product_values_array.each do |group|
-      if group.show_name.present?
-        result[:long] << {
-          group: group[:group].get_show_name,
-          properties: group[:properties]
-        }
-      else
-        result[:long] << {
-          group: group[:group].get_name,
-          properties: group[:properties]
-        }
-      end
-    end
+    #self.product_values_array.each do |group|
+    #  if group.show_name.present?
+    #    result[:long] << {
+    #      group: group[:group].get_show_name,
+    #      properties: group[:properties]
+    #    }
+    #  else
+    #    result[:long] << {
+    #      group: group[:group].get_name,
+    #      properties: group[:properties]
+    #    }
+    #  end
+    #end
+    result[:long] = self.product_list_descipriton_values_array
 
     # Short
     result[:short] = self.product_short_descipriton_values_array
