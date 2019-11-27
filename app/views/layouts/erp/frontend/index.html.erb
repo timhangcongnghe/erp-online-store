@@ -248,7 +248,7 @@
 		"@context": "https://schema.org/",
 		"@type": "Product",
 		"name": "<%= @product.get_long_name %>",
-		"image": "https://timhangcongnghe.com<%= @product.product_images.first.image_url %>",
+		"image": "https://timhangcongnghe.com<%= @product.product_images.first.image_url.thumb650 %>",
 		<% if @meta_description.present? %>
 		"description": "<%= @meta_description %>",
 		<% end %>
@@ -283,7 +283,7 @@
 			<% else %>
 			"price": "<%= @product.product_price.to_i %>",
 			<% end %>
-			"priceValidUntil": "<%= (@product.created_at+730.days).strftime("%d/%m/%Y") %>",
+			"priceValidUntil": "<%= (@product.updated_at+730.days).strftime("%d/%m/%Y") %>",
 			"availability": "https://schema.org/InStock",
 			"seller": {
 				"@type": "Organization",

@@ -3,6 +3,7 @@ Erp::Products::Product.class_eval do
   has_many :product_gifts, class_name: "Erp::Products::ProductGift", dependent: :destroy
   
   #THCN Using Start
+  after_save :save_meta_description
   
   #get product long name
   def get_long_name
@@ -37,8 +38,6 @@ Erp::Products::Product.class_eval do
   end
 
   def get_meta_description
-    return "" if self.category.nil?
-
     data = []
     self.category.property_groups.each do |group|
       group.properties.where(is_meta_description: true).each do |property|
@@ -50,7 +49,6 @@ Erp::Products::Product.class_eval do
     return data.join(' - ')
   end
   
-  after_save :save_meta_description
   def save_meta_description
     str = self.get_meta_description
 
