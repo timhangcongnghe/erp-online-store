@@ -651,14 +651,17 @@ Erp::Products::Product.class_eval do
 
     # Long
     self.product_values_array.each do |group|
-      result[:long] << {
-        if group.show_name.present?
-					group: group[:group].get_show_name,
-				else
-					group: group[:group].get_name,
-				end        
-        properties: group[:properties]
-      }
+      if group.show_name.present?
+        result[:long] << {
+          group: group[:group].get_show_name,
+          properties: group[:properties]
+        }
+      else
+        result[:long] << {
+          group: group[:group].get_name,
+          properties: group[:properties]
+        }
+      end
     end
 
     # Short
