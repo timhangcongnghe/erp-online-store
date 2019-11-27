@@ -647,11 +647,11 @@ Erp::Products::Product.class_eval do
   end
 
   def hkerp_set_cache_thcn_properties
-    result = {short: nil, long: nil}
+    result = {short: nil, long: []}
 
     # Long
     self.product_values_array.each do |group|
-      if group[:group].present?
+      if group[:group].show_name.present?
         result[:long] << {
           group: group[:group].get_show_name,
           properties: group[:properties]
