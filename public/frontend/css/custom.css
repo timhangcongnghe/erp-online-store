@@ -1204,9 +1204,16 @@ h3 {
   text-align: justify;
 }
 .products-list.list-masonry .product-layout .product-item-container, .products-list.grid .product-layout .product-item-container {
-  border: solid 1px rgba(0,0,0,0);
-  padding: 14px;
-  border-color: #eee;
+  border: solid 1.2px rgba(0,0,0,0);
+  padding: 3px;
+  border-color: #f5f5f0;
+}
+.products-list.list-masonry .product-layout .product-item-container:hover, .products-list.grid .product-layout .product-item-container:hover {
+  border: solid 1.2px rgba(0,0,0,0);
+  border-color: #009688;
+}
+.main-products-list {
+  margin-top: 3px;
 }
 .text-services {
   color: #ea3a3c;
@@ -1803,7 +1810,7 @@ form[role=edit-password] > div:last-child {
   }
 .view-buy {
   position: absolute;
-  top: 50%;
+  top: 88%;
   text-align: center;
   width: 100%;
 }
