@@ -1783,32 +1783,38 @@ form[role=edit-password] > div:last-child {
 
 /***************** Custom view Buy ***********************/
 .product-item-container:hover .view-buy {
-    transform: scale(1);
-    -webkit-transform: scale(1);
-    -moz-transform: scale(1);
-    -o-transform: scale(1);
-    -ms-transform: scale(1);
-    transition: all 0.4s ease;
-    -webkit-transition: all 0.4s ease;
-    -moz-transition: all 0.4s ease;
-    -ms-transition: all 0.4s ease;
-    -o-transition: all 0.4s ease;
+  transform: scale(1);
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  -o-transform: scale(1);
+  -ms-transform: scale(1);
+  transition: all 0.4s ease;
+  -webkit-transition: all 0.4s ease;
+  -moz-transition: all 0.4s ease;
+  -ms-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
+}
+.view-buy a:last-child {
+  padding: 8px 18px;
+}
+@media (min-width: 992px) and (max-width: 1200px) {
+  .view-buy span {
+    font-size: 10px!important;
+  }
+  .view-buy .quick-view {
+    padding: 5px!important;
   }
   .view-buy a:last-child {
-    padding: 8px 18px;
+    padding: 5px 12px!important;
   }
-  @media (min-width: 992px) and (max-width: 1200px) {
-    .view-buy span {
-      font-size: 10px!important;
-    }
-    .view-buy .quick-view {
-      padding: 5px!important;
-    }
-    .view-buy a:last-child {
-      padding: 5px 12px!important;
-    }
-  }
+}
 .view-buy {
+  position: absolute;
+  top: 50%;
+  text-align: center;
+  width: 100%;
+}
+.products-category .view-buy {
   position: absolute;
   top: 88%;
   text-align: center;

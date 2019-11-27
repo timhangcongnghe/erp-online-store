@@ -147,8 +147,7 @@
                                                 <div class="product-image-container">
                                                     <div class="image">
                                                         <a class="lt-image" href="<%= product_link(product) %>" target="_self" title="<%= product.product_name %>">
-                                                            <%= image_tag product_image(product.product_images, 'first', 'thumb193'), alt: product.product_name, class: "img-1 img-responsive", title: product.product_name %>
-                                                            <%= image_tag product_image(product.product_images, 'second', 'thumb193'), alt: product.product_name, class: "img-2 img-responsive", title: product.product_name %>
+                                                            <%= image_tag product_image(product.product_images, 'first', 'thumb193'), alt: product.product_name, class: "img-responsive", title: product.product_name %>
                                                         </a>
                                                     </div>
                                                     <%= quick_actions(product) %>
