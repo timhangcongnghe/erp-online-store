@@ -38,6 +38,8 @@ Erp::Products::Product.class_eval do
   end
 
   def get_meta_description
+    return "" if self.category.nil?
+    
     data = []
     self.category.property_groups.each do |group|
       group.properties.where(is_meta_description: true).each do |property|
@@ -650,7 +652,11 @@ Erp::Products::Product.class_eval do
     # Long
     self.product_values_array.each do |group|
       result[:long] << {
-        group: group[:group].name,
+        if group.show_name.present?
+					group: group[:group].get_show_name,
+				else
+					group: group[:group].get_name,
+				end        
         properties: group[:properties]
       }
     end
