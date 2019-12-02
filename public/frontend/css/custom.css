@@ -1064,8 +1064,7 @@ footer .footer-center .module .content-block-footer p > span {
   font-weight: 500;
 }
 footer .footer-center .contact-address li {
-  line-height: 22px;
-  margin-bottom: 5px;
+  line-height: 20px;
 }
 footer .footer-center .contact-address li:first-child {
   font-weight: 500;
@@ -3030,4 +3029,11 @@ footer .footer-top {
 .container-megamenu.horizontal ul.megamenu > li > a strong img {
   top: -7px;
   right: -5px;
+}
+.product-item-container .price span.sold_out_true {
+  font-size: 14px;
+  font-weight: 600;
+}
+footer .box-footer.box-account ul li, footer .box-footer.box-information ul li {
+  line-height: 28px;
 }
