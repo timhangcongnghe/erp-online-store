@@ -564,7 +564,7 @@ a.text-teal:hover {
   cursor: pointer;
 }/* custom category - product lists*/
 .products-list.list-masonry .product-layout .product-item-container .right-block .caption h4 a, .products-list.grid .product-layout .product-item-container .right-block .caption h4 a {
-    font-size: 15px;
+    font-size: 14px;
     color: #000;
     line-height: 20px;
     font-weight: 500;
@@ -3018,7 +3018,7 @@ footer .footer-top {
   height: 60px;
 }
 .list-product-specs {
-  font-size: 13px;
+  font-size: 12.5px;
 }
 .products-list.list-masonry .product-layout .product-item-container .right-block .caption, .products-list.grid .product-layout .product-item-container .right-block .caption {
   text-align: center;
