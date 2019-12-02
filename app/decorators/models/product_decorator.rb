@@ -640,7 +640,7 @@ Erp::Products::Product.class_eval do
       url = ErpSystem::Application.config.hkerp_endpoint + "products/erp_set_cache_thcn_url"
 
       uri = URI(url)
-      Net::HTTP.post_form(uri, 'id' => self.hkerp_product.hkerp_product_id, 'url' => "http://timhangcongnghe.com/san-pham/#{self.id}/#{self.alias}.html")
+      Net::HTTP.post_form(uri, 'id' => self.hkerp_product.hkerp_product_id, 'url' => "https://timhangcongnghe.com/san-pham/#{self.id}/#{self.alias}.html")
 
       self.product_images.where(image_url: nil).destroy_all
     end

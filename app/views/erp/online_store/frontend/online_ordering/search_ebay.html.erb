@@ -9,7 +9,7 @@
                         <% if ebay_item["thumb"].present? %>
                             <%= image_tag ebay_item["thumb"], alt: "", title: "", class: "product-img max-height-100" %>
                         <% else %>
-                            <%= image_tag "http://ir.ebaystatic.com/pictures/aw/pics/nextGenVit/imgNoImg.gif", alt: "", title: "", class: "product-img max-height-100" %>
+                            <%= image_tag "//ir.ebaystatic.com/pictures/aw/pics/nextGenVit/imgNoImg.gif", alt: "", title: "", class: "product-img max-height-100" %>
                         <% end %>
                     </div>
                     <%= link_to "", erp_online_store.online_ordering_product_detail_path(id: ebay_item["id"], service: 'ebay'), class: "product-link" %>
