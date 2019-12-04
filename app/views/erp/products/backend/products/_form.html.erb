@@ -330,12 +330,18 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-md-12">
+                                <div class="col-md-6">
                                     <%= erp_form_control("textarea", {
                                         name: 'product[meta_keywords]',
                                         value: product.meta_keywords,
                                         placeholder: t('.enter_meta_keywords'),
                                         label: t('.meta_keywords')
+                                    }) %>
+                                </div>
+                                <div class="col-md-6">
+                                    <%= erp_form_control("textarea", {
+                                        value: product.meta_description,
+                                        label: t('.meta_description')
                                     }) %>
                                 </div>
                             </div>
