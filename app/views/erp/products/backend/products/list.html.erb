@@ -70,24 +70,26 @@
                     <% if get_columns(params).include?("name") %>
                         <td>
                             <strong><%= link_to product.name, erp_products.edit_backend_product_path(product) %></strong>
+                            <% if product.short_name.present? %>
+                            <br><em><strong>Tên rút gọn: </strong><%= product.short_name %></em>
+                            <% end %>
                             <% if product.gifts.count > 0 %>
                                 Tặng kèm:
                                 <% product.gifts.each do |gift| %>
                                     <br><em><%= link_to gift.product_name, erp_products.edit_backend_product_path(gift), title: gift.product_name %></em>
                                 <% end %>
                             <% end %>
-                            <br>
                             <% if product.product_intro_link.present? %>
-                                <em><%= link_to 'Xem video: ' + product.product_intro_link, product.product_intro_link, target: '_blank' %></em>
+                                <br><em><%= link_to 'Xem video: ' + product.product_intro_link, product.product_intro_link, target: '_blank' %></em>
                             <% end %>
                             <% if product.dimentions.present? %>
-                                <em>Kích thước đóng gói: <%= product.dimentions %></em>
+                                <br><em>Kích thước đóng gói: <%= product.dimentions %></em>
                             <% end %>
                             <% if product.weights.present? %>
-                                <em>Trọng lượng đóng thùng: <%= product.weights %></em>
+                                <br><em>Trọng lượng đóng thùng: <%= product.weights %></em>
                             <% end %>
                             <% if product.warranty.present? %>
-                                <em>Bảo hành: <%= product.warranty %></em>
+                                <br><em>Bảo hành: <%= product.warranty %></em>
                             <% end %>
                         </td>
                     <% end %>                    
