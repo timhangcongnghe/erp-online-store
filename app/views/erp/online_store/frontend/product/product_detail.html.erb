@@ -27,7 +27,7 @@
                 <li><%= link_to menu.name, menu_link(menu) %></li>
             <% end %>
         <% end %>
-        <li><%= link_to truncate(@product.get_long_name, length: 50), "javascript:void(0)", title: @product.get_long_name %></li>
+        <li><%= link_to truncate(@product.get_short_name, length: 50), "javascript:void(0)", title: @product.get_short_name %></li>
     </ul>
     <div class="row">
         <div id="content" class="col-md-12 col-sm-12">

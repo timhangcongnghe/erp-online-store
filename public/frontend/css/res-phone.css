@@ -78,6 +78,18 @@
     .call-center {
       font-size: 12px;
     }
+    footer .footer-center .module .footer-logo {
+      text-align: center;
+    }
+    footer .footer-center .module .footer-logo img {
+      max-width: 70%;
+    }
+    footer .module h3.modtitle {
+      margin: 5px 0 !important;
+    }
+    footer .box-footer {
+      min-height: 150px;
+    }
 }
 
 /* Portrait */

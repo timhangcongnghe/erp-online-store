@@ -146,8 +146,8 @@
                                             <div class="left-block">
                                                 <div class="product-image-container">
                                                     <div class="image">
-                                                        <a class="lt-image" href="<%= product_link(product) %>" target="_self" title="<%= product.product_name %>">
-                                                            <%= image_tag product_image(product.product_images, 'first', 'thumb193'), alt: product.product_name, class: "img-responsive", title: product.product_name %>
+                                                        <a class="lt-image" href="<%= product_link(product) %>" target="_self" title="<%= product.get_long_name %>">
+                                                            <%= image_tag product_image(product.product_images, 'first', 'thumb193'), alt: product.get_long_name, class: "img-responsive", title: product.get_long_name %>
                                                         </a>
                                                     </div>
                                                     <%= quick_actions(product) %>
@@ -165,7 +165,7 @@
                                                     <div class="rating">
                                                         <%= stars(product.average_stars) %>
                                                     </div>
-                                                    <h4><%= link_to truncate(product.product_name, length: 40), product_link(product), title: product.product_name %></h4>
+                                                    <h4><%= link_to truncate(product.get_short_name, length: 45), product_link(product), title: product.get_short_name %></h4>
                                                     <p class="price">
                                                         <% if product.is_sold_out? || product.is_call? || product.product_price.nil? %>
                                                             <span class="price sold_out_true">Liên hệ: (028) 3984 7690</span>

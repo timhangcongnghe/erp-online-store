@@ -646,6 +646,11 @@ Erp::Products::Product.class_eval do
     return self.name
   end
   
+  #get product long name
+  def get_short_name
+    return self.short_name
+  end
+  
   # brand name
   def brand_name
     brand.present? ? brand.name : ''

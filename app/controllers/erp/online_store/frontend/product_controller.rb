@@ -124,7 +124,7 @@ module Erp
           @products = Erp::Products::Product.search(params).paginate(:page => params[:page], :per_page => 10)
 
           render json: @products.map { |product| {
-            name: product.name,
+            name: product.get_long_name,
             price: format_price(product.product_price),
             is_deal: product.is_deal,
             old_price: (format_price(product.price) if product.is_deal),

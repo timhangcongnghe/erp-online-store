@@ -81,9 +81,9 @@
 	<%= stylesheet_link_tag "/frontend/css/responsive.css" %>
 	<%= stylesheet_link_tag "/frontend/select2/css/select2.min.css" %>
 	<%= stylesheet_link_tag "/frontend/css/quick_order.css" %>
-	<%= stylesheet_link_tag "/frontend/css/custom.css?v=3.4" %>
-	<%= stylesheet_link_tag "/frontend/css/res-tablet.css" %>
-	<%= stylesheet_link_tag "/frontend/css/res-phone.css" %>
+	<%= stylesheet_link_tag "/frontend/css/custom.css?v=3.5" %>
+	<%= stylesheet_link_tag "/frontend/css/res-tablet.css?v=1.0" %>
+	<%= stylesheet_link_tag "/frontend/css/res-phone.css?v=1.0" %>
 	<% if params[:controller] == "erp/online_store/frontend/account" && params[:action] == "my_account" %>
 		<%= stylesheet_link_tag "/frontend/css/custom-profile.css" %>
 	<% end %>
@@ -224,7 +224,7 @@
 				{
 					"@type": "ListItem",
 					"position": <%= position = position + 1 %>,
-					"name": "<%= @product.get_long_name %>",
+					"name": "<%= @product.get_short_name %>",
 					"item": "https://timhangcongnghe.com<%= product_link(@product) %>"
 				}
 				]

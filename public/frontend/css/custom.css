@@ -1813,6 +1813,12 @@ form[role=edit-password] > div:last-child {
   text-align: center;
   width: 100%;
 }
+.category_box .view-buy {
+  position: absolute;
+  top: 80%;
+  text-align: center;
+  width: 100%;
+}
 .products-category .view-buy {
   position: absolute;
   top: 88%;

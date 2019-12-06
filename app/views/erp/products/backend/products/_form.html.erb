@@ -43,7 +43,9 @@
                                     value: product.short_name,
                                     label: t('.short_name'),
                                     help: t('.help_product_short_name'),
-                                    placeholder: t('.placeholder_product_short_name')
+                                    placeholder: t('.placeholder_product_short_name'),
+                                    required: true,
+                                    errors: product.errors.full_messages_for(:short_name)
                                 }) %>
                                 <%= erp_form_control('checkbox', {
                                     name: 'product[is_call]',
