@@ -47,14 +47,11 @@
                                     required: true,
                                     errors: product.errors.full_messages_for(:short_name)
                                 }) %>
-                                <%= erp_form_control('checkbox', {
-                                    name: 'product[is_call]',
-                                    id: 'product_is_call',
-                                    value: product.is_call,
-                                    not_selected_value: 'false',
-                                    label: t('.product_is_call'),
-                                    options: [{value: 'true', text: t('.is_call')}]
-                                }) %>                              
+                                <%= erp_form_control('file', {
+                                    img_src: product.datasheet,
+                                    name: 'product[datasheet]',
+                                    label: t('.datasheet')
+                                }) %>
                             </div>
                             <div class="col-md-7">
                                 <%= erp_form_control("images", {
@@ -219,7 +216,7 @@
                                 </div>
                             </div>                            
                             <div class="row">
-                                <div class="col-md-4">
+                                <div class="col-md-3">
                                     <%= erp_form_control('checkbox', {
                                         name: 'product[is_sold_out]',
                                         id: 'product_is_sold_out',
@@ -229,7 +226,7 @@
                                         options: [{value: 'true', text: t('.is_sold_out')}]
                                     }) %>
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-md-3">
                                     <%= erp_form_control('checkbox', {
                                         name: 'product[is_new]',
                                         id: 'product_is_new',
@@ -239,7 +236,7 @@
                                         options: [{value: 'true', text: t('.is_new')}]
                                     }) %>
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-md-3">
                                     <%= erp_form_control('checkbox', {
                                         name: 'product[is_stock_inventory]',
                                         id: 'product_is_stock_inventory',
@@ -247,6 +244,16 @@
                                         not_selected_value: 'false',
                                         label: t('.product_stock_inventory'),
                                         options: [{value: 'true', text: t('.is_stock_inventory')}]
+                                    }) %>
+                                </div>
+                                <div class="col-md-3">
+                                    <%= erp_form_control('checkbox', {
+                                        name: 'product[is_call]',
+                                        id: 'product_is_call',
+                                        value: product.is_call,
+                                        not_selected_value: 'false',
+                                        label: t('.product_is_call'),
+                                        options: [{value: 'true', text: t('.is_call')}]
                                     }) %>
                                 </div>
                             </div>
@@ -346,7 +353,7 @@
                                         label: t('.meta_description')
                                     }) %>
                                 </div>
-                            </div>
+                            </div>                            
                         </div>
                         <div class="tab-pane" id="tab_5_2">
                             <div class="product-property-container" data-url="<%= erp_products.property_form_backend_products_path(id: product.id) %>">

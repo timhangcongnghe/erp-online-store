@@ -90,6 +90,9 @@
     footer .box-footer {
       min-height: 150px;
     }
+    .layout-home1 .banner-sn-1 .img-1.banner1-1, .layout-home1 .banner-sn-1 .img-1.banner1-2 {
+      margin-bottom: 3px;
+    }
 }
 
 /* Portrait */
@@ -224,6 +227,9 @@
     .call-center {
       font-size: 12px;
     }
+    .layout-home1 .banner-sn-1 .img-1.banner1-1, .layout-home1 .banner-sn-1 .img-1.banner1-2 {
+      margin-bottom: 3px;
+    }
 }
 
 /* Portrait */
@@ -346,6 +352,9 @@
     .call-center {
       font-size: 13px;
     }
+    .layout-home1 .banner-sn-1 .img-1.banner1-1, .layout-home1 .banner-sn-1 .img-1.banner1-2 {
+      margin-bottom: 3px;
+    }
 }
 
 /* Portrait */
@@ -458,6 +467,9 @@
     }
     .call-center {
       font-size: 13px;
+    }
+    .layout-home1 .banner-sn-1 .img-1.banner1-1, .layout-home1 .banner-sn-1 .img-1.banner1-2 {
+      margin-bottom: 3px;
     }
 }
 

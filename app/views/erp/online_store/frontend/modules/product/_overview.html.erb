@@ -111,13 +111,22 @@
                                             title: @product.brand_name, target: '_blank' %></strong>
                             </td>
                         </tr>
-                        <tr>
-                            <% if @product.warranty.present? %>
-                                <td valign="top"><span>Bảo hành: </span>
-                                    <%= @product.warranty %> tháng
-                                </td>
-                            <% end %>
+                        <% if @product.warranty.present? %>
+                        <tr>                            
+                            <td valign="top"><span>Bảo hành: </span>
+                                <%= @product.warranty %> tháng
+                            </td>                            
                         </tr>
+                        <% end %>
+                        <% if @product.datasheet.present? %>
+                        <tr>                            
+                            <td valign="top"><span>Tài liệu: </span>
+                                <%= link_to 'Xem tài liệu sản phẩm',
+                                            @product.datasheet,
+                                            title: 'Xem tài liệu sản phẩm', target: '_blank' %>
+                            </td>                            
+                        </tr>
+                        <% end %>
                     </table>
                     <% product_short_descipriton_values_array = @product.product_short_descipriton_values_array %>
                     <% if product_short_descipriton_values_array.count > 2 %>

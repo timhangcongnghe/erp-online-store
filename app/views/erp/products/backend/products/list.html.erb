@@ -91,6 +91,9 @@
                             <% if product.warranty.present? %>
                                 <br><em>Bảo hành: <%= product.warranty %></em>
                             <% end %>
+                            <% if product.datasheet.present? %>
+                                <br><em><%= link_to 'Tài liệu: ' + product.datasheet, product.datasheet, target: '_blank' %></em>
+                            <% end %>
                         </td>
                     <% end %>                    
                     <% if get_columns(params).include?("price") %>

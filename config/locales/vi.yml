@@ -16,6 +16,7 @@ vi:
             placeholder_weights: "Nhập cân nặng sản phẩm"
             dimentions: "Kích thước"
             placeholder_dimentions: "Nhập kích thước sản phẩm"
+            datasheet: "Tài liệu sản phẩm"
   activerecord:
     attributes:
       erp/user:

@@ -2,6 +2,8 @@ Erp::Products::Product.class_eval do
   has_many :accessory_details, class_name: "Erp::Products::AccessoryDetail", dependent: :destroy
   has_many :product_gifts, class_name: "Erp::Products::ProductGift", dependent: :destroy
   
+  mount_uploader :datasheet, Erp::Products::DatasheetProductUploader
+  
   # backend for thcn
   def self.filter(query, params)
     params = params.to_unsafe_hash
