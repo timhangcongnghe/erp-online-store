@@ -92,7 +92,7 @@
                                 <br><em>Bảo hành: <%= product.warranty %></em>
                             <% end %>
                             <% if product.datasheet.present? %>
-                                <br><em><%= link_to 'Tài liệu: ' + product.datasheet, product.datasheet, target: '_blank' %></em>
+                                <br><em><%= link_to 'Tài liệu sản phẩm', product.datasheet_url, target: '_blank' %></em>
                             <% end %>
                         </td>
                     <% end %>                    

@@ -48,8 +48,8 @@
                                     errors: product.errors.full_messages_for(:short_name)
                                 }) %>
                                 <%= erp_form_control('file', {
-                                    img_src: product.datasheet,
                                     name: 'product[datasheet]',
+                                    value: product.datasheet,
                                     label: t('.datasheet')
                                 }) %>
                             </div>
