@@ -12,9 +12,7 @@
                                    data-index="<%= index %>" class="img thumbnail "
                                    data-image="<%= product_image.image_url.thumb650 %>"
                                    title="<%= @product.get_long_name %>">
-                                    <%= image_tag product_image.image_url.thumb170,
-                                    alt: @product.get_long_name,
-                                    title: @product.get_long_name %>
+                                   <%= image_tag product_image.image_url.thumb170, alt: @product.get_long_name %>
                                 </a>
                             </li>
                         <% end %>
@@ -24,7 +22,6 @@
                     <img class="product-image-zoom"
                          data-src="<%= @product.main_image.image_url.thumb650 %>"
                          src="<%= @product.main_image.image_url.thumb650 %>"
-                         title="<%= @product.get_long_name %>"
                          alt="<%= @product.get_long_name %>">
                 </div>
                 <% if @product.product_intro_link.present? %>
@@ -37,23 +34,19 @@
         <% else %>
             <div class="content-product-left  col-sm-5 col-xs-12 ">
                 <% if product_images.count == 0 %>
-                    <div class="vertical">
+                    <div class="large-image vertical">
                         <%= image_tag '/frontend/image/shop/image-coming-soon.jpg', alt: @product.get_long_name %>
                     </div>
                 <% else %>
-                    <div id="large-image" class="large-image vertical">
-                        <img class="product-image-zoom"
-                             data-src="<%= @product.main_image.image_url.thumb650 %>"
-                             src="<%= @product.main_image.image_url.thumb650 %>"
-                             title="<%= @product.get_long_name %>"
-                             alt="<%= @product.get_long_name %>">
-                    </div>
-                    <% if @product.product_intro_link.present? %>
-                        <%= link_to '<i class="fa fa-youtube-play"></i>'.html_safe,
-                            @product.product_intro_link,
-                            class: "open-video-link thumb-video pull-left",
-                            title: @product.get_long_name %>
-                    <% end %>
+                    <div class="large-image vertical">
+                        <%= image_tag @product.main_image.image_url.thumb650, alt: @product.get_long_name %>
+                    </div>                    
+                <% end %>
+                <% if @product.product_intro_link.present? %>
+                    <%= link_to '<i class="fa fa-youtube-play"></i>'.html_safe,
+                        @product.product_intro_link,
+                        class: "open-video-link thumb-video pull-left",
+                        title: @product.get_long_name %>
                 <% end %>
             </div>
         <% end %>
