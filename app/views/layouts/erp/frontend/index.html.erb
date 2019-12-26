@@ -3,29 +3,18 @@
 
 <head>
 	<%= csrf_meta_tags %>
-	
-	<title>
-		<% if content_for?(:title) %>
-			<%= yield(:title) %> | Tìm Hàng Công Nghệ
-		<% else %>
-			Tìm Hàng Công Nghệ | Hoang Khang Incotech
-		<% end %>
-	</title>
-	
+	<title><% if content_for?(:title) %><%= yield(:title) %> | Tìm Hàng Công Nghệ<% else %>Tìm Hàng Công Nghệ | Hoang Khang Incotech<% end %></title>
 	<meta charset="utf-8">
-	
 	<% if @meta_keywords.present? %>
 	<meta name="keywords" content="<%= @meta_keywords %>">
 	<% else %>
 	<meta name="keywords" content="máy tính xách tay, laptop, máy tính để bàn, máy chủ, máy trạm, màn hình máy tính, máy chiếu, máy in, camera quan sát, tổng đài điện thoại">
 	<% end %>
-
 	<% if @meta_description.present? %>
 	<meta name="description" content="<%= @meta_description %>">
 	<% else %>
 	<meta name="description" content="Tìm Hàng Công Nghệ là đơn vị cung cấp các sản phẩm, dịch vụ thuộc lĩnh vực Công Nghệ Thông Tin do Công Ty TNHH Giải Pháp CNTT Và Truyền Thông Hoàng Khang phụ trách và phát triển.">
 	<% end %>
-
 	<meta name="author" content="Công Ty TNHH Giải Pháp Công Nghệ Thông Tin Và Truyền Thông Hoàng Khang, Tìm Hàng Công Nghệ, Sơn Nguyễn">
 	<meta http-equiv="content-language" content="vi-VN">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -43,45 +32,22 @@
 	<meta property="fb:app_id" content="1857760154495631"/>
 	
 	<!-- Favicon ============================================ -->
-	<link rel="apple-touch-icon" sizes="57x57" href="<%= url_for('/frontend/fav/apple-icon-57x57.png') %>">
-	<link rel="apple-touch-icon" sizes="60x60" href="<%= url_for('/frontend/fav/apple-icon-60x60.png') %>">
-	<link rel="apple-touch-icon" sizes="72x72" href="<%= url_for('/frontend/fav/apple-icon-72x72.png') %>">
-	<link rel="apple-touch-icon" sizes="76x76" href="<%= url_for('/frontend/fav/apple-icon-76x76.png') %>">
-	<link rel="apple-touch-icon" sizes="114x114" href="<%= url_for('/frontend/fav/apple-icon-114x114.png') %>">
-	<link rel="apple-touch-icon" sizes="120x120" href="<%= url_for('/frontend/fav/apple-icon-120x120.png') %>">
-	<link rel="apple-touch-icon" sizes="144x144" href="<%= url_for('/frontend/fav/apple-icon-144x144.png') %>">
-	<link rel="apple-touch-icon" sizes="152x152" href="<%= url_for('/frontend/fav/apple-icon-152x152.png') %>">
-	<link rel="apple-touch-icon" sizes="180x180" href="<%= url_for('/frontend/fav/apple-icon-180x180.png') %>">
-	<link rel="icon" type="image/png" sizes="192x192"  href="<%= url_for('/frontend/fav/android-icon-192x192.png') %>">
-	<link rel="icon" type="image/png" sizes="32x32" href="<%= url_for('/frontend/fav/favicon-32x32.png') %>">
-	<link rel="icon" type="image/png" sizes="96x96" href="<%= url_for('/frontend/fav/favicon-96x96.png') %>">
-	<link rel="icon" type="image/png" sizes="16x16" href="<%= url_for('/frontend/fav/favicon-16x16.png') %>">
-	<link rel="manifest" href="<%= url_for('/frontend/fav/manifest.json') %>">
-	<%= favicon_link_tag '/frontend/fav/favicon-16x16.png', rel: 'shortcut icon', type: '/frontend/image/x-icon' %>
-
+	<link rel="apple-touch-icon" sizes="57x57" href="<%= url_for('/frontend/img/sys/apple-icon-57x57.png') %>">
+	<link rel="apple-touch-icon" sizes="76x76" href="<%= url_for('/frontend/img/sys/apple-icon-76x76.png') %>">
+	<link rel="apple-touch-icon" sizes="120x120" href="<%= url_for('/frontend/img/sys/apple-icon-120x120.png') %>">
+	<link rel="apple-touch-icon" sizes="152x152" href="<%= url_for('/frontend/img/sys/apple-icon-152x152.png') %>">
+	<link rel="apple-touch-icon" sizes="180x180" href="<%= url_for('/frontend/img/sys/apple-icon-180x180.png') %>">
+	<link rel="icon" sizes="128x128"  href="<%= url_for('/frontend/img/sys/android-icon-128x128.png') %>">
+	<link rel="icon" sizes="192x192"  href="<%= url_for('/frontend/img/sys/android-icon-192x192.png') %>">
+	<%= favicon_link_tag '/frontend/img/sys/favicon.png', rel: 'shortcut icon' %>
+	
 	<!-- Google web fonts ============================================ -->
 	<%= stylesheet_link_tag "/frontend/css/google-fonts.css" %>
-
+	
 	<!-- Libs CSS ============================================ -->
-	<%= stylesheet_link_tag "/frontend/css/bootstrap/css/bootstrap.min.css" %>
-	<%= stylesheet_link_tag "/frontend/css/font-awesome/css/font-awesome.min.css" %>
-	<%= stylesheet_link_tag "/frontend/js/datetimepicker/bootstrap-datetimepicker.min.css" %>
-	<%= stylesheet_link_tag "/frontend/js/owl-carousel/owl.carousel.css" %>
-	<%= stylesheet_link_tag "/frontend/css/themecss/lib.css" %>
-	<%= stylesheet_link_tag "/frontend/js/jquery-ui/jquery-ui.min.css" %>
-	<%= stylesheet_link_tag "/frontend/js/lightslider/lightslider.css" %>
-	<%= stylesheet_link_tag "/frontend/fancybox/jquery.fancybox.min.css" %>
+	<%= stylesheet_link_tag "/frontend/css/import.css" %>
 
 	<!-- Theme CSS ============================================ -->
-	<%= stylesheet_link_tag "/frontend/css/themecss/so_megamenu.css" %>
-	<%= stylesheet_link_tag "/frontend/css/themecss/so-categories.css" %>
-	<%= stylesheet_link_tag "/frontend/css/themecss/so-listing-tabs.css" %>
-	<%= stylesheet_link_tag "/frontend/css/themecss/animate.css" %>
-	<%= stylesheet_link_tag "/frontend/css/themecss/so-super-category.css" %>
-	<%= stylesheet_link_tag "/frontend/css/theme-cyan.css" %>
-	<%= stylesheet_link_tag "/frontend/css/responsive.css" %>
-	<%= stylesheet_link_tag "/frontend/select2/css/select2.min.css" %>
-	<%= stylesheet_link_tag "/frontend/css/quick_order.css" %>
 	<%= stylesheet_link_tag "/frontend/css/custom.css?v=3.5" %>
 	<%= stylesheet_link_tag "/frontend/css/res-tablet.css?v=1.0" %>
 	<%= stylesheet_link_tag "/frontend/css/res-phone.css?v=1.1" %>
@@ -98,10 +64,7 @@
 	<% end %>
 	
 	<!-- Js use for map-canvas in contact us  -->
-	<% if params[:controller] == "erp/online_store/frontend/information" && params[:action] == "contact_us" %>
-		<%= javascript_include_tag "/frontend/js-google-map/jquery/jquery.js" %>
-	<% end %>
-	
+	<% if params[:controller] == "erp/online_store/frontend/information" && params[:action] == "contact_us" %><%= javascript_include_tag "/frontend/js-google-map/jquery/jquery.js" %><% end %>
 	<link rel="alternate" href="https://timhangcongnghe.com/" hreflang="vi-VN" />
 	
 	<script>
@@ -109,127 +72,126 @@
 		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
 		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-	
 		ga('create', 'UA-101029174-1', 'auto');
 		ga('send', 'pageview');
 	</script>
 	
 	<script type="application/ld+json">
-		{
-			"@context": "https://schema.org",
-			"@type": "ComputerStore",
-			"name": "Tìm Hàng Công Nghệ",
-			"image": "https://timhangcongnghe.com/frontend/image/schema-logo.png",
-			"description": "Tìm Hàng Công Nghệ là đơn vị cung cấp các sản phẩm, dịch vụ thuộc lĩnh vực Công Nghệ Thông Tin do Công Ty TNHH Giải Pháp CNTT Và Truyền Thông Hoàng Khang phụ trách và phát triển.",
-			"@id": "",
-			"url": "https://timhangcongnghe.com/",
-			"telephone": "(028) 3984 7690",
-			"priceRange": "VND",
-			"address": {
-				"@type": "PostalAddress",
-				"streetAddress": "188 Đường số 1, Phường 16",
-				"addressLocality": "Gò Vấp",
-				"addressRegion": "Hồ Chí Minh",
-				"postalCode": "700000",
-				"addressCountry": "VN"
-			},
-			"geo": {
-				"@type": "GeoCoordinates",
-				"latitude": 10.847621,
-				"longitude": 106.657642
-			},
-			"openingHoursSpecification": {
-				"@type": "OpeningHoursSpecification",
-				"dayOfWeek": [
-					"Monday",
-					"Tuesday",
-					"Wednesday",
-					"Thursday",
-					"Friday",
-					"Saturday"
-				],
-				"opens": "08:00",
-				"closes": "17:00"
-			}
+	{
+		"@context": "https://schema.org",
+		"@type": "ComputerStore",
+		"name": "Tìm Hàng Công Nghệ",
+		"image": "https://timhangcongnghe.com/frontend/image/schema-logo.png",
+		"description": "Tìm Hàng Công Nghệ là đơn vị cung cấp các sản phẩm, dịch vụ thuộc lĩnh vực Công Nghệ Thông Tin do Công Ty TNHH Giải Pháp CNTT Và Truyền Thông Hoàng Khang phụ trách và phát triển.",
+		"@id": "",
+		"url": "https://timhangcongnghe.com/",
+		"telephone": "(028) 3984 7690",
+		"priceRange": "VND",
+		"address": {
+			"@type": "PostalAddress",
+			"streetAddress": "188 Đường số 1, Phường 16",
+			"addressLocality": "Gò Vấp",
+			"addressRegion": "Hồ Chí Minh",
+			"postalCode": "700000",
+			"addressCountry": "VN"
+		},
+		"geo": {
+			"@type": "GeoCoordinates",
+			"latitude": 10.847621,
+			"longitude": 106.657642
+		},
+		"openingHoursSpecification": {
+			"@type": "OpeningHoursSpecification",
+			"dayOfWeek": [
+				"Monday",
+				"Tuesday",
+				"Wednesday",
+				"Thursday",
+				"Friday",
+				"Saturday"
+			],
+			"opens": "08:00",
+			"closes": "17:00"
 		}
+	}
 	</script>
 	<script type="application/ld+json">
-		{
-			"@context": "https://schema.org/",
-			"@type": "WebSite",
-			"name": "Tìm Hàng Công Nghệ",
-			"url": "https://timhangcongnghe.com/",
-			"potentialAction": {
-				"@type": "SearchAction",
-				"target": "https://timhangcongnghe.com/tim-kiem.html?keyword={search_term_string}",
-				"query-input": "required name=search_term_string"
-			}
+	{
+		"@context": "https://schema.org/",
+		"@type": "WebSite",
+		"name": "Tìm Hàng Công Nghệ",
+		"url": "https://timhangcongnghe.com/",
+		"potentialAction": {
+			"@type": "SearchAction",
+			"target": "https://timhangcongnghe.com/tim-kiem.html?keyword={search_term_string}",
+			"query-input": "required name=search_term_string"
 		}
+	}
 	</script>
 	<% if params[:controller] == "erp/online_store/frontend/category" && params[:action] == "index" %>
 	<script type="application/ld+json">
-		<% position = 1 %>
-		{
-			"@context": "https://schema.org",
-			"@type": "BreadcrumbList",
-				"itemListElement": [
-				{
-					"@type": "ListItem",
-					"position": <%= position %>,
-					"name": "Tìm Hàng Công Nghệ",
-					"item": "https://timhangcongnghe.com/"
-				},
-				<% @menu.self_and_parent_menus.each do |menu| %>
-        <% if @menu.id != menu.id %>
-				{
-					"@type": "ListItem",
-					"position": <%= position = position + 1 %>,
-					"name": "<%= menu.name %>",
-					"item": "https://timhangcongnghe.com<%= menu_link(menu) %>"
-				},
-				<% end %>
-        <% end %>
-				{
-					"@type": "ListItem",
-					"position": <%= position = position + 1 %>,
-					"name": "<%= @menu.name %>",
-					"item": "https://timhangcongnghe.com<%= menu_link(@menu) %>"
-				}
-				]
-		}
+	<% position = 1 %>
+	{
+		"@context": "https://schema.org",
+		"@type": "BreadcrumbList",
+			"itemListElement": [
+			{
+				"@type": "ListItem",
+				"position": <%= position %>,
+				"name": "Tìm Hàng Công Nghệ",
+				"item": "https://timhangcongnghe.com/"
+			},
+			<% @menu.self_and_parent_menus.each do |menu| %>
+			<% if @menu.id != menu.id %>
+			{
+				"@type": "ListItem",
+				"position": <%= position = position + 1 %>,
+				"name": "<%= menu.name %>",
+				"item": "https://timhangcongnghe.com<%= menu_link(menu) %>"
+			},
+			<% end %>
+			<% end %>
+			{
+				"@type": "ListItem",
+				"position": <%= position = position + 1 %>,
+				"name": "<%= @menu.name %>",
+				"item": "https://timhangcongnghe.com<%= menu_link(@menu) %>"
+			}
+			]
+	}
 	</script>
 	<% end %>
 	<% if params[:controller] == "erp/online_store/frontend/product" && params[:action] == "product_detail" %>
 	<script type="application/ld+json">
-		<% position = 1 %>
-		{
-			"@context": "https://schema.org",
-			"@type": "BreadcrumbList",
-				"itemListElement": [
-				{
-					"@type": "ListItem",
-					"position": <%= position %>,
-					"name": "Tìm Hàng Công Nghệ",
-					"item": "https://timhangcongnghe.com/"
-				},
-				<% if !@menu.nil? %>
-        <% @menu.self_and_parent_menus.each do |menu| %>
-				{
-					"@type": "ListItem",
-					"position": <%= position = position + 1 %>,
-					"name": "<%= menu.name %>",
-					"item": "https://timhangcongnghe.com<%= menu_link(menu) %>"
-				},
-				<% end %>
-        <% end %>
-				{
-					"@type": "ListItem",
-					"position": <%= position = position + 1 %>,
-					"name": "<%= @product.get_short_name %>",
-					"item": "https://timhangcongnghe.com<%= product_link(@product) %>"
-				}
-				]
-		}
+	<% position = 1 %>
+	{
+		"@context": "https://schema.org",
+		"@type": "BreadcrumbList",
+			"itemListElement": [
+			{
+				"@type": "ListItem",
+				"position": <%= position %>,
+				"name": "Tìm Hàng Công Nghệ",
+				"item": "https://timhangcongnghe.com/"
+			},
+			<% if !@menu.nil? %>
+			<% @menu.self_and_parent_menus.each do |menu| %>
+			{
+				"@type": "ListItem",
+				"position": <%= position = position + 1 %>,
+				"name": "<%= menu.name %>",
+				"item": "https://timhangcongnghe.com<%= menu_link(menu) %>"
+			},
+			<% end %>
+			<% end %>
+			{
+				"@type": "ListItem",
+				"position": <%= position = position + 1 %>,
+				"name": "<%= @product.get_short_name %>",
+				"item": "https://timhangcongnghe.com<%= product_link(@product) %>"
+			}
+			]
+	}
 	</script>
 	<script type="application/ld+json">
 	{
@@ -239,7 +201,16 @@
 		<% if @product.product_images.count == 0 %>
 		"image": "https://timhangcongnghe.com/frontend/image/schema-logo.png",
 		<% else %>
-		"image": "https://timhangcongnghe.com<%= @product.product_images.first.image_url.thumb650 %>",
+		"image": [
+							<% count = @product.product_images.count %>
+							<% @product.product_images.each_with_index do |product_image, index| %>
+							<% if count == (index+1) %>
+							"https://timhangcongnghe.com<%= product_image.image_url %>"
+							<% else %>
+							"https://timhangcongnghe.com<%= product_image.image_url %>",
+							<% end %>
+							<% end %>
+						 ],
 		<% end %>
 		<% if @meta_description.present? %>
 		"description": "<%= @meta_description %>",

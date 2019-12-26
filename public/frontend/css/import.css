@@ -1,0 +1,19 @@
+/* Libs CSS */
+@import "bootstrap/css/bootstrap.min.css";
+@import "font-awesome/css/font-awesome.min.css";
+@import "../js/datetimepicker/bootstrap-datetimepicker.min.css";
+@import "../js/owl-carousel/owl.carousel.css";
+@import "themecss/lib.css";
+@import "../js/jquery-ui/jquery-ui.min.css";
+@import "../js/lightslider/lightslider.css";
+@import "../fancybox/jquery.fancybox.min.css";
+/* Theme CSS */
+@import "themecss/so_megamenu.css";
+@import "themecss/so-categories.css";
+@import "themecss/so-listing-tabs.css";
+@import "themecss/animate.css";
+@import "themecss/so-super-category.css";
+@import "theme-cyan.css";
+@import "responsive.css";
+@import "../select2/css/select2.min.css";
+@import "quick_order.css";
