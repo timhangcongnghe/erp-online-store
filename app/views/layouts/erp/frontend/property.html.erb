@@ -3,7 +3,6 @@
 
 <head>
 	<%= csrf_meta_tags %>
-
 	<title>
 		<% if content_for?(:title) %>
 			<%= yield(:title) %> | Tìm Hàng Công Nghệ
@@ -11,9 +10,7 @@
 			Trang Thương Mại Điện Tử Tìm Hàng Công Nghệ | Hoang Khang Incotech			
 		<% end %>
 	</title>
-	
 	<meta charset="utf-8">
-	
 	<% if @meta_keywords.present? %>
 	<meta name="keywords" content="<%= @meta_keywords %>">
 	<% else %>
@@ -27,8 +24,9 @@
 	<% end %>
 
 	<meta name="author" content="Công Ty TNHH Giải Pháp Công Nghệ Thông Tin Và Truyền Thông Hoàng Khang, Tìm Hàng Công Nghệ, Sơn Nguyễn">
-	<meta http-equiv="content-language" content="vi-VN">
+	<meta http-equiv="content-language" content="vi">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<link rel="alternate" href="https://timhangcongnghe.com/" hreflang="vi" />
 	<meta name="google-site-verification" content="QjLSyCa5_gKR4ZHGAJjl8dfTFvTRzrvnRsvVtX0ELBY" />
 	<meta name="msapplication-TileColor" content="#ffffff">
 	<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
@@ -84,8 +82,6 @@
 	<%= stylesheet_link_tag "/frontend/css/custom.css" %>	
 	<%= stylesheet_link_tag "/frontend/css/res-tablet.css" %>
 	<%= stylesheet_link_tag "/frontend/css/res-phone.css" %>
-    
-	<link rel="alternate" href="https://timhangcongnghe.com/" hreflang="vi" />
 	
 	<script type="application/ld+json">
 		{
@@ -148,7 +144,16 @@
 		<% if @product.product_images.count == 0 %>
 		"image": "https://timhangcongnghe.com/frontend/image/schema-logo.png",
 		<% else %>
-		"image": "https://timhangcongnghe.com<%= @product.product_images.first.image_url.thumb650 %>",
+		"image": [
+					<% count = @product.product_images.count %>
+					<% @product.product_images.each_with_index do |product_image, index| %>
+					<% if count == (index+1) %>
+					"https://timhangcongnghe.com<%= product_image.image_url %>"
+					<% else %>
+					"https://timhangcongnghe.com<%= product_image.image_url %>",
+					<% end %>
+					<% end %>
+				 ],
 		<% end %>
 		<% if @meta_description.present? %>
 		"description": "<%= @meta_description %>",
@@ -167,7 +172,7 @@
 			},
 			"author": {
 				"@type": "Person",
-				"name": "Nguyễn Ngọc Sơn"
+				"name": "Sơn Nguyễn"
 			}
 		},
 		"aggregateRating": {

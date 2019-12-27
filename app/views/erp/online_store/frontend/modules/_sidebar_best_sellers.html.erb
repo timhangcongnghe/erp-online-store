@@ -25,7 +25,8 @@
                         <div class="media-body">
                             <div class="item-info">
                                 <div class="item-title">
-                                    <%= link_to truncate(product.product_name, length: 40), product_link(product), title: product.product_name %>
+                                    <%= link_to truncate(product.product_name, length: 40),
+                                        product_link(product), title: product.product_name %>
                                 </div>
                                 <!-- Begin item-content -->
                                 <div class="item-content">
@@ -43,14 +44,10 @@
                                          <% end %>
                                     </div>
                                 </div>
-                                <!-- End item-content -->
                             </div>
                         </div>
-                        <!-- End item-info -->
                     </div>
-                    <!-- End item-wrap-inner -->
                 </div>
-                <!-- End item-wrap -->
                 <%= '</div><div class="item ">'.html_safe if index%3 == 2 && index+1 != count %>
                 <% end %>
             </div>

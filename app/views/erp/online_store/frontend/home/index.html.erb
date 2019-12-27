@@ -2,7 +2,7 @@
 
 <% content_for :metas do %>
 <!-- for Facebook -->
-    <meta property="og:url" content="https://timhangcongnghe.com"/>
+    <meta property="og:url" content="<%= request.url %>"/>
     <meta property="og:type" content="website"/>
     <meta property="og:title" content="Tìm Hàng Công Nghệ"/>
     <meta property="og:description" content="Tìm Hàng Công Nghệ là đơn vị cung cấp các sản phẩm, dịch vụ thuộc lĩnh vực Công Nghệ Thông Tin do Công Ty TNHH Giải Pháp CNTT Và Truyền Thông Hoàng Khang phụ trách và phát triển."/>
@@ -64,7 +64,8 @@
                 <div class="banners">
                     <div>
                         <% if !@long_banner.nil? %>
-                            <%= link_to image_tag(@long_banner.image_url.thumb, alt: @long_banner.name), @long_banner.link_url, title: @long_banner.name %>
+                            <%= link_to image_tag(@long_banner.image_url.thumb, alt: @long_banner.name),
+                                @long_banner.link_url, title: @long_banner.name %>
                         <% end %>
                     </div>
                 </div>
@@ -87,7 +88,10 @@
                 <div class="bestseller col-md-4 col-sm-6 col-xs-12">
                     <div class="bestseller-inner">
                         <div>
-                            <h3 class="modtitle"><%= link_to '<span>Bán chạy nhất</span>'.html_safe, erp_online_store.bestseller_products_path %></h3>
+                            <h3 class="modtitle">
+                                <%= link_to '<span>Bán chạy nhất</span>'.html_safe,
+                                    erp_online_store.bestseller_products_path, title: 'Bán chạy nhất' %>
+                                </h3>
                             <%= render "erp/online_store/frontend/modules/home/bestsellers", bestsellers: @bestsellers %>
                         </div>
                     </div>
@@ -95,7 +99,9 @@
                 <div class="module testimonial col-md-4 col-sm-12 col-xs-12">
                     <div class="clients_say">
                         <div class="block-title">
-                            <h3 class="modtitle"><%= link_to '<span>Ý kiến khách hàng</span>'.html_safe, "" %></h3>
+                            <h3 class="modtitle">
+                                <%= link_to '<span>Ý kiến khách hàng</span>'.html_safe, "", title: 'Ý kiến khách hàng' %>
+                                </h3>
                         </div>
                         <div class="slider-clients-say">
                             <%= render "erp/online_store/frontend/modules/home/testimonial" %>

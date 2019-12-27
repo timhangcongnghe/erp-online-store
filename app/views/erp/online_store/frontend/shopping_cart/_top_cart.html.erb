@@ -6,8 +6,6 @@
                 <span class="pull-left icon"></span>
                 <span class="text-shopping-cart hidden-xs">Giỏ hàng</span>
                 <span class="num cart-qty hidden-xs"><%= @cart.cart_items.number_items %></span>
-                <!--<span class="icon-cart-top-menu"><i class="fa fa-shopping-cart"></i></span>-->
-                <!--<span class="text-shopping-cart-top-menu hidden-xs"><%= @cart.cart_items.number_items %></span>-->
                 <span class="text-shopping-cart-mobi hidden-lg hidden-md hidden-sm">
                     <i class="fa fa-cart-plus"></i>
                     <i class="fa fa-angle-down"></i>
@@ -23,10 +21,12 @@
                         <% @cart.cart_items.each do |cart_item| %>
                         <tr>
                             <td class="text-center" style="width:70px">
-                                <%= link_to image_tag(product_image(cart_item.product.product_images, 'first', 'thumb99'), width: "70px", alt: cart_item.product_name, title: cart_item.product_name, class: "preview"), product_link(cart_item.product) %>
+                                <%= link_to image_tag(product_image(cart_item.product.product_images, 'first', 'thumb99'), width: "70px", alt: cart_item.product_name, class: "preview"),
+                                    product_link(cart_item.product), title: cart_item.product_name, rel: 'nofollow' %>
                             </td>
                             <td class="text-left">
-                                <%= link_to cart_item.product_name, product_link(cart_item.product), class: "cart_product_name top_cart_list", title: cart_item.product_name %><br>
+                                <%= link_to cart_item.product_name, product_link(cart_item.product),
+                                    class: "cart_product_name top_cart_list", title: cart_item.product_name, rel: 'nofollow' %><br>
                                 <% if cart_item.product.gifts.count > 0 %>
                                     <span class="tooltip-col">
                                         <i class="fa fa-gift" aria-hidden="true"></i>
@@ -64,12 +64,18 @@
                         </tbody>
                     </table>
                     <p class="text-center">
-                        <%= link_to '<i class="fa fa-shopping-bag"></i> CHI TIẾT GIỎ HÀNG'.html_safe, erp_online_store.shopping_cart_path, class: "btn view-cart shopping-actions" %>
+                        <%= link_to '<i class="fa fa-shopping-bag"></i> CHI TIẾT GIỎ HÀNG'.html_safe,
+                            erp_online_store.shopping_cart_path, class: "btn view-cart shopping-actions",
+                            title: 'Chi tiết giỏ hàng', rel: 'nofollow' %>
                         &nbsp;&nbsp;&nbsp;
                         <% if user_signed_in? %>
-                            <%= link_to '<i class="fa fa-hand-o-right"></i> ĐẶT HÀNG NGAY'.html_safe, erp_online_store.checkout_path, class: "btn btn-mega checkout-cart shopping-actions" %>
+                            <%= link_to '<i class="fa fa-hand-o-right"></i> ĐẶT HÀNG NGAY'.html_safe,
+                                erp_online_store.checkout_path, class: "btn btn-mega checkout-cart shopping-actions",
+                                title: 'Đặt hàng ngay', rel: 'nofollow' %>
                         <% else %>
-                            <%= link_to '<i class="fa fa-share"></i> ĐẶT HÀNG NGAY'.html_safe, erp_online_store.quick_order_path, class: "btn btn-mega checkout-cart shopping-actions" %>
+                            <%= link_to '<i class="fa fa-share"></i> ĐẶT HÀNG NGAY'.html_safe,
+                                erp_online_store.quick_order_path, class: "btn btn-mega checkout-cart shopping-actions",
+                                title: 'Đặt hàng ngay', rel: 'nofollow' %>
                         <% end %>
                     </p>
                 </div>
@@ -77,7 +83,7 @@
             <% else %>
                 <li>
                     <div class="text-center">
-                        <p>Hiện chưa có sản phẩm nào trong giỏ hàng của bạn.</p>
+                        <p>Hiện chưa có sản phẩm trong giỏ hàng.</p>
                     </div>
                 </li>
             <% end %>

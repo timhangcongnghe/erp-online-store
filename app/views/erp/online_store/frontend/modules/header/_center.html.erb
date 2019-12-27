@@ -3,11 +3,12 @@
         <div class="row">
             <!-- LOGO -->
             <div class="navbar-logo col-md-2 col-sm-4 col-xs-10 logo">
+				<h1 class="for-img">
                 <%= link_to image_tag("/frontend/image/logos/logo-timhangcongnghe-web.svg",
-					title: "Tìm Hàng Công Nghệ - Trang thương mại điện tử sản phẩm công nghệ chất lượng, uy tín.",
 					alt: "Tìm Hàng Công Nghệ - Trang thương mại điện tử sản phẩm công nghệ chất lượng, uy tín."),
 					erp_online_store.root_path,
 					title: "Tìm Hàng Công Nghệ - Trang thương mại điện tử sản phẩm công nghệ chất lượng, uy tín." %>
+				</h1>
             </div>
             <div class="header-center-right col-md-10 col-sm-8 col-xs-2">
                 <div class="responsive so-megamenu megamenu-style-dev">
@@ -27,7 +28,7 @@
                                         <ul class="megamenu " data-transition="slide" data-animationtime="250">
                                             <li>
                                                 <p class="close-menu"></p>
-                                                <a href="<%= erp_online_store.root_path %>" class="clearfix">
+                                                <a href="<%= erp_online_store.root_path %>" class="clearfix" title="Trang Chủ">
                                                     <strong>Trang Chủ</strong>
                                                     <span class="label"></span>
                                                 </a>
@@ -35,7 +36,7 @@
                                             <% if Erp::Products::Product.get_deal_products.count > 0 %>
                                             <li>
                                                 <p class="close-menu"></p>
-                                                <a href="<%= erp_online_store.deal_products_path %>" class="clearfix">
+                                                <a href="<%= erp_online_store.deal_products_path %>" class="clearfix" title="Khuyến Mãi">
                                                     <strong>Khuyến Mãi</strong>
                                                     <span class="label"></span>
                                                 </a>
@@ -43,28 +44,28 @@
                                             <% end %>
 											<li>
                                                 <p class="close-menu"></p>
-                                                <a href="<%= erp_online_store.business_choices_path %>" class="clearfix">
+                                                <a href="<%= erp_online_store.business_choices_path %>" class="clearfix" title="Lựa Chọn Hàng Đầu">
                                                     <strong>Lựa Chọn Hàng Đầu</strong>
                                                     <span class="label"></span>
                                                 </a>
                                             </li>
                                             <li>
                                                 <p class="close-menu"></p>
-                                                <a href="<%= erp_online_store.brand_listing_path %>" class="clearfix">
+                                                <a href="<%= erp_online_store.brand_listing_path %>" class="clearfix" title="Thương Hiệu">
                                                     <strong>Thương Hiệu</strong>
                                                     <span class="label"></span>
                                                 </a>
                                             </li>
                                             <li>
                                                 <p class="close-menu"></p>
-                                                <a href="<%= erp_online_store.blog_path %>" class="clearfix">
+                                                <a href="<%= erp_online_store.blog_path %>" class="clearfix" title="Tin Công Nghệ">
                                                     <strong>Tin Công Nghệ</strong>
                                                     <span class="label"></span>
                                                 </a>
                                             </li>
                                             <li class="hidden-md color-buy business-special">
                                                 <p class="close-menu"></p>
-                                                <a href="/chuyen-muc/256/tam-dan-chong-nhin-trom.html" class="clearfix">
+                                                <a href="/chuyen-muc/256/tam-dan-chong-nhin-trom.html" class="clearfix" title="Tấm Chống Nhìn Trộm 3M">
                                                     <strong><%= image_tag "/frontend/image/new.gif", alt: "Mới" %>Tấm Chống Nhìn Trộm 3M</strong>
                                                 </a>
                                             </li>

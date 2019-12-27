@@ -1,5 +1,5 @@
 <% @block_banners.each_with_index do |banner,index| %>
 <div class="img-1 banner1-<%= index+1 %>">
-    <%= link_to image_tag(banner.image_url.thumb, alt: banner.name, title: banner.name), banner.link_url, title: banner.name %>
+    <%= link_to image_tag(banner.image_url.thumb, alt: banner.name), banner.link_url, title: banner.name %>
 </div>
 <% end %>
