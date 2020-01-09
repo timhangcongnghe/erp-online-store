@@ -15,6 +15,7 @@
 <%= javascript_include_tag '/frontend/js/validate/localization/messages_vi.js' %>
 
 <!-- Theme files ============================================ -->
+<%= javascript_include_tag '//images.dmca.com/Badges/DMCABadgeHelper.min.js' %>
 <%= javascript_include_tag '/frontend/js/main.js' %>
 <%= javascript_include_tag '/frontend/js/comment.js' %>
 <%= javascript_include_tag '/frontend/js/themejs/so_megamenu.js' %>
@@ -45,13 +46,13 @@
 <% end %>
 
 <% if params[:controller] == "erp/online_store/frontend/information" && params[:action] == "contact_us" %>
-    <script>
-        $('.maps').click(function () {
-            $('.maps iframe').css("pointer-events", "auto");
-        });
+<script>
+    $('.maps').click(function () {
+        $('.maps iframe').css("pointer-events", "auto");
+    });
 
-        $( ".maps" ).mouseleave(function() {
-            $('.maps iframe').css("pointer-events", "none");
-        });
-    </script>
+    $( ".maps" ).mouseleave(function() {
+        $('.maps iframe').css("pointer-events", "none");
+    });
+</script>
 <% end %>

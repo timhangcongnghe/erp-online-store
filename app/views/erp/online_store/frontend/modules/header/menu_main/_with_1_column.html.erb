@@ -2,13 +2,9 @@
     <p class="close-menu"></p>
     <a href="<%= menu_link(menu) %>" title="<%= menu.name %>">
         <% if menu.menu_icon.present? %>
-            <%= image_tag menu.menu_icon.icon, alt: menu.name %>
+            <%= image_tag menu.menu_icon.icon, alt: menu.name, title: menu.name %>
         <% end %>
-        <span class="label"></span>
-        <strong>
-            <span><%= menu.name %></span>
-            <b class="fa fa-angle-right"></b>
-        </strong>
+        <strong><span><%= menu.name %></span><b class="fa fa-angle-right"></b></strong>
     </a>
     <div class="sub-menu" data-subwidth="60">
         <div class="content">
@@ -17,14 +13,12 @@
                     <div class="row">
                         <div class="col-md-12 static-menu">
                             <div class="menu">
-                                <ul>
-                                    <% menu_array.each do |child| %>
-                                        <li class="<%= child[:class] %>">
-                                            <%= link_to child[:menu].name, menu_link(child[:menu]),
-                                                class: "main-menu", title: child[:menu].name %>
-                                        </li>
-                                    <% end %>
-                                </ul>
+                                <ul><% menu_array.each do |child| %>
+                                    <li class="<%= child[:class] %>">
+                                        <%= link_to child[:menu].name, menu_link(child[:menu]),
+                                            class: 'main-menu', title: child[:menu].name %>
+                                    </li>
+                                <% end %></ul>
                             </div>
                         </div>
                     </div>
@@ -32,7 +26,7 @@
                 <% if menu.image_menu.present? %>
                 <div class="col-md-6">
                     <div class="row banner">
-                        <%= link_to image_tag(menu.image_menu.image_menu, alt: menu.name),
+                        <%= link_to image_tag(menu.image_menu.image_menu, alt: menu.name, title: menu.name),
                             menu.image_menu_link, title: menu.name %>
                     </div>
                 </div>

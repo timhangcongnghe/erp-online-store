@@ -1,0 +1,58 @@
+<div class="so-spotlight2 ">
+    <div class="container">
+        <div class="row">
+            <% if @hot_deals.count > 0 %>
+            <div class="col-md-9 col-sm-8 col-xs-12">
+                <%= render "erp/online_store/frontend/modules/home/hot_deals" %>
+            </div>
+            <% end %>
+            <% if @bestsellers.count > 0 %>
+            <div class="col-md-3 col-sm-4 col-xs-12">
+                <% if @hot_deals.count > 3 %>
+                <%= render "erp/online_store/frontend/modules/sidebar_best_sellers" %>
+                <% end %>
+            </div>
+            <% end %>
+        </div>
+    </div>
+</div>
+
+<div class="so-spotlight4">
+    <div class="container">
+        <div class="row">
+            <% if @newest_blogs.count > 0 && @bestsellers.count > 0 && @testimonials.count > 0 %>
+            <div class="module so-latest-blog latest-blog col-md-4 col-sm-6 col-xs-12">
+                <h3 class="modtitle"><%= link_to '<span>Tin công nghệ</span>'.html_safe, erp_online_store.blog_path %></h3>
+                <div id="so_latest_blog_180" class="so-blog-external button-type2 button-type2">
+                    <div class="blog-external-simple">
+                        <%= render "erp/online_store/frontend/modules/home/news" %>
+                    </div>
+                </div>
+            </div>
+            <div class="bestseller col-md-4 col-sm-6 col-xs-12">
+                <div class="bestseller-inner">
+                    <div>
+                        <h3 class="modtitle">
+                            <%= link_to '<span>Bán chạy nhất</span>'.html_safe,
+                                erp_online_store.bestseller_products_path, title: 'Bán chạy nhất' %>
+                            </h3>
+                        <%= render "erp/online_store/frontend/modules/home/bestsellers", bestsellers: @bestsellers %>
+                    </div>
+                </div>
+            </div>
+            <div class="module testimonial col-md-4 col-sm-12 col-xs-12">
+                <div class="clients_say">
+                    <div class="block-title">
+                        <h3 class="modtitle">
+                            <%= link_to '<span>Ý kiến khách hàng</span>'.html_safe, "", title: 'Ý kiến khách hàng' %>
+                            </h3>
+                    </div>
+                    <div class="slider-clients-say">
+                        <%= render "erp/online_store/frontend/modules/home/testimonial" %>
+                    </div>
+                </div>
+            </div>
+            <% end %>
+        </div>
+    </div>
+</div>

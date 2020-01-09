@@ -1,179 +1,61 @@
-<% if @product.short_name.present? %>
-    <% title @product.get_short_name %>
-<% else %>
-    <% title @product.get_long_name %>
-<% end %>
+<% if @product.short_name.present? %><% title @product.get_short_name %><% else %><% title @product.get_long_name %><% end %>
 <% product_images = @product.product_images %>
 
 <% content_for :metas do %>
-<!-- for Facebook -->
-    <meta property="og:url" content="<%= request.url %>"/>
-    <meta property="og:type" content="website" />
+<!-- FACEBOOK -->
+    <meta property="og:locale" content="vi-VN" />
+    <meta property="og:type" content="website"/>
     <meta property="og:title" content="<%= @product.get_long_name %>"/>
-    <% if @meta_description.present? %>
-    <meta property="og:description" content="<%= @meta_description %>"/>
-    <% else %>
-    <meta property="og:description" content="Tìm Hàng Công Nghệ là đơn vị cung cấp các sản phẩm, dịch vụ thuộc lĩnh vực Công Nghệ Thông Tin do Công Ty TNHH Giải Pháp CNTT Và Truyền Thông Hoàng Khang phụ trách và phát triển."/>
-    <% end %>
-    <% if product_images.count == 0 %>
-    <meta property="og:image" content="https://timhangcongnghe.com/frontend/image/schema-logo.png"
-    <% else %>
-    <meta property="og:image" content="https://timhangcongnghe.com<%= product_images.first.image_url.thumb650 %>" />
-    <% end %>
+    <% if @meta_description.present? %><meta property="og:description" content="<%= @meta_description %>"/><% else %><meta property="og:description" content="Tìm Hàng Công Nghệ là đơn vị cung cấp các sản phẩm, dịch vụ thuộc lĩnh vực Công Nghệ Thông Tin do Công Ty TNHH Giải Pháp CNTT Và Truyền Thông Hoàng Khang phụ trách và phát triển."/><% end %>
+    <meta property="og:url" content="<%= request.url %>"/>
+    <meta property="og:site_name" content="<%= @product.get_long_name %>"/>
+    <% if product_images.count == 0 %><meta name="og:image" content="https://timhangcongnghe.com/frontend/image/schema-logo.png"/><% else %><meta property="og:image" content="https://timhangcongnghe.com/<%= product_images.first.image_url.thumb650 %>"/><% end %>
+    <meta property="og:image:width" content="1200"/>
+	<meta property="og:image:height" content="628"/>
+    <!--TWITTER -->
+    <meta property="og:url" content="<%= request.url %>"/>
+    <meta name="twitter:card" content="summary"/>
+    <meta property="twitter:title" content="<%= @product.get_long_name %>"/>
+    <% if @meta_description.present? %><meta property="twitter:description" content="<%= @meta_description %>"/><% else %><meta property="twitter:description" content="Tìm Hàng Công Nghệ là đơn vị cung cấp các sản phẩm, dịch vụ thuộc lĩnh vực Công Nghệ Thông Tin do Công Ty TNHH Giải Pháp CNTT Và Truyền Thông Hoàng Khang phụ trách và phát triển."/><% end %>
+    <% if product_images.count == 0 %><meta name="twitter:image" content="https://timhangcongnghe.com/frontend/image/schema-logo.png"/><% else %><meta property="twitter:image" content="https://timhangcongnghe.com/<%= product_images.first.image_url.thumb650 %>"/><% end %>
 <% end %>
 
 <div class="main-container container">
     <ul class="breadcrumb">
-        <li><%= link_to '<i class="fa fa-home"></i>'.html_safe,
-                'https://timhangcongnghe.com/',
-                title: 'Tìm Hàng Công Nghệ' %></li>
-        <% if !@menu.nil? %>
-            <% @menu.self_and_parent_menus.each do |menu| %>
-                <li><%= link_to menu.name, menu_link(menu) %></li>
-            <% end %>
-        <% end %>
-        <li><%= link_to truncate(@product.get_short_name, length: 59), "javascript:void(0)", title: @product.get_short_name %></li>
+        <li><%= link_to '<i class="fa fa-home"></i>'.html_safe, 'https://timhangcongnghe.com/', title: 'Tìm Hàng Công Nghệ' %></li>
+        <% if !@menu.nil? %><% @menu.self_and_parent_menus.each do |menu| %><li><%= link_to menu.get_name, menu_link(menu), title: menu.get_name %></li><% end %><% end %>
+        <li><%= link_to truncate(@product.get_short_name, length: 59), "javascript:void(0)", title: @product.get_long_name %></li>
     </ul>
     <div class="row">
         <div id="content" class="col-md-12 col-sm-12">
             <div class="product-view row">
-                <%= render "/erp/online_store/frontend/modules/product/overview", product_images: product_images %>
+                <%= render '/erp/online_store/frontend/modules/product/overview', product_images: product_images %>
             </div>
             <div class="bototm-detail">
                 <div class="row">
                     <div class="sidebar-tablet-pd col-lg-3 col-md-4  col-xs-12">
                         <div class="module releate-horizontal">
-                            <%= render "/erp/online_store/frontend/modules/sidebar_best_sellers" %>
-                            <%= render "erp/online_store/frontend/modules/hot_banners" %>
+                            <%= render '/erp/online_store/frontend/modules/extensions/sidebar_best_seller' %>
+                            <%= render 'erp/online_store/frontend/modules/extensions/sidebar_hot_banner' %>
                         </div>
                     </div>
                     <div class="col-lg-9 col-md-8  col-xs-12">
                         <div class="producttab ">
                             <div class="tabsslider  col-xs-12">
-                                <%= render "/erp/online_store/frontend/modules/product/tab_controls", product: @product %>
+                                <%= render '/erp/online_store/frontend/modules/product/tab_controls', product: @product %>
                             </div>
-                        </div>
-                        
+                        </div>                        
                     </div>
                 </div>
             </div>
-            <script type="text/javascript">
-                $(document).ready(function() {
-                    var zoomCollection = '.large-image img';
-                    $(zoomCollection).elevateZoom({
-                        zoomType: "inner",
-                        lensSize: "200",
-                        easing: true,
-                        gallery: 'thumb-slider-vertical',
-                        cursor: 'pointer',
-                        galleryActiveClass: "active"
-                    });
-                    $("#thumb-slider-vertical .owl2-item").each(function() {
-                        $(this).find("[data-index='0']").addClass('active');
-                    });
-                    $('.thumb-video').magnificPopup({
-                        type: 'iframe',
-                        iframe: {
-                            patterns: {
-                                youtube: {
-                                    index: 'youtube.com/',
-                                    id: 'v=',
-                                    src: '//www.youtube.com/embed/%id%?autoplay=1'
-                                },
-                            }
-                        }
-                    });
-                    $('.product-options li.radio').click(function() {
-                        $(this).addClass(function() {
-                            if ($(this).hasClass("active")) return "";
-                            return "active";
-                        });
-                        $(this).siblings("li").removeClass("active");
-                        $(this).parent().find('.selected-option').html('<span class="label label-success">' + $(this).find('img').data('original-title') + '</span>');
-                    });
-                    var _isMobile = {
-                        iOS: function() {
-                            return navigator.userAgent.match(/iPhone/i);
-                        },
-                        any: function() {
-                            return (_isMobile.iOS());
-                        }
-                    };
-                    $(".thumb-vertical-outer .next-thumb").click(function() {
-                        $(".thumb-vertical-outer .lSNext").trigger("click");
-                    });
-                    $(".thumb-vertical-outer .prev-thumb").click(function() {
-                        $(".thumb-vertical-outer .lSPrev").trigger("click");
-                    });
-                    $(".thumb-vertical-outer .thumb-vertical").lightSlider({
-                        item: 4,
-                        autoWidth: false,
-                        vertical: true,
-                        slideMargin: 7,
-                        verticalHeight: 425,
-                        pager: false,
-                        controls: true,
-                        prevHtml: '<i class="fa fa-chevron-up"></i>',
-                        nextHtml: '<i class="fa fa-chevron-down"></i>',
-                        responsive: [{
-                                breakpoint: 1199,
-                                settings: {
-                                    verticalHeight: 330,
-                                    item: 4,
-                                }
-                            },
-                            {
-                                breakpoint: 1024,
-                                settings: {
-                                    verticalHeight: 235,
-                                    item: 2,
-                                    slideMargin: 5,
-                                }
-                            },
-                            {
-                                breakpoint: 768,
-                                settings: {
-                                    verticalHeight: 340,
-                                    item: 3,
-                                }
-                            },
-                            {
-                                breakpoint: 480,
-                                settings: {
-                                    verticalHeight: 100,
-                                    item: 1,
-                                }
-                            }
-                        ]
-                    });
-                    $(".reviews_button,.write_review_button").click(function() {
-                        var tabTop = $(".producttab").offset().top;
-                        $("html, body").animate({
-                            scrollTop: tabTop
-                        }, 1000);
-                    });
-                    $(".product-image-zoom").click(function() {
-                        $('.hide-album a[href="'+$(this).attr('src')+'"]').trigger('click');
-                    });
-                    $('[data-fancybox]').fancybox({
-                        arrows : true,
-                        infobar   : true,
-                        live: false,
-                        thumbs : {
-                            autoStart   : true,
-                        }
-                    });
-                });
-            </script>
+            <script type="text/javascript">$(document).ready(function(){var zoomCollection='.large-image img';$(zoomCollection).elevateZoom({zoomType:"inner",lensSize:"200",easing:!0,gallery:'thumb-slider-vertical',cursor:'pointer',galleryActiveClass:"active"});$("#thumb-slider-vertical .owl2-item").each(function(){$(this).find("[data-index='0']").addClass('active')});$('.thumb-video').magnificPopup({type:'iframe',iframe:{patterns:{youtube:{index:'youtube.com/',id:'v=',src:'//www.youtube.com/embed/%id%?autoplay=1'},}}});$('.product-options li.radio').click(function(){$(this).addClass(function(){if($(this).hasClass("active"))return"";return"active"});$(this).siblings("li").removeClass("active");$(this).parent().find('.selected-option').html('<span class="label label-success">'+$(this).find('img').data('original-title')+'</span>')});var _isMobile={iOS:function(){return navigator.userAgent.match(/iPhone/i)},any:function(){return(_isMobile.iOS())}};$(".thumb-vertical-outer .next-thumb").click(function(){$(".thumb-vertical-outer .lSNext").trigger("click")});$(".thumb-vertical-outer .prev-thumb").click(function(){$(".thumb-vertical-outer .lSPrev").trigger("click")});$(".thumb-vertical-outer .thumb-vertical").lightSlider({item:4,autoWidth:!1,vertical:!0,slideMargin:7,verticalHeight:425,pager:!1,controls:!0,prevHtml:'<i class="fa fa-chevron-up"></i>',nextHtml:'<i class="fa fa-chevron-down"></i>',responsive:[{breakpoint:1199,settings:{verticalHeight:330,item:4,}},{breakpoint:1024,settings:{verticalHeight:235,item:2,slideMargin:5,}},{breakpoint:768,settings:{verticalHeight:340,item:3,}},{breakpoint:480,settings:{verticalHeight:100,item:1,}}]});$(".reviews_button,.write_review_button").click(function(){var tabTop=$(".producttab").offset().top;$("html, body").animate({scrollTop:tabTop},1000)});$(".product-image-zoom").click(function(){$('.hide-album a[href="'+$(this).attr('src')+'"]').trigger('click')});$('[data-fancybox]').fancybox({arrows:!0,infobar:!0,live:!1,thumbs:{autoStart:!0,}})});</script>
         </div>
     </div>
-    <!--Middle Part End-->
 </div>
-
 <div class="hide-album">
-    <% product_images.each_with_index do |product_image,index| %>
-        <a href="<%= product_image.image_url.thumb650 %>" title="<%= @product.get_long_name %>" data-fancybox="images2" data-caption="<%= @product.get_long_name %> - Hình <%= index+1 %>">
-            <%= image_tag product_image.image_url.thumb170, alt: @product.get_long_name, caption: @product.get_long_name %>
-        </a>
-    <% end %>
+<% product_images.each_with_index do |product_image,index| %>
+    <a href="<%= product_image.image_url.thumb650 %>" title="<%= @product.get_long_name %>" data-fancybox="images2" data-caption="<%= @product.get_long_name %> - Hình <%= index+1 %>">
+        <%= image_tag product_image.image_url.thumb170, alt: @product.get_long_name, title: @product.get_long_name, caption: @product.get_long_name %>
+    </a>
+<% end %>
 </div>

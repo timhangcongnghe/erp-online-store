@@ -5,4 +5,9 @@ Erp::Menus::Menu.class_eval do
 
     return records
   end
+  
+  #get menu name
+  def get_name
+    return self.name
+  end
 end

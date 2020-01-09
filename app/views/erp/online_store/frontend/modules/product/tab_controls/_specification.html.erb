@@ -1,33 +1,15 @@
 <div class="specs-content">
-    <% if product.specs.present? %>
-        <%= product.specs.html_safe if product.specs.present? %>
-    <% else %>
-        <table width="100%" class="table-tab-specs specs-content">
-            <tbody>
-                <% product.product_values_array.each do |group| %>
-                    <tr class="property-group-name">
-                        <% if group[:group].get_show_name.present? %>
-                            <td colspan="2">
-                                <h4><%= group[:group].get_show_name %></h4>
-                            </td>
-                        <% else %>
-                            <td colspan="2">
-                                <h4><%= group[:group].name %></h4>
-                            </td>
-                        <% end %>
-                    </tr>
-                    <% group[:properties].each do |property| %>
-                        <tr class="property-value">
-                            <td valign="top" class="text-nowrap">
-                                <span><%= property[:property].name %></span>
-                            </td>
-                            <td>
-                                <%= property[:values].count <= 4 ? property[:values].join(", ") : ('<ul><li>' + property[:values].join('</li><li>') + '</li></ul>').html_safe %>
-                            </td>
-                        </tr>
-                    <% end %>
-                <% end %>
-            </tbody>
-        </table>
-    <% end %>
+    <% if product.specs.present? %><%= product.specs.html_safe if product.specs.present? %>
+    <% else %><table width="100%" class="table-tab-specs specs-content">
+        <tbody><% product.product_values_array.each do |group| %>
+            <tr class="property-group-name"><% if group[:group].get_show_name.present? %>
+                <td colspan="2"><h2><%= group[:group].get_show_name %></h2></td>
+            <% else %><td colspan="2"><h2><%= group[:group].name %></h2></td><% end %>
+            </tr><% group[:properties].each do |property| %>
+            <tr class="property-value">
+                <td valign="top" class="text-nowrap"><span><%= property[:property].name %></span></td>
+                <td><%= property[:values].count <= 4 ? property[:values].join(", ") : ('<ul><li>' + property[:values].join('</li><li>') + '</li></ul>').html_safe %></td>
+            </tr><% end %><% end %>
+        </tbody>
+    </table><% end %>
 </div>

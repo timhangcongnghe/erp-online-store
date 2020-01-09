@@ -1,0 +1,11 @@
+<% if Erp::Banners::Banner.get_category_banners.count > 0 %>
+<div class="phone-hot-banner">
+    <div class="modcontent clearfix">
+        <div class="banners category-banner">
+            <div><% Erp::Banners::Banner.get_category_banners.each do |banner| %>
+                <%= link_to image_tag(banner.image_url.thumb, alt: banner.name, title: banner.name), banner.link_url, title: banner.name %>
+            <% end %></div>
+        </div>
+    </div>
+</div>
+<% end %>

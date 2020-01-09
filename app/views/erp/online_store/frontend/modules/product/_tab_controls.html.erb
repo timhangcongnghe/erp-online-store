@@ -1,50 +1,22 @@
 <ul class="nav nav-tabs">
     <% if product.description.present? %>
-        <li class="active">
-            <a data-toggle="tab" href="#tab-description">
-                Giới thiệu
-            </a>
-        </li>
-        <li class="item_nonactive">
-            <a data-toggle="tab" href="#tab-specs">
-                Thông số kỹ thuật
-            </a>
-        </li>        
+        <li class="active"><a data-toggle="tab" href="#tab-description">Giới thiệu</a></li>
+        <li class="item_nonactive"><a data-toggle="tab" href="#tab-specs">Thông số kỹ thuật</a></li>        
     <% else %>
-        <li class="active">
-            <a data-toggle="tab" href="#tab-specs">
-                Thông số kỹ thuật
-            </a>
-        </li>
+        <li class="active"><a data-toggle="tab" href="#tab-specs">Thông số kỹ thuật</a></li>
     <% end %>
-    <li class="item_nonactive">
-        <a id="a-tab-review" data-toggle="tab" href="#tab-review">
-            Đánh giá (<%= product.ratings_active.count %>)
-        </a>
-    </li>
-    <li class="item_nonactive">
-        <a data-toggle="tab" href="#tab-comment">
-            Bình luận (<%= @total_comments %>)
-        </a>
-    </li>
+    <li class="item_nonactive"><a id="a-tab-review" data-toggle="tab" href="#tab-review">
+        Đánh giá (<%= product.ratings_active.count %>)
+    </a></li>
+    <li class="item_nonactive"><a data-toggle="tab" href="#tab-comment">
+        Bình luận (<%= @total_comments %>)
+    </a></li>
 </ul>
 <div class="tab-content col-xs-12">
     <% if product.description.present? %>
-        <div id="tab-description" class="tab-pane fade active in">
-            <%= product.description.html_safe %>
-        </div>
-        <div id="tab-specs" class="tab-pane fade">
-             <%= render "erp/online_store/frontend/modules/product/tab_controls/specification", product: product %>
-        </div>
-    <% else %>
-        <div id="tab-specs" class="tab-pane fade active in">
-            <%= render "erp/online_store/frontend/modules/product/tab_controls/specification", product: product %>
-        </div>
-    <% end %>
-    <div id="tab-review" class="tab-pane fade comment_box"
-         data-url="<%= erp_online_store.product_ratings_path(product_id: product.id) %>">
-    </div>
-    <div id="tab-comment" class="tab-pane fade comment_box"
-         data-url="<%= erp_online_store.product_comments_path(product_id: product.id) %>">
-    </div>
+    <div id="tab-description" class="tab-pane fade active in"><%= product.description.html_safe %></div>
+    <div id="tab-specs" class="tab-pane fade"><%= render 'erp/online_store/frontend/modules/product/tab_controls/specification', product: product %></div>
+    <% else %><div id="tab-specs" class="tab-pane fade active in"><%= render 'erp/online_store/frontend/modules/product/tab_controls/specification', product: product %></div><% end %>
+    <div id="tab-review" class="tab-pane fade comment_box" data-url="<%= erp_online_store.product_ratings_path(product_id: product.id) %>"></div>
+    <div id="tab-comment" class="tab-pane fade comment_box" data-url="<%= erp_online_store.product_comments_path(product_id: product.id) %>"></div>
 </div>

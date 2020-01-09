@@ -1,96 +1,61 @@
-<% title (params[:menu_id].present? ? @menu.name : 'Tìm Hàng Công Nghệ') %>
+<% title (params[:menu_id].present? ? @menu.get_name : 'Tìm Hàng Công Nghệ') %>
 
 <% content_for :metas do %>
-<!-- for Facebook -->
+<!-- FACEBOOK -->
+    <meta property="og:locale" content="vi-VN" />
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="<%= @menu.get_name %>"/>
+    <% if @meta_description.present? %><meta property="og:description" content="<%= @meta_description %>"/><% else %><meta property="og:description" content="Tìm Hàng Công Nghệ là đơn vị cung cấp các sản phẩm, dịch vụ thuộc lĩnh vực Công Nghệ Thông Tin do Công Ty TNHH Giải Pháp CNTT Và Truyền Thông Hoàng Khang phụ trách và phát triển."/><% end %>
     <meta property="og:url" content="<%= request.url %>"/>
-    <meta property="og:type" content="website" />
-    <% if params[:menu_id].present? %>
-    <meta property="og:title" content="<%= @menu.name %>"/>
-    <% else %>
-    <meta property="og:title" content="Tìm Hàng Công Nghệ"/>
-    <% end %>
-    <% if @meta_description.present? %>
-    <meta property="og:description" content="<%= @meta_description %>"/>
-    <% else %>
-    <meta property="og:description" content="Tìm Hàng Công Nghệ là đơn vị cung cấp các sản phẩm, dịch vụ thuộc lĩnh vực Công Nghệ Thông Tin do Công Ty TNHH Giải Pháp CNTT Và Truyền Thông Hoàng Khang phụ trách và phát triển."/>
-    <% end %>
-    <% if @menu.image_url_2.present? %>
-    <meta property="og:image" content="https://timhangcongnghe.com<%= @menu.image_url_2 %>"/>
-    <% else %>
-    <meta property="og:image" content="https://timhangcongnghe.com/frontend/image/thcn-web-share.png"/>
-    <% end %>
+    <% if params[:menu_id].present? %><meta property="og:site_name" content="<%= @menu.get_name %>"/><% else %><meta property="og:site_name" content="Tìm Hàng Công Nghệ"/><% end %>
+    <% if @menu.image_url_2.present? %><meta name="og:image" content="https://timhangcongnghe.com<%= @menu.image_url_2 %>"/><% else %><meta property="og:image" content="https://timhangcongnghe.com/frontend/image/thcn-web-share.png"/><% end %>
+    <meta property="og:image:width" content="1200"/>
+	<meta property="og:image:height" content="628"/>
+    <!--TWITTER -->
+    <meta property="og:url" content="<%= request.url %>"/>
+    <meta name="twitter:card" content="summary"/>
+    <meta property="twitter:title" content="<%= @menu.get_name %>"/>
+    <% if @meta_description.present? %><meta property="twitter:description" content="<%= @meta_description %>"/><% else %><meta property="twitter:description" content="Tìm Hàng Công Nghệ là đơn vị cung cấp các sản phẩm, dịch vụ thuộc lĩnh vực Công Nghệ Thông Tin do Công Ty TNHH Giải Pháp CNTT Và Truyền Thông Hoàng Khang phụ trách và phát triển."/><% end %>
+    <% if @menu.image_url_2.present? %><meta name="twitter:image" content="https://timhangcongnghe.com<%= @menu.image_url_2 %>"/><% else %><meta property="twitter:image" content="https://timhangcongnghe.com/frontend/image/thcn-web-share.png"/><% end %>
 <% end %>
-
 <div class="main-container container">
     <ul class="breadcrumb">
-        <li><%= link_to '<i class="fa fa-home"></i>'.html_safe,
-                'https://timhangcongnghe.com/',
-                title: 'Tìm Hàng Công Nghệ' %></li>
-        <% @menu.self_and_parent_menus.each do |menu| %>
-            <% if @menu.id != menu.id %>
-                <li><%= link_to menu.name, menu_link(menu), title: menu.name %></li>
-            <% end %>
-        <% end %>
-        <li><%= link_to @menu.name, menu_link(@menu), title: @menu.name %></li>
+        <li><%= link_to '<i class="fa fa-home"></i>'.html_safe, 'https://timhangcongnghe.com/', title: 'Tìm Hàng Công Nghệ' %></li>
+        <% @menu.self_and_parent_menus.each do |menu| %><% if @menu.id != menu.id %><li><%= link_to menu.get_name, menu_link(menu), title: menu.get_name %></li><% end %><% end %>
+        <li><%= link_to @menu.get_name, menu_link(@menu), title: @menu.get_name %></li>
     </ul>
     <div class="row">
-        <!--Left Part Start -->
         <aside class="col-sm-4 col-md-3" id="column-left">
-            <%= render "erp/online_store/frontend/modules/category/category_left_part", menu: @menu %>
+            <%= render 'erp/online_store/frontend/modules/category/sidebar_related_categories', menu: @menu %>
+			<%= render 'erp/online_store/frontend/modules/extensions/sidebar_best_seller' %>
+			<%= render 'erp/online_store/frontend/modules/extensions/sidebar_hot_banner' %>
         </aside>
-        <!--Left Part End -->
-        <!--Middle Part Start-->
         <div id="content" class="col-md-9 col-sm-8">
             <div class="products-category">
-                <% if @menu.image_url_2.present? || @menu.description.present? %>
+                <% if @menu.image_url_2.present? %>
                 <div class="category-derc form-group">
                     <div class="row">
                         <div class="col-sm-12">
-                            <% if @menu.image_url_2.present? %>
-                                <p><%= image_tag @menu.image_url_2, alt: @menu.name %><br></p>
-                            <% end %>
-                            <% if @menu.description.present? %>
-                                <p><%= @menu.description.html_safe %></p>
-                            <% end %>
+                            <% if @menu.image_url_2.present? %><p><%= image_tag @menu.image_url_2, alt: @menu.get_name, title: @menu.get_name %></p><% end %>
                         </div>
                     </div>
                 </div>
                 <% end %>
-                <% if @related_menus.count > 0 %>
-                <!--- Realed menus - -->
-                <div class="refine-search form-group">
-                    <div class="row">
-                        <% @related_menus.each do |related_menu| %>
-                        <div class="form-group col-md-15 col-sm-4 col-xs-12 ">
-                            <%= link_to image_tag("/frontend/image/shop/product/m2.jpg", alt: related_menu.menu.name),
-                                menu_link(related_menu.menu), class: "thumbnail", target: "_blank" %>
-                            <%= link_to related_menu.menu.name, menu_link(related_menu.menu), title: related_menu.menu.name, target: "_blank" %>
-                        </div>
-                        <% end %>
-                    </div>
-                </div>
-                <!---//End related ends --->
-                <% end %>
-                <h1 class="menu-title mb-0"><%= @menu.name %></h1>
+                <h1 class="menu-title mb-0"><%= @menu.get_name %></h1>
                 <div class="main-products-list">
                     <% if @products.count > 0 %>
-                        <!--changed listings-->
-                        <%= render "erp/online_store/frontend/modules/category/category_middle_part_center", products: @products, menu: @menu %>
-                        <!--// End Changed listings-->
-                        <!-- Filters -->
-                        <%= render "erp/online_store/frontend/modules/category/category_middle_part_bottom", products: @products %>
-                        <!-- //end Filters -->
+                    <%= render 'erp/online_store/frontend/modules/category/listing', products: @products, menu: @menu %>
+                    <%= render 'erp/online_store/frontend/modules/category/pagination', products: @products %>
                     <% else %>
-                        <div id="content" class="col-sm-12 shopping-cart">
-                            <div class="empty-cart">                    
-                                <h2 class="title">Chuyên mục sản phẩm hoặc lựa chọn chưa có sản phẩm phù hợp.</h2>
-                                <%= link_to 'Quay lại trang chủ', erp_online_store.root_path, class: 'btn btn-default shopping-continue', title: 'Quay lại trang chủ' %>
-                            </div>
+                    <div id="content" class="col-sm-12 shopping-cart">
+                        <div class="empty-cart">                    
+                            <h2 class="title">Chuyên mục sản phẩm hoặc lựa chọn chưa có sản phẩm phù hợp.</h2>
+                            <%= link_to 'Quay lại trang chủ', erp_online_store.root_path, class: 'btn btn-default shopping-continue', title: 'Quay lại trang chủ' %>
                         </div>
+                    </div>
                     <% end %>
                 </div>
             </div>
         </div>
-        <!--Middle Part End-->
     </div>
 </div>

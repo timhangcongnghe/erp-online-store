@@ -1,0 +1,49 @@
+<li class="item-vertical style1 with-sub-menu hover">
+    <p class="close-menu"></p>
+    <h2><a href="<%= menu_link(menu) %>" title="<%= menu.name %>">
+        <% if menu.menu_icon.present? %>
+            <%= image_tag menu.menu_icon.icon, alt: menu.name, title: menu.name %>
+        <% end %>
+        <strong><span><%= menu.name %></span><b class="fa fa-angle-right"></b></strong>
+    </a></h2>
+    <div class="sub-menu" data-subwidth="100">
+        <div class="content">
+            <div class="row">
+                <div class="col-sm-8">
+                    <div class="categories ">
+                        <div class="row">
+                            <div class="col-sm-6 static-menu">
+                                <div class="menu">
+                                    <ul><% menu_array[0..13].each do |child| %>
+                                        <li class="<%= child[:class] %>">
+                                            <h3><%= link_to child[:menu].name,
+                                                menu_link(child[:menu]), class: 'main-menu', title: child[:menu].name %></h3>
+                                        </li>
+                                    <% end %></ul>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 static-menu">
+                                <div class="menu">
+                                    <ul><% menu_array[14..26].each do |child| %>
+                                        <li class="<%= child[:class] %>">
+                                            <h3><%= link_to child[:menu].name,
+                                                menu_link(child[:menu]), class: 'main-menu', title: child[:menu].name %></h3>
+                                        </li>
+                                    <% end %></ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <% if menu.image_menu.present? %>
+                <div class="col-sm-4">
+                    <div class="row img-banner">
+                        <%= link_to image_tag(menu.image_menu.image_menu, alt: menu.name, title: menu.name),
+                            menu.image_menu_link, title: menu.name %>
+                    </div>
+                </div>
+                <% end %>
+            </div>
+        </div>
+    </div>
+</li>

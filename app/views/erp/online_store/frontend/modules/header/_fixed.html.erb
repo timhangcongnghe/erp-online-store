@@ -2,63 +2,55 @@
 	<div class="header-center">
 		<div class="container">
 			<div class="row">
-				<!-- Logo -->
 				<div class="navbar-logo col-md-3 col-sm-4 col-xs-12">
-					<%= link_to image_tag("/frontend/image/logos/logo-timhangcongnghe-web.svg",
-																title: "Tìm Hàng Công Nghệ - Trang thương mại điện tử sản phẩm công nghệ chất lượng, uy tín.",
-																alt: "Tìm Hàng Công Nghệ - Trang thương mại điện tử sản phẩm công nghệ chất lượng, uy tín."),
-																erp_online_store.root_path,
-																title: "Tìm Hàng Công Nghệ - Trang thương mại điện tử sản phẩm công nghệ chất lượng, uy tín." %>
+					<%= link_to image_tag('/frontend/image/logos/logo-timhangcongnghe-web.svg',
+						alt: 'Tìm Hàng Công Nghệ là đơn vị cung cấp các sản phẩm, dịch vụ thuộc lĩnh vực Công Nghệ Thông Tin do Công Ty TNHH Giải Pháp CNTT Và Truyền Thông Hoàng Khang phụ trách và phát triển.',
+						title: 'Tìm Hàng Công Nghệ là đơn vị cung cấp các sản phẩm, dịch vụ thuộc lĩnh vực Công Nghệ Thông Tin do Công Ty TNHH Giải Pháp CNTT Và Truyền Thông Hoàng Khang phụ trách và phát triển.'),
+						erp_online_store.root_path,
+						title: 'Tìm Hàng Công Nghệ là đơn vị cung cấp các sản phẩm, dịch vụ thuộc lĩnh vực Công Nghệ Thông Tin do Công Ty TNHH Giải Pháp CNTT Và Truyền Thông Hoàng Khang phụ trách và phát triển.' %>
 				</div>
 				<div class="header-center-right col-md-5 col-sm-4 col-xs-12">
-						<!-- Search -->
-						<div id="sosearchpro" class="search-pro">
-								<form method="GET" action="index.html">
-										<div id="search0" class="search input-group autosearch" data-url="<%= erp_online_store.autosearch_path %>">
-												<div class="select_category filter_type  icon-select">
-														<select class="no-border" name="category_id">
-																<option value="">Tất cả chuyên mục</option>
-																<% Erp::Menus::Menu.get_menus.each do |menu_search| %>
-																<option value="<%= menu_search.id %>"><%= menu_search.name %></option>
-																<% end %>
-														</select>
-												</div>
-												<input class="autosearch-input form-control" type="text" value="" size="50" autocomplete="off" placeholder="Nhập từ khóa tìm kiếm" name="search">
-												<span class="input-group-btn">
-														<button type="submit" class="button-search btn btn-primary" name="submit_search">
-																<i class="fa fa-search"></i>
-														</button>
-												</span>
-										</div>
-										<input type="hidden" name="route" value="product/search" />
-								</form>
-						</div>
-						<!-- //end Search -->
+					<div id="sosearchpro" class="search-pro">
+						<form method="GET" action="index.html">
+							<div id="search0" class="search input-group autosearch" data-url="<%= erp_online_store.autosearch_path %>">
+								<div class="select_category filter_type  icon-select">
+									<select class="no-border" name="category_id">
+										<option value="">Tất cả danh mục</option>
+										<% Erp::Menus::Menu.get_menus.each do |menu_search| %>
+										<option value="<%= menu_search.id %>"><%= menu_search.name %></option>
+										<% end %>
+									</select>
+								</div>
+								<input class="autosearch-input form-control" type="text" value="" size="50" autocomplete="off" placeholder="Nhập từ khóa tìm kiếm" name="search">
+								<span class="input-group-btn">
+									<button type="submit" class="button-search btn btn-primary" name="submit_search">
+										<i class="fa fa-search"></i>
+									</button>
+								</span>
+							</div>
+							<input type="hidden" name="route" value="product/search" />
+						</form>
+					</div>
 				</div>
-				<!-- //End Logo -->
 				<div class="header-center-right col-md-4 col-sm-4 col-xs-12">
-					<!-- Cart Pro-->
 					<div class="block-cart" data-url="<%= erp_online_store.top_cart_path %>">
                         <%= render 'erp/online_store/frontend/shopping_cart/top_cart' %>
                     </div>
-					<!-- //End Cart Pro -->
-					<!-- Compare -->
 					<ul class="top-link list-inline pull-right">
 						<li class="compare">
-							<a href="<%= erp_online_store.compare_product_path %>" class="top-link-compare" title="So sánh sản phẩm"><i class="fa fa-window-restore icon-sosanh"></i>So sánh<span class="number"><%= @compare.get_number_items %></span></a>
+							<a href="<%= erp_online_store.compare_product_path %>" class="top-link-compare" title="So sánh sản phẩm">
+								<i class="fa fa-window-restore icon-sosanh"></i>So sánh<span class="number"><%= @compare.get_number_items %></span>
+							</a>
 						</li>
 					</ul>
-					<!--//End Compare -->
 				</div>
 			</div>
 		</div>
 	</div>
-	<!-- //Header center -->
 </div>
 <div class="btn-menu-fixed">
 	<span id="btn-menu-fixed" class="fa fa-list"></span>
 	<div id="btn-menu-fixed-title" class="btn-menu-fixed-title">
-		Chuyên Mục
+		Danh Mục Sản Phẩm
 	</div>
 </div>
-<!-- // End Buttom Menu Fixed -->

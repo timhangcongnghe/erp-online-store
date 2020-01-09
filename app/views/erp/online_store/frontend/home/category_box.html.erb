@@ -1,19 +1,13 @@
-<!-- Mod Supercategory -->
-<div class="module cus-style-supper-cate <%= @menu_hot.style_color%>">
+<div class="module cus-style-supper-cate <%= @menu_hot.style_color %>">
     <div class="header">
         <h3 class="modtitle">
-            <span class="icon-color">
-                <%= @menu_hot.style_icon.html_safe %>
-                <%= @menu_hot.name %>
-                <small class="arow-after"></small>
-            </span>
+            <span class="icon-color"><%= @menu_hot.style_icon.html_safe %><%= @menu_hot.name %><small class="arow-after"></small></span>
             <strong class="line-color"></strong>
         </h3>
     </div>
     <div class="so-sp-cat first-load">
         <div class="spcat-wrap ">
             <div class="spcat-tabs-container">
-                <!--Begin Tabs-->
                 <div class="spcat-tabs-wrap">
                     <ul class="spcat-tabs cf">
                         <li class="spcat-tab">
@@ -23,29 +17,28 @@
                         </li>
                     </ul>
                 </div>
-                <!-- End Tabs-->
             </div>
             <div class="main-left">
                 <div class="banner-post-text">
                     <% if @menu_hot.image_url_1.present? %>
                         <% if params[:child_1_id].present? %>
                             <% if @child_1.image_url_1.present? %>
-                            <%= link_to image_tag(@child_1.image_url_1.menu_hot_image_1, alt: @child_1.name),
+                            <%= link_to image_tag(@child_1.image_url_1.menu_hot_image_1, alt: @child_1.name, title: @child_1.name),
                                 @child_1.image_menu_link_1, title: @child_1.name %>
                             <% else %>
-                            <%= link_to image_tag(@menu_hot.image_url_1.menu_hot_image_1, alt: @menu_hot.name),
+                            <%= link_to image_tag(@menu_hot.image_url_1.menu_hot_image_1, alt: @menu_hot.name, title: @menu_hot.name),
                                 @menu_hot.image_menu_link_1, title: @menu_hot.name %>
                             <% end %>
                         <% elsif params[:child_2_id].present? %>
                             <% if @child_2.image_url_1.present? %>
-                            <%= link_to image_tag(@child_2.image_url_1.menu_hot_image_1, alt: @child_2.name),
+                            <%= link_to image_tag(@child_2.image_url_1.menu_hot_image_1, alt: @child_2.name, title: @child_2.name),
                                 @child_2.image_menu_link_1, title: @child_2.name %>
                             <% else %>
-                            <%= link_to image_tag(@menu_hot.image_url_1.menu_hot_image_1, alt: @menu_hot.name),
+                            <%= link_to image_tag(@menu_hot.image_url_1.menu_hot_image_1, alt: @menu_hot.name, title: @menu_hot.name),
                                 @menu_hot.image_menu_link_1, title: @menu_hot.name %>
                             <% end %>
                         <% else %>
-                            <%= link_to image_tag(@menu_hot.image_url_1.menu_hot_image_1, alt: @menu_hot.name),
+                            <%= link_to image_tag(@menu_hot.image_url_1.menu_hot_image_1, alt: @menu_hot.name, title: @menu_hot.name),
                                 @menu_hot.image_menu_link_1, title: @menu_hot.name %>
                         <% end %>
                     <% end %>
@@ -55,7 +48,7 @@
                         <div class="title-imageslider  sp-cat-title-parent">
                             <% if params[:child_2_id].present? %><%= @child_2.name %>
                             <% elsif params[:child_1_id].present? %><%= @child_1.name %>
-                            <% else %>CHUYÊN MỤC SẢN PHẨM<% end %>
+                            <% else %>DANH MỤC SẢN PHẨM<% end %>
                         </div>
                         <div id="cat_slider_3" class="slider">
                             <div class="cat_slider_inner so_category_type_default">
@@ -66,7 +59,7 @@
                                                 <div class="cat_slider_title <%= 'current' if child_2.id == params[:child_2_id].to_i %>">
                                                     <%= link_to '<i class="fa fa-caret-right"></i> '.html_safe + child_2.name,
                                                         erp_online_store.category_box_path(menu_hot_id: @menu_hot.id, child_1_id: @child_1.id, child_2_id: child_2.id),
-                                                        title: child_2.name, class: "ajax_link" %>
+                                                        title: child_2.name, class: 'ajax_link' %>
                                                 </div>
                                             </div>
                                         </div>
@@ -76,7 +69,7 @@
                                             <div class="cat_slider_title">
                                                 <%= link_to '<i class="fa fa-arrow-left"></i> Trở lại'.html_safe,
                                                     erp_online_store.category_box_path(menu_hot_id: @menu_hot.id, child_1_id: (params[:child_2_id].present? ? @child_1.id : nil)),
-                                                    title: @menu_hot.name, class: "ajax_link" %>
+                                                    title: @menu_hot.name, class: 'ajax_link' %>
                                             </div>
                                         </div>
                                     </div>
@@ -96,7 +89,7 @@
                                                 <div class="cat_slider_title <%= 'current' if child_1.id == params[:child_1_id].to_i %>">
                                                     <%= link_to '<i class="fa fa-caret-right"></i> '.html_safe + child_1.name,
                                                         erp_online_store.category_box_path(menu_hot_id: @menu_hot.id, child_1_id: child_1.id),
-                                                        title: child_1.name, class: "ajax_link" %>
+                                                        title: child_1.name, class: 'ajax_link' %>
                                                 </div>
                                             </div>
                                         </div>
@@ -107,7 +100,7 @@
                                                 <div class="cat_slider_title">
                                                     <%= link_to '<i class="fa fa-arrow-left"></i> Trở lại'.html_safe,
                                                         erp_online_store.category_box_path(menu_hot_id: @menu_hot.id),
-                                                        title: @menu_hot.name, class: "ajax_link" %>
+                                                        title: @menu_hot.name, class: 'ajax_link' %>
                                                 </div>
                                             </div>
                                         </div>
@@ -131,28 +124,27 @@
                     <% if @menu_hot.image_url_2.present? %>
                         <% if params[:child_1_id].present? %>
                             <% if @child_1.image_url_2.present? %>
-                            <%= link_to image_tag(@child_1.image_url_2.menu_hot_image_2, alt: @child_1.name),
+                            <%= link_to image_tag(@child_1.image_url_2.menu_hot_image_2, alt: @child_1.name, title: @child_1.name),
                                 @child_1.image_menu_link_2, title:  @child_1.name %>
                             <% else %>
-                            <%= link_to image_tag(@menu_hot.image_url_2.menu_hot_image_2, alt: @menu_hot.name),
+                            <%= link_to image_tag(@menu_hot.image_url_2.menu_hot_image_2, alt: @menu_hot.name, title: @menu_hot.name),
                                 @menu_hot.image_menu_link_2, title: @menu_hot.name %>
                             <% end %>
                         <% elsif params[:child_2_id].present? %>
                             <% if @child_2.image_url_2.present? %>
-                            <%= link_to image_tag(@child_2.image_url_2.menu_hot_image_2, alt: @child_2.name),
+                            <%= link_to image_tag(@child_2.image_url_2.menu_hot_image_2, alt: @child_2.name, title: @child_2.name),
                                 @child_2.image_menu_link_2, title: @child_2.name %>
                             <% else %>
-                            <%= link_to image_tag(@menu_hot.image_url_2.menu_hot_image_2, alt: @menu_hot.name),
+                            <%= link_to image_tag(@menu_hot.image_url_2.menu_hot_image_2, alt: @menu_hot.name, title: @menu_hot.name),
                                 @menu_hot.image_menu_link_2, title: @menu_hot.name %>
                             <% end %>
                         <% else %>
-                            <%= link_to image_tag(@menu_hot.image_url_2.menu_hot_image_2, alt: @menu_hot.name),
+                            <%= link_to image_tag(@menu_hot.image_url_2.menu_hot_image_2, alt: @menu_hot.name, title: @menu_hot.name),
                                 @menu_hot.image_menu_link_2, title: @menu_hot.name %>
                         <% end %>
                     <% end %>
                 </div>
                 <div class="spcat-items-container products-list grid show-pre show-row">
-                    <!--Begin Items-->
                     <div class="spcat-items spcat-items-loaded items-category-sales product-layout spcat-items-selected" data-total="9">
                         <div class="spcat-items-inner spcat00-4 spcat01-4 spcat02-3 spcat03-2 spcat04-1 flip">
                             <div class="ltabs-items-inner ltabs-slider ">
@@ -165,7 +157,7 @@
                                                     <div class="image">
                                                         <a class="lt-image" href="<%= product_link(product) %>" target="_self" title="<%= product.get_long_name %>">
                                                             <%= image_tag product_image(product.product_images, 'first', 'thumb193'),
-                                                                alt: product.get_long_name, class: "img-responsive" %>
+                                                                alt: product.get_long_name, title: product.get_long_name, class: "img-responsive" %>
                                                         </a>
                                                     </div>
                                                     <%= quick_actions(product) %>
@@ -183,8 +175,8 @@
                                                     <div class="rating">
                                                         <%= stars(product.average_stars) %>
                                                     </div>
-                                                    <h4><%= link_to truncate(product.get_short_name, length: 45),
-                                                        product_link(product), title: product.get_short_name %></h4>
+                                                    <h3><%= link_to truncate(product.get_short_name, length: 45),
+                                                        product_link(product), title: product.get_long_name %></h3>
                                                     <p class="price">
                                                         <% if product.is_sold_out? || product.is_call? || product.product_price.nil? %>
                                                             <span class="price sold_out_true">Liên hệ: (028) 3984 7690</span>
@@ -211,9 +203,7 @@
                         </div>
                     </div>
                 </div>
-                <!--End Items-->
             </div>
         </div>
     </div>
 </div>
-<!-- End Mod -->

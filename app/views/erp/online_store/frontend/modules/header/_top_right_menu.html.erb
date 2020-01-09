@@ -1,142 +1,68 @@
-<% if user_signed_in? %>
-    <ul class="top-link list-inline">
-        <% if @compare.get_number_items > 0 %>
-        <li class="compare hide-compare">
-            <a href="<%= erp_online_store.compare_product_path %>" class="top-link-compare" title="So sánh sản phẩm"><span>So sánh (<%= @compare.get_number_items %>)</span></a>
-        </li>
-        <% end %>
-        <li class="about-us">
-            <%= link_to '<span>Về chúng tôi</span>'.html_safe, erp_online_store.about_us_path,
-                        class: 'top-link-about-us', title: 'Về chúng tôi' %>
-        </li>
-        <li class="contact-us">
-            <%= link_to '<span>Góp ý & Liên hệ</span>'.html_safe, erp_online_store.contact_us_path,
-                        class: 'top-link-contact-us', title: 'Góp ý & Liên hệ' %>
-        </li>
-        <li class="account" id="my_account">
-            <a href="javascript:void(0)" class="btn btn-xs dropdown-toggle" data-toggle="dropdown">
-                <span>Xin chào, <%= user_short_name(current_user.name) %></span>
-                <span class="fa fa-angle-down"></span>
-            </a>
-            <ul class="dropdown-menu ">                
-                <li><%= link_to '<i class="fa fa-user"></i> Tài khoản của tôi'.html_safe,
-                        erp_online_store.my_account_path, title: 'Tài khoản của tôi', rel: 'nofollow' %></li>
-                <li><%= link_to '<i class="fa fa-shopping-cart"></i> Đơn hàng của tôi'.html_safe,
-                    erp_online_store.order_history_path, title: 'Đơn hàng của tôi', rel: 'nofollow' %></li>
-                <% if current_user.backend_access %>
-                    <li><%= link_to '<i class="fa fa-pie-chart"></i> Vào trang quản trị'.html_safe,
-                            erp.backend_path, title: 'Vào trang quản trị', rel: 'nofollow' %></li>
-                <% end %>
-                <li><%= link_to '<i class="fa fa-sign-out"></i> Thoát tài khoản'.html_safe,
-                        erp.destroy_user_session_path,
-                        method: :delete,
-                        redirect_to: erp.backend_path,
-                        class: 'link-method', title: 'Thoát tài khoản', rel: 'nofollow'
-                    %></li>
-            </ul>
-        </li>
-        <li class="support" id="my_account">
-            <a href="javascript:void(0)" class="btn btn-xs dropdown-toggle" data-toggle="dropdown">
-                <span>Hướng dẫn</span>
-                <span class="fa fa-angle-down"></span>
-            </a>
-            <ul class="dropdown-menu ">
-                <li><%= link_to 'Câu hỏi thường gặp'.html_safe,
-                        erp_online_store.faq_path, title: 'Câu hỏi thường gặp' %></li>
-                <li>
-                    <%= link_to 'Hướng dẫn mua hàng'.html_safe,
-                        Erp::Articles::Category.get_active.find_by_alias(Erp::Articles::Category::ALIAS_SHOPPING_GUIDE).nil? ? "" : erp_online_store.policy_path(
-                        Erp::Articles::Category.find_by_alias(Erp::Articles::Category::ALIAS_SHOPPING_GUIDE).id,
-                        'huong-dan-mua-hang'), title: 'Hướng dẫn mua hàng' %>
-                </li>
-                <li>
-                    <%= link_to 'Chính sách bảo hành'.html_safe, Erp::Articles::Category.get_active.find_by_alias(Erp::Articles::Category::ALIAS_WARRANTY).nil? ? "" : erp_online_store.policy_path(
-                        Erp::Articles::Category.get_active.find_by_alias(Erp::Articles::Category::ALIAS_WARRANTY).id,
-                        'chinh-sach-bao-hanh'), title: 'Chính sách bảo hành' %>
-                </li>
-                <li>
-                    <%= link_to 'Quy định & Hình thức thanh toán'.html_safe, Erp::Articles::Category.get_active.find_by_alias(Erp::Articles::Category::ALIAS_PAYMENT).nil? ? "" : erp_online_store.policy_path(
-                        Erp::Articles::Category.get_active.find_by_alias(Erp::Articles::Category::ALIAS_PAYMENT).id,
-                        'quy-dinh-hinh-thuc-thanh-toan'), title: 'Quy định & Hình thức thanh toán' %>
-                </li>
-                <li>
-                    <%= link_to 'Chính sách vận chuyển, giao nhận'.html_safe, Erp::Articles::Category.get_active.find_by_alias(Erp::Articles::Category::ALIAS_DELIVERY).nil? ? "" : erp_online_store.policy_path(
-                        Erp::Articles::Category.get_active.find_by_alias(Erp::Articles::Category::ALIAS_DELIVERY).id,
-                        'chinh-sach-van-chuyen-giao-nhan'), title: 'Chính sách vận chuyển, giao nhận' %>
-                </li>
-                <li>
-                    <%= link_to 'Chính sách đổi trả hàng & hoàn tiền'.html_safe, Erp::Articles::Category.get_active.find_by_alias(Erp::Articles::Category::ALIAS_RETURN_REFUND).nil? ? "" : erp_online_store.policy_path(
-                        Erp::Articles::Category.get_active.find_by_alias(Erp::Articles::Category::ALIAS_RETURN_REFUND).id,
-                        'chinh-sach-doi-tra-hang-va-hoan-tien'), title: 'Chính sách đổi trả hàng & hoàn tiền' %>
-                </li>
-                <li>
-                    <%= link_to 'Chính sách bảo mật thông tin'.html_safe, Erp::Articles::Category.get_active.find_by_alias(Erp::Articles::Category::ALIAS_SECURITY).nil? ? "" : erp_online_store.policy_path(
-                        Erp::Articles::Category.get_active.find_by_alias(Erp::Articles::Category::ALIAS_SECURITY).id,
-                        'quy-dinh-bao-mat-thong-tin'), title: 'Chính sách bảo mật thông tin' %>
-                </li>
-                <li><%= link_to 'Các điều khoản & điều kiện'.html_safe,
-                        erp_online_store.terms_and_conditions_path, title: 'Các điều khoản & điều kiện' %></li>
-            </ul>
-        </li>
-    </ul>
-<% else %>
-    <ul class="top-link list-inline">
-        <% if @compare.get_number_items > 0 %>
-        <li class="compare hide-compare">
-            <a href="<%= erp_online_store.compare_product_path %>" class="top-link-compare" title="So sánh sản phẩm">
-                <span>So sánh (<%= @compare.get_number_items %>)</span>
-            </a>
-        </li>
-        <% end %>
-        <li class="about-us">
-            <%= link_to '<span>Về chúng tôi</span>'.html_safe, erp_online_store.about_us_path,
-                        class: 'top-link-about-us', title: 'Về chúng tôi' %>
-        </li>
-        <li class="contact-us">
-            <%= link_to '<span>Góp ý & Liên hệ</span>'.html_safe, erp_online_store.contact_us_path,
-                        class: 'top-link-contact-us', title: 'Góp ý & Liên hệ' %>
-        </li>
-        <li class="support" id="my_account">
-            <a href="javascript:void(0)" class="btn btn-xs dropdown-toggle" data-toggle="dropdown">
-                <span>Hướng dẫn</span>
-                <span class="fa fa-angle-down"></span>
-            </a>
-            <ul class="dropdown-menu ">
-                <li><%= link_to 'Câu hỏi thường gặp'.html_safe,
-                        erp_online_store.faq_path, title: 'Câu hỏi thường gặp' %></li>
-                <li>
-                    <%= link_to 'Hướng dẫn mua hàng'.html_safe, Erp::Articles::Category.get_active.find_by_alias(Erp::Articles::Category::ALIAS_SHOPPING_GUIDE).nil? ? "" : erp_online_store.policy_path(
-                        Erp::Articles::Category.find_by_alias(Erp::Articles::Category::ALIAS_SHOPPING_GUIDE).id,
-                        'huong-dan-mua-hang'), title: 'Hướng dẫn mua hàng' %>
-                </li>
-                <li>
-                    <%= link_to 'Chính sách bảo hành'.html_safe, Erp::Articles::Category.get_active.find_by_alias(Erp::Articles::Category::ALIAS_WARRANTY).nil? ? "" : erp_online_store.policy_path(
-                        Erp::Articles::Category.get_active.find_by_alias(Erp::Articles::Category::ALIAS_WARRANTY).id,
-                        'chinh-sach-bao-hanh'), title: 'Chính sách bảo hành' %>
-                </li>
-                <li>
-                    <%= link_to 'Quy định & Hình thức thanh toán'.html_safe, Erp::Articles::Category.get_active.find_by_alias(Erp::Articles::Category::ALIAS_PAYMENT).nil? ? "" : erp_online_store.policy_path(
-                        Erp::Articles::Category.get_active.find_by_alias(Erp::Articles::Category::ALIAS_PAYMENT).id,
-                        'quy-dinh-hinh-thuc-thanh-toan'), title: 'Quy định & Hình thức thanh toán' %>
-                </li>
-                <li>
-                    <%= link_to 'Chính sách vận chuyển, giao nhận'.html_safe, Erp::Articles::Category.get_active.find_by_alias(Erp::Articles::Category::ALIAS_DELIVERY).nil? ? "" : erp_online_store.policy_path(
-                        Erp::Articles::Category.get_active.find_by_alias(Erp::Articles::Category::ALIAS_DELIVERY).id,
-                        'chinh-sach-van-chuyen-giao-nhan'), title: 'Chính sách vận chuyển, giao nhận' %>
-                </li>
-                <li>
-                    <%= link_to 'Chính sách đổi trả hàng & hoàn tiền'.html_safe, Erp::Articles::Category.get_active.find_by_alias(Erp::Articles::Category::ALIAS_RETURN_REFUND).nil? ? "" : erp_online_store.policy_path(
-                        Erp::Articles::Category.get_active.find_by_alias(Erp::Articles::Category::ALIAS_RETURN_REFUND).id,
-                        'chinh-sach-doi-tra-hang-va-hoan-tien'), title: 'Chính sách đổi trả hàng & hoàn tiền' %>
-                </li>
-                <li>
-                    <%= link_to 'Chính sách bảo mật thông tin'.html_safe, Erp::Articles::Category.get_active.find_by_alias(Erp::Articles::Category::ALIAS_SECURITY).nil? ? "" : erp_online_store.policy_path(
-                        Erp::Articles::Category.get_active.find_by_alias(Erp::Articles::Category::ALIAS_SECURITY).id,
-                        'quy-dinh-bao-mat-thong-tin'), title: 'Chính sách bảo mật thông tin' %>
-                </li>
-                <li><%= link_to 'Các điều khoản & điều kiện'.html_safe,
-                        erp_online_store.terms_and_conditions_path, title: 'Các điều khoản & điều kiện' %></li>
-            </ul>
-        </li>
-    </ul>
-<% end %>
+<ul class="top-link list-inline">
+    <% if @compare.get_number_items > 0 %>
+    <li class="compare hide-compare">
+        <a href="<%= erp_online_store.compare_product_path %>" class="top-link-compare" title="So sánh sản phẩm"><span>So sánh (<%= @compare.get_number_items %>)</span></a>
+    </li>
+    <% end %>
+    <li class="about-us">
+    <%= link_to '<span>Về chúng tôi</span>'.html_safe, erp_online_store.about_us_path,
+        class: 'top-link-about-us', title: 'Về chúng tôi' %></li>
+    <li class="contact-us">
+    <%= link_to '<span>Góp ý & Liên hệ</span>'.html_safe, erp_online_store.contact_us_path,
+        class: 'top-link-contact-us', title: 'Góp ý & Liên hệ' %></li>
+    <% if user_signed_in? %>
+    <li class="account" id="my_account">
+        <a href="javascript:void(0)" class="btn btn-xs dropdown-toggle" data-toggle="dropdown">
+            <span>Xin chào, <%= user_short_name(current_user.name) %></span>
+            <span class="fa fa-angle-down"></span>
+        </a>
+        <ul class="dropdown-menu ">                
+            <li><%= link_to '<i class="fa fa-user"></i> Tài khoản của tôi'.html_safe,
+                    erp_online_store.my_account_path, title: 'Tài khoản của tôi', rel: 'nofollow' %></li>
+            <li><%= link_to '<i class="fa fa-shopping-cart"></i> Đơn hàng của tôi'.html_safe,
+                erp_online_store.order_history_path, title: 'Đơn hàng của tôi', rel: 'nofollow' %></li>
+            <% if current_user.backend_access %>
+            <li><%= link_to '<i class="fa fa-pie-chart"></i> Vào trang quản trị'.html_safe,
+                erp.backend_path, title: 'Vào trang quản trị', rel: 'nofollow' %></li>
+            <% end %>
+            <li><%= link_to '<i class="fa fa-sign-out"></i> Thoát tài khoản'.html_safe,
+                erp.destroy_user_session_path,
+                method: :delete,
+                redirect_to: erp.backend_path,
+                class: 'link-method', title: 'Thoát tài khoản', rel: 'nofollow'
+            %></li>
+        </ul>
+    </li>
+    <% end %>
+    <li class="support" id="my_account">
+        <a href="javascript:void(0)" class="btn btn-xs dropdown-toggle" data-toggle="dropdown">
+            <span>Hướng dẫn khách hàng</span>
+            <span class="fa fa-angle-down"></span>
+        </a>
+        <ul class="dropdown-menu ">
+            <li><%= link_to 'Câu hỏi thường gặp'.html_safe,
+                erp_online_store.faq_path, title: 'Câu hỏi thường gặp' %></li>
+            <li><%= link_to 'Hướng dẫn mua hàng'.html_safe,
+                Erp::Articles::Category.get_active.find_by_alias(Erp::Articles::Category::ALIAS_SHOPPING_GUIDE).nil? ? "" : erp_online_store.policy_path(
+                Erp::Articles::Category.find_by_alias(Erp::Articles::Category::ALIAS_SHOPPING_GUIDE).id,
+                'huong-dan-mua-hang'), title: 'Hướng dẫn mua hàng' %></li>
+            <li><%= link_to 'Chính sách bảo hành'.html_safe, Erp::Articles::Category.get_active.find_by_alias(Erp::Articles::Category::ALIAS_WARRANTY).nil? ? "" : erp_online_store.policy_path(
+                Erp::Articles::Category.get_active.find_by_alias(Erp::Articles::Category::ALIAS_WARRANTY).id,
+                'chinh-sach-bao-hanh'), title: 'Chính sách bảo hành' %></li>
+            <li><%= link_to 'Quy định & Hình thức thanh toán'.html_safe, Erp::Articles::Category.get_active.find_by_alias(Erp::Articles::Category::ALIAS_PAYMENT).nil? ? "" : erp_online_store.policy_path(
+                Erp::Articles::Category.get_active.find_by_alias(Erp::Articles::Category::ALIAS_PAYMENT).id,
+                'quy-dinh-hinh-thuc-thanh-toan'), title: 'Quy định & Hình thức thanh toán' %></li>
+            <li><%= link_to 'Chính sách vận chuyển, giao nhận'.html_safe, Erp::Articles::Category.get_active.find_by_alias(Erp::Articles::Category::ALIAS_DELIVERY).nil? ? "" : erp_online_store.policy_path(
+                Erp::Articles::Category.get_active.find_by_alias(Erp::Articles::Category::ALIAS_DELIVERY).id,
+                'chinh-sach-van-chuyen-giao-nhan'), title: 'Chính sách vận chuyển, giao nhận' %></li>
+            <li><%= link_to 'Chính sách đổi trả hàng & hoàn tiền'.html_safe, Erp::Articles::Category.get_active.find_by_alias(Erp::Articles::Category::ALIAS_RETURN_REFUND).nil? ? "" : erp_online_store.policy_path(
+                Erp::Articles::Category.get_active.find_by_alias(Erp::Articles::Category::ALIAS_RETURN_REFUND).id,
+                'chinh-sach-doi-tra-hang-va-hoan-tien'), title: 'Chính sách đổi trả hàng & hoàn tiền' %></li>
+            <li><%= link_to 'Chính sách bảo mật thông tin'.html_safe, Erp::Articles::Category.get_active.find_by_alias(Erp::Articles::Category::ALIAS_SECURITY).nil? ? "" : erp_online_store.policy_path(
+                Erp::Articles::Category.get_active.find_by_alias(Erp::Articles::Category::ALIAS_SECURITY).id,
+                'quy-dinh-bao-mat-thong-tin'), title: 'Chính sách bảo mật thông tin' %></li>
+            <li><%= link_to 'Các điều khoản & điều kiện'.html_safe,
+                erp_online_store.terms_and_conditions_path, title: 'Các điều khoản & điều kiện' %></li>
+        </ul>
+    </li>
+</ul>
