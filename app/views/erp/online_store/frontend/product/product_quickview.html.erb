@@ -1,6 +1,5 @@
 <div class="main-container container">
     <div class="row">
-        <!--Middle Part Start-->
         <div id="content" class="col-md-12 col-sm-12">
             <div class="product-view row">
                 <div class="left-content-product col-lg-12 col-xs-12">
@@ -11,7 +10,6 @@
                                     <span class="btn-more prev-thumb nt"><i class="fa fa-chevron-up"></i></span>
                                     <span class="btn-more next-thumb nt"><i class="fa fa-chevron-down"></i></span>
                                     <ul class="thumb-vertical">
-                                        <!-- thumb 445x445 -->
                                         <% @product.product_images.each_with_index do |product_image,index| %>
                                         <li class="owl2-item">
                                             <a data-index="<%= index %>" class="img thumbnail " data-image="<%= product_image.image_url.thumb650 %>" title="<%= @product.get_long_name %>">
@@ -22,7 +20,11 @@
                                     </ul>
                                 </div>
                                 <div class="large-image  vertical">
-                                    <img class="product-image-zoom" data-src="<%= @product.main_image.image_url.thumb650 %>" src="<%= @product.main_image.image_url.thumb650 %>" title="<%= @product.get_long_name %>" alt="<%= @product.name %>">
+                                    <img class="product-image-zoom"
+										 data-src="<%= @product.main_image.image_url.thumb650 %>"
+										 src="<%= @product.main_image.image_url.thumb650 %>"
+										 title="<%= @product.get_long_name %>"
+										 alt="<%= @product.get_long_name %>">
                                 </div>
                                 <% if @product.product_intro_link.present? %>
                                     <%= link_to '<i class="fa fa-youtube-play"></i>'.html_safe, @product.product_intro_link, class: "open-video-link thumb-video pull-left", title: @product.get_long_name %>
@@ -177,9 +179,22 @@
                             </div>
 							<% end %>
 							<div class="call-center">
-								<span>Liên hệ đặt mua: <a href="tel:02839847690">(028) 3984 7690</a> (Giờ làm việc: 7:30 - 17:00)</span>
+								<span>
+									<strong>SĐT liên hệ: </strong>
+									<%= link_to '(028) 3984 7690 ', 'tel:02839847690',
+										title: 'Liên hệ kinh doanh qua số điện thoại: (028) 3984 7690' %>(Giờ làm việc: 7:30 - 17:00)
+								</span><br>
+								<span>
+									<strong>Email liên hệ 1: </strong>
+									<%= mail_to 'kinhdoanh@hoangkhang.com.vn', 'kinhdoanh@hoangkhang.com.vn',
+										title: 'Liên hệ kinh doanh qua email: kinhdoanh@hoangkhang.com.vn' %>
+								</span><br>
+								<span>
+									<strong>Email liên hệ 2: </strong>
+									<%= mail_to 'kinhdoanh@timhangcongnghe.com', 'kinhdoanh@timhangcongnghe.com',
+										title: 'Liên hệ kinh doanh qua email: kinhdoanh@timhangcongnghe.com' %>
+								</span><br>
 							</div>
-                            <!-- end box info product -->
                         </div>
                     </div>
                 </div>
