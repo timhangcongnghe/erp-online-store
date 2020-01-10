@@ -1,0 +1,50 @@
+<% if Erp::Products::Product.get_top_business_choices.count > 0 %>
+<div class="module so-deals top-choices">
+    <h3 class="modtitle"><span><i class="fa fa-line-chart"></i>Lựa Chọn Hàng Đầu</span></h3>
+    <div class="modcontent">
+        <div class="so-deal modcontent products-list grid clearfixbutton-type1 style2">
+            <div class="extraslider-inner product-layout deal-slider-home7">
+                <% Erp::Products::Product.get_top_business_choices.each do |product| %>
+                <div class="product-thumb transition product-item-container">
+                    <div class="left-block">
+                        <div class="product-image-container">
+                            <div class="image">                                            
+                                <div class="product-image-container second_img ">
+                                    <%= image_tag product_image(product.product_images, 'first', 'thumb268'),
+                                        data: {src: product_image(product.product_images, 'first', 'thumb268')},
+                                        alt: product.get_long_name, title: product.get_long_name,
+                                        class: 'img-responsive' %></div>
+                                <%= quick_actions(product) %>
+                                <% if product.is_new? %><span class="label label-new">Mới</span><% end %>
+                                <% if product.is_deal? %><span class="label label-sale">Giảm giá</span><% end %>
+                                <%= count_down(product.deal_from_date, product.deal_to_date) %>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="right-block">
+                        <div class="caption">
+                            <div class="rating"><%= raw stars(product.average_stars) %></div>
+                            <h2><%= link_to truncate(product.get_short_name, length: 52), product_link(product), title: product.get_long_name, class: "hover-product-name" %></h2>
+                            <p class="price">                                                    
+                                <% if product.is_sold_out? || product.is_call? || product.product_price.nil? %>
+                                    <span class="price sold_out_true">Liên hệ: (028) 3984 7690</span>
+                                <% else %>
+                                    <span class="price-new"><%= format_price(product.product_price) %></span>
+                                    <% if product.is_deal? %>
+                                    <br><span class="price-old"><%= format_price(product.price) %></span>
+                                    <span class="label label-percent">-<%= product.deal_percent %>%</span>
+                                    <% end %>
+                                <% end %>
+                            </p>
+                            <% if product.meta_description.present? %>
+                            <div class="list-product-specs"><%= product.meta_description %></div>
+                            <% end %>
+                        </div>
+                    </div>
+                </div>
+                <% end %>                    
+            </div>
+        </div>
+    </div>
+</div>
+<% end %>

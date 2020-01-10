@@ -5,29 +5,21 @@
         <li>Kết Quả Tìm Kiếm</li>
     </ul>
     <div class="row">
-        <!--Middle Part Start-->
         <div id="content" class="col-md-12 col-sm-12">
             <div class="products-category">
                 <% if @products.count > 0 %>
-                    <% if @keyword.present? %>
-                        <h1>Kết quả tìm kiếm phù hợp với từ khóa <strong>"<%= @keyword %>"</strong>
-                            <% if @menu.present? %>
-                                tại mục <strong>"<%= @menu.name %>"</strong>
-                            <% end %>
-                        </h1>
-                    <% end %>
-                <!--changed listings-->
-                <% if @menu.present? %>
-                    <%= render "erp/online_store/frontend/modules/category/category_middle_part_center", products: @products, menu: @menu %>
-                <% else %>
-                    <%= render "erp/online_store/frontend/modules/category/category_middle_part_center_search", products: @products %>
+                <% if @keyword.present? %>
+                    <h1>Kết quả tìm kiếm phù hợp với từ khóa <strong>"<%= @keyword %>"</strong>
+                        <% if @menu.present? %>
+                            tại mục <strong>"<%= @menu.name %>"</strong>
+                        <% end %>
+                    </h1>
                 <% end %>
-                <!--// End Changed listings-->
-                <div class="product-filter product-filter-bottom filters-panel">
-                    <div class="box-pagination text-center">
-                        <%= will_paginate @products, previous_label: '←', next_label: '→', renderer: BootstrapPagination::Rails %>
-                    </div>
-                </div>
+                <% if @menu.present? %>
+                    <%= render "erp/online_store/frontend/modules/category/listing", products: @products, menu: @menu %>
+                <% else %>
+                    <%= render "erp/online_store/frontend/modules/category/search", products: @products %>
+                <% end %>                
                 <% else %>
                     <section>
                         <% if @keyword.present? %>

@@ -1,25 +1,33 @@
-<% title 'Thương hiệu sản phẩm' %>
+<% title 'Thương Hiệu Sản Phẩm' %>
 
 <% content_for :metas do %>
-    <!-- for Facebook -->
-    <meta property="og:url" content="<%= request.url %>"/>
+<!-- for Facebook -->
+    <meta property="og:locale" content="vi-VN" />
     <meta property="og:type" content="website"/>
     <meta property="og:title" content="Thương Hiệu Sản Phẩm"/>
-    <meta property="og:description" content="Danh sách các thương hiệu sản phẩm được kinh doanh nhiều nhất tại TimHangCongNghe để quý khách hàng tiện lựa chọn."/>
+    <meta property="og:description" content="Tìm Hàng Công Nghệ là đơn vị cung cấp các sản phẩm, dịch vụ thuộc lĩnh vực Công Nghệ Thông Tin do Công Ty TNHH Giải Pháp CNTT Và Truyền Thông Hoàng Khang phụ trách và phát triển."/>
+    <meta property="og:url" content="<%= request.url %>"/>
+    <meta property="og:site_name" content="Thương Hiệu Sản Phẩm - Tìm Hàng Công Nghệ" />
     <meta property="og:image" content="https://timhangcongnghe.com/frontend/image/thcn-web-share.png"/>
+    <meta property="og:image:width" content="1200"/>
+	<meta property="og:image:height" content="628"/>
+    <!--TWITTER -->
+    <meta property="og:url" content="<%= request.url %>"/>
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content="Thương Hiệu Sản Phẩm" />
+    <meta name="twitter:description" content="Tìm Hàng Công Nghệ là đơn vị cung cấp các sản phẩm, dịch vụ thuộc lĩnh vực Công Nghệ Thông Tin do Công Ty TNHH Giải Pháp CNTT Và Truyền Thông Hoàng Khang phụ trách và phát triển."/>
+    <meta name="twitter:image" content="https://timhangcongnghe.com/frontend/image/thcn-web-share.png"/>
 <% end %>
 
 <div class="main-container container">
     <ul class="breadcrumb">
-        <li><%= link_to '<i class="fa fa-home"></i>'.html_safe, erp_online_store.root_path %></li>
-        <li><%= link_to "Thương Hiệu Sản Phẩm", "javascript:void(0)" %></li>
+        <li><%= link_to '<i class="fa fa-home"></i>'.html_safe, 'https://timhangcongnghe.com/', title: 'Tìm Hàng Công Nghệ' %></li>
+        <li><%= link_to 'Thương Hiệu Sản Phẩm', 'javascript:void(0)', title: 'Thương Hiệu Sản Phẩm' %></li>
     </ul>
     <div class="row">
-        <!--Middle Part Start-->
         <div id="content" class="col-md-12 col-sm-12">
             <h1 class="menu-title">Thương Hiệu Sản Phẩm</h1>
             <div class="brand-page">
-                <!-- Changed listings-->
                 <div class="products-brand brand-list row list">
                     <% @brands.each_with_index do |brand, index| %>
                     <%= '</div> <div class="products-brand brand-list row list">'.html_safe if index%6 == 0 and index != 0 %>
@@ -28,7 +36,7 @@
                                 <div class="left-block">
                                     <a href="<%= brand_link(brand) %>" title="<%= brand.name %>" class="img-brand">
                                         <div class="product-image-container second_img ">
-                                            <img data-src="<%= brand.image_url.brand_page %>" src="<%= brand.image_url.brand_page %>" alt="<%= brand.name %>" class="img-1 img-responsive">                             
+                                            <img data-src="<%= brand.image_url.brand_page %>" src="<%= brand.image_url.brand_page %>" alt="<%= brand.name %>" title="<%= brand.name %>" class="img-responsive">                             
                                         </div>
                                     </a>
                                 </div>
@@ -36,10 +44,7 @@
                         </div>                    
                     <% end %>
                 </div>
-                <!--// End Changed listings-->
             </div>
         </div>
     </div>
-    <!--Middle Part End-->
 </div>
-<!-- //Main Container -->

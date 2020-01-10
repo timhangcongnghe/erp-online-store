@@ -9,7 +9,7 @@
 	<link rel="alternate" href="<%= request.url %>" hreflang="x-default"/>
 	<link rel="canonical" href="<%= request.url %>" />
 	
-	<title><% if content_for?(:title) %><%= yield(:title) %> | Tìm Hàng Công Nghệ<% else %>Tìm Hàng Công Nghệ<% end %></title>
+	<title><% if content_for?(:title) %><%= yield(:title) %> - Tìm Hàng Công Nghệ<% else %>Tìm Hàng Công Nghệ<% end %></title>
 	
 	<% if @meta_keywords.present? %>
 	<meta name="keywords" content="<%= @meta_keywords %>">

@@ -2,25 +2,35 @@
 
 <% content_for :metas do %>
 <!-- for Facebook -->
-    <meta property="og:url" content="<%= request.url %>"/>
+    <meta property="og:locale" content="vi-VN" />
     <meta property="og:type" content="website"/>
     <meta property="og:title" content="Lựa Chọn Hàng Đầu"/>
     <meta property="og:description" content="Tìm Hàng Công Nghệ là đơn vị cung cấp các sản phẩm, dịch vụ thuộc lĩnh vực Công Nghệ Thông Tin do Công Ty TNHH Giải Pháp CNTT Và Truyền Thông Hoàng Khang phụ trách và phát triển."/>
+    <meta property="og:url" content="<%= request.url %>"/>
+    <meta property="og:site_name" content="Lựa Chọn Hàng Đầu - Tìm Hàng Công Nghệ" />
     <meta property="og:image" content="https://timhangcongnghe.com/frontend/image/thcn-web-share.png"/>
+    <meta property="og:image:width" content="1200"/>
+	<meta property="og:image:height" content="628"/>
+    <!--TWITTER -->
+    <meta property="og:url" content="<%= request.url %>"/>
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content="Lựa Chọn Hàng Đầu" />
+    <meta name="twitter:description" content="Tìm Hàng Công Nghệ là đơn vị cung cấp các sản phẩm, dịch vụ thuộc lĩnh vực Công Nghệ Thông Tin do Công Ty TNHH Giải Pháp CNTT Và Truyền Thông Hoàng Khang phụ trách và phát triển."/>
+    <meta name="twitter:image" content="https://timhangcongnghe.com/frontend/image/thcn-web-share.png"/>
 <% end %>
 
 <div class="main-container container">
     <ul class="breadcrumb">
-        <li><%= link_to '<i class="fa fa-home"></i>'.html_safe, erp_online_store.root_path %></li>
-        <li><%= link_to "Lựa Chọn Hàng Đầu", "javascript:void(0)" %></li>
+        <li><%= link_to '<i class="fa fa-home"></i>'.html_safe, 'https://timhangcongnghe.com/', title: 'Tìm Hàng Công Nghệ' %></li>
+        <li><%= link_to 'Lựa Chọn Hàng Đầu', 'javascript:void(0)', title: 'Lựa Chọn Hàng Đầu' %></li>
     </ul>
 </div>
 <div class="page-business-choices">
-    <%= render "erp/online_store/frontend/modules/business_choices/slider" %>
+    <%= render 'erp/online_store/frontend/modules/business_choices/slider' %>
     <div class="so-spotlight3">
         <div class="container">
-            <%= render "erp/online_store/frontend/modules/business_choices/top_business_choices" %>
-            <%= render "erp/online_store/frontend/modules/business_choices/list_business_choices", menus: @menus, products: @products %>   
+            <%= render 'erp/online_store/frontend/modules/business_choices/top' %>
+            <%= render 'erp/online_store/frontend/modules/business_choices/list', menus: @menus, products: @products %>   
         </div>
     </div>
 </div>

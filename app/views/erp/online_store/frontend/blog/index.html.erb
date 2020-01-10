@@ -1,30 +1,41 @@
 <% title (params[:cat_id].present? ? @category.name : 'Tin Công Nghệ') %>
+<% content_for :metas do %>
+<!-- for Facebook -->
+    <meta property="og:locale" content="vi-VN" />
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="<%= params[:cat_id].present? ? @category.name : 'Tin Công Nghệ'  %>"/>
+    <meta property="og:description" content="Tìm Hàng Công Nghệ là đơn vị cung cấp các sản phẩm, dịch vụ thuộc lĩnh vực Công Nghệ Thông Tin do Công Ty TNHH Giải Pháp CNTT Và Truyền Thông Hoàng Khang phụ trách và phát triển."/>
+    <meta property="og:url" content="<%= request.url %>"/>
+    <meta property="og:site_name" content="<%= params[:cat_id].present? ? @category.name : 'Tin Công Nghệ'  %> - Tìm Hàng Công Nghệ" />
+    <meta property="og:image" content="https://timhangcongnghe.com/frontend/image/thcn-web-share.png"/>
+    <meta property="og:image:width" content="1200"/>
+	<meta property="og:image:height" content="628"/>
+    <!--TWITTER -->
+    <meta property="og:url" content="<%= request.url %>"/>
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content="<%= params[:cat_id].present? ? @category.name : 'Tin Công Nghệ'  %>" />
+    <meta name="twitter:description" content="Tìm Hàng Công Nghệ là đơn vị cung cấp các sản phẩm, dịch vụ thuộc lĩnh vực Công Nghệ Thông Tin do Công Ty TNHH Giải Pháp CNTT Và Truyền Thông Hoàng Khang phụ trách và phát triển."/>
+    <meta name="twitter:image" content="https://timhangcongnghe.com/frontend/image/thcn-web-share.png"/>
+<% end %>
 <div class="main-container container">
     <ul class="breadcrumb">
-        <li><%= link_to '<i class="fa fa-home"></i>'.html_safe, erp_online_store.root_path %></li>
+        <li><%= link_to '<i class="fa fa-home"></i>'.html_safe, 'https://timhangcongnghe.com/', title: 'Tìm Hàng Công Nghệ' %></li>
         <% if params[:cat_id].present? %>
-            <li><%= link_to "Tin Công Nghệ", erp_online_store.blog_path %></li>
-            <li><%= link_to @category.name, "javascript:void(0)" %></li>
+            <li><%= link_to 'Tin Công Nghệ', erp_online_store.blog_path, title: 'Tin Công Nghệ' %></li>
+            <li><%= link_to @category.name, 'javascript:void(0)', title: @category.name %></li>
         <% else %>
-            <li><%= link_to "Tin Công Nghệ", "javascript:void(0)" %></li>
+            <li><%= link_to 'Tin Công Nghệ', 'javascript:void(0)', title: 'Tin Công Nghệ' %></li>
         <% end %>
     </ul>
     <div class="row">
-        <!--Left Part Start -->
         <aside class="col-sm-4 col-md-3" id="column-left">
             <%= render "erp/online_store/frontend/modules/blog/categories" %>
-            <%= render "erp/online_store/frontend/modules/sidebar_best_sellers" %>
-            <%= render "erp/online_store/frontend/modules/hot_banners" %>
+            <%= render "erp/online_store/frontend/modules/extensions/sidebar_best_seller" %>
+            <%= render "erp/online_store/frontend/modules/extensions/sidebar_hot_banner" %>
         </aside>
-        <!--Left Part End -->
-
-        <!--Middle Part Start-->
         <div id="content" class="col-md-9 col-sm-8">
             <% if params[:cat_id].present? %>
-                <div class="blog-header">
-                    <h3><%= @category.name %></h3>
-                    <p><%= @category.description %></p>
-                </div>
+            <div class="blog-header"><h3><%= @category.name %></h3><p><%= @category.description %></p></div>
             <% end %>
             <div class="blog-listitem <%= params[:cat_id].present? ? '' : 'blog-listitem-notitle' %>">
                 <% if @blogs.count > 0 %>
@@ -32,48 +43,38 @@
                     <div class="blog-item ">
                         <div class="itemBlogImg col-md-4 col-sm-12">
                             <div class="article-image banners">
-                                <div>
-                                    <%= link_to image_tag(article_image(blog.image.medium, 'normal'), alt: blog.name), "#{article_image(blog.image,'normal')}", class: "popup-gallery" %>
-                                </div>
+                                <div><%= link_to image_tag(article_image(blog.image.medium, 'normal'), alt: blog.name, title: blog.name),
+                                    '#{article_image(blog.image,"normal")}', class: 'popup-gallery', title: blog.name %></div>
                             </div>
                         </div>
                         <div class="itemBlogContent col-md-8 col-sm-12">
                             <div class="article-title">
-                                <h4>
-                                    <%= link_to blog.name, article_link(blog) %>
-                                </h4>
+                                <h4><%= link_to blog.name, article_link(blog), title: blog.name %></h4>
                             </div>
                             <div class="article-sub-title">
                                 <span class="article-date">
                                   <i class="fa fa-calendar"></i><%= blog.created_at.strftime("%d/%m/%Y %I:%M%p") %>
                                 </span>
-                                
                             </div>
                             <div class="article-description">
-                                <%= short_text(blog.content, 90) %>...
+                                <%= short_text(blog.content, 60) %>...
                             </div>
                             <div class="blog-meta">
                                 <span class="comment_count">
                                     <span><%= blog.comments.count %> bình luận</span>
                                 </span>
                                 <span class="author">
-                                    <span>Đăng bởi </span>THCN
+                                    <span>Đăng bởi: </span>Tìm Hàng Công Nghệ
                                 </span>
                             </div>
                         </div>
                     </div>
                     <% end %>
-    
-                    <div class="pagination-online-store">
-                        <%= erp_datalist_pagination(@blogs) %>
-                    </div>
+                    <div class="pagination-online-store"><%= erp_datalist_pagination(@blogs) %></div>
                 <% else %>
-                    <div class="alert alert-warning">
-                        <i class="fa fa-warning"></i> Hiện chưa có bài viết cho mục này.
-                    </div>
+                    <div class="alert alert-warning"><i class="fa fa-warning"></i> Hiện chưa có bài viết cho mục này.</div>
                 <% end %>
             </div>
         </div>
-        <!--Middle Part End-->
     </div>
 </div>

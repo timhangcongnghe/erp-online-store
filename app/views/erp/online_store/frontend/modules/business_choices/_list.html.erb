@@ -1,43 +1,33 @@
 <div class="row">
-    <!--Left Part Start -->
     <aside class="col-sm-4 col-md-3" id="column-left">
-        <%= render "erp/online_store/frontend/modules/sidebar_deal_products" %>
-        <%= render "erp/online_store/frontend/modules/sidebar_best_sellers" %>
-        <%= render "erp/online_store/frontend/modules/hot_banners" %>
+        <%= render 'erp/online_store/frontend/modules/extensions/sidebar_deal_product' %>
+        <%= render 'erp/online_store/frontend/modules/extensions/sidebar_best_seller' %>
+        <%= render 'erp/online_store/frontend/modules/extensions/sidebar_hot_banner' %>
     </aside>
-    <!--Left Part End -->
-    <!--Middle Part Start-->
     <div id="content" class="col-md-9 col-sm-8">
         <div class="products-category">
             <h1 class="menu-title mb-0">Lựa Chọn Từ Doanh Nghiệp</h1>
             <div class="main-products-list">
                 <% if @products.count > 0 %>
-                    <!--changed listings-->
                     <div class="products-list row list">
                         <% @products.each do |product| %>
                         <div class="product-layout  col-md-3 col-sm-6 col-xs-6">
                             <div class="product-item-container product-lists">
                                 <div class="left-block">
-                                    <div class="product-image-container lazy second_img ">
-                                        <%= image_tag product_image(product.product_images, 'first', 'thumb193'), data: {src: product_image(product.product_images, 'first', 'thumb193')}, alt: product.product_name, class: "img-1 img-responsive" %>
-                                        <%= image_tag product_image(product.product_images, 'second', 'thumb193'), data: {src: product_image(product.product_images, 'second', 'thumb193')}, alt: product.product_name, class: "img-2 img-responsive" %>
-                                    </div>
+                                    <div class="product-image-container second_img ">
+                                        <%= image_tag product_image(product.product_images, 'first', 'thumb193'),
+                                            data: {src: product_image(product.product_images, 'first', 'thumb193')},
+                                            alt: product.get_long_name, title: product.get_long_name, class: 'img-responsive' %></div>
                                     <%= quick_actions(product) %>
-                                    <% if product.is_new? %>
-                                    <span class="label label-new">Mới</span>
-                                    <% end %>
-                                    <% if product.is_deal? %>
-                                    <span class="label label-sale">Giảm giá</span>
-                                    <% end %>
+                                    <% if product.is_new? %><span class="label label-new">Mới</span><% end %>
+                                    <% if product.is_deal? %><span class="label label-sale">Giảm giá</span><% end %>
                                     <%= count_down(product.deal_from_date, product.deal_to_date) %>
                                 </div>
                                 <div class="right-block">
                                     <div class="caption">
-                                        <h4><%= link_to truncate(product.product_name, length: 50), product_link(product), title: product.product_name, class: "hover-product-name" %></h4>
+                                        <h2><%= link_to truncate(product.get_short_name, length: 52), product_link(product), title: product.get_long_name, class: "hover-product-name" %></h2>
                                         <div class="ratings">
-                                            <div class="rating-box">
-                                                <%= stars(product.average_stars) %>
-                                            </div>
+                                            <div class="rating-box"><%= stars(product.average_stars) %></div>
                                         </div>
                                         <div class="price">
                                             <% if product.is_sold_out? || product.is_call? || product.product_price.nil? %>
@@ -50,22 +40,21 @@
                                                 <% end %>
                                             <% end %>
                                         </div>
+                                        <% if product.meta_description.present? %>
+                                        <div class="list-product-specs"><%= product.meta_description %></div>
+                                        <% end %>
                                     </div>
                                 </div>
-                                <!-- right block -->
                             </div>
                         </div>
                         <% end %>
                     </div>
-                    <!--// End Changed listings-->
                     <% if @products.count > 20 %>
-                        <!-- Pagination -->
-                        <div class="product-filter product-filter-bottom filters-panel">
-                            <div class="box-pagination text-center">
-                                <%= will_paginate @products, previous_label: '←', next_label: '→', renderer: BootstrapPagination::Rails %>
-                            </div>
+                    <div class="product-filter product-filter-bottom filters-panel">
+                        <div class="box-pagination text-center">
+                            <%= will_paginate @products, previous_label: '←', next_label: '→', renderer: BootstrapPagination::Rails %>
                         </div>
-                    <!-- End Pagination -->
+                    </div>
                     <% end %>
                 <% else %>
                     <div id="content" class="col-sm-12 shopping-cart">
@@ -78,5 +67,4 @@
             </div>
         </div>
     </div>
-    <!--Middle Part End-->
 </div>

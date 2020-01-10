@@ -22,7 +22,7 @@ module Erp
 
       # menu link helper
       def menu_link(menu)
-        erp_online_store.category_path(menu_id: menu.id, title: url_friendly(menu.name))
+        erp_online_store.category_path(menu_id: menu.id, title: menu.alias)
       end
 
       # product link helper
