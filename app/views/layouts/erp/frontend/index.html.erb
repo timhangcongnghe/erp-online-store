@@ -27,9 +27,9 @@
 	<link rel="icon" sizes="192x192"  href="<%= url_for('/frontend/img/sys/android-icon-192x192.png') %>">
 	<%= favicon_link_tag '/frontend/img/sys/favicon.png', rel: 'shortcut icon' %>
 	
-	<%= stylesheet_link_tag '/frontend/css/import.css?v=4.1' %>
-	<%= stylesheet_link_tag '/frontend/css/custom.css?v=4.1' %>
-	<%= stylesheet_link_tag '/frontend/css/res-device.css?v=4.1' %>
+	<%= stylesheet_link_tag '/frontend/css/import.css?v=4.2' %>
+	<%= stylesheet_link_tag '/frontend/css/custom.css?v=4.2' %>
+	<%= stylesheet_link_tag '/frontend/css/res-device.css?v=4.2' %>
 	<% if params[:controller] == 'erp/online_store/frontend/account' && params[:action] == 'my_account' %><%= stylesheet_link_tag '/frontend/css/custom-profile.css' %><% end %>
 	<% if params[:controller] == 'erp/online_store/frontend/shopping_cart' && params[:action] == 'checkout' %><%= stylesheet_link_tag '/frontend/css/checkout.css' %><% end %>
 	<%= stylesheet_link_tag '/frontend/css/starability-minified/starability-all.min.css' %>
