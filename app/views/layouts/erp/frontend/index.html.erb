@@ -190,6 +190,17 @@
 		<% if @meta_description.present? %>"description": "<%= @meta_description %>",<% end %>
 		"brand": "<%= @product.brand_name %>",
 		<% if @product.code.present? %>"sku": "<%= @product.code %>","mpn": "<%= @product.code %>",<% end %>
+		<% if @menu.present? %>
+		"keywords": [
+			<% count = @menu.meta_keywords.split(',').count %>
+			<% @menu.meta_keywords.split(',').each_with_index do |keywoard, index| %>
+			<% if count == (index+1) %>
+			"<%= keywoard %>"
+			<% else %>
+			"<%= keywoard %>",
+			<% end %>
+			<% end %>],
+		<% end %>
 		"review": {
 			"@type": "Review",
 			"reviewRating": {
