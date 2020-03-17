@@ -4,7 +4,7 @@
         <% if menu.menu_icon.present? %>
             <%= image_tag menu.menu_icon.icon, alt: menu.name, title: menu.name %>
         <% end %>
-        <strong><span><%= menu.name %></span><b class="fa fa-angle-right"></b></strong>
+        <strong><span><%= truncate(menu.name, length: 27) %></span><b class="fa fa-angle-right"></b></strong>
     </a>
     <div class="sub-menu" data-subwidth="60">
         <div class="content">

@@ -34,35 +34,4 @@
         </ul>
     </li>
     <% end %>
-    <li class="support" id="my_account">
-        <a href="javascript:void(0)" class="btn btn-xs dropdown-toggle" data-toggle="dropdown">
-            <span>Hướng dẫn khách hàng</span>
-            <span class="fa fa-angle-down"></span>
-        </a>
-        <ul class="dropdown-menu ">
-            <li><%= link_to 'Câu hỏi thường gặp'.html_safe,
-                erp_online_store.faq_path, title: 'Câu hỏi thường gặp' %></li>
-            <li><%= link_to 'Hướng dẫn mua hàng'.html_safe,
-                Erp::Articles::Category.get_active.find_by_alias(Erp::Articles::Category::ALIAS_SHOPPING_GUIDE).nil? ? "" : erp_online_store.policy_path(
-                Erp::Articles::Category.find_by_alias(Erp::Articles::Category::ALIAS_SHOPPING_GUIDE).id,
-                'huong-dan-mua-hang'), title: 'Hướng dẫn mua hàng' %></li>
-            <li><%= link_to 'Chính sách bảo hành'.html_safe, Erp::Articles::Category.get_active.find_by_alias(Erp::Articles::Category::ALIAS_WARRANTY).nil? ? "" : erp_online_store.policy_path(
-                Erp::Articles::Category.get_active.find_by_alias(Erp::Articles::Category::ALIAS_WARRANTY).id,
-                'chinh-sach-bao-hanh'), title: 'Chính sách bảo hành' %></li>
-            <li><%= link_to 'Quy định & Hình thức thanh toán'.html_safe, Erp::Articles::Category.get_active.find_by_alias(Erp::Articles::Category::ALIAS_PAYMENT).nil? ? "" : erp_online_store.policy_path(
-                Erp::Articles::Category.get_active.find_by_alias(Erp::Articles::Category::ALIAS_PAYMENT).id,
-                'quy-dinh-hinh-thuc-thanh-toan'), title: 'Quy định & Hình thức thanh toán' %></li>
-            <li><%= link_to 'Chính sách vận chuyển, giao nhận'.html_safe, Erp::Articles::Category.get_active.find_by_alias(Erp::Articles::Category::ALIAS_DELIVERY).nil? ? "" : erp_online_store.policy_path(
-                Erp::Articles::Category.get_active.find_by_alias(Erp::Articles::Category::ALIAS_DELIVERY).id,
-                'chinh-sach-van-chuyen-giao-nhan'), title: 'Chính sách vận chuyển, giao nhận' %></li>
-            <li><%= link_to 'Chính sách đổi trả hàng & hoàn tiền'.html_safe, Erp::Articles::Category.get_active.find_by_alias(Erp::Articles::Category::ALIAS_RETURN_REFUND).nil? ? "" : erp_online_store.policy_path(
-                Erp::Articles::Category.get_active.find_by_alias(Erp::Articles::Category::ALIAS_RETURN_REFUND).id,
-                'chinh-sach-doi-tra-hang-va-hoan-tien'), title: 'Chính sách đổi trả hàng & hoàn tiền' %></li>
-            <li><%= link_to 'Chính sách bảo mật thông tin'.html_safe, Erp::Articles::Category.get_active.find_by_alias(Erp::Articles::Category::ALIAS_SECURITY).nil? ? "" : erp_online_store.policy_path(
-                Erp::Articles::Category.get_active.find_by_alias(Erp::Articles::Category::ALIAS_SECURITY).id,
-                'quy-dinh-bao-mat-thong-tin'), title: 'Chính sách bảo mật thông tin' %></li>
-            <li><%= link_to 'Các điều khoản & điều kiện'.html_safe,
-                erp_online_store.terms_and_conditions_path, title: 'Các điều khoản & điều kiện' %></li>
-        </ul>
-    </li>
 </ul>
