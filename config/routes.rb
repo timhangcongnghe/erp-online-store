@@ -113,6 +113,7 @@ Erp::OnlineStore::Engine.routes.draw do
 	get "thong-tin/cac-dieu-khoan-va-dieu-kien.html" => "frontend/information#terms_and_conditions", as: :terms_and_conditions
 	get "thong-tin/:category_id(/:title).html" => "frontend/information#policy", as: :policy
 	get "site-map.html" => "frontend/information#site_map", as: :site_map
+	get "huong-dan-mua-hang.html" => "frontend/information#policy_01", as: :policy_01
 
 	# BRAND
 	get "thuong-hieu-san-pham-select2.html" => "frontend/brand#select2", as: :brand_select2

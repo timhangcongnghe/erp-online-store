@@ -17,6 +17,9 @@ module Erp
           @categories = Erp::Articles::Category.get_categories_by_alias_group
           @article = Erp::Articles::Category.find(params[:category_id]).articles.where(archived: false).last
         end
+        
+        def policy_01 #huong-dan-mua-hang.html
+        end
     
         def contact_us
           @body_class = "res layout-subpage"

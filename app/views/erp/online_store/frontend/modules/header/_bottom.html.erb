@@ -120,14 +120,6 @@
                         <div id="sosearchpro" class="search-pro">
                             <form class="autosearch-form" method="GET" action="<%= erp_online_store.search_path %>">
                                 <div id="search0" class="search input-group autosearch" data-url="<%= erp_online_store.autosearch_path %>">
-                                    <div class="select_category filter_type  icon-select">
-                                        <select class="no-border" name="menu_id">
-                                            <option value="">Tất cả danh mục</option>
-                                            <% Erp::Menus::Menu.get_menus.each do |menu_search| %>
-                                            <option <%= 'selected' if menu_search.id == params[:menu_id].to_i %> value="<%= menu_search.id %>"><%= menu_search.name %></option>
-                                            <% end %>
-                                        </select>
-                                    </div>
                                     <input class="autosearch-input form-control" type="text" value="<%= @keyword %>" size="50" autocomplete="off" placeholder="Nhập từ khóa tìm kiếm....." name="keyword">
                                     <span class="input-group-btn">
                                         <button type="submit" class="button-search btn btn-primary" name="submit_search">
