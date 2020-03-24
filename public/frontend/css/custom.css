@@ -3,3 +3,20 @@
 .box_banner .banner-business-choices ul li{margin-bottom:14px}
 @media (min-width: 1200px){.module.so-deals {min-height:370px}}
 .module.so-deals .so-deal .extraslider-inner{margin-top:5px}
+.tab-content #tab-description em {
+    font-style: italic;
+    font-size: 13px;
+}
+.tab-content #tab-description h4 {
+    font-size: 16px;
+    line-height: 1.8;
+    text-transform: capitalize;
+}
+.tab-content #tab-description p {
+    font-size: 15px;
+    line-height: 1.5;
+}
+.tab-content #tab-description h3 {
+    font-size: 18px;
+    margin-top: 10px;
+}
