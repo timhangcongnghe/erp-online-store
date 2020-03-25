@@ -20,6 +20,30 @@ module Erp
         
         def policy_01 #huong-dan-mua-hang.html
         end
+        
+        def policy_02 #chinh-sach-bao-hanh.html
+        end
+        
+        def policy_03 #huong-dan-thanh-toan.html
+        end
+        
+        def policy_04 #van-chuyen-va-giao-nhan.html
+        end
+        
+        def policy_05 #doi-tra-va-hoan-tien.html
+        end
+        
+        def policy_06 #bao-mat-thong-tin.html
+        end
+        
+        def policy_07 #quy-che-hoat-dong.html
+        end
+        
+        def policy_08 #dieu-khoan-giao-dich.html
+        end
+        
+        def policy_09 #cau-hoi-thuong-gap.html
+        end
     
         def contact_us
           @body_class = "res layout-subpage"

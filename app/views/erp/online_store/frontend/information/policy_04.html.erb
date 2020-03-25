@@ -1,0 +1,136 @@
+<% title "Vận Chuyển Và Giao Nhận" %>
+<% content_for :metas do %>
+<!-- for Facebook -->
+    <meta property="og:locale" content="vi-VN" />
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="Vận Chuyển Và Giao Nhận"/>
+    <meta property="og:description" content="Tìm Hàng Công Nghệ là đơn vị cung cấp các sản phẩm, dịch vụ thuộc lĩnh vực Công Nghệ Thông Tin do Công Ty TNHH Giải Pháp CNTT Và Truyền Thông Hoàng Khang phụ trách và phát triển."/>
+    <meta property="og:url" content="<%= request.url %>"/>
+    <meta property="og:site_name" content="Vận Chuyển Và Giao Nhận" />
+    <meta property="og:image" content="https://timhangcongnghe.com/frontend/image/thcn-web-share.png"/>
+    <meta property="og:image:width" content="1200"/>
+	<meta property="og:image:height" content="628"/>
+    <!--TWITTER -->
+    <meta property="og:url" content="<%= request.url %>"/>
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content="Vận Chuyển Và Giao Nhận" />
+    <meta name="twitter:description" content="Tìm Hàng Công Nghệ là đơn vị cung cấp các sản phẩm, dịch vụ thuộc lĩnh vực Công Nghệ Thông Tin do Công Ty TNHH Giải Pháp CNTT Và Truyền Thông Hoàng Khang phụ trách và phát triển."/>
+    <meta name="twitter:image" content="https://timhangcongnghe.com/frontend/image/thcn-web-share.png"/>
+<% end %>
+
+<div class="main-container container">
+    <ul class="breadcrumb">
+        <li><%= link_to '<i class="fa fa-home"></i>'.html_safe, erp_online_store.root_path %></li>
+        <li>Vận Chuyển Và Giao Nhận</li>
+    </ul>
+    <div class="row">
+        <aside class="col-sm-4 col-md-3" id="column-left">
+            <div class="module menu-category titleLine">
+                <h3 class="modtitle"><span><i class="fa fa-support"></i> Dành Cho Khách Hàng</span></h3>
+                <div class="modcontent">
+                    <div class="box-category box-category-policy">
+                        <ul id="cat_accordion" class="list-group fix_active">
+                            <li><%= link_to 'Hướng Dẫn Mua Hàng', erp_online_store.policy_01_path, title: 'Hướng Dẫn Mua Hàng' %></li>                            
+                            <li><%= link_to 'Hướng Dẫn Thanh Toán', erp_online_store.policy_03_path, title: 'Hướng Dẫn Thanh Toán' %></li>
+                            <li><%= link_to 'Chính Sách Bảo Hành', erp_online_store.policy_02_path, title: 'Chính Sách Bảo Hành' %></li>
+                            <li><%= link_to 'Vận Chuyển Và Giao Nhận', 'javascript:void(0);', class: 'current', title: 'Vận Chuyển Và Giao Nhận' %></li>
+                            <li><%= link_to 'Đổi Trả Và Hoàn Tiền', erp_online_store.policy_05_path, title: 'Đổi Trả Và Hoàn Tiền' %></li>
+                            <li><%= link_to 'Bảo Mật Thông Tin', erp_online_store.policy_06_path, title: 'Bảo Mật Thông Tin' %></li>
+                            <li><%= link_to 'Quy Chế Hoạt Động', erp_online_store.policy_07_path, title: 'Quy Chế Hoạt Động' %></li>
+                            <li><%= link_to 'Điều Khoản Giao Dịch', erp_online_store.policy_08_path, title: 'Điều Khoản Giao Dịch' %></li>
+                            <li><%= link_to 'Câu Hỏi Thường Gặp', erp_online_store.policy_09_path, title: 'Câu Hỏi Thường Gặp' %></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </aside>
+        <div id="content" class="col-md-9 col-sm-8">
+            <div class="article-info policy-info">
+                <div class="blog-header policy-header"><h1>Vận Chuyển Và Giao Nhận</h1></div>
+                <div class="article-description">
+                    <p><%= image_tag '/frontend/image-policy/policy_04/van-chuyen-va-giao-nhan-01.jpg', alt: 'Vận Chuyển Và Giao Nhận', title: 'Vận Chuyển Và Giao Nhận' %>
+                    <h2><strong>1. ĐIỀU KIỆN ÁP DỤNG</strong></h2>
+                    <p>Được áp dụng cho toàn bộ các sản phẩm Quý khách hàng mua tại <strong>Tìm Hàng Công Nghệ</strong>.</p>
+                    <h2><strong>2. NỘI DUNG CHÍNH SÁCH</strong></h2>
+                    <p>Sau khi Quý khách hàng hoàn tất việc đặt hàng, Tìm Hàng Công Nghệ liên hệ để xác nhận thông tin đơn hàng, thông báo hình thức thanh toán, thời gian giao hàng hoặc phát sinh (nếu có).</p>
+                    <p>Hoàn tiền 100% nếu hàng hóa bị thất lạc hoặc hư hỏng trong quá trình vận chuyển.</p>
+                    <h3><strong>Thời gian giao hàng & Phí phụ thu</strong></h3>
+                    <div class="table-responsive price-computer-repairs">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th style="width: 5%;" class="text-middle-table"><span class="fa fa-motorcycle"></span></th>
+                                    <th class="text-middle-table">Địa Chỉ Nhận Hàng</th>
+                                    <th style="width: 18%;" class="text-middle-table">Thời Gian Giao Hàng</th>
+                                    <th style="width: 20%;" class="text-middle-table">Miễn Phí Vận Chuyển</th>
+                                    <th style="width: 25%;" class="text-middle-table">Phí Phụ Thu</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th class="text-middle-table" scope="row">1</th>
+                                    <td class="text-middle-table">Khu vực 1 (TP. Hồ Chí Minh): Quận 1, Quận 2, Quận 3, Quận 4, Quận 9, Quận 10, Quận 12, Quận Phú Nhuận, Quận Bình Thạnh, Quận Tân Bình, Quận Tân Phú, Quận Thủ Đức, Quận Gò Vấp, Quận Hóc Môn</td>
+                                    <td class="text-middle-table">2 ~ 5 ngày làm việc</td>
+                                    <td class="text-middle-table">
+                                        - Hàng hóa bình thường<br>
+                                        - Hàng hóa nặng < 20 kg<br>
+                                        - Hàng hóa dài < 1 mét
+                                    </td>
+                                    <td class="text-middle-table">
+                                        - Hàng hóa cồng kềnh<br>
+                                        - Hàng hóa giao nhanh (4 ~ 8 tiếng sau khi xác nhận đơn hàng)<br>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th class="text-middle-table" scope="row">2</th>
+                                    <td class="text-middle-table">Khu vực 2 (TP. Hồ Chí Minh): Quận 6, Quận 7, Quận 8, Quận Bình Chánh, Quận Nhà Bè, Quận Bình Tân</td>
+                                    <td class="text-middle-table">2 ~ 5 ngày làm việc</td>
+                                    <td class="text-middle-table">
+                                        - Hàng hóa bình thường<br>
+                                        - Tổng giá trị đơn hàng > 2 triệu<br>
+                                    </td>
+                                    <td class="text-middle-table">
+                                        - Hàng hóa cồng kềnh<br>
+                                        - Tổng giá trị đơn hàng < 2 triệu<br>
+                                        - Hàng hóa giao nhanh (4 ~ 8 tiếng sau khi xác nhận đơn hàng)<br>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th class="text-middle-table" scope="row">3</th>
+                                    <td class="text-middle-table">Khu vực Nam Bộ - Tây Nam Bộ</td>
+                                    <td class="text-middle-table">5 ~ 10 ngày làm việc</td>
+                                    <td class="text-middle-table">
+                                        - Hàng hóa bình thường<br>
+                                        - Tổng giá trị đơn hàng > 20 triệu<br>
+                                    </td>
+                                    <td class="text-middle-table">
+                                        - Theo cước đơn vị vận chuyển<br>
+                                        - Theo cước từ Tìm Hàng Công Nghệ<br>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th class="text-middle-table" scope="row">3</th>
+                                    <td class="text-middle-table">Khu vực khác</td>
+                                    <td class="text-middle-table">5 ~ 20 ngày làm việc</td>
+                                    <td class="text-middle-table">
+                                        - Hàng hóa bình thường<br>
+                                        - Tổng giá trị đơn hàng > 50 triệu<br>
+                                    </td>
+                                    <td class="text-middle-table">
+                                        - Theo cước đơn vị vận chuyển<br>
+                                        - Theo cước từ Tìm Hàng Công Nghệ<br>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <h2><strong>3. TRÁCH NHIỆM VỚI HÀNG HÓA</strong></h2>
+                    <p><strong>Tìm Hàng Công Nghệ </strong>chịu toàn bộ trách nhiệm các rủi ro như mất mát, hư hại trong suốt quá trình vận chuyển. Vì thế, Quý khách hàng vui lòng kiểm lại hàng hóa trước khi ký nhận. Sau khi Quý khách hàng ký nhận, những trường hợp sau đó như: hư hỏng, trầy xước, bể vỡ, móp méo, sai hàng hóa Tìm Hàng Công Nghệ sẽ không chịu trách nhiệm.</p>
+                    <p>Tìm Hàng Công Nghệ cam kết tất cả hàng hóa đến tay Quý khách hàng đều là hàng chính hãng mới 100% (Có đầy đủ hóa đơn/chứng từ, chế độ bảo hành chính hãng).</p>
+                    <h2><strong>4. ĐIỀU KIỆN KHÁC</strong></h2>
+                    <p>Nếu địa chỉ giao hàng nằm trong ngõ ngách hoặc những nơi nguy hiểm (vùng đồi núi hiểm trở, phương tiện giao thông đi lại khó khăn), Tìm Hàng Công Nghệ sẽ chủ động liên lạc với Quý khách hàng để thống nhất lại địa điểm giao, nhận hàng hóa.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

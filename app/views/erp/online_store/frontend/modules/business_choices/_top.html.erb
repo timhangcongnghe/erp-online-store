@@ -14,7 +14,6 @@
                                         data: {src: product_image(product.product_images, 'first', 'thumb268')},
                                         alt: product.get_long_name, title: product.get_long_name,
                                         class: 'img-responsive' %></div>
-                                <%= quick_actions(product) %>
                                 <% if product.is_new? %><span class="label label-new">Mới</span><% end %>
                                 <% if product.is_deal? %><span class="label label-sale">Giảm giá</span><% end %>
                                 <%= count_down(product.deal_from_date, product.deal_to_date) %>

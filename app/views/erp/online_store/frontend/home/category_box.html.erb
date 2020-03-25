@@ -7,17 +7,6 @@
     </div>
     <div class="so-sp-cat first-load">
         <div class="spcat-wrap ">
-            <div class="spcat-tabs-container">
-                <div class="spcat-tabs-wrap">
-                    <ul class="spcat-tabs cf">
-                        <li class="spcat-tab">
-                            <span class="spcat-tab-label">
-                                <%= link_to "Xem tất cả".html_safe, menu_link(@menu_hot), title: @menu_hot.name %>
-                            </span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
             <div class="main-left">
                 <div class="banner-post-text">
                     <% if @menu_hot.image_url_1.present? %>
@@ -160,7 +149,6 @@
                                                                 alt: product.get_long_name, title: product.get_long_name, class: "img-responsive" %>
                                                         </a>
                                                     </div>
-                                                    <%= quick_actions(product) %>
                                                 </div>
                                                 <% if product.is_new? %>
                                                 <span class="label label-new">Mới</span>

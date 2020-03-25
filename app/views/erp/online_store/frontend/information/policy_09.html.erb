@@ -1,0 +1,155 @@
+<% title "Câu Hỏi Thường Gặp" %>
+<% content_for :metas do %>
+<!-- for Facebook -->
+    <meta property="og:locale" content="vi-VN" />
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="Câu Hỏi Thường Gặp"/>
+    <meta property="og:description" content="Tìm Hàng Công Nghệ là đơn vị cung cấp các sản phẩm, dịch vụ thuộc lĩnh vực Công Nghệ Thông Tin do Công Ty TNHH Giải Pháp CNTT Và Truyền Thông Hoàng Khang phụ trách và phát triển."/>
+    <meta property="og:url" content="<%= request.url %>"/>
+    <meta property="og:site_name" content="Câu Hỏi Thường Gặp" />
+    <meta property="og:image" content="https://timhangcongnghe.com/frontend/image/thcn-web-share.png"/>
+    <meta property="og:image:width" content="1200"/>
+	<meta property="og:image:height" content="628"/>
+    <!--TWITTER -->
+    <meta property="og:url" content="<%= request.url %>"/>
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content="Câu Hỏi Thường Gặp" />
+    <meta name="twitter:description" content="Tìm Hàng Công Nghệ là đơn vị cung cấp các sản phẩm, dịch vụ thuộc lĩnh vực Công Nghệ Thông Tin do Công Ty TNHH Giải Pháp CNTT Và Truyền Thông Hoàng Khang phụ trách và phát triển."/>
+    <meta name="twitter:image" content="https://timhangcongnghe.com/frontend/image/thcn-web-share.png"/>
+<% end %>
+
+<div class="main-container container">
+    <ul class="breadcrumb">
+        <li><%= link_to '<i class="fa fa-home"></i>'.html_safe, erp_online_store.root_path %></li>
+        <li>Câu Hỏi Thường Gặp</li>
+    </ul>
+    <div class="row">
+        <aside class="col-sm-4 col-md-3" id="column-left">
+            <div class="module menu-category titleLine">
+                <h3 class="modtitle"><span><i class="fa fa-support"></i> Dành Cho Khách Hàng</span></h3>
+                <div class="modcontent">
+                    <div class="box-category box-category-policy">
+                        <ul id="cat_accordion" class="list-group fix_active">
+                            <li><%= link_to 'Hướng Dẫn Mua Hàng', erp_online_store.policy_01_path, title: 'Hướng Dẫn Mua Hàng' %></li>
+                            <li><%= link_to 'Hướng Dẫn Thanh Toán', erp_online_store.policy_03_path, title: 'Hướng Dẫn Thanh Toán' %></li>
+                            <li><%= link_to 'Chính Sách Bảo Hành', erp_online_store.policy_02_path, title: 'Chính Sách Bảo Hành' %></li>                            
+                            <li><%= link_to 'Vận Chuyển Và Giao Nhận', erp_online_store.policy_04_path, title: 'Vận Chuyển Và Giao Nhận' %></li>
+                            <li><%= link_to 'Đổi Trả Và Hoàn Tiền', erp_online_store.policy_05_path, title: 'Đổi Trả Và Hoàn Tiền' %></li>
+                            <li><%= link_to 'Bảo Mật Thông Tin', erp_online_store.policy_06_path, title: 'Bảo Mật Thông Tin' %></li>
+                            <li><%= link_to 'Quy Chế Hoạt Động', erp_online_store.policy_07_path, title: 'Quy Chế Hoạt Động' %></li>
+                            <li><%= link_to 'Điều Khoản Giao Dịch', erp_online_store.policy_08_path, title: 'Điều Khoản Giao Dịch' %></li>
+                            <li><%= link_to 'Câu Hỏi Thường Gặp', 'javascript:void(0);', class: 'current', title: 'Câu Hỏi Thường Gặp' %></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </aside>
+        <div id="content" class="col-md-9 col-sm-8">
+            <div class="article-info policy-info">
+                <div class="blog-header policy-header"><h1>Câu Hỏi Thường Gặp</h1></div>
+                <p class="preface_text">Chào mừng bạn đến với trang TMĐT <strong>Tìm Hàng Công Nghệ</strong>. Dưới đây là những câu hỏi mà Quý khách hàng thường gặp phải trong quá trình sử dụng website. Vui lòng tham khảo các câu hỏi liên quan dưới đây trước khi đặt ra bất kỳ câu hỏi nào khác cho chúng tôi.</p>
+                <div class="about-us about-demo-4">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-12 faq-about-us">
+                            <h2 class="about-title"></h2>
+                            <div class="content-faq">
+                                <div id="accordion" role="tablist" aria-multiselectable="true">
+                                    <div class="panel">
+                                        <div class="panel-head" role="tab" id="headingOne0">
+                                            <h4 class="panel-title">
+                                                <a role="button" data-toggle="collapse" data-parent="#accordion"
+                                                   href="#collapseOne0"
+                                                   aria-expanded="false"
+                                                   aria-controls="#collapseOne0"
+                                                   class="collapsed">
+                                                   <span>Làm thế nào để mua hàng tại Tìm Hàng Công Nghệ?</span>
+                                                </a>
+                                            </h4>
+                                        </div>
+                                        <div id="collapseOne0" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne0" aria-expanded="false" style="height: 0px;">
+                                            <div class="panel-body text-justify">
+                                                <p style="text-align: justify;">Vui lòng xem hướng dẫn chi tiết tại <strong><%= link_to 'Hướng Dẫn Mua Hàng', erp_online_store.policy_01_path, title: 'Hướng Dẫn Mua Hàng' %></strong>.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel">
+                                        <div class="panel-head" role="tab" id="headingOne1">
+                                            <h4 class="panel-title">
+                                                <a role="button" data-toggle="collapse" data-parent="#accordion"
+                                                   href="#collapseOne1"
+                                                   aria-expanded="false"
+                                                   aria-controls="#collapseOne1"
+                                                   class="collapsed">
+                                                   <span>Tôi có thể hủy đơn hàng đã đặt không?</span>
+                                                </a>
+                                            </h4>
+                                        </div>
+                                        <div id="collapseOne1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne1" aria-expanded="false" style="height: 0px;">
+                                            <div class="panel-body text-justify">
+                                                <p style="text-align: justify;">Trường hợp đơn hàng của bạn chưa được giao, vui lòng thông báo cho Tìm Hàng Công Nghệ theo số điện thoại <strong><%= link_to '(028) 3984 7690', '02839847690', title: '(028) 3984 7690' %></strong> để được hỗ trợ.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel">
+                                        <div class="panel-head" role="tab" id="headingOne2">
+                                            <h4 class="panel-title">
+                                                <a role="button" data-toggle="collapse" data-parent="#accordion"
+                                                   href="#collapseOne2"
+                                                   aria-expanded="false"
+                                                   aria-controls="#collapseOne2"
+                                                   class="collapsed">
+                                                   <span>Làm thế nào khi sản phẩm nhận được bị nứt, vỡ, rách, hỏng hóc,...?</span>
+                                                </a>
+                                            </h4>
+                                        </div>
+                                        <div id="collapseOne2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne2" aria-expanded="false" style="height: 0px;">
+                                            <div class="panel-body text-justify">
+                                                <p style="text-align: justify;">Trong trường hợp Quý khách nhận được sản phẩm bị nứt vỡ, rách,... hoặc không vận hành được vui lòng liên hệ ngay với chúng tôi, Chúng tôi sẽ ngay lập tức thay thế sản phẩm khác cho Quý khách.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel">
+                                        <div class="panel-head" role="tab" id="headingOne3">
+                                            <h4 class="panel-title">
+                                                <a role="button" data-toggle="collapse" data-parent="#accordion"
+                                                   href="#collapseOne3"
+                                                   aria-expanded="false"
+                                                   aria-controls="#collapseOne3"
+                                                   class="collapsed">
+                                                   <span>Phí hàng cồng kềnh là gì?</span>
+                                                </a>
+                                            </h4>
+                                        </div>
+                                        <div id="collapseOne3" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne3" aria-expanded="false" style="height: 0px;">
+                                            <div class="panel-body text-justify">
+                                                <p style="text-align: justify;">Phí hàng cồng kềnh là chi phí phát sinh khi Quý khách đặt đơn hàng mà trong đó có sản phẩm kích thước lớn. Phí hàng cồng kềnh được tính dựa theo khối lượng/thể tích của thùng hàng sản phẩm với thông tin được quy định chi tiết tại Chính sách vận chuyển và giao nhận.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel">
+                                        <div class="panel-head" role="tab" id="headingOne4">
+                                            <h4 class="panel-title">
+                                                <a role="button" data-toggle="collapse" data-parent="#accordion"
+                                                   href="#collapseOne4"
+                                                   aria-expanded="false"
+                                                   aria-controls="#collapseOne4"
+                                                   class="collapsed">
+                                                   <span>Làm thế nào khi sản phẩm của tôi cần được bảo hành?</span>
+                                                </a>
+                                            </h4>
+                                        </div>
+                                        <div id="collapseOne4" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne4" aria-expanded="false" style="height: 0px;">
+                                            <div class="panel-body text-justify">
+                                                <p style="text-align: justify;">Quý khách vui lòng liên hệ trực tiếp với địa chỉ bảo hành gần nhất in trên phiếu bảo hành. Hoặc thông báo cho chúng tôi theo số điện thoại <strong>(028) 3984 7690</strong> hay địa chỉ email <strong>kinhdoanh@timhangcongnghe.com</strong> để được hỗ trợ kịp thời.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

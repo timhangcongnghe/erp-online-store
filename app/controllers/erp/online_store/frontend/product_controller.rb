@@ -42,23 +42,8 @@ module Erp
         # view all product properties
         def all_property
           @product = Erp::Products::Product.find(params[:product_id])
-          @menu = @product.find_menu
-          @meta_keywords = @product.meta_keywords
-          @meta_description = @product.meta_description
-          
-          if @menu.present?
-            if !@product.meta_keywords.present?
-              @meta_keywords = @menu.meta_keywords
-            end
-
-            if !@product.meta_description.present?
-              @meta_description = @menu.meta_description
-            end
-          end
           if request.xhr?
             render "erp/online_store/frontend/modules/product/_all_property", layout: nil
-          else
-            render "erp/online_store/frontend/modules/product/_all_property", layout: "erp/frontend/property"
           end          
         end
 
