@@ -26,6 +26,10 @@
     footer .box-footer{min-height:130px}
     footer .module span.footer-title, footer .module span.modtitle{font-size:15px}
     .box-footer h4{font-size:13px;line-height:23px}
+    .policy-info .article-description p {
+        font-size: 14px;
+        line-height: 1.5;
+    }
 }
 
 /* Smartphones (landscape) ----------- */

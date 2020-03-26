@@ -22,9 +22,7 @@
         <div class="container">
             <div class="row">
                 <div id="yt_header_right" class="col-lg-offset-3 col-lg-9 col-md-12 col-slideshow">
-                    <div class="slider-container ">
-                        <div id="so-slideshow" class=""><%= render 'erp/online_store/frontend/modules/home/slideshow' %></div>
-                    </div>
+                    <div class="slider-container "><div id="so-slideshow" class=""><%= render 'erp/online_store/frontend/modules/home/slideshow' %></div></div>
                 </div>
             </div>
             <div class="block-banner banners banner-sn-1 wow fadeInUp"><%= render 'erp/online_store/frontend/modules/home/banner' %></div>
@@ -37,10 +35,7 @@
         <div class="container">
             <div class="module banner">
                 <div class="banners">
-                    <div><% if !@long_banner.nil? %>
-                        <%= link_to image_tag(@long_banner.image_url.thumb, alt: @long_banner.name, title: @long_banner.name),
-                            @long_banner.link_url, title: @long_banner.name %>
-                    <% end %></div>
+                    <div><% if !@long_banner.nil? %><%= link_to image_tag(@long_banner.image_url.thumb, alt: @long_banner.name, title: @long_banner.name), @long_banner.link_url, title: @long_banner.name %><% end %></div>
                 </div>
             </div>
         </div>

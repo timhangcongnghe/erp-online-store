@@ -20,7 +20,7 @@
 <% end %>
 <div class="main-container container">
     <ul class="breadcrumb">
-        <li><%= link_to '<i class="fa fa-home"></i>'.html_safe, 'https://timhangcongnghe.com/', title: 'Tìm Hàng Công Nghệ' %></li>
+        <li><%= link_to '<i class="fa fa-home"></i>'.html_safe, erp_online_store.root_path, title: 'Tìm Hàng Công Nghệ' %></li>
         <% @menu.self_and_parent_menus.each do |menu| %><% if @menu.id != menu.id %><li><%= link_to menu.get_name, menu_link(menu), title: menu.get_name %></li><% end %><% end %>
         <li><%= link_to @menu.get_name, 'javascript:void(0)', title: @menu.get_name %></li>
     </ul>
@@ -32,15 +32,6 @@
         </aside>
         <div id="content" class="col-md-9 col-sm-8">
             <div class="products-category">
-                <% if @menu.image_url_2.present? %>
-                <div class="category-derc form-group">
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <% if @menu.image_url_2.present? %><p><%= image_tag @menu.image_url_2, alt: @menu.get_name, title: @menu.get_name %></p><% end %>
-                        </div>
-                    </div>
-                </div>
-                <% end %>
                 <h1 class="menu-title mb-0"><%= @menu.get_name %></h1>
                 <div class="main-products-list">
                     <% if @products.count > 0 %>
@@ -49,7 +40,7 @@
                     <% else %>
                     <div id="content" class="col-sm-12 shopping-cart">
                         <div class="empty-cart">                    
-                            <h2 class="title">Chuyên mục sản phẩm hoặc lựa chọn chưa có sản phẩm phù hợp.</h2>
+                            <h2 class="title">Chưa có sản phẩm phù hợp.</h2>
                             <%= link_to 'Quay lại trang chủ', erp_online_store.root_path, class: 'btn btn-default shopping-continue', title: 'Quay lại trang chủ' %>
                         </div>
                     </div>

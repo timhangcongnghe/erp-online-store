@@ -1,12 +1,10 @@
 <li class="item-vertical with-sub-menu hover">
     <p class="close-menu"></p>
-    <h2><a href="<%= menu_link(menu) %>" title="<%= menu.name %>">
-        <% if menu.menu_icon.present? %>
-            <%= image_tag menu.menu_icon.icon, alt: menu.name, title: menu.name %>
-        <% end %>
-        <strong><span><%= truncate(menu.name, length: 27) %></span><b class="fa fa-angle-right"></b></strong>
+    <h2><a href="<%= menu_link(menu) %>" title="<%= menu.get_name %>">
+        <% if menu.menu_icon.present? %><%= image_tag menu.menu_icon.icon, alt: menu.get_name, title: menu.get_name %><% end %>
+        <strong><span><%= truncate(menu.get_name, length: 27) %></span><% if menu.children.count > 0 %><b class="fa fa-angle-right"></b><% end %></strong>
     </a></h2>
-    <div class="sub-menu" data-subwidth="60">
+    <div class="sub-menu" data-subwidth="100">
         <div class="content">
             <div class="row">
                 <div class="col-md-6">
@@ -15,22 +13,13 @@
                             <div class="menu">
                                 <ul><% menu_array.each do |child| %>
                                     <li class="<%= child[:class] %>">
-                                        <h3><%= link_to child[:menu].name, menu_link(child[:menu]),
-                                            class: 'main-menu', title: child[:menu].name %></h3>
-                                    </li>
-                                <% end %></ul>
+                                        <h3><%= link_to child[:menu].get_name, menu_link(child[:menu]), class: 'main-menu', title: child[:menu].get_name %></h3>
+                                    </li><% end %>
+                                </ul>
                             </div>
                         </div>
                     </div>
                 </div>
-                <% if menu.image_menu.present? %>
-                <div class="col-md-6">
-                    <div class="row banner">
-                        <%= link_to image_tag(menu.image_menu.image_menu, alt: menu.name, title: menu.name),
-                            menu.image_menu_link, title: menu.name %>
-                    </div>
-                </div>
-                <% end %>
             </div>
         </div>
     </div>

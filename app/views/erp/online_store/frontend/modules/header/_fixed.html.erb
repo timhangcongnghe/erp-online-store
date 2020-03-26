@@ -4,28 +4,18 @@
 			<div class="row">
 				<div class="navbar-logo col-md-3 col-sm-4 col-xs-12">
 					<%= link_to image_tag('/frontend/image/logos/logo-timhangcongnghe-web.svg',
-						alt: 'Tìm Hàng Công Nghệ là đơn vị cung cấp các sản phẩm, dịch vụ thuộc lĩnh vực Công Nghệ Thông Tin do Công Ty TNHH Giải Pháp CNTT Và Truyền Thông Hoàng Khang phụ trách và phát triển.',
-						title: 'Tìm Hàng Công Nghệ là đơn vị cung cấp các sản phẩm, dịch vụ thuộc lĩnh vực Công Nghệ Thông Tin do Công Ty TNHH Giải Pháp CNTT Và Truyền Thông Hoàng Khang phụ trách và phát triển.'),
+						alt: 'Tìm Hàng Công Nghệ',
+						title: 'Tìm Hàng Công Nghệ'),
 						erp_online_store.root_path,
-						title: 'Tìm Hàng Công Nghệ là đơn vị cung cấp các sản phẩm, dịch vụ thuộc lĩnh vực Công Nghệ Thông Tin do Công Ty TNHH Giải Pháp CNTT Và Truyền Thông Hoàng Khang phụ trách và phát triển.' %>
+						title: 'Tìm Hàng Công Nghệ' %>
 				</div>
 				<div class="header-center-right col-md-5 col-sm-4 col-xs-12">
 					<div id="sosearchpro" class="search-pro">
-						<form method="GET" action="index.html">
-							<div id="search0" class="search input-group autosearch" data-url="<%= erp_online_store.autosearch_path %>">
-								<div class="select_category filter_type  icon-select">
-									<select class="no-border" name="category_id">
-										<option value="">Tất cả danh mục</option>
-										<% Erp::Menus::Menu.get_menus.each do |menu_search| %>
-										<option value="<%= menu_search.id %>"><%= menu_search.name %></option>
-										<% end %>
-									</select>
-								</div>
+						<form class="autosearch-form" method="GET" action="<%= erp_online_store.search_path %>">
+							<div id="search0" class="search input-group autosearch" data-url="<%= erp_online_store.autosearch_path %>">								
 								<input class="autosearch-input form-control" type="text" value="" size="50" autocomplete="off" placeholder="Nhập từ khóa tìm kiếm" name="search">
 								<span class="input-group-btn">
-									<button type="submit" class="button-search btn btn-primary" name="submit_search">
-										<i class="fa fa-search"></i>
-									</button>
+									<button type="submit" class="button-search btn btn-primary" name="submit_search"><i class="fa fa-search"></i></button>
 								</span>
 							</div>
 							<input type="hidden" name="route" value="product/search" />

@@ -1,28 +1,28 @@
 <% children = (@menu.children.empty? ? @menu.parent.children : @menu.children) %>
 <% if !children.empty? %>
 <div class="module  menu-category titleLine">
-    <h3 class="modtitle"><span><i class="fa fa-futbol-o "></i> Danh Mục Sản Phẩm</span></h3>
+    <h3 class="modtitle"><span><i class="fa fa-futbol-o "></i> Danh Mục Liên Quan</span></h3>
     <div class="modcontent">
         <div class="box-category">
             <ul id="cat_accordion" class="list-group fix_active">
                 <% children.get_active.each do |menu| %>
                 <li class="<% if menu.children.get_active.count > 0 %>hadchild cutom-parent-li<% end %>">
-                    <h3><a href="<%= menu_link(menu) %>" title="<%= menu.name %>" class="cutom-parent <% if menu.id == @menu.id %> current<% end %>">
-                        <%= menu.name %> <span class="dcjq-icon"></span>
+                    <h3><a href="<%= menu_link(menu) %>" title="<%= menu.get_name %>" class="cutom-parent <% if menu.id == @menu.id %> current<% end %>">
+                        <%= menu.get_name %> <span class="dcjq-icon"></span>
                     </a></h3>
                     <% if menu.children.get_active.count > 0 %><span class="button-view  fa fa-plus-square-o"></span><% end %>
                     <ul style="display: none;">
                         <% menu.children.get_active.each do |child_1| %>
                             <% if child_1.children.get_active.count > 0 %>
                             <li class="hadchild cutom-parent-li">
-                                <%= link_to child_1.name, menu_link(child_1), class: 'cutom-parent', title: child_1.name %>
+                                <%= link_to child_1.get_name, menu_link(child_1), class: 'cutom-parent', title: child_1.get_name %>
                                 <span class="button-view  fa fa-plus-square-o"></span>
                                 <ul style="display: none;"><% child_1.children.get_active.each do |child_2| %>
-                                    <li><h3><%= link_to child_2.name, menu_link(child_2), title: child_2.name %></h3></li>
+                                    <li><h3><%= link_to child_2.get_name, menu_link(child_2), title: child_2.get_name %></h3></li>
                                 <% end %></ul>
                             </li>
                             <% else %>
-                                <li><h3><%= link_to child_1.name, menu_link(child_1), title: child_1.name %></h3></li>
+                                <li><h3><%= link_to child_1.get_name, menu_link(child_1), title: child_1.get_name %></h3></li>
                             <% end %>
                         <% end %>
                     </ul>

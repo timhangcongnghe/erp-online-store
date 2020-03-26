@@ -6,20 +6,12 @@
                     <div class="responsive so-megamenu megamenu-style-dev">
                         <div class="so-vertical-menu no-gutter compact-hidden">
                             <nav class="navbar-default">
-                                <% if params[:controller] == 'erp/online_store/frontend/home' && params[:action] == 'index' %>
-                                <div class="container-megamenu vertical open">
-                                <% else %>
-                                <div class="container-megamenu vertical">
-                                <% end %>
+                                <% if params[:controller] == 'erp/online_store/frontend/home' && params[:action] == 'index' %><div class="container-megamenu vertical open"><% else %><div class="container-megamenu vertical"><% end %>
                                     <div id="menuHeading">
                                         <div class="megamenuToogle-wrapper">
                                             <div class="megamenuToogle-pattern">
                                                 <div class="container">
-                                                    <div>
-                                                        <span></span>
-                                                        <span></span>
-                                                        <span></span>
-                                                    </div>
+                                                    <div><span></span><span></span><span></span></div>
                                                     Danh Mục Sản Phẩm <i class="fa pull-right arrow-circle fa-chevron-circle-down"></i>
                                                 </div>
                                             </div>
@@ -27,9 +19,7 @@
                                     </div>
                                     <div class="navbar-header">
                                         <button type="button" id="show-verticalmenu" data-toggle="collapse" class="navbar-toggle">
-                                            <span class="icon-bar" style="width: 16px;"></span>
-                                            <span class="icon-bar" style="width: 16px;"></span>
-                                            <span class="icon-bar"></span>
+                                            <span class="icon-bar" style="width: 15px;"></span><span class="icon-bar" style="width: 15px;"></span><span class="icon-bar"></span>
                                         </button>
                                     </div>
                                     <div class="vertical-wrapper">
@@ -56,10 +46,7 @@
                                                             <h2><a href="<%= erp_online_store.computer_services_path %>" class="clearfix" title="Dịch Vụ Sửa Chữa - Bảo Trì">
                                                                 <%= image_tag '/frontend/image_other/service-01.png',
                                                                     alt: 'Dịch Vụ Sửa Chữa - Bảo Trì', title: 'Dịch Vụ Sửa Chữa - Bảo Trì' %>
-                                                                <strong>
-                                                                    <span>Dịch Vụ Sửa Chữa - Bảo Trì</span>
-                                                                </strong>
-                                                            </a></h2>
+                                                                <strong><span>Dịch Vụ Sửa Chữa - Bảo Trì</span></strong></a></h2>
                                                         </li>
                                                     </ul>
                                                 <% else %>
@@ -82,10 +69,7 @@
                                                             <a href="<%= erp_online_store.computer_services_path %>" class="clearfix" title="Dịch Vụ Sửa Chữa - Bảo Trì">
                                                                 <%= image_tag '/frontend/image_other/service-01.png',
                                                                     alt: 'Dịch Vụ Sửa Chữa - Bảo Trì', title: 'Dịch Vụ Sửa Chữa - Bảo Trì' %>
-                                                                <strong>
-                                                                    <span>Dịch Vụ Sửa Chữa - Bảo Trì</span>
-                                                                </strong>
-                                                            </a>
+                                                                <strong><span>Dịch Vụ Sửa Chữa - Bảo Trì</span></strong></a>
                                                         </li>
                                                     </ul>
                                                 <% end %>
@@ -102,20 +86,16 @@
                         <div id="sosearchpro" class="search-pro">
                             <form class="autosearch-form" method="GET" action="<%= erp_online_store.search_path %>">
                                 <div id="search0" class="search input-group autosearch" data-url="<%= erp_online_store.autosearch_path %>">
-                                    <input class="autosearch-input form-control" type="text" value="<%= @keyword %>" size="50" autocomplete="off" placeholder="Nhập từ khóa tìm kiếm....." name="keyword">
+                                    <input class="autosearch-input form-control" type="text" value="<%= @keyword %>" size="90" autocomplete="off" placeholder="Nhập từ khóa tìm kiếm....." name="keyword">
                                     <span class="input-group-btn">
-                                        <button type="submit" class="button-search btn btn-primary" name="submit_search">
-                                            <i class="fa fa-search"></i>
-                                        </button>
+                                        <button type="submit" class="button-search btn btn-primary" name="submit_search"><i class="fa fa-search"></i></button>
                                     </span>
                                 </div>
                                 <input type="hidden" name="route" value="product/search" />
                             </form>
                         </div>
                     </div>
-                    <div class="block-cart" data-url="<%= erp_online_store.top_cart_path %>">
-                        <%= render 'erp/online_store/frontend/shopping_cart/top_cart' %>
-                    </div>
+                    <div class="block-cart" data-url="<%= erp_online_store.top_cart_path %>"><%= render 'erp/online_store/frontend/shopping_cart/top_cart' %></div>
                     <div class="header_custom_link hidden-xs hidden-sm hidden-md">
                         <ul>
                             <% if current_user.present? %>

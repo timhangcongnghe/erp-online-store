@@ -26,28 +26,20 @@
 	<link rel="icon" sizes="128x128"  href="<%= url_for('/frontend/img/sys/android-icon-128x128.png') %>">
 	<link rel="icon" sizes="192x192"  href="<%= url_for('/frontend/img/sys/android-icon-192x192.png') %>">
 	<%= favicon_link_tag '/frontend/img/sys/favicon.png', rel: 'shortcut icon' %>
-	<%= stylesheet_link_tag '/frontend/css/google-fonts.css?v=5.0' %>
-	<%= stylesheet_link_tag '/frontend/css/bootstrap/css/bootstrap.min.css?v=5.0' %>
-	<%= stylesheet_link_tag '/frontend/css/bootstrap/css/bootstrap.min.css?v=5.0' %>
-	<%= stylesheet_link_tag '/frontend/css/font-awesome/css/font-awesome.min.css?v=5.0' %>
-	<%= stylesheet_link_tag '/frontend/js/datetimepicker/bootstrap-datetimepicker.min.css?v=5.0' %>
-	<%= stylesheet_link_tag '/frontend/js/owl-carousel/owl.carousel.css?v=5.0' %>
-	<%= stylesheet_link_tag '/frontend/css/themecss/lib.css?v=5.0' %>
-	<%= stylesheet_link_tag '/frontend/js/jquery-ui/jquery-ui.min.css?v=5.0' %>
-	<%= stylesheet_link_tag '/frontend/js/lightslider/lightslider.css?v=5.0' %>
-	<%= stylesheet_link_tag '/frontend/fancybox/jquery.fancybox.min.css?v=5.0' %>
-	<%= stylesheet_link_tag '/frontend/css/themecss/so_megamenu.css?v=5.0' %>
-	<%= stylesheet_link_tag '/frontend/css/themecss/so-categories.css?v=5.0' %>
-	<%= stylesheet_link_tag '/frontend/css/themecss/so-listing-tabs.css?v=5.0' %>
-	<%= stylesheet_link_tag '/frontend/css/themecss/animate.css?v=5.0' %>
-	<%= stylesheet_link_tag '/frontend/css/themecss/so-super-category.css?v=5.0' %>
-	<%= stylesheet_link_tag '/frontend/css/theme-cyan.css?v=5.0' %>
-	<%= stylesheet_link_tag '/frontend/css/responsive.css?v=5.0' %>
-	<%= stylesheet_link_tag '/frontend/select2/css/select2.min.css?v=5.0' %>
-	<%= stylesheet_link_tag '/frontend/css/quick_order.css?v=5.0' %>
-	<%= stylesheet_link_tag '/frontend/css/import.css?v=5.2' %>
-	<%= stylesheet_link_tag '/frontend/css/custom.css?v=5.2' %>
-	<%= stylesheet_link_tag '/frontend/css/res-device.css?v=5.0' %>
+	<%= stylesheet_link_tag '/frontend/css/google-fonts.css?v=5.0', cache: true %>
+	<%= stylesheet_link_tag '/frontend/css/bootstrap/css/bootstrap.min.css?v=5.0', cache: true %>
+	<%= stylesheet_link_tag '/frontend/css/bootstrap/css/bootstrap.min.css?v=5.0', cache: true %>
+	<%= stylesheet_link_tag '/frontend/css/font-awesome/css/font-awesome.min.css?v=5.0', cache: true %>
+	<%= stylesheet_link_tag '/frontend/js/datetimepicker/bootstrap-datetimepicker.min.css?v=5.0', cache: true %>
+	<%= stylesheet_link_tag '/frontend/js/owl-carousel/owl.carousel.css?v=5.0', cache: true %>
+	<%= stylesheet_link_tag '/frontend/css/themecss/lib.css?v=5.0', cache: true %>
+	<%= stylesheet_link_tag '/frontend/js/jquery-ui/jquery-ui.min.css?v=5.0', cache: true %>
+	<%= stylesheet_link_tag '/frontend/js/lightslider/lightslider.css?v=5.0', cache: true %>
+	<%= stylesheet_link_tag '/frontend/fancybox/jquery.fancybox.min.css?v=5.0', cache: true %>
+	<%= stylesheet_link_tag '/frontend/select2/css/select2.min.css?v=5.0', cache: true %>
+	<%= stylesheet_link_tag '/frontend/css/import.css?v=5.5', cache: true %>
+	<%= stylesheet_link_tag '/frontend/css/custom.css' %>
+	<%= stylesheet_link_tag '/frontend/css/res-device.css' %>
 	<% if params[:controller] == 'erp/online_store/frontend/account' && params[:action] == 'my_account' %><%= stylesheet_link_tag '/frontend/css/custom-profile.css?v=5.0' %><% end %>
 	<% if params[:controller] == 'erp/online_store/frontend/shopping_cart' && params[:action] == 'checkout' %><%= stylesheet_link_tag '/frontend/css/checkout.css?v=5.0' %><% end %>
 	<%= stylesheet_link_tag '/frontend/css/starability-minified/starability-all.min.css?v=5.0' %>

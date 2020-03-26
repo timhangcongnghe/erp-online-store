@@ -1,8 +1,6 @@
 <% if Erp::Products::Product.get_bestseller_products.count > 0 %>
 <div class="moduletable module best-seller phone-best-seller">
-    <h3 class="modtitle">
-        <span><i class="fa fa-line-chart"></i> BÁN CHẠY</span>
-    </h3>
+    <h3 class="modtitle"><span><i class="fa fa-line-chart"></i> BÁN CHẠY</span></h3>
     <div class="so-extraslider">
         <div class="extraslider-inner best-seller-slider">
             <div class="item ">
@@ -22,13 +20,14 @@
                         <div class="media-body">
                             <div class="item-info">
                                 <div class="item-title">
-                                    <%= link_to truncate(product.get_short_name, length: 40),
-                                        product_link(product), title: product.get_long_name %>
+                                    <%= link_to truncate(product.get_short_name, length: 40), product_link(product), title: product.get_long_name %>
                                 </div>
                                 <div class="item-content">
                                     <div class="content_price">
-                                        <% if product.is_sold_out? || product.is_call? || product.product_price.nil? %>
-                                            <span class="price sold_out_true">Liên hệ báo giá</span>
+                                        <% if product.is_sold_out? || product.is_call? %>
+                                            <span class="price sold_out_true">Liên Hệ</span>
+                                        <% elsif product.product_price.nil? %>
+                                            <span class="price sold_out_true">Giá Chưa Cập Nhật</span>
                                         <% else %>
                                             <span class="price product-price"><%= format_price(product.product_price) %></span>
                                             <% if product.is_deal? %>                        
@@ -42,8 +41,7 @@
                         </div>
                     </div>
                 </div>
-                <%= '</div><div class="item ">'.html_safe if index%3 == 2 && index+1 != count %>
-                <% end %>
+                <%= '</div><div class="item ">'.html_safe if index%3 == 2 && index+1 != count %><% end %>
             </div>
         </div>
     </div>

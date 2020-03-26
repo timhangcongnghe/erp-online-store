@@ -6,7 +6,25 @@ Erp::Menus::Menu.class_eval do
     return records
   end
   
-  #get menu name
+  def self.get_active
+    self.where(archived: false).order("custom_order ASC")
+  end
+  
+  def self.get_menus
+    self.get_active.where(parent_id: nil)
+  end
+  
+  def get_children_array
+    arr = []
+    self.children.get_active.each do |child_1|
+      arr << {menu: child_1, class: 'parent'}
+      child_1.children.get_active.each do |child_2|
+        arr << {menu: child_2, class: 'child'}
+      end
+    end
+    arr
+  end
+  
   def get_name
     return self.name
   end

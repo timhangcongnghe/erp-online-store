@@ -5,14 +5,10 @@
                 <div class="module ">
                     <div class="content-block-footer">
                         <div class="footer-logo">
-                            <%= link_to image_tag('/frontend/image/logos/logo-timhangcongnghe-web.svg',
-                                alt: 'Tìm Hàng Công Nghệ',
-                                title: 'Tìm Hàng Công Nghệ'),
-                                erp_online_store.about_us_path,
-                                title: 'Tìm Hàng Công Nghệ' %>
+                            <%= image_tag '/frontend/image/logos/logo-timhangcongnghe-web.svg', alt: 'Tìm Hàng Công Nghệ', title: 'Tìm Hàng Công Nghệ' %>
                         </div>
                         <p class="text-justify">
-                            <span><%= link_to 'Tìm Hàng Công Nghệ', erp_online_store.root_path, title: 'Tìm Hàng Công Nghệ' %> </span>là đơn vị cung cấp các sản phẩm, dịch vụ thuộc lĩnh vực Công Nghệ Thông Tin do Công Ty TNHH Giải Pháp CNTT Và Truyền Thông Hoàng Khang phụ trách và phát triển.
+                            <strong>Tìm Hàng Công Nghệ </strong>là đơn vị cung cấp các sản phẩm, dịch vụ thuộc lĩnh vực Công Nghệ Thông Tin do Công Ty TNHH Giải Pháp CNTT Và Truyền Thông Hoàng Khang phụ trách và phát triển.
                         </p>
                     </div>
                 </div>
@@ -38,13 +34,11 @@
                     <div class="modcontent">
                         <ul class="menu">
                             <li><h4><%= link_to 'Về chúng tôi', erp_online_store.about_us_path, title: 'Về chúng tôi' %></h4></li>
-                            <li><h4><%= link_to 'Góp ý & Liên hệ', erp_online_store.contact_us_path, title: 'Góp ý & Liên hệ' %></h4></li>
+                            <li><h4><%= link_to 'Góp ý và Liên hệ', erp_online_store.contact_us_path, title: 'Góp ý và Liên hệ' %></h4></li>
                             <li><h4><%= link_to 'Tin tức công nghệ', erp_online_store.blog_path, title: 'Tin tức công nghệ' %></h4></li>
                             <li><h4><%= link_to 'Quy chế hoạt động', erp_online_store.policy_07_path, title: 'Quy chế hoạt động' %></h4></li>
                             <li><h4><%= link_to 'Điều khoản giao dịch', erp_online_store.policy_08_path, title: 'Điều khoản giao dịch' %></h4></li>
                             <li><h4><%= link_to 'Câu hỏi thường gặp', erp_online_store.policy_09_path, title: 'Câu hỏi thường gặp' %></h4></li>
-                            <a href="//www.dmca.com/Protection/Status.aspx?ID=15549fa4-f1d5-4262-8cfa-fa3a58c79b54" title="DMCA.com Protection Status" class="dmca-badge" target="_blank">
-                                <img src="/frontend/image_other/dmca.png" alt="DMCA.com Protection Status" title="DMCA.com Protection Status"></a>
                         </ul>
                     </div>
                 </div>
@@ -57,19 +51,23 @@
                             <li><span class="fa fa-home"></span>Công Ty TNHH Giải Pháp CNTT Và Truyền Thông Hoàng Khang</li>
                             <li><span class="fa fa-map-marker"></span>
                             <%= link_to '188 Đường Số 1, Phường 16, Quận Gò Vấp, TP. Hồ Chí Minh',
-                                'https://g.page/thcn_hcm?share', title: 'Xem đường đi đến Tìm Hàng Công Nghệ', target: '_blank' %></li>
+                                'https://g.page/thcn_hcm?share', title: 'Tìm Hàng Công Nghệ', target: '_blank' %></li>
                             <li><span class="fa fa-phone"></span>
-                            Điện thoại: <%= link_to '(028) 3984 7690', 'tel:+842839847690', class: 'footer-hotline', title: 'Liên hệ kinh doanh qua số điện thoại: (028) 3984 7690' %></li>
+                            Điện thoại: <%= link_to '(028) 3984 7690', 'tel:02839847690', class: 'footer-hotline', title: '(028) 3984 7690' %></li>
                             <li><span class="fa fa-envelope"></span>
-                            <%= mail_to 'kinhdoanh@hoangkhang.com.vn', 'kinhdoanh@hoangkhang.com.vn', title: 'Liên hệ kinh doanh qua email: kinhdoanh@hoangkhang.com.vn' %></li>
+                            <%= mail_to 'kinhdoanh@hoangkhang.com.vn', 'kinhdoanh@hoangkhang.com.vn', title: 'kinhdoanh@hoangkhang.com.vn' %></li>
                             <li><span class="fa fa-envelope"></span>
-                            <%= mail_to 'kinhdoanh@timhangcongnghe.com', 'kinhdoanh@timhangcongnghe.com', title: 'Liên hệ kinh doanh qua email: kinhdoanh@timhangcongnghe.com' %></li>
+                            <%= mail_to 'kinhdoanh@timhangcongnghe.com', 'kinhdoanh@timhangcongnghe.com', title: 'kinhdoanh@timhangcongnghe.com' %></li>
                         </ul>
                         <%= link_to image_tag('/frontend/image_other/bo-cong-thuong.png',
-                            alt: 'Tìm Hàng Công Nghệ Đã Thông Báo Bộ Công Thương',
-                            title: 'Tìm Hàng Công Nghệ Đã Thông Báo Bộ Công Thương',
-                            class: 'cus-size-btc'), 'http://online.gov.vn/HomePage/CustomWebsiteDisplay.aspx?DocId=45817',
-                            title: 'Tìm Hàng Công Nghệ Đã Thông Báo Bộ Công Thương', target: '_blank' %>                           
+                            alt: 'Đã Thông Báo Bộ Công Thương',
+                            title: 'Đã Thông Báo Bộ Công Thương',
+                            class: 'cus-size-btc'), '//online.gov.vn/HomePage/CustomWebsiteDisplay.aspx?DocId=45817',
+                            title: 'Đã Thông Báo Bộ Công Thương', target: '_blank' %>
+                        <%= link_to image_tag('/frontend/image_other/dmca.png',
+                            alt: 'DMCA.com Protection Status',
+                            title: 'DMCA.com Protection Status'), '//www.dmca.com/Protection/Status.aspx?ID=15549fa4-f1d5-4262-8cfa-fa3a58c79b54',
+                            title: 'DMCA.com Protection Status', target: '_blank', class: 'dmca-badge' %>
                     </div>
                 </div>
             </div>

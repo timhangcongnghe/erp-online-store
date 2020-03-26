@@ -106,7 +106,7 @@ module Erp
         end
 
         def autosearch
-          @products = Erp::Products::Product.search(params).paginate(:page => params[:page], :per_page => 10)
+          @products = Erp::Products::Product.search(params).paginate(:page => params[:page], :per_page => 13)
 
           render json: @products.map { |product| {
             name: product.get_long_name,
