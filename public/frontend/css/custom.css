@@ -75,3 +75,16 @@
 form.contact_form fieldset .form-group {
     margin-bottom: 5px;
 }
+.tab-content #tab-description p {
+    text-align: justify;
+}
+.tab-content #tab-description a {
+    color: #009688;
+}
+.tab-content #tab-description a:hover {
+    opacity: 0.8
+}
+#content .article-info {
+    border: 1px solid #ddd;
+    padding: 10px;
+}
