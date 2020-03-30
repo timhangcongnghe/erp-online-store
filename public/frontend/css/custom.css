@@ -88,3 +88,13 @@ form.contact_form fieldset .form-group {
     border: 1px solid #ddd;
     padding: 10px;
 }
+.product_page_price .price-updated {
+    line-height: 30px;
+    color: #c10017;
+    font-size: 25px;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+.price-updated {
+    color: #c10017 !important;
+}

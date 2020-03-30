@@ -24,7 +24,7 @@
                             <% if product.is_sold_out? || product.is_call? %>
                                 <span class="price sold_out_true">Liên hệ (028) 3984 7690</span>
                             <% elsif product.product_price.nil? %>
-                                <span class="price sold_out_true">Giá Chưa Cập Nhật</span>
+                                <span class="price price-updated">Đang Cập Nhật Giá</span>
                             <% else %>
                                 <span class="price-new"><%= format_price(product.product_price) %></span>
                                 <% if product.is_deal? %>
