@@ -17,6 +17,8 @@ vi:
             dimentions: "Kích thước"
             placeholder_dimentions: "Nhập kích thước sản phẩm"
             datasheet: "Tài liệu sản phẩm"
+          list:
+            short_description: "Có mô tả ngắn"
   activerecord:
     attributes:
       erp/user:

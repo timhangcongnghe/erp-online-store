@@ -6,10 +6,15 @@
                 <td colspan="2"><h2><%= group[:group].get_show_name %></h2></td>
             <% else %><td colspan="2"><h2><%= group[:group].name %></h2></td><% end %>
             </tr><% group[:properties].each do |property| %>
-            <tr class="property-value">
-                <td valign="top" class="text-nowrap"><span><%= property[:property].name %></span></td>
+            <% if property[:property].is_short_description == true %>
+            <tr class="property-value highlight-specs-main">
+                <td valign="top" class="text-nowrap"><%= property[:property].name %></td>
                 <td><%= property[:values].count <= 4 ? property[:values].join(", ") : ('<ul><li>' + property[:values].join('</li><li>') + '</li></ul>').html_safe %></td>
-            </tr><% end %><% end %>
+            </tr><% else %>
+            <tr class="property-value">
+                <td valign="top" class="text-nowrap"><%= property[:property].name %></td>
+                <td><%= property[:values].count <= 4 ? property[:values].join(", ") : ('<ul><li>' + property[:values].join('</li><li>') + '</li></ul>').html_safe %></td>
+            </tr><% end %><% end %><% end %>
         </tbody>
     </table><% end %>
 </div>

@@ -98,3 +98,15 @@ form.contact_form fieldset .form-group {
 .price-updated {
     color: #c10017 !important;
 }
+.container-megamenu.vertical .vertical-wrapper ul.megamenu li .sub-menu .content .static-menu .menu ul li.parent a.main-menu {
+    font-size: 15px;
+}
+.specs-content table tr.highlight-specs-main td {
+    font-weight: 500;
+}
+.inner-box-desc span {
+    line-height: 1.7;
+}
+.bottom-form {
+    margin-top: 5px;
+}

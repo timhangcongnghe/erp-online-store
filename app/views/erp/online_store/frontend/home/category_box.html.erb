@@ -162,7 +162,7 @@
                                                     <div class="rating">
                                                         <%= stars(product.average_stars) %>
                                                     </div>
-                                                    <h3><%= link_to truncate(product.get_short_name, length: 40),
+                                                    <h3><%= link_to product.get_short_name,
                                                         product_link(product), title: product.get_long_name %></h3>
                                                     <p class="price">
                                                         <% if product.is_sold_out? || product.is_call? %>

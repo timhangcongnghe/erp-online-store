@@ -642,6 +642,7 @@ Erp::Products::Product.class_eval do
   
   #THCN Using Start
   after_save :save_meta_description
+  after_save :save_short_description
   
   #get product long name
   def get_long_name
@@ -681,8 +682,6 @@ Erp::Products::Product.class_eval do
   end
 
   def get_meta_description
-    return "" if self.category.nil?
-    
     data = []
     self.category.property_groups.each do |group|
       group.properties.where(is_meta_description: true).each do |property|
@@ -698,6 +697,25 @@ Erp::Products::Product.class_eval do
     str = self.get_meta_description
 
     self.update_columns(meta_description: str)
+  end
+  
+  
+  def get_short_description
+    data = []
+    self.category.property_groups.each do |group|
+      group.properties.where(is_short_description: true).each do |property|
+        values = self.products_values_by_property(property).map {|pv| pv.properties_value.value }
+        data += values if !values.empty?
+      end
+    end
+
+    return data.join(' - ')
+  end
+  
+  def save_short_description
+    str = self.get_short_description
+
+    self.update_columns(short_description: str)
   end
   
   #THCN Using End

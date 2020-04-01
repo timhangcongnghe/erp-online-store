@@ -353,7 +353,17 @@
                                         label: t('.meta_description')
                                     }) %>
                                 </div>
-                            </div>                            
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <%= erp_form_control("textarea", {
+                                        name: 'product[short_description]',
+                                        value: product.short_description,
+                                        placeholder: t('.enter_short_description'),
+                                        label: t('.short_description')
+                                    }) %>
+                                </div>
+                            </div>
                         </div>
                         <div class="tab-pane" id="tab_5_2">
                             <div class="product-property-container" data-url="<%= erp_products.property_form_backend_products_path(id: product.id) %>">

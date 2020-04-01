@@ -30,6 +30,15 @@
         font-size: 14px;
         line-height: 1.5;
     }
+    .left-content-product .content-product-right .box-info-product .cart {
+        margin-top: 0;
+    }
+    .left-content-product .content-product-right .box-info-product .quick-cart, .compare button.add-to-compare, .quick-order-form {
+        display: none;
+    }
+    .main-container .wrap .payment-top .btn-social, .main-container .wrap .payment-top .btn-social-icon {
+        width: -webkit-fill-available;
+    }
 }
 
 /* Smartphones (landscape) ----------- */
@@ -44,7 +53,12 @@
 
 /* iPads (portrait and landscape) ----------- */
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
-/* Styles */
+    .left-content-product .content-product-right .box-info-product .cart {
+        margin-top: 0;
+    }
+    .left-content-product .content-product-right .box-info-product .quick-cart, .compare button.add-to-compare {
+        display: none;
+    }
 }
 
 /* iPads (landscape) ----------- */

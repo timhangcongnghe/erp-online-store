@@ -273,12 +273,12 @@
                     <table cellspacing="0" cellpadding="0" width="800" class="w320">
                         <tr>
                             <td class="header-lg">
-                               XIN CHÀO,
+                               ĐƠN ĐẶT HÀNG - TÌM HÀNG CÔNG NGHỆ
                             </td>
                         </tr>
                         <tr>
                             <td class="free-text">
-                              Hệ thống website TIMHANGCONGNGHE.COM vừa nhận được một ĐƠN ĐẶT HÀNG. Vui lòng xem thông tin bên dưới và liên hệ đến Quý khách hàng để xác nhận đơn hàng.
+                              Tìm Hàng Công Nghệ vừa nhận được một ĐƠN ĐẶT HÀNG mới
                             </td>
                         </tr>
                         <tr>
@@ -295,10 +295,10 @@
                                                         <table cellspacing="0" cellpadding="0" width="100%" style="border-collapse:separate !important;">
                                                             <tr>
                                                                 <td class="mini-block">
-                                                                    <span class="header-sm">Thông tin đặt hàng</span><br>
+                                                                    <span class="header-sm">Thông Tin Khách Hàng</span><br>
                                                                     Họ tên: <b><%= @quick_order.customer_name %></b><br>
                                                                     Email: <b><%= @quick_order.email %></b><br>
-                                                                    Điện thoại: <b><%= @quick_order.phone %></b><br>
+                                                                    SĐT: <b><%= @quick_order.phone %></b><br>
                                                                     Ghi chú: <%= @quick_order.note %><br>
                                                                     Địa chỉ giao hàng: <%= @quick_order.address + ', ' + @quick_order.district_name + ', ' + @quick_order.state_name %><br>
                                                                     Xuất hóa đơn: <% if @quick_order.invoice == true %><strong>Có xuất hóa đơn</strong><% else %><strong>Không xuất hóa đơn</strong><% end %>
@@ -353,7 +353,6 @@
                                           Thành tiền
                                         </td>
                                     </tr>
-                  
                                     <% @quick_order.order_details.each do |order_detail| %>
                                     <tr>
                                         <td class="item-col item">
@@ -362,7 +361,7 @@
                                                     <td class="product">
                                                         <span style="color: #4d4d4d; font-weight:bold;">
                                                             <% if order_detail.product.present? %>
-                                                                <a href="http://timhangcongnghe.com/san-pham/<%= order_detail.product_id.to_s + '/' + order_detail.product.alias + '.html' %>">
+                                                                <a href="//timhangcongnghe.com/san-pham/<%= order_detail.product_id.to_s + '/' + order_detail.product.alias + '.html' %>">
                                                                     <%= order_detail.product_name %>
                                                                 </a>
                                                             <% else %>

@@ -76,47 +76,24 @@
             <% if @product.get_product_property_array.count > 0 %>
             <div class="product-box-desc <%= 'no_border_button' if @product.is_sold_out %>">
                 <div class="inner-box-desc">
-                    <table>
-                        <tr>
-                            <td valign="top">
-                                <span>Thương hiệu: </span>
-                                <strong><%= link_to @product.brand_name, brand_link(@product.brand),
-                                            title: @product.brand_name, target: '_blank' %></strong>
-                            </td>
-                        </tr>
-                        <% if @product.warranty.present? %><tr><td valign="top">
-                            <span>Thời gian bảo hành: </span>
-                            <%= @product.warranty %> tháng
-                        </td></tr><% end %>
-                        <% if @product.datasheet.present? %><tr><td valign="top">
-                            <span>Tài liệu sản phẩm: </span>
-                                <%= link_to 'Xem tại đây', @product.datasheet_url, title: 'Xem tài liệu sản phẩm tại đây', target: '_blank' %>
-                        </td></tr><% end %>
-                    </table>
+                    <span>Thương hiệu: </span><strong><%= link_to @product.brand_name, brand_link(@product.brand),title: @product.brand_name, target: '_blank' %></strong></td>
+                    <% if @product.warranty.present? %><br><span>Thời gian bảo hành: </span><%= @product.warranty %> tháng<% end %>
+                    <% if @product.datasheet.present? %><br><span>Tài liệu sản phẩm: </span><%= link_to 'Xem tại đây', @product.datasheet_url, title: 'Xem tài liệu sản phẩm tại đây', target: '_blank' %><% end %>
                     <% product_short_descipriton_values_array = @product.product_short_descipriton_values_array %>
                     <% if product_short_descipriton_values_array.count > 2 %>
-                        <table><% product_short_descipriton_values_array.each do |row| %>
-                            <tr><td valign="top">
-                                <span><%= row[:name] %>: </span><%= row[:values].join(", ") %>
-                            </td></tr>
-                        <% end %></table>
+                        <% product_short_descipriton_values_array.each do |row| %>
+                            <br><span><%= row[:name] %>: </span><%= row[:values].join(", ") %>
+                        <% end %>
                     <% else %>
-                        <table width="100%" style="margin-top: -15px;"><% @product.product_values_array.each do |group| %>
-                            <tr><td colspan="2"><h4 class=""><%= group[:group].name %></h4></td></tr>
+                        <% @product.product_values_array.each do |group| %>
+                            <h4 class=""><%= group[:group].name %></h4>
                             <% group[:properties].each do |property| %>
-                                <tr><td valign="top">
-                                    <span><%= property[:property].name %>: </span><%= property[:values].join(", ") %>
-                                </td></tr>
+                                <br><span><%= property[:property].name %>: </span><%= property[:values].join(", ") %>
                             <% end %>
-                        <% end %></table>
+                        <% end %>
                     <% end %>
-                    <table
-                        <tr><% if @product.dimentions.present? %>
-                            <td valign="top"><span>Kích thước vận chuyển: </span><%= @product.dimentions %></td>
-                        <% end %></tr>
-                        <tr><% if @product.weights.present? %>
-                            <td valign="top"><span>Trọng lượng vận chuyển: </span><%= @product.weights %></td>
-                        <% end %></tr>
+                        <% if @product.dimentions.present? %><br><span>Kích thước vận chuyển: </span><%= @product.dimentions %><% end %>
+                        <% if @product.weights.present? %><br><span>Trọng lượng vận chuyển: </span><%= @product.weights %><% end %>
                     </table>
                 </div>                                
             </div>
