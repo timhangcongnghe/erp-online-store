@@ -15,9 +15,9 @@
                 <div class="right-block">
                     <div class="caption">
                         <% if menu.present? %>
-                        <h2><%= link_to truncate(product.get_short_name, length: menu.limit_product_name), product_link(product), title: product.get_long_name, class: "hover-product-name" %></h2>
+                        <h2><%= truncate(product.get_short_name, length: menu.limit_product_name) %></h2>
                         <% else %>
-                        <h2><%= link_to truncate(product.get_short_name, length: 52), product_link(product), title: product.get_long_name, class: "hover-product-name" %></h2>
+                        <h2><%= truncate(product.get_short_name, length: 52) %></h2>
                         <% end %>
                         <div class="ratings"><div class="rating-box"><%= stars(product.average_stars) %></div></div>
                         <div class="price">

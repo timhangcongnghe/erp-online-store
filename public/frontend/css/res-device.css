@@ -3,7 +3,7 @@
     header .collapsed-block .tabBlockTitle .expander {padding: 0}
     .collapsed-block .tabBlockTitle .expander{margin:0 3px}
     header.type_1 .horizontal .navbar-header{margin-top:1px}
-    .logo img{max-width:65%}
+    .logo img{max-width:50%}
     #remove-verticalmenu, #remove-megamenu{padding:0 10px 5px 10px}
     .megamenu-style-dev .navbar-default .vertical .vertical-wrapper,
     .megamenu-style-dev .navbar-default .horizontal .megamenu-wrapper{padding:13px!important}
