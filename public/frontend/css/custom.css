@@ -71,13 +71,6 @@
     display: -webkit-box;
     -webkit-box-orient: vertical;
 }
-.products-list.grid .product-layout .product-item-container .right-block .caption h2 {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    -webkit-line-clamp: 2;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-}
 .products-list.grid .product-layout .product-item-container:hover, .products-list.list-masonry .product-layout .product-item-container:hover {
     border: none;
     border-right: 1px solid #eee;
