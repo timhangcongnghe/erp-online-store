@@ -5,9 +5,19 @@
 	<meta charset="UTF-8">
 	<%= csrf_meta_tags %>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<% if params[:controller] == 'erp/online_store/frontend/home' && params[:action] == 'index' %>
+	<link rel="alternate" href="https://timhangcongnghe.com" hreflang="vi" />
+	<link rel="canonical" href="https://timhangcongnghe.com" />
+	<% elsif params[:controller] == 'erp/online_store/frontend/category' && params[:action] == 'index' %>
+	<link rel="alternate" href="https://timhangcongnghe.com<%= menu_link(@menu) %>" hreflang="vi" />
+	<link rel="canonical" href="https://timhangcongnghe.com<%= menu_link(@menu) %>" />
+	<% elsif params[:controller] == 'erp/online_store/frontend/product' && params[:action] == 'product_detail' %>
+	<link rel="alternate" href="https://timhangcongnghe.com<%= product_link(@product) %>" hreflang="vi" />
+	<link rel="canonical" href="https://timhangcongnghe.com<%= product_link(@product) %>" />
+	<% else %>
 	<link rel="alternate" href="<%= request.url %>" hreflang="vi" />
-	<link rel="alternate" href="<%= request.url %>" hreflang="x-default"/>
 	<link rel="canonical" href="<%= request.url %>" />
+	<% end %>
 	<title><% if content_for?(:title) %><%= yield(:title) %> - Tìm Hàng Công Nghệ<% else %>Tìm Hàng Công Nghệ<% end %></title>
 	<% if @meta_keywords.present? %><meta name="keywords" content="<%= @meta_keywords %>">
 	<% else %><meta name="keywords" content="máy tính xách tay, laptop, máy tính để bàn, máy chủ, máy trạm, màn hình máy tính, máy chiếu, máy in, camera quan sát, tổng đài điện thoại"><% end %>

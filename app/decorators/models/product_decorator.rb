@@ -558,6 +558,18 @@ Erp::Products::Product.class_eval do
     end
   end
 
+def hkerp_update_imported
+    #if self.hkerp_product.present?
+      url = ErpSystem::Application.config.hkerp_endpoint + "products/erp_set_imported"
+
+      uri = URI(url)
+      Net::HTTP.post_form(uri, 'id' => self.hkerp_product.hkerp_product_id, 'value' => self.hkerp_product.present?.to_s)
+
+      self.product_images.where(image_url: nil).destroy_all
+    #end
+  end
+
+
   def hkerp_set_not_imported
     if self.hkerp_product.present?
       url = ErpSystem::Application.config.hkerp_endpoint + "products/erp_set_imported"
