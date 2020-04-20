@@ -277,26 +277,6 @@
 </head>
 
 <body class="<%= @body_class %>">
-	<script>window.fbAsyncInit = function() {
-		FB.init({
-			xfbml            : true,
-			version          : 'v4.0'
-		});
-	};
-	(function(d, s, id) {
-			var js, fjs = d.getElementsByTagName(s)[0];
-			if (d.getElementById(id)) return;
-			js = d.createElement(s); js.id = id;
-			js.src = 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js';
-			fjs.parentNode.insertBefore(js, fjs);
-	}(document, 'script', 'facebook-jssdk'));</script>
-	<div class="fb-customerchat"
-			attribution=setup_tool
-			page_id="1266398623441170"
-			theme_color="#009688"
-			logged_in_greeting="Xin chào! Tìm Hàng Công Nghệ có thể giúp gì cho bạn không?"
-			logged_out_greeting="Xin chào! Nếu bạn cần Tìm Hàng Công Nghệ trợ giúp. Vui lòng đăng nhập nhé!">
-	</div>
     <div id="wrapper" class="wrapper-full banners-effect-7">
         <%= render 'erp/online_store/frontend/modules/header' %>
         <%= yield %>
@@ -319,6 +299,7 @@
 			<img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/853123323/?guid=ON&amp;script=0"/>
 		</div>
 	</noscript>
+	<script id='autoAdsMaxLead-widget-script' src='https://cdn.autoads.asia/scripts/autoads-maxlead-widget.js?business_id=92716848F2174C1681138F8773D7CF4E' type='text/javascript' charset='UTF-8' async></script>
 </body>
 
 </html>
