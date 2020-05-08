@@ -77,8 +77,7 @@
             <div class="product-box-desc <%= 'no_border_button' if @product.is_sold_out %>">
                 <div class="inner-box-desc">
                     <span>Thương hiệu: </span><strong><%= link_to @product.brand_name, brand_link(@product.brand),title: @product.brand_name, target: '_blank' %></strong></td>
-                    <% if @product.warranty.present? %><br><span>Thời gian bảo hành: </span><%= @product.warranty %> tháng<% end %>
-                    <% if @product.datasheet.present? %><br><span>Tài liệu sản phẩm: </span><%= link_to 'Xem tại đây', @product.datasheet_url, title: 'Xem tài liệu sản phẩm tại đây', target: '_blank' %><% end %>
+                    <% if @product.warranty.present? %><br><span>Thời gian bảo hành: </span><%= @product.warranty %> tháng<% end %>                    
                     <% product_short_descipriton_values_array = @product.product_short_descipriton_values_array %>
                     <% if product_short_descipriton_values_array.count > 2 %>
                         <% product_short_descipriton_values_array.each do |row| %>
