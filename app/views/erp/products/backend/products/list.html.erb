@@ -91,9 +91,6 @@
                             <% if product.warranty.present? %>
                                 <br><em>Bảo hành: <%= product.warranty %></em>
                             <% end %>
-                            <% if product.datasheet.present? %>
-                                <br><em><%= link_to 'Tài liệu sản phẩm', product.datasheet_url, target: '_blank' %></em>
-                            <% end %>
                         </td>
                     <% end %>                    
                     <% if get_columns(params).include?("price") %>
@@ -122,8 +119,11 @@
                         <% if product.is_top_business_choices? %>
                         <br><span class="label label-sm label-info"><%= t('.top_business_choices') %></span>
                         <% end %>
-                        <% if product.meta_keywords.present? && product.meta_description.present? %>
-                            <br><span class="label label-sm label-danger"><%= t('.seo_success') %> <%= product.count_keywords_arr %> từ khóa</span>
+                        <% if product.meta_keywords.present? %>
+                            <br><span class="label label-sm label-danger">SEO <%= product.count_keywords_arr %> từ khóa</span>
+                        <% end %>
+                        <% if product.meta_description.present? %>
+                            <br><span class="label label-sm label-danger">SEO mô tả</span>
                         <% end %>
                         <% if product.short_description? %>
                         <br><span class="label label-sm label-info"><%= t('.short_description') %></span>
