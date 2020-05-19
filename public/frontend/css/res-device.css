@@ -39,8 +39,8 @@
     .main-container .wrap .payment-top .btn-social, .main-container .wrap .payment-top .btn-social-icon {
         width: -webkit-fill-available;
     }
-    .products-list-related.grid .product-layout .product-item-container.product-lists{
-        height: 480px;
+    .products-list-related.grid .product-layout .product-item-container.product-lists img {
+        width: 70%;
     }
 }
 
@@ -61,6 +61,9 @@
     }
     .left-content-product .content-product-right .box-info-product .quick-cart, .compare button.add-to-compare {
         display: none;
+    }
+    .products-list-related.grid .product-layout .product-item-container.product-lists img {
+        width: 65%;
     }
 }
 

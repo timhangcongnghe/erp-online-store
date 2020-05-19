@@ -15,7 +15,7 @@
                 </div>
                 <div class="right-block">
                     <div class="caption">
-                        <h2><%= truncate(product.get_short_name, length: 52) %></h2>
+                        <h2><%= product.get_short_name %></h2>
                         <div class="ratings"><div class="rating-box"><%= stars(product.average_stars) %></div></div>
                         <div class="price">
                             <% if product.is_sold_out? || product.is_call? %>

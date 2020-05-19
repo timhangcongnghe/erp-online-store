@@ -1,7 +1,7 @@
 <!--cart-->
 <div class="shopping_cart pull-right">
     <div id="cart" class=" btn-group btn-shopping-cart">
-        <a data-loading-text="Đang tải giỏ hàng..." class="btn-group top_cart dropdown-toggle" data-toggle="dropdown">
+        <a data-loading-text="Đang tải giỏ hàng..." title="Giỏ hàng" rel="nofollow" class="btn-group top_cart dropdown-toggle" data-toggle="dropdown">
             <div class="shopcart">
                 <span class="pull-left icon"></span>
                 <span class="text-shopping-cart hidden-xs">Giỏ hàng</span>
@@ -55,12 +55,7 @@
                 <div>
                     <table class="table table-bordered">
                         <tbody>
-                            <tr>
-                                <td class="text-left">
-                                    <strong>TỔNG TIỀN:</strong>
-                                </td>
-                                <td class="text-right shopping-cart-total"><%= format_price(@cart.total_order) %></td>
-                            </tr>
+                            <tr><td class="text-left"><strong>TỔNG TIỀN:</strong></td><td class="text-right shopping-cart-total"><%= format_price(@cart.total_order) %></td></tr>
                         </tbody>
                     </table>
                     <p class="text-center">
@@ -81,11 +76,7 @@
                 </div>
             </li>
             <% else %>
-                <li>
-                    <div class="text-center">
-                        <p>Hiện chưa có sản phẩm trong giỏ hàng.</p>
-                    </div>
-                </li>
+                <li><div class="text-center"><p>Hiện chưa có sản phẩm trong giỏ hàng.</p></div></li>
             <% end %>
         </ul>
     </div>
