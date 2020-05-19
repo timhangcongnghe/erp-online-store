@@ -10,7 +10,7 @@
         class: 'top-link-contact-us', title: 'Góp ý và Liên hệ' %></li>
     <% if user_signed_in? %>
     <li class="account" id="my_account">
-        <a href="javascript:void(0)" class="btn btn-xs dropdown-toggle" data-toggle="dropdown">
+        <a href="javascript:void(0)" rel="nofollow" title="Tài khoản" class="btn btn-xs dropdown-toggle" data-toggle="dropdown">
             <span>Xin chào, <%= user_short_name(current_user.name) %></span>
             <span class="fa fa-angle-down"></span>
         </a>
