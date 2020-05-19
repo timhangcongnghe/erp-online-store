@@ -44,11 +44,10 @@
                                         <div class="product-image-container second_img ">
                                             <%= image_tag product_image(product.product_images, 'first', 'thumb193'),
                                                 data: {src: product_image(product.product_images, 'first', 'thumb193')},
-                                                alt: product.get_long_name,
+                                                alt: product.get_long_name, title: product.get_long_name,
                                                 class: "img-responsive" %></div>
                                         <% if product.is_new? %><span class="label label-new">Mới</span><% end %>
                                         <% if product.is_deal? %><span class="label label-sale">Giảm giá</span><% end %>
-                                        <%= count_down(product.deal_from_date, product.deal_to_date) %>
                                     </div>
                                     <div class="right-block">
                                         <div class="caption">
@@ -82,7 +81,7 @@
                     <% else %>
                         <div id="content" class="col-sm-12 shopping-cart">
                             <div class="empty-cart">                    
-                                <h2 class="title">Chuyên mục sản phẩm hoặc lựa chọn chưa có sản phẩm phù hợp.</h2>
+                                <h2 class="title">Danh sách hiện đang trống.</h2>
                                 <%= link_to 'Quay lại trang chủ', erp_online_store.root_path, class: 'btn btn-default shopping-continue', title: 'Quay lại trang chủ' %>
                             </div>
                         </div>
