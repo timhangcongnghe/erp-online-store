@@ -44,7 +44,17 @@
                             <div class="tabsslider  col-xs-12">
                                 <%= render '/erp/online_store/frontend/modules/product/tab_controls', product: @product %>
                             </div>
-                        </div>                        
+                        </div>
+                        <% if @related_brand_products.count > 0 %>
+                        <div class="related upsell titleLine products-list grid module ">
+                            <%= render 'erp/online_store/frontend/modules/product/related_brand_products' %>
+                        </div>
+                        <% end %>
+                        <% if @related_products.count > 0 %>
+                        <div class="related upsell titleLine products-list grid module ">
+                            <%= render 'erp/online_store/frontend/modules/product/related_products' %>
+                        </div>
+                        <% end %>                        
                     </div>
                 </div>
             </div>

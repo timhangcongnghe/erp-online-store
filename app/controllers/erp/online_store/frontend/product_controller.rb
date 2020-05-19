@@ -15,6 +15,8 @@ module Erp
         def product_detail          
           @body_class = "res layout-subpage"
           @product = Erp::Products::Product.find(params[:product_id])
+          @related_products = Erp::Products::Product.where(category_id: @product.category, is_sold_out: false).where.not(id: params[:product_id]).order('erp_products_products.created_at desc').limit(12)
+          @related_brand_products = Erp::Products::Product.where(brand_id: @product.brand, is_sold_out: false).where.not(id: params[:product_id]).order('erp_products_products.created_at desc').limit(12)
           if @product.archived == true
             render layout: 'erp/frontend/error_page'
             render(:status => 404)

@@ -1,6 +1,7 @@
-<div class="products-list row list">
-    <% products.each do |product| %>
-    <div class="product-layout  col-md-3 col-sm-6 col-xs-6">
+<h3 class="modtitle"><span><i class="fa fa-angle-double-right"></i> Sản Phẩm Cùng Thương Hiệu <%= @product.brand.name %></span></h3>
+<div class="upsell-products">
+    <% @related_brand_products.each do |product| %>
+    <div class="product-layout">
         <a href="<%= product_link(product) %>" title="<%= product.get_long_name %>">
             <div class="product-item-container product-lists">
                 <div class="left-block">
@@ -14,11 +15,7 @@
                 </div>
                 <div class="right-block">
                     <div class="caption">
-                        <% if menu.present? %>
-                        <h2><%= truncate(product.get_short_name, length: menu.limit_product_name) %></h2>
-                        <% else %>
                         <h2><%= truncate(product.get_short_name, length: 52) %></h2>
-                        <% end %>
                         <div class="ratings"><div class="rating-box"><%= stars(product.average_stars) %></div></div>
                         <div class="price">
                             <% if product.is_sold_out? || product.is_call? %>

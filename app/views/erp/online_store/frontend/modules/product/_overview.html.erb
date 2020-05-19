@@ -40,7 +40,6 @@
                     @product.product_intro_link, class: "open-video-link thumb-video pull-left", title: @product.get_long_name %><% end %>
             </div>
         <% end %>
-        
         <% if product_images.count > 1 %>
             <div class="content-product-right col-sm-6 col-xs-12">
         <% else %>
@@ -53,10 +52,8 @@
                 <div class="ratings">
                     <div class="rating-box"><%= stars(@product.average_stars) %></div>
                 </div>
-                <a class="write_review_button" href="" onclick="$('a[href=\'#tab-review\']').trigger('click'); return false;">
-                    Đánh giá sản phẩm </a> |
-                <a class="write_review_button" href="" onclick="$('a[href=\'#tab-comment\']').trigger('click'); return false;">
-                    Bình luận về sản phẩm</a>
+                <a class="write_review_button" rel="nofollow" title="Đánh giá sản phẩm" href="javascript:void(0);" onclick="$('a[href=\'#tab-review\']').trigger('click'); return false;">Đánh giá sản phẩm</a> |
+                <a class="write_review_button" rel="nofollow" title="Bình luận về sản phẩm" href="javascript:void(0);" onclick="$('a[href=\'#tab-comment\']').trigger('click'); return false;">Bình luận về sản phẩm</a>
             </div>
             <div class="product-label form-group form-group-price-sold-out">
                 <div class="product_page_price price">
@@ -158,17 +155,17 @@
             <span>
                 <strong>SĐT liên hệ: </strong>
                 <%= link_to '(028) 3984 7690 ', 'tel:02839847690',
-                    title: 'Liên hệ kinh doanh qua số điện thoại: (028) 3984 7690' %>(Giờ làm việc: 7:30 - 17:00)
+                    title: '(028) 3984 7690' %>
             </span><br>
             <span>
                 <strong>Email liên hệ 1: </strong>
                 <%= mail_to 'kinhdoanh@hoangkhang.com.vn', 'kinhdoanh@hoangkhang.com.vn',
-                    title: 'Liên hệ kinh doanh qua email: kinhdoanh@hoangkhang.com.vn' %>
+                    title: 'kinhdoanh@hoangkhang.com.vn' %>
             </span><br>
             <span>
                 <strong>Email liên hệ 2: </strong>
                 <%= mail_to 'kinhdoanh@timhangcongnghe.com', 'kinhdoanh@timhangcongnghe.com',
-                    title: 'Liên hệ kinh doanh qua email: kinhdoanh@timhangcongnghe.com' %>
+                    title: 'kinhdoanh@timhangcongnghe.com' %>
             </span><br>
         </div>
         </div>

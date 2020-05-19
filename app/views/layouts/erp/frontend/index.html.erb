@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="vi-VN">
-
+<html lang="vi">
 <head>
 	<meta charset="UTF-8">
 	<%= csrf_meta_tags %>
@@ -62,53 +61,63 @@
 		ga('create', 'UA-101029174-1', 'auto');
 		ga('send', 'pageview');
 	</script>
+	<% if params[:controller] == 'erp/online_store/frontend/home' && params[:action] == 'index' || params[:controller] == 'erp/online_store/frontend/information' && params[:action] == 'about_us' %>
 	<script type="application/ld+json">
 	{
-		"@context": "https://schema.org",
-		"@type": "ComputerStore",
-		"name": "Tìm Hàng Công Nghệ",
-		"image": "https://timhangcongnghe.com/frontend/image/schema-logo.png",
-		"description": "Tìm Hàng Công Nghệ là đơn vị cung cấp các sản phẩm, dịch vụ thuộc lĩnh vực Công Nghệ Thông Tin do Công Ty TNHH Giải Pháp CNTT Và Truyền Thông Hoàng Khang phụ trách và phát triển.",
-		"@id": "0306146736",
-		"url": "https://timhangcongnghe.com/",
-		"telephone": "(028) 3984 7690",
-		"email": [
-			"kinhdoanh@hoangkhang.com.vn",
-			"kinhdoanh@timhangcongnghe.com"
-	   ],
-		"priceRange": "VND",
-		"address": {
-			"@type": "PostalAddress",
-			"streetAddress": "188 Đường số 1, Phường 16",
-			"addressLocality": "Gò Vấp",
-			"addressRegion": "Hồ Chí Minh",
-			"postalCode": "700000",
-			"addressCountry": "VN"
-		},
-		"geo": {
-			"@type": "GeoCoordinates",
-			"latitude": 10.847621,
-			"longitude": 106.657642
-		},
-		"openingHoursSpecification": [{
+	  "@context": "https://schema.org",
+	  "@type": "ComputerStore",
+	  "name": "Tìm Hàng Công Nghệ",
+	  "logo": "https://timhangcongnghe.com/frontend/image/schema-logo.png",
+	  "image": "https://timhangcongnghe.com/frontend/image/thcn-web-share.png",
+	  "@id": "https://timhangcongnghe.com/",
+	  "url": "https://timhangcongnghe.com/",
+	  "telephone": "(028) 3984 7690",
+	  "priceRange": "VND",
+	  "address": {
+		"@type": "PostalAddress",
+		"streetAddress": "188 Đường số 1, Phường 16, Quận Gò Vấp",
+		"addressLocality": "TP. Hồ Chí Minh",
+		"postalCode": "70000",
+		"addressCountry": "VN"
+	  },
+	  "geo": {
+		"@type": "GeoCoordinates",
+		"latitude": 10.847608,
+		"longitude": 106.657646
+	  },
+	  "openingHoursSpecification": [{
 		"@type": "OpeningHoursSpecification",
-			"dayOfWeek": [
-			"Monday",
-			"Tuesday",
-			"Wednesday",
-			"Thursday",
-			"Friday"
+		"dayOfWeek": [
+		  "Monday",
+		  "Tuesday",
+		  "Wednesday",
+		  "Thursday",
+		  "Friday"
 		],
-			"opens": "08:00",
-			"closes": "17:00"
-		},{
-			"@type": "OpeningHoursSpecification",
-			"dayOfWeek": "Saturday",
-			"opens": "08:00",
-			"closes": "16:00"
-		}]
+		"opens": "08:00",
+		"closes": "17:00"
+	  },{
+		"@type": "OpeningHoursSpecification",
+		"dayOfWeek": "Saturday",
+		"opens": "08:00",
+		"closes": "16:00"
+	  }],
+	  "sameAs": [
+		"https://www.facebook.com/TimHangCongNghe",
+		"https://twitter.com/timhangcongnghe",
+		"https://www.instagram.com/tim_hang_cong_nghe",
+		"https://www.youtube.com/channel/UCf64P6U7ZLd7r1kFaFWVZEQ",
+		"https://www.linkedin.com/in/timhangcongnghe",
+		"https://www.pinterest.com/tim_hang_cong_nghe",
+		"https://soundcloud.com/timhangcongnghe",
+		"https://timhangcongnghe.tumblr.com",
+		"https://www.reddit.com/user/timhangcongnghe",
+		"https://github.com/timhangcongnghe",
+		""
+	  ]
 	}
 	</script>
+	<% end %>
 	<script type="application/ld+json">
 	{
 		"@context": "https://schema.org/",
@@ -275,7 +284,6 @@
 	</script>
 	<% end %>
 </head>
-
 <body class="<%= @body_class %>">
     <div id="wrapper" class="wrapper-full banners-effect-7">
         <%= render 'erp/online_store/frontend/modules/header' %>
@@ -286,14 +294,12 @@
         <%= render 'erp/online_store/frontend/modules/footer' %>
     </div>
     <% if params[:controller] == 'erp/online_store/frontend/product' && params[:action] == 'product_detail' %><% else %><%= render 'erp/online_store/frontend/modules/js_include' %><% end %>
-	
 	<script type="text/javascript">
 		var google_conversion_id = 853123323;
 		var google_custom_params = window.google_tag_params;
 		var google_remarketing_only = true;
 	</script>
 	<%= javascript_include_tag '//www.googleadservices.com/pagead/conversion.js' %>
-	
 	<noscript>
 		<div style="display:inline;">
 			<img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/853123323/?guid=ON&amp;script=0"/>
@@ -301,5 +307,4 @@
 	</noscript>
 	<script id='autoAdsMaxLead-widget-script' src='https://cdn.autoads.asia/scripts/autoads-maxlead-widget.js?business_id=92716848F2174C1681138F8773D7CF4E' type='text/javascript' charset='UTF-8' async></script>
 </body>
-
 </html>
