@@ -127,7 +127,7 @@ module Erp
         def search
           @keyword = params[:keyword]
           @body_class = "res layout-subpage"
-          @products = Erp::Products::Product.search(params).paginate(:page => params[:page], :per_page => 32)
+          @products = Erp::Products::Product.search(params).paginate(:page => params[:page], :per_page => 30)
           @menu = Erp::Menus::Menu.find(params[:menu_id]) if params[:menu_id].present?
         end
         

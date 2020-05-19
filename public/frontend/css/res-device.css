@@ -39,6 +39,9 @@
     .main-container .wrap .payment-top .btn-social, .main-container .wrap .payment-top .btn-social-icon {
         width: -webkit-fill-available;
     }
+    .products-list-related.grid .product-layout .product-item-container.product-lists{
+        height: 480px;
+    }
 }
 
 /* Smartphones (landscape) ----------- */
