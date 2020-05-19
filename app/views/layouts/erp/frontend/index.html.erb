@@ -13,6 +13,12 @@
 	<% elsif params[:controller] == 'erp/online_store/frontend/product' && params[:action] == 'product_detail' %>
 	<link rel="alternate" href="https://timhangcongnghe.com<%= product_link(@product) %>" hreflang="vi" />
 	<link rel="canonical" href="https://timhangcongnghe.com<%= product_link(@product) %>" />
+	<% elsif params[:controller] == 'erp/online_store/frontend/brand' && params[:action] == 'listing' %>
+	<link rel="alternate" href="https://timhangcongnghe.com/thuong-hieu-san-pham.html" hreflang="vi" />
+	<link rel="canonical" href="https://timhangcongnghe.com/thuong-hieu-san-pham.html" />
+	<% elsif params[:controller] == 'erp/online_store/frontend/brand' && params[:action] == 'detail' %>
+	<link rel="alternate" href="https://timhangcongnghe.com/<%= brand_link(@brand) %>" hreflang="vi" />
+	<link rel="canonical" href="https://timhangcongnghe.com/<%= brand_link(@brand) %>" />
 	<% else %>
 	<link rel="alternate" href="<%= request.url %>" hreflang="vi" />
 	<link rel="canonical" href="<%= request.url %>" />
