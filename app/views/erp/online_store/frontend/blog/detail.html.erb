@@ -31,17 +31,10 @@
         </aside>
         <div id="content post-detail" class="col-md-9 col-sm-8">
             <div class="article-info">
-                <div class="blog-header"><h3><%= @blog.name %></h3></div>
-                <div class="article-sub-title">
-                    <span class="article-author"><i class="fa fa-user"></i> Đăng bởi <a href="<%= erp_online_store.root_path %>" target="_blank"> Tìm Hàng Công Nghệ</a></span>
-                    <span class="article-date"><i class="fa fa-clock-o"></i> <%= relative_time(@blog.created_at) %></span>
-                    <span class="article-folder"><i class="fa fa-folder-open"></i>
-                        <%= link_to @blog.category_name, erp_online_store.blog_with_category_path(@blog.category_id, url_friendly(@blog.category_name)) %>
-                    </span>
-                    <span class="article-comment"><i class="fa fa-comments-o"></i> <%= @blog.comments.count %> bình luận</span>
-                </div>
+                <div class="blog-header"><h1><%= @blog.name %></h1></div>
                 <div class="article-description">
                     <%= @blog.content.html_safe %>
+                    <% if @blog.get_tags.count > 0 %>
                     <div class="post_footer">
                         <ul class="post_tags">
                             <li>Thẻ:</li>
@@ -54,6 +47,7 @@
                             <% end %>
                         </ul>
                     </div>
+                    <% end %>
                 </div>
                 <div class="panel panel-default related-comment comments-list comment_box"
                      data-url="<%= erp_online_store.blog_comments_path(article_id: @blog.id) %>">

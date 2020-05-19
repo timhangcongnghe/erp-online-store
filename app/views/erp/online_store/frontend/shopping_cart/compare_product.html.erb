@@ -9,8 +9,8 @@
         <div id="content" class="col-sm-12 compare-product">
             <% all_items = @compare.compare_items.get_all_items %>
             <% c_count = all_items.count %>
+            <h1 class="title title-compare">DANH SÁCH SO SÁNH</h1>
             <% if c_count > 0 %>
-            <h2 class="title title-compare">DANH SÁCH SO SÁNH</h2>
             <div class="table-responsive">
                 <table class="table table-bordered table-hover product-compare">
                     <tbody>

@@ -35,7 +35,9 @@
         </aside>
         <div id="content" class="col-md-9 col-sm-8">
             <% if params[:cat_id].present? %>
-            <div class="blog-header"><h3><%= @category.name %></h3><p><%= @category.description %></p></div>
+            <div class="blog-header"><h1><%= @category.name %></h1></div>
+            <% else %>
+            <div class="blog-header"><h1>Tin Công Nghệ</h1></div>
             <% end %>
             <div class="blog-listitem <%= params[:cat_id].present? ? '' : 'blog-listitem-notitle' %>">
                 <% if @blogs.count > 0 %>
