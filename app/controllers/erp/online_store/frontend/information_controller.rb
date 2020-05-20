@@ -5,44 +5,56 @@ module Erp
         def about_us
           @body_class = "res layout-subpage"
           @testimonials = Erp::Testimonials::Testimonial.get_testimonials
+          expires_in 30.days, public: true
         end
     
         def faq
           @body_class = "res layout-subpage"
           @categories = Erp::Articles::Category.get_categories_by_alias_group
           @faqs = Erp::Articles::Article.get_faqs
+          expires_in 30.days, public: true
         end
         
         def policy
           @categories = Erp::Articles::Category.get_categories_by_alias_group
           @article = Erp::Articles::Category.find(params[:category_id]).articles.where(archived: false).last
+          expires_in 30.days, public: true
         end
         
         def policy_01 #huong-dan-mua-hang.html
+          expires_in 30.days, public: true
         end
         
         def policy_02 #chinh-sach-bao-hanh.html
+          expires_in 30.days, public: true
         end
         
         def policy_03 #huong-dan-thanh-toan.html
+          expires_in 30.days, public: true
         end
         
         def policy_04 #van-chuyen-va-giao-nhan.html
+          expires_in 30.days, public: true
         end
         
         def policy_05 #doi-tra-va-hoan-tien.html
+          expires_in 30.days, public: true
         end
         
         def policy_06 #bao-mat-thong-tin.html
+          expires_in 30.days, public: true
         end
         
         def policy_07 #quy-che-hoat-dong.html
+          expires_in 30.days, public: true
         end
         
         def policy_08 #dieu-khoan-giao-dich.html
+          expires_in 30.days, public: true
         end
         
         def policy_09 #cau-hoi-thuong-gap.html
+          expires_in 30.days, public: true
         end
     
         def contact_us
@@ -68,17 +80,20 @@ module Erp
               end
             else
               redirect_back(fallback_location: @contact, flash: { error: 'Không thể gửi đi do một số trường đang bị bỏ trống.' })
-            end
+            end            
           end
+          expires_in 30.days, public: true
         end
     
         def terms_and_conditions
           @categories = Erp::Articles::Category.get_categories_by_alias_group
           @terms_conditions = Erp::Articles::Article.get_terms_and_conditions
+          expires_in 30.days, public: true
         end
     
         def site_map
           @body_class = "res layout-subpage"
+          expires_in 30.days, public: true
         end
         
         private

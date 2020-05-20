@@ -39,6 +39,7 @@ module Erp
             end
             @total_comments = @product.comments.where(parent_id: nil).where(archived: false).count
           end
+          expires_in 3.hours, public: true
         end
         
         # view all product properties
@@ -46,7 +47,7 @@ module Erp
           @product = Erp::Products::Product.find(params[:product_id])
           if request.xhr?
             render "erp/online_store/frontend/modules/product/_all_property", layout: nil
-          end          
+          end
         end
 
         def comments

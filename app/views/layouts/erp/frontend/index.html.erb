@@ -299,6 +299,11 @@
         </script>
         <%= render 'erp/online_store/frontend/modules/footer' %>
     </div>
+	<div id="loader-wrapper">
+		<div id="loader"></div>
+		<div class="loader-section section-left"></div>
+		<div class="loader-section section-right"></div>
+	 </div>
     <% if params[:controller] == 'erp/online_store/frontend/product' && params[:action] == 'product_detail' %><% else %><%= render 'erp/online_store/frontend/modules/js_include' %><% end %>
 	<script type="text/javascript">
 		var google_conversion_id = 853123323;

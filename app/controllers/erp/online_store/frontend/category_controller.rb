@@ -13,6 +13,7 @@ module Erp
           if request.xhr?
             render layout: nil
           end
+          expires_in 3.hours, public: true
         end
 
         def deal_products

@@ -9,6 +9,7 @@ module Erp
             @block_banners = Erp::Banners::Banner.get_home_block_banners
             @long_banner = Erp::Banners::Banner.get_home_long_banners.last
           end
+          expires_in 1.hour, public: true
         end
 
         # home category box
