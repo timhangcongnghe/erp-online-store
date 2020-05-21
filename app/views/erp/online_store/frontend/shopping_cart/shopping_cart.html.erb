@@ -1,8 +1,8 @@
 <% title "Giỏ Hàng" %>
 <div class="main-container container">
     <ul class="breadcrumb">
-        <li><%= link_to '<i class="fa fa-home"></i>'.html_safe, erp_online_store.root_path %></li>
-        <li><%= link_to "Giỏ Hàng", "javascript:void(0)" %></li>
+        <li><%= link_to '<i class="fa fa-home"></i>'.html_safe, '//timhangcongnghe.com/' %></li>
+        <li><%= link_to 'Giỏ Hàng', 'javascript:void(0)' %></li>
     </ul>
     <div class="row wrap">
         <!--Middle Part Start-->
@@ -78,7 +78,7 @@
                 </div>
             </div>
             <div class="buttons">
-                <div class="pull-left"><%= link_to '<span class="fa fa-angle-double-left"></span> Tiếp Tục Mua Hàng'.html_safe, erp_online_store.root_path, class: "btn btn-default shopping-continue" %></div>
+                <div class="pull-left"><%= link_to '<span class="fa fa-angle-double-left"></span> Tiếp Tục Mua Hàng'.html_safe, '//timhangcongnghe.com/', class: "btn btn-default shopping-continue" %></div>
                 <% if user_signed_in? %>
                     <div class="pull-right"><%= link_to 'Tiến Hành Đặt Hàng <span class="fa fa-angle-double-right"></span>'.html_safe, erp_online_store.checkout_path, class: "btn btn-primary shopping-order" %></div>
                 <% else %>
@@ -88,10 +88,9 @@
             <% else %>
                 <div class="empty-cart">                    
                     <h2 class="title">Giỏ hàng của bạn hiện chưa có sản phẩm nào cả!</h2>
-                    <%= link_to "Tiếp tục mua hàng", erp_online_store.root_path, class: "btn btn-default shopping-continue" %>
+                    <br><%= link_to 'Quay về trang chủ', '//timhangcongnghe.com/', class: 'btn btn-default shopping-continue' %>
                 </div>
             <% end %>
         </div>
-        <!--Middle Part End -->
     </div>
 </div>

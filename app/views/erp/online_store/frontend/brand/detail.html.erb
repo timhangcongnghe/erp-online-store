@@ -21,7 +21,7 @@
 
 <div class="main-container container">
     <ul class="breadcrumb">
-        <li><%= link_to '<i class="fa fa-home"></i>'.html_safe, 'https://timhangcongnghe.com/', title: 'Tìm Hàng Công Nghệ' %></li>
+        <li><%= link_to '<i class="fa fa-home"></i>'.html_safe, '//timhangcongnghe.com/', title: 'Tìm Hàng Công Nghệ' %></li>
         <li><%= link_to 'Thương Hiệu Sản Phẩm', erp_online_store.brand_listing_path, title: 'Thương Hiệu Sản Phẩm' %></li>
         <li><%= link_to @brand.name, 'javascript:void(0)', title: @brand.name %></li>
     </ul>
@@ -82,7 +82,7 @@
                         <div id="content" class="col-sm-12 shopping-cart">
                             <div class="empty-cart">                    
                                 <h2 class="title">Danh sách hiện đang trống.</h2>
-                                <%= link_to 'Quay lại trang chủ', erp_online_store.root_path, class: 'btn btn-default shopping-continue', title: 'Quay lại trang chủ' %>
+                                <%= link_to 'Quay về trang chủ', '//timhangcongnghe.com/', class: 'btn btn-default shopping-continue', title: 'Quay lại trang chủ' %>
                             </div>
                         </div>
                     <% end %>

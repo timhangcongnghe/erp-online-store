@@ -1,7 +1,7 @@
 <% title "So Sánh Sản Phẩm" %>
 <div class="main-container container">
     <ul class="breadcrumb">
-        <li><%= link_to '<i class="fa fa-home"></i>'.html_safe, erp_online_store.root_path %></li>
+        <li><%= link_to '<i class="fa fa-home"></i>'.html_safe, '//timhangcongnghe.com/' %></li>
         <li><%= link_to "So Sánh Sản Phẩm", "javascript:void(0)" %></li>
     </ul>
     <div class="row">
@@ -93,8 +93,7 @@
             <% else %>
                 <div class="empty-compare">                    
                     <h2 class="title">Danh sách hiện đang trống.</h2>
-                    <br>
-                    <%= link_to "Tiếp tục mua hàng", erp_online_store.root_path, class: "btn btn-default shopping-continue" %>
+                    <br><%= link_to 'Quay về trang chủ', '//timhangcongnghe.com/', class: "btn btn-default shopping-continue" %>
                 </div>
             <% end %>
         </div>

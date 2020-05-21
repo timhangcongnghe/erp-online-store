@@ -1,16 +1,13 @@
 <% title ((params[:category_id].present? and @article.present?) ? @article.name : 'Tìm Hàng Công Nghệ') %>
-
 <div class="main-container container">
     <ul class="breadcrumb">
-        <li><%= link_to '<i class="fa fa-home"></i>'.html_safe, erp_online_store.root_path %></li>
-        <li><%= @article.present? ? (link_to @article.name, "javascript:void(0)") : '' %></li>
+        <li><%= link_to '<i class="fa fa-home"></i>'.html_safe, '//timhangcongnghe.com/' %></li>
+        <li><%= @article.present? ? (link_to @article.name, 'javascript:void(0)') : '' %></li>
     </ul>
-
     <div class="row">
         <aside class="col-sm-4 col-md-3" id="column-left">
             <%= render "erp/online_store/frontend/information/policy_left_sidebar" %>
         </aside>
-
         <div id="content" class="col-md-9 col-sm-8">
             <% if @article.present? %>
                 <div class="article-info">

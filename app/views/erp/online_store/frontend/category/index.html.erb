@@ -20,7 +20,7 @@
 <% end %>
 <div class="main-container container">
     <ul class="breadcrumb">
-        <li><%= link_to '<i class="fa fa-home"></i>'.html_safe, erp_online_store.root_path, title: 'Tìm Hàng Công Nghệ' %></li>
+        <li><%= link_to '<i class="fa fa-home"></i>'.html_safe, '//timhangcongnghe.com/', title: 'Tìm Hàng Công Nghệ' %></li>
         <% @menu.self_and_parent_menus.each do |menu| %><% if @menu.id != menu.id %><li><%= link_to menu.get_name, menu_link(menu), title: menu.get_name %></li><% end %><% end %>
         <li><%= link_to @menu.get_name, 'javascript:void(0)', title: @menu.get_name %></li>
     </ul>
@@ -41,7 +41,7 @@
                     <div id="content" class="col-sm-12 shopping-cart">
                         <div class="empty-cart">                    
                             <h2 class="title">Chưa có sản phẩm phù hợp.</h2>
-                            <%= link_to 'Quay lại trang chủ', erp_online_store.root_path, class: 'btn btn-default shopping-continue', title: 'Quay lại trang chủ' %>
+                            <%= link_to 'Quay về trang chủ', '//timhangcongnghe.com/', class: 'btn btn-default shopping-continue', title: 'Quay lại trang chủ' %>
                         </div>
                     </div>
                     <% end %>

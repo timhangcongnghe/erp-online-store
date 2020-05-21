@@ -1,15 +1,12 @@
 <div class="main-container container">
     <ul class="breadcrumb">
-        <li><%= link_to '<i class="fa fa-home"></i>'.html_safe, erp_online_store.root_path %></li>
+        <li><%= link_to '<i class="fa fa-home"></i>'.html_safe, '//timhangcongnghe.com/' %></li>
         <li><%= link_to "Các điều khoản & Điều kiện", "javascript:void(0)" %></li>
     </ul>
     <div class="row">
-        <!--Left Part Start -->
         <aside class="col-sm-4 col-md-3" id="column-left">
             <%= render "erp/online_store/frontend/information/policy_left_sidebar" %>
         </aside>
-        <!--Left Part End -->
-        <!--Middle Part Start-->
         <div id="content" class="col-sm-8 col-md-9">
             <div class="blog-header">
                 <h3>Điều khoản và Điều kiện giao dịch</h3>
@@ -45,7 +42,6 @@
                 </div>
             </div>
         </div>
-        <!--Middle Part End-->
     </div>
 </div>
 <script>
