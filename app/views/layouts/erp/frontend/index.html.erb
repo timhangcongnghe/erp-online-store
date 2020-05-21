@@ -30,6 +30,7 @@
 	<% else %><meta name="description" content="Tìm Hàng Công Nghệ là đơn vị cung cấp các sản phẩm, dịch vụ thuộc lĩnh vực Công Nghệ Thông Tin do Công Ty TNHH Giải Pháp CNTT Và Truyền Thông Hoàng Khang phụ trách và phát triển."><% end %>
 	<meta name="google-site-verification" content="QjLSyCa5_gKR4ZHGAJjl8dfTFvTRzrvnRsvVtX0ELBY" />
 	<meta name="p:domain_verify" content="ea6698d5675dd276bb908ed7081d9b16"/>
+	<meta name="robots" content="index, follow">
 	<%= yield(:metas) %>
 	<meta property="fb:app_id" content="1857760154495631"/>
 	<link rel="apple-touch-icon" sizes="57x57" href="<%= url_for('/frontend/img/sys/apple-icon-57x57.png') %>">
@@ -53,7 +54,7 @@
 	<%= stylesheet_link_tag '/frontend/select2/css/select2.min.css?v=6.0' %>
 	<%= stylesheet_link_tag '/frontend/css/import.css?v=6.4' %>
 	<%= stylesheet_link_tag '/frontend/css/custom.css?v=6.4' %>
-	<%= stylesheet_link_tag '/frontend/css/res-device.css?v=6.4' %>
+	<%= stylesheet_link_tag '/frontend/css/res-device.css?v=6.5' %>
 	<% if params[:controller] == 'erp/online_store/frontend/account' && params[:action] == 'my_account' %><%= stylesheet_link_tag '/frontend/css/custom-profile.css?v=5.0' %><% end %>
 	<% if params[:controller] == 'erp/online_store/frontend/shopping_cart' && params[:action] == 'checkout' %><%= stylesheet_link_tag '/frontend/css/checkout.css?v=5.0' %><% end %>
 	<%= stylesheet_link_tag '/frontend/css/starability-minified/starability-all.min.css?v=5.0' %>

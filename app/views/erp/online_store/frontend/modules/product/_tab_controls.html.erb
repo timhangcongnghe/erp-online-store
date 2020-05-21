@@ -1,14 +1,14 @@
 <ul class="nav nav-tabs">
     <% if product.description.present? %>
-        <li class="active"><a data-toggle="tab" href="#tab-description">Giới thiệu</a></li>
-        <li class="item_nonactive"><a data-toggle="tab" href="#tab-specs">Thông số kỹ thuật</a></li>        
+        <li class="active"><a data-toggle="tab" href="#tab-description" title="Giới thiệu sản phẩm" rel="nofollow">Giới thiệu</a></li>
+        <li class="item_nonactive"><a data-toggle="tab" href="#tab-specs" title="Thông số kỹ thuật" rel="nofollow">Thông số kỹ thuật</a></li>        
     <% else %>
-        <li class="active"><a data-toggle="tab" href="#tab-specs">Thông số kỹ thuật</a></li>
+        <li class="active"><a data-toggle="tab" href="#tab-specs" title="Thông số kỹ thuật" rel="nofollow">Thông số kỹ thuật</a></li>
     <% end %>
-    <li class="item_nonactive"><a id="a-tab-review" data-toggle="tab" href="#tab-review">
+    <li class="item_nonactive"><a id="a-tab-review" data-toggle="tab" href="#tab-review" title="Đánh giá sản phẩm" rel="nofollow">
         Đánh giá (<%= product.ratings_active.count %>)
     </a></li>
-    <li class="item_nonactive"><a data-toggle="tab" href="#tab-comment">
+    <li class="item_nonactive"><a data-toggle="tab" href="#tab-comment" title="Bình luận khách hàng" rel="nofollow">
         Bình luận (<%= @total_comments %>)
     </a></li>
 </ul>

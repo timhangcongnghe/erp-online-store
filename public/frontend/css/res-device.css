@@ -42,6 +42,9 @@
     .products-list-related.grid .product-layout .product-item-container.product-lists img {
         width: 70%;
     }
+    .type_1 .header-top {
+        height: 3px;
+    }
 }
 
 /* Smartphones (landscape) ----------- */

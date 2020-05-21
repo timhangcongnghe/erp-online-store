@@ -65,7 +65,7 @@
 <div class="hide-album">
 <% product_images.each_with_index do |product_image,index| %>
     <a href="<%= product_image.image_url.thumb650 %>" title="<%= @product.get_long_name %>" data-fancybox="images2" data-caption="<%= @product.get_long_name %> - Hình <%= index+1 %>">
-        <%= image_tag product_image.image_url.thumb170, alt: @product.get_long_name, title: @product.get_long_name, caption: @product.get_long_name %>
+        <%= image_tag product_image.image_url.thumb170, alt: @product.get_long_name, title: @product.get_long_name, caption: @product.get_long_name, size: "170x170" %>
     </a>
 <% end %>
 </div>
