@@ -1,30 +1,30 @@
-<% title @product.get_long_name %>
+<% title @product.get_short_name %>
 <% product_images = @product.product_images %>
 
 <% content_for :metas do %>
 <!-- FACEBOOK -->
-    <meta property="og:locale" content="vi-VN" />
+    <meta property="og:locale" content="vi" />
     <meta property="og:type" content="website"/>
-    <meta property="og:title" content="<%= @product.get_long_name %>"/>
+    <meta property="og:title" content="<%= @product.get_short_name %>"/>
     <% if @meta_description.present? %><meta property="og:description" content="<%= @meta_description %>"/><% else %><meta property="og:description" content="Tìm Hàng Công Nghệ là đơn vị cung cấp các sản phẩm, dịch vụ thuộc lĩnh vực Công Nghệ Thông Tin do Công Ty TNHH Giải Pháp CNTT Và Truyền Thông Hoàng Khang phụ trách và phát triển."/><% end %>
     <meta property="og:url" content="<%= request.url %>"/>
-    <meta property="og:site_name" content="<%= @product.get_long_name %> - Tìm Hàng Công Nghệ"/>
+    <meta property="og:site_name" content="<%= @product.get_short_name %> - Tìm Hàng Công Nghệ"/>
     <% if product_images.count == 0 %><meta name="og:image" content="https://timhangcongnghe.com/frontend/image/schema-logo.png"/><% else %><meta property="og:image" content="https://timhangcongnghe.com/<%= product_images.first.image_url.thumb650 %>"/><% end %>
     <meta property="og:image:width" content="1200"/>
 	<meta property="og:image:height" content="628"/>
     <!--TWITTER -->
     <meta property="og:url" content="<%= request.url %>"/>
     <meta name="twitter:card" content="summary"/>
-    <meta property="twitter:title" content="<%= @product.get_long_name %>"/>
+    <meta property="twitter:title" content="<%= @product.get_short_name %>"/>
     <% if @meta_description.present? %><meta property="twitter:description" content="<%= @meta_description %>"/><% else %><meta property="twitter:description" content="Tìm Hàng Công Nghệ là đơn vị cung cấp các sản phẩm, dịch vụ thuộc lĩnh vực Công Nghệ Thông Tin do Công Ty TNHH Giải Pháp CNTT Và Truyền Thông Hoàng Khang phụ trách và phát triển."/><% end %>
     <% if product_images.count == 0 %><meta name="twitter:image" content="https://timhangcongnghe.com/frontend/image/schema-logo.png"/><% else %><meta property="twitter:image" content="https://timhangcongnghe.com/<%= product_images.first.image_url.thumb650 %>"/><% end %>
 <% end %>
 
 <div class="main-container container">
     <ul class="breadcrumb">
-        <li><%= link_to '<i class="fa fa-home"></i>'.html_safe, 'https://timhangcongnghe.com/', title: 'Tìm Hàng Công Nghệ' %></li>
+        <li><%= link_to '<i class="fa fa-home"></i>'.html_safe, '//timhangcongnghe.com/', title: 'Tìm Hàng Công Nghệ' %></li>
         <% if !@menu.nil? %><% @menu.self_and_parent_menus.each do |menu| %><li><%= link_to menu.get_name, menu_link(menu), title: menu.get_name %></li><% end %><% end %>
-        <li><%= link_to truncate(@product.get_short_name, length: 59), "javascript:void(0)", title: @product.get_long_name %></li>
+        <li><%= link_to truncate(@product.get_short_name, length: 59), "javascript:void(0);", title: @product.get_short_name %></li>
     </ul>
     <div class="row">
         <div id="content" class="col-md-12 col-sm-12">

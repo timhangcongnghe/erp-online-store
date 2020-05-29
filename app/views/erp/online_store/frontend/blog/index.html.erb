@@ -45,34 +45,20 @@
                     <div class="blog-item ">
                         <div class="itemBlogImg col-md-4 col-sm-12">
                             <div class="article-image banners">
-                                <div><%= link_to image_tag(article_image(blog.image.medium, 'normal'), alt: blog.name, title: blog.name),
-                                    '#{article_image(blog.image,"normal")}', class: 'popup-gallery', title: blog.name %></div>
+                                <div><%= image_tag blog.image.thumb270x175, alt: blog.name, title: blog.name %></div>
                             </div>
                         </div>
                         <div class="itemBlogContent col-md-8 col-sm-12">
-                            <div class="article-title">
-                                <h4><%= link_to blog.name, article_link(blog), title: blog.name %></h4>
-                            </div>
+                            <div class="article-title"><h4><%= link_to blog.name, article_link(blog), title: blog.name %></h4></div>
                             <div class="article-sub-title">
                                 <span class="article-date">
-                                  <i class="fa fa-calendar"></i><%= blog.created_at.strftime("%d/%m/%Y %I:%M%p") %>
+                                  <i class="fa fa-calendar"></i><%= blog.created_at.strftime("%d/%m/%Y %I:%M %p") %>
                                 </span>
                             </div>
-                            <div class="article-description">
-                                <%= short_text(blog.content, 60) %>...
-                            </div>
-                            <div class="blog-meta">
-                                <span class="comment_count">
-                                    <span><%= blog.comments.count %> bình luận</span>
-                                </span>
-                                <span class="author">
-                                    <span>Đăng bởi: </span>Tìm Hàng Công Nghệ
-                                </span>
-                            </div>
+                            <div class="article-description"><%= truncate(blog.meta_description, length: 300) %></div>
                         </div>
                     </div>
                     <% end %>
-                    <div class="pagination-online-store"><%= erp_datalist_pagination(@blogs) %></div>
                 <% else %>
                     <div class="alert alert-warning"><i class="fa fa-warning"></i> Hiện chưa có bài viết cho mục này.</div>
                 <% end %>

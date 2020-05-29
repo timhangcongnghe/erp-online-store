@@ -23,7 +23,11 @@
 	<link rel="alternate" href="<%= request.url %>" hreflang="vi" />
 	<link rel="canonical" href="<%= request.url %>" />
 	<% end %>
-	<title><% if content_for?(:title) %><%= yield(:title) %> - Tìm Hàng Công Nghệ<% else %>Tìm Hàng Công Nghệ<% end %></title>
+	<% if params[:controller] == 'erp/online_store/frontend/home' && params[:action] == 'index' %>
+	<title>Tìm Hàng Công Nghệ | Chuyên laptop, máy vi tính, thiết bị công nghệ</title>
+	<% else %>
+	<title><% if content_for?(:title) %><%= yield(:title) %> | Tìm Hàng Công Nghệ<% else %>Tìm Hàng Công Nghệ | Chuyên laptop, máy vi tính, thiết bị công nghệ<% end %></title>
+	<% end %>
 	<% if @meta_keywords.present? %><meta name="keywords" content="<%= @meta_keywords %>">
 	<% else %><meta name="keywords" content="máy tính xách tay, laptop, máy tính để bàn, máy chủ, máy trạm, màn hình máy tính, máy chiếu, máy in, camera quan sát, tổng đài điện thoại"><% end %>
 	<% if @meta_description.present? %><meta name="description" content="<%= @meta_description %>">
@@ -123,6 +127,56 @@
 	  ]
 	}
 	</script>
+	<% end %>
+	<% if params[:controller] == 'erp/online_store/frontend/home' && params[:action] == 'index' %>
+	<script type="application/ld+json">{
+	"@context":"http://schema.org",
+	"@type":"ItemList",
+	"itemListElement":
+	[
+	{
+		"@type": "SiteNavigationElement",
+		"position": 1,
+		"name": "Giới thiệu",
+		"description": "Là đơn vị cung cấp các sản phẩm, dịch vụ thuộc lĩnh vực Công Nghệ Thông Tin",
+		"url":"https://timhangcongnghe.com/gioi-thieu.html"
+	},
+	{
+		"@type": "SiteNavigationElement",
+		"position": 2,
+		"name": "Góp ý và Liên hệ",
+		"description": "Liên hệ với bộ phận chăm sóc khách hàng.",
+		"url":"https://timhangcongnghe.com/gop-y-lien-he.html"
+	},
+	{
+		"@type": "SiteNavigationElement",
+		"position": 3,
+		"name": "Laptop - MacBook",
+		"description": "Cung cấp máy tính xách tay, macbook chính hãng tại Tìm Hàng Công Nghệ",
+		"url":"https://timhangcongnghe.com/chuyen-muc/42/laptop-macbook.html"
+	},
+	{
+		"@type": "SiteNavigationElement",
+		"position": 4,
+		"name": "Máy vi tính - Server",
+		"description": "Cung cấp máy tính để bàn, máy chủ server, máy tính trạm workstation, máy tính đồng bộ aio chính hãng tại Tìm Hàng Công Nghệ",
+		"url":"https://timhangcongnghe.com/chuyen-muc/322/may-vi-tinh-server.html"
+	},
+	{
+		"@type": "SiteNavigationElement",
+		"position": 5,
+		"name": "Điện thoại - Thiết bị thông minh",
+		"description": "Cung cấp điện thoại di động, apple watch, đồng hồ thông minh,...chính hãng tại Tìm Hàng Công Nghệ",
+		"url":"https://timhangcongnghe.com/chuyen-muc/323/dien-thoai-thiet-bi-thong-minh.html"
+	},
+	{
+		"@type": "SiteNavigationElement",
+		"position": 6,
+		"name": "Màn hình quảng cáo chuyên dụng",
+		"description": "Cung cấp màn hình quảng cáo chuyên dụng chính hãng Samsung, LG, AOC, HIKVISION tại Tìm Hàng Công Nghệ",
+		"url":"https://timhangcongnghe.com/chuyen-muc/259/man-hinh-hien-thi-chuyen-dung.html"
+	}
+	]}</script>
 	<% end %>
 	<script type="application/ld+json">
 	{

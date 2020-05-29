@@ -61,7 +61,7 @@
 </script>
 <!-- END LOCALE JAVASCRIPT -->
 
-  <script src="https://cdn.tiny.cloud/1/v5tkqzb4p6f6e8eimc2aklbemy3yk3ig7cc9sug8odilhst9/tinymce/5/tinymce.min.js"></script>
+  <%= javascript_include_tag '/backend/js/tinymce.min.js' %>
   <% neweditor_id = 'neweditor_' + unique_id %>
   <script>
     tinymce.init({

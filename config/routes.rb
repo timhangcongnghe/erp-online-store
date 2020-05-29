@@ -6,7 +6,6 @@ Erp::OnlineStore::Engine.routes.draw do
 	get "chuyen-muc(/:menu_id)(/:title).html" => "frontend/category#index", as: :category #add sitemap	
 	
 	get "chuyen-muc-select2.html" => "frontend/category#select2", as: :category_select2
-	get "san-pham/thuoc-tinh/:product_id(/:title).html" => "frontend/product#all_property", as: :all_property
 	post "chuyen-muc/chi-tiet-san-pham.html" => "frontend/product#product_detail"
 	
 	get "binh-luan-san-pham.html" => "frontend/product#comments", as: :product_comments
@@ -16,8 +15,6 @@ Erp::OnlineStore::Engine.routes.draw do
 	get "danh-gia-san-pham.html" => "frontend/product#ratings", as: :product_ratings
 	post "danh-gia-san-pham.html" => "frontend/product#ratings"
 	delete "danh-gia-san-pham/:rating_id-remove.html" => "frontend/product#delete_rating", as: :delete_product_rating
-	
-	get "xem-nhanh/:product_id(/:title).html" => "frontend/product#product_quickview", as: :product_quickview
 	# END PRODUCT & CATEGORY
 	
 	get "lua-chon-hang-dau.html" => "frontend/business_choices#index", as: :business_choices #add sitemap

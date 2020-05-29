@@ -6,12 +6,6 @@ module Erp
         include ActionView::Helpers::NumberHelper
         include Erp::OnlineStore::ApplicationHelper
 
-        def product_quickview
-          # Find product by product id
-          @product = Erp::Products::Product.find(params[:product_id])
-          render layout: nil
-        end
-
         def product_detail          
           @body_class = "res layout-subpage"
           @product = Erp::Products::Product.find(params[:product_id])
@@ -40,14 +34,6 @@ module Erp
             @total_comments = @product.comments.where(parent_id: nil).where(archived: false).count
           end
           expires_in 3.hours, public: true
-        end
-        
-        # view all product properties
-        def all_property
-          @product = Erp::Products::Product.find(params[:product_id])
-          if request.xhr?
-            render "erp/online_store/frontend/modules/product/_all_property", layout: nil
-          end
         end
 
         def comments
