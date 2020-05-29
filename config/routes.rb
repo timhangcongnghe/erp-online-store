@@ -2,15 +2,15 @@ Erp::OnlineStore::Engine.routes.draw do
 	root to: "frontend/home#index"
 	
 	# START PRODUCT & CATEGORY
-	get "san-pham/:product_id(/:title).html" => "frontend/product#product_detail", as: :product_detail #add sitemap
+	get "san-pham(/:product_id)(/:title).html" => "frontend/product#product_detail", as: :product_detail #add sitemap
 	get "chuyen-muc(/:menu_id)(/:title).html" => "frontend/category#index", as: :category #add sitemap	
 	
-	get "chuyen-muc-select2.html" => "frontend/category#select2", as: :category_select2
-	post "chuyen-muc/chi-tiet-san-pham.html" => "frontend/product#product_detail"
+	get "cat-select2.html" => "frontend/category#select2", as: :category_select2
+	post "cat/detail.html" => "frontend/product#product_detail"
 	
-	get "binh-luan-san-pham.html" => "frontend/product#comments", as: :product_comments
-	post "binh-luan-san-pham.html" => "frontend/product#comments"
-	delete "binh-luan-san-pham/:comment_id-remove.html" => "frontend/product#delete_comment", as: :delete_product_comment
+	get "prod-comment.html" => "frontend/product#comments", as: :product_comments
+	post "prod-comment.html" => "frontend/product#comments"
+	delete "prod-comment/:comment_id-remove.html" => "frontend/product#delete_comment", as: :delete_product_comment
 	
 	get "danh-gia-san-pham.html" => "frontend/product#ratings", as: :product_ratings
 	post "danh-gia-san-pham.html" => "frontend/product#ratings"
@@ -123,7 +123,7 @@ Erp::OnlineStore::Engine.routes.draw do
 
 	get "top-right-menu.html" => "frontend/home#top_right_menu", as: :top_right_menu
 	get "autosearch" => "frontend/product#autosearch", as: :autosearch
-	get "tim-kiem.html" => "frontend/product#search", as: :search
+	get "search.html" => "frontend/product#search", as: :search
 	get "district-select-box.html" => "frontend/area#district_select", as: :district_select
 	match "/404", :to => "frontend/error#not_found", :via => :all
 	get "category-box" => "frontend/home#category_box", as: :category_box
