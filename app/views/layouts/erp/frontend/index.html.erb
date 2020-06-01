@@ -28,8 +28,6 @@
 	<% else %>
 	<title><% if content_for?(:title) %><%= yield(:title) %> | Tìm Hàng Công Nghệ<% else %>Tìm Hàng Công Nghệ | Chuyên laptop, máy vi tính, thiết bị công nghệ<% end %></title>
 	<% end %>
-	<% if @meta_keywords.present? %><meta name="keywords" content="<%= @meta_keywords %>">
-	<% else %><meta name="keywords" content="máy tính xách tay, laptop, máy tính để bàn, máy chủ, máy trạm, màn hình máy tính, máy chiếu, máy in, camera quan sát, tổng đài điện thoại"><% end %>
 	<% if @meta_description.present? %><meta name="description" content="<%= @meta_description %>">
 	<% else %><meta name="description" content="Tìm Hàng Công Nghệ là đơn vị cung cấp các sản phẩm, dịch vụ thuộc lĩnh vực Công Nghệ Thông Tin do Công Ty TNHH Giải Pháp CNTT Và Truyền Thông Hoàng Khang phụ trách và phát triển."><% end %>
 	<meta name="google-site-verification" content="QjLSyCa5_gKR4ZHGAJjl8dfTFvTRzrvnRsvVtX0ELBY" />
@@ -72,24 +70,27 @@
 		ga('create', 'UA-101029174-1', 'auto');
 		ga('send', 'pageview');
 	</script>
-	<% if params[:controller] == 'erp/online_store/frontend/home' && params[:action] == 'index' || params[:controller] == 'erp/online_store/frontend/information' && params[:action] == 'about_us' %>
 	<script type="application/ld+json">
 	{
 	  "@context": "https://schema.org",
 	  "@type": "ComputerStore",
 	  "name": "Tìm Hàng Công Nghệ",
-	  "logo": "https://timhangcongnghe.com/frontend/image/schema-logo.png",
-	  "image": "https://timhangcongnghe.com/frontend/image/thcn-web-share.png",
+	  "alternateName": "Chuyên laptop, máy vi tính, thiết bị công nghệ",
 	  "@id": "https://timhangcongnghe.com/",
+	  "logo": "https://timhangcongnghe.com/frontend/image/logos/logo-timhangcongnghe-web.svg",
+	  "image": "https://timhangcongnghe.com/frontend/image/logos/logo-timhangcongnghe-web.svg",
+	  "description": "Tìm Hàng Công Nghệ là đơn vị cung cấp các sản phẩm, dịch vụ thuộc lĩnh vực Công Nghệ Thông Tin do Công Ty TNHH Giải Pháp CNTT Và Truyền Thông Hoàng Khang phụ trách và phát triển.",
+	  "hasMap": "https://www.google.com/maps/place/T%C3%ACm+H%C3%A0ng+C%C3%B4ng+Ngh%E1%BB%87/@10.8476082,106.6554575,17z/data=!3m1!4b1!4m5!3m4!1s0x0:0xefca0f0bc8cf5117!8m2!3d10.8476082!4d106.6576462",	
 	  "url": "https://timhangcongnghe.com/",
-	  "telephone": "(028) 3984 7690",
-	  "priceRange": "VND",
+	  "telephone": "02839847690",
+	  "priceRange": "100000VND-500000000VND",
 	  "address": {
 		"@type": "PostalAddress",
-		"streetAddress": "188 Đường số 1, Phường 16, Quận Gò Vấp",
-		"addressLocality": "TP. Hồ Chí Minh",
-		"postalCode": "70000",
-		"addressCountry": "VN"
+		"streetAddress": "188 Đường số 1, Phường 16, Gò Vấp, Hồ Chí Minh",
+		"addressLocality": "Gò Vấp",
+		"addressRegion": "Hồ Chí Minh",
+		"postalCode": "700000",
+		"addressCountry": "Việt Nam"
 	  },
 	  "geo": {
 		"@type": "GeoCoordinates",
@@ -109,25 +110,26 @@
 		"closes": "17:00"
 	  },{
 		"@type": "OpeningHoursSpecification",
-		"dayOfWeek": "Saturday",
+		"dayOfWeek": "Sunday",
 		"opens": "08:00",
 		"closes": "16:00"
 	  }],
 	  "sameAs": [
-		"https://www.facebook.com/TimHangCongNghe",
+		"https://www.facebook.com/TimHangCongNghe/",
 		"https://twitter.com/timhangcongnghe",
-		"https://www.instagram.com/tim_hang_cong_nghe",
+		"https://www.linkedin.com/in/timhangcongnghe/",
+		"https://www.pinterest.com/timhangcn",
+		"https://timhangcongnghe.tumblr.com/",
+		"https://soundcloud.com/timhangcn",
 		"https://www.youtube.com/channel/UCf64P6U7ZLd7r1kFaFWVZEQ",
-		"https://www.linkedin.com/in/timhangcongnghe",
-		"https://www.pinterest.com/tim_hang_cong_nghe",
-		"https://soundcloud.com/timhangcongnghe",
-		"https://timhangcongnghe.tumblr.com",
-		"https://www.reddit.com/user/timhangcongnghe",
-		"https://github.com/timhangcongnghe"
+		"https://sites.google.com/site/timhangcn/",
+		"https://timhangcongnghe.blogspot.com/",
+		"https://medium.com/@timhangcongnghe",
+		"https://timhangcongnghehcm.business.site/",
+		"https://timhangcongnghe.weebly.com/"
 	  ]
 	}
-	</script>
-	<% end %>
+	</script>	
 	<% if params[:controller] == 'erp/online_store/frontend/home' && params[:action] == 'index' %>
 	<script type="application/ld+json">{
 	"@context":"http://schema.org",
