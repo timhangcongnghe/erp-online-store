@@ -1,5 +1,14 @@
-<div class="module slideshow no-margin"><% @sliders.each do |slider| %>
+<div class="module slideshow no-margin">
     <div class="item" data-animate="fadeIn animated">
-        <%= link_to image_tag(slider.image_url, alt: slider.name, title: slider.name, class: 'img-responsive'), slider.link_url, title: slider.name %>
+        <%= link_to image_tag('/frontend/image/slideshow/Supplier-HP.jpg', alt: 'Laptop HP', title: 'Laptop HP', class: 'img-responsive'),
+            'https://timhangcongnghe.com/chuyen-muc/49/laptop-hp.html', title: 'Laptop HP' %>
     </div>
-<% end %></div>
+    <div class="item" data-animate="fadeIn animated">
+        <%= link_to image_tag('/frontend/image/slideshow/iPad-Pro-2020.jpg', alt: 'iPad Pro 11 2020', title: 'iPad Pro 11 2020', class: 'img-responsive'),
+            'https://timhangcongnghe.com/chuyen-muc/301/ipad-pro-129.html', title: 'iPad Pro 11 2020' %>
+    </div>
+    <div class="item" data-animate="fadeIn animated">
+        <%= link_to image_tag('/frontend/image/slideshow/Asus-ROG-Zephyrus.jpg', alt: 'Asus ROG Zephyrus', title: 'Asus ROG Zephyrus', class: 'img-responsive'),
+            'https://timhangcongnghe.com/san-pham/6542/laptop-gaming-asus-rog-zephyrus-s-gx701gxrhg142t.html', title: 'Asus ROG Zephyrus' %>
+    </div>
+</div>
