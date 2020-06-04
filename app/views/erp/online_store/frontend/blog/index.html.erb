@@ -19,7 +19,7 @@
 <% end %>
 <div class="main-container container">
     <ul class="breadcrumb">
-        <li><%= link_to '<i class="fa fa-home"></i>'.html_safe, 'https://timhangcongnghe.com/', title: 'Tìm Hàng Công Nghệ' %></li>
+        <li><%= link_to '<i class="fa fa-home"></i>'.html_safe, erp_online_store.root_path, title: 'Tìm Hàng Công Nghệ' %></li>
         <% if params[:cat_id].present? %>
             <li><%= link_to 'Tin Công Nghệ', erp_online_store.blog_path, title: 'Tin Công Nghệ' %></li>
             <li><%= link_to @category.name, 'javascript:void(0)', title: @category.name %></li>

@@ -21,7 +21,7 @@
 
 <div class="main-container container">
     <ul class="breadcrumb">
-        <li><%= link_to '<i class="fa fa-home"></i>'.html_safe, '//timhangcongnghe.com/', title: 'Tìm Hàng Công Nghệ' %></li>
+        <li><%= link_to '<i class="fa fa-home"></i>'.html_safe, erp_online_store.root_path, title: 'Tìm Hàng Công Nghệ' %></li>
         <li><%= link_to 'Thương Hiệu Sản Phẩm', erp_online_store.brand_listing_path, title: 'Thương Hiệu Sản Phẩm' %></li>
         <li><%= link_to @brand.name, 'javascript:void(0)', title: @brand.name %></li>
     </ul>

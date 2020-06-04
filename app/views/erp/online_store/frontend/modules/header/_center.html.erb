@@ -5,7 +5,7 @@
                 <%= link_to image_tag('/frontend/image/logos/timhangcongnghe.png',
                     alt: 'Tìm Hàng Công Nghệ',
                     title: 'Tìm Hàng Công Nghệ'),
-                    'https://timhangcongnghe.com/',
+                    erp_online_store.root_path,
                     title: 'Tìm Hàng Công Nghệ' %>
             </div>
             <div class="header-center-right col-md-10 col-sm-8 col-xs-2">
@@ -17,7 +17,7 @@
                                 <div class="megamenu-pattern">
                                     <div class="container">
                                         <ul class="megamenu " data-transition="slide" data-animationtime="250">
-                                            <li><a href="//timhangcongnghe.com/" class="clearfix" title="Trang Chủ">
+                                            <li><a href="<%= erp_online_store.root_path %>" class="clearfix" title="Trang Chủ">
 												<strong>Trang Chủ</strong><span class="label"></span></a></li>
 											<li><a href="<%= erp_online_store.business_choices_path %>" class="clearfix" title="Lựa Chọn Hàng Đầu">
 												<strong>Lựa Chọn Hàng Đầu</strong><span class="label"></span></a></li>
@@ -25,7 +25,7 @@
 												<strong>Thương Hiệu</strong><span class="label"></span></a></li>
                                             <li><a href="<%= erp_online_store.blog_path %>" class="clearfix" title="Tin Công Nghệ">
 												<strong>Tin Công Nghệ</strong><span class="label"></span></a></li>
-											<li class="hidden-md color-buy business-special"><a href="//timhangcongnghe.com/chuyen-muc/256/mieng-dan-chong-nhin-trom.html" class="clearfix" title="Miếng Dán Chống Nhìn Trộm">
+											<li class="hidden-md color-buy business-special"><a href="https://timhangcongnghe.com/chuyen-muc/256/mieng-dan-chong-nhin-trom.html" class="clearfix" title="Miếng Dán Chống Nhìn Trộm">
 												<strong><%= image_tag '/frontend/image_other/new.png', alt: 'Miếng dán chống nhìn trộm', title: 'Miếng dán chống nhìn trộm' %>Miếng Dán Chống Nhìn Trộm</strong></a></li>
                                         </ul>
                                     </div>

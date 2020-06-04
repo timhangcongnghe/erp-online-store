@@ -22,7 +22,7 @@
 
 <div class="main-container container">
     <ul class="breadcrumb">
-        <li><%= link_to '<i class="fa fa-home"></i>'.html_safe, '//timhangcongnghe.com/', title: 'Tìm Hàng Công Nghệ' %></li>
+        <li><%= link_to '<i class="fa fa-home"></i>'.html_safe, erp_online_store.root_path, title: 'Tìm Hàng Công Nghệ' %></li>
         <% if !@menu.nil? %><% @menu.self_and_parent_menus.each do |menu| %><li><%= link_to menu.get_name, menu_link(menu), title: menu.get_name %></li><% end %><% end %>
         <li><%= link_to truncate(@product.get_short_name, length: 59), "javascript:void(0);", title: @product.get_short_name %></li>
     </ul>

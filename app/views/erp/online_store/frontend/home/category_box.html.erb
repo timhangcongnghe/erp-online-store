@@ -144,7 +144,7 @@
                                                 <div class="product-image-container">
                                                     <div class="image">
                                                         <a class="lt-image" href="<%= product_link(product) %>" target="_self" title="<%= product.get_long_name %>">
-                                                            <%= image_tag product_image(product.product_images, 'first', 'thumb193'),
+                                                            <%= image_tag product_image(product.product_images, 'first', 'thumb445'),
                                                             alt: product.get_long_name, title: product.get_long_name, class: "img-responsive" %>
                                                         </a>
                                                     </div>
@@ -166,7 +166,7 @@
                                                         product_link(product), title: product.get_long_name %></h3>
                                                     <p class="price">
                                                         <% if product.is_sold_out? || product.is_call? %>
-                                                            <span class="price sold_out_true">Liên Hệ: (028) 3984 7690</span>
+                                                            <span class="price sold_out_true">Liên Hệ (028) 3984 7690</span>
                                                         <% elsif product.product_price.nil? %>
                                                             <span class="price price-updated">Đang Cập Nhật Giá</span>
                                                         <% else %>

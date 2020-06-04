@@ -202,7 +202,7 @@
 				"@type": "ListItem",
 				"position": <%= position %>,
 				"name": "Tìm Hàng Công Nghệ",
-				"item": "https://timhangcongnghe.com/"
+				"item": "<%= erp_online_store.root_path %>"
 			},
 			<% @menu.self_and_parent_menus.each do |menu| %>
 			<% if @menu.id != menu.id %>
@@ -235,7 +235,7 @@
 				"@type": "ListItem",
 				"position": <%= position %>,
 				"name": "Tìm Hàng Công Nghệ",
-				"item": "https://timhangcongnghe.com/"
+				"item": "<%= erp_online_store.root_path %>"
 			},
 			<% if !@menu.nil? %>
 			<% @menu.self_and_parent_menus.each do |menu| %>
