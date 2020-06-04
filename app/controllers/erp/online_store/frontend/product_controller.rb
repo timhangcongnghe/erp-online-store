@@ -33,7 +33,7 @@ module Erp
             end
             @total_comments = @product.comments.where(parent_id: nil).where(archived: false).count
           end
-          expires_in 3.hours, public: true
+          expires_in 24.hours, public: true
         end
 
         def comments
