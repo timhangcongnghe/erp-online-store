@@ -1,4 +1,4 @@
-<% title 'Thương Hiệu ' + @brand.name %>
+<% title @brand.name %>
 
 <% content_for :metas do %>
 <!-- for Facebook -->
@@ -32,7 +32,7 @@
         </aside>
         <div id="content" class="col-md-9 col-sm-8">
             <div class="products-category">
-                <h1 class="menu-title mb-0">Sản Phẩm Hãng <%= @brand.name %></h1>
+                <h1 class="menu-title mb-0"><%= @brand.name %></h1>
                 <div class="main-products-list">
                     <% if @products.count > 0 %>
                     <div class="products-list row list">

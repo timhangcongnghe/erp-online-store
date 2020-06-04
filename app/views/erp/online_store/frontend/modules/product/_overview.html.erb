@@ -27,7 +27,7 @@
                 <% if @product.product_intro_link.present? %><%= link_to '<i class="fa fa-youtube-play"></i>'.html_safe,
                     @product.product_intro_link,
                     class: "open-video-link thumb-video pull-left",
-                    title: @product.get_long_name %><% end %>                            
+                    title: @product.get_long_name, rel: 'nofollow' %><% end %>                            
             </div>
         <% else %>
             <div class="content-product-left  col-sm-5 col-xs-12 ">
@@ -37,7 +37,7 @@
                     <%= image_tag @product.main_image.image_url.thumb650, alt: @product.get_long_name, title: @product.get_long_name %>
                 </div><% end %>
                 <% if @product.product_intro_link.present? %><%= link_to '<i class="fa fa-youtube-play"></i>'.html_safe,
-                    @product.product_intro_link, class: "open-video-link thumb-video pull-left", title: @product.get_long_name %><% end %>
+                    @product.product_intro_link, class: "open-video-link thumb-video pull-left", title: @product.get_long_name, rel: 'nofollow' %><% end %>
             </div>
         <% end %>
         <% if product_images.count > 1 %>
