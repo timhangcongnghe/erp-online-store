@@ -1,35 +1,33 @@
 <!-- Placed at the end of the document so the pages load faster -->
-<%= javascript_include_tag '/frontend/js/jquery-2.2.4.min.js', cache: true %>
-<%= javascript_include_tag '/frontend/js/bootstrap.min.js', cache: true %>
-<%= javascript_include_tag '/frontend/js/owl-carousel/owl.carousel.js', cache: true %>
-<%= javascript_include_tag '/frontend/js/themejs/libs.js', cache: true %>
-<%= javascript_include_tag '/frontend/js/unveil/jquery.unveil.js', cache: true %>
-<%= javascript_include_tag '/frontend/js/countdown/jquery.countdown.min.js', cache: true %>
-<%= javascript_include_tag '/frontend/js/dcjqaccordion/jquery.dcjqaccordion.2.8.min.js', cache: true %>
-<%= javascript_include_tag '/frontend/js/datetimepicker/moment.js', cache: true %>
-<%= javascript_include_tag '/frontend/js/datetimepicker/bootstrap-datetimepicker.min.js', cache: true %>
-<%= javascript_include_tag '/frontend/js/jquery-ui/jquery-ui.min.js', cache: true %>
-<%= javascript_include_tag '/frontend/js/lightslider/lightslider.js', cache: true %>
-<%= javascript_include_tag '/frontend/fancybox/jquery.fancybox.min.js', cache: true %>
-<%= javascript_include_tag '/frontend/js/validate/jquery.validate.min.js', cache: true %>
-<%= javascript_include_tag '/frontend/js/validate/localization/messages_vi.js', cache: true %>
+<%= javascript_include_tag '/frontend/js/jquery-2.2.4.min.js' %>
+<%= javascript_include_tag '/frontend/js/bootstrap.min.js' %>
+<%= javascript_include_tag '/frontend/js/owl-carousel/owl.carousel.js' %>
+<%= javascript_include_tag '/frontend/js/themejs/libs.js' %>
+<%= javascript_include_tag '/frontend/js/unveil/jquery.unveil.js' %>
+<%= javascript_include_tag '/frontend/js/countdown/jquery.countdown.min.js' %>
+<%= javascript_include_tag '/frontend/js/dcjqaccordion/jquery.dcjqaccordion.2.8.min.js' %>
+<%= javascript_include_tag '/frontend/js/datetimepicker/moment.js' %>
+<%= javascript_include_tag '/frontend/js/datetimepicker/bootstrap-datetimepicker.min.js' %>
+<%= javascript_include_tag '/frontend/js/jquery-ui/jquery-ui.min.js' %>
+<%= javascript_include_tag '/frontend/js/lightslider/lightslider.js' %>
+<%= javascript_include_tag '/frontend/fancybox/jquery.fancybox.min.js' %>
+<%= javascript_include_tag '/frontend/js/validate/jquery.validate.min.js' %>
+<%= javascript_include_tag '/frontend/js/validate/localization/messages_vi.js' %>
 
 <!-- Theme files ============================================ -->
 <%= javascript_include_tag '//images.dmca.com/Badges/DMCABadgeHelper.min.js' %>
-<%= javascript_include_tag '/frontend/js/main.js', cache: true %>
-<%= javascript_include_tag '/frontend/js/comment.js', cache: true %>
-<%= javascript_include_tag '/frontend/js/themejs/so_megamenu.js', cache: true %>
-<%= javascript_include_tag '/frontend/js/themejs/addtocart.js', cache: true %>
-<%= javascript_include_tag '/frontend/js/themejs/application.js', cache: true %>
-
-<%= javascript_include_tag '/frontend/select2/js/select2.min.js', cache: true %>
-<%= javascript_include_tag '/frontend/select2/js/i18n/vi.js', cache: true %>
+<%= javascript_include_tag '/frontend/js/main.js' %>
+<%= javascript_include_tag '/frontend/js/comment.js' %>
+<%= javascript_include_tag '/frontend/js/themejs/so_megamenu.js' %>
+<%= javascript_include_tag '/frontend/js/themejs/addtocart.js' %>
+<%= javascript_include_tag '/frontend/js/themejs/application.js' %>
+<%= javascript_include_tag '/frontend/select2/js/select2.min.js' %>
+<%= javascript_include_tag '/frontend/select2/js/i18n/vi.js' %>
 
 <% if !flash.empty? %>
     <% classes = {"success" => "success", "alert" => "alert", "notice" => "notice", "warning" => "warning", "error" => "error"} %>
     <% flash.each do |key, value| %>
         <script>
-            // alert('<%= value %>');
             var tpl = '<h3><%= value %></h3>';
             $.jGrowl(tpl, {
                 life: 4000,
@@ -44,7 +42,6 @@
         </script>
     <% end %>
 <% end %>
-
 <% if params[:controller] == "erp/online_store/frontend/information" && params[:action] == "contact_us" %>
 <script>
     $('.maps').click(function () {
