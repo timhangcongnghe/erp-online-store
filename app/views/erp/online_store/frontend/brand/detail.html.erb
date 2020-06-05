@@ -50,7 +50,7 @@
                                         <% if product.is_deal? %><span class="label label-sale">Giảm giá</span><% end %>
                                     </div>
                                     <div class="right-block">
-                                        <div class="caption">
+                                        <div class="caption" style="text-align: center;">
                                             <h2><%= truncate(product.get_short_name, length: 52) %></h2>
                                             <div class="price">
                                                 <% if product.is_sold_out? || product.is_call?|| product.product_price.nil? %>

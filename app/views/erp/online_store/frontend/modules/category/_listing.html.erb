@@ -13,7 +13,7 @@
                     <%= count_down(product.deal_from_date, product.deal_to_date) %>
                 </div>
                 <div class="right-block">
-                    <div class="caption">
+                    <div class="caption" style="text-align:center;">
                         <% if menu.present? %>
                         <h2><%= truncate(product.get_short_name, length: menu.limit_product_name) %></h2>
                         <% else %>

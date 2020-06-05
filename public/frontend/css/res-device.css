@@ -45,6 +45,9 @@
     .type_1 .header-top {
         height: 3px;
     }
+    .left-content-product .content-product-right .title-product h1 {
+        font-size: 14px;
+    }
 }
 
 /* Smartphones (landscape) ----------- */
