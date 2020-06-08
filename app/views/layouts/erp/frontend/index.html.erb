@@ -50,14 +50,6 @@
 	<%= stylesheet_link_tag '/frontend/css/starability-minified/starability-all.min.css?v=6.1' %>
 	<% if params[:controller] == 'erp/online_store/frontend/product' && params[:action] == 'product_detail' %><%= stylesheet_link_tag '/frontend/rating-custom/post-review.css?v=6.1' %><%= render 'erp/online_store/frontend/modules/js_include' %><% end %>
 	<% if params[:controller] == 'erp/online_store/frontend/information' && params[:action] == 'contact_us' %><%= javascript_include_tag '/frontend/js-google-map/jquery/jquery.js?v=6.1' %><% end %>
-	<script>
-		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-		ga('create', 'UA-101029174-1', 'auto');
-		ga('send', 'pageview');
-	</script>
 	<script type="application/ld+json">{
 	  "@context": "https://schema.org",
 	  "@type": "ComputerStore",
@@ -331,6 +323,14 @@
 	}
 	</script>
 	<% end %>
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-101029174-1', 'auto');
+		ga('send', 'pageview');
+	</script>
 </head>
 <body class="<%= @body_class %>">
     <div id="wrapper" class="wrapper-full banners-effect-7">
@@ -341,18 +341,7 @@
         </script>
         <%= render 'erp/online_store/frontend/modules/footer' %>
     </div>
-    <% if params[:controller] == 'erp/online_store/frontend/product' && params[:action] == 'product_detail' %><% else %><%= render 'erp/online_store/frontend/modules/js_include' %><% end %>
-	<script type="text/javascript">
-		var google_conversion_id = 853123323;
-		var google_custom_params = window.google_tag_params;
-		var google_remarketing_only = true;
-	</script>
-	<%= javascript_include_tag '//www.googleadservices.com/pagead/conversion.js' %>
-	<noscript>
-		<div style="display:inline;">
-			<img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/853123323/?guid=ON&amp;script=0"/>
-		</div>
-	</noscript>
+	<% if params[:controller] == 'erp/online_store/frontend/product' && params[:action] == 'product_detail' %><% else %><%= render 'erp/online_store/frontend/modules/js_include' %><% end %>
 	<script id='autoAdsMaxLead-widget-script' src='https://cdn.autoads.asia/scripts/autoads-maxlead-widget.js?business_id=92716848F2174C1681138F8773D7CF4E' type='text/javascript' charset='UTF-8' async></script>
 </body>
 </html>

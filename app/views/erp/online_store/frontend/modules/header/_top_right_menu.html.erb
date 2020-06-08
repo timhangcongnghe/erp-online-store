@@ -16,14 +16,14 @@
         </a>
         <ul class="dropdown-menu ">
             <li><%= link_to '<i class="fa fa-user"></i> Tài khoản của tôi'.html_safe,
-                    erp_online_store.my_account_path, title: 'Tài khoản của tôi', rel: 'nofollow' %></li>
+                    erp_online_store.my_account_path, title: 'Tài khoản của tôi' %></li>
             <li><%= link_to '<i class="fa fa-shopping-cart"></i> Đơn hàng của tôi'.html_safe,
-                erp_online_store.order_history_path, title: 'Đơn hàng của tôi', rel: 'nofollow' %></li>
+                erp_online_store.order_history_path, title: 'Đơn hàng của tôi' %></li>
             <li><%= link_to '<i class="fa fa-sign-out"></i> Thoát tài khoản'.html_safe,
                 erp.destroy_user_session_path,
                 method: :delete,
                 redirect_to: erp.backend_path,
-                class: 'link-method', title: 'Thoát tài khoản', rel: 'nofollow'
+                class: 'link-method', title: 'Thoát tài khoản'
             %></li>
         </ul>
     </li>
