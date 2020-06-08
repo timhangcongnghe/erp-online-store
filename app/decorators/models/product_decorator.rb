@@ -101,24 +101,6 @@ Erp::Products::Product.class_eval do
     return query
   end
   
-  def self.search(params)
-    query = self.all
-    query = self.filter(query, params)
-
-    # order
-    if params[:sort_by].present?
-      order = params[:sort_by]
-      order += " #{params[:sort_direction]}" if params[:sort_direction].present?
-
-      query = query.order(order)
-    else
-      query = query.order('erp_products_products.created_at desc')
-    end
-
-    return query
-  end
-  # end backend for thcn
-  
   # filter for frontend
   def self.frontend_filter(params={})
     records = self.where("1=1")
@@ -199,6 +181,7 @@ Erp::Products::Product.class_eval do
 
   # overide search method
   def self.search(params)
+    query = self.all
     query = self.filter(query, params)
 
     return query.set_order(params)
@@ -206,12 +189,12 @@ Erp::Products::Product.class_eval do
 
   # no online
   def self.not_sold_out
-    self.where(is_sold_out: false)
+    self.all.where(is_sold_out: false)
   end
 
   # no online
   def self.get_active_with_sold_out
-    self.where(archived: false)
+    self.all.where(archived: false)
   end
 
   # no online
