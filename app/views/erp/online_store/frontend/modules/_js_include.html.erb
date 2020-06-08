@@ -23,7 +23,6 @@
 <%= javascript_include_tag '/frontend/js/themejs/application.js' %>
 <%= javascript_include_tag '/frontend/select2/js/select2.min.js' %>
 <%= javascript_include_tag '/frontend/select2/js/i18n/vi.js' %>
-
 <% if !flash.empty? %>
     <% classes = {"success" => "success", "alert" => "alert", "notice" => "notice", "warning" => "warning", "error" => "error"} %>
     <% flash.each do |key, value| %>
@@ -43,13 +42,5 @@
     <% end %>
 <% end %>
 <% if params[:controller] == "erp/online_store/frontend/information" && params[:action] == "contact_us" %>
-<script>
-    $('.maps').click(function () {
-        $('.maps iframe').css("pointer-events", "auto");
-    });
-
-    $( ".maps" ).mouseleave(function() {
-        $('.maps iframe').css("pointer-events", "none");
-    });
-</script>
+<script>$(".maps").click(function(){$(".maps iframe").css("pointer-events","auto")}),$(".maps").mouseleave(function(){$(".maps iframe").css("pointer-events","none")});</script>
 <% end %>
