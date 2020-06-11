@@ -71,7 +71,11 @@
                         <td>
                             <strong><%= link_to product.name, erp_products.edit_backend_product_path(product) %></strong>
                             <% if product.short_name.present? %>
-                            <br><em><strong>Tên rút gọn: </strong><%= product.short_name %></em>
+                                <% if product.short_name.length > 70 %>
+                                    <br><em style="color: #d91e18"><strong>Tên rút gọn: </strong><%= product.short_name %></em>
+                                <% else %>
+                                    <br><em><strong>Tên rút gọn: </strong><%= product.short_name %></em>
+                                <% end %>
                             <% end %>
                             <% if product.gifts.count > 0 %>
                                 Tặng kèm:
