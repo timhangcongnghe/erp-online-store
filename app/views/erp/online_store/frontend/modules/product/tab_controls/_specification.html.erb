@@ -8,12 +8,12 @@
             </tr><% group[:properties].each do |property| %>
             <% if property[:property].is_short_description == true %>
             <tr class="property-value highlight-specs-main">
-                <td valign="top" class="text-nowrap"><%= property[:property].name %></td>
-                <td><%= property[:values].count <= 4 ? property[:values].join(", ") : ('<ul><li>' + property[:values].join('</li><li>') + '</li></ul>').html_safe %></td>
+                <td style="width: 30%;vertical-align: middle;"><%= property[:property].name %></td>
+                <td style="vertical-align: middle;"><%= property[:values].count <= 4 ? property[:values].join(", ") : ('<ul><li>' + property[:values].join('</li><li>') + '</li></ul>').html_safe %></td>
             </tr><% else %>
             <tr class="property-value">
-                <td valign="top" class="text-nowrap"><%= property[:property].name %></td>
-                <td><%= property[:values].count <= 4 ? property[:values].join(", ") : ('<ul><li>' + property[:values].join('</li><li>') + '</li></ul>').html_safe %></td>
+                <td style="width: 30%;vertical-align: middle;"><%= property[:property].name %></td>
+                <td style="vertical-align: middle;"><%= property[:values].count <= 4 ? property[:values].join(", ") : ('<ul><li>' + property[:values].join('</li><li>') + '</li></ul>').html_safe %></td>
             </tr><% end %><% end %><% end %>
         </tbody>
     </table><% end %>
