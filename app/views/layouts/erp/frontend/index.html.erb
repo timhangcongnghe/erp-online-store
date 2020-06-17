@@ -42,7 +42,7 @@
 	<%= stylesheet_link_tag '/frontend/js/lightslider/lightslider.css?v=6.5' %>
 	<%= stylesheet_link_tag '/frontend/fancybox/jquery.fancybox.min.css?v=6.5' %>
 	<%= stylesheet_link_tag '/frontend/select2/css/select2.min.css?v=6.5' %>
-	<%= stylesheet_link_tag '/frontend/css/import.css?v=6.8' %>
+	<%= stylesheet_link_tag '/frontend/css/import.css?v=6.9' %>
 	<%= stylesheet_link_tag '/frontend/css/custom.css?v=6.8' %>
 	<%= stylesheet_link_tag '/frontend/css/res-device.css?v=6.8' %>
 	<% if params[:controller] == 'erp/online_store/frontend/account' && params[:action] == 'my_account' %><%= stylesheet_link_tag '/frontend/css/custom-profile.css?v=6.5' %><% end %>
@@ -257,7 +257,7 @@
 		<% end %>
 		<% if @meta_description.present? %>"description": "<%= @meta_description %>",<% end %>
 		"brand": "<%= @product.brand_name %>",
-		<% if @product.code.present? %>"sku": "<%= @product.code %>","mpn": "<%= @product.code %>",<% end %>
+		<% if @product.code.present? %>"sku": "<%= @product.code %>","mpn": "<%= @product.code %>",<% else %>"sku": "<%= @product.id %>","mpn": "<%= @product.id %>",<% end %>
 		"review": {
 			"@type": "Review",
 			"reviewRating": {
@@ -285,7 +285,7 @@
 			"price": "<%= @product.product_price.to_i %>",
 			<% end %>
 			"priceValidUntil": "<%= (@product.updated_at+730.days).strftime("%d/%m/%Y") %>",
-			"availability": "https://schema.org/InStock",
+			<% if @product.is_sold_out == true %>"availability": "https://schema.org/OutOfStock",<% else %>"availability": "https://schema.org/InStock",<% end %>
 			"seller": {
 				"@type": "Organization",
 				"name": "Tìm Hàng Công Nghệ"

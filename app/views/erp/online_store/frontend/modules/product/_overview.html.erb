@@ -74,22 +74,24 @@
             <div class="product-box-desc <%= 'no_border_button' if @product.is_sold_out %>">
                 <div class="inner-box-desc">
                     <span>Thương hiệu: </span><strong><%= link_to @product.brand_name, brand_link(@product.brand),title: @product.brand_name, target: '_blank' %></strong></td>
-                    <% if @product.warranty.present? %><br><span>Thời gian bảo hành: </span><%= @product.warranty %> tháng<% end %>                    
-                    <% product_short_descipriton_values_array = @product.product_short_descipriton_values_array %>
-                    <% if product_short_descipriton_values_array.count > 2 %>
-                        <% product_short_descipriton_values_array.each do |row| %>
-                            <br><span><%= row[:name] %>: </span><%= row[:values].join(", ") %>
-                        <% end %>
-                    <% else %>
-                        <% @product.product_values_array.each do |group| %>
-                            <h4 class=""><%= group[:group].name %></h4>
-                            <% group[:properties].each do |property| %>
-                                <br><span><%= property[:property].name %>: </span><%= property[:values].join(", ") %>
+                    <% if @product.warranty.present? %><br><span>Thời gian bảo hành: </span><%= @product.warranty %> tháng<% end %>
+                    <% if !@product.category.nil? %>
+                        <% product_short_descipriton_values_array = @product.product_short_descipriton_values_array %>
+                        <% if product_short_descipriton_values_array.count > 2 %>
+                            <% product_short_descipriton_values_array.each do |row| %>
+                                <br><span><%= row[:name] %>: </span><%= row[:values].join(", ") %>
+                            <% end %>
+                        <% else %>
+                            <% @product.product_values_array.each do |group| %>
+                                <h4 class=""><%= group[:group].name %></h4>
+                                <% group[:properties].each do |property| %>
+                                    <br><span><%= property[:property].name %>: </span><%= property[:values].join(", ") %>
+                                <% end %>
                             <% end %>
                         <% end %>
                     <% end %>
-                        <% if @product.dimentions.present? %><br><span>Kích thước vận chuyển: </span><%= @product.dimentions %><% end %>
-                        <% if @product.weights.present? %><br><span>Trọng lượng vận chuyển: </span><%= @product.weights %><% end %>
+                    <% if @product.dimentions.present? %><br><span>Kích thước vận chuyển: </span><%= @product.dimentions %><% end %>
+                    <% if @product.weights.present? %><br><span>Trọng lượng vận chuyển: </span><%= @product.weights %><% end %>
                     </table>
                 </div>                                
             </div>

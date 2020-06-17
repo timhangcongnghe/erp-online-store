@@ -22,7 +22,7 @@
       <div class="col-md-6">
         <div class="menu-container clearfix">
           <ul class="menu">
-            <li><%= link_to "Trang chủ", '//timhangcongnghe.com/' %></li>
+            <li><%= link_to "Trang chủ", erp_online_store.root_path %></li>
             <li><%= link_to "Về chúng tôi", erp_online_store.about_us_path %></li>
             <li><%= link_to "Liên hệ", erp_online_store.contact_us_path %></li>
           </ul>
@@ -31,15 +31,24 @@
       <div class="col-md-6">
         <div class="socila-container clearfix">
           <ul class="social pull-right">
-            <li><%= link_to '<i class="fa fa-facebook"></i>'.html_safe, "https://www.facebook.com/TimHangCongNghe/" %></li>
-            <li><%= link_to '<i class="fa fa-youtube"></i>'.html_safe, "https://www.youtube.com/channel/UC1_KyGKwBDeUpmWsbtrsdcg" %></li>
-            <li><%= link_to '<i class="fa fa-google-plus"></i>'.html_safe, "https://plus.google.com/u/4/104468622899810766789" %></li>
-            <li><%= link_to '<i class="fa fa-instagram"></i>'.html_safe, "https://www.instagram.com/timhangcongnghe/" %></li>
-            <li><%= link_to '<i class="fa fa-pinterest"></i>'.html_safe, "https://www.pinterest.com/timhangcongnghe/" %></li>
-            <!-- end social links -->
+            <li class="facebook">
+              <%= link_to '<i class="fa fa-facebook"></i>'.html_safe,
+                  'https://www.facebook.com/TimHangCongNghe/', title: 'Tìm Hàng Công Nghệ', target: "_blank" %></li>
+              <li class="twitter">
+              <%= link_to '<i class="fa fa-twitter"></i>'.html_safe,
+                  "https://twitter.com/timhangcongnghe", title: 'Tìm Hàng Công Nghệ', target: "_blank" %></li>
+              <li class="linkedin">
+              <%= link_to '<i class="fa fa-linkedin"></i>'.html_safe,
+                  'https://www.linkedin.com/in/timhangcongnghe/', title: 'Tìm Hàng Công Nghệ', target: "_blank" %></li>                                                
+              <li class="pinterest">
+              <%= link_to '<i class="fa fa-pinterest"></i>'.html_safe,
+                  '//pinterest.com/thcn_hcm/', title: 'Tìm Hàng Công Nghệ', target: "_blank" %></li>
+              <li class="tumblr">
+              <%= link_to '<i class="fa fa-tumblr"></i>'.html_safe,
+                  'https://timhangcongnghe.tumblr.com/', title: 'Tìm Hàng Công Nghệ', target: "_blank" %></li>
           </ul>
         </div>
-        <div class="copyright pull-right">Copyright &copy; 2017 <%= link_to "Tìm Hàng Công Nghệ", '//timhangcongnghe.com/' %> - All Rights Reserved.</div>
+        <div class="copyright pull-right">Copyright &copy; 2020 <%= link_to "Tìm Hàng Công Nghệ", <%= erp_online_store.root_path %> %> - All Rights Reserved.</div>
       </div>
     </div>
   </div>

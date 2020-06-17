@@ -433,14 +433,17 @@ def hkerp_update_imported
 
   def get_meta_description
     data = []
+    if self.brand.present?
+       data << self.brand.name
+    end
     self.category.property_groups.each do |group|
       group.properties.where(is_meta_description: true).each do |property|
         values = self.products_values_by_property(property).map {|pv| pv.properties_value.value }
         data += values if !values.empty?
       end
-    end
+    end    
 
-    return data.join(' - ')
+    return data.join(' ')
   end
   
   def save_meta_description
