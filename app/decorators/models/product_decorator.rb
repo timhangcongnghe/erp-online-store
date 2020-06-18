@@ -391,6 +391,7 @@ def hkerp_update_imported
   #Start THCN
   after_save :save_meta_description
   after_save :save_short_description
+  after_create :create_alias
   
   def get_long_name
     return self.name
@@ -418,6 +419,15 @@ def hkerp_update_imported
       self.update_column(:is_deal, false)
       return self.price
     end
+  end
+  
+  def create_alias
+    if self.short_name.present?
+      name = self.short_name
+    else
+      name = self.name
+    end
+    self.update_column(:alias, name.to_ascii.downcase.to_s.gsub(/[^0-9a-z \/]/i, '').gsub(/[ \/]+/i, '-').strip)
   end
 
   def get_meta_description

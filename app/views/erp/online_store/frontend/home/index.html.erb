@@ -37,8 +37,9 @@
             </div>
             <div class="block-banner banners banner-sn-1 wow fadeInUp">
                 <% @block_banners.each_with_index do |banner,index| %>
-                <div class="img-1 banner1-<%= index+1 %>"><%= link_to image_tag(banner.image_url.thumb, alt: banner.name, title: banner.name),
-                                                              banner.link_url, title: banner.name %></div>
+                <div class="img-1 banner1-<%= index+1 %>">
+                    <%= link_to image_tag(banner.image_url.thumb, alt: banner.name, title: banner.name), banner.link_url, title: banner.name %>
+                </div>
                 <% end %>
             </div>
         </div>
@@ -64,49 +65,49 @@
             <div class="block-brand list-brands">
                 <div class="brand-slider">
                     <div class="item-manu">                        
-                        <%= link_to image_tag('/frontend/img/brands/apple.jpg', alt: 'Apple', title: 'Apple', class: 'img-responsive'), '', title: 'Apple' %>
+                        <%= link_to image_tag('/frontend/img/brands/apple.jpg', alt: 'Apple', title: 'Apple', class: 'img-responsive'), 'https://timhangcongnghe.com/apple-bid16', title: 'Apple' %>
                     </div>
                     <div class="item-manu">                        
-                        <%= link_to image_tag('/frontend/img/brands/hp.jpg', alt: 'HP', title: 'HP', class: 'img-responsive'), '', title: 'HP' %>
+                        <%= link_to image_tag('/frontend/img/brands/hp.jpg', alt: 'HP', title: 'HP', class: 'img-responsive'), 'https://timhangcongnghe.com/hp-bid5', title: 'HP' %>
                     </div>
                     <div class="item-manu">                        
-                        <%= link_to image_tag('/frontend/img/brands/dell.jpg', alt: 'Dell', title: 'Dell', class: 'img-responsive'), '', title: 'Dell' %>
+                        <%= link_to image_tag('/frontend/img/brands/dell.jpg', alt: 'Dell', title: 'Dell', class: 'img-responsive'), 'https://timhangcongnghe.com/dell-bid3', title: 'Dell' %>
                     </div>
                     <div class="item-manu">                        
-                        <%= link_to image_tag('/frontend/img/brands/asus.jpg', alt: 'Asus', title: 'Asus', class: 'img-responsive'), '', title: 'Asus' %>
+                        <%= link_to image_tag('/frontend/img/brands/asus.jpg', alt: 'Asus', title: 'Asus', class: 'img-responsive'), 'https://timhangcongnghe.com/asus-bid41', title: 'Asus' %>
                     </div>
                     <div class="item-manu">                        
-                        <%= link_to image_tag('/frontend/img/brands/acer.jpg', alt: 'Acer', title: 'Acer', class: 'img-responsive'), '', title: 'Acer' %>
+                        <%= link_to image_tag('/frontend/img/brands/acer.jpg', alt: 'Acer', title: 'Acer', class: 'img-responsive'), 'https://timhangcongnghe.com/acer-bid1', title: 'Acer' %>
                     </div>
                     <div class="item-manu">                        
-                        <%= link_to image_tag('/frontend/img/brands/lenovo.jpg', alt: 'Lenovo', title: 'Lenovo', class: 'img-responsive'), '', title: 'Lenovo' %>
+                        <%= link_to image_tag('/frontend/img/brands/lenovo.jpg', alt: 'Lenovo', title: 'Lenovo', class: 'img-responsive'), 'https://timhangcongnghe.com/lenovo-bid2', title: 'Lenovo' %>
                     </div>
                     <div class="item-manu">                        
-                        <%= link_to image_tag('/frontend/img/brands/msi.jpg', alt: 'MSI', title: 'MSI', class: 'img-responsive'), '', title: 'MSI' %>
+                        <%= link_to image_tag('/frontend/img/brands/msi.jpg', alt: 'MSI', title: 'MSI', class: 'img-responsive'), 'https://timhangcongnghe.com/msi-bid31', title: 'MSI' %>
                     </div>
                     <div class="item-manu">                        
-                        <%= link_to image_tag('/frontend/img/brands/fujitsu.jpg', alt: 'Fujitsu', title: 'Fujitsu', class: 'img-responsive'), '', title: 'Fujitsu' %>
+                        <%= link_to image_tag('/frontend/img/brands/fujitsu.jpg', alt: 'Fujitsu', title: 'Fujitsu', class: 'img-responsive'), 'https://timhangcongnghe.com/fujitsu-bid8', title: 'Fujitsu' %>
                     </div>
                     <div class="item-manu">                        
-                        <%= link_to image_tag('/frontend/img/brands/intel.jpg', alt: 'Intel', title: 'Intel', class: 'img-responsive'), '', title: 'Intel' %>
+                        <%= link_to image_tag('/frontend/img/brands/intel.jpg', alt: 'Intel', title: 'Intel', class: 'img-responsive'), 'https://timhangcongnghe.com/intel-bid25', title: 'Intel' %>
                     </div>
                     <div class="item-manu">                        
-                        <%= link_to image_tag('/frontend/img/brands/samsung.jpg', alt: 'SamSung', title: 'SamSung', class: 'img-responsive'), '', title: 'SamSung' %>
+                        <%= link_to image_tag('/frontend/img/brands/samsung.jpg', alt: 'SamSung', title: 'SamSung', class: 'img-responsive'), 'https://timhangcongnghe.com/samsung-bid28', title: 'SamSung' %>
                     </div>
                     <div class="item-manu">                        
-                        <%= link_to image_tag('/frontend/img/brands/dahua.jpg', alt: 'Dahua', title: 'Dahua', class: 'img-responsive'), '', title: 'Dahua' %>
+                        <%= link_to image_tag('/frontend/img/brands/dahua.jpg', alt: 'Dahua', title: 'Dahua', class: 'img-responsive'), 'https://timhangcongnghe.com/dahua-bid178', title: 'Dahua' %>
                     </div>
                     <div class="item-manu">                        
-                        <%= link_to image_tag('/frontend/img/brands/viewsonic.jpg', alt: 'ViewSonic', title: 'ViewSonic', class: 'img-responsive'), '', title: 'ViewSonic' %>
+                        <%= link_to image_tag('/frontend/img/brands/viewsonic.jpg', alt: 'ViewSonic', title: 'ViewSonic', class: 'img-responsive'), 'https://timhangcongnghe.com/viewsonic-bid134', title: 'ViewSonic' %>
                     </div>
                     <div class="item-manu">                        
-                        <%= link_to image_tag('/frontend/img/brands/jabra.jpg', alt: 'Jabra', title: 'Jabra', class: 'img-responsive'), '', title: 'Jabra' %>
+                        <%= link_to image_tag('/frontend/img/brands/jabra.jpg', alt: 'Jabra', title: 'Jabra', class: 'img-responsive'), 'https://timhangcongnghe.com/jabra-bid143', title: 'Jabra' %>
                     </div>
                     <div class="item-manu">                        
-                        <%= link_to image_tag('/frontend/img/brands/corsair.jpg', alt: 'Corsair', title: 'Corsair', class: 'img-responsive'), '', title: 'Corsair' %>
+                        <%= link_to image_tag('/frontend/img/brands/corsair.jpg', alt: 'Corsair', title: 'Corsair', class: 'img-responsive'), 'https://timhangcongnghe.com/corsair-bid53', title: 'Corsair' %>
                     </div>
                     <div class="item-manu">                        
-                        <%= link_to image_tag('/frontend/img/brands/crucial.jpg', alt: 'Crucial', title: 'Crucial', class: 'img-responsive'), '', title: 'Crucial' %>
+                        <%= link_to image_tag('/frontend/img/brands/crucial.jpg', alt: 'Crucial', title: 'Crucial', class: 'img-responsive'), 'https://timhangcongnghe.com/crucial-bid156', title: 'Crucial' %>
                     </div>
                 </div>
             </div>
