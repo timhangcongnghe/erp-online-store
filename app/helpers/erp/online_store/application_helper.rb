@@ -1,8 +1,6 @@
 module Erp
   module OnlineStore
     module ApplicationHelper
-
-      # display stars rating
       def stars(number)
         strs = []
         (1..5).each do |star|
@@ -14,36 +12,28 @@ module Erp
           elsif number >= star+0.26 and number <= star+0.75
             cls = '-half-o'
           end
-
           strs << "<span class=\"fa fa-stack\"><i class=\"fa fa-star#{(cls)} fa-stack-2x\"></i></span>"
         end
         strs.join('').html_safe
       end
-
-      # menu link helper
-      def menu_link(menu)
-        erp_online_store.category_path(menu_id: menu.id, title: menu.alias)
-      end
-
-      # product link helper
-      def product_link(product)
-        erp_online_store.product_detail_path(product_id: product.id, title: product.alias)
-      end
       
-      # product url helper
-      def product_property_link(product)
-        erp_online_store.all_property_path(product_id: product.id, title: product.alias)
-      end
-
-      # brand link helper
-      def brand_link(brand)
-        erp_online_store.brand_detail_path(brand_id: brand.id, title: url_friendly(brand.name))
-      end
-
-      # page title helper
       def title(page_title)
         content_for :title, page_title.to_s
       end
+      def category_detail_link(category)
+        erp_online_store.category_detail_path(category_id: category.id, category_name: category.alias)
+      end
+      def product_detail_link(product)
+        erp_online_store.product_detail_path(product_id: product.id, product_name: product.alias)
+      end
+      def brand_detail_link(brand)
+        erp_online_store.brand_detail_path(brand_id: brand.id, brand_name: brand.alias)
+      end
+      def product_property_link(product)
+        erp_online_store.all_property_path(product_id: product.id, title: product.alias)
+      end
+      
+      
 
       # article link
       def article_link(article)
@@ -54,8 +44,7 @@ module Erp
       def event_link(event)
         erp_online_store.event_detail_path(event.id, title:  url_friendly(event.name))
       end
-
-      # user avatar
+      
       def avatar(user)
         user.avatar? ? user.avatar.profile : url_for('/frontend/image/avatar/user_default.png')
       end

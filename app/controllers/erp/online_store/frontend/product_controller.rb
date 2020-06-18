@@ -5,8 +5,13 @@ module Erp
         before_action :set_comment, only: [:delete_comment]
         include ActionView::Helpers::NumberHelper
         include Erp::OnlineStore::ApplicationHelper
+        
+        def detail_301
+          @product = Erp::Products::Product.find(params[:product_id])
+          redirect_to erp_online_store.product_detail_path(product_id: @product.id, title: @product.alias), status: 301
+        end
 
-        def product_detail          
+        def detail          
           @body_class = "res layout-subpage"
           @product = Erp::Products::Product.find(params[:product_id])
           if @product.is_sold_out == true
@@ -21,39 +26,56 @@ module Erp
             render(:status => 404)
           else
             @deal_products = Erp::Products::Product.get_deal_products
-            @menu = params[:menu_id].present? ? Erp::Menus::Menu.find(params[:menu_id]) : @product.find_menu                    
+            @category = params[:category_id].present? ? Erp::Menus::Menu.find(params[:category_id]) : @product.find_menu                    
             @related_events = @product.get_related_events(Time.now)
             
             @meta_keywords = @product.meta_keywords
             @meta_description =  @product.meta_description
           
-            if @menu.present?
+            if @category.present?
               if !@product.meta_keywords.present?
-                @meta_keywords = @menu.meta_keywords
+                @meta_keywords = @category.meta_keywords
               end
-  
               if !@product.meta_description.present?
-                @meta_description = @menu.meta_description
+                @meta_description = @category.meta_description
               end
             end
             @total_comments = @product.comments.where(parent_id: nil).where(archived: false).count
           end
-          expires_in 5.hours, public: true
+          #expires_in 5.hours, public: true
+        end
+        
+        def search
+          @body_class = "res layout-subpage"
+          @keyword = params[:keyword]
+          @products = Erp::Products::Product.search(params).paginate(:page => params[:page], :per_page => 30)
+        end
+        
+        def autosearch
+          @products = Erp::Products::Product.search(params).paginate(:page => params[:page], :per_page => 20)
+          render json: @products.map { |product| {
+            name: product.get_long_name,
+            price: format_price(product.product_price),
+            is_deal: product.is_deal,
+            old_price: (format_price(product.price) if product.is_deal),
+            deal_percent: (product.deal_percent if product.is_deal),
+            link: product_detail_link(product),
+            is_sold_out: product.is_sold_out,
+            is_call: product.is_call,
+            image: image_src(product.main_image, 'thumb99'),
+          }}
         end
 
         def comments
           @product = Erp::Products::Product.find(params[:product_id])
-
           # product comment
           if params[:comment].present?
             @comment = Erp::Products::Comment.new(comment_params)
             @comment.user = current_user
             @comment.save
-
             render plain: 'Bạn đã đăng bình luận thành công'
             return
           end
-
           @comments = @product.comments.order('created_at DESC')
             .where(parent_id: nil)
             .where(archived: false)
@@ -97,30 +119,6 @@ module Erp
 
           @rating.destroy
           redirect_back(fallback_location: @rating, notice: 'Nội dung đánh giá đã được xóa')
-        end
-
-        def autosearch
-          @products = Erp::Products::Product.search(params).paginate(:page => params[:page], :per_page => 13)
-
-          render json: @products.map { |product| {
-            name: product.get_long_name,
-            price: format_price(product.product_price),
-            is_deal: product.is_deal,
-            old_price: (format_price(product.price) if product.is_deal),
-            deal_percent: (product.deal_percent if product.is_deal),
-            link: product_link(product),
-            is_sold_out: product.is_sold_out,
-            is_call: product.is_call,
-            image: image_src(product.main_image, 'thumb99'),
-          }}
-        end        
-
-        # Search page
-        def search
-          @keyword = params[:keyword]
-          @body_class = "res layout-subpage"
-          @products = Erp::Products::Product.search(params).paginate(:page => params[:page], :per_page => 30)
-          @menu = Erp::Menus::Menu.find(params[:menu_id]) if params[:menu_id].present?
         end
         
         def images

@@ -1,11 +1,4 @@
 Erp::Menus::Menu.class_eval do
-  def get_products_with_sold_out
-    records = Erp::Products::Product
-      .where(category_id: self.get_all_related_category_ids)
-
-    return records
-  end
-  
   def self.get_active
     self.where(archived: false).order("custom_order ASC")
   end
@@ -27,5 +20,25 @@ Erp::Menus::Menu.class_eval do
   
   def get_name
     return self.name
+  end
+  
+  def self.is_hot
+    self.where(is_hot: true)
+  end
+  
+  def get_products_with_sold_out
+    records = Erp::Products::Product
+      .where(category_id: self.get_all_related_category_ids)
+    return records
+  end
+  
+  def self_and_parent_menus(options={})
+    arr = [self]
+    father = self.parent
+    while father.present?
+      arr << father
+      father = father.parent
+    end
+    return arr.reverse
   end
 end

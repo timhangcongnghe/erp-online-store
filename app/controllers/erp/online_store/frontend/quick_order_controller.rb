@@ -17,7 +17,7 @@ module Erp
             return
           end
           
-          if !current_user.nil? 
+          if !current_user.nil?
             @quick_order = Erp::QuickOrders::Order.new
             if current_user.contact.nil?
               @quick_order.customer_name = current_user.name
@@ -31,8 +31,9 @@ module Erp
 
           if params[:quick_order].present?
             @quick_order = Erp::QuickOrders::Order.new(quick_order_params)
-
+            
             if @quick_order.save
+              
               @quick_order.save_from_cart(@cart)
               Erp::Carts::Cart.destroy(session[:cart_id])
 

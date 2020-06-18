@@ -5,11 +5,11 @@
 	<%= csrf_meta_tags %>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 	<link rel="alternate" href="<%= request.url %>" hreflang="vi" />
-	<% if params[:controller] == 'erp/online_store/frontend/home' && params[:action] == 'index' %><link rel="canonical" href="https://timhangcongnghe.com/" />
-	<% elsif params[:controller] == 'erp/online_store/frontend/category' && params[:action] == 'index' %><link rel="canonical" href="https://timhangcongnghe.com<%= menu_link(@menu) %>" />
-	<% elsif params[:controller] == 'erp/online_store/frontend/product' && params[:action] == 'product_detail' %><link rel="canonical" href="https://timhangcongnghe.com<%= product_link(@product) %>" />
+	<% if params[:controller] == 'erp/online_store/frontend/home' && params[:action] == 'index' %><link rel="canonical" href="<%= request.url %>" />
+	<% elsif params[:controller] == 'erp/online_store/frontend/category' && params[:action] == 'listing' %><link rel="canonical" href="https://timhangcongnghe.com<%= category_detail_link(@category) %>" />
+	<% elsif params[:controller] == 'erp/online_store/frontend/product' && params[:action] == 'detail' %><link rel="canonical" href="https://timhangcongnghe.com<%= product_detail_link(@product) %>" />
 	<% elsif params[:controller] == 'erp/online_store/frontend/brand' && params[:action] == 'listing' %><link rel="canonical" href="https://timhangcongnghe.com/thuong-hieu-san-pham.html" />
-	<% elsif params[:controller] == 'erp/online_store/frontend/brand' && params[:action] == 'detail' %><link rel="canonical" href="https://timhangcongnghe.com<%= brand_link(@brand) %>" />
+	<% elsif params[:controller] == 'erp/online_store/frontend/brand' && params[:action] == 'detail' %><link rel="canonical" href="https://timhangcongnghe.com<%= brand_detail_link(@brand) %>" />
 	<% else %><link rel="canonical" href="<%= request.url %>" /><% end %>
 	<% if params[:controller] == 'erp/online_store/frontend/home' && params[:action] == 'index' %>
 	<title>Tìm Hàng Công Nghệ | Chuyên laptop, máy vi tính, thiết bị công nghệ</title>
@@ -48,7 +48,7 @@
 	<% if params[:controller] == 'erp/online_store/frontend/account' && params[:action] == 'my_account' %><%= stylesheet_link_tag '/frontend/css/custom-profile.css?v=6.5' %><% end %>
 	<% if params[:controller] == 'erp/online_store/frontend/shopping_cart' && params[:action] == 'checkout' %><%= stylesheet_link_tag '/frontend/css/checkout.css?v=6.5' %><% end %>
 	<%= stylesheet_link_tag '/frontend/css/starability-minified/starability-all.min.css?v=6.5' %>
-	<% if params[:controller] == 'erp/online_store/frontend/product' && params[:action] == 'product_detail' %><%= stylesheet_link_tag '/frontend/rating-custom/post-review.css?v=6.5' %><%= render 'erp/online_store/frontend/modules/js_include' %><% end %>
+	<% if params[:controller] == 'erp/online_store/frontend/product' && params[:action] == 'detail' %><%= stylesheet_link_tag '/frontend/rating-custom/post-review.css?v=6.5' %><%= render 'erp/online_store/frontend/modules/js_include' %><% end %>
 	<% if params[:controller] == 'erp/online_store/frontend/information' && params[:action] == 'contact_us' %><%= javascript_include_tag '/frontend/js-google-map/jquery/jquery.js?v=6.5' %><% end %>
 	<script type="application/ld+json">{
 	  "@context": "https://schema.org",
@@ -57,7 +57,7 @@
 	  "alternateName": "Chuyên laptop, máy vi tính, thiết bị công nghệ",
 	  "@id": "https://timhangcongnghe.com/",
 	  "logo": "https://timhangcongnghe.com/frontend/image/logos/timhangcongnghe.png",
-	  "image": "https://timhangcongnghe.com/frontend/image/logos/timhangcongnghe.png",
+	  "image": "https://timhangcongnghe.com/frontend/image/schema-logo.png",
 	  "description": "Tìm Hàng Công Nghệ là đơn vị cung cấp các sản phẩm, dịch vụ thuộc lĩnh vực Công Nghệ Thông Tin do Công Ty TNHH Giải Pháp CNTT Và Truyền Thông Hoàng Khang phụ trách và phát triển.",
 	  "hasMap": "https://www.google.com/maps/place/T%C3%ACm+H%C3%A0ng+C%C3%B4ng+Ngh%E1%BB%87/@10.8476082,106.6554575,17z/data=!3m1!4b1!4m5!3m4!1s0x0:0xefca0f0bc8cf5117!8m2!3d10.8476082!4d106.6576462",	
 	  "url": "https://timhangcongnghe.com/",
@@ -171,7 +171,7 @@
 		}
 	}
 	</script>
-	<% if params[:controller] == 'erp/online_store/frontend/category' && params[:action] == 'index' %>
+	<% if params[:controller] == 'erp/online_store/frontend/category' && params[:action] == 'listing' %>
 	<script type="application/ld+json">
 	<% position = 1 %>
 	{
@@ -184,56 +184,56 @@
 				"name": "Tìm Hàng Công Nghệ",
 				"item": "https://timhangcongnghe.com/"
 			},
-			<% @menu.self_and_parent_menus.each do |menu| %>
-			<% if @menu.id != menu.id %>
+			<% @category.self_and_parent_menus.each do |category| %>
+			<% if @category.id != category.id %>
 			{
 				"@type": "ListItem",
 				"position": <%= position = position + 1 %>,
-				"name": "<%= menu.name %>",
-				"item": "https://timhangcongnghe.com<%= menu_link(menu) %>"
+				"name": "<%= category.name %>",
+				"item": "https://timhangcongnghe.com<%= category_detail_link(category) %>"
 			},
 			<% end %>
 			<% end %>
 			{
 				"@type": "ListItem",
 				"position": <%= position = position + 1 %>,
-				"name": "<%= @menu.name %>",
-				"item": "https://timhangcongnghe.com<%= menu_link(@menu) %>"
+				"name": "<%= @category.name %>",
+				"item": "https://timhangcongnghe.com<%= category_detail_link(@category) %>"
 			}
 			]
 	}
 	</script>
 	<% end %>
-	<% if params[:controller] == 'erp/online_store/frontend/product' && params[:action] == 'product_detail' %>
+	<% if params[:controller] == 'erp/online_store/frontend/product' && params[:action] == 'detail' %>
 	<script type="application/ld+json">
 	<% position = 1 %>
 	{
 		"@context": "https://schema.org",
 		"@type": "BreadcrumbList",
-			"itemListElement": [
-			{
-				"@type": "ListItem",
-				"position": <%= position %>,
-				"name": "Tìm Hàng Công Nghệ",
-				"item": "https://timhangcongnghe.com/"
-			},
-			<% if !@menu.nil? %>
-			<% @menu.self_and_parent_menus.each do |menu| %>
-			{
-				"@type": "ListItem",
-				"position": <%= position = position + 1 %>,
-				"name": "<%= menu.name %>",
-				"item": "https://timhangcongnghe.com<%= menu_link(menu) %>"
-			},
-			<% end %>
-			<% end %>
-			{
-				"@type": "ListItem",
-				"position": <%= position = position + 1 %>,
-				"name": "<%= @product.get_short_name %>",
-				"item": "https://timhangcongnghe.com<%= product_link(@product) %>"
-			}
-			]
+		"itemListElement": [
+		{
+			"@type": "ListItem",
+			"position": <%= position %>,
+			"name": "Tìm Hàng Công Nghệ",
+			"item": "https://timhangcongnghe.com/"
+		},
+		<% if !@category.nil? %>
+		<% @category.self_and_parent_menus.each do |category| %>
+		{
+			"@type": "ListItem",
+			"position": <%= position = position + 1 %>,
+			"name": "<%= category.get_name %>",
+			"item": "https://timhangcongnghe.com<%= category_detail_link(category) %>"
+		},
+		<% end %>
+		<% end %>
+		{
+			"@type": "ListItem",
+			"position": <%= position = position + 1 %>,
+			"name": "<%= @product.get_short_name %>",
+			"item": "https://timhangcongnghe.com<%= product_detail_link(@product) %>"
+		}
+		]
 	}
 	</script>
 	<script type="application/ld+json">
@@ -277,7 +277,7 @@
 		},
 		"offers": {
 			"@type": "Offer",
-			"url": "https://timhangcongnghe.com<%= product_link(@product) %>",
+			"url": "https://timhangcongnghe.com<%= product_detail_link(@product) %>",
 			"priceCurrency": "VND",
 			<% if @product.is_sold_out? || @product.is_call? || @product.product_price.nil? %>
 			"price": "0",
@@ -341,7 +341,7 @@
         </script>
         <%= render 'erp/online_store/frontend/modules/footer' %>
     </div>
-	<% if params[:controller] == 'erp/online_store/frontend/product' && params[:action] == 'product_detail' %><% else %><%= render 'erp/online_store/frontend/modules/js_include' %><% end %>
+	<% if params[:controller] == 'erp/online_store/frontend/product' && params[:action] == 'detail' %><% else %><%= render 'erp/online_store/frontend/modules/js_include' %><% end %>
 	<script id='autoAdsMaxLead-widget-script' src='https://cdn.autoads.asia/scripts/autoads-maxlead-widget.js?business_id=92716848F2174C1681138F8773D7CF4E' type='text/javascript' charset='UTF-8' async></script>
 </body>
 </html>

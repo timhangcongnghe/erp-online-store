@@ -1,9 +1,19 @@
 Erp::OnlineStore::Engine.routes.draw do
-	root to: "frontend/home#index"
+	get "chuyen-muc(/:category_id)(/:category_name).html" => "frontend/category#detail_301", as: :category_detail_301
+	get "san-pham(/:product_id)(/:product_name).html" => "frontend/product#detail_301", as: :product_detail_301
+	get "thuong-hieu-san-pham(/:brand_id)(/:brand_name).html" => "frontend/brand#detail_301", as: :brand_detail_301
+	``
+	match "/404", :to => "frontend/error#not_found", :via => :all
 	
-	# START PRODUCT & CATEGORY
-	get "san-pham(/:product_id)(/:title).html" => "frontend/product#product_detail", as: :product_detail #add sitemap
-	get "chuyen-muc(/:menu_id)(/:title).html" => "frontend/category#index", as: :category #add sitemap	
+	root to: "frontend/home#index" #add sitemap
+	get "/:category_name-cid:category_id" => "frontend/category#detail", as: :category_detail #add sitemap
+	get "/:product_name-pid:product_id" => "frontend/product#detail", as: :product_detail #add sitemap
+	get "/:brand_name-bid:brand_id" => "frontend/brand#detail", as: :brand_detail #add sitemap
+	
+	get "thuong-hieu" => "frontend/brand#listing", as: :brand_listing #add sitemap
+	get "thuong-hieu-select2" => "frontend/brand#select2", as: :brand_select2
+	
+	get "category-box" => "frontend/home#category_box", as: :category_box #Disallow robots
 	
 	get "cat-select2.html" => "frontend/category#select2", as: :category_select2
 	post "cat/detail.html" => "frontend/product#product_detail"
@@ -111,22 +121,19 @@ Erp::OnlineStore::Engine.routes.draw do
 	# END INFORMATION
 
 	# START BRAND
-	get "thuong-hieu-san-pham-select2.html" => "frontend/brand#select2", as: :brand_select2
-	get "thuong-hieu-san-pham.html" => "frontend/brand#listing", as: :brand_listing #add sitemap
-	get "thuong-hieu-san-pham(/:brand_id)(/:title).html" => "frontend/brand#detail", as: :brand_detail #add sitemap
+	
+	
 	# END BRAND
 
 	# START OTHER SERVICES
 	get "dich-vu-sua-chua-bao-tri.html" => "frontend/services#computer_services", as: :computer_services #add sitemap
 	get "thi-cong-ha-tang-mang.html" => "frontend/services#network_services", as: :network_services #add sitemap
 	# END OTHER SERIES
-
-	get "top-right-menu.html" => "frontend/home#top_right_menu", as: :top_right_menu
+	
 	get "autosearch" => "frontend/product#autosearch", as: :autosearch
 	get "search.html" => "frontend/product#search", as: :search
 	get "district-select-box.html" => "frontend/area#district_select", as: :district_select
-	match "/404", :to => "frontend/error#not_found", :via => :all
-	get "category-box" => "frontend/home#category_box", as: :category_box
+	
 	get "/auth/failure" => "frontend/home#auth_failure", as: :auth_failure
 	
 	# PRODUCTS SELLERS

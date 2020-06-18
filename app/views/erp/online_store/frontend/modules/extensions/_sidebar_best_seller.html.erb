@@ -11,7 +11,7 @@
                         <div class="media-left">
                             <div class="item-image">
                                 <div class="item-img-info">
-                                    <h3><a href="<%= product_link(product) %>" class="lt-image" target="_self" title="<%= product.get_long_name %>">
+                                    <h3><a href="<%= product_detail_link(product) %>" class="lt-image" target="_self" title="<%= product.get_long_name %>">
                                         <%= image_tag product_image(product.product_images, 'first', 'thumb75'), alt: product.get_long_name, title: product.get_long_name, class: "img-responsive" %>
                                     </a></h3>
                                 </div>
@@ -20,7 +20,7 @@
                         <div class="media-body">
                             <div class="item-info">
                                 <div class="item-title">
-                                    <%= link_to truncate(product.get_short_name, length: 40), product_link(product), title: product.get_long_name %>
+                                    <%= link_to truncate(product.get_short_name, length: 40), product_detail_link(product), title: product.get_long_name %>
                                 </div>
                                 <div class="item-content">
                                     <div class="content_price">

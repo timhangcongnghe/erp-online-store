@@ -1,8 +1,8 @@
 <li class="item-vertical style1 with-sub-menu hover">
     <p class="close-menu"></p>
-    <a href="<%= menu_link(menu) %>" title="<%= menu.get_name %>">
-        <% if menu.menu_icon.present? %><%= image_tag menu.menu_icon.icon, alt: menu.get_name, title: menu.get_name %><% end %>
-        <strong><span><%= truncate(menu.get_name, length: 27) %></span><% if menu.children.count > 0 %><b class="fa fa-angle-right"></b><% end %></strong>
+    <a href="<%= category_detail_link(category) %>" title="<%= category.get_name %>">
+        <% if category.menu_icon.present? %><%= image_tag category.menu_icon.icon, alt: category.get_name, title: category.get_name %><% end %>
+        <strong><span><%= truncate(category.get_name, length: 27) %></span><% if category.children.count > 0 %><b class="fa fa-angle-right"></b><% end %></strong>
     </a>
     <div class="sub-menu" data-subwidth="100">
         <div class="content">
@@ -12,18 +12,18 @@
                         <div class="row">
                             <div class="col-sm-6 static-menu">
                                 <div class="menu">
-                                    <ul><% menu_array[0..13].each do |child| %>
+                                    <ul><% category_array[0..13].each do |child| %>
                                         <li class="<%= child[:class] %>">
-                                            <%= link_to child[:menu].get_name, menu_link(child[:menu]), class: 'main-menu', title: child[:menu].get_name %>
+                                            <%= link_to child[:menu].get_name, category_detail_link(child[:menu]), class: 'main-menu', title: child[:menu].get_name %>
                                         </li><% end %>
                                     </ul>
                                 </div>
                             </div>
                             <div class="col-sm-6 static-menu">
                                 <div class="menu">
-                                    <ul><% menu_array[14..26].each do |child| %>
+                                    <ul><% category_array[14..26].each do |child| %>
                                         <li class="<%= child[:class] %>">
-                                            <%= link_to child[:menu].get_name, menu_link(child[:menu]), class: 'main-menu', title: child[:menu].get_name %>
+                                            <%= link_to child[:menu].get_name, category_detail_link(child[:menu]), class: 'main-menu', title: child[:menu].get_name %>
                                         </li><% end %>
                                     </ul>
                                 </div>

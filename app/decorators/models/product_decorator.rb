@@ -343,7 +343,6 @@ def hkerp_update_imported
 
   def hkerp_set_cache_thcn_properties
     result = {short: nil, long: []}
-
     # Long
     self.product_values_array.each do |group|
       if group[:group].show_name.present?
@@ -358,7 +357,6 @@ def hkerp_update_imported
         }
       end
     end
-
     # Short
     result[:short] = self.product_short_descipriton_values_array
 
@@ -390,39 +388,30 @@ def hkerp_update_imported
     end
   end
   
-  #THCN Using Start
+  #Start THCN
   after_save :save_meta_description
   after_save :save_short_description
   
-  #get product long name
   def get_long_name
     return self.name
   end
   
-  #get product long name
   def get_short_name
     return self.short_name
   end
   
-  # brand name
   def brand_name
     brand.present? ? brand.name : ''
   end
   
-  # category name
   def category_name
     category.present? ? category.name : ''
   end
   
-  #get product price
   def product_price
-    # not deal
     return self.price if !self.is_deal
-    
-    # is deal
     from_conds = !self.deal_from_date.present? || (self.deal_from_date.present? && Time.now >= self.deal_from_date.beginning_of_day)
     to_conds = !self.deal_to_date.present? || (self.deal_to_date.present? && Time.now <= self.deal_to_date.end_of_day)
-    
     if from_conds && to_conds
       return self.deal_price
     else
@@ -441,17 +430,14 @@ def hkerp_update_imported
         values = self.products_values_by_property(property).map {|pv| pv.properties_value.value }
         data += values if !values.empty?
       end
-    end    
-
+    end
     return data.join(' ')
   end
   
   def save_meta_description
     str = self.get_meta_description
-
     self.update_columns(meta_description: str)
   end
-  
   
   def get_short_description
     data = []
@@ -461,15 +447,71 @@ def hkerp_update_imported
         data += values if !values.empty?
       end
     end
-
     return data.join(' - ')
   end
   
   def save_short_description
     str = self.get_short_description
-
     self.update_columns(short_description: str)
   end
   
-  #THCN Using End
+  def product_values_array
+    groups = []
+    self.category.property_groups.each do |group|
+      row = {}
+      row[:group] = group
+      row[:properties] = []
+      group.properties.each do |property|
+        row2 = {}
+        row2[:property] = property
+        row2[:values] = self.products_values_by_property(property).map {|pv| pv.properties_value.value }
+
+        row[:properties] << row2 if !row2[:values].empty?
+      end
+      groups << row if !row[:properties].empty?
+    end
+    return groups
+  end
+  
+  def product_short_descipriton_values_array
+    groups = []
+    return [] if self.category.nil?
+    self.category.property_groups.each do |group|
+      row = {}
+      if group.show_name.present?
+        row[:name] = group.get_show_name
+      else
+        row[:name] = group.get_name
+      end
+      row[:values] = []
+      group.properties.where(is_show_detail: true).each do |property|
+        values = self.products_values_by_property(property).map {|pv| pv.properties_value.value }
+        row[:values] += values if !values.empty?
+      end
+      groups << row if !row[:values].empty?
+    end
+    return groups
+  end
+  
+  def ratings_active
+    ratings.where(archived: false)
+  end
+  
+  def count_stars
+    self.ratings_active.map(&:star)
+  end
+  
+  def average_stars
+    (count_stars.empty? ? 0 : count_stars.inject(0, :+).to_f / count_stars.length).round(1)
+  end
+  
+  def percentage_stars(score=0)
+    percentage=0
+    num = self.ratings_active.where(star: score).count
+    if num > 0
+      percentage = num*100 / count_stars.length
+    end
+    return percentage
+  end
+  #End THCN
 end

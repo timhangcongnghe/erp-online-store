@@ -1,0 +1,262 @@
+<% title @product.get_short_name %><% product_images = @product.product_images %>
+<% if product_images.count > 0 %><% first_image = @product.product_images.first.image_url.thumb650 %><% end %>
+
+<% content_for :metas do %>
+<meta property="og:locale" content="vi" />
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="<%= @product.get_short_name %> - Tìm Hàng Công Nghệ"/>
+<% if @meta_description.present? %><meta property="og:description" content="<%= @meta_description %>"/><% else %><meta property="og:description" content="Tìm Hàng Công Nghệ là đơn vị cung cấp các sản phẩm, dịch vụ thuộc lĩnh vực Công Nghệ Thông Tin do Công Ty TNHH Giải Pháp CNTT Và Truyền Thông Hoàng Khang phụ trách và phát triển."/><% end %>
+<meta property="og:url" content="<%= request.url %>"/>
+<meta property="og:site_name" content="Tìm Hàng Công Nghệ"/>
+<% if product_images.count == 0 %><meta name="og:image" content="https://timhangcongnghe.com/frontend/image/schema-logo.png"/><% else %><meta property="og:image" content="https://timhangcongnghe.com<%= first_image %>"/><% end %>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="628"/>
+<meta property="og:url" content="<%= request.url %>"/>
+<meta name="twitter:card" content="summary"/>
+<meta property="twitter:title" content="<%= @product.get_short_name %> - Tìm Hàng Công Nghệ"/>
+<% if @meta_description.present? %><meta property="twitter:description" content="<%= @meta_description %>"/><% else %><meta property="twitter:description" content="Tìm Hàng Công Nghệ là đơn vị cung cấp các sản phẩm, dịch vụ thuộc lĩnh vực Công Nghệ Thông Tin do Công Ty TNHH Giải Pháp CNTT Và Truyền Thông Hoàng Khang phụ trách và phát triển."/><% end %>
+<% if product_images.count == 0 %><meta name="twitter:image" content="https://timhangcongnghe.com/frontend/image/schema-logo.png"/><% else %><meta property="twitter:image" content="https://timhangcongnghe.com<%= first_image %>"/><% end %>
+<% end %>
+
+<div class="main-container container">
+    <ul class="breadcrumb">
+        <li><%= link_to '<i class="fa fa-home"></i>'.html_safe, erp_online_store.root_path, title: 'Tìm Hàng Công Nghệ' %></li>
+        <% if !@category.nil? %><% @category.self_and_parent_menus.each do |category| %><li><%= link_to category.get_name, category_detail_link(category), title: category.get_name %></li><% end %><% end %>
+        <li><%= link_to truncate(@product.get_short_name, length: 59), "javascript:void(0);", title: @product.get_short_name %></li>
+    </ul>
+    <div class="row">
+        <div id="content" class="col-md-12 col-sm-12">
+            <div class="product-view row">
+                <div class="left-content-product col-lg-12 col-xs-12">
+                    <div class="row">
+                        <% if product_images.count > 1 %>
+                        <div class="content-product-left  col-sm-6 col-xs-12 "><div id="thumb-slider-vertical" class="thumb-vertical-outer"><span class="btn-more prev-thumb nt"><i class="fa fa-chevron-up"></i></span><span class="btn-more next-thumb nt"><i class="fa fa-chevron-down"></i></span>
+                            <ul class="thumb-vertical">
+                                <% product_images.each_with_index do |product_image,index| %>
+                                <li class="owl2-item">
+                                    <a data-caption="<%= @product.get_long_name %> - Hình <%= index+1 %>"
+                                       data-index="<%= index %>" class="img thumbnail "
+                                       data-image="<%= product_image.image_url.thumb650 %>"
+                                       title="<%= @product.get_long_name %>">
+                                       <%= image_tag product_image.image_url.thumb170, alt: @product.get_long_name, title: @product.get_long_name %>
+                                    </a>
+                                </li>
+                                <% end %>
+                            </ul>
+                            </div><div id="large-image" class="large-image vertical"><img class="product-image-zoom" data-src="<%= @product.main_image.image_url.thumb650 %>" src="<%= @product.main_image.image_url.thumb650 %>" alt="<%= @product.get_long_name %>" title="<%= @product.get_long_name %>"></div>
+                            <% if @product.product_intro_link.present? %><%= link_to '<i class="fa fa-youtube-play"></i>'.html_safe, @product.product_intro_link, class: "open-video-link thumb-video pull-left", title: @product.get_long_name %><% end %>                            
+                        </div>
+                        <% else %>
+                        <div class="content-product-left  col-sm-5 col-xs-12 ">
+                            <% if product_images.count == 0 %><div class="large-image vertical"><%= image_tag '/frontend/img/sys/product-coming-soon.jpg', alt: @product.get_long_name, title: @product.get_long_name %></div>
+                            <% else %><div class="large-image vertical"><%= image_tag @product.main_image.image_url.thumb650, alt: @product.get_long_name, title: @product.get_long_name %></div><% end %>
+                            <% if @product.product_intro_link.present? %><%= link_to '<i class="fa fa-youtube-play"></i>'.html_safe,
+                                @product.product_intro_link, class: "open-video-link thumb-video pull-left", title: @product.get_long_name, rel: 'nofollow' %><% end %>
+                        </div>
+                        <% end %>
+                        <% if product_images.count > 1 %><div class="content-product-right col-sm-6 col-xs-12">
+                        <% else %><div class="content-product-right col-sm-7 col-xs-12"><% end %>
+                        <div class="title-product"><h1><%= @product.get_long_name %></h1></div>
+                        <div class="box-review form-group">
+                            <div class="ratings"><div class="rating-box"><%= stars(@product.average_stars) %></div></div>
+                            <a class="write_review_button" title="Xem đánh giá" href="javascript:void(0);" onclick="$('a[href=\'#tab-review\']').trigger('click'); return false;">Xem đánh giá</a> |
+                            <a class="write_review_button" title="Xem bình luận" href="javascript:void(0);" onclick="$('a[href=\'#tab-comment\']').trigger('click'); return false;">Xem bình luận</a>
+                        </div>
+                        <div class="product-label form-group form-group-price-sold-out">
+                            <div class="product_page_price price">
+                                <% if @product.is_sold_out? || @product.is_call? %>
+                                    <span class="price-sold-out sold_out_true">Liên hệ (028) 3984 7690</span>
+                                <% elsif @product.product_price.nil? %>
+                                    <span class="price-sold-out price-updated">Đang cập nhật giá</span>
+                                <% else %>
+                                    <span class="price-new"><%= format_price(@product.product_price) %></span>
+                                    <% if @product.is_deal? %>
+                                        <span class="price-old"><%= format_price(@product.price) %></span>
+                                        <% if !@product.deal_percent.nil? %><span class="label label-percent">-<%= @product.deal_percent %>%</span><% end %>
+                                    <% end %>
+                                <% end %>
+                            </div>
+                        </div>                
+                        <% if @product.get_product_property_array.count > 0 %>
+                        <div class="product-box-desc <%= 'no_border_button' if @product.is_sold_out %>">
+                            <div class="inner-box-desc">
+                                <span>Thương hiệu: </span><strong><%= link_to @product.brand_name, brand_detail_link(@product.brand),title: @product.brand_name, target: '_blank' %></strong></td>
+                                <% if @product.warranty.present? %><br><span>Thời gian bảo hành: </span><%= @product.warranty %> tháng<% end %>
+                                <% if !@product.category.nil? %>
+                                    <% product_short_descipriton_values_array = @product.product_short_descipriton_values_array %>
+                                    <% if product_short_descipriton_values_array.count > 2 %>
+                                        <% product_short_descipriton_values_array.each do |row| %><br><span><%= row[:name] %>: </span><%= row[:values].join(", ") %><% end %>
+                                    <% else %>
+                                        <% @product.product_values_array.each do |group| %>
+                                            <h4 class=""><%= group[:group].name %></h4>
+                                            <% group[:properties].each do |property| %><br><span><%= property[:property].name %>: </span><%= property[:values].join(", ") %><% end %>
+                                        <% end %>
+                                    <% end %>
+                                <% end %>
+                                <% if @product.dimentions.present? %><br><span>Kích thước vận chuyển: </span><%= @product.dimentions %><% end %>
+                                <% if @product.weights.present? %><br><span>Trọng lượng vận chuyển: </span><%= @product.weights %><% end %>
+                                </table>
+                            </div>                                
+                        </div>
+                        <% end %>
+                        <hr>
+                        <div id="product">
+                            <div class="compare-product">SO SÁNH SẢN PHẨM</div>
+                            <div class="form-group box-info-product">                                    
+                                <div class="add-to-links wish_comp">
+                                    <ul class="blank list-inline">
+                                        <li class="compare">
+                                            <%= form_tag erp_online_store.add_to_compare_frontend_compare_items_path, class: 'add-compare-form' do %>
+                                                <%= hidden_field_tag "product_id", @product.id %>
+                                                <button class="btn btn-mega btn-lg add-to-compare" title="So sánh sản phẩm"><i class="fa fa-window-restore"></i> So sánh</button>
+                                            <% end %>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="call-center">
+                            <span><strong>Gọi ngay: </strong><%= link_to '(028) 3984 7690', 'tel:02839847690', title: '(028) 3984 7690' %></span><br>
+                            <span><strong>Gửi yêu cầu (To): </strong><%= mail_to 'kinhdoanh@hoangkhang.com.vn', 'kinhdoanh@hoangkhang.com.vn', title: 'kinhdoanh@hoangkhang.com.vn' %></span><br>
+                            <span><strong>Gửi yêu cầu (CC): </strong><%= mail_to 'kinhdoanh@timhangcongnghe.com', 'kinhdoanh@timhangcongnghe.com', title: 'kinhdoanh@timhangcongnghe.com' %></span>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bototm-detail">
+                <div class="row">
+                    <div class="sidebar-tablet-pd col-lg-3 col-md-4  col-xs-12">
+                        <div class="module releate-horizontal"><%= render '/erp/online_store/frontend/modules/extensions/sidebar_best_seller' %><%= render 'erp/online_store/frontend/modules/extensions/sidebar_hot_banner' %></div>
+                    </div>
+                    <div class="col-lg-9 col-md-8  col-xs-12">
+                        <div class="producttab ">
+                            <div class="tabsslider  col-xs-12">
+                                <ul class="nav nav-tabs">
+                                    <% if @product.description.present? %>
+                                        <li class="active"><a data-toggle="tab" href="#tab-description" title="Giới thiệu">Giới thiệu</a></li>
+                                        <li class="item_nonactive"><a data-toggle="tab" href="#tab-specs" title="Thông số kỹ thuật">Thông số kỹ thuật</a></li>        
+                                    <% else %>
+                                        <li class="active"><a data-toggle="tab" href="#tab-specs" title="Thông số kỹ thuật">Thông số kỹ thuật</a></li>
+                                    <% end %>
+                                    <li class="item_nonactive"><a id="a-tab-review" data-toggle="tab" href="#tab-review" title="Đánh giá">
+                                        Đánh giá (<%= @product.ratings_active.count %>)
+                                    </a></li>
+                                    <li class="item_nonactive"><a data-toggle="tab" href="#tab-comment" title="Bình luận">
+                                        Bình luận (<%= @total_comments %>)
+                                    </a></li>
+                                </ul>
+                                <div class="tab-content col-xs-12">
+                                    <% if @product.description.present? %>
+                                    <div id="tab-description" class="tab-pane fade active in"><%= @product.description.html_safe %></div>
+                                    <div id="tab-specs" class="tab-pane fade"><%= render 'erp/online_store/frontend/modules/product/specification', product: @product %></div>
+                                    <% else %><div id="tab-specs" class="tab-pane fade active in"><%= render 'erp/online_store/frontend/modules/product/specification', product: @product %></div><% end %>
+                                    <div id="tab-review" class="tab-pane fade comment_box" data-url="<%= erp_online_store.product_ratings_path(product_id: @product.id) %>"></div>
+                                    <div id="tab-comment" class="tab-pane fade comment_box" data-url="<%= erp_online_store.product_comments_path(product_id: @product.id) %>"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <% if @related_brand_products.count > 0 %>
+                        <div class="related upsell titleLine products-list products-list-related grid module ">
+                            <h3 class="modtitle"><span><i class="fa fa-angle-double-right"></i> Sản Phẩm Cùng Thương Hiệu <%= @product.brand.name %></span></h3>
+                            <div class="upsell-products">
+                                <% @related_brand_products.each do |product| %>
+                                <div class="product-layout">
+                                    <a href="<%= product_detail_link(product) %>" title="<%= product.get_long_name %>">
+                                        <div class="product-item-container product-lists">
+                                            <div class="left-block">
+                                                <div class="product-image-container second_img ">
+                                                <%= image_tag product_image(product.product_images, 'first', 'thumb445'),
+                                                    data: {src: product_image(product.product_images, 'first', 'thumb445')},
+                                                    alt: product.get_long_name, title: product.get_long_name, class: "img-responsive" %></div>
+                                                <% if product.is_new? %><span class="label label-new">Mới</span><% end %>
+                                                <% if product.is_deal? %><span class="label label-sale">Giảm giá</span><% end %>
+                                                <%= count_down(product.deal_from_date, product.deal_to_date) %>
+                                            </div>
+                                            <div class="right-block">
+                                                <div class="caption">
+                                                    <h2><%= product.get_short_name %></h2>
+                                                    <div class="ratings"><div class="rating-box"><%= stars(product.average_stars) %></div></div>
+                                                    <div class="price">
+                                                        <% if product.is_sold_out? || product.is_call? %>
+                                                            <span class="price sold_out_true">Liên hệ (028) 3984 7690</span>
+                                                        <% elsif product.product_price.nil? %>
+                                                            <span class="price price-updated">Đang Cập Nhật Giá</span>
+                                                        <% else %>
+                                                            <span class="price-new"><%= format_price(product.product_price) %></span>
+                                                            <% if product.is_deal? %>
+                                                            <br><span class="price-old"><%= format_price(product.price) %></span>
+                                                            <span class="label label-percent">-<%= product.deal_percent %>%</span>
+                                                            <% end %>
+                                                        <% end %>
+                                                    </div>
+                                                    <% if product.short_description.present? %><div class="list-product-specs"><%= product.short_description %></div><% end %>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <% end %>
+                            </div>
+                        </div>
+                        <% end %>
+                        <% if @related_products.count > 0 %>
+                        <div class="related upsell titleLine products-list products-list-related grid module ">
+                            <h3 class="modtitle"><span><i class="fa fa-angle-double-right"></i> Sản Phẩm Tương Tự</span></h3>
+                            <div class="upsell-products">
+                                <% @related_products.each do |product| %>
+                                <div class="product-layout">
+                                    <a href="<%= product_detail_link(product) %>" title="<%= product.get_long_name %>">
+                                        <div class="product-item-container product-lists">
+                                            <div class="left-block">
+                                                <div class="product-image-container second_img ">
+                                                <%= image_tag product_image(product.product_images, 'first', 'thumb445'),
+                                                    data: {src: product_image(product.product_images, 'first', 'thumb445')},
+                                                    alt: product.get_long_name, title: product.get_long_name, class: "img-responsive" %></div>
+                                                <% if product.is_new? %><span class="label label-new">Mới</span><% end %>
+                                                <% if product.is_deal? %><span class="label label-sale">Giảm giá</span><% end %>
+                                                <%= count_down(product.deal_from_date, product.deal_to_date) %>
+                                            </div>
+                                            <div class="right-block">
+                                                <div class="caption">
+                                                    <h2><%= product.get_short_name %></h2>
+                                                    <div class="ratings"><div class="rating-box"><%= stars(product.average_stars) %></div></div>
+                                                    <div class="price">
+                                                        <% if product.is_sold_out? || product.is_call? %>
+                                                            <span class="price sold_out_true">Liên hệ (028) 3984 7690</span>
+                                                        <% elsif product.product_price.nil? %>
+                                                            <span class="price price-updated">Đang Cập Nhật Giá</span>
+                                                        <% else %>
+                                                            <span class="price-new"><%= format_price(product.product_price) %></span>
+                                                            <% if product.is_deal? %>
+                                                            <br><span class="price-old"><%= format_price(product.price) %></span>
+                                                            <span class="label label-percent">-<%= product.deal_percent %>%</span>
+                                                            <% end %>
+                                                        <% end %>
+                                                    </div>
+                                                    <% if product.short_description.present? %>
+                                                    <div class="list-product-specs"><%= product.short_description %></div>
+                                                    <% end %>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <% end %>
+                            </div>
+                        </div>
+                        <% end %>                        
+                    </div>
+                </div>
+            </div>
+            <%= javascript_include_tag '/frontend/js/product_js.js?v=1.0' %>
+        </div>
+    </div>
+</div>
+<div class="hide-album">
+<% product_images.each_with_index do |product_image,index| %>
+    <a href="<%= product_image.image_url.thumb650 %>" title="<%= @product.get_long_name %>" data-fancybox="images2" data-caption="<%= @product.get_long_name %> - Hình <%= index+1 %>">
+        <%= image_tag product_image.image_url.thumb170, alt: @product.get_long_name, title: @product.get_long_name, caption: @product.get_long_name, size: "170x170" %>
+    </a>
+<% end %>
+</div>

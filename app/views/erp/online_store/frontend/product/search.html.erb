@@ -1,19 +1,18 @@
 <% title ((params[:menu_id].present? and @menu.present?) ? @menu.name : 'Tìm Hàng Công Nghệ') %>
 <div class="main-container container">
     <ul class="breadcrumb search-result">
-        <li><%= link_to '<i class="fa fa-home"></i>'.html_safe, '//timhangcongnghe.com/' %></li>
+        <li><%= link_to '<i class="fa fa-home"></i>'.html_safe, erp_online_store.root_path %></li>
         <li>Kết Quả Tìm Kiếm</li>
     </ul>
     <div class="row">
         <div id="content" class="col-md-12 col-sm-12">
             <div class="products-category">
-                <% if @products.count > 0 %>
-                    <% if @keyword.present? %><h1>Kết quả tìm kiếm phù hợp với từ khóa <strong>"<%= @keyword %>"</strong></h1><% end %>
+                <% if @products.count > 0 %><% if @keyword.present? %><h1>Kết Quả Tìm Kiếm: <strong>"<%= @keyword %>"</strong></h1><% end %>
                 <div class="main-products-list">
                     <div class="products-list row list">
                         <% @products.each do |product| %>
                         <div class="product-layout  col-md-2 col-sm-6 col-xs-6">
-                            <a href="<%= product_link(product) %>" title="<%= product.get_long_name %>">
+                            <a href="<%= product_detail_link(product) %>" title="<%= product.get_long_name %>">
                                 <div class="product-item-container product-lists">
                                     <div class="left-block">
                                         <div class="product-image-container second_img ">
@@ -51,6 +50,9 @@
                         </div>
                         <% end %>
                     </div>
+                    <div class="product-filter product-filter-bottom filters-panel">
+                        <div class="box-pagination text-center"><%= will_paginate @products, previous_label: '←', next_label: '→', renderer: BootstrapPagination::Rails, inner_window: 1, outer_window: 1 %></div>
+                    </div>
                 </div>
                 <% else %>
                     <section>
@@ -74,11 +76,6 @@
                         </div>
                     </section>
                 <% end %>
-                <div class="product-filter product-filter-bottom filters-panel">
-                    <div class="box-pagination text-center">
-                        <%= will_paginate @products, previous_label: '←', next_label: '→',
-                            renderer: BootstrapPagination::Rails, inner_window: 1, outer_window: 1 %></div>
-                </div>
             </div>
         </div>
     </div>

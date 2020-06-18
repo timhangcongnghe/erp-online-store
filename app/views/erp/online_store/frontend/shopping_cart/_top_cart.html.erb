@@ -1,4 +1,3 @@
-<!--cart-->
 <div class="shopping_cart pull-right">
     <div id="cart" class=" btn-group btn-shopping-cart">
         <a data-loading-text="Đang tải giỏ hàng..." title="Giỏ hàng" class="btn-group top_cart dropdown-toggle" data-toggle="dropdown">
@@ -14,43 +13,41 @@
             </div>
         </a>
         <ul id ="shoppingcart-box" class="tab-content content dropdown-menu pull-right shoppingcart-box chide" role="menu">
-            <% if @cart.cart_items.number_items > 0 %>
-            <li>
-                <table class="table table-striped">
-                    <tbody>
-                        <% @cart.cart_items.each do |cart_item| %>
-                        <tr>
-                            <td class="text-center" style="width:70px">
-                                <%= link_to image_tag(product_image(cart_item.product.product_images, 'first', 'thumb99'), width: "70px", alt: cart_item.product_name, class: "preview"),
-                                    product_link(cart_item.product), title: cart_item.product_name %>
-                            </td>
-                            <td class="text-left">
-                                <%= link_to cart_item.product_name, product_link(cart_item.product),
-                                    class: "cart_product_name top_cart_list", title: cart_item.product_name %><br>
-                                <% if cart_item.product.gifts.count > 0 %>
-                                    <span class="tooltip-col">
-                                        <i class="fa fa-gift" aria-hidden="true"></i>
-                                        <small class="tooltiptext">
-                                            <em>Tặng kèm:</em>
-                                            <% gift_names = [] %>
-                                            <% cart_item.product.gifts.each do |gift| %>
-                                                <% gift_names << gift.product_name.to_s %>
-                                            <% end %>
-                                            <%= gift_names.join(', ') %>
-                                        </small>
-                                    </span>
-                                <% end %>                                
-                            </td>
-                            <% if cart_item.product.is_sold_out? || cart_item.product.is_call? || cart_item.product.product_price.nil? %>
-                                <td class="text-center shopping-cart-price">Giá liên hệ</td>
-                            <% else %>
-                                <td class="text-center shopping-cart-price"><%= format_price(cart_item.product_price) %>x<%= cart_item.quantity %></td>
-                            <% end %>
-                        </tr>
+            <% if @cart.cart_items.number_items > 0 %><li>
+            <table class="table table-striped">
+                <tbody>
+                    <% @cart.cart_items.each do |cart_item| %>
+                    <tr>
+                        <td class="text-center" style="width:70px">
+                            <%= link_to image_tag(product_image(cart_item.product.product_images, 'first', 'thumb99'), width: "70px", alt: cart_item.product_name, class: "preview"),
+                                product_detail_link(cart_item.product), title: cart_item.product_name %>
+                        </td>
+                        <td class="text-left">
+                            <%= link_to cart_item.product_name, product_detail_link(cart_item.product),
+                                class: "cart_product_name top_cart_list", title: cart_item.product_name %><br>
+                            <% if cart_item.product.gifts.count > 0 %>
+                                <span class="tooltip-col">
+                                    <i class="fa fa-gift" aria-hidden="true"></i>
+                                    <small class="tooltiptext">
+                                        <em>Tặng kèm:</em>
+                                        <% gift_names = [] %>
+                                        <% cart_item.product.gifts.each do |gift| %>
+                                            <% gift_names << gift.product_name.to_s %>
+                                        <% end %>
+                                        <%= gift_names.join(', ') %>
+                                    </small>
+                                </span>
+                            <% end %>                                
+                        </td>
+                        <% if cart_item.product.is_sold_out? || cart_item.product.is_call? || cart_item.product.product_price.nil? %>
+                            <td class="text-center shopping-cart-price">Giá liên hệ</td>
+                        <% else %>
+                            <td class="text-center shopping-cart-price"><%= format_price(cart_item.product_price) %>x<%= cart_item.quantity %></td>
                         <% end %>
-                    </tbody>
-                </table>
-            </li>
+                    </tr>
+                    <% end %>
+                </tbody>
+            </table></li>
             <li>
                 <div>
                     <table class="table table-bordered">
@@ -59,19 +56,13 @@
                         </tbody>
                     </table>
                     <p class="text-center">
-                        <%= link_to '<i class="fa fa-shopping-bag"></i> CHI TIẾT GIỎ HÀNG'.html_safe,
+                        <%= link_to '<i class="fa fa-opencart"></i> GIỎ HÀNG'.html_safe,
                             erp_online_store.shopping_cart_path, class: "btn view-cart shopping-actions",
-                            title: 'Chi tiết giỏ hàng' %>
+                            title: 'Giỏ hàng' %>
                         &nbsp;&nbsp;&nbsp;
-                        <% if user_signed_in? %>
-                            <%= link_to '<i class="fa fa-hand-o-right"></i> ĐẶT HÀNG NGAY'.html_safe,
-                                erp_online_store.checkout_path, class: "btn btn-mega checkout-cart shopping-actions",
-                                title: 'Đặt hàng ngay' %>
-                        <% else %>
-                            <%= link_to '<i class="fa fa-share"></i> ĐẶT HÀNG NGAY'.html_safe,
-                                erp_online_store.quick_order_path, class: "btn btn-mega checkout-cart shopping-actions",
-                                title: 'Đặt hàng ngay' %>
-                        <% end %>
+                        <%= link_to '<i class="fa fa-share"></i> ĐẶT NGAY'.html_safe,
+                            erp_online_store.quick_order_path, class: "btn btn-mega checkout-cart shopping-actions",
+                            title: 'Đặt ngay' %>
                     </p>
                 </div>
             </li>

@@ -1,44 +1,39 @@
-<% title @brand.name %>
+<% title @brand.get_name %>
 
 <% content_for :metas do %>
-<!-- for Facebook -->
-    <meta property="og:locale" content="vi-VN" />
-    <meta property="og:type" content="website"/>
-    <meta property="og:title" content="<%= @brand.name %>"/>
-    <meta property="og:description" content="Tìm Hàng Công Nghệ là đơn vị cung cấp các sản phẩm, dịch vụ thuộc lĩnh vực Công Nghệ Thông Tin do Công Ty TNHH Giải Pháp CNTT Và Truyền Thông Hoàng Khang phụ trách và phát triển."/>
-    <meta property="og:url" content="<%= request.url %>"/>
-    <meta property="og:site_name" content="<%= @brand.name %> - Tìm Hàng Công Nghệ" />
-    <meta property="og:image" content="https://timhangcongnghe.com/frontend/image/thcn-web-share.png"/>
-    <meta property="og:image:width" content="1200"/>
-	<meta property="og:image:height" content="628"/>
-    <!--TWITTER -->
-    <meta property="og:url" content="<%= request.url %>"/>
-    <meta name="twitter:card" content="summary"/>
-    <meta name="twitter:title" content="<%= @brand.name %>" />
-    <meta name="twitter:description" content="Tìm Hàng Công Nghệ là đơn vị cung cấp các sản phẩm, dịch vụ thuộc lĩnh vực Công Nghệ Thông Tin do Công Ty TNHH Giải Pháp CNTT Và Truyền Thông Hoàng Khang phụ trách và phát triển."/>
-    <meta name="twitter:image" content="https://timhangcongnghe.com/frontend/image/thcn-web-share.png"/>
+<meta property="og:locale" content="vi-VN" />
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="<%= @brand.get_name %> - Tìm Hàng Công Nghệ"/>
+<meta property="og:description" content="Tìm Hàng Công Nghệ là đơn vị cung cấp các sản phẩm, dịch vụ thuộc lĩnh vực Công Nghệ Thông Tin do Công Ty TNHH Giải Pháp CNTT Và Truyền Thông Hoàng Khang phụ trách và phát triển."/>
+<meta property="og:url" content="<%= request.url %>"/>
+<meta property="og:site_name" content="<%= @brand.get_name %>" />
+<meta property="og:image" content="https://timhangcongnghe.com/frontend/image/thcn-web-share.png"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="628"/>
+<meta property="og:url" content="<%= request.url %>"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="<%= @brand.get_name %> - Tìm Hàng Công Nghệ" />
+<meta name="twitter:description" content="Tìm Hàng Công Nghệ là đơn vị cung cấp các sản phẩm, dịch vụ thuộc lĩnh vực Công Nghệ Thông Tin do Công Ty TNHH Giải Pháp CNTT Và Truyền Thông Hoàng Khang phụ trách và phát triển."/>
+<meta name="twitter:image" content="https://timhangcongnghe.com/frontend/image/thcn-web-share.png"/>
 <% end %>
 
 <div class="main-container container">
     <ul class="breadcrumb">
         <li><%= link_to '<i class="fa fa-home"></i>'.html_safe, erp_online_store.root_path, title: 'Tìm Hàng Công Nghệ' %></li>
-        <li><%= link_to 'Thương Hiệu Sản Phẩm', erp_online_store.brand_listing_path, title: 'Thương Hiệu Sản Phẩm' %></li>
-        <li><%= link_to @brand.name, 'javascript:void(0)', title: @brand.name %></li>
+        <li><%= link_to 'Thương Hiệu', erp_online_store.brand_listing_path, title: 'Thương Hiệu' %></li>
+        <li><%= link_to @brand.get_name, 'javascript:void(0)', title: @brand.get_name %></li>
     </ul>
     <div class="row">
-        <aside class="col-sm-4 col-md-3" id="column-left">
-            <%= render "erp/online_store/frontend/modules/extensions/sidebar_best_seller" %>
-            <%= render "erp/online_store/frontend/modules/extensions/sidebar_hot_banner" %>
-        </aside>
+        <aside class="col-sm-4 col-md-3" id="column-left"><%= render "erp/online_store/frontend/modules/extensions/sidebar_best_seller" %><%= render "erp/online_store/frontend/modules/extensions/sidebar_hot_banner" %></aside>
         <div id="content" class="col-md-9 col-sm-8">
             <div class="products-category">
-                <h1 class="menu-title mb-0"><%= @brand.name %></h1>
+                <h1 class="menu-title mb-0"><%= @brand.get_name %></h1>
                 <div class="main-products-list">
                     <% if @products.count > 0 %>
                     <div class="products-list row list">
                         <% @products.each do |product| %>
                         <div class="product-layout  col-md-3 col-sm-6 col-xs-6">
-                            <a href="<%= product_link(product) %>">
+                            <a href="<%= product_detail_link(product) %>">
                                 <div class="product-item-container product-lists">
                                     <div class="left-block">
                                         <div class="product-image-container second_img ">

@@ -2,30 +2,20 @@ module Erp
   module OnlineStore
     module Frontend
       class CategoryController < Erp::Frontend::FrontendController
-        def index
+        def detail_301          
+          @category = Erp::Menus::Menu.find(params[:category_id])
+          redirect_to erp_online_store.category_detail_path(category_id: @category.id, category_name: @category.alias), status: 301
+        end
+        
+        def detail
           @body_class = "res layout-subpage"
-          @menu = Erp::Menus::Menu.find(params[:menu_id])
-          @related_menus = @menu.related_menus.limit(5)
-          @products = @menu.get_products_for_categories(params).paginate(:page => params[:page], :per_page => @menu.number_per_page)
-          @meta_keywords = @menu.meta_keywords
-          @meta_description = @menu.meta_description
-
+          @category = Erp::Menus::Menu.find(params[:category_id])
+          @products = @category.get_products_for_categories(params).paginate(:page => params[:page], :per_page => 40)
+          @meta_description = @category.meta_description
           if request.xhr?
             render layout: nil
           end
-          expires_in 5.hours, public: true
-        end
-
-        def deal_products
-          @products = Erp::Products::Product.get_deal_products.frontend_filter(params).paginate(:page => params[:page], :per_page => 16)
-          @menus = Erp::Menus::Menu.get_menus
-          @meta_description = "Các sản phẩm đang có chương trình khuyến mãi, giảm giá đều được giới thiệu tại KHUYẾN MÃI trên trang TimHangCongNghe"
-        end
-
-        def bestseller_products
-          @products = Erp::Products::Product.get_bestseller_products.frontend_filter(params).paginate(:page => params[:page], :per_page => 16)
-          @menus = Erp::Menus::Menu.get_menus
-          @meta_description = "Các sản phẩm được khách hàng đặt hàng được chúng tôi thống kê, chọn lọc để sắp xếp vào nhóm sản phẩm BÁN CHẠY trên trang TimHangCongNghe"
+          #expires_in 5.hours, public: true
         end
 
         def select2

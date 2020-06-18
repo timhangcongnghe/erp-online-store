@@ -1,35 +1,54 @@
 <% content_for :metas do %>
-<!-- FACEBOOK -->
-    <meta property="og:locale" content="vi-VN" />
-    <meta property="og:type" content="website"/>
-    <meta property="og:title" content="Tìm Hàng Công Nghệ"/>
-    <meta property="og:description" content="Tìm Hàng Công Nghệ là đơn vị cung cấp các sản phẩm, dịch vụ thuộc lĩnh vực Công Nghệ Thông Tin do Công Ty TNHH Giải Pháp CNTT Và Truyền Thông Hoàng Khang phụ trách và phát triển."/>
-    <meta property="og:url" content="<%= request.url %>"/>
-    <meta property="og:site_name" content="Trang Chủ - Tìm Hàng Công Nghệ" />
-    <meta property="og:image" content="https://timhangcongnghe.com/frontend/image/thcn-web-share.png"/>
-    <meta property="og:image:width" content="1200"/>
-	<meta property="og:image:height" content="628"/>
-    <!--TWITTER -->
-    <meta property="og:url" content="<%= request.url %>"/>
-    <meta name="twitter:card" content="summary"/>
-    <meta name="twitter:title" content="Tìm Hàng Công Nghệ" />
-    <meta name="twitter:description" content="Tìm Hàng Công Nghệ là đơn vị cung cấp các sản phẩm, dịch vụ thuộc lĩnh vực Công Nghệ Thông Tin do Công Ty TNHH Giải Pháp CNTT Và Truyền Thông Hoàng Khang phụ trách và phát triển."/>
-    <meta name="twitter:image" content="https://timhangcongnghe.com/frontend/image/thcn-web-share.png"/>
+<meta property="og:locale" content="vi" />
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="Tìm Hàng Công Nghệ | Chuyên laptop, máy vi tính, thiết bị công nghệ"/>
+<meta property="og:description" content="Tìm Hàng Công Nghệ là đơn vị cung cấp các sản phẩm, dịch vụ thuộc lĩnh vực Công Nghệ Thông Tin do Công Ty TNHH Giải Pháp CNTT Và Truyền Thông Hoàng Khang phụ trách và phát triển."/>
+<meta property="og:url" content="<%= request.url %>"/>
+<meta property="og:site_name" content="Tìm Hàng Công Nghệ" />
+<meta property="og:image" content="https://timhangcongnghe.com/frontend/image/thcn-web-share.png"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="628"/>
+<meta property="og:url" content="<%= request.url %>"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Tìm Hàng Công Nghệ | Chuyên laptop, máy vi tính, thiết bị công nghệ" />
+<meta name="twitter:description" content="Tìm Hàng Công Nghệ là đơn vị cung cấp các sản phẩm, dịch vụ thuộc lĩnh vực Công Nghệ Thông Tin do Công Ty TNHH Giải Pháp CNTT Và Truyền Thông Hoàng Khang phụ trách và phát triển."/>
+<meta name="twitter:image" content="https://timhangcongnghe.com/frontend/image/thcn-web-share.png"/>
 <% end %>
+
 <main id="content" class="page-main">
     <h1 class="h1-hidden">Tìm Hàng Công Nghệ</h1>
     <div class="so-spotlight1 ">
         <div class="container">
             <div class="row">
-                <div id="yt_header_right" class="col-lg-offset-3 col-lg-9 col-md-12 col-slideshow">
-                    <div class="slider-container "><div id="so-slideshow" class=""><%= render 'erp/online_store/frontend/modules/home/slideshow' %></div></div>
-                </div>
+                <div id="yt_header_right" class="col-lg-offset-3 col-lg-9 col-md-12 col-slideshow"><div class="slider-container "><div id="so-slideshow" class=""><div class="module slideshow no-margin">
+                    <div class="item" data-animate="fadeIn animated">
+                        <%= link_to image_tag('/frontend/img/sys/slideshow/nha-cung-cap-san-pham-hp.jpg', alt: 'Tìm Hàng Công Nghệ là nhà cung cấp sản phẩm chính hãng HP', title: 'Tìm Hàng Công Nghệ là nhà cung cấp sản phẩm chính hãng HP', class: 'img-responsive'),
+                            'https://timhangcongnghe.com/laptop-hp-cid49', title: 'Tìm Hàng Công Nghệ là nhà cung cấp sản phẩm chính hãng HP' %>
+                    </div>
+                    <div class="item" data-animate="fadeIn animated">
+                        <%= link_to image_tag('/frontend/img/sys/slideshow/apple-ipad-pro-12.9-inch-2020.jpg', alt: 'Apple iPad Pro 12.9 inch 2020', title: 'Apple iPad Pro 12.9 inch 2020', class: 'img-responsive'),
+                            'https://timhangcongnghe.com/ipad-pro-129-cid301', title: 'Apple iPad Pro 12.9 inch 2020' %>
+                    </div>
+                    <div class="item" data-animate="fadeIn animated">
+                        <%= link_to image_tag('/frontend/img/sys/slideshow/laptop-gaming-asus-rog-zephyrus-chinh-hang.jpg', alt: 'Laptop Gaming Asus ROG Zephyrus chính hãng', title: 'Laptop Gaming Asus ROG Zephyrus chính hãng', class: 'img-responsive'),
+                            'https://timhangcongnghe.com/laptop-gaming-asus-rog-zephyrus-s-gx701gxrhg142t-pid6542', title: 'Laptop Gaming Asus ROG Zephyrus chính hãng' %>
+                    </div>
+                </div></div></div></div>
             </div>
-            <div class="block-banner banners banner-sn-1 wow fadeInUp"><%= render 'erp/online_store/frontend/modules/home/banner' %></div>
+            <div class="block-banner banners banner-sn-1 wow fadeInUp">
+                <% @block_banners.each_with_index do |banner,index| %>
+                <div class="img-1 banner1-<%= index+1 %>"><%= link_to image_tag(banner.image_url.thumb, alt: banner.name, title: banner.name),
+                                                              banner.link_url, title: banner.name %></div>
+                <% end %>
+            </div>
         </div>
     </div>
     <div class="so-spotlight3">
-        <div class="container"><%= render "erp/online_store/frontend/modules/home/hot_categories" %></div>
+        <div class="container">
+        <% Erp::Menus::Menu.get_hot_menus.each do |category_hot| %>
+        <div class="category_box" data-url="<%= erp_online_store.category_box_path(category_hot_id: category_hot.id) %>"></div>
+        <% end %>
+        </div>
     </div>
     <div class="so-spotlight3">
         <div class="container">
@@ -39,5 +58,58 @@
                 </div>
             </div>
         </div>
-    </div>    
+    </div>
+    <div class="so-spotlight5" style="margin-top:10px;margin-bottom:5px;">
+        <div class="container">
+            <div class="block-brand list-brands">
+                <div class="brand-slider">
+                    <div class="item-manu">                        
+                        <%= link_to image_tag('/frontend/img/brands/apple.jpg', alt: 'Apple', title: 'Apple', class: 'img-responsive'), '', title: 'Apple' %>
+                    </div>
+                    <div class="item-manu">                        
+                        <%= link_to image_tag('/frontend/img/brands/hp.jpg', alt: 'HP', title: 'HP', class: 'img-responsive'), '', title: 'HP' %>
+                    </div>
+                    <div class="item-manu">                        
+                        <%= link_to image_tag('/frontend/img/brands/dell.jpg', alt: 'Dell', title: 'Dell', class: 'img-responsive'), '', title: 'Dell' %>
+                    </div>
+                    <div class="item-manu">                        
+                        <%= link_to image_tag('/frontend/img/brands/asus.jpg', alt: 'Asus', title: 'Asus', class: 'img-responsive'), '', title: 'Asus' %>
+                    </div>
+                    <div class="item-manu">                        
+                        <%= link_to image_tag('/frontend/img/brands/acer.jpg', alt: 'Acer', title: 'Acer', class: 'img-responsive'), '', title: 'Acer' %>
+                    </div>
+                    <div class="item-manu">                        
+                        <%= link_to image_tag('/frontend/img/brands/lenovo.jpg', alt: 'Lenovo', title: 'Lenovo', class: 'img-responsive'), '', title: 'Lenovo' %>
+                    </div>
+                    <div class="item-manu">                        
+                        <%= link_to image_tag('/frontend/img/brands/msi.jpg', alt: 'MSI', title: 'MSI', class: 'img-responsive'), '', title: 'MSI' %>
+                    </div>
+                    <div class="item-manu">                        
+                        <%= link_to image_tag('/frontend/img/brands/fujitsu.jpg', alt: 'Fujitsu', title: 'Fujitsu', class: 'img-responsive'), '', title: 'Fujitsu' %>
+                    </div>
+                    <div class="item-manu">                        
+                        <%= link_to image_tag('/frontend/img/brands/intel.jpg', alt: 'Intel', title: 'Intel', class: 'img-responsive'), '', title: 'Intel' %>
+                    </div>
+                    <div class="item-manu">                        
+                        <%= link_to image_tag('/frontend/img/brands/samsung.jpg', alt: 'SamSung', title: 'SamSung', class: 'img-responsive'), '', title: 'SamSung' %>
+                    </div>
+                    <div class="item-manu">                        
+                        <%= link_to image_tag('/frontend/img/brands/dahua.jpg', alt: 'Dahua', title: 'Dahua', class: 'img-responsive'), '', title: 'Dahua' %>
+                    </div>
+                    <div class="item-manu">                        
+                        <%= link_to image_tag('/frontend/img/brands/viewsonic.jpg', alt: 'ViewSonic', title: 'ViewSonic', class: 'img-responsive'), '', title: 'ViewSonic' %>
+                    </div>
+                    <div class="item-manu">                        
+                        <%= link_to image_tag('/frontend/img/brands/jabra.jpg', alt: 'Jabra', title: 'Jabra', class: 'img-responsive'), '', title: 'Jabra' %>
+                    </div>
+                    <div class="item-manu">                        
+                        <%= link_to image_tag('/frontend/img/brands/corsair.jpg', alt: 'Corsair', title: 'Corsair', class: 'img-responsive'), '', title: 'Corsair' %>
+                    </div>
+                    <div class="item-manu">                        
+                        <%= link_to image_tag('/frontend/img/brands/crucial.jpg', alt: 'Crucial', title: 'Crucial', class: 'img-responsive'), '', title: 'Crucial' %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </main>
