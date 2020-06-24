@@ -2,7 +2,8 @@ Erp::OnlineStore::Engine.routes.draw do
 	get "chuyen-muc(/:category_id)(/:category_name).html" => "frontend/category#detail_301", as: :category_detail_301
 	get "san-pham(/:product_id)(/:product_name).html" => "frontend/product#detail_301", as: :product_detail_301
 	get "thuong-hieu-san-pham(/:brand_id)(/:brand_name).html" => "frontend/brand#detail_301", as: :brand_detail_301
-	``
+	
+	get "top-right-menu.html" => "frontend/home#top_right_menu", as: :top_right_menu #Disallow robots
 	match "/404", :to => "frontend/error#not_found", :via => :all
 	
 	root to: "frontend/home#index" #add sitemap
@@ -31,8 +32,8 @@ Erp::OnlineStore::Engine.routes.draw do
 
 	# START BLOG
 	get "tin-cong-nghe" => "frontend/blog#index", as: :blog #add sitemap
-	get "tin-cong-nghe/:blog_id(/:title)" => "frontend/blog#detail", as: :blog_detail
-	get "tin-cong-nghe/chu-de/:cat_id(/:title)" => "frontend/blog#index", as: :blog_with_category
+	get "tin-cong-nghe/:blog_id(/:title)" => "frontend/blog#detail", as: :blog_detail #add sitemap
+	get "tin-cong-nghe/chu-de/:cat_id(/:title)" => "frontend/blog#index", as: :blog_with_category #add sitemap
 	get "binh-luan-bai-viet/:blog_id" => "frontend/blog#comments", as: :blog_comments
 	post "binh-luan-bai-viet/:blog_id" => "frontend/blog#comments"
 	delete "binh-luan-bai-viet/:comment_id-remove" => "frontend/blog#delete_comment", as: :delete_blog_comment

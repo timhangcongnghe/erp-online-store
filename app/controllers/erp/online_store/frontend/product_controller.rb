@@ -8,7 +8,7 @@ module Erp
         
         def detail_301
           @product = Erp::Products::Product.find(params[:product_id])
-          redirect_to erp_online_store.product_detail_path(product_id: @product.id, title: @product.alias), status: 301
+          redirect_to erp_online_store.product_detail_path(product_id: @product.id, product_name: @product.alias), status: 301
         end
 
         def detail          

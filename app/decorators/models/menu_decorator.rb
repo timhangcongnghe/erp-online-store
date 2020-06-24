@@ -1,4 +1,11 @@
 Erp::Menus::Menu.class_eval do
+  after_create :create_alias
+  
+  def create_alias
+    name = self.name
+    self.update_column(:alias, name.to_ascii.downcase.to_s.gsub(/[^0-9a-z \/\-\.]/i, '').gsub(/[ \/\.]+/i, '-').strip)
+  end
+  
   def self.get_active
     self.where(archived: false).order("custom_order ASC")
   end

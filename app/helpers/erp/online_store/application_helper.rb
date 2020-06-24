@@ -63,7 +63,7 @@ module Erp
         if images.present?
           images.count < 2 ? images.first.image_url.send(thumb).url : images.send(ordinal).image_url.send(thumb).url
         else
-          url_for('/frontend/image/shop/product/no-image.png')
+          url_for('/frontend/img/sys/product-coming-soon.jpg')
         end
       end
 

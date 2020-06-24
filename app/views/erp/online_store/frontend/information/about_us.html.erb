@@ -14,52 +14,26 @@
                             <p>
                                 <strong>Tìm Hàng Công Nghệ</strong> là trang thương mại điện tử do Công Ty TNHH Giải Pháp Công Nghệ Thông Tin Và Truyền Thông Hoàng Khang (viết tắt: Hoang Khang Incotech) quản lý và phát triển.
                                 Với hơn 10 năm kinh nghiệm hoạt động trong lĩnh vực kinh doanh các sản phẩm công nghệ thông tin và dịch vụ đi kèm.
-                                Tất cả các sản phẩm trên Tìm Hàng Công Nghệ đều được <strong>phân phối chính hãng</strong> như HP, Dell, Asus, Acer, Lenovo, Fujitsu, Sony, SamSung, LG...
+                                Tất cả các sản phẩm trên Tìm Hàng Công Nghệ đều được phân phối chính hãng như HP, Dell, Asus, Acer, Lenovo, Fujitsu, Sony, SamSung, LG...
                                 và được áp dụng các chính sách ưu đãi, chăm sóc, hậu mãi từ hãng sản xuất và phía Công ty.
                             </p>
                             <p>Đến với Tìm Hàng Công Nghệ Quý khách hàng đã có thể yên tâm mua sắm và sử dụng dịch vụ, bởi Tìm Hàng Công Nghệ có tất cả những gì bạn cần, và phục vụ theo đúng tất cả những gì mà bạn mong đợi.</p>
                         </div>
                     </div>
                     <div class="col-lg-5 col-md-5 about-image">
-                        <%= image_tag "/frontend/image/logos/timhangcongnghe.png", alt: "Tìm Hàng Công Nghệ", title: 'Tìm Hàng Công Nghệ', class: "logo-about-us" %>
+                        <%= image_tag '/frontend/img/sys/timhangcongnghe.png', alt: "Tìm Hàng Công Nghệ", title: 'Tìm Hàng Công Nghệ', class: "logo-about-us" %>
                         <div class="about-text text-justify">
                             <p>Ngoài cung cấp các
-                                <%= link_to 'Laptop - MacBook', '/chuyen-muc/42/laptop-macbook.html', class: 'text-services', target: '_blank' %>,
-                                <%= link_to 'Máy Vi Tính - Server', '/chuyen-muc/322/may-vi-tinh-server.html', class: 'text-services', target: '_blank' %>,
-                                <%= link_to 'Màn Hình Máy Tính', '/chuyen-muc/282/man-hinh-may-tinh.html', class: 'text-services', target: '_blank' %>,
-                                <%= link_to 'Điện Thoại iPhone', '/chuyen-muc/228/dien-thoai-iphone.html', class: 'text-services', target: '_blank' %>,
+                                <%= link_to 'Laptop - MacBook', '/laptop-macbook-cid42', title: 'Laptop - MacBook', class: 'text-services', target: '_blank' %>,
+                                <%= link_to 'Máy Vi Tính - Server', '/may-vi-tinh-server-cid322', title: 'Máy Vi Tính - Server', class: 'text-services', target: '_blank' %>,
+                                <%= link_to 'Màn Hình', '/chuyen-muc/282/man-hinh-cid68', title: 'Màn Hình', class: 'text-services', target: '_blank' %>,
+                                <%= link_to 'Điện Thoại iPhone', '/dien-thoai-iphone-cid228', title: 'Điện Thoại iPhone', class: 'text-services', target: '_blank' %>,
                                 thiết bị Kỹ Thuật Số - Viễn Thông, Sản Phẩm Văn Phòng, Thiết Bị Mạng, Thiết Bị Viễn Thông, Thiết Bị An Ninh từ các hãng như: HP, Dell, Acer, Asus, Lenovo, Toshiba, Cisco, SamSung, LG, Apple,...và các hãng khác. Tìm Hàng Công Nghệ còn đưa ra các dịch vụ sửa chữa máy vi tính, dịch vụ sửa chữa máy in, dịch vụ nạp mực, dịch vụ thi công mạng, dịch vụ cứu dữ liệu, dịch vụ bảo trì, dịch vụ nâng cấp bảo hành,...
                             </p>
                         </div>
                     </div>
                 </div>
-                <div class="text-justify about-us-slogan">
-                    <h2>HOÀNG KHANG MANG ĐẾN GIẢI PHÁP TOÀN DIỆN</h2>
-                </div>
-                <% if @testimonials.count > 0 %>
-                <div class="row">
-                    <div class="col-lg-12 col-md-12 what-client-say">
-                        <div class="client-say-content">
-                            <h2 class="about-title line-hori"><span>Nhận Xét Từ Khách Hàng Dành Cho Chúng Tôi</span></h2>
-                            <div class="client-say-slider">
-                                <div id="client-say-slider-content" class="yt-content-slider owl-theme yt-content-slider-style-1 arrow-default owl2-carousel owl2-theme owl2-loaded" data-autoplay="no" data-autoheight="no" data-delay="4" data-speed="0.6" data-margin="30" data-item_lg="1" data-item_sm="1" data-item_xs="1" data-arrows="no" data-pagination="yes" data-lazyload="yes" data-loop="no" data-hoverpause="no">
-                                    <% @testimonials.each do |testimonial| %>
-                                    <div class="yt-content-slide yt-clearfix yt-content-wrap">
-                                        <div class="item">
-                                            <p class="des-member des-client">“<%= testimonial.content %>”</p>
-                                            <h3 class="name-member"><%= testimonial.author %></h3>
-                                            <% if !testimonial.workplace.nil? %>
-                                                <p class="job-member"><%= testimonial.workplace %></p>
-                                            <% end %>
-                                        </div>
-                                    </div>
-                                    <% end %>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <% end %>
+                <div class="text-justify about-us-slogan"><h2>Tìm Hàng Công Nghệ</h2></div>
             </div>
         </div>
     </div>

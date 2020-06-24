@@ -4,7 +4,7 @@ Erp::Products::Brand.class_eval do
   
   def create_alias
     name = self.name
-    self.update_column(:alias, name.to_ascii.downcase.to_s.gsub(/[^0-9a-z \/]/i, '').gsub(/[ \/]+/i, '-').strip)
+    self.update_column(:alias, name.to_ascii.downcase.to_s.gsub(/[^0-9a-z \/\-\.]/i, '').gsub(/[ \/\.]+/i, '-').strip)
   end
   
   def get_name
