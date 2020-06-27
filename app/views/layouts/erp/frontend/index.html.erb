@@ -48,16 +48,15 @@
 	<% if params[:controller] == 'erp/online_store/frontend/account' && params[:action] == 'my_account' %><%= stylesheet_link_tag '/frontend/css/custom-profile.css?v=6.5' %><% end %>
 	<% if params[:controller] == 'erp/online_store/frontend/shopping_cart' && params[:action] == 'checkout' %><%= stylesheet_link_tag '/frontend/css/checkout.css?v=6.5' %><% end %>
 	<%= stylesheet_link_tag '/frontend/css/starability-minified/starability-all.min.css?v=6.5' %>
-	<% if params[:controller] == 'erp/online_store/frontend/product' && params[:action] == 'detail' %><%= stylesheet_link_tag '/frontend/rating-custom/post-review.css?v=6.5' %><%= render 'erp/online_store/frontend/modules/js_include' %><% end %>
-	<% if params[:controller] == 'erp/online_store/frontend/information' && params[:action] == 'contact_us' %><%= javascript_include_tag '/frontend/js-google-map/jquery/jquery.js?v=6.5' %><% end %>
+	<% if params[:controller] == 'erp/online_store/frontend/product' && params[:action] == 'detail' %><%= stylesheet_link_tag '/frontend/rating-custom/post-review.css?v=6.5' %><%= render partial: 'erp/online_store/frontend/modules/js_include' %><% end %>
 	<script type="application/ld+json">{
 	  "@context": "https://schema.org",
 	  "@type": "ComputerStore",
 	  "name": "Tìm Hàng Công Nghệ",
 	  "alternateName": "Chuyên laptop, máy vi tính, thiết bị công nghệ",
 	  "@id": "https://timhangcongnghe.com/",
-	  "logo": "https://timhangcongnghe.com/frontend/image/logos/timhangcongnghe.png",
-	  "image": "https://timhangcongnghe.com/frontend/image/schema-logo.png",
+	  "logo": "https://timhangcongnghe.com/frontend/img/sys/timhangcongnghe.png",
+	  "image": "https://timhangcongnghe.com/frontend/img/sys/schema-logo.jpg",
 	  "description": "Tìm Hàng Công Nghệ là đơn vị cung cấp các sản phẩm, dịch vụ thuộc lĩnh vực Công Nghệ Thông Tin do Công Ty TNHH Giải Pháp CNTT Và Truyền Thông Hoàng Khang phụ trách và phát triển.",
 	  "hasMap": "https://www.google.com/maps/place/T%C3%ACm+H%C3%A0ng+C%C3%B4ng+Ngh%E1%BB%87/@10.8476082,106.6554575,17z/data=!3m1!4b1!4m5!3m4!1s0x0:0xefca0f0bc8cf5117!8m2!3d10.8476082!4d106.6576462",	
 	  "url": "https://timhangcongnghe.com/",
@@ -118,43 +117,43 @@
 		"@type": "SiteNavigationElement",
 		"position": 1,
 		"name": "Giới thiệu",
-		"description": "Là đơn vị cung cấp các sản phẩm, dịch vụ thuộc lĩnh vực Công Nghệ Thông Tin",
-		"url":"https://timhangcongnghe.com/gioi-thieu.html"
+		"description": "Đơn vị cung cấp sản phẩm, dịch vụ Công Nghệ Thông Tin uy tín, chính hãng",
+		"url":"https://timhangcongnghe.com/gioi-thieu"
 	},
 	{
 		"@type": "SiteNavigationElement",
 		"position": 2,
 		"name": "Góp ý và Liên hệ",
-		"description": "Liên hệ với bộ phận chăm sóc khách hàng.",
-		"url":"https://timhangcongnghe.com/gop-y-lien-he.html"
+		"description": "Liên hệ với đội ngũ hỗ trợ kinh doanh bán hàng, hỗ trợ dự án và dịch vụ kỹ thuật",
+		"url":"https://timhangcongnghe.com/gop-y-lien-he"
 	},
 	{
 		"@type": "SiteNavigationElement",
 		"position": 3,
-		"name": "Laptop - MacBook",
-		"description": "Cung cấp máy tính xách tay, macbook chính hãng tại Tìm Hàng Công Nghệ",
-		"url":"https://timhangcongnghe.com/chuyen-muc/42/laptop-macbook.html"
+		"name": "Máy tính xách tay",
+		"description": "Cung cấp máy tính xách tay, laptop chính hãng phù hợp cho nhu cầu làm việc, giải trí",
+		"url":"https://timhangcongnghe.com/may-tinh-xach-tay-cid43"
 	},
 	{
 		"@type": "SiteNavigationElement",
 		"position": 4,
-		"name": "Máy vi tính - Server",
-		"description": "Cung cấp máy tính để bàn, máy chủ server, máy tính trạm workstation, máy tính đồng bộ aio chính hãng tại Tìm Hàng Công Nghệ",
-		"url":"https://timhangcongnghe.com/chuyen-muc/322/may-vi-tinh-server.html"
+		"name": "Máy tính để bàn",
+		"description": "Cung cấp máy tính để bàn, PC chính hãng phù hợp cho nhu cầu làm việc, giải trí",
+		"url":"https://timhangcongnghe.com/may-tinh-de-ban-cid44"
 	},
 	{
 		"@type": "SiteNavigationElement",
 		"position": 5,
-		"name": "Điện thoại - Thiết bị thông minh",
-		"description": "Cung cấp điện thoại di động, apple watch, đồng hồ thông minh,...chính hãng tại Tìm Hàng Công Nghệ",
-		"url":"https://timhangcongnghe.com/chuyen-muc/323/dien-thoai-thiet-bi-thong-minh.html"
+		"name": "Màn hình máy tính",
+		"description": "Cung cấp màn hình máy tính độ phân giải Full HD, 2K, 4K,... phù hợp cho nhu cầu làm việc, giải trí",
+		"url":"https://timhangcongnghe.com/man-hinh-may-tinh-cid282"
 	},
 	{
 		"@type": "SiteNavigationElement",
 		"position": 6,
-		"name": "Màn hình quảng cáo chuyên dụng",
-		"description": "Cung cấp màn hình quảng cáo chuyên dụng chính hãng Samsung, LG, AOC, HIKVISION tại Tìm Hàng Công Nghệ",
-		"url":"https://timhangcongnghe.com/chuyen-muc/259/man-hinh-hien-thi-chuyen-dung.html"
+		"name": "Màn hình quảng cáo",
+		"description": "Cung cấp màn hình quảng cáo chính hãng Samsung, LG, AOC, HIKVISION cho việc quảng bá thương hiệu, sản phẩm",
+		"url":"https://timhangcongnghe.com/man-hinh-quang-cao-cid259"
 	}
 	]}</script>
 	<% end %>
@@ -166,7 +165,7 @@
 		"url": "https://timhangcongnghe.com/",
 		"potentialAction": {
 			"@type": "SearchAction",
-			"target": "https://timhangcongnghe.com/tim-kiem.html?keyword={search_term_string}",
+			"target": "https://timhangcongnghe.com/search?keyword={search_term_string}",
 			"query-input": "required name=search_term_string"
 		}
 	}
@@ -242,7 +241,7 @@
 		"@type": "Product",
 		"name": "<%= @product.get_long_name %>",
 		<% if @product.product_images.count == 0 %>
-		"image": "https://timhangcongnghe.com/frontend/image/schema-logo.png",
+		"image": "https://timhangcongnghe.com/frontend/img/sys/schema-logo.jpg",
 		<% else %>
 		"image": [
 			<% count = @product.product_images.count %>
@@ -316,7 +315,7 @@
 			"name": "Tìm Hàng Công Nghệ",
 			"logo": {
 				"@type": "ImageObject",
-				"url": "https://timhangcongnghe.com/frontend/image/schema-logo.png"
+				"url": "https://timhangcongnghe.com/frontend/img/sys/schema-logo.jpg"
 			}
 		},
 		"description": "<%= short_text(@blog.content, 45) %>"
@@ -341,7 +340,7 @@
         </script>
         <%= render 'erp/online_store/frontend/modules/footer' %>
     </div>
-	<% if params[:controller] == 'erp/online_store/frontend/product' && params[:action] == 'detail' %><% else %><%= render 'erp/online_store/frontend/modules/js_include' %><% end %>
+	<% if params[:controller] == 'erp/online_store/frontend/product' && params[:action] == 'detail' %><% else %><%= render partial: 'erp/online_store/frontend/modules/js_include' %><% end %>
 	<script id='autoAdsMaxLead-widget-script' src='https://cdn.autoads.asia/scripts/autoads-maxlead-widget.js?business_id=92716848F2174C1681138F8773D7CF4E' type='text/javascript' charset='UTF-8' async></script>
 </body>
 </html>

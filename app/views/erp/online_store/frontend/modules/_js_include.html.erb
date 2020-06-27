@@ -1,4 +1,3 @@
-<!-- Placed at the end of the document so the pages load faster -->
 <%= javascript_include_tag '/frontend/js/jquery-2.2.4.min.js' %>
 <%= javascript_include_tag '/frontend/js/bootstrap.min.js' %>
 <%= javascript_include_tag '/frontend/js/owl-carousel/owl.carousel.js' %>
@@ -13,8 +12,6 @@
 <%= javascript_include_tag '/frontend/fancybox/jquery.fancybox.min.js' %>
 <%= javascript_include_tag '/frontend/js/validate/jquery.validate.min.js' %>
 <%= javascript_include_tag '/frontend/js/validate/localization/messages_vi.js' %>
-
-<!-- Theme files ============================================ -->
 <%= javascript_include_tag '//images.dmca.com/Badges/DMCABadgeHelper.min.js' %>
 <%= javascript_include_tag '/frontend/js/main.js' %>
 <%= javascript_include_tag '/frontend/js/comment.js' %>
@@ -34,7 +31,6 @@
                 speed: 'slow',
                 theme: '<%= classes[key] %>'
             });
-
             if ('<%= value %>'.includes('xác minh thành công')) {
               $('.sign-in.ajax-link').trigger('click');
             }
@@ -42,5 +38,6 @@
     <% end %>
 <% end %>
 <% if params[:controller] == "erp/online_store/frontend/information" && params[:action] == "contact_us" %>
+<%= javascript_include_tag '/frontend/js-google-map/jquery/jquery.js?v=6.5' %>
 <script>$(".maps").click(function(){$(".maps iframe").css("pointer-events","auto")}),$(".maps").mouseleave(function(){$(".maps iframe").css("pointer-events","none")});</script>
 <% end %>
