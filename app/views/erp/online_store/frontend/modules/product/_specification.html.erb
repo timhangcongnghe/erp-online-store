@@ -4,8 +4,8 @@
     <% else %><table width="100%" class="table-tab-specs specs-content">
         <tbody><% product.product_values_array.each do |group| %>
             <tr class="property-group-name"><% if group[:group].get_show_name.present? %>
-                <td colspan="2"><h2><%= group[:group].get_show_name %></h2></td>
-            <% else %><td colspan="2"><h2><%= group[:group].name %></h2></td><% end %>
+                <td colspan="2"><h5><%= group[:group].get_show_name %></h5></td>
+            <% else %><td colspan="2"><h5><%= group[:group].name %></h5></td><% end %>
             </tr><% group[:properties].each do |property| %>
             <% if property[:property].is_short_description == true %>
             <tr class="property-value highlight-specs-main">
