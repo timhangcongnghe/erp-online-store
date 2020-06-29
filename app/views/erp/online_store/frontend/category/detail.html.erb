@@ -61,9 +61,7 @@
                                                         <% end %>
                                                     <% end %>
                                                 </div>
-                                                <% if product.short_description.present? %>
-                                                    <div class="list-product-specs"><%= product.short_description %></div>
-                                                <% end %>
+                                                <% if product.short_description.present? %><div class="list-product-specs"><%= product.short_description %></div><% end %>
                                             </div>
                                         </div>
                                     </div>
@@ -71,11 +69,7 @@
                             </div>
                             <% end %>
                         </div>
-                        <% if @products.count > @category.number_per_page %>
-                            <div class="product-filter product-filter-bottom filters-panel">
-                                <div class="box-pagination text-center"><%= will_paginate @products, previous_label: '←', next_label: '→', renderer: BootstrapPagination::Rails, inner_window: 1, outer_window: 1 %></div>
-                            </div>
-                        <% end %>
+                        <div class="product-filter product-filter-bottom filters-panel"><div class="box-pagination text-center"><%= will_paginate @products, previous_label: '←', next_label: '→', renderer: BootstrapPagination::Rails, inner_window: 1, outer_window: 1 %></div></div>
                     <% else %>
                         <div id="content" class="col-sm-12 shopping-cart">
                             <div class="empty-cart">                    
@@ -84,6 +78,14 @@
                         </div>
                     <% end %>
                 </div>
+                <% if @category.id == 284 %>
+                <div class="category-derc form-group">
+                    <div class="row">
+                        <p class="text-center"><%= image_tag '/frontend/img/smart-signage/man-hinh-quang-cao-chuyen-dung-samsung.jpg', alt: 'Màn Hình Quảng Cáo Chuyên Dụng SAMSUNG', title: 'Màn Hình Quảng Cáo Chuyên Dụng SAMSUNG' %><br></p>
+                        <p class="text-justify"><strong>Màn Hình Quảng Cáo Chuyên Dụng SAMSUNG</strong> mang đến sự trải nghiệm vượt trội nhờ nội dung được trình bày một cách chân thực, hấp dẫn. Với độ phân giải hình ảnh cao trên từng model (VD: Full HD, 4K UHD), mang đến những ý tưởng sáng tạo độc đáo, đem lại cho doanh nghiệp nhiều sự lựa chọn mới mẻ để quảng báo hình ảnh thương hiệu, dịch vụ và sản phẩm.</p>
+                    </div>
+                </div>
+                <% end %>
             </div>
         </div>
     </div>

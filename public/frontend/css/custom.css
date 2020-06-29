@@ -2,4 +2,7 @@
 .container-megamenu.vertical .vertical-wrapper ul.megamenu li .sub-menu .content .static-menu {
     padding-left: 5px;
     padding-right: 5px;
+} 
+.products-category .category-derc {
+    padding: 0 5px;
 }
