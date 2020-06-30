@@ -9,22 +9,22 @@
                     <% if @category_hot.image_url_1.present? %>
                         <% if params[:child_1_id].present? %>
                             <% if @child_1.image_url_1.present? %>
-                                <%= link_to image_tag(@child_1.image_url_1.menu_hot_image_1, alt: @child_1.get_name, title: @child_1.get_name),
+                                <%= link_to image_tag(@child_1.image_url_1, alt: @child_1.get_name, title: @child_1.get_name),
                                 @child_1.image_menu_link_1, title: @child_1.get_name %>
                             <% else %>
-                                <%= link_to image_tag(@category_hot.image_url_1.menu_hot_image_1, alt: @category_hot.get_name, title: @category_hot.get_name),
+                                <%= link_to image_tag(@category_hot.image_url_1, alt: @category_hot.get_name, title: @category_hot.get_name),
                                 @category_hot.image_menu_link_1, title: @category_hot.get_name %>
                             <% end %>
                         <% elsif params[:child_2_id].present? %>
                             <% if @child_2.image_url_1.present? %>
-                                <%= link_to image_tag(@child_2.image_url_1.menu_hot_image_1, alt: @child_2.get_name, title: @child_2.get_name),
+                                <%= link_to image_tag(@child_2.image_url_1, alt: @child_2.get_name, title: @child_2.get_name),
                                 @child_2.image_menu_link_1, title: @child_2.get_name %>
                             <% else %>
-                                <%= link_to image_tag(@category_hot.image_url_1.menu_hot_image_1, alt: @category_hot.get_name, title: @category_hot.get_name),
+                                <%= link_to image_tag(@category_hot.image_url_1, alt: @category_hot.get_name, title: @category_hot.get_name),
                                 @category_hot.image_menu_link_1, title: @category_hot.get_name %>
                             <% end %>
                         <% else %>
-                            <%= link_to image_tag(@category_hot.image_url_1.menu_hot_image_1, alt: @category_hot.get_name, title: @category_hot.get_name),
+                            <%= link_to image_tag(@category_hot.image_url_1, alt: @category_hot.get_name, title: @category_hot.get_name),
                             @category_hot.image_menu_link_1, title: @category_hot.get_name %>
                         <% end %>
                     <% end %>
@@ -110,22 +110,22 @@
                     <% if @category_hot.image_url_2.present? %>
                         <% if params[:child_1_id].present? %>
                             <% if @child_1.image_url_2.present? %>
-                            <%= link_to image_tag(@child_1.image_url_2.menu_hot_image_2, alt: @child_1.get_name, title: @child_1.get_name),
+                            <%= link_to image_tag(@child_1.image_url_2, alt: @child_1.get_name, title: @child_1.get_name),
                                 @child_1.image_menu_link_2, title:  @child_1.get_name %>
                             <% else %>
-                            <%= link_to image_tag(@category_hot.image_url_2.menu_hot_image_2, alt: @category_hot.get_name, title: @category_hot.get_name),
+                            <%= link_to image_tag(@category_hot.image_url_2, alt: @category_hot.get_name, title: @category_hot.get_name),
                                 @category_hot.image_menu_link_2, title: @category_hot.get_name %>
                             <% end %>
                         <% elsif params[:child_2_id].present? %>
                             <% if @child_2.image_url_2.present? %>
-                            <%= link_to image_tag(@child_2.image_url_2.menu_hot_image_2, alt: @child_2.get_name, title: @child_2.get_name),
+                            <%= link_to image_tag(@child_2.image_url_2, alt: @child_2.get_name, title: @child_2.get_name),
                                 @child_2.image_menu_link_2, title: @child_2.get_name %>
                             <% else %>
-                            <%= link_to image_tag(@category_hot.image_url_2.menu_hot_image_2, alt: @category_hot.get_name, title: @category_hot.get_name),
+                            <%= link_to image_tag(@category_hot.image_url_2, alt: @category_hot.get_name, title: @category_hot.get_name),
                                 @category_hot.image_menu_link_2, title: @category_hot.get_name %>
                             <% end %>
                         <% else %>
-                            <%= link_to image_tag(@category_hot.image_url_2.menu_hot_image_2, alt: @category_hot.get_name, title: @category_hot.get_name),
+                            <%= link_to image_tag(@category_hot.image_url_2, alt: @category_hot.get_name, title: @category_hot.get_name),
                                 @category_hot.image_menu_link_2, title: @category_hot.get_name %>
                         <% end %>
                     <% end %>

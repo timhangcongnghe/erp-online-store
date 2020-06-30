@@ -49,6 +49,9 @@ module Erp
           @body_class = "res layout-subpage"
           @keyword = params[:keyword]
           @products = Erp::Products::Product.search(params).paginate(:page => params[:page], :per_page => 30)
+          if @products.count == 1
+            redirect_to erp_online_store.product_detail_path(product_id: @products.first.id, product_name: @products.first.alias), status: 301
+          end
         end
         
         def autosearch

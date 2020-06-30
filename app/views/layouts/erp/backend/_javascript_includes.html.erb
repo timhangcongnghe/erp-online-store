@@ -61,10 +61,10 @@
 </script>
 <!-- END LOCALE JAVASCRIPT -->
 
-  <%= javascript_include_tag '/backend/js/tinymce.min.js' %>
-  <% neweditor_id = 'neweditor_' + unique_id %>
-  <script>
-    tinymce.init({
-      selector: <%= neweditor_id %>
-    });
-  </script>
+<%= javascript_include_tag '/backend/js/tinymce.min.js' %>
+<% neweditor_id = 'neweditor_' + unique_id %>
+<script>
+  tinymce.init({
+    selector: <%= neweditor_id %>
+  });
+</script>
