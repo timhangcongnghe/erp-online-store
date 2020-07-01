@@ -1,32 +1,17 @@
-<!--[if lt IE 9]>
 <%= javascript_include_tag "/backend/assets/global/plugins/respond.min.js" %>
 <%= javascript_include_tag "/backend/assets/global/plugins/excanvas.min.js" %>
 <%= javascript_include_tag "/backend/assets/global/plugins/ie8.fix.min.js" %>
-<![endif]-->
-<!-- BEGIN CORE PLUGINS -->
 <%= render "layouts/erp/backend/core_plugins" %>
-<!-- END CORE PLUGINS -->
-<!-- BEGIN PAGE LEVEL PLUGINS -->
 <%= render "layouts/erp/backend/page_level_plugins" %>
-<!-- END PAGE LEVEL PLUGINS -->
-<!-- BEGIN THEME GLOBAL SCRIPTS -->
 <%= render "layouts/erp/backend/theme_global_scripts" %>
-<!-- END THEME GLOBAL SCRIPTS -->
-<!-- BEGIN PAGE LEVEL SCRIPTS -->
 <%= render "layouts/erp/backend/page_level_scripts" %>
-<!-- END PAGE LEVEL SCRIPTS -->
-<!-- BEGIN THEME LAYOUT SCRIPTS -->
 <%= render "layouts/erp/backend/theme_layout_scripts" %>
-<!-- END THEME LAYOUT SCRIPTS -->
-<!-- CUSTOM ERP SCRIPTS -->
 <%= javascript_include_tag '/backend/js/jquery.cookie.js' %>
 <%= javascript_include_tag '/backend/js/validation/jquery.validate.min.js' %>
 <%= javascript_include_tag '/backend/js/validation/localization/messages_vi.min.js' %>
 <%= javascript_include_tag '/backend/js/autolist.js' %>
-
 <%= javascript_include_tag "/backend/js/datetimepicker/jquery.datetimepicker.js" %>
 <%= javascript_include_tag "/backend/js/jquery.floatThead.min.js" %>
-
 <%= javascript_include_tag '/backend/js/main.js?v=1.0' %>
 <%= javascript_include_tag '/backend/js/datalist.js' %>
 <%= javascript_include_tag '/backend/js/dataselect.js' %>
@@ -37,15 +22,7 @@
 <%= javascript_include_tag "/backend/js/stock-transfer.js" if Erp::Core.available?("stock_transfers") %>
 <%= javascript_include_tag '/backend/js/editor.js' %>
 <%= javascript_include_tag '/backend/js/validate.js' %>
-<!-- END CUSTOM ERP SCRIPTS -->
-
-<!-- CUSTOM PAGE SCRIPTS -->
-<% if content_for?(:page_script) %>
-    <%= yield(:page_script) %>
-<% end %>
-<!-- END CUSTOM PAGE SCRIPTS -->
-
-<!-- LOCALE JAVASCRIPT -->
+<% if content_for?(:page_script) %><%= yield(:page_script) %><% end %>
 <script>
     var LANG_OR = '<%= t('or') %>';
     var LANG_NO_RECORD_FOUND = '<%= t('.no_record_found') %>';
@@ -54,17 +31,12 @@
     var LANG_CANCEL = '<%= t('close') %>';
     var LANG_DATE_FORMAT_JS = '<%= t('date_format_js') %>';
     var SAVE_FILTER_URL = '<%= erp.save_filter_backend_users_path %>';
-
-    <% if Erp::Core.available?("ortho_k") %>
-        var NOTIFICATION_URL = '<%= erp_ortho_k.notification_badge_backend_notification_index_path %>';
-    <% end %>
 </script>
-<!-- END LOCALE JAVASCRIPT -->
-
 <%= javascript_include_tag '/backend/js/tinymce.min.js' %>
-<% neweditor_id = 'neweditor_' + unique_id %>
+
+<!--<% neweditor_id = 'neweditor_' + unique_id %>
 <script>
   tinymce.init({
     selector: <%= neweditor_id %>
   });
-</script>
+</script>-->

@@ -96,8 +96,8 @@
                                 </table>
                             </div>                                
                         </div>
-                        <% end %>
-                        <hr>
+                        <% end %><hr>
+                        <% if @product.is_sold_out? || @product.is_call? || @product.product_price.nil? %>
                         <div id="product">
                             <div class="compare-product">SO SÁNH SẢN PHẨM</div>
                             <div class="form-group box-info-product">                                    
@@ -113,6 +113,27 @@
                                 </div>
                             </div>
                         </div>
+                        <% else %>
+                        <div id="product">
+                            <div class="buy-product">ĐẶT MUA SẢN PHẨM</div>
+                            <div class="form-group box-info-product">
+                                <div class="quick-cart">
+                                    <%= link_to '<i class="fa fa-opencart"></i> Đặt mua ngay'.html_safe, erp_online_store.quick_order_path(product_id: @product.id),
+                                        class: "btn btn-mega btn-lg add-to-quick-cart add-to-cart quick-buy-ajax ajax-link", 'data-type': 'ajax' %>
+                                </div>
+                                <div class="add-to-links wish_comp">
+                                    <ul class="blank list-inline">
+                                        <li class="compare">
+                                            <%= form_tag erp_online_store.add_to_compare_frontend_compare_items_path, class: 'add-compare-form' do %>
+                                                <%= hidden_field_tag "product_id", @product.id %>
+                                                <button class="btn btn-mega btn-lg add-to-compare" title="So sánh sản phẩm"><i class="fa fa-window-restore"></i> So sánh sản phẩm</button>
+                                            <% end %>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <% end %>
                         <div class="call-center">
                             <span><strong>Gọi ngay: </strong><%= link_to '(028) 3984 7690', 'tel:02839847690', title: '(028) 3984 7690' %></span><br>
                             <span><strong>Gửi yêu cầu (To): </strong><%= mail_to 'kinhdoanh@hoangkhang.com.vn', 'kinhdoanh@hoangkhang.com.vn', title: 'kinhdoanh@hoangkhang.com.vn' %></span><br>

@@ -152,7 +152,7 @@
                                                                                         <br>
                                                                                         <%= @quick_order.phone %>
                                                                                         <br>
-                                                                                        <%= @quick_order.address + ', ' + @quick_order.district_name + ', ' + @quick_order.state_name %><br>
+                                                                                        <%= @quick_order.address %><br>
                                                                                         <% if @quick_order.invoice == true %>Có xuất hóa đơn<% else %>Không xuất hóa đơn<% end %>
                                                                                     </div>
                                                                                     <table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="15" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>
@@ -286,7 +286,7 @@
                                                                 <div class="text" style="color:#1e1e1e; font-family:Arial, sans-serif; min-width:auto !important; font-size:14px; line-height:20px; text-align:left">
                                                                     <% if order_detail.product.present? %>
                                                                         <strong>
-                                                                            <a href="http://timhangcongnghe.com/san-pham/<%= order_detail.product_id.to_s + '/' + order_detail.product.alias + '.html' %>">
+                                                                            <a href="http://timhangcongnghe.com/<%= order_detail.product.alias + '-pid' +order_detail.product_id.to_s %>">
                                                                                 <%= order_detail.product_name %>
                                                                             </a>
                                                                         </strong>
@@ -376,7 +376,7 @@
                                                     <tbody>
                                                         <tr>
                                                             <td height="35" style="color:#1e1e1e; font-family:Arial, sans-serif; min-width:auto !important; font-size:14px; line-height:20px; text-align:left;padding: 0 20px">
-                                                                Chính sách vận chuyển & giao nhận. <a href="//timhangcongnghe.com/van-chuyen-va-giao-nhan.html" title="Xem chính sách vận chuyển, giao nhận.">Xem tại đây...</a>
+                                                                Chính sách vận chuyển và giao nhận. <a href="https://timhangcongnghe.com/van-chuyen-va-giao-nhan" title="Chính sách vận chuyển và giao nhận.">Xem tại đây...</a>
                                                             </td>
                                                         </tr>
                                                     </tbody>
@@ -401,7 +401,7 @@
                                                             <div class="text" style="color:rgba(255,255,255,0.8); font-family:Arial, sans-serif; min-width:auto !important; font-size:14px; line-height:20px; text-align:center">
                                                                 <strong>Tìm Hàng Công Nghệ - Công ty TNHH Giải Pháp CNTT và Truyền Thông Hoàng Khang</strong>
                                                                 <br>188 Đường Số 1, Phường 16, Quận Gò Vấp, TP. Hồ Chí Minh, Việt Nam
-                                                                <br>Điện thoại: (+84 028) 3984 7690
+                                                                <br>Điện thoại: (028) 3984 7690
                                                             </div>
                                                             <table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="15" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>                                            
                                                             <table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%"><tr><td height="15" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">&nbsp;</td></tr></table>

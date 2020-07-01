@@ -27,8 +27,6 @@ Erp::OnlineStore::Engine.routes.draw do
 	post "danh-gia-san-pham.html" => "frontend/product#ratings"
 	delete "danh-gia-san-pham/:rating_id-remove.html" => "frontend/product#delete_rating", as: :delete_product_rating
 	# END PRODUCT & CATEGORY
-	
-	get "lua-chon-hang-dau" => "frontend/business_choices#index", as: :business_choices #add sitemap
 
 	# START BLOG
 	get "tin-cong-nghe" => "frontend/blog#index", as: :blog #add sitemap

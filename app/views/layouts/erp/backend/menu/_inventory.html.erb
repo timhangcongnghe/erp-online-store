@@ -17,9 +17,7 @@
                "erp/products/backend/accessories"].include?(params[:controller]) %>
             <span class="selected"></span>
             <span class="arrow open"></span>
-        <% else %>
-            <span class="arrow"></span>
-        <% end %>
+        <% else %><span class="arrow"></span><% end %>
     </a>
     <ul class="sub-menu">
         <li class="nav-item <%= "active open" if ["erp/products/backend/products"].include?(params[:controller]) %>">
@@ -70,17 +68,9 @@
                 <% end %>
             </a>
         </li>
-        <li class="nav-item <%= "active open" if ["erp/products/backend/accessories"].include?(params[:controller]) %>">
-            <a href="<%= erp_products.backend_accessories_path %>" class="nav-link ">
-                <span class="title">Nhóm phụ kiện</span>
-                <% if ["erp/products/backend/accessories"].include?(params[:controller]) %>
-                <span class="selected"></span>
-                <% end %>
-            </a>
-        </li>
         <li class="nav-item">
             <a href="<%= erp_products.hkerp_products_backend_products_path %>" class="nav-link ">
-                <span class="title">ERP Connector</span>
+                <span class="title">Hoàng Khang ERP</span>
             </a>
         </li>
     </ul>

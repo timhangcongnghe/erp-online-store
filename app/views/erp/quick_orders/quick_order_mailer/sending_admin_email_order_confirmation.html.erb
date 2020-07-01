@@ -293,7 +293,7 @@
                                                                     Email: <b><%= @quick_order.email %></b><br>
                                                                     SĐT: <b><%= @quick_order.phone %></b><br>
                                                                     Ghi chú: <%= @quick_order.note %><br>
-                                                                    Địa chỉ giao hàng: <%= @quick_order.address + ', ' + @quick_order.district_name + ', ' + @quick_order.state_name %><br>
+                                                                    Địa chỉ giao hàng: <%= @quick_order.address %><br>
                                                                     Xuất hóa đơn: <% if @quick_order.invoice == true %><strong>Có xuất hóa đơn</strong><% else %><strong>Không xuất hóa đơn</strong><% end %>
                                                                 </td>
                                                             </tr>
@@ -333,18 +333,10 @@
                             <td class="item-table">
                                 <table cellspacing="0" cellpadding="0" width="100%">
                                     <tr>
-                                        <td class="title-dark" width="300">
-                                           Sản phẩm
-                                        </td>
-                                        <td class="title-dark" width="163">
-                                          Giá bán
-                                        </td>
-                                        <td class="title-dark" width="163">
-                                          Số lượng
-                                        </td>
-                                        <td class="title-dark" width="97">
-                                          Thành tiền
-                                        </td>
+                                        <td class="title-dark" width="300">Sản phẩm</td>
+                                        <td class="title-dark" width="163">Giá bán</td>
+                                        <td class="title-dark" width="163">Số lượng</td>
+                                        <td class="title-dark" width="97">Thành tiền</td>
                                     </tr>
                                     <% @quick_order.order_details.each do |order_detail| %>
                                     <tr>
@@ -354,7 +346,7 @@
                                                     <td class="product">
                                                         <span style="color: #4d4d4d; font-weight:bold;">
                                                             <% if order_detail.product.present? %>
-                                                                <a href="https://timhangcongnghe.com/<%= order_detail.product.alias + '-p' + order_detail.product_id.to_s %>">
+                                                                <a href="https://timhangcongnghe.com/<%= order_detail.product.alias + '-pid' + order_detail.product_id.to_s %>">
                                                                     <%= order_detail.product_name %>
                                                                 </a>
                                                             <% else %>
@@ -377,15 +369,12 @@
                                         </td>
                                     </tr>
                                     <% end %>
-                  
                                     <tr>
                                         <td class="item-col item mobile-row-padding"></td>
                                         <td class="item-col quantity"></td>
                                         <td class="item-col quantity"></td>
                                         <td class="item-col price"></td>
                                     </tr>
-                  
-                  
                                     <tr>
                                         <td class="item-col item">
                                         </td>
