@@ -37,8 +37,9 @@
                                          <% end %>
                                     </div>
                                 </div>
+                                <% if product.short_description.present? %><div style="display:none;" class="list-product-specs"><%= product.meta_description %></div><% end %>
                             </div>
-                        </div>
+                        </div>                        
                     </div>
                 </div>
                 <%= '</div><div class="item ">'.html_safe if index%3 == 2 && index+1 != count %><% end %>
