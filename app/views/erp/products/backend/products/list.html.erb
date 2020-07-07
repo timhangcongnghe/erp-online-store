@@ -126,8 +126,11 @@
                         <% if product.meta_description.present? %>
                             <br><span class="label label-sm label-danger">SEO mô tả</span>
                         <% end %>
+                        <% if product.description.present? %>
+                            <br><span class="label label-sm label-danger">Có bài GT</span>
+                        <% end %>
                         <% if product.short_description? %>
-                        <br><span class="label label-sm label-info"><%= t('.short_description') %></span>
+                            <br><span class="label label-sm label-info"><%= t('.short_description') %></span>
                         <% end %>
                     </td>
                     <% end %>
