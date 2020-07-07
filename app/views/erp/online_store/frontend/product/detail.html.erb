@@ -84,11 +84,6 @@
                                     <% product_short_descipriton_values_array = @product.product_short_descipriton_values_array %>
                                     <% if product_short_descipriton_values_array.count > 2 %>
                                         <% product_short_descipriton_values_array.each do |row| %><br><span><%= row[:name] %>: </span><%= row[:values].join(", ") %><% end %>
-                                    <% else %>
-                                        <% @product.product_values_array.each do |group| %>
-                                            <h4 class=""><%= group[:group].name %></h4>
-                                            <% group[:properties].each do |property| %><br><span><%= property[:property].name %>: </span><%= property[:values].join(", ") %><% end %>
-                                        <% end %>
                                     <% end %>
                                 <% end %>
                                 <% if @product.dimentions.present? %><br><span>Kích thước vận chuyển: </span><%= @product.dimentions %><% end %>
@@ -153,7 +148,7 @@
                             <div class="tabsslider  col-xs-12">
                                 <ul class="nav nav-tabs">
                                     <% if @product.description.present? %>
-                                        <li class="active"><a data-toggle="tab" href="#tab-description" title="Giới thiệu">Giới thiệu</a></li>
+                                        <li class="active"><a data-toggle="tab" href="#tab-description" title="Giới thiệu">Mô tả sản phẩm</a></li>
                                         <li class="item_nonactive"><a data-toggle="tab" href="#tab-specs" title="Thông số kỹ thuật">Thông số kỹ thuật</a></li>        
                                     <% else %>
                                         <li class="active"><a data-toggle="tab" href="#tab-specs" title="Thông số kỹ thuật">Thông số kỹ thuật</a></li>
