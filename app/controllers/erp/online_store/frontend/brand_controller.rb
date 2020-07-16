@@ -6,7 +6,7 @@ module Erp
           @body_class = "res layout-subpage"
           @brands = Erp::Products::Brand.get_brands_order_name
           @meta_description = "Danh sách các thương hiệu sản phẩm được kinh doanh nhiều nhất tại TimHangCongNghe để quý khách hàng tiện lựa chọn."
-          #expires_in 3.hours, public: true
+          expires_in 12.hours, public: true
         end
         
         def detail_301
@@ -18,7 +18,7 @@ module Erp
           @brand = Erp::Products::Brand.find(params[:brand_id])
           @products = Erp::Products::Product.get_products_for_brand(params).frontend_filter(params).paginate(:page => params[:page], :per_page => 64)
           @categories = Erp::Menus::Menu.get_menus
-          #expires_in 3.hours, public: true
+          expires_in 12.hours, public: true
         end
 
         def select2

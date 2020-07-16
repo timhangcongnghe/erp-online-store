@@ -11,7 +11,7 @@ module Erp
           if params[:cat_id].present?
             @category = Erp::Articles::Category.find(params[:cat_id])
           end
-          expires_in 24.hours, public: true
+          expires_in 48.hours, public: true
         end
 
         def detail
@@ -24,7 +24,7 @@ module Erp
             .where(parent_id: nil)
             .where(archived: false)
             .paginate(:page => params[:page], :per_page => 5)
-          expires_in 24.hours, public: true
+          expires_in 48.hours, public: true
         end
 
         def comments

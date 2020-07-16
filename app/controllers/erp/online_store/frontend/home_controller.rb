@@ -8,7 +8,7 @@ module Erp
             @block_banners = Erp::Banners::Banner.get_home_block_banners
             @long_banner = Erp::Banners::Banner.get_home_long_banners.last
           end
-          #expires_in 5.hours, public: true
+          expires_in 12.hours, public: true
         end
         
         def category_box

@@ -8,7 +8,7 @@
 	<% if params[:controller] == 'erp/online_store/frontend/home' && params[:action] == 'index' %><link rel="canonical" href="<%= request.url %>" />
 	<% elsif params[:controller] == 'erp/online_store/frontend/category' && params[:action] == 'detail' %><link rel="canonical" href="https://timhangcongnghe.com<%= category_detail_link(@category) %>" />
 	<% elsif params[:controller] == 'erp/online_store/frontend/product' && params[:action] == 'detail' %><link rel="canonical" href="https://timhangcongnghe.com<%= product_detail_link(@product) %>" />
-	<% elsif params[:controller] == 'erp/online_store/frontend/brand' && params[:action] == 'listing' %><link rel="canonical" href="https://timhangcongnghe.com/thuong-hieu-san-pham.html" />
+	<% elsif params[:controller] == 'erp/online_store/frontend/brand' && params[:action] == 'listing' %><link rel="canonical" href="https://timhangcongnghe.com/thuong-hieu" />
 	<% elsif params[:controller] == 'erp/online_store/frontend/brand' && params[:action] == 'detail' %><link rel="canonical" href="https://timhangcongnghe.com<%= brand_detail_link(@brand) %>" />
 	<% else %><link rel="canonical" href="<%= request.url %>" /><% end %>
 	<% if params[:controller] == 'erp/online_store/frontend/home' && params[:action] == 'index' %>

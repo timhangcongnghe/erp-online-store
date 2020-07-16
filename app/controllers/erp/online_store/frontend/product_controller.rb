@@ -42,7 +42,7 @@ module Erp
             end
             @total_comments = @product.comments.where(parent_id: nil).where(archived: false).count
           end
-          #expires_in 5.hours, public: true
+          expires_in 12.hours, public: true
         end
         
         def search

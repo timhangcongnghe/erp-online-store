@@ -7,8 +7,8 @@
     </ul>
     <div class="row wrap">
         <div id="content" class="col-sm-12 shopping-cart">
-            <% if @cart.cart_items.number_items > 0 %>
-            <h1 class="title">GIỎ HÀNG CỦA BẠN</h1>
+            <h1 class="title tilte-cart">GIỎ HÀNG CỦA BẠN</h1>
+            <% if @cart.cart_items.number_items > 0 %>            
             <%= form_for([erp_online_store, :frontend, @cart], html: {class: "shopping_cart_form"}) do |f| %>
             <div class="table-responsive form-group">
                 <table class="table table-bordered">
@@ -83,7 +83,7 @@
             </div>
             <% else %>
                 <div class="empty-cart">                    
-                    <h2 class="title">Giỏ hàng của bạn hiện chưa có sản phẩm nào cả!</h2>
+                    <h2 class="title">Giỏ hàng của bạn hiện đang trống.</h2>
                     <br><%= link_to 'Trở về trang chủ', erp_online_store.root_path, class: 'btn btn-default shopping-continue', title: 'Trở về trang chủ' %>
                 </div>
             <% end %>
