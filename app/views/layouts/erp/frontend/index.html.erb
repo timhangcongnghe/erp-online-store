@@ -49,6 +49,7 @@
 	<% if params[:controller] == 'erp/online_store/frontend/shopping_cart' && params[:action] == 'checkout' %><%= stylesheet_link_tag '/frontend/css/checkout.css?v=6.5' %><% end %>
 	<%= stylesheet_link_tag '/frontend/css/starability-minified/starability-all.min.css?v=6.5' %>
 	<% if params[:controller] == 'erp/online_store/frontend/product' && params[:action] == 'detail' %><%= stylesheet_link_tag '/frontend/rating-custom/post-review.css?v=6.5' %><%= render partial: 'erp/online_store/frontend/modules/js_include' %><% end %>
+	<% if params[:controller] == "erp/online_store/frontend/information" && params[:action] == "contact_us" %><%= javascript_include_tag '/frontend/js-google-map/jquery/jquery.js?v=6.5' %><script>$(".maps").click(function(){$(".maps iframe").css("pointer-events","auto")}),$(".maps").mouseleave(function(){$(".maps iframe").css("pointer-events","none")});</script><% end %>
 	<script type="application/ld+json">{
 	  "@context": "https://schema.org",
 	  "@type": "ComputerStore",
