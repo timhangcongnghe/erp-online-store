@@ -1,18 +1,11 @@
 <% if @menu.use_filter == true %>
 <div class="module block-shopby titleLine">
-    <h3 class="modtitle">
-        <span>
-            <i class="fa fa-filter"></i>
-            Bộ lọc sản phẩm
-        </span>
-    </h3>
+    <h3 class="modtitle"><span><i class="fa fa-filter"></i>Bộ lọc sản phẩm</span></h3>
     <div class="modcontent ">
         <%= form_tag((defined?(action) ? action : ''), method: "get", class: "type_2 category-filter-top "+(defined?(auto_load) ? 'auto-load' : '')) do %>
             <div class="table_layout filter-shopby">
                 <div class="table_row">
                     <% if defined?(brands) and brands.count > 1 %>
-                    <!-- - - - - - - - - - - - - - Brand - - - - - - - - - - - - - - - - -->
-                    <!-- .table_cell -->
                     <div class="table_cell">
                         <fieldset>
                             <legend>Thương Hiệu</legend>
@@ -26,13 +19,8 @@
                             </ul>
                         </fieldset>
                     </div>
-                    <!--/ .table_cell -->
-                    <!-- - - - - - - - - - - - - - End Brand - - - - - - - - - - - - - - - - -->
                     <% end %>
-                
                     <% @menu.menu_get_properties_array.each do |group| %>
-                    <!-- - - - - - - - - - - - - - Property Values - - - - - - - - - - - - - - - - -->
-                    <!-- .table_cell -->
                     <div class="table_cell">
                         <fieldset>
                             <legend><%= group[:name] %></legend>
