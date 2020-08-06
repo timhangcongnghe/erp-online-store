@@ -25,7 +25,7 @@
                         <% @cart.cart_items.each do |cart_item| %>
                         <tr>
                             <td class="text-center img-center">
-                                <%= link_to image_tag(product_image(cart_item.product.product_images, 'first', 'thumb99'), alt: cart_item.product_name, class: "img-thumbnail", width: "90"), product_detail_link(cart_item.product), title: cart_item.product_name, target: '_blank' %>
+                                <%= link_to image_tag(product_image(cart_item.product.product_images, 'first', 'thumb193'), alt: cart_item.product_name, class: "img-thumbnail", width: "90"), product_detail_link(cart_item.product), title: cart_item.product_name, target: '_blank' %>
                             </td>
                             <td class="text-left vertical">
                                 <strong><%= link_to cart_item.product_name, product_detail_link(cart_item.product), title: cart_item.product_name, target: '_blank' %></strong>
@@ -38,7 +38,7 @@
                                         <% cart_item.product.gifts.each do |gift| %>
                                             <li class="item-product-sale list-inline">
                                                 <div class="icon-product-sale">
-                                                    <%= image_tag(product_image(gift.product_images, 'first', 'thumb99'), alt: gift.name, class: "img-thumbnail", width: "80") %>
+                                                    <%= image_tag(product_image(gift.product_images, 'first', 'thumb193'), alt: gift.name, class: "img-thumbnail", width: "80") %>
                                                 </div>
                                                 <%= link_to gift.name, product_detail_link(gift), title: gift.name, target: '_blank' %>
                                             </li>

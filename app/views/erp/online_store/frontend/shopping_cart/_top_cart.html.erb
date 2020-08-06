@@ -19,7 +19,7 @@
                     <% @cart.cart_items.each do |cart_item| %>
                     <tr>
                         <td class="text-center" style="width:70px">
-                            <%= link_to image_tag(product_image(cart_item.product.product_images, 'first', 'thumb99'), width: "70px", alt: cart_item.product_name, class: "preview"),
+                            <%= link_to image_tag(product_image(cart_item.product.product_images, 'first', 'thumb193'), width: "70px", alt: cart_item.product_name, class: "preview"),
                                 product_detail_link(cart_item.product), title: cart_item.product_name %>
                         </td>
                         <td class="text-left">

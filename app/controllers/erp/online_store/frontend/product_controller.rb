@@ -65,7 +65,7 @@ module Erp
             link: product_detail_link(product),
             is_sold_out: product.is_sold_out,
             is_call: product.is_call,
-            image: image_src(product.main_image, 'thumb99'),
+            image: image_src(product.main_image, 'thumb193'),
           }}
         end
 

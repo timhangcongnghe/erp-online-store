@@ -25,7 +25,7 @@
                             <td class="text-nowrap">Hình ảnh</td>
                             <% all_items.each do |compare_item| %>
                             <td class="text-center">
-                                <%= link_to image_tag(product_image(compare_item.product.product_images, 'first', 'thumb99'), alt: compare_item.product_name, width: "100", class: "img-thumbnail"), product_detail_link(compare_item.product), title: compare_item.product_name %>
+                                <%= link_to image_tag(product_image(compare_item.product.product_images, 'first', 'thumb193'), alt: compare_item.product_name, width: "100", class: "img-thumbnail"), product_detail_link(compare_item.product), title: compare_item.product_name %>
                             </td>
                             <% end %>
                         </tr>
@@ -45,6 +45,16 @@
                                     <% end %>
                                 </div>
                             </td>
+                            <% end %>
+                        </tr>                        
+                        <tr>
+                            <td class="text-nowrap">Bảo hành</td>
+                            <% all_items.each do |compare_item| %>
+                                <% if compare_item.product.warranty.present? %>
+                                    <td><%= compare_item.product.warranty %> tháng</td>
+                                <% else %>
+                                    <td>Chưa có thông tin</td>
+                                <% end %>
                             <% end %>
                         </tr>
                         <tr>

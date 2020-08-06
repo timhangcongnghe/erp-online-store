@@ -19,8 +19,8 @@
                                 <% end %>
                                 <span class="label label-sale">Giảm giá</span>
                                 <a class="lt-image" href="<%= product_link(product) %>" target="_self">
-                                    <%= image_tag product_image(product.product_images, 'first', 'thumb170'), alt: product.name, title: product.name, class: "img-1 img-responsive" %>
-                                    <%= image_tag product_image(product.product_images, 'second', 'thumb170'), alt: product.name, title: product.name, class: "img-2 img-responsive" %>
+                                    <%= image_tag product_image(product.product_images, 'first', 'thumb193'), alt: product.name, title: product.name, class: "img-1 img-responsive" %>
+                                    <%= image_tag product_image(product.product_images, 'second', 'thumb193'), alt: product.name, title: product.name, class: "img-2 img-responsive" %>
                                 </a>
                                 <%= quick_actions(product) %>
                                 <%= count_down(product.deal_from_date, product.deal_to_date) %>
