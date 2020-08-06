@@ -16,10 +16,10 @@ module Erp
           @product = Erp::Products::Product.find(params[:product_id])
           if @product.is_sold_out == true
               @related_products = Erp::Products::Product.where(category_id: @product.category).where.not(id: params[:product_id]).order('erp_products_products.created_at desc').limit(13)
-              @related_brand_products = Erp::Products::Product.where(brand_id: @product.brand).where.not(id: params[:product_id]).order('erp_products_products.created_at desc').limit(13)
+              @related_brand_products = Erp::Products::Product.where(category_id: @product.category).where(brand_id: @product.brand).where.not(id: params[:product_id]).order('erp_products_products.created_at desc').limit(13)
           else
               @related_products = Erp::Products::Product.where(category_id: @product.category, is_sold_out: false).where.not(id: params[:product_id]).order('erp_products_products.created_at desc').limit(13)
-              @related_brand_products = Erp::Products::Product.where(brand_id: @product.brand, is_sold_out: false).where.not(id: params[:product_id]).order('erp_products_products.created_at desc').limit(13)
+              @related_brand_products = Erp::Products::Product.where(category_id: @product.category).where(brand_id: @product.brand, is_sold_out: false).where.not(id: params[:product_id]).order('erp_products_products.created_at desc').limit(13)
           end
           if @product.archived == true
             render layout: 'erp/frontend/error_page'

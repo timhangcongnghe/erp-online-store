@@ -172,7 +172,7 @@
                         </div>
                         <% if @related_brand_products.count > 0 %>
                         <div class="related upsell titleLine products-list products-list-related grid module ">
-                            <h3 class="modtitle"><span><i class="fa fa-angle-double-right"></i> Sản Phẩm Cùng Thương Hiệu <%= @product.brand.name %></span></h3>
+                            <h3 class="modtitle"><span><i class="fa fa-angle-double-right"></i> Sản Phẩm <%= @product.brand.name %> Cùng Loại</span></h3>
                             <div class="upsell-products">
                                 <% @related_brand_products.each do |product| %>
                                 <div class="product-layout">
@@ -216,7 +216,7 @@
                         <% end %>
                         <% if @related_products.count > 0 %>
                         <div class="related upsell titleLine products-list products-list-related grid module ">
-                            <h3 class="modtitle"><span><i class="fa fa-angle-double-right"></i> Sản Phẩm Tương Tự</span></h3>
+                            <h3 class="modtitle"><span><i class="fa fa-angle-double-right"></i> Sản Phẩm Khác Cùng Loại</span></h3>
                             <div class="upsell-products">
                                 <% @related_products.each do |product| %>
                                 <div class="product-layout">
