@@ -170,7 +170,7 @@
                                 </div>
                             </div>
                         </div>
-                        <% if @related_brand_products.count > 0 %>
+                        <% if @related_brand_products.count > 4 %>
                         <div class="related upsell titleLine products-list products-list-related grid module ">
                             <h3 class="modtitle"><span><i class="fa fa-angle-double-right"></i> Sản Phẩm <%= @product.brand.name %> Cùng Loại</span></h3>
                             <div class="upsell-products">
@@ -214,7 +214,7 @@
                             </div>
                         </div>
                         <% end %>
-                        <% if @related_products.count > 0 %>
+                        <% if @related_products.count > 4 %>
                         <div class="related upsell titleLine products-list products-list-related grid module ">
                             <h3 class="modtitle"><span><i class="fa fa-angle-double-right"></i> Sản Phẩm Khác Cùng Loại</span></h3>
                             <div class="upsell-products">
