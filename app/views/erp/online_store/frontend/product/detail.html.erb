@@ -3,7 +3,7 @@
 <% content_for :metas do %>
 <meta property="og:locale" content="vi" />
 <meta property="og:type" content="website"/>
-<meta property="og:title" content="<%= @product.get_short_name %> - Tìm Hàng Công Nghệ"/>
+<meta property="og:title" content="<%= @product.get_short_name %>"/>
 <% if @meta_description.present? %><meta property="og:description" content="<%= @meta_description %>"/><% else %><meta property="og:description" content="Tìm Hàng Công Nghệ là đơn vị cung cấp các sản phẩm, dịch vụ thuộc lĩnh vực Công Nghệ Thông Tin do Công Ty TNHH Giải Pháp CNTT Và Truyền Thông Hoàng Khang phụ trách và phát triển."/><% end %>
 <meta property="og:url" content="<%= request.url %>"/>
 <meta property="og:site_name" content="Tìm Hàng Công Nghệ"/>
@@ -12,7 +12,7 @@
 <meta property="og:image:height" content="628"/>
 <meta property="og:url" content="<%= request.url %>"/>
 <meta name="twitter:card" content="summary"/>
-<meta property="twitter:title" content="<%= @product.get_short_name %> - Tìm Hàng Công Nghệ"/>
+<meta property="twitter:title" content="<%= @product.get_short_name %>"/>
 <% if @meta_description.present? %><meta property="twitter:description" content="<%= @meta_description %>"/><% else %><meta property="twitter:description" content="Tìm Hàng Công Nghệ là đơn vị cung cấp các sản phẩm, dịch vụ thuộc lĩnh vực Công Nghệ Thông Tin do Công Ty TNHH Giải Pháp CNTT Và Truyền Thông Hoàng Khang phụ trách và phát triển."/><% end %>
 <% if product_images.count == 0 %><meta name="twitter:image" content="https://timhangcongnghe.com/frontend/img/sys/schema-logo.jpg"/><% else %><meta property="twitter:image" content="https://timhangcongnghe.com<%= first_image %>"/><% end %>
 <% end %>

@@ -13,6 +13,8 @@
 	<% else %><link rel="canonical" href="<%= request.url %>" /><% end %>
 	<% if params[:controller] == 'erp/online_store/frontend/home' && params[:action] == 'index' %>
 	<title>Tìm Hàng Công Nghệ | Chuyên laptop, máy vi tính, thiết bị công nghệ</title>
+	<% elsif params[:controller] == 'erp/online_store/frontend/product' && params[:action] == 'detail' %>
+	<title><% if content_for?(:title) %><%= yield(:title) %><% else %>Tìm Hàng Công Nghệ | Chuyên laptop, máy vi tính, thiết bị công nghệ<% end %></title>
 	<% else %>
 	<title><% if content_for?(:title) %><%= yield(:title) %> | Tìm Hàng Công Nghệ<% else %>Tìm Hàng Công Nghệ | Chuyên laptop, máy vi tính, thiết bị công nghệ<% end %></title>
 	<% end %>
