@@ -432,6 +432,9 @@ def hkerp_update_imported
 
   def get_meta_description
     data = []
+    if self.category.short_meta_description.present?
+       data << self.category.short_meta_description
+    end
     if self.brand.present?
        data << self.brand.name
     end

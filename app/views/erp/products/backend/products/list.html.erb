@@ -124,7 +124,7 @@
                         <br><span class="label label-sm label-info"><%= t('.top_business_choices') %></span>
                         <% end %>
                         <% if product.meta_description.present? %>
-                            <br><span class="label label-sm label-danger">SEO mô tả</span>
+                            <br><span class="label label-sm label-danger">SEO mô tả (<%= product.meta_description.length %>)</span>
                         <% end %>
                         <% if product.description.present? %>
                             <br><span class="label label-sm label-danger">Có bài GT</span>
