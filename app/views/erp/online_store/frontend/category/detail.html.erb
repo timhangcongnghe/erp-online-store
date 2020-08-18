@@ -62,6 +62,7 @@
                                                     <% end %>
                                                 </div>
                                                 <% if product.short_description.present? %><div class="list-product-specs"><%= product.short_description %></div><% end %>
+                                                <% if product.meta_description.present? %><div style="display:none;" class="list-product-specs"><%= product.meta_description %></div><% end %>
                                             </div>
                                         </div>
                                     </div>

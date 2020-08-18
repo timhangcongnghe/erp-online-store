@@ -20,7 +20,7 @@
     <ul class="breadcrumb">
         <li><%= link_to '<i class="fa fa-home"></i>'.html_safe, erp_online_store.root_path, title: 'Tìm Hàng Công Nghệ' %></li>
         <% if !@category.nil? %><% @category.self_and_parent_menus.each do |category| %><li><%= link_to category.get_name, category_detail_link(category), title: category.get_name %></li><% end %><% end %>
-        <li><%= link_to truncate(@product.get_short_name, length: 59), "javascript:void(0);", title: @product.get_short_name %></li>
+        <li><%= link_to truncate(@product.get_short_name, length: 75), "javascript:void(0);", title: @product.get_short_name %></li>
     </ul>
     <div class="row">
         <div id="content" class="col-md-12 col-sm-12">
@@ -205,6 +205,7 @@
                                                         <% end %>
                                                     </div>
                                                     <% if product.short_description.present? %><div class="list-product-specs"><%= product.short_description %></div><% end %>
+                                                    <% if product.meta_description.present? %><div style="display:none;" class="list-product-specs"><%= product.meta_description %></div><% end %>
                                                 </div>
                                             </div>
                                         </div>
@@ -248,9 +249,8 @@
                                                             <% end %>
                                                         <% end %>
                                                     </div>
-                                                    <% if product.short_description.present? %>
-                                                    <div class="list-product-specs"><%= product.short_description %></div>
-                                                    <% end %>
+                                                    <% if product.short_description.present? %><div class="list-product-specs"><%= product.short_description %></div><% end %>
+                                                    <% if product.meta_description.present? %><div style="display:none;" class="list-product-specs"><%= product.meta_description %></div><% end %>
                                                 </div>
                                             </div>
                                         </div>
