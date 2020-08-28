@@ -5,7 +5,7 @@
                 <div class="portlet light bordered">
                     <div class="portlet-body form">
                         <div class="row">
-                            <div class="col-md-5 col-xs-12">
+                            <div class="col-md-12 col-xs-12">
                                 <% if Erp::Core.available?("online_store") %>
                                     <% if product.hkerp_product.present? %>
                                         <div class="form-group">
@@ -22,6 +22,30 @@
                                         </div>
                                     <% end %>
                                 <% end %>
+                            </div>
+                        </div>
+                        <div class="row">                            
+                            <div class="col-md-12 text-center">
+                                <%= erp_form_control("images", {
+                                    name: 'product[product_images_attributes][__index__][image_url]',
+                                    name_cache: 'product[product_images_attributes][__index__][image_url_cache]',
+                                    id_name: 'product[product_images_attributes][__index__][id]',
+                                    destroy_name: 'product[product_images_attributes][__index__][_destroy]',
+                                    label: t('.images'),
+                                    width: 122,
+                                    height: 122,
+                                    images: @product.product_images,
+                                    origin_attribute: 'image_url',
+                                    image_attribute: 'image_url.small',
+                                    image_thumb: :small,
+                                    hidden_params: [
+                                        {name: 'product[product_images_attributes][__index__][product_id]', value: @product.id}
+                                    ]
+                                }) %>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 col-xs-12">
                                 <%= erp_form_control("text", {
                                     name: 'product[code]',
                                     value: product.code,
@@ -48,24 +72,6 @@
                                     errors: product.errors.full_messages_for(:short_name)
                                 }) %>
                             </div>
-                            <div class="col-md-7">
-                                <%= erp_form_control("images", {
-                                    name: 'product[product_images_attributes][__index__][image_url]',
-                                    name_cache: 'product[product_images_attributes][__index__][image_url_cache]',
-                                    id_name: 'product[product_images_attributes][__index__][id]',
-                                    destroy_name: 'product[product_images_attributes][__index__][_destroy]',
-                                    label: t('.images'),
-                                    width: 122,
-                                    height: 122,
-                                    images: @product.product_images,
-                                    origin_attribute: 'image_url',
-                                    image_attribute: 'image_url.small',
-                                    image_thumb: :small,
-                                    hidden_params: [
-                                        {name: 'product[product_images_attributes][__index__][product_id]', value: @product.id}
-                                    ]
-                                }) %>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -90,7 +96,6 @@
                     </ul>
                     <div class="tab-content">
                         <div class="tab-pane active" id="tab_5_1">
-                            
                             <div class="row">
                                 <div class="col-md-4">
                                     <% if Erp::Core.available?("online_store") and product.hkerp_product.present? %>
@@ -98,11 +103,9 @@
                                             <label>Giá bán
                                                     <i class="fa fa-commenting right tooltips icon-default-color" data-original-title="Giá bán của sản phẩm" data-container="body"></i>
                                             </label>
-
                                             <div class="text-bold text-right">
                                                 <strong><%= format_price(product.price) %></strong>
                                             </div>
-
                                         </div>
                                     <% else %>
                                         <%= erp_form_control("number", {
@@ -157,7 +160,7 @@
                                     }) %>
                                 </div>
                             </div>                            
-                            <div class="row">
+                            <div class="row">                                
                                 <div class="col-md-4">
                                     <%= erp_form_control("text", {
                                         name: 'product[warranty]',

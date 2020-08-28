@@ -6,44 +6,27 @@
                     <%= erp_datalist_check_all %>
                 </th>
                 <% if get_columns(params).include?("code") %>
-                    <th>
-                        <%= t('.code') %>
-                    </th>
+                    <th><%= t('.code') %></th>
                 <% end %>
                 <% if get_columns(params).include?("brand") %>
-                    <th width='7%'>
-                        <%= t('.brand') %>
-                    </th>
+                    <th width='7%'><%= t('.brand') %></th>
                 <% end %>
                 <% if get_columns(params).include?("category") %>
-                    <th width='10%'>
-                        <%= t('.category') %>
-                    </th>
+                    <th width='10%'><%= t('.category') %></th>
                 <% end %>
                 <% if get_columns(params).include?("name") %>
-                    <th width='40%' class="sortable" sort-by='erp_products_products.name'>
-                        <%= t('.name') %>
-                    </th>
+                    <th width='40%' class="sortable" sort-by='erp_products_products.name'><%= t('.name') %></th>
                 <% end %>                
                 <% if get_columns(params).include?("price") %>
-                    <th>
-                        <%= t('.price') %>
-                    </th>
+                    <th><%= t('.price') %></th>
                 <% end %>                
                 <% if get_columns(params).include?("status") %>
-                    <th>
-                        <%= t('status') %>
-                    </th>
+                    <th><%= t('status') %></th>
                 <% end %>
                 <% if get_columns(params).include?("creator") %>
-                    <th>
-                        <%= t('creator') %>
-                    </th>
+                    <th><%= t('creator') %></th>
                 <% end %>
-                <% if get_columns(params).include?("created_at") %>
-                    <th class="sortable" sort-by='erp_products_products.created_at'>
-                        <%= t('created_at') %>
-                    </th>
+                <% if get_columns(params).include?("created_at") %></th>
                 <% end %>
                 <th width="7%"><%= t('actions') %></th>
             </tr>
@@ -51,9 +34,7 @@
         <tbody>
             <% @products.each do |product| %>
                 <tr class="odd gradeX">
-                    <td>
-                        <%= erp_datalist_check_row(id: product.id) %>
-                    </td>
+                    <td><%= erp_datalist_check_row(id: product.id) %></td>
                     <% if get_columns(params).include?("code") %>
                         <td><%= product.code %></td>
                     <% end %>
@@ -71,7 +52,7 @@
                         <td>
                             <strong><%= link_to product.name, erp_products.edit_backend_product_path(product) %></strong>
                             <% if product.short_name.present? %>
-                                <% if product.short_name.length > 70 %>
+                                <% if product.short_name.length > 75 %>
                                     <br><em style="color: #d91e18"><strong>Tên rút gọn: </strong><%= product.short_name %></em>
                                 <% else %>
                                     <br><em><strong>Tên rút gọn: </strong><%= product.short_name %></em>
@@ -254,9 +235,6 @@
             <% end %>
         </tbody>
     </table>
-    <% if @products.empty? %>
-        <div class="datalist-empty-line"><%= t('.no_matching_records_found') %></div>
-    <% end %>
+    <% if @products.empty? %><div class="datalist-empty-line"><%= t('.no_matching_records_found') %></div><% end %>
 </div>
-
 <%= erp_datalist_pagination(@products) %>
