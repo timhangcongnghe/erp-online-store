@@ -23,7 +23,6 @@
 
 <% if can? :create, Erp::Products::Rating.new %>
     <% if user_signed_in? %>
-
         <div id="post-review-box" style="display:none;">
             <hr>
             <% if @rating.id.present? %>

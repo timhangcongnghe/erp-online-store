@@ -257,22 +257,10 @@
 		<% if @meta_description.present? %>"description": "<%= @meta_description %>",<% end %>
 		"brand": "<%= @product.brand_name %>",
 		<% if @product.code.present? %>"sku": "<%= @product.code %>","mpn": "<%= @product.code %>",<% else %>"sku": "<%= @product.id %>","mpn": "<%= @product.id %>",<% end %>
-		"review": {
-			"@type": "Review",
-			"reviewRating": {
-				"@type": "Rating",
-				"ratingValue": "5",
-				"bestRating": "5"
-			},
-			"author": {
-				"@type": "Person",
-				"name": "Sơn Nguyễn"
-			}
-		},
 		"aggregateRating": {
 			"@type": "AggregateRating",
-			"ratingValue": "5",
-			"reviewCount": "5"
+			"ratingValue": "<%= @product.average_stars.to_i %>",
+			"reviewCount": "<%= @product.ratings_active.count %>"
 		},
 		"offers": {
 			"@type": "Offer",
@@ -283,7 +271,7 @@
 			<% else %>
 			"price": "<%= @product.product_price.to_i %>",
 			<% end %>
-			"priceValidUntil": "<%= (@product.updated_at+730.days).strftime("%d/%m/%Y") %>",
+			"priceValidUntil": "<%= (@product.updated_at+1800.days).strftime("%d/%m/%Y") %>",
 			<% if @product.is_sold_out == true %>"availability": "https://schema.org/OutOfStock",<% else %>"availability": "https://schema.org/InStock",<% end %>
 			"seller": {
 				"@type": "Organization",
