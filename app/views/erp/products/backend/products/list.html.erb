@@ -105,6 +105,9 @@
                         <% if product.short_description? %>
                             <br><span class="label label-sm label-info"><%= t('.short_description') %></span>
                         <% end %>
+                        <% if product.product_images.count == 0 %>
+                            <br><span class="label label-sm label-danger">Chưa có hình ảnh</span>
+                        <% end %>
                     </td>
                     <% end %>
                     <% if get_columns(params).include?("creator") %>
