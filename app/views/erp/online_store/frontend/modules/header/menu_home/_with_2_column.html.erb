@@ -1,6 +1,6 @@
 <li class="item-vertical style1 with-sub-menu hover">
     <p class="close-menu"></p>
-    <h2><a href="<%= category_detail_link(category) %>" title="<%= category.get_name %>">
+    <h2><a href="javascript:void(0)" title="<%= category.get_name %>">
         <% if category.menu_icon.present? %><%= image_tag category.menu_icon.icon, alt: category.get_name, title: category.get_name %><% end %>
         <strong><span><%= truncate(category.get_name, length: 27) %></span><% if category.children.count > 0 %><b class="fa fa-angle-right"></b><% end %></strong>
     </a></h2>

@@ -257,11 +257,11 @@
 		<% if @meta_description.present? %>"description": "<%= @meta_description %>",<% end %>
 		"brand": "<%= @product.brand_name %>",
 		<% if @product.code.present? %>"sku": "<%= @product.code %>","mpn": "<%= @product.code %>",<% else %>"sku": "<%= @product.id %>","mpn": "<%= @product.id %>",<% end %>
-		"aggregateRating": {
+		<% if @product.ratings_active.count > 0 %>"aggregateRating": {
 			"@type": "AggregateRating",
 			"ratingValue": "<%= @product.average_stars.to_i %>",
 			"reviewCount": "<%= @product.ratings_active.count %>"
-		},
+		},<% end %>
 		"offers": {
 			"@type": "Offer",
 			"url": "https://timhangcongnghe.com<%= product_detail_link(@product) %>",
