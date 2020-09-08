@@ -15,7 +15,7 @@ module Erp
           if request.xhr?
             render layout: nil
           end
-          #expires_in 12.hours, public: true
+          expires_in 12.hours, public: true
         end
 
         def select2
