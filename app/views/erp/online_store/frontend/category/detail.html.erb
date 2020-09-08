@@ -24,6 +24,36 @@
     </ul>
     <div class="row">
         <aside class="col-sm-4 col-md-3" id="column-left">
+            <% if @category.use_filter == true %>
+            <div class="module block-shopby titleLine">
+                <h3 class="modtitle"><span><i class="fa fa-filter"></i> Lọc sản phẩm</span></h3>
+                <div class="modcontent ">
+                    <%= form_tag((defined?(action) ? action : ''), method: "get", class: "type_2 category-filter-top "+(defined?(auto_load) ? 'auto-load' : '')) do %>
+                        <div class="table_layout filter-shopby">
+                            <div class="table_row">
+                                <% @category.menu_get_properties_array.each do |group| %>
+                                <div class="table_cell">
+                                    <fieldset>
+                                        <legend><%= group[:name] %></legend>
+                                        <ul class="checkboxes_list" style="background-color: #f2f2f2;display: block;width: 100%;height: 150px;padding: 13px;overflow-y: scroll;">
+                                            <% group[:values].each do |value| %>
+                                                <% if value.product_count_by_menu(@category) > 0 %>
+                                                    <li>
+                                                        <input type="checkbox" value="<%= value[:id] %>" name="property_value_ids[<%= value[:property_id] %>][]" id="value_<%= value[:id] %>">
+                                                        <label style="font-size: 12px !important;" for="value_<%= value[:id] %>"><%= value[:value] %> (<%= value.product_count_by_menu(@category) %>)</label>
+                                                    </li>
+                                                <% end %>
+                                            <% end %>
+                                        </ul>
+                                    </fieldset>
+                                </div>
+                                <% end %>                                    
+                            </div>
+                        </div>
+                    <% end %>
+                </div>
+            </div>
+            <% end %>
 			<%= render 'erp/online_store/frontend/modules/extensions/sidebar_best_seller' %>
 			<%= render 'erp/online_store/frontend/modules/extensions/sidebar_hot_banner' %>
         </aside>

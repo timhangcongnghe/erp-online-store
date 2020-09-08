@@ -12,7 +12,7 @@
                         <div class="row">
                             <div class="col-sm-6 static-menu">
                                 <div class="menu">
-                                    <ul><% category_array[0..13].each do |child| %>
+                                    <ul><% category_array[0..13].each do |child| %>                                        
                                         <li class="<%= child[:class] %>">
                                             <%= link_to child[:menu].get_name, category_detail_link(child[:menu]), class: 'main-menu', title: child[:menu].get_name %>
                                         </li><% end %>
