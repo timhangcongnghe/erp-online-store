@@ -35,7 +35,7 @@
                                 <div class="table_cell">
                                     <fieldset>
                                         <legend><%= group[:name] %></legend>
-                                        <ul class="checkboxes_list" style="background-color: #f2f2f2;display: block;width: 100%;height: 150px;padding: 13px;overflow-y: scroll;">
+                                        <ul class="checkboxes_list" style="background-color:#f8f8ff;display:block;width:100%;height:150px;padding:13px;overflow-y:scroll;">
                                             <% group[:values].each do |value| %>
                                                 <% if @category.brand.present? %>
                                                     <% if value.product_count_by_menu_brand(@category) > 0 %>
