@@ -69,7 +69,7 @@
                                             <i class="fa fa-commenting right tooltips icon-default-color" data-original-title="Tên rút gọn của sản phẩm không kèm thuộc tính" data-container="body"></i>
                                         </label>
                                         <% if (product.short_name.length < 69) || (product.short_name.length > 75) %>
-                                        <input required="required" class="form-control spinner " type="text" name="product[short_name]" value="<%= product.short_name %>" placeholder="Nhập tên rút gọn" kl_vkbd_parsed="true" style="background:#ff0000;">
+                                        <input required="required" class="form-control spinner " type="text" name="product[short_name]" value="<%= product.short_name %>" placeholder="Nhập tên rút gọn" kl_vkbd_parsed="true" style="background:#ff0000;color:#fff;">
                                         <% else %>
                                         <input required="required" class="form-control spinner " type="text" name="product[short_name]" value="<%= product.short_name %>" placeholder="Nhập tên rút gọn" kl_vkbd_parsed="true">
                                         <% end %>
