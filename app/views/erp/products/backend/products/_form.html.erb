@@ -62,15 +62,25 @@
                                     required: true,
                                     errors: product.errors.full_messages_for(:name)
                                 }) %>
-                                <%= erp_form_control("text", {
-                                    name: 'product[short_name]',
-                                    value: product.short_name,
-                                    label: t('.short_name'),
-                                    help: t('.help_product_short_name'),
-                                    placeholder: t('.placeholder_product_short_name'),
-                                    required: true,
-                                    errors: product.errors.full_messages_for(:short_name)
-                                }) %>
+                                <div class="form-group ">
+                                    <% if product.short_name.present? %>
+                                        <label>Tên rút gọn (<%= product.short_name.length %>)
+                                            <span class="required" aria-required="true"> * </span>
+                                            <i class="fa fa-commenting right tooltips icon-default-color" data-original-title="Tên rút gọn của sản phẩm không kèm thuộc tính" data-container="body"></i>
+                                        </label>
+                                        <% if (product.short_name.length < 69) || (product.short_name.length > 75) %>
+                                        <input required="required" class="form-control spinner " type="text" name="product[short_name]" value="<%= product.short_name %>" placeholder="Nhập tên rút gọn" kl_vkbd_parsed="true" style="background:#ff0000;">
+                                        <% else %>
+                                        <input required="required" class="form-control spinner " type="text" name="product[short_name]" value="<%= product.short_name %>" placeholder="Nhập tên rút gọn" kl_vkbd_parsed="true">
+                                        <% end %>
+                                    <% else %>
+                                        <label>Tên rút gọn
+                                            <span class="required" aria-required="true"> * </span>
+                                            <i class="fa fa-commenting right tooltips icon-default-color" data-original-title="Tên rút gọn của sản phẩm không kèm thuộc tính" data-container="body"></i>
+                                        </label>
+                                        <input required="required" class="form-control spinner " type="text" name="product[short_name]" value="<%= product.short_name %>" placeholder="Nhập tên rút gọn" kl_vkbd_parsed="true">
+                                    <% end %>
+                                </div>
                             </div>
                         </div>
                     </div>
