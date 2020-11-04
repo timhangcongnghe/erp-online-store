@@ -10,7 +10,11 @@ module Erp
         def detail
           @body_class = "res layout-subpage"
           @category = Erp::Menus::Menu.find(params[:category_id])
-          @products = @category.get_products_for_categories(params).paginate(:page => params[:page], :per_page => 36)
+          if @category.archived == true
+            @products = @category.get_archive_products_for_categories(params).paginate(:page => params[:page], :per_page => 36)
+          else
+            @products = @category.get_products_for_categories(params).paginate(:page => params[:page], :per_page => 36)
+          end
           @meta_description = @category.meta_description
           if request.xhr?
             render layout: nil

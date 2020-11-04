@@ -5,14 +5,14 @@
 <meta property="og:type" content="website"/>
 <meta property="og:title" content="<%= @product.get_short_name %> | Tìm Hàng Công Nghệ"/>
 <% if @meta_description.present? %><meta property="og:description" content="<%= @meta_description %>"/><% else %><meta property="og:description" content="Tìm Hàng Công Nghệ là đơn vị cung cấp các sản phẩm, dịch vụ thuộc lĩnh vực Công Nghệ Thông Tin do Công Ty TNHH Giải Pháp CNTT Và Truyền Thông Hoàng Khang phụ trách và phát triển."/><% end %>
-<meta property="og:url" content="<%= request.url %>"/>
+<meta property="og:url" content="https://timhangcongnghe.com<%= product_detail_link(@product) %>"/>
 <meta property="og:site_name" content="Tìm Hàng Công Nghệ"/>
 <% if product_images.count == 0 %><meta name="og:image" content="https://timhangcongnghe.com/frontend/img/sys/schema-logo.jpg"/><% else %><meta property="og:image" content="https://timhangcongnghe.com<%= first_image %>"/><% end %>
 <meta property="og:image:alt" content="<%= @product.get_short_name %> | Tìm Hàng Công Nghệ"/>
 <% if product_images.count == 0 %><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="628"/><% else %><meta property="og:image:width" content="650"/><meta property="og:image:height" content="650"/><% end %>
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:site" content="<%= request.url %>"/>
+<meta name="twitter:site" content="https://timhangcongnghe.com<%= product_detail_link(@product) %>"/>
 <meta property="twitter:title" content="<%= @product.get_short_name %> | Tìm Hàng Công Nghệ"/>
 <% if @meta_description.present? %><meta property="twitter:description" content="<%= @meta_description %>"/><% else %><meta property="twitter:description" content="Tìm Hàng Công Nghệ là đơn vị cung cấp các sản phẩm, dịch vụ thuộc lĩnh vực Công Nghệ Thông Tin do Công Ty TNHH Giải Pháp CNTT Và Truyền Thông Hoàng Khang phụ trách và phát triển."/><% end %>
 <% if product_images.count == 0 %><meta name="twitter:image" content="https://timhangcongnghe.com/frontend/img/sys/schema-logo.jpg"/><% else %><meta property="twitter:image" content="https://timhangcongnghe.com<%= first_image %>"/><% end %>
