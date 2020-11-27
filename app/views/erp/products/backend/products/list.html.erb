@@ -8,10 +8,10 @@
                 <% if get_columns(params).include?("category") %><th width='10%'><%= t('.category') %></th><% end %>
                 <% if get_columns(params).include?("name") %>
                     <th width='40%' class="sortable" sort-by='erp_products_products.name'><%= t('.name') %></th>
-                <% end %>                
+                <% end %>
                 <% if get_columns(params).include?("price") %>
                     <th><%= t('.price') %></th>
-                <% end %>                
+                <% end %>
                 <% if get_columns(params).include?("status") %>
                     <th><%= t('status') %></th>
                 <% end %>
@@ -44,7 +44,7 @@
                         <td>
                             <strong><%= link_to product.name, erp_products.edit_backend_product_path(product) %></strong>
                             <% if product.short_name.present? %>
-                                <% if (product.short_name.length < 69) || (product.short_name.length > 75) %>
+                                <% if (product.short_name.length > 64) %>
                                     <br><em style="color: #d91e18"><strong>Tên rút gọn: </strong><%= product.short_name %></em>
                                 <% else %>
                                     <br><em><strong>Tên rút gọn: </strong><%= product.short_name %></em>
@@ -69,7 +69,7 @@
                                 <br><em>Bảo hành: <%= product.warranty %></em>
                             <% end %>
                         </td>
-                    <% end %>                    
+                    <% end %>
                     <% if get_columns(params).include?("price") %>
                         <td><%= format_price(product.price) %></td>
                     <% end %>
@@ -126,7 +126,7 @@
                                 {
                                     text: '<i class="fa fa-edit"></i> '+t('edit'),
                                     href: erp_products.edit_backend_product_path(product)
-                                },                                
+                                },
                                 {
                                     text: '<i class="fa fa-check-square-o"></i> '+t('.check_is_bestseller'),
                                     url: erp_products.check_is_bestseller_backend_products_path(id: product),
@@ -190,7 +190,7 @@
                                     hide: !product.is_stock_inventory,
                                     class: 'ajax-link',
                                     data_confirm: t('.uncheck_is_stock_inventory_confirm')
-                                },                                                                                    
+                                },
                                 {
                                     text: '<i class="fa fa-plus"></i> '+t('.check_is_business_choices'),
                                     url: erp_products.check_is_business_choices_backend_products_path(id: product),

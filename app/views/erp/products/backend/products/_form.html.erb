@@ -24,7 +24,7 @@
                                 <% end %>
                             </div>
                         </div>
-                        <div class="row">                            
+                        <div class="row">
                             <div class="col-md-12 text-center">
                                 <%= erp_form_control("images", {
                                     name: 'product[product_images_attributes][__index__][image_url]',
@@ -68,7 +68,7 @@
                                             <span class="required" aria-required="true"> * </span>
                                             <i class="fa fa-commenting right tooltips icon-default-color" data-original-title="Tên rút gọn của sản phẩm không kèm thuộc tính" data-container="body"></i>
                                         </label>
-                                        <% if (product.short_name.length < 69) || (product.short_name.length > 75) %>
+                                        <% if (product.short_name.length > 64) %>
                                         <input required="required" class="form-control spinner " type="text" name="product[short_name]" value="<%= product.short_name %>" placeholder="Nhập tên rút gọn" kl_vkbd_parsed="true" style="background:#e7505a;color:#fff;">
                                         <% else %>
                                         <input required="required" class="form-control spinner " type="text" name="product[short_name]" value="<%= product.short_name %>" placeholder="Nhập tên rút gọn" kl_vkbd_parsed="true">
@@ -169,15 +169,15 @@
                                         errors: product.errors.full_messages_for(:brand_id)
                                     }) %>
                                 </div>
-                            </div>                            
-                            <div class="row">                                
+                            </div>
+                            <div class="row">
                                 <div class="col-md-4">
                                     <%= erp_form_control("text", {
                                         name: 'product[warranty]',
                                         value: product.warranty,
                                         label: t('.warranty'),
                                         placeholder: t('.placeholder_warranty')
-                                    }) %>                                    
+                                    }) %>
                                 </div>
                                 <div class="col-md-4">
                                     <%= erp_form_control("text", {
@@ -222,7 +222,7 @@
                                         }
                                     }) %>
                                 </div>
-                            </div>                            
+                            </div>
                             <div class="row">
                                 <div class="col-md-3">
                                     <%= erp_form_control('checkbox', {
@@ -407,14 +407,14 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="tab-pane" id="tab_5_4">                            
+                        <div class="tab-pane" id="tab_5_4">
                             <h4><%= t('.description') %></h4>
                             <%= erp_form_control("editor", {
                                 name: 'product[description]',
                                 value: product.description,
                                 placeholder: t('.enter_description')
                             }) %>
-                        </div>                     
+                        </div>
                     </div>
                 </div>
             </div>
