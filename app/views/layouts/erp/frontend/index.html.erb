@@ -12,7 +12,7 @@
 	<% elsif params[:controller] == 'erp/online_store/frontend/brand' && params[:action] == 'detail' %><link rel="canonical" href="https://timhangcongnghe.com<%= brand_detail_link(@brand) %>" />
 	<% else %><link rel="canonical" href="<%= request.url %>" /><% end %>
 	<% if params[:controller] == 'erp/online_store/frontend/home' && params[:action] == 'index' %>
-	<title>Tìm Hàng Công Nghệ | Chuyên laptop, máy vi tính, thiết bị công nghệ</title>	
+	<title>Tìm Hàng Công Nghệ | Chuyên laptop, máy vi tính, thiết bị công nghệ</title>
 	<% else %>
 	<title><% if content_for?(:title) %><%= yield(:title) %> | Tìm Hàng Công Nghệ<% else %>Tìm Hàng Công Nghệ | Chuyên laptop, máy vi tính, thiết bị công nghệ<% end %></title>
 	<% end %>
@@ -58,7 +58,7 @@
 	  "logo": "https://timhangcongnghe.com/frontend/img/sys/timhangcongnghe.png",
 	  "image": "https://timhangcongnghe.com/frontend/img/sys/schema-logo.jpg",
 	  "description": "Tìm Hàng Công Nghệ là đơn vị cung cấp các sản phẩm, dịch vụ thuộc lĩnh vực Công Nghệ Thông Tin do Công Ty TNHH Giải Pháp CNTT Và Truyền Thông Hoàng Khang phụ trách và phát triển.",
-	  "hasMap": "https://www.google.com/maps/place/T%C3%ACm+H%C3%A0ng+C%C3%B4ng+Ngh%E1%BB%87/@10.8476082,106.6554575,17z/data=!3m1!4b1!4m5!3m4!1s0x0:0xefca0f0bc8cf5117!8m2!3d10.8476082!4d106.6576462",	
+	  "hasMap": "https://www.google.com/maps/place/T%C3%ACm+H%C3%A0ng+C%C3%B4ng+Ngh%E1%BB%87/@10.8476082,106.6554575,17z/data=!3m1!4b1!4m5!3m4!1s0x0:0xefca0f0bc8cf5117!8m2!3d10.8476082!4d106.6576462",
 	  "url": "https://timhangcongnghe.com/",
 	  "telephone": "02839847690",
 	  "priceRange": "100000VND-500000000VND",
@@ -106,7 +106,7 @@
 		"https://timhangcongnghehcm.business.site/",
 		"https://timhangcongnghe.weebly.com/"
 	  ]
-	}</script>	
+	}</script>
 	<% if params[:controller] == 'erp/online_store/frontend/home' && params[:action] == 'index' %>
 	<script type="application/ld+json">{
 	"@context":"http://schema.org",
@@ -165,8 +165,8 @@
 		"url": "https://timhangcongnghe.com/",
 		"potentialAction": {
 			"@type": "SearchAction",
-			"target": "https://timhangcongnghe.com/search?keyword={search_term_string}",
-			"query-input": "required name=search_term_string"
+			"target": "https://timhangcongnghe.com/search?keyword={query}",
+			"query": "required"
 		}
 	}
 	</script>

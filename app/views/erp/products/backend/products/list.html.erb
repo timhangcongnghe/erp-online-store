@@ -44,7 +44,7 @@
                         <td>
                             <strong><%= link_to product.name, erp_products.edit_backend_product_path(product) %></strong>
                             <% if product.short_name.present? %>
-                                <% if (product.short_name.length > 64) %>
+                                <% if (product.short_name.length > 65) %>
                                     <br><em style="color: #d91e18"><strong>Tên rút gọn: </strong><%= product.short_name %></em>
                                 <% else %>
                                     <br><em><strong>Tên rút gọn: </strong><%= product.short_name %></em>
