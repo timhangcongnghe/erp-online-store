@@ -6,3 +6,13 @@
 .products-category .category-derc {
     padding: 5px 5px 0 5px;
 }
+.article-info .article-description h2 {
+  font-size: 21px !important;
+}
+.article-info .article-description h3 {
+  font-size: 19px !important;
+}
+.article-info .article-description {
+  width: 90%;
+  height: auto;
+}
