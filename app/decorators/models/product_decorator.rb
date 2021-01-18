@@ -267,6 +267,7 @@ Erp::Products::Product.class_eval do
   after_create :hkerp_set_cache_thcn_url
   after_save :hkerp_set_cache_thcn_url
   after_save :hkerp_set_cache_thcn_properties
+  
   after_save :hkerp_update_price
   after_save :hkerp_set_sold_out
   before_destroy :hkerp_set_not_imported
@@ -438,7 +439,7 @@ def hkerp_update_imported
     if self.brand.present?
        data << self.brand.name
     end
-    self.category.property_groups.each do |group|
+    self.category.property_groups.where(is_filter_specs: false).each do |group|
       group.properties.where(is_meta_description: true).each do |property|
         values = self.products_values_by_property(property).map {|pv| pv.properties_value.value }
         data += values if !values.empty?
@@ -454,7 +455,7 @@ def hkerp_update_imported
   
   def get_short_description
     data = []
-    self.category.property_groups.each do |group|
+    self.category.property_groups.where(is_filter_specs: false).each do |group|
       group.properties.where(is_short_description: true).each do |property|
         values = self.products_values_by_property(property).map {|pv| pv.properties_value.value }
         data += values if !values.empty?
@@ -470,7 +471,7 @@ def hkerp_update_imported
   
   def product_values_array
     groups = []
-    self.category.property_groups.each do |group|
+    self.category.property_groups.where(is_filter_specs: false).each do |group|
       row = {}
       row[:group] = group
       row[:properties] = []
@@ -488,7 +489,7 @@ def hkerp_update_imported
   
   def product_short_descipriton_values_array
     groups = []
-    return [] if self.category.nil?
+    return [] if self.category.where(is_filter_specs: false).nil?
     self.category.property_groups.each do |group|
       row = {}
       if group.show_name.present?
