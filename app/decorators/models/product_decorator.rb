@@ -489,8 +489,8 @@ def hkerp_update_imported
   
   def product_short_descipriton_values_array
     groups = []
-    return [] if self.category.where(is_filter_specs: false).nil?
-    self.category.property_groups.each do |group|
+    return [] if self.category.nil?
+    self.category.property_groups.where(is_filter_specs: false).each do |group|
       row = {}
       if group.show_name.present?
         row[:name] = group.get_show_name
