@@ -510,12 +510,14 @@ def hkerp_update_imported
   def product_short_descipriton_values_array_new_specs
     groups = []
     return [] if self.category.nil?
+
     property_group = self.category.property_groups.where(is_filter_specs: true).first
     property_group.properties.where(is_show_detail: true).each do |property|
       row = {}
       row[:name] = property.name
       row[:values] = []
-      values = self.property.properties_values.order("custom_order ASC").get_property_values_for_filter.map {|pv| pv.value }
+      
+      values = self.products_values_by_property(property).map {|pv| pv.properties_value.value }
       row[:values] += values if !values.empty?
       groups << row if !row[:values].empty?
     end
