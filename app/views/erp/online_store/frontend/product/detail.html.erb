@@ -82,9 +82,16 @@
                                 <span>Thương hiệu: </span><%= link_to @product.brand_name, brand_detail_link(@product.brand),title: @product.brand_name, target: '_blank' %>
                                 <% if @product.warranty.present? %> | <span>Bảo hành: </span><%= @product.warranty %> tháng<% end %>
                                 <% if !@product.category.nil? %>
-                                    <% product_short_descipriton_values_array = @product.product_short_descipriton_values_array %>
-                                    <% if product_short_descipriton_values_array.count > 2 %>
-                                        <% product_short_descipriton_values_array.each do |row| %><br><span><%= row[:name] %>: </span><%= row[:values].join(", ") %><% end %>
+                                    <% if @product.category.is_new_specs == true %>
+                                        <% product_short_descipriton_values_array_new_specs = @product.product_short_descipriton_values_array_new_specs %>
+                                        <% product_short_descipriton_values_array_new_specs.each do |row| %>
+                                            <br><span><%= row[:name] %>: </span><%= row[:values].join(", ") %>
+                                        <% end %>
+                                    <% else %>
+                                        <% product_short_descipriton_values_array = @product.product_short_descipriton_values_array %>
+                                        <% if product_short_descipriton_values_array.count > 2 %>
+                                            <% product_short_descipriton_values_array.each do |row| %><br><span><%= row[:name] %>: </span><%= row[:values].join(", ") %><% end %>
+                                        <% end %>
                                     <% end %>
                                 <% end %>
                                 <% if @product.dimentions.present? %><br><span>Kích thước vận chuyển: </span><%= @product.dimentions %><% end %>

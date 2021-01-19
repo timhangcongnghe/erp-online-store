@@ -439,7 +439,7 @@ def hkerp_update_imported
     if self.brand.present?
        data << self.brand.name
     end
-    self.category.property_groups.where(is_filter_specs: false).each do |group|
+    self.category.property_groups.each do |group|
       group.properties.where(is_meta_description: true).each do |property|
         values = self.products_values_by_property(property).map {|pv| pv.properties_value.value }
         data += values if !values.empty?
@@ -455,7 +455,7 @@ def hkerp_update_imported
   
   def get_short_description
     data = []
-    self.category.property_groups.where(is_filter_specs: false).each do |group|
+    self.category.property_groups.each do |group|
       group.properties.where(is_short_description: true).each do |property|
         values = self.products_values_by_property(property).map {|pv| pv.properties_value.value }
         data += values if !values.empty?
@@ -502,6 +502,21 @@ def hkerp_update_imported
         values = self.products_values_by_property(property).map {|pv| pv.properties_value.value }
         row[:values] += values if !values.empty?
       end
+      groups << row if !row[:values].empty?
+    end
+    return groups
+  end
+
+  def product_short_descipriton_values_array_new_specs
+    groups = []
+    return [] if self.category.nil?
+    property_group = self.category.property_groups.where(is_filter_specs: true).first
+    property_group.properties.where(is_show_detail: true).each do |property|
+      row = {}
+      row[:name] = property.name
+      row[:values] = []
+      values = property.properties_values.order("custom_order ASC").get_property_values_for_filter.map {|pv| pv }
+      row[:values] += values if !values.empty?
       groups << row if !row[:values].empty?
     end
     return groups
