@@ -515,7 +515,7 @@ def hkerp_update_imported
       row = {}
       row[:name] = property.name
       row[:values] = []
-      values = property.properties_values.order("custom_order ASC").get_property_values_for_filter.map {|pv| pv }
+      values = property.properties_values.order("custom_order ASC").get_property_values_for_filter.map {|pv| pv.value }
       row[:values] += values if !values.empty?
       groups << row if !row[:values].empty?
     end
