@@ -364,7 +364,55 @@
                         </div>
                         <div class="tab-pane" id="tab_5_2">
                             <div class="product-property-container" data-url="<%= erp_products.property_form_backend_products_path(id: product.id) %>">
-                                <%= render partial: 'erp/products/backend/products/property_form', locals: {product: product} %>
+                                <% if product.category.present? %>
+                                    <% product.category.property_groups.each do |group| %>
+                                        <h4><%= group.name %></h4>
+                                        <% group.properties.each do |property| %>
+                                            <div class="row pl-20">
+                                                <div class="col-md-3">
+                                                    <strong><%= property.name %></strong>
+                                                    <input type="hidden" id="property_<%= property.id %>" name="product_property_values[<%= property.id %>][property_id]" value="<%= property.id %>" />
+                                                </div>
+                                                <div class="col-md-9 property-value-select">
+                                                    <div class="form-group dataselect">
+                                                        <input type="hidden" name="<%= 'product_property_values[' + property.id.to_s + '][ids][]' %>"
+                                                               value="<%= product.products_values_by_property(property).map {|pv| {text: pv.properties_value.value, value: pv.properties_value.id}} %>" class="dataselect-value" />
+                                                        <div class="dataselect-input-group multiple">
+                                                            <div class="multiselect-values-container">
+                                                                <% if (product.products_values_by_property(property).map {|pv| {text: pv.properties_value.value, value: pv.properties_value.id}}).present? and !(product.products_values_by_property(property).map {|pv| {text: pv.properties_value.value, value: pv.properties_value.id}}).empty? %>
+                                                                    <% (product.products_values_by_property(property).map {|pv| {text: pv.properties_value.value, value: pv.properties_value.id}}).each do |value| %>
+                                                                        <% if value[:value].present? %>
+                                                                            <div class="btn-group btn-group-solid dataselect-value-box">
+                                                                                <input type="hidden" name="<%= 'product_property_values[' + property.id.to_s + '][ids][]' %>" value="<%= value[:value] %>">
+                                                                                <button type="button" class="btn btn-sm green-meadow dataselect-value-item"><%= value[:text] %></button>
+                                                                                <button type="button" class="btn btn-sm green-meadow remove-button"><i class="fa fa-close"></i></button>
+                                                                            </div>
+                                                                        <% end %>
+                                                                    <% end %>
+                                                                <% end %>
+                                                                <% (params[:product_property_values].present? ? params.to_unsafe_hash[:product_property_values][property.id.to_s]["names"] : []).each do |tag| %>
+                                                                    <% if tag.present? %>
+                                                                        <div class="btn-group btn-group-solid dataselect-name-box">
+                                                                            <input type="hidden" name="<%= 'product_property_values[' + property.id.to_s + '][names][]' %>" value="<%= tag %>">
+                                                                            <button type="button" class="btn btn-sm blue dataselect-value-item"><%= tag %></button>
+                                                                            <button type="button" class="btn btn-sm blue remove-button"><i class="fa fa-close"></i></button>
+                                                                        </div>
+                                                                    <% end %>
+                                                                <% end %>
+                                                            </div>
+                                                            <input class="form-control dataselect-control" data-url="<%= erp_products.dataselect_backend_properties_values_path(format: 'json') %>"
+                                                                placeholder="<%= t('erp.products.values_of_property') %>" insert-name="<%= 'product_property_values[' + property.id.to_s + '][names][]' %>"
+                                                                parent-control="<%= '#property_' + property.id.to_s %>" parent-id="property_id" multiple="true" />
+                                                        </div>
+                                                        <div class="dataselect-data">
+                                                            <ul><li class="dataselect-hook"></li></ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        <% end %>
+                                    <% end %>
+                                <% end %>
                             </div>
                         </div>
                         <div class="tab-pane" id="tab_5_3">
