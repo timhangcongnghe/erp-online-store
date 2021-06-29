@@ -22,7 +22,7 @@
                                         <%= property[:property].name %>
                                     </td>
                                     <td style="vertical-align: middle;">
-                                        <%= property[:values].count <= 4 ? property[:values].join(", ") : ('<ul><li>' + property[:values].join('</li><li>') + '</li></ul>').html_safe %>
+                                        <%= property[:values].count <= 20 ? property[:values].join(", ") : ('<ul><li>' + property[:values].join('</li><li>') + '</li></ul>').html_safe %>
                                     </td>
                                 </tr>
                             <% else %>
@@ -31,7 +31,7 @@
                                         <%= property[:property].name %>
                                     </td>
                                     <td style="vertical-align: middle;">
-                                        <%= property[:values].count <= 4 ? property[:values].join(", ") : ('<ul><li>' + property[:values].join('</li><li>') + '</li></ul>').html_safe %>
+                                        <%= property[:values].count <= 20 ? property[:values].join(", ") : ('<ul><li>' + property[:values].join('</li><li>') + '</li></ul>').html_safe %>
                                     </td>
                                 </tr>
                             <% end %>

@@ -43,7 +43,7 @@
                                 <% end %>
                             </ul>
                             </div><div id="large-image" class="large-image vertical"><img class="product-image-zoom" data-src="<%= @product.main_image.image_url.thumb650 %>" src="<%= @product.main_image.image_url.thumb650 %>" alt="<%= @product.get_long_name %>" title="<%= @product.get_long_name %>"></div>
-                            <% if @product.product_intro_link.present? %><%= link_to '<i class="fa fa-youtube-play"></i>'.html_safe, @product.product_intro_link, class: "open-video-link thumb-video pull-left", title: @product.get_long_name %><% end %>                            
+                            <% if @product.product_intro_link.present? %><%= link_to '<i class="fa fa-youtube-play"></i>'.html_safe, @product.product_intro_link, class: "open-video-link thumb-video pull-left", title: @product.get_long_name %><% end %>
                         </div>
                         <% else %>
                         <div class="content-product-left  col-sm-5 col-xs-12 ">
@@ -75,7 +75,7 @@
                                     <% end %>
                                 <% end %>
                             </div>
-                        </div>                
+                        </div>
                         <% if @product.get_product_property_array.count > 0 %>
                         <div class="product-box-desc <%= 'no_border_button' if @product.is_sold_out %>">
                             <div class="inner-box-desc">
@@ -97,25 +97,27 @@
                                 <% if @product.dimentions.present? %><br><span>Kích thước vận chuyển: </span><%= @product.dimentions %><% end %>
                                 <% if @product.weights.present? %><br><span>Trọng lượng vận chuyển: </span><%= @product.weights %><% end %>
                                 </table>
-                            </div>                                
+                            </div>
                         </div>
                         <% end %><hr>
                         <% if @product.is_sold_out? || @product.is_call? || @product.product_price.nil? %>
-                        <div id="product">
-                            <div class="compare-product">SO SÁNH SẢN PHẨM</div>
-                            <div class="form-group box-info-product">                                    
-                                <div class="add-to-links wish_comp">
-                                    <ul class="blank list-inline">
-                                        <li class="compare">
-                                            <%= form_tag erp_online_store.add_to_compare_frontend_compare_items_path, class: 'add-compare-form' do %>
-                                                <%= hidden_field_tag "product_id", @product.id %>
-                                                <button class="btn btn-mega btn-lg add-to-compare" title="So sánh sản phẩm"><i class="fa fa-window-restore"></i> So sánh</button>
-                                            <% end %>
-                                        </li>
-                                    </ul>
+                            <% if @product.product_values_array.count > 0 %>
+                                <div id="product">
+                                    <div class="compare-product">SO SÁNH SẢN PHẨM</div>
+                                    <div class="form-group box-info-product">
+                                        <div class="add-to-links wish_comp">
+                                            <ul class="blank list-inline">
+                                                <li class="compare">
+                                                    <%= form_tag erp_online_store.add_to_compare_frontend_compare_items_path, class: 'add-compare-form' do %>
+                                                        <%= hidden_field_tag "product_id", @product.id %>
+                                                        <button class="btn btn-mega btn-lg add-to-compare" title="So sánh sản phẩm"><i class="fa fa-window-restore"></i> So sánh</button>
+                                                    <% end %>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
+                            <% end %>
                         <% else %>
                         <div id="product">
                             <div class="buy-product">ĐẶT MUA SẢN PHẨM</div>
@@ -157,9 +159,13 @@
                                 <ul class="nav nav-tabs">
                                     <% if @product.description.present? %>
                                         <li class="active"><a data-toggle="tab" href="#tab-description" title="Giới thiệu">Mô tả sản phẩm</a></li>
-                                        <li class="item_nonactive"><a data-toggle="tab" href="#tab-specs" title="Thông số kỹ thuật">Thông số kỹ thuật</a></li>        
+                                        <% if @product.product_values_array.count > 0 %>
+                                            <li class="item_nonactive"><a data-toggle="tab" href="#tab-specs" title="Thông số kỹ thuật">Thông số kỹ thuật</a></li>
+                                        <% end %>
                                     <% else %>
-                                        <li class="active"><a data-toggle="tab" href="#tab-specs" title="Thông số kỹ thuật">Thông số kỹ thuật</a></li>
+                                        <% if @product.product_values_array.count > 0 %>
+                                            <li class="active"><a data-toggle="tab" href="#tab-specs" title="Thông số kỹ thuật">Thông số kỹ thuật</a></li>
+                                        <% end %>
                                     <% end %>
                                     <li class="item_nonactive"><a id="a-tab-review" data-toggle="tab" href="#tab-review" title="Đánh giá">
                                         Đánh giá (<%= @product.ratings_active.count %>)
@@ -267,7 +273,7 @@
                                 <% end %>
                             </div>
                         </div>
-                        <% end %>                        
+                        <% end %>
                     </div>
                 </div>
             </div>

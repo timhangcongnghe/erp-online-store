@@ -44,10 +44,14 @@
                         <td>
                             <strong><%= link_to product.name, erp_products.edit_backend_product_path(product) %></strong>
                             <% if product.short_name.present? %>
-                                <% if (product.short_name.length > 70) || (product.short_name.length < 35) %>
-                                    <br><em style="color: #d91e18"><strong>Tên rút gọn: </strong><%= product.short_name %></em>
-                                <% else %>
+                                <% if product.is_sold_out? %>
                                     <br><em><strong>Tên rút gọn: </strong><%= product.short_name %></em>
+                                <% else %>
+                                    <% if (product.short_name.length > 70) || (product.short_name.length < 35) %>
+                                        <br><em style="color: #d91e18"><strong>Tên rút gọn: </strong><%= product.short_name %></em>
+                                    <% else %>
+                                        <br><em><strong>Tên rút gọn: </strong><%= product.short_name %></em>
+                                    <% end %>
                                 <% end %>
                             <% end %>
                             <% if product.gifts.count > 0 %>
@@ -77,6 +81,9 @@
                     <td>
                         <% if product.is_deal? %>
                             <br><span class="label label-sm label-orange"><%= t('.deal') %></span>
+                        <% end %>
+                        <% if product.is_new? %>
+                            <br><span class="label label-sm label-orange"><%= t('.new') %></span>
                         <% end %>
                         <% if product.is_bestseller? %>
                             <br><span class="label label-sm label-orange"><%= t('.bestseller') %></span>
@@ -127,83 +134,83 @@
                             </a>
                             <ul class="dropdown-menu pull-right">
                                 <li>
-                                    <%= link_to '<i class="fa fa-edit"></i> '.html_safe + t('.edit'), 
+                                    <%= link_to '<i class="fa fa-edit"></i> '.html_safe + t('.edit'),
                                         erp_products.edit_backend_product_path(product) %>
                                 </li>
                                 <% if !product.is_bestseller %>
                                     <li>
-                                        <%= link_to '<i class="fa fa-check-square-o"></i> '.html_safe + t('.check_is_bestseller'), 
+                                        <%= link_to '<i class="fa fa-check-square-o"></i> '.html_safe + t('.check_is_bestseller'),
                                             erp_products.check_is_bestseller_backend_products_path(product),
                                             method: 'PUT', data: {confirm: t('.check_is_bestseller_confirm')}, class: 'ajax-link' %>
                                     </li>
                                 <% else %>
                                     <li>
-                                        <%= link_to '<i class="fa fa-square-o"></i> '.html_safe + t('.uncheck_is_bestseller'), 
+                                        <%= link_to '<i class="fa fa-square-o"></i> '.html_safe + t('.uncheck_is_bestseller'),
                                             erp_products.uncheck_is_bestseller_backend_products_path(product),
                                             method: 'PUT', data: {confirm: t('.uncheck_is_bestseller_confirm')}, class: 'ajax-link' %>
                                     </li>
                                 <% end %>
                                 <% if !product.is_sold_out %>
                                     <li>
-                                        <%= link_to '<i class="fa fa-plus"></i> '.html_safe + t('.check_is_sold_out'), 
+                                        <%= link_to '<i class="fa fa-plus"></i> '.html_safe + t('.check_is_sold_out'),
                                             erp_products.check_is_sold_out_backend_products_path(product),
                                             method: 'PUT', data: {confirm: t('.check_is_sold_out_confirm')}, class: 'ajax-link' %>
                                     </li>
                                 <% else %>
                                     <li>
-                                        <%= link_to '<i class="fa fa-remove"></i> '.html_safe + t('.uncheck_is_sold_out'), 
+                                        <%= link_to '<i class="fa fa-remove"></i> '.html_safe + t('.uncheck_is_sold_out'),
                                             erp_products.uncheck_is_sold_out_backend_products_path(product),
                                             method: 'PUT', data: {confirm: t('.uncheck_is_sold_out_confirm')}, class: 'ajax-link' %>
                                     </li>
                                 <% end %>
                                 <% if !product.is_call %>
                                     <li>
-                                        <%= link_to '<i class="fa fa-plus"></i> '.html_safe + t('.check_is_call'), 
+                                        <%= link_to '<i class="fa fa-plus"></i> '.html_safe + t('.check_is_call'),
                                             erp_products.check_is_call_backend_products_path(product),
                                             method: 'PUT', data: {confirm: t('.check_is_call_confirm')}, class: 'ajax-link' %>
                                     </li>
                                 <% else %>
                                     <li>
-                                        <%= link_to '<i class="fa fa-remove"></i> '.html_safe + t('.uncheck_is_call'), 
+                                        <%= link_to '<i class="fa fa-remove"></i> '.html_safe + t('.uncheck_is_call'),
                                             erp_products.uncheck_is_call_backend_products_path(product),
                                             method: 'PUT', data: {confirm: t('.uncheck_is_call_confirm')}, class: 'ajax-link' %>
                                     </li>
                                 <% end %>
                                 <% if !product.is_stock_inventory %>
                                     <li>
-                                        <%= link_to '<i class="fa fa-plus"></i> '.html_safe + t('.check_is_stock_inventory'), 
+                                        <%= link_to '<i class="fa fa-plus"></i> '.html_safe + t('.check_is_stock_inventory'),
                                             erp_products.check_is_stock_inventory_backend_products_path(product),
                                             method: 'PUT', data: {confirm: t('.check_is_stock_inventory_confirm')}, class: 'ajax-link' %>
                                     </li>
                                 <% else %>
                                     <li>
-                                        <%= link_to '<i class="fa fa-remove"></i> '.html_safe + t('.uncheck_is_stock_inventory'), 
+                                        <%= link_to '<i class="fa fa-remove"></i> '.html_safe + t('.uncheck_is_stock_inventory'),
                                             erp_products.uncheck_is_stock_inventory_backend_products_path(product),
                                             method: 'PUT', data: {confirm: t('.uncheck_is_stock_inventory_confirm')}, class: 'ajax-link' %>
                                     </li>
                                 <% end %>
                                 <% if !product.is_business_choices %>
                                     <li>
-                                        <%= link_to '<i class="fa fa-plus"></i> '.html_safe + t('.check_is_business_choices'), 
+                                        <%= link_to '<i class="fa fa-plus"></i> '.html_safe + t('.check_is_business_choices'),
                                             erp_products.check_is_business_choices_backend_products_path(product),
                                             method: 'PUT', data: {confirm: t('.check_is_business_choices_confirm')}, class: 'ajax-link' %>
                                     </li>
                                 <% else %>
                                     <li>
-                                        <%= link_to '<i class="fa fa-remove"></i> '.html_safe + t('.uncheck_is_business_choices'), 
+                                        <%= link_to '<i class="fa fa-remove"></i> '.html_safe + t('.uncheck_is_business_choices'),
                                             erp_products.uncheck_is_business_choices_backend_products_path(product),
                                             method: 'PUT', data: {confirm: t('.uncheck_is_business_choices_confirm')}, class: 'ajax-link' %>
                                     </li>
                                 <% end %>
                                 <% if !product.is_top_business_choices %>
                                     <li>
-                                        <%= link_to '<i class="fa fa-plus"></i> '.html_safe + t('.check_is_top_business_choices'), 
+                                        <%= link_to '<i class="fa fa-plus"></i> '.html_safe + t('.check_is_top_business_choices'),
                                             erp_products.check_is_top_business_choices_backend_products_path(product),
                                             method: 'PUT', data: {confirm: t('.check_is_top_business_choices_confirm')}, class: 'ajax-link' %>
                                     </li>
                                 <% else %>
                                     <li>
-                                        <%= link_to '<i class="fa fa-remove"></i> '.html_safe + t('.uncheck_is_top_business_choices'), 
+                                        <%= link_to '<i class="fa fa-remove"></i> '.html_safe + t('.uncheck_is_top_business_choices'),
                                             erp_products.uncheck_is_top_business_choices_backend_products_path(product),
                                             method: 'PUT', data: {confirm: t('.uncheck_is_top_business_choices_confirm')}, class: 'ajax-link' %>
                                     </li>

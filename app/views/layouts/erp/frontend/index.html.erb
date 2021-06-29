@@ -41,7 +41,7 @@
 	<%= stylesheet_link_tag 'https://cdnjs.cloudflare.com/ajax/libs/lightslider/1.1.6/css/lightslider.min.css' %>
 	<%= stylesheet_link_tag 'https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css' %>
 	<%= stylesheet_link_tag 'https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css' %>
-	<%= stylesheet_link_tag '/frontend/css/import.css?v=8.3' %>
+	<%= stylesheet_link_tag '/frontend/css/import.css?v=8.4' %>
 	<%= stylesheet_link_tag '/frontend/css/custom.css?v=8.4' %>
 	<%= stylesheet_link_tag '/frontend/css/res-device.css?v=8.3' %>
 	<% if params[:controller] == 'erp/online_store/frontend/account' && params[:action] == 'my_account' %><%= stylesheet_link_tag '/frontend/css/custom-profile.css?v=8.0' %><% end %>
@@ -329,6 +329,7 @@
         <%= render 'erp/online_store/frontend/modules/footer' %>
     </div>
 	<% if params[:controller] == 'erp/online_store/frontend/product' && params[:action] == 'detail' %><% else %><%= render partial: 'erp/online_store/frontend/modules/js_include' %><% end %>
-	<script id='autoAdsMaxLead-widget-script' src='https://cdn.autoads.asia/scripts/autoads-maxlead-widget.js?business_id=92716848F2174C1681138F8773D7CF4E' type='text/javascript' charset='UTF-8' async></script>
+	<div class="zalo-chat-widget" data-oaid="2132561812454227126" data-welcome-message="Rất vui khi được hỗ trợ bạn!" data-autopopup="0" data-width="350" data-height="420"></div>
+	<script src="https://sp.zalo.me/plugins/sdk.js"></script>
 </body>
 </html>

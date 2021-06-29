@@ -5,13 +5,13 @@ module Erp
         before_action :set_comment, only: [:delete_comment]
         include ActionView::Helpers::NumberHelper
         include Erp::OnlineStore::ApplicationHelper
-        
+
         def detail_301
           @product = Erp::Products::Product.find(params[:product_id])
           redirect_to erp_online_store.product_detail_path(product_id: @product.id, product_name: @product.alias), status: 301
         end
 
-        def detail          
+        def detail
           @body_class = "res layout-subpage"
           @product = Erp::Products::Product.find(params[:product_id])
           if @product.is_sold_out == true
@@ -26,12 +26,19 @@ module Erp
             render(:status => 404)
           else
             @deal_products = Erp::Products::Product.get_deal_products
-            @category = params[:category_id].present? ? Erp::Menus::Menu.find(params[:category_id]) : @product.find_menu                    
+            @category = params[:category_id].present? ? Erp::Menus::Menu.find(params[:category_id]) : @product.find_menu
             @related_events = @product.get_related_events(Time.now)
-            
+
             @meta_keywords = @product.meta_keywords
-            @meta_description =  @product.meta_description
-          
+
+            if @product.meta_description.present? && @product.category.short_meta_description.present? && @product.brand_name.present?
+              if @product.meta_description.length == (@product.category.short_meta_description.length + @product.brand_name.length + 1)
+                @meta_description =  @product.category.short_meta_description + ' ' + @product.get_long_name
+              else
+                @meta_description =  @product.meta_description
+              end
+            end
+
             if @category.present?
               if !@product.meta_keywords.present?
                 @meta_keywords = @category.meta_keywords
@@ -44,7 +51,7 @@ module Erp
           end
           expires_in 12.hours, public: true
         end
-        
+
         def search
           @body_class = "res layout-subpage"
           @keyword = params[:keyword]
@@ -53,7 +60,7 @@ module Erp
             redirect_to erp_online_store.product_detail_path(product_id: @products.first.id, product_name: @products.first.alias), status: 301
           end
         end
-        
+
         def autosearch
           @products = Erp::Products::Product.search(params).paginate(:page => params[:page], :per_page => 20)
           render json: @products.map { |product| {
@@ -123,7 +130,7 @@ module Erp
           @rating.destroy
           redirect_back(fallback_location: @rating, notice: 'Nội dung đánh giá đã được xóa')
         end
-        
+
         def images
           hkerp_product = Erp::Products::HkerpProduct.find(params[:hkerp_id])
           product = hkerp_product.product
@@ -134,12 +141,12 @@ module Erp
             }
           }
         end
-        
+
         def image
           image = Erp::Products::ProductImage.find(params[:image_id])
           send_file image.image_url_url(params[:type]), :disposition => 'inline'
         end
-        
+
         def api_info
           product = Erp::Products::Product.find(params[:id])
           render :json => product
