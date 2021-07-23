@@ -544,5 +544,42 @@ def hkerp_update_imported
     end
     return percentage
   end
+
+  # duplicate/copy product
+  def copy(options={})
+
+    # copy product
+    new_product = Erp::Products::Product.create(
+        self.attributes.merge({
+        id: nil,
+        created_at: nil,
+        updated_at: nil,
+        code: "#{self.code} (is a copy from ##{self.id})",
+        name: "#{self.name} (is a copy from ##{self.id})",
+        creator: options[:creator]
+      })
+    )
+
+    # copy values
+    self.products_values.each do |products_value|
+      new_product.products_values.create(products_value.attributes.merge({id: nil}))
+    end
+
+    # copy gifts
+    self.products_gifts.each do |products_gift|
+      new_product.products_gifts.create(products_gift.attributes.merge({id: nil}))
+    end
+
+    # update meta_description
+    new_product.save_meta_description
+
+    # update short_description
+    new_product.save_short_description
+    
+    # create_alias
+    # ...
+
+    return new_product
+  end
   #End THCN
 end

@@ -7,17 +7,23 @@
                         <div class="row">
                             <div class="col-md-12 col-xs-12">
                                 <% if Erp::Core.available?("online_store") %>
+                                    <%= erp_form_control("text", {
+                                        name: 'hkerp_id',
+                                        value: product.hkerp_product.present? ? product.hkerp_product.hkerp_product_id : '',
+                                        label: 'HK-ERP ID',
+                                        help: 'Nhập HK-ERP ID để kết nối với HK-ERP',
+                                        placeholder: 'Nhập ID sản phẩm từ HK-ERP'
+                                    }) %>
                                     <% if product.hkerp_product.present? %>
                                         <div class="form-group">
                                             <a href="#more" onclick="$(this).parent().find('.more-info-box').toggle()">
-                                                HK-ERP ID: #<%= product.hkerp_product.hkerp_product_id %>
+                                                Mã sản phẩm (HK-ERP ID): #<%= product.hkerp_product.hkerp_product_id %>
                                             </a>
                                             <div class="more-info-box" style="display: none">
                                                 <%= product.getHkerpInfo["display_name"]  %>
                                                 <br><%= format_price(product.getHkerpInfo["price"]) %>
                                                 <hr>
                                             </div>
-                                            <input type='hidden' name='hkerp_id' value='<%= product.hkerp_product.hkerp_product_id %>' />
                                         </div>
                                     <% end %>
                                 <% end %>
@@ -63,23 +69,11 @@
                                 }) %>
                                 <div class="form-group ">
                                     <% if product.short_name.present? %>
-                                        <% if product.is_sold_out? %>
-                                            <label>Tên rút gọn (<%= product.short_name.length %>)
-                                                <span class="required" aria-required="true"> * </span>
-                                                <i class="fa fa-commenting right tooltips icon-default-color" data-original-title="Tên rút gọn của sản phẩm không kèm thuộc tính" data-container="body"></i>
-                                            </label>
-                                            <input required="required" class="form-control spinner " type="text" name="product[short_name]" value="<%= product.short_name %>" placeholder="Nhập tên rút gọn" kl_vkbd_parsed="true">
-                                        <% else %>
-                                            <label>Tên rút gọn (<%= product.short_name.length %>)
-                                                <span class="required" aria-required="true"> * </span>
-                                                <i class="fa fa-commenting right tooltips icon-default-color" data-original-title="Tên rút gọn của sản phẩm không kèm thuộc tính" data-container="body"></i>
-                                            </label>
-                                            <% if (product.short_name.length > 70) || (product.short_name.length < 35) %>
-                                            <input required="required" class="form-control spinner " type="text" name="product[short_name]" value="<%= product.short_name %>" placeholder="Nhập tên rút gọn" kl_vkbd_parsed="true" style="background:#e7505a;color:#fff;">
-                                            <% else %>
-                                            <input required="required" class="form-control spinner " type="text" name="product[short_name]" value="<%= product.short_name %>" placeholder="Nhập tên rút gọn" kl_vkbd_parsed="true">
-                                            <% end %>
-                                        <% end %>
+                                        <label>Tên rút gọn (<%= product.short_name.length %>)
+                                            <span class="required" aria-required="true"> * </span>
+                                            <i class="fa fa-commenting right tooltips icon-default-color" data-original-title="Tên rút gọn của sản phẩm không kèm thuộc tính" data-container="body"></i>
+                                        </label>
+                                        <input required="required" class="form-control spinner " type="text" name="product[short_name]" value="<%= product.short_name %>" placeholder="Nhập tên rút gọn" kl_vkbd_parsed="true">
                                     <% else %>
                                         <label>Tên rút gọn
                                             <span class="required" aria-required="true"> * </span>
