@@ -265,6 +265,7 @@ Erp::Products::Product.class_eval do
 
   after_create :hkerp_set_imported
   after_create :hkerp_set_cache_thcn_url
+  after_save :hkerp_set_imported
   after_save :hkerp_set_cache_thcn_url
   after_save :hkerp_set_cache_thcn_properties
   
@@ -580,6 +581,11 @@ def hkerp_update_imported
     # ...
 
     return new_product
+  end
+
+  # count alias is duplicate
+  def check_for_duplicate_alias
+    Erp::Products::Product.where.not(id: self.id).where(alias: self.alias).pluck(:id)
   end
   #End THCN
 end

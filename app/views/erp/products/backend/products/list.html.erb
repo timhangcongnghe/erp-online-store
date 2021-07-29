@@ -138,6 +138,11 @@
                                         erp_products.edit_backend_product_path(product) %>
                                 </li>
                                 <li>
+                                    <%= link_to '<i class="fa fa-link"></i> '.html_safe + t('.update_alias'),
+                                        erp_products.update_alias_backend_products_path(id: product),
+                                        method: 'PUT', data: {confirm: t('.update_alias_confirm')}, class: 'ajax-link' %>
+                                </li>
+                                <li>
                                     <%= link_to '<i class="fa fa-copy"></i> '.html_safe + t('.copy'),
                                         erp_products.copy_backend_products_path(id: product),
                                         method: 'PUT', data: {confirm: t('.copy_confirm')}, class: 'ajax-link' %>

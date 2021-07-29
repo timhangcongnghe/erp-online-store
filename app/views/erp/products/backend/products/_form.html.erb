@@ -5,8 +5,8 @@
                 <div class="portlet light bordered">
                     <div class="portlet-body form">
                         <div class="row">
-                            <div class="col-md-12 col-xs-12">
-                                <% if Erp::Core.available?("online_store") %>
+                            <% if Erp::Core.available?("online_store") %>
+                                <div class="col-md-3 col-xs-12">
                                     <%= erp_form_control("text", {
                                         name: 'hkerp_id',
                                         value: product.hkerp_product.present? ? product.hkerp_product.hkerp_product_id : '',
@@ -14,6 +14,29 @@
                                         help: 'Nhập HK-ERP ID để kết nối với HK-ERP',
                                         placeholder: 'Nhập ID sản phẩm từ HK-ERP'
                                     }) %>
+                                </div>
+                                <div class="col-md-9 col-xs-12">
+                                    <div class="form-group ">
+                                        <label>Alias (<a class="ajax-link" data-method="PUT" data-confirm="Hãy chắc chắn bạn hiểu về nó trước khi muốn cập nhật. Tiếp tục?" href="<%= erp_products.update_alias_backend_products_path(id: product) %>">Bấm để cập nhật</a>) 
+                                            <i class="fa fa-commenting right tooltips icon-default-color"
+                                            data-original-title="Alias của sản phẩm sẽ tự động tạo nếu bạn để trống. Hãy chắc chắn bạn hiểu về nó trước khi muốn cập nhật"
+                                            data-container="body"></i>
+                                        </label>
+                                        <div id="product-alias">
+                                            <input class="form-control spinner" type="text" name="product[alias]" value="<%= @product.alias %>" placeholder="Nhập Alias" aria-invalid="false">
+                                            <% if true %>
+                                                <span class="help-block text-warning" style="font-size: 85%;"> 
+                                                    <i class="fa fa-warning"></i>  
+                                                    (i) Vui lòng không chỉnh sửa thông tin này nếu bạn không chắc chắn hiểu về nó.
+                                                    <% if product.check_for_duplicate_alias.count > 0 %>
+                                                        (ii) Hiện có <%= product.check_for_duplicate_alias.count %> sản phẩm (<%= product.check_for_duplicate_alias.map{|p| "##{p}"}.join(', ') %>) trùng alias với sản phẩm này.
+                                                    <% end %>
+                                                </span>
+                                            <% end %>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 col-xs-12">
                                     <% if product.hkerp_product.present? %>
                                         <div class="form-group">
                                             <a href="#more" onclick="$(this).parent().find('.more-info-box').toggle()">
@@ -26,8 +49,8 @@
                                             </div>
                                         </div>
                                     <% end %>
-                                <% end %>
-                            </div>
+                                </div>
+                            <% end %>
                         </div>
                         <div class="row">
                             <div class="col-md-12 text-center">
