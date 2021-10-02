@@ -424,10 +424,10 @@ def hkerp_update_imported
   end
   
   def create_alias
-    if self.short_name.present?
-      name = self.short_name
+    if self.custom_title.present?
+      name = self.custom_title
     else
-      name = self.name
+      name = self.short_name
     end
     self.update_column(:alias, name.to_ascii.downcase.to_s.gsub(/[^0-9a-z \/\-\.]/i, '').gsub(/[ \/\.]+/i, '-').strip)
   end

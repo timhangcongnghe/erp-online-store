@@ -1,19 +1,39 @@
-<% title @product.get_short_name %><% product_images = @product.product_images %>
+<% if @product.custom_title.present? %>
+    <% title @product.custom_title %>
+<% else %>
+    <% title @product.get_short_name %> 
+<% end %>
+<% product_images = @product.product_images %>
+
 <% if product_images.count > 0 %><% first_image = @product.product_images.first.image_url.thumb650 %><% end %>
 <% content_for :metas do %>
 <meta property="og:locale" content="vi" />
 <meta property="og:type" content="website"/>
-<meta property="og:title" content="<%= @product.get_short_name %> | Tìm Hàng Công Nghệ"/>
+<% if @product.custom_title.present? %>
+    <meta property="og:title" content="<%= @product.custom_title %>"/>
+<% else %>
+    <meta property="og:title" content="<%= @product.get_short_name %> | Tìm Hàng Công Nghệ"/>
+<% end %>
 <% if @meta_description.present? %><meta property="og:description" content="<%= @meta_description %>"/><% else %><meta property="og:description" content="Tìm Hàng Công Nghệ là đơn vị cung cấp các sản phẩm, dịch vụ thuộc lĩnh vực Công Nghệ Thông Tin do Công Ty TNHH Giải Pháp CNTT Và Truyền Thông Hoàng Khang phụ trách và phát triển."/><% end %>
 <meta property="og:url" content="https://timhangcongnghe.com<%= product_detail_link(@product) %>"/>
 <meta property="og:site_name" content="Tìm Hàng Công Nghệ"/>
 <% if product_images.count == 0 %><meta name="og:image" content="https://timhangcongnghe.com/frontend/img/sys/schema-logo.jpg"/><% else %><meta property="og:image" content="https://timhangcongnghe.com<%= first_image %>"/><% end %>
-<meta property="og:image:alt" content="<%= @product.get_short_name %> | Tìm Hàng Công Nghệ"/>
+<% if @product.custom_title.present? %>
+    <meta property="og:image:alt" content="<%= @product.custom_title %> | Tìm Hàng Công Nghệ"/>
+<% else %>
+    <meta property="og:image:alt" content="<%= @product.get_short_name %> | Tìm Hàng Công Nghệ"/>
+<% end %>
 <% if product_images.count == 0 %><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="628"/><% else %><meta property="og:image:width" content="650"/><meta property="og:image:height" content="650"/><% end %>
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:site" content="https://timhangcongnghe.com<%= product_detail_link(@product) %>"/>
-<meta property="twitter:title" content="<%= @product.get_short_name %> | Tìm Hàng Công Nghệ"/>
+
+<% if @product.custom_title.present? %>
+    <meta property="twitter:title" content="<%= @product.custom_title %>"/>
+<% else %>
+    <meta property="twitter:title" content="<%= @product.get_short_name %> | Tìm Hàng Công Nghệ"/>
+<% end %>
+
 <% if @meta_description.present? %><meta property="twitter:description" content="<%= @meta_description %>"/><% else %><meta property="twitter:description" content="Tìm Hàng Công Nghệ là đơn vị cung cấp các sản phẩm, dịch vụ thuộc lĩnh vực Công Nghệ Thông Tin do Công Ty TNHH Giải Pháp CNTT Và Truyền Thông Hoàng Khang phụ trách và phát triển."/><% end %>
 <% if product_images.count == 0 %><meta name="twitter:image" content="https://timhangcongnghe.com/frontend/img/sys/schema-logo.jpg"/><% else %><meta property="twitter:image" content="https://timhangcongnghe.com<%= first_image %>"/><% end %>
 <% end %>
@@ -21,7 +41,7 @@
     <ul class="breadcrumb">
         <li><%= link_to '<i class="fa fa-home"></i>'.html_safe, erp_online_store.root_path, title: 'Tìm Hàng Công Nghệ' %></li>
         <% if !@category.nil? %><% @category.self_and_parent_menus.each do |category| %><li><%= link_to category.get_name, category_detail_link(category), title: category.get_name %></li><% end %><% end %>
-        <li><%= link_to truncate(@product.get_short_name, length: 75), "javascript:void(0);", title: @product.get_short_name %></li>
+        <li style="display:none"><%= @product.get_long_name %></li>
     </ul>
     <div class="row">
         <div id="content" class="col-md-12 col-sm-12">

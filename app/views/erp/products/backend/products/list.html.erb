@@ -44,15 +44,10 @@
                         <td>
                             <strong><%= link_to product.name, erp_products.edit_backend_product_path(product) %></strong>
                             <% if product.short_name.present? %>
-                                <% if product.is_sold_out? %>
-                                    <br><em><strong>Tên rút gọn: </strong><%= product.short_name %></em>
-                                <% else %>
-                                    <% if (product.short_name.length > 70) || (product.short_name.length < 35) %>
-                                        <br><em style="color: #d91e18"><strong>Tên rút gọn: </strong><%= product.short_name %></em>
-                                    <% else %>
-                                        <br><em><strong>Tên rút gọn: </strong><%= product.short_name %></em>
-                                    <% end %>
-                                <% end %>
+                                <br><em><strong>Tên rút gọn: </strong><%= product.short_name %></em>
+                            <% end %>
+                            <% if product.custom_title.present? %>
+                                <br><em><strong>Title & Alias: </strong><%= product.custom_title %></em>
                             <% end %>
                             <% if product.gifts.count > 0 %>
                                 Tặng kèm:
@@ -75,7 +70,7 @@
                         </td>
                     <% end %>
                     <% if get_columns(params).include?("price") %>
-                        <td><%= format_price(product.price) %></td>
+                        <td><% if product.price.to_i > 0 %><%= format_price(product.price) %><% end %></td>
                     <% end %>
                     <% if get_columns(params).include?("status") %>
                     <td>
