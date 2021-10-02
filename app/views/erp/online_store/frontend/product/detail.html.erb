@@ -19,7 +19,7 @@
 <meta property="og:site_name" content="Tìm Hàng Công Nghệ"/>
 <% if product_images.count == 0 %><meta name="og:image" content="https://timhangcongnghe.com/frontend/img/sys/schema-logo.jpg"/><% else %><meta property="og:image" content="https://timhangcongnghe.com<%= first_image %>"/><% end %>
 <% if @product.custom_title.present? %>
-    <meta property="og:image:alt" content="<%= @product.custom_title %> | Tìm Hàng Công Nghệ"/>
+    <meta property="og:image:alt" content="<%= @product.custom_title %>"/>
 <% else %>
     <meta property="og:image:alt" content="<%= @product.get_short_name %> | Tìm Hàng Công Nghệ"/>
 <% end %>
