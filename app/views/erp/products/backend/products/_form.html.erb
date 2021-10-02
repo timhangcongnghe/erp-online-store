@@ -108,17 +108,32 @@
                                         <input required="required" class="form-control spinner " type="text" name="product[short_name]" value="<%= product.short_name %>" placeholder="Nhập custom tên rút gọn" kl_vkbd_parsed="true">
                                     <% end %>
                                 </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 col-xs-12">
                                 <div class="form-group ">
                                     <% if product.custom_title.present? %>
-                                        <label>Title & Alias (<%= product.custom_title.length %>)
+                                        <label>Title (<%= product.custom_title.length %>)
                                             <span class="required" aria-required="true"> * </span>
                                         </label>
-                                        <input required="required" class="form-control spinner " type="text" name="product[custom_title]" value="<%= product.custom_title %>" placeholder="Nhập Title & Alias" kl_vkbd_parsed="true">
+                                        <input required="required" class="form-control spinner " type="text" name="product[custom_title]" value="<%= product.custom_title %>" placeholder="Nhập Title" kl_vkbd_parsed="true">
                                     <% else %>
-                                        <label>Title & Alias
+                                        <label>Title
                                             <span class="required" aria-required="true"> * </span>
                                         </label>
-                                        <input required="required" class="form-control spinner " type="text" name="product[custom_title]" value="<%= product.custom_title %>" placeholder="Nhập Title & Alias" kl_vkbd_parsed="true">
+                                        <input required="required" class="form-control spinner " type="text" name="product[custom_title]" value="<%= product.custom_title %>" placeholder="Nhập Title" kl_vkbd_parsed="true">
+                                    <% end %>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-xs-12">
+                                <div class="form-group ">
+                                    <% if product.custom_alias.present? %>
+                                        <label>Alias (<%= product.custom_alias.length %>) <span class="required" aria-required="true">*</span></label>
+                                        <input required="required" class="form-control spinner " type="text" name="product[custom_alias]" value="<%= product.custom_alias %>" placeholder="Nhập Alias" kl_vkbd_parsed="true">
+                                    <% else %>
+                                        <label>Alias <span class="required" aria-required="true">*</span></label>
+                                        <input required="required" class="form-control spinner " type="text" name="product[custom_alias]" value="<%= product.custom_alias %>" placeholder="Nhập Alias" kl_vkbd_parsed="true">
                                     <% end %>
                                 </div>
                             </div>

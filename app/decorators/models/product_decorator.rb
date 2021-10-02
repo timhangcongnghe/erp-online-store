@@ -424,8 +424,8 @@ def hkerp_update_imported
   end
   
   def create_alias
-    if self.custom_title.present?
-      name = self.custom_title
+    if self.custom_alias.present?
+      name = self.custom_alias
     else
       name = self.short_name
     end
