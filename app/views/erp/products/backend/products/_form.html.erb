@@ -44,7 +44,8 @@
                                             </a>
                                             <div class="more-info-box" style="display: none">
                                                 <%= product.getHkerpInfo["display_name"] %>
-                                                <br><%= format_price(product.getHkerpInfo["price"]) %>
+                                                <% if product.getHkerpInfo["fixed_name"].present? %><br><span style="color:#b5b5c3;font-size:12px"><%= product.getHkerpInfo["fixed_name"] %></span><% end %>
+                                                <br><%= format_price(product.getHkerpInfo["price"]) %><% if product.getHkerpInfo["listed_price"].present? %> | <del><%= format_price(product.getHkerpInfo["listed_price"]) %></del><% end %>
                                                 <hr>
                                             </div>
                                         </div>
@@ -97,15 +98,16 @@
                                 </div>
                                 <div class="form-group ">
                                     <% if product.short_name.present? %>
-                                        <label>Custom tên sản phẩm (<%= product.short_name.length %>)
-                                            <span class="required" aria-required="true"> * </span>
-                                        </label>
-                                        <input required="required" class="form-control spinner " type="text" name="product[short_name]" value="<%= product.short_name %>" placeholder="Nhập custom tên rút gọn" kl_vkbd_parsed="true">
+                                        <% if product.short_name == product.getHkerpInfo["fixed_name"] %>
+                                            <label>Tên rút gọn <span class="required" aria-required="true"> * </span></label>
+                                            <input required="required" class="form-control spinner " type="text" name="product[short_name]" value="<%= product.short_name %>" placeholder="Nhập tên rút gọn">
+                                        <% else %>
+                                            <label style="color:#e02222">Tên rút gọn <span class="required" aria-required="true"> * </span></label>
+                                            <input required="required" class="form-control spinner " type="text" name="product[short_name]" value="<%= product.short_name %>" placeholder="Nhập tên rút gọn" style="background:#e02222;color:#fff">
+                                        <% end %>
                                     <% else %>
-                                        <label>Custom tên sản phẩm
-                                            <span class="required" aria-required="true"> * </span>
-                                        </label>
-                                        <input required="required" class="form-control spinner " type="text" name="product[short_name]" value="<%= product.short_name %>" placeholder="Nhập custom tên rút gọn" kl_vkbd_parsed="true">
+                                        <label>Tên rút gọn <span class="required" aria-required="true"> * </span></label>
+                                        <input required="required" class="form-control spinner " type="text" name="product[short_name]" value="<%= product.short_name %>" placeholder="Nhập tên rút gọn">
                                     <% end %>
                                 </div>
                             </div>
@@ -114,26 +116,22 @@
                             <div class="col-md-6 col-xs-12">
                                 <div class="form-group ">
                                     <% if product.custom_title.present? %>
-                                        <label>Title (<%= product.custom_title.length %>)
-                                            <span class="required" aria-required="true"> * </span>
-                                        </label>
-                                        <input required="required" class="form-control spinner " type="text" name="product[custom_title]" value="<%= product.custom_title %>" placeholder="Nhập Title" kl_vkbd_parsed="true">
+                                        <label>Title (<%= product.custom_title.length %>)</label>
+                                        <input class="form-control spinner " type="text" name="product[custom_title]" value="<%= product.custom_title %>" placeholder="Nhập title" kl_vkbd_parsed="true">
                                     <% else %>
-                                        <label>Title
-                                            <span class="required" aria-required="true"> * </span>
-                                        </label>
-                                        <input required="required" class="form-control spinner " type="text" name="product[custom_title]" value="<%= product.custom_title %>" placeholder="Nhập Title" kl_vkbd_parsed="true">
+                                        <label>Title</label>
+                                        <input class="form-control spinner " type="text" name="product[custom_title]" value="<%= product.custom_title %>" placeholder="Nhập title" kl_vkbd_parsed="true">
                                     <% end %>
                                 </div>
                             </div>
                             <div class="col-md-6 col-xs-12">
                                 <div class="form-group ">
                                     <% if product.custom_alias.present? %>
-                                        <label>Alias (<%= product.custom_alias.length %>) <span class="required" aria-required="true">*</span></label>
-                                        <input required="required" class="form-control spinner " type="text" name="product[custom_alias]" value="<%= product.custom_alias %>" placeholder="Nhập Alias" kl_vkbd_parsed="true">
+                                        <label>Alias (<%= product.custom_alias.length %>)</label>
+                                        <input class="form-control spinner " type="text" name="product[custom_alias]" value="<%= product.custom_alias %>" placeholder="Nhập alias" kl_vkbd_parsed="true">
                                     <% else %>
-                                        <label>Alias <span class="required" aria-required="true">*</span></label>
-                                        <input required="required" class="form-control spinner " type="text" name="product[custom_alias]" value="<%= product.custom_alias %>" placeholder="Nhập Alias" kl_vkbd_parsed="true">
+                                        <label>Alias</label>
+                                        <input class="form-control spinner " type="text" name="product[custom_alias]" value="<%= product.custom_alias %>" placeholder="Nhập alias" kl_vkbd_parsed="true">
                                     <% end %>
                                 </div>
                             </div>
@@ -166,7 +164,7 @@
                                     <% if Erp::Core.available?("online_store") and product.hkerp_product.present? %>
                                         <div class="form-group ">
                                             <label>Giá bán
-                                                    <i class="fa fa-commenting right tooltips icon-default-color" data-original-title="Giá bán của sản phẩm" data-container="body"></i>
+                                                <i class="fa fa-commenting right tooltips icon-default-color" data-original-title="Giá bán của sản phẩm" data-container="body"></i>
                                             </label>
                                             <div class="text-bold text-right">
                                                 <strong><%= format_price(product.price) %></strong>
@@ -184,7 +182,9 @@
                                 <div class="col-md-6">
                                     <% if Erp::Core.available?("online_store") and product.hkerp_product.present? %>
                                         <div class="form-group ">
-                                            <label>Giá niêm yết</label>
+                                            <label>Giá bán
+                                                <i class="fa fa-commenting right tooltips icon-default-color" data-original-title="Giá bán của sản phẩm" data-container="body"></i>
+                                            </label>
                                             <div class="text-bold text-right">
                                                 <strong><%= format_price(product.listed_price) %></strong>
                                             </div>
@@ -193,7 +193,8 @@
                                         <%= erp_form_control("number", {
                                             name: 'product[listed_price]',
                                             value: product.listed_price,
-                                            label: t('.listed_price')
+                                            label: t('.listed_price'),
+                                            help: t('.help_listed_price')
                                         }) %>
                                     <% end %>
                                 </div>
