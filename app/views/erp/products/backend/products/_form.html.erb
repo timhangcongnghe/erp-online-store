@@ -40,9 +40,9 @@
                                     <% if product.hkerp_product.present? %>
                                         <div class="form-group">
                                             <a href="#more" onclick="$(this).parent().find('.more-info-box').toggle()">
-                                                Mã sản phẩm (HK-ERP ID): #<%= product.hkerp_product.hkerp_product_id %>
+                                                HK-ERP ID: #<%= product.hkerp_product.hkerp_product_id %>
                                             </a>
-                                            <div class="more-info-box" style="display: none">
+                                            <div class="more-info-box" style="display:none">
                                                 <%= product.getHkerpInfo["display_name"] %>
                                                 <% if product.getHkerpInfo["fixed_name"].present? %><br><span style="color:#b5b5c3;font-size:12px"><%= product.getHkerpInfo["fixed_name"] %></span><% end %>
                                                 <br><%= format_price(product.getHkerpInfo["price"]) %><% if product.getHkerpInfo["listed_price"].present? %> | <del><%= format_price(product.getHkerpInfo["listed_price"]) %></del><% end %>
@@ -160,7 +160,7 @@
                     <div class="tab-content">
                         <div class="tab-pane active" id="tab_5_1">
                             <div class="row">
-                                <div class="col-md-6">
+                                <div class="col-md-4">
                                     <% if Erp::Core.available?("online_store") and product.hkerp_product.present? %>
                                         <div class="form-group ">
                                             <label>Giá bán
@@ -179,11 +179,11 @@
                                         }) %>
                                     <% end %>
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-4">
                                     <% if Erp::Core.available?("online_store") and product.hkerp_product.present? %>
                                         <div class="form-group ">
-                                            <label>Giá bán
-                                                <i class="fa fa-commenting right tooltips icon-default-color" data-original-title="Giá bán của sản phẩm" data-container="body"></i>
+                                            <label>Giá cố định
+                                                <i class="fa fa-commenting right tooltips icon-default-color" data-original-title="Giá cố định của sản phẩm" data-container="body"></i>
                                             </label>
                                             <div class="text-bold text-right">
                                                 <strong><%= format_price(product.listed_price) %></strong>
@@ -198,6 +198,27 @@
                                         }) %>
                                     <% end %>
                                 </div>
+                                <div class="col-md-4">
+                                    <% if Erp::Core.available?("online_store") and product.hkerp_product.present? %>
+                                        <div class="form-group ">
+                                            <label>Bảo hành
+                                                <i class="fa fa-commenting right tooltips icon-default-color" data-original-title="Bảo hành của sản phẩm" data-container="body"></i>
+                                            </label>
+                                            <div class="text-bold text-right">
+                                                <strong><%= product.warranty %></strong>
+                                            </div>
+                                        </div>
+                                    <% else %>
+                                        <%= erp_form_control("text", {
+                                            name: 'product[warranty]',
+                                            value: product.warranty,
+                                            label: t('.warranty'),
+                                            placeholder: t('.placeholder_warranty')
+                                        }) %>
+                                    <% end %>
+                                </div>
+                            </div>
+                            <div class="row">
                                 <div class="col-md-6">
                                     <%= erp_form_control("dataselect", {
                                         name: 'product[category_id]',
@@ -243,15 +264,7 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-md-4">
-                                    <%= erp_form_control("text", {
-                                        name: 'product[warranty]',
-                                        value: product.warranty,
-                                        label: t('.warranty'),
-                                        placeholder: t('.placeholder_warranty')
-                                    }) %>
-                                </div>
-                                <div class="col-md-4">
+                                <div class="col-md-6">
                                     <%= erp_form_control("text", {
                                         name: 'product[dimentions]',
                                         value: product.dimentions,
@@ -259,7 +272,7 @@
                                         placeholder: t('.placeholder_dimentions')
                                     }) %>
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-md-6">
                                     <%= erp_form_control("text", {
                                         name: 'product[weights]',
                                         value: product.weights,

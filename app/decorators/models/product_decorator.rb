@@ -238,7 +238,10 @@ Erp::Products::Product.class_eval do
       end
 
       self.price = data["price"]
+      self.listed_price = data["listed_price"]
+      self.warranty = data["warranty"]
       self.name = data["name"] if !self.name.present?
+      self.short_name = data["fixed_name"] if !self.short_name.present?
       self.code = data["product_code"] if !self.code.present?
     end
   end
