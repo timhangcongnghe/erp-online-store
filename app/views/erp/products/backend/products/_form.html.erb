@@ -97,7 +97,7 @@
                                     <% end %>
                                 </div>
                                 <div class="form-group ">
-                                    <% if product.short_name.present? %>
+                                    <% if product.getHkerpInfo["fixed_name"].present? %>
                                         <% if product.short_name == product.getHkerpInfo["fixed_name"] %>
                                             <label>Tên rút gọn <span class="required" aria-required="true"> * </span></label>
                                             <input required="required" class="form-control spinner " type="text" name="product[short_name]" value="<%= product.short_name %>" placeholder="Nhập tên rút gọn">
@@ -193,8 +193,7 @@
                                         <%= erp_form_control("number", {
                                             name: 'product[listed_price]',
                                             value: product.listed_price,
-                                            label: t('.listed_price'),
-                                            help: t('.help_listed_price')
+                                            label: t('.listed_price')
                                         }) %>
                                     <% end %>
                                 </div>

@@ -403,7 +403,11 @@ def hkerp_update_imported
   end
   
   def get_short_name
-    return self.short_name
+    if self.custom_title.present?
+      return self.custom_title
+    else
+      return self.short_name
+    end
   end
   
   def brand_name
