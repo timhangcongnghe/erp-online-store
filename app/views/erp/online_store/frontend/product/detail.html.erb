@@ -75,7 +75,13 @@
                         <% end %>
                         <% if product_images.count > 1 %><div class="content-product-right col-sm-6 col-xs-12">
                         <% else %><div class="content-product-right col-sm-7 col-xs-12"><% end %>
-                        <div class="title-product"><h1><%= @product.get_long_name %></h1></div>
+                        <div class="title-product">
+                            <% if (@product.category_id == 240) && (!@product.is_sold_out) %>
+                                <h1><%= @product.short_name %></h1>
+                            <% else %>
+                                <h1><%= @product.get_long_name %></h1>
+                            <% end %>
+                        </div>
                         <div class="box-review form-group">
                             <div class="ratings"><div class="rating-box"><%= stars(@product.average_stars) %></div></div>
                             <a class="write_review_button" title="Xem đánh giá" href="javascript:void(0);" onclick="$('a[href=\'#tab-review\']').trigger('click'); return false;">Xem đánh giá</a> |
