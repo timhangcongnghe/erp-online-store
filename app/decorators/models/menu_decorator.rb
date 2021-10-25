@@ -1,9 +1,15 @@
 Erp::Menus::Menu.class_eval do
-  after_create :create_alias
+  after_save :create_alias
   
   def create_alias
-    name = self.name
-    self.update_column(:alias, name.to_ascii.downcase.to_s.gsub(/[^0-9a-z \/\-\.]/i, '').gsub(/[ \/\.]+/i, '-').strip)
+    if !self.not_create_link?
+      if self.custom_alias.present?
+        name = self.custom_alias
+      else
+        name = self.name
+      end
+      self.update_column(:alias, name.to_ascii.downcase.to_s.gsub(/[^0-9a-z \/\-\.]/i, '').gsub(/[ \/\.]+/i, '-').strip)
+    end
   end
   
   def self.get_active
