@@ -1,0 +1,236 @@
+<header id="wpisset-page-header" class="wpisset-page-header" data-sticky="true">
+    <div class="wpisset-navigation" data-sub-menu-animation-duration="250">
+        <div class="wpisset-main-navigation wpisset-container wpisset-container-center wpisset-container-fluid wpisset-visible-xlarge">
+            <div class="wpisset-row wpisset-middle-xs">
+                <div class="wpisset-logo-container wpisset-center-xs wpisset-col-xs-4 wpisset-middle-xs wpisset-flex-basic-off-grow-0">
+                    <a href="#wpisset-secondary-navigation" class="wpisset-burger-navigation wpisset-secondary-navigation" data-navigation-title="DANH MỤC TRANG WEB"><div class="ham"><div class="bar top"></div><div class="bar middle"></div><div class="bar bottom"></div></div></a>
+                    <nav id="wpisset-secondary-navigation">
+                        <div class="wpisset-secondary-navigation-inner">
+                            <div class="wpisset-secondary-navigation-title"><span>DANH MỤC SẢN PHẨM</span><%= link_to 'Xem toàn bộ', 'javascript:void(0)', title: 'Xem toàn bộ' %></div>
+                            <ul class="wpisset-secondary-nav-menu">
+                                <% @menus.each do |menu| %>
+                                    <li class="menu-item menu-item-has-children">
+                                        <% if menu.not_create_link? %><%= link_to menu.get_short_name, 'javascript:void(0)', title: menu.get_name %><% else %><%= link_to menu.get_short_name, category_list_link(menu), title: menu.get_name %><% end %>
+                                        <ul class="sub-menu">
+                                            <% menu.get_children.each do |menu_child_1| %>
+                                                <% if menu_child_1.get_children.count > 0 %>
+                                                    <li class="menu-item menu-item-has-children">
+                                                        <% if menu_child_1.not_create_link? %><%= link_to menu_child_1.get_short_name, 'javascript:void(0)', title: menu_child_1.get_name %><% else %><%= link_to menu_child_1.get_short_name, category_list_link(menu_child_1), title: menu_child_1.get_name %><% end %>
+                                                        <ul class="sub-menu">
+                                                            <% menu_child_1.get_children.each do |menu_child_2| %>
+                                                                <li class="menu-item"><% if menu_child_2.not_create_link? %><%= link_to menu_child_2.get_short_name, 'javascript:void(0)', title: menu_child_2.get_name %><% else %><%= link_to menu_child_2.get_short_name, category_list_link(menu_child_2), title: menu_child_2.get_name %><% end %></li>
+                                                            <% end %>
+                                                        </ul>
+                                                    </li>
+                                                <% else %>
+                                                    <li class="menu-item"><% if menu_child_1.not_create_link? %><%= link_to menu_child_1.get_short_name, 'javascript:void(0)', title: menu_child_1.get_name %><% else %><%= link_to menu_child_1.get_short_name, category_list_link(menu_child_1), title: menu_child_1.get_name %><% end %></li>
+                                                <% end %>
+                                            <% end %>
+                                        </ul>
+                                    </li>
+                                <% end %>
+                            </ul>
+                            <div class="wpisset-secondary-navigation-title">
+                                <span>HỖ TRỢ KHÁCH HÀNG</span><%= link_to 'Xem toàn bộ', 'javascript:void(0)', title: 'Xem toàn bộ' %>
+                            </div>
+                            <ul class="wpisset-secondary-nav-menu">
+                                <li class="menu-item menu-item-type-custom menu-item-object-custom">
+                                    <%= link_to image_tag('/img/icons/header/shopping.png', alt: 'Hướng dẫn mua hàng', title: 'Hướng dẫn mua hàng') + 'Hướng dẫn mua hàng', shopping_guide_link, title: 'Hướng dẫn mua hàng' %>
+                                </li>
+                                <li class="menu-item menu-item-type-custom menu-item-object-custom">
+                                    <%= link_to image_tag('/img/icons/header/payment.png', alt: 'Hướng dẫn thanh toán', title: 'Hướng dẫn thanh toán') + 'Hướng dẫn thanh toán', shopping_payment_link, title: 'Hướng dẫn thanh toán' %>
+                                </li>
+                                <li class="menu-item menu-item-type-custom menu-item-object-custom">
+                                    <%= link_to image_tag('/img/icons/header/warranty.png', alt: 'Gửi yêu cầu bảo hành', title: 'Gửi yêu cầu bảo hành') + 'Gửi yêu cầu bảo hành', warranty_request_link, title: 'Gửi yêu cầu bảo hành' %>
+                                </li>
+                                <li class="menu-item menu-item-type-custom menu-item-object-custom">
+                                    <%= link_to image_tag('/img/icons/header/invoice.png', alt: 'In hóa đơn điện tử', title: 'In hóa đơn điện tử') + 'In hóa đơn điện tử', print_invoice_link, title: 'In hóa đơn điện tử' %>
+                                </li>
+                                <li class="menu-item menu-item-type-custom menu-item-object-custom">
+                                    <%= link_to image_tag('/img/icons/header/feedback.png', alt: 'Góp ý & Khiếu nại', title: 'Góp ý & Khiếu nại') + 'Góp ý & Khiếu nại', contact_link, title: 'Góp ý & Khiếu nại' %>
+                                </li>
+                            </ul>
+                            <div class="wpisset-secondary-navigation-title"><span>CHÍNH SÁCH CHUNG</span><%= link_to 'Xem toàn bộ', 'javascript:void(0)', title: 'Xem toàn bộ' %>
+                            </div>
+                            <ul class="wpisset-secondary-nav-menu">
+                                <li class="menu-item menu-item-type-custom menu-item-object-custom">
+                                    <%= link_to image_tag('/img/icons/header/privacy.png', alt: 'Chính sách, quy định chung', title: 'Chính sách, quy định chung') + 'Chính sách, quy định chung', general_policy_link, title: 'Chính sách, quy định chung' %>
+                                </li>
+                                <li class="menu-item menu-item-type-custom menu-item-object-custom">
+                                    <%= link_to image_tag('/img/icons/header/privacy.png', alt: 'Chính sách vận chuyển', title: 'Chính sách vận chuyển') + 'Chính sách vận chuyển', transport_policy_link, title: 'Chính sách vận chuyển' %>
+                                </li>
+                                <li class="menu-item menu-item-type-custom menu-item-object-custom">
+                                    <%= link_to image_tag('/img/icons/header/privacy.png', alt: 'Chính sách bảo hành', title: 'Chính sách bảo hành') + 'Chính sách bảo hành', warranty_policy_link, title: 'Chính sách bảo hành' %>
+                                </li>
+                                <li class="menu-item menu-item-type-custom menu-item-object-custom">
+                                    <%= link_to image_tag('/img/icons/header/privacy.png', alt: 'Chính sách đổi trả, hoàn tiền', title: 'Chính sách đổi trả, hoàn tiền') + 'Chính sách đổi trả, hoàn tiền', return_refund_policy_link, title: 'Chính sách đổi trả, hoàn tiền' %>
+                                </li>
+                                <li class="menu-item menu-item-type-custom menu-item-object-custom">
+                                    <%= link_to image_tag('/img/icons/header/privacy.png', alt: 'Chính sách bảo mật thông tin khách hàng', title: 'Chính sách bảo mật thông tin khách hàng') + 'Bảo mật thông tin khách hàng', information_security_policy_link, title: 'Chính sách bảo mật thông tin khách hàng' %>
+                                </li>
+                            </ul>
+                            <div class="wpisset-secondary-navigation-title">
+                                <span>LIÊN KẾT CHUNG</span><%= link_to 'Xem toàn bộ', 'javascript:void(0)', title: 'Xem toàn bộ liên kết chung' %>
+                            </div>
+                            <ul class="wpisset-secondary-nav-menu">
+                                <li class="menu-item menu-item-type-custom menu-item-object-custom">
+                                    <%= link_to image_tag('/img/icons/header/link.png', alt: 'Giới thiệu công ty', title: 'Giới thiệu công ty') + 'Giới thiệu công ty', about_link, title: 'Giới thiệu công ty' %>
+                                </li>
+                                <li class="menu-item menu-item-type-custom menu-item-object-custom">
+                                    <%= link_to image_tag('/img/icons/header/link.png', alt: 'Thông tin liên hệ', title: 'Thông tin liên hệ') + 'Thông tin liên hệ', contact_link, title: 'Thông tin liên hệ' %>
+                                </li>
+                                <li class="menu-item menu-item-type-custom menu-item-object-custom">
+                                    <%= link_to image_tag('/img/icons/header/link.png', alt: 'Tin tức công nghệ', title: 'Tin tức công nghệ') + 'Tin tức công nghệ',  'javascript:void(0)', title: 'Tin tức công nghệ' %>
+                                </li>
+                                <li class="menu-item menu-item-type-custom menu-item-object-custom">
+                                    <%= link_to image_tag('/img/icons/header/link.png', alt: 'Thông tin khuyến mãi', title: 'Thông tin khuyến mãi') + 'Thông tin khuyến mãi', 'javascript:void(0)', title: 'Thông tin khuyến mãi' %>
+                                </li>
+                                <li class="menu-item menu-item-type-custom menu-item-object-custom">
+                                    <%= link_to image_tag('/img/icons/header/link.png', alt: 'Sản phẩm bán chạy', title: 'Sản phẩm bán chạy') + 'Sản phẩm bán chạy', 'javascript:void(0)', title: 'Sản phẩm bán chạy' %>
+                                </li>
+                                <li class="menu-item menu-item-type-custom menu-item-object-custom">
+                                    <%= link_to image_tag('/img/icons/header/link.png', alt: 'Sản phẩm mới ra mắt', title: 'Sản phẩm mới ra mắt') + 'Sản phẩm mới ra mắt', 'javascript:void(0)', title: 'Sản phẩm mới ra mắt' %>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                    <div class="wpisset-logo"><%= link_to image_tag('/img/logo.png', alt: 'Logo Tìm Hàng Công Nghệ - TimHangCongNghe.Com', title: 'Logo Tìm Hàng Công Nghệ - TimHangCongNghe.Com'), root_link, title: 'Logo Tìm Hàng Công Nghệ - TimHangCongNghe.Com', class: 'wpisset-remove-font-size' %></div>
+                </div>
+                <div class="wpisset-search-container wpisset-center-xs wpisset-col-xs-4 wpisset-middle-xs wpisset-flex-basic-off-grow-1">
+                    <%= form_tag erp_online_store.search_path, method: 'get', id: 'autosearch-form', class: 'wpisset-header-product-search autosearch-form' do %>
+                        <div class="wpisset-searchform-product-cat-wrap"></div>
+                        <div class="wpisset-searchform-product-input-wrap">
+                            <label class="screen-reader-text" for="">Tìm kiếm:</label>
+                            <input type="search" class="search-field" placeholder="Nhập tên sản phẩm, từ khóa cần tìm" value="<%= @keyword %>" name="keyword" />
+                        </div>
+                        <div class="wpisset-searchform-product-btn-wrap"><button type="submit" class="wpisset-button" value="Tìm kiếm" name="submit_search"><svg class="svg-icon" aria-hidden="true" role="img" focusable="false" width="36" height="36" viewBox="0 0 36 36" xmlns="//www.w3.org/2000/svg"><path d="M23.608,23.707c-0.195,0.195 -0.45,0.293 -0.705,0.293c-0.255,0 -0.51,-0.098 -0.704,-0.293l-7.653,-7.682c-1.535,1.233 -3.477,1.975 -5.59,1.975c-4.944,0 -8.967,-4.037 -8.967,-8.999c-7.77156e-16,-4.963 4.023,-9.001 8.967,-9.001c4.944,0 8.966,4.038 8.966,9.001c0,2.121 -0.739,4.07 -1.967,5.61l7.653,7.682c0.389,0.39 0.389,1.024 0,1.414Zm-14.652,-21.707c-3.846,0 -6.974,3.141 -6.974,7.001c0,3.859 3.128,6.999 6.974,6.999c3.845,0 6.974,-3.14 6.974,-6.999c0,-3.86 -3.129,-7.001 -6.974,-7.001Z" transform="scale(1.5)" fill-rule="evenodd" fill="%23000"></path></svg></button></div>
+                        <input type="hidden" name="route" value="product/search" />
+                    <% end %>
+                </div>
+                <div class="wpisset-icons-container wpisset-center-xs wpisset-col-xs-4 wpisset-middle-xs wpisset-flex-basic-off-grow-0">
+                    <div class="wpisset-header-thcncompare-btn wpisset-cursor-anim-element wpisset-cursor-anim-element-2" data-cursor-text="SO SÁNH SẢN PHẨM" data-cursor-color="#d9214e" data-cursor-text-color="#fff">
+                        <a href="javascript:void(0)" class="yith-thcncompare-open" title="So sánh sản phẩm"><svg class="svg-icon" aria-hidden="true" role="img" focusable="false" width="36" height="36" viewBox="0 0 36 36" xmlns="//www.w3.org/2000/svg"><g transform="scale(0.75)"><path fill="%23000" d="M42.54,13.8l-1.09,1.7l4.97231e-07,3.2487e-07c4.65585,3.04194 5.96419,9.28224 2.92224,13.9381c-1.84846,2.82916 -4.99281,4.54247 -8.37225,4.56191h-21.59l5.29,-5.3l-1.41,-1.4l-7.72,7.7l7.72,8l1.41,-1.53l-5.29,-5.47h21.59l1.01766e-07,5.12685e-10c6.5942,0.0332207 11.9668,-5.2855 12,-11.8797c0.000202022,-0.0401008 0.000202022,-0.0802023 -1.02537e-09,-0.120303v0l2.73309e-07,-0.000131589c0.00849608,-4.10121 -2.04255,-7.93273 -5.46011,-10.1999Z"></path><path fill="%23000" d="M2,24.09l-2.9211e-07,-3.24611e-05c-0.0496877,-5.52262 4.387,-10.0399 9.90963,-10.0896c0.0301342,-0.000271121 0.0602696,-0.000406025 0.090405,-0.000404707h21.59l-5.29,5.3l1.41,1.4l7.69,-7.7l-7.7,-8l-1.41,1.54l5.3,5.46h-21.59l5.37636e-07,-6.72894e-09c-6.70973,0.0839775 -12.081,5.59137 -11.997,12.3011c0.0504189,4.02844 2.09441,7.76992 5.45699,9.9889l1.09,-1.69l-1.56931e-07,-1.0369e-07c-2.85577,-1.88691 -4.56685,-5.0872 -4.55,-8.51Z"></path></g></svg></a>
+                    </div>
+                    <div class="wpisset-woo-cart-wrap wpisset-cursor-anim-element wpisset-cursor-anim-element-2" data-cursor-text="GIỎ HÀNG CỦA BẠN" data-cursor-color="#d9214e" data-cursor-text-color="#fff">
+                        <div class="wpisset-woo-cart menu-item-has-children">
+                            <a class="wpisset-woo-cart-inner wpisset-middle-xs" href="#wpisset-woo-sub-cart" title="Giỏ hàng của bạn" data-navigation-title="GIỎ HÀNG CỦA BẠN" data-cart-count="<%= @cart.get_numbers %>">
+                                <div class="wpisset-woo-cart-icon-wrap">
+                                    <svg class="svg-icon" aria-hidden="true" role="img" focusable="false" width="90" height="90" viewBox="0 0 90 90" xmlns="//www.w3.org/2000/svg"><g transform="scale(1.875)"><path fill="%23000" d="M33,12v-3v0c0,-4.97056 -4.02944,-9 -9,-9c-4.97056,0 -9,4.02944 -9,9v3h-11l1.56,27.53l1.3567e-07,2.29989e-06c0.280938,4.76246 4.22927,8.47828 9,8.47h18.9l-4.29432e-08,-7.45217e-11c4.77073,0.00827901 8.71906,-3.70754 9,-8.47l1.54,-27.53h-11Zm-16,-3l7.81597e-14,1.05697e-06c-5.83749e-07,-3.86599 3.13401,-7 7,-7c3.86599,-5.83749e-07 7,3.13401 7,7c0,0 0,7.10543e-15 0,7.10543e-15v3h-14v-3Zm23.44,30.41l1.39807e-07,-2.38291e-06c-0.217374,3.70501 -3.28862,6.59637 -7,6.59h-18.9l-3.43782e-08,5.90248e-11c-3.71138,0.00637129 -6.78262,-2.88499 -7,-6.59l-1.48,-25.41h8.94v9h2v-9h14v9h2v-9h8.94Z"></path></g></svg>
+                                    <span class="wpisset-woo-cart-count"><span><%= @cart.get_numbers %></span></span>
+                                </div>
+                               <% if @cart.cart_items.number_items > 0 %><div class="wpisset-woo-cart-total"><bdi><%= format_price(@cart.total_order) %></bdi></div><% end %>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="wpisset-main-navigation-bottom wpisset-visible-xlarge">
+            <div class="wpisset-container wpisset-container-center wpisset-container-fluid">
+                <div class="wpisset-row">
+                    <div class="wpisset-menu-container wpisset-col-xs-12 wpisset-middle-xs wpisset-flex-basic-off-grow-1">
+                        <nav id="wpisset-menu-variant2">
+                            <div class="wpisset-category-menu-wrap">
+                                <div class="wpisset-category-menu-title">
+                                    <span>DANH MỤC SẢN PHẨM</span>
+                                    <%= link_to 'Xem toàn bộ', 'javascript:void(0)', title: 'Xem toàn bộ', class: 'wpisset-category-menu-view-all' %>
+                                </div>
+                                <ul class="wpisset-category-menu wpisset-sub-menu wpisset-start-xs wpisset-sub-menu-animation-fade">
+                                    <% @menus.each do |menu| %>
+                                        <li class="wpisset-cat-mega-menu wpisset-cat-mega-menu-4 wpisset-cat-mega-menu-full-height wpisset-cat-mega-menu-bg-image menu-item menu-item-has-children">
+                                            <% if menu.not_create_link? %><% if menu.menu_icon.present? %><%= link_to image_tag(menu.menu_icon.thumb20x20, alt: menu.get_name, title: menu.get_name) + menu.get_short_name, 'javascript:void(0)', title: menu.get_name %><% else %><%= link_to image_tag('/img/icons/header/category.png', alt: menu.get_name, title: menu.get_name) + menu.get_short_name, 'javascript:void(0)', title: menu.get_name %><% end %><% else %><% if menu.menu_icon.present? %><%= link_to image_tag(menu.menu_icon.thumb20x20, alt: menu.get_name, title: menu.get_name) + menu.get_short_name, category_list_link(menu), title: menu.get_name %><% else %><%= link_to image_tag('/img/icons/header/category.png', alt: menu.get_name, title: menu.get_name) + menu.get_short_name, category_list_link(menu), title: menu.get_name %><% end %><% end %>
+                                            <ul class="sub-menu" style="background-image:url(../img/tmp/menu/cat-megamenu.jpg);">
+                                                <% menu.get_children.each do |menu_child_1| %>
+                                                    <% if menu_child_1.style_show? %><li class="menu-item-heading menu-item-border-bottom menu-item-inline-items menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"><% else %><li class="menu-item-heading menu-item-border-bottom menu-item menu-item-has-children"><% end %>
+                                                        <% if menu_child_1.not_create_link? %><%= link_to menu_child_1.get_short_name, 'javascript:void(0)', title: menu_child_1.get_name %><% else %><%= link_to menu_child_1.get_short_name, category_list_link(menu_child_1), title: menu_child_1.get_name %><% end %>
+                                                        <ul class="sub-menu">
+                                                            <% menu_child_1.get_children.each do |menu_child_2| %>
+                                                                <li class="menu-item menu-item-type-custom menu-item-object-custom"><% if menu_child_2.not_create_link? %><%= link_to menu_child_2.get_short_name, 'javascript:void(0)', title: menu_child_2.get_name %><% else %><%= link_to menu_child_2.get_short_name, category_list_link(menu_child_2), title: menu_child_2.get_name %><% end %></li>
+                                                            <% end %>
+                                                        </ul>
+                                                    </li>
+                                                <% end %>
+                                                <li class="hide-menu-item-heading menu-item menu-item-type-custom menu-item-object-custom">
+                                                    <%= link_to 'Hình Ảnh ' + menu.get_short_name.to_s, category_list_link(menu), title: menu.get_name %>
+                                                    <div class="wpisset-menu-description"><%= link_to image_tag('/img/tmp/menu/cat-megamenu-btn.png', alt: menu.get_name, title: menu.get_name), category_list_link(menu), title: menu.get_name %></div>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    <% end %>
+                                </ul>
+                            </div>
+                            <div class="wpisset-main-navigation-bottom-wrap">
+                                <ul class="wpisset-menu wpisset-sub-menu wpisset-start-xs wpisset-sub-menu-animation-fade">
+                                    <li class="menu-item menu-item-type-custom menu-item-object-custom"><span><%= link_to 'Trang Chủ', root_link, title: 'Trang chủ' %></span></li>
+                                    <li class="menu-item menu-item-type-custom menu-item-object-custom"><span><%= link_to 'Giới Thiệu', about_link, title: 'Giới thiệu' %></span></li>
+                                    <li class="wpisset-mega-menu wpisset-mega-menu-3 wpisset-mega-menu-bg-image menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children">
+                                        <span><%= link_to '<span>'.html_safe + 'Chính Sách & Hướng Dẫn' + '</span>'.html_safe, 'javascript:void(0)', title: 'Chính sách & Hướng dẫn' %></span>
+                                        <ul class="sub-menu">
+                                            <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children">
+                                                <span><%= link_to '', '#', title: '' %></span>
+                                                <ul class="sub-menu">
+                                                    <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children">
+                                                        <span><%= link_to 'Hỗ Trợ Khách Hàng', '#', title: 'Hỗ trợ khách hàng' %></span>
+                                                        <ul class="sub-menu">
+                                                            <li class="menu-item menu-item-type-custom menu-item-object-custom"><span><%= link_to 'Hướng dẫn mua hàng', shopping_guide_link, title: 'Hướng dẫn mua hàng' %></span></li>
+                                                            <li class="menu-item menu-item-type-custom menu-item-object-custom"><span><%= link_to 'Hướng dẫn thanh toán', shopping_payment_link, title: 'Hướng dẫn thanh toán' %></span></li>
+                                                            <li class="menu-item menu-item-type-custom menu-item-object-custom"><span><%= link_to 'Gửi yêu cầu bảo hành', warranty_request_link, title: 'Gửi yêu cầu bảo hành' %></span></li>
+                                                            <li class="menu-item menu-item-type-custom menu-item-object-custom"><span><%= link_to 'In hóa đơn điện tử', print_invoice_link, title: 'In hóa đơn điện tử' %></span></li>
+                                                            <li class="menu-item menu-item-type-custom menu-item-object-custom"><span><%= link_to 'Góp ý & Khiếu nại', contact_link, title: 'Góp ý & Khiếu nại' %></span></li>
+                                                        </ul>
+                                                    </li>
+                                                    <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children">
+                                                        <span><%= link_to 'Chính Sách Chung', '#', title: 'Chính sách chung' %></span>
+                                                        <ul class="sub-menu">
+                                                            <li class="menu-item menu-item-type-custom menu-item-object-custom"><span><%= link_to 'Chính sách, quy định chung', general_policy_link, title: 'Chính sách, quy định chung' %></span></li>
+                                                            <li class="menu-item menu-item-type-custom menu-item-object-custom"><span><%= link_to 'Chính sách vận chuyển', transport_policy_link, title: 'Chính sách vận chuyển' %></span></li>
+                                                            <li class="menu-item menu-item-type-custom menu-item-object-custom"><span><%= link_to 'Chính sách bảo hành', warranty_policy_link, title: 'Chính sách bảo hành' %></span></li>
+                                                            <li class="menu-item menu-item-type-custom menu-item-object-custom"><span><%= link_to 'Chính sách đổi trả, hoàn tiền', return_refund_policy_link, title: 'Chính sách đổi trả, hoàn tiền' %></span></li>
+                                                            <li class="menu-item menu-item-type-custom menu-item-object-custom"><span><%= link_to 'Bảo mật thông tin khách hàng', information_security_policy_link, title: 'Chính sách bảo mật thông tin khách hàng' %></span></li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children">
+                                                <span><%= link_to '', '#', title: '' %></span>
+                                                <ul class="sub-menu">
+                                                    <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children">
+                                                        <span><%= link_to 'Dịch Vụ Máy Tính', '#', title: 'Dịch vụ máy tính' %></span>
+                                                        <ul class="sub-menu">
+                                                            <li class="menu-item menu-item-type-custom menu-item-object-custom"><span><%= link_to 'Dịch vụ xử lý phần cứng', 'javascript:void(0)', title: 'Dịch vụ xử lý phần cứng' %></span></li>
+                                                            <li class="menu-item menu-item-type-custom menu-item-object-custom"><span><%= link_to 'Dịch vụ xử lý phần mềm', 'javascript:void(0)', title: 'Dịch vụ xử lý phần mềm' %></span></li>
+                                                            <li class="menu-item menu-item-type-custom menu-item-object-custom"><span><%= link_to 'Vệ sinh máy tính, laptop', 'javascript:void(0)', title: 'Vệ sinh máy tính, laptop' %></span></li>
+                                                            <li class="menu-item menu-item-type-custom menu-item-object-custom"><span><%= link_to 'Sửa chữa, bảo trì tận nơi', 'javascript:void(0)', title: 'Sửa chữa, bảo trì tận nơi' %></span></li>
+                                                        </ul>
+                                                    </li>
+                                                    <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children">
+                                                        <span><%= link_to 'Dịch Vụ Kỹ Thuật', '#', title: 'Dịch vụ khác' %></span>
+                                                        <ul class="sub-menu">
+                                                            <li class="menu-item menu-item-type-custom menu-item-object-custom"><span><%= link_to 'Sửa chữa, bơm mực máy in', 'javascript:void(0)', title: 'Sửa chữa, bơm mực máy in' %></span></li>
+                                                            <li class="menu-item menu-item-type-custom menu-item-object-custom"><span><%= link_to 'Lắp đặt, sửa chữa máy chiếu', 'javascript:void(0)', title: 'Lắp đặt, sửa chữa máy chiếu' %></span></li>
+                                                            <li class="menu-item menu-item-type-custom menu-item-object-custom"><span><%= link_to 'Lắp đặt, di dời thiết bị', 'javascript:void(0)', title: 'Lắp đặt, di dời thiết bị' %></span></li>
+                                                            <li class="menu-item menu-item-type-custom menu-item-object-custom"><span><%= link_to 'Lắp đặt, di dời văn phòng', 'javascript:void(0)', title: 'Lắp đặt, di dời văn phòng' %></span></li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"></li>
+                                        </ul>
+                                    </li>
+                                    <li class="menu-item menu-item-type-custom menu-item-object-custom"><span><%= link_to 'Thương Hiệu', brand_list_link, title: 'Thương hiệu' %></span></li>
+                                    <li class="menu-item menu-item-type-custom menu-item-object-custom"><span><%= link_to 'Liên Hệ', contact_link, title: 'Liên hệ' %></span></li>
+                                </ul>
+                                <div class="wpisset-secondary-menu-wrap">
+                                    <ul class="wpisset-secondary-menu">
+                                        <li class="wpisset-recent-viewed-btn menu-item-arrow-btn menu-item menu-item-type-custom menu-item-object-custom"><%= link_to 'Sản Phẩm Đã Xem', 'javascript:void(0)', title: 'SẢN PHẨM ĐÃ XEM' %></li>
+                                        <li class="menu-item menu-item-type-custom menu-item-object-custom"><%= link_to '<strong>Tra Cứu Đơn Hàng</strong>'.html_safe, track_link, title: 'Tra cứu đơn hàng' %></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>

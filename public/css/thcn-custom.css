@@ -1,0 +1,39 @@
+.thcn-product-details__short-description ul li {
+  line-height: 26px;
+}
+.wpisset-sp-custom-cats .wpisset-posted-in .wpisset-posted-in-inner {
+  text-align: justify;
+}
+.wpisset-detail-description {
+  text-align: justify;
+  line-height: 30px;
+  margin-top: 0!important;
+}
+.wpisset-detail-description h3 {
+  margin: .5rem 0;
+}
+.wpisset-detail-description a {
+  color: #0095E8;
+}
+.wpisset-detail-description a:hover {
+  opacity: .8;
+}
+.form-filter-specs {
+  margin-bottom: .5rem;
+}
+.text-justify {
+  text-align: justify;
+}
+.category-description a {
+  color: #0095E8;
+}
+.category-description a:hover {
+  opacity: .8;
+}
+.category-description img {
+  width: 100%;
+  height: auto;
+}
+.text-left{text-align: left!important;}
+.text-right{text-align: right!important;}
+.text-center{text-align: center!important;}

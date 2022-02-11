@@ -1,0 +1,15 @@
+.wpisset-ele-es-icons3-item-content>.wpisset-ele-es-icons3-item-title {
+	margin-bottom: 0
+}
+
+@media (max-width:768px) {
+	.wpisset-custom-contact-style-1.vc_custom_heading {
+		font-size: 48px!important
+	}
+}
+
+.wpisset-custom-contact-style-2 {
+	font-size: 14px;
+	color: #181c32;
+	text-align: justify;
+}

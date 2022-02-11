@@ -1,0 +1,82 @@
+<div class="vc_row wpb_row vc_row-fluid wpisset-ele-es-animate-fadein vc_custom_1612943774916">
+    <div class="wpb_column vc_column_container vc_col-sm-12">
+        <div class="vc_column-inner">
+            <div class="wpb_wrapper">
+                <div class=" wpisset_ele_es_categorybanner1 wpisset_ele_es_categorybanner1-190930925">
+                    <div class="wpisset-ele-es-categorybanner1 wpisset-ele-es-categorybanner1-breakpoint-992">
+                        <div class="wpisset-ele-es-categorybanner1-nav">
+                            <div class="wpisset-ele-es-categorybanner1-nav-inner">
+                                <h3 class="wpisset-ele-es-categorybanner1-title"><span>THƯƠNG HIỆU LAPTOP</span></h3>
+                                <div class="wpisset-ele-es-categorybanner1-menu"><ul class=""><% @laptop_brands.each do |brand| %><li class="menu-item menu-item-type-custom menu-item-object-custom"><%= link_to brand.get_name, '', title: brand.get_name %></li><% end %></ul></div>
+                                <%= link_to 'XEM TOÀN BỘ', '', title: 'Xem toàn bộ', class: 'wpisset-button' %>
+                            </div>
+                            <span class="wpisset-ele-es-categorybanner1-cursor-wrap"><span class="wpisset-ele-es-categorybanner1-cursor-holder"><span class="wpisset-ele-es-categorybanner1-cursor"></span></span></span>
+                        </div>
+                        <div class="wpisset-ele-es-categorybanner1-img">
+                            <div class="wpisset-ele-es-categorybanner1-img-bg wpisset-ele-es-animate-image">
+                                <%= image_tag '/img/home/banner/category-banner.jpg', alt: 'Thương hiệu laptop', title: 'Thương hiệu laptop', class: 'wpisset-ele-es-categorybanner1-image' %>
+                                <%= image_tag '/img/home/banner/category-banner-res.jpg', alt: 'Thương hiệu laptop', title: 'Thương hiệu laptop', class: 'wpisset-ele-es-categorybanner1-responsive-image' %>
+                            </div>
+                        </div>
+                        <div class="wpisset-ele-es-categorybanner1-products">
+                            <div class="thcn columns-3 ">
+                                <ul class="products columns-3">
+                                    <% @laptop_products.each_with_index do |product, index| %>
+                                        <li class="wpisset-post wpisset-woo-has-gallery product type-product status-publish<% if index == 0 %> first<% elsif index == 5 %> last<% else %><% end %> instock has-post-thumbnail sale shipping-taxable purchasable product-type-simple">
+                                            <div class="wpisset-woo-loop-wrapper">
+                                                <div class="wpisset-woo-loop-inner">
+                                                    <div class="wpisset-woo-loop-thumbnail-wrapper">
+                                                        <% if product.product_images.count > 0 %>
+                                                            <% if product.is_new? %>
+                                                                <%= link_to '<span class="onsale">Mới</span>'.html_safe + 
+                                                                            image_set_tag(product.get_main_image.image_url, {product.get_main_image.image_url.thumb445 => '445w', product.get_main_image.image_url.thumb650 => '1000w', product.get_main_image.image_url.thumb650 => '650w', product.get_main_image.image_url.thumb193 => '193w'}, title: product.get_short_name, alt: product.get_short_name, size: '445x445', sizes: '(max-width: 445px) 100vw, 445px', loading: 'lazy', class: 'attachment-thcn_thumbnail size-thcn_thumbnail') + 
+                                                                            image_set_tag(product.get_main_image.image_url, {product.get_main_image.image_url.thumb445 => '445w', product.get_main_image.image_url.thumb650 => '1000w', product.get_main_image.image_url.thumb650 => '650w', product.get_main_image.image_url.thumb193 => '193w'}, title: product.get_short_name, alt: product.get_short_name, size: '445x445', sizes: '(max-width: 445px) 100vw, 445px', loading: 'lazy', class: 'wp-post-image wp-post-image-secondary'),
+                                                                    product_link(product), title: product.get_short_name, class: 'thcn-LoopProduct-link thcn-loop-product__link' %>
+                                                            <% else %>
+                                                                <%= link_to image_set_tag(product.get_main_image.image_url, {product.get_main_image.image_url.thumb445 => '445w', product.get_main_image.image_url.thumb650 => '1000w', product.get_main_image.image_url.thumb650 => '650w', product.get_main_image.image_url.thumb193 => '193w'}, title: product.get_short_name, alt: product.get_short_name, size: '445x445', sizes: '(max-width: 445px) 100vw, 445px', loading: 'lazy', class: 'attachment-thcn_thumbnail size-thcn_thumbnail') + 
+                                                                            image_set_tag(product.get_main_image.image_url, {product.get_main_image.image_url.thumb445 => '445w', product.get_main_image.image_url.thumb650 => '1000w', product.get_main_image.image_url.thumb650 => '650w', product.get_main_image.image_url.thumb193 => '193w'}, title: product.get_short_name, alt: product.get_short_name, size: '445x445', sizes: '(max-width: 445px) 100vw, 445px', loading: 'lazy', class: 'wp-post-image wp-post-image-secondary'),
+                                                                    product_link(product), title: product.get_short_name, class: 'thcn-LoopProduct-link thcn-loop-product__link' %>
+                                                            <% end %>
+                                                        <% else %>
+                                                            <% if product.is_new? %>
+                                                                <%= link_to '<span class="onsale">Mới</span>'.html_safe + 
+                                                                            image_set_tag('/img/main/no-image-available.png', {'/img/main/no-image-available-445x445.png' => '445w', '/img/main/no-image-available-1000x1000.png' => '1000w', '/img/main/no-image-available-650x650.png' => '650w', '/img/main/no-image-available-193x193.png' => '193w'}, title: product.get_short_name, alt: product.get_short_name, size: '445x445', sizes: '(max-width: 445px) 100vw, 445px', loading: 'lazy', class: 'attachment-thcn_thumbnail size-thcn_thumbnail') + 
+                                                                            image_set_tag('/img/main/no-image-available.png', {'/img/main/no-image-available-445x445.png' => '445w', '/img/main/no-image-available-1000x1000.png' => '1000w', '/img/main/no-image-available-650x650.png' => '650w', '/img/main/no-image-available-193x193.png' => '193w'}, title: product.get_short_name, alt: product.get_short_name, size: '445x445', sizes: '(max-width: 445px) 100vw, 445px', loading: 'lazy', class: 'wp-post-image wp-post-image-secondary'),
+                                                                    product_link(product), title: product.get_short_name, class: 'thcn-LoopProduct-link thcn-loop-product__link' %>
+                                                            <% else %>
+                                                                <%= link_to image_set_tag('/img/main/no-image-available.png', {'/img/main/no-image-available-445x445.png' => '445w', '/img/main/no-image-available-1000x1000.png' => '1000w', '/img/main/no-image-available-650x650.png' => '650w', '/img/main/no-image-available-193x193.png' => '193w'}, title: product.get_short_name, alt: product.get_short_name, size: '445x445', sizes: '(max-width: 445px) 100vw, 445px', loading: 'lazy', class: 'attachment-thcn_thumbnail size-thcn_thumbnail') + 
+                                                                        image_set_tag('/img/main/no-image-available.png', {'/img/main/no-image-available-445x445.png' => '445w', '/img/main/no-image-available-1000x1000.png' => '1000w', '/img/main/no-image-available-650x650.png' => '650w', '/img/main/no-image-available-193x193.png' => '193w'}, title: product.get_short_name, alt: product.get_short_name, size: '445x445', sizes: '(max-width: 445px) 100vw, 445px', loading: 'lazy', class: 'wp-post-image wp-post-image-secondary'),
+                                                                product_link(product), title: product.get_short_name, class: 'thcn-LoopProduct-link thcn-loop-product__link' %>
+                                                            <% end %>
+                                                        <% end %>
+                                                    </div>
+                                                    <div class="wpisset-woo-loop-content-wrapper">
+                                                        <div class="wpisset-woo-loop-content-inner wpisset-woo-enable-loop-desc1">
+                                                            <div class="wpisset-woo-loop-rating">
+                                                                <div class="wpisset-woo-loop-rating-wrap">
+                                                                    <div class="wpisset-woo-loop-status in-stock"><span>Trạng thái: </span><span>Đang kinh doanh</span></div>
+                                                                    <div class="wpisset-woo-loop-rating-inner">
+                                                                        <div class="wpisset-woo-loop-rating-starts">
+                                                                            <div class="star-rating" role="img" aria-label="Đánh giá 0.0 / 5.0"><span style="width:0%">Đánh giá <strong class="rating">0.0</strong> / 5.0</span></div><span>(0)</span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <%= link_to '<h2 class="thcn-loop-product__title">'.html_safe + product.get_short_name + '</h2>'.html_safe, product_link(product), title: product.get_short_name, class: 'thcn-LoopProduct-link thcn-loop-product__link' %>
+                                                            <div class="wpisset-woo-loop-desc"><ul><% product.product_short_descipriton_values_array_new_specs.each do |row| %><li><%= row[:values].join(', ') %></li><% end %></ul></div>
+                                                        </div>
+                                                        <div class="wpisset-woo-loop-nav-price-wrap"><span class="price"><% if (product.get_show_price.nil?) || (product.get_show_price.to_f <= 1) %><ins><bdi>Đang Cập Nhật Giá</bdi></ins><% else %><ins><bdi><%= format_price(product.get_show_price) %></bdi></ins><% end %><% if product.get_listed_price.to_f > 1 %><del><bdi><%= format_price(product.get_listed_price) %></bdi</del><% end %></span></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    <% end %>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

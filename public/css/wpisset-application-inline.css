@@ -1,0 +1,76 @@
+.wpisset-post-newsletter-wrap {
+	background-image: url(../img/main/footer-bg.png);
+	background-position: center center;
+	background-repeat: no-repeat
+}
+
+.wpisset-subcription-popup-inner {
+	background-image: url(../img/tmp/css/popup-image.jpg);
+	background-repeat: no-repeat
+}
+
+.wpisset-navigation {
+	background-color: #fff;
+	background-position: center center;
+	background-size: cover;
+	background-attachment: scroll;
+	background-repeat: repeat
+}
+
+.wpisset-sub-menu>.menu-item-has-children.wpisset-mega-menu-bg-image>.sub-menu {
+	background-color: #fff;
+	background-image: url(../img/tmp/css/megamenu-shop.png);
+	background-position: right bottom;
+	background-size: auto;
+	background-attachment: scroll;
+	background-repeat: no-repeat
+}
+
+.wpisset-sub-menu>.menu-item-has-children.wpisset-cat-mega-menu-bg-image>.sub-menu {
+	background-color: #fff;
+	background-position: right bottom;
+	background-size: auto;
+	background-attachment: scroll;
+	background-repeat: no-repeat
+}
+
+#wpisset-pre-header {
+	border-color: rgba(255, 255, 255, .1)
+}
+
+.wpisset-promo-banner {
+	background-color: #052e68;
+	background-image: url(../img/tmp/css/promo-banner-2.jpg);
+	background-position: center center;
+	background-size: auto;
+	background-attachment: scroll;
+	background-repeat: no-repeat
+}
+
+.wpisset-header-bg-border {
+	background-color: #fff;
+	background-image: url(../img/main/header-border-bg.png);
+	background-position: center center;
+	background-size: cover;
+	background-repeat: no-repeat
+}
+
+.wpisset-footer-newsletter {
+	background-image: url(../img/main/footer-bg.png);
+	background-position: center center;
+	background-size: cover;
+	background-attachment: scroll;
+	background-repeat: repeat
+}
+
+#wpisset-pre-header {
+	background-color: #f5f5f5
+}
+
+.wpisset-promo-banner {
+	display: none
+}
+
+.wpisset-post-image-link img {
+	width: 100%
+}

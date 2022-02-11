@@ -1,0 +1,743 @@
+/*
+[Table of contents]
+*/
+
+/* Dokan Default */
+.dokan-form-control {
+	padding: 0.5rem 1rem;
+	width: 100%;
+	outline: none;
+	border: none;
+	outline: none;
+	-webkit-box-shadow: inset 0 0 0 1px #d7d7d7;
+	box-shadow: inset 0 0 0 1px #d7d7d7;
+	background: #fff;
+	line-height: inherit;
+	-webkit-transition: all 0.2s;
+	-moz-transition: all 0.2s;
+	-o-transition: all 0.2s;
+	transition: all 0.2s;
+	-webkit-appearance: none;
+	font-size: inherit;
+	line-height: inherit;
+	min-height: inherit;
+	color: inherit;
+}
+
+.dokan-form-control:focus {
+	outline: none;
+	-webkit-box-shadow: inset 0 0 0 2px #111111;
+	box-shadow: inset 0 0 0 2px #111111;
+}
+input[type="submit"].dokan-btn, a.dokan-btn, .dokan-btn,
+input[type="submit"].dokan-btn-theme,
+a.dokan-btn-theme,
+.dokan-btn-theme{	
+	display: inline-block;
+	padding: 0.5625rem 1rem;
+	outline: 0;
+	border: none;
+	border-radius: 0;
+	background-color: #0473db;
+	color: #ffffff;
+	text-align: center;
+	font-weight: 500;
+	line-height: inherit;
+	cursor: pointer;
+	-webkit-transition: all 0.2s;
+	-moz-transition: all 0.2s;
+	-o-transition: all 0.2s;
+	transition: all 0.2s;
+	-webkit-appearance: none;
+	line-height: 1.4;
+	position: relative;
+	overflow: hidden;
+	font-size: inherit;
+}
+input[type="submit"].dokan-btn:hover, a.dokan-btn:hover, .dokan-btn:hover,
+input[type="submit"].dokan-btn-theme:hover,
+a.dokan-btn-theme:hover,
+.dokan-btn-theme:hover {
+	background-color: #031d42;
+	color: #ffffff;
+}
+
+input[type="submit"].dokan-btn-theme span,
+a.dokan-btn-theme span,
+.dokan-btn-theme span{
+	position: relative;
+	z-index: 1;
+}
+
+input[type="submit"].dokan-btn-theme span:after,
+a.dokan-btn-theme span:after,
+.dokan-btn-theme span:after{
+	content: '';
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	height: 1px;
+	width: 100%;
+	-webkit-transform: scaleX(0);
+	-ms-transform: scaleX(0);
+	transform: scaleX(0);
+	-webkit-transform-origin: 100% 0;
+	-ms-transform-origin: 100% 0;
+	transform-origin: 100% 0;
+	background-color: #ffffff;
+	will-change: transform;
+}
+
+input[type="submit"].dokan-btn-theme:hover span:after,
+a.dokan-btn-theme:hover span:after,
+.dokan-btn-theme:hover span:after{
+	-webkit-animation: wpisset-underline-animation2 1s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+	animation: wpisset-underline-animation2 1s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+}
+
+.dokan-btn-theme.dashicons{
+	padding: 0;
+}
+
+.dokan-store-sidebar > .wpisset-sidebar-wrapper{
+	max-width: 100% !important;
+}
+
+p.vendor-customer-registration .radio:hover{
+	color: #0473db;
+}
+p.vendor-customer-registration br{
+	display: none;
+}
+
+/* Dokan Product */
+.thcn-Tabs-panel--seller .list-unstyled{
+	list-style: none;
+	padding: 0;
+}
+.thcn-Tabs-panel--seller .list-unstyled li{
+	margin-bottom: 0.25rem;
+}
+.thcn-Tabs-panel--seller .list-unstyled .store-name > span:first-child,
+.thcn-Tabs-panel--seller .list-unstyled .seller-name > span:first-child,
+.thcn-Tabs-panel--seller .list-unstyled .store-address > span:first-child{
+	font-weight: 500;
+}
+.thcn-Tabs-panel--seller .list-unstyled .clearfix{
+	display: flex;
+	align-items: center;
+}
+.thcn-Tabs-panel--seller .list-unstyled .clearfix .seller-rating{
+	margin-right: 0.5rem;
+}
+.thcn-Tabs-panel--seller .list-unstyled .clearfix .text{
+	line-height: 1.2;
+}
+
+ul.subsubsub li.active a{
+	color: #959595;
+	font-weight: inherit;
+}
+ul.subsubsub{
+	font-size: 95%;
+}
+select.dokan-form-control{
+	height: inherit;
+	background: none;
+	font-size: inherit;
+}
+input[type="submit"].dokan-btn, a.dokan-btn, .dokan-btn{
+	font-weight: 500;
+	border-radius: 0;
+}
+
+/* Dokan Store */
+.dokan-store-open-close span{
+	padding: 0 !important;
+}
+.dokan-store-open-close label{
+	font-weight: 500;
+}
+.dokan-single-store .dokan-store-tabs ul{
+	border-color: #d7d7d7;
+	margin-bottom: 1.5rem;
+}
+.dokan-single-store .dokan-store-tabs ul li{
+	border-color: #d7d7d7;
+}
+.dokan-single-store .dokan-store-tabs ul li a{
+	color: #0473db;
+	background-color: transparent !important;
+	padding: 0.5625rem 1rem;
+}
+.dokan-single-store .dokan-store-tabs ul li a:hover{
+	color: #111111;
+}
+.dokan-single-store .profile-frame .profile-info-box .profile-info-summery-wrapper .profile-info-summery .profile-info-head .profile-img.profile-img-circle img{
+	background-color: transparent;
+	width: 100px;
+	height: 100px;
+}
+.dokan-single-store .profile-frame .profile-info-box .profile-info-summery-wrapper .profile-info-summery .profile-info-head .store-name{
+	font-weight: 500;
+	font-size: 24px;
+}
+@media (max-width: 1199px) {
+	.dokan-single-store .profile-frame .profile-info-box .profile-info-summery-wrapper{
+		border-color: #d7d7d7;
+	}
+}
+.dokan-single-store .profile-frame .profile-info-box.profile-layout-layout1 .profile-info-summery-wrapper .profile-info-summery .profile-info .store-name{
+	font-weight: 500;
+	font-size: 30px;
+}
+.dokan-single-store .profile-frame .profile-info-box .profile-info-summery-wrapper .profile-info-summery .profile-info-head .profile-img.profile-img-square img{
+	border-color: #d7d7d7;
+}
+.dokan-single-store .profile-frame .profile-info-box.profile-layout-layout1 .profile-info-summery-wrapper .profile-info-summery .profile-info .dokan-store-info{
+	line-height: inherit;
+	font-size: inherit;
+}
+.dokan-single-store .profile-frame .profile-info-box.profile-layout-layout1 .profile-info-summery-wrapper .profile-info-summery{
+	color: #363636;
+	display: flex;
+}
+.dokan-single-store .profile-frame .profile-info-box.profile-layout-layout1 .profile-info-summery-wrapper .profile-info{
+	width: 80%;
+	flex-basis: 80%;
+}
+@media (min-width: 1200px) {
+	.dokan-single-store .profile-frame .profile-info-box.profile-layout-layout1 .profile-info-summery-wrapper .profile-info-summery .profile-info .dokan-store-info{
+		display: flex;
+		flex-wrap: wrap;
+	}
+	.dokan-single-store .profile-frame .profile-info-box.profile-layout-layout1 .profile-info-summery-wrapper .profile-info-summery .profile-info .dokan-store-info li{
+		flex-basis: 50%;
+	}
+}
+.dokan-single-store .profile-frame .profile-info-box.profile-layout-layout1 .profile-info-summery-wrapper{
+	border-color: #d7d7d7;
+	padding: 0 1.5rem;
+}
+.dokan-single-store .profile-frame .profile-info-box.profile-layout-layout1 .profile-info-summery-wrapper .profile-info-summery .profile-info .store-name{
+	margin-left: 1.5rem;
+}
+@media (max-width: 480px) {
+	.dokan-single-store .profile-frame .profile-info-box.profile-layout-layout1 .profile-info-summery-wrapper .profile-info-summery{
+		position: relative;
+		height: 100%;
+		top: 0;
+	}
+	.dokan-single-store .profile-frame .profile-info-box.profile-layout-layout1 .profile-info-summery-wrapper{
+		padding: 1rem;
+	}
+	.dokan-single-store .profile-frame .profile-info-box.profile-layout-layout1 .profile-info-summery-wrapper .profile-info-summery .profile-info-head .profile-img{
+		text-align: left;
+	}
+	.dokan-single-store .profile-frame .profile-info-box.profile-layout-layout1 .profile-info-summery-wrapper .profile-info-summery .profile-info{
+		float: none;
+	}
+	.dokan-single-store .profile-frame .profile-info-box.profile-layout-layout1 .profile-info-summery-wrapper .profile-info-summery .profile-info-head{
+		float: none;
+		margin-bottom: 1rem;
+	}
+	.dokan-single-store .profile-frame .profile-info-box.profile-layout-layout1 .profile-info-summery-wrapper{
+		height: 100%;
+	}
+}
+
+.dokan-single-store .profile-frame .profile-info-box.profile-layout-layout2 .profile-info-summery-wrapper .profile-info-summery .profile-info-head .profile-img img{
+	border-color: #d7d7d7;
+	padding: 0.25rem;
+}
+.dokan-single-store .profile-frame .profile-info-box.profile-layout-layout2 .profile-info-summery-wrapper{
+	border-color: #d7d7d7;
+}
+.dokan-single-store .profile-frame .profile-info-box.profile-layout-layout2 .profile-info-summery-wrapper .profile-info-summery .profile-info .store-name{
+	font-weight: 500;
+	font-size: 30px;
+}
+@media (max-width: 480px) {
+	.dokan-single-store .profile-frame .profile-info-box.profile-layout-layout2 .profile-info-summery-wrapper .profile-info-summery .profile-info .store-name{
+		font-size: 24px;
+	}
+}
+.dokan-single-store .profile-frame .profile-info-box.profile-layout-layout2 .profile-info-summery-wrapper{
+	color: #363636;
+}
+@media (min-width: 480px) {
+	.dokan-single-store .profile-frame .profile-info-box.profile-layout-layout2 .profile-info-summery-wrapper .profile-info-summery .profile-info-head .profile-img img {
+		background: #ffffff;
+		border: none;
+		padding: 0.25rem;
+		width: 150px;
+		height: 150px;
+	}
+}
+.dokan-single-store .profile-frame .profile-info-box.profile-layout-layout2 .profile-info-summery-wrapper .profile-info-summery .profile-info .dokan-store-info li{
+	padding: 0;
+	margin: 0 0.75rem;
+}
+.dokan-single-store .profile-frame .profile-info-box.profile-layout-layout2 .profile-info-summery-wrapper .profile-info-summery .profile-info .dokan-store-info li::after {
+	display: none;
+}
+.dokan-single-store .profile-frame.profile-frame-no-banner .profile-layout-layout3 .profile-info-summery-wrapper .profile-info-summery{
+	border-color: #d7d7d7;
+	padding: 1rem;
+}
+.dokan-single-store .profile-frame.profile-frame-no-banner .profile-layout-layout3 .profile-info-summery-wrapper .profile-info-summery .profile-info-head .profile-img img{
+	border-color: #d7d7d7;
+	padding: 0.25rem;
+}
+.dokan-single-store .profile-frame.profile-frame-no-banner .profile-layout-layout3 .profile-info-summery-wrapper .profile-info-summery .profile-info .store-name{
+	font-weight: 500;
+	font-size: 30px;
+}
+.dokan-single-store .profile-frame.profile-frame-no-banner .profile-layout-layout3 .profile-info-summery-wrapper .profile-info-summery .profile-info .dokan-store-info li{
+	margin-right: 2rem;
+}
+.dokan-single-store .profile-frame.profile-frame-no-banner .profile-layout-layout3 .profile-info-summery-wrapper .profile-info-summery .profile-info .dokan-store-info{
+	padding-left: 1.5rem;
+}
+.dokan-single-store .profile-frame .profile-info-box .profile-info-summery-wrapper .profile-info-summery .profile-info-head .profile-img{
+	margin-bottom: 1rem;
+}
+.dokan-single-store .profile-frame .profile-info-box .profile-info-summery-wrapper .profile-info-summery .profile-info-head .store-name{
+	margin-bottom: 1.5rem;
+}
+.dokan-single-store .profile-frame .profile-info-box .profile-info-summery-wrapper .profile-info-summery .profile-info{
+	padding: 0 4rem;
+}
+.dokan-single-store .profile-frame .profile-info-box .profile-info-summery-wrapper .profile-info-summery .profile-info li{
+	padding: 0;
+	margin-bottom: 0.5rem;
+}
+.dokan-single-store .profile-frame .profile-info-box .profile-info-summery-wrapper .profile-info-summery .profile-info .dokan-store-info{
+	padding: 0;
+}
+.dokan-single-store .profile-frame .profile-info-box .profile-info-summery-wrapper .profile-info-summery .profile-info .dokan-store-info li{
+	position: relative;
+}
+.dokan-single-store .profile-frame .profile-info-box .profile-info-summery-wrapper .profile-info-summery .profile-info .dokan-store-info li:before {
+	position: absolute !important;
+	top: 10px !important;
+	left: 0 !important;
+	z-index: 1;
+	display: block;
+	width: 6px;
+	height: 6px;
+	background-color: transparent;
+	border: 1px solid #ffffff;
+	border-radius: 50%;
+	content: '' !important;
+	-webkit-transform: translateX(-16px) translateY(0);
+	transform: translateX(-16px) translateY(0);
+}
+.dokan-single-store .profile-frame .profile-info-box.profile-layout-layout3 .profile-info-summery-wrapper .profile-info-summery .profile-info .dokan-store-info li:before,
+.dokan-single-store .profile-frame .profile-info-box.profile-layout-layout2 .profile-info-summery-wrapper .profile-info-summery .profile-info .dokan-store-info li:before,
+.dokan-single-store .profile-frame .profile-info-box.profile-layout-layout1 .profile-info-summery-wrapper .profile-info-summery .profile-info .dokan-store-info li:before{
+	border-color: #363636;
+}
+.dokan-single-store .profile-frame .profile-info-box:not(.profile-layout-layout3):not(.profile-layout-layout2):not(.profile-layout-layout1) .profile-info-summery-wrapper .profile-info-summery .profile-info li.dokan-store-email > a{
+	white-space: nowrap;
+	display: inherit;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	width: 100%;
+}
+.dokan-single-store.dokan-w8{
+	width: 100%;
+}
+
+@media (min-width: 1000px) {
+	.dokan-store-wrap.layout-right .dokan-store-sidebar {
+		margin-left: 0;
+	}
+	.dokan-store-wrap.layout-left .dokan-store-sidebar {
+		margin-right: 0;
+	}
+	.dokan-store-wrap .dokan-store-sidebar {
+		flex: 0 0 100%;
+	}
+	.dokan-store-wrap .dokan-single-store {
+		flex: 0 0 100%;
+	}
+	.dokan-store-wrap.layout-left, .dokan-store-wrap.layout-right {
+		flex-direction: column;
+	}
+	.dokan-store-wrap.layout-left {
+		flex-direction: column-reverse;
+	}
+}
+@media (max-width: 1200px) {
+	.dokan-store-sidebar{
+		margin-top: 2rem;
+	}
+}
+@media (min-width: 1201px) {
+	.dokan-store-wrap.layout-right .dokan-store-sidebar {
+		margin-left: 3%;
+	}
+	.dokan-store-wrap.layout-left .dokan-store-sidebar {
+		margin-right: 3%;
+	}
+	.dokan-store-wrap .dokan-store-sidebar {
+		flex: 0 1 33%;
+	}
+	.dokan-store-wrap .dokan-single-store {
+		flex: 0 1 100%;
+	}
+	.dokan-store-wrap.layout-left, .dokan-store-wrap.layout-right {
+		flex-direction: row;
+	}
+}
+.dokan-pagination-container .dokan-pagination li.active a{
+	background-color: transparent;
+	border-color: #cccccc;
+}
+.dokan-pagination-container .dokan-pagination li.disabled a{
+	color: #959595;
+}
+.dokan-pagination-container .dokan-pagination li a{
+	padding: 0.5rem 0.75rem;
+}
+.dokan-pagination-container{
+	margin-top: 1rem;
+}
+#inner-content .dokan-widget-area{
+	position: -webkit-sticky;
+	position: sticky;
+	top: 2rem;
+	-webkit-transition: all 0.2s;
+	-moz-transition: all 0.2s;
+	-o-transition: all 0.2s;
+	transition: all 0.2s;
+}
+@media screen and (max-width: 992px){
+	#inner-content .dokan-widget-area{
+		margin-top: 2rem;
+	}
+}
+body.admin-bar #inner-content .dokan-widget-area{
+	top: 4rem;
+}
+.wpisset-sticky-navigation-active2 ~ #content #inner-content .dokan-widget-area{
+	top: 8rem;
+}
+body.admin-bar .wpisset-sticky-navigation-active2 ~ #content #inner-content .dokan-widget-area{
+	top: 10rem;
+}
+
+/* Dokan Store List */
+#dokan-seller-listing-wrap.grid-view .store-content{
+	background: rgba(0, 0, 0, 0.6);
+}
+#dokan-store-listing-filter-wrap{
+	box-shadow: none;
+	border: 1px solid #ebebeb;
+	padding: 1rem;
+}
+#dokan-store-listing-filter-wrap .right .item .dokan-store-list-filter-button{
+	font-weight: 500;
+	border-radius: 1.25rem;
+	padding-top: 0.5625rem;
+	padding-bottom: 0.5625rem;
+	padding-left: 2.5rem;
+	padding-right: 1.5rem;
+	line-height: 1.4;
+}
+#dokan-store-listing-filter-form-wrap .apply-filter #apply-filter-btn{
+	font-weight: 500;
+	border-radius: 1.25rem;
+	padding-top: 0.5625rem;
+	padding-bottom: 0.5625rem;
+	padding-left: 1rem;
+	padding-right: 1rem;
+	line-height: 1.4;
+}
+#dokan-store-listing-filter-wrap .right .toggle-view .active{
+	color: #0473db;
+}
+#dokan-seller-listing-wrap .store_open_is_on{
+	margin-top: 1rem;
+}
+#dokan-seller-listing-wrap.list-view .dokan-seller-wrap .dokan-single-seller .store-wrapper .store-content .store-data-container .store-data h2 a{
+	color: #111111;
+}
+#dokan-seller-listing-wrap.list-view .dokan-seller-wrap .dokan-single-seller .store-wrapper .store-content .store-data-container .store-data h2{
+	margin-bottom: 0.75rem
+}
+#dokan-seller-listing-wrap.list-view .dokan-seller-wrap .dokan-single-seller .store-wrapper .store-content .store-data-container .store-data .store-address{
+	margin-top: 0.25rem;
+	font-size: inherit;
+}
+#dokan-seller-listing-wrap.list-view .dokan-seller-wrap .dokan-single-seller .store-wrapper .store-content .store-data-container .store-data .dokan-seller-rating[class]{
+	font-family: inherit;
+	top: -2rem;
+	color: #959595;
+}
+#dokan-seller-listing-wrap .dokan-store-is-open-close-status{
+	padding: 0 8px;
+	font-weight: 500;
+}
+#dokan-seller-listing-wrap .dokan-store-is-closed-status{
+	background-color: #959595;
+}
+#dokan-seller-listing-wrap ul.dokan-seller-wrap li.no-banner-img .store-content .store-data p{
+	color: #363636;
+}
+#dokan-seller-listing-wrap ul.dokan-seller-wrap li.no-banner-img .store-content .store-data h2 a{
+	color: #111111;
+}
+#dokan-seller-listing-wrap.grid-view .store-content .store-data-container .featured-favourite .featured-label,
+#dokan-seller-listing-wrap.list-view .dokan-seller-wrap .dokan-single-seller .store-wrapper .store-content .store-data-container .featured-favourite .featured-label{
+	background-color: #ee262d;
+	font-weight: 500;
+	font-size: 90%;
+	border-radius: 12px;
+	padding: 0 8px;
+}
+#dokan-seller-listing-wrap.grid-view .store-content .store-data-container .featured-favourite{
+	margin-bottom: 1rem;
+}
+
+/* Dokan Dashboard */
+.dokan-dashboard-wrap{
+	margin: 2rem 0;
+}
+.dokan-dashboard .dokan-dash-sidebar ul.dokan-dashboard-menu li a{
+	font-size: inherit;
+	font-weight: 500;
+}
+.dokan-dashboard .dokan-dash-sidebar ul.dokan-dashboard-menu li.active{
+	background-color: #0473db;
+}
+.dokan-dashboard .dokan-dash-sidebar ul.dokan-dashboard-menu li:hover{
+	background-color: #0473db;
+}
+.dokan-dashboard .dokan-dash-sidebar ul.dokan-dashboard-menu li.dokan-common-links a:hover{
+	background-color: #0473db;
+}
+.dokan-orders-content .dokan-orders-area ul.order-statuses-filter li.active a{
+	color: #959595;
+}
+.dokan-orders-content .dokan-orders-area ul.order-statuses-filter{
+	font-size: 95%;
+	padding: 0;
+}
+.dokan-dashboard .dokan-dash-sidebar{
+	background-color: #363636;
+}
+.dokan-dashboard .dokan-dash-sidebar ul.dokan-dashboard-menu{
+background-color: #363636;
+}
+.dokan-dashboard .dokan-dashboard-content article.dashboard-content-area .dashboard-widget.big-counter ul{
+	padding: 0.5rem 0;
+	display: flex;
+	flex-direction: column;
+}
+.dokan-dashboard .dokan-dashboard-content article.dashboard-content-area .dashboard-widget.big-counter li{
+	width: auto;
+}
+.dokan-dashboard .dokan-dashboard-content article.dashboard-content-area .dashboard-widget.big-counter .title{
+	padding-top: 0.5rem
+}
+.dokan-dashboard .dokan-dashboard-content article.dashboard-content-area .dashboard-widget{
+	padding: 0 0.5rem;
+	margin-bottom: 1rem;
+}
+.dokan-dashboard .dokan-dashboard-content article.dashboard-content-area .dashboard-widget.orders{
+	padding: 0.5rem;
+}
+.dokan-dashboard .dokan-dashboard-content article.dashboard-content-area .dashboard-widget.products{
+	padding: 0.5rem;
+}
+.dokan-dashboard .dokan-dashboard-content article.dashboard-content-area .dashboard-widget.sells-graph{
+	padding: 0.5rem;
+}
+.dokan-dashboard .dokan-dashboard-content article.dashboard-content-area .dashboard-widget.sells-graph table{
+	width: auto;
+}
+.dokan-dashboard .dokan-dashboard-content article.dashboard-content-area .dashboard-widget .widget-title{
+	font-size: 18px;
+	font-weight: 500;
+	padding: 0 0 0.5rem;
+	margin-bottom: 0.5rem;
+}
+.dokan-dashboard .dokan-dashboard-content article.dashboard-content-area .dashboard-widget .widget-title .fa{
+	font-size: 16px;
+}
+.dokan-dashboard .dokan-dashboard-content article.dashboard-content-area .dashboard-widget.big-counter .count{
+	font-size: 18px;
+	font-weight: 500;
+	padding-bottom: 0.5rem
+}
+.dokan-dashboard .dokan-dashboard-content article.dashboard-content-area .dashboard-widget a{
+	font-size: 15px;
+}
+.dokan-dashboard .dokan-dashboard-content article.dashboard-content-area .dashboard-widget.orders .list-unstyled{
+	padding: 0;
+}
+.dokan-dashboard .dokan-dashboard-content article.dashboard-content-area .dashboard-widget.products .list-unstyled{
+	padding: 0;
+}
+.dokan-dashboard .dokan-table{
+	border-top: 1px solid #d7d7d7;
+}
+.dokan-dashboard .dokan-table td.diviader {
+	display: none;
+}
+.dokan-table > thead > tr > th{
+	border-color: #d7d7d7;
+	border-width: 1px;
+}
+.dokan-product-listing .dokan-product-listing-area table.product-listing-table mark.instock{
+	font-weight: 500;
+}
+.dokan-product-listing .dokan-product-listing-area .row-actions{
+	font-size: 85%;
+}
+.dokan-product-listing .dokan-product-listing-area table.product-listing-table td.post-date{
+	font-size: 95%;
+}
+.dokan-product-listing .dokan-product-listing-area ins .amount{
+	font-weight: 500;
+}
+.dokan-orders-content .dokan-orders-area .dokan-order-filter-serach{
+	padding: 1rem 0 0rem;
+}
+.dokan-form-group{
+	margin-bottom: 1rem;
+}
+.dokan-dashboard .dokan-dashboard-wrap .select2-container--default .select2-selection--single{
+	border-color: #d7d7d7;
+}
+.dokan-dashboard.thcn .select2-container--default .select2-selection--single{
+	height: 40px;
+}
+.dokan-dashboard .dokan-dashboard-wrap .select2-container--default .select2-selection--single .select2-selection__rendered {
+	line-height: 40px;
+}
+.dokan-dashboard .dokan-dashboard-wrap .select2-container--default .select2-selection--single .select2-selection__arrow{
+	height: 40px;
+}
+.dokan-form-horizontal .dokan-control-label{
+	font-weight: 500;
+}
+.dokan-form-horizontal fieldset{
+	margin-bottom: 1rem;
+	border: 1px solid #ebebeb;
+	padding: 1rem  1rem 0;
+}
+.dokan-dashboard .dokan-dashboard-content .dokan-page-help{
+	color: #959595;
+	margin-bottom: 2rem;
+}
+
+/* Dokan Widgets */
+.dokan-store-widget .seller-form .dokan-btn{
+	margin-top: -.25rem;
+}
+.dokan-store-widget > .store-cat-stack-dokan > ul > li > a{
+	position: relative;
+	margin-left: 1rem;
+}
+.dokan-store-widget > .store-cat-stack-dokan > ul > li > a:before {
+	position: absolute;
+	top: 50%;
+	left: 0;
+	z-index: 1;
+	display: block;
+	width: 6px;
+	height: 6px;
+	background-color: #ffffff;
+	border: 1px solid #cccccc;
+	border-radius: 50%;
+	content: '';
+	-webkit-transform: translateX(-16px) translateY(-55%);
+	transform: translateX(-16px) translateY(-55%);
+}
+
+/* Dokan Pro Default */
+button.dokan-v-start-btn{
+	margin-bottom: 0 !important;
+}
+.dokan-dashboard .dokan-dashboard-content .edit-account fieldset legend{
+	font-weight: 500;
+	padding: 0 0.5rem;
+}
+
+/* Dokan Pro Store */
+.dokan-single-store .dokan-store-tabs ul li.dokan-right{
+	border-right: none;
+	margin: 0.3125rem 0.3125rem 0.3125rem 0;
+	height: 100%;
+}
+.dokan-single-store .dokan-store-tabs ul li.dokan-right .dokan-btn{
+	padding: 0.3125rem 1rem;
+	border-radius: 1rem;
+	margin: 0;
+}
+.dokan-single-store .store-review-wrap h2.headline{
+	font-size: 24px !important;
+	margin-bottom: 1rem !important;
+}
+
+/* Dokan Pro Store List */
+#dokan-store-listing-filter-form-wrap .store-lists-other-filter-wrap .item label{
+	font-weight: 500 !important;
+}
+#dokan-store-listing-filter-form-wrap .apply-filter{
+	margin-top: 1rem !important;
+}
+#dokan-store-listing-filter-form-wrap .store-lists-other-filter-wrap .store-ratings .dokan-stars .up{
+	top: 2px;
+}
+
+/* Dokan Pro Dashboard */
+.dokan-dashboard .dokan-dashboard-content article.dashboard-content-area .dashboard-widget.reviews{
+	padding: 0.5rem;
+}
+.dokan-dashboard .dokan-dashboard-content article.dashboard-content-area .dashboard-widget.reviews .list-unstyled{
+	padding: 0;
+}
+.dokan-dashboard .dokan-dashboard-content article.dashboard-content-area .dashboard-widget.dokan-announcement-widget{
+	padding: 0.5rem;
+}
+.dashboard-coupons-area .left-header-content{
+	font-size: 16px;
+}
+.dokan-store-settign-header-wrap .dokan-btn{
+	font-size: 16px;
+}
+.dokan-dashboard-content ul.dokan_tabs{
+	padding: 0;
+}
+.dokan-report-wrap .report-filter .dokan-form-group label{
+	display: block
+}
+.dokan-report-wrap .report-filter .dokan-form-group #to{
+	width: 70%;
+}
+.dokan-report-wrap .report-filter #dokan_report_filter_top_earners_nonce ~ .dokan-form-group #to{
+	width: 100%;
+}
+.dokan-reports-content .dokan-reports-area ul.chart-legend li strong{
+	font-size: 24px !important;
+	color: #363636 !important;
+}
+.dokan-report-wrap input[name="dokan_report_filter_top_earners"]{
+	margin-top: 26px;
+}
+.dokan-reviews-content .dokan-reviews-area .dokan-comments-wrap select{
+	width: 220px;
+}
+.dokan-reviews-content .dokan-reviews-area .dokan-comments-wrap #dokan-comments-table td.col-author, .dokan-reviews-content .dokan-reviews-area .dokan-comments-wrap #dokan-comments-table th.col-author{
+	width: inherit !important;
+}
+
+/* Dokan Pro Product */
+.dokan-report-abuse-button{
+	margin-top: 0.5rem !important;
+	font-size: 90% !important;
+}

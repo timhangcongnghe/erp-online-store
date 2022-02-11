@@ -1,0 +1,17 @@
+<div class="widget-odd wpisset-widget-border widget thcn widget_products">
+    <h4 class="wpisset-widgettitle"><span>SẢN PHẨM MỚI</span></h4>
+    <ul class="product_list_widget newest-products-list">
+        <% newest_products.limit(3).each do |product| %>
+            <li>
+                <% if product.product_images.count > 0 %>
+                    <%= link_to image_set_tag(product.get_main_image.image_url, {product.get_main_image.image_url.thumb193 => '193w', product.get_main_image.image_url.thumb650 => '1000w', product.get_main_image.image_url.thumb650 => '650w', product.get_main_image.image_url.thumb445 => '445w'}, title: product.get_short_name, alt: product.get_short_name, size: '193x193', sizes: '(max-width: 193px) 100vw, 193px', loading: 'lazy', class: 'attachment-thcn_thumbnail size-thcn_thumbnail') + '<span class="product-title">'.html_safe + product.get_short_name + '</span>'.html_safe, product_link(product), title: product.get_short_name %>
+                <% else %>
+                    <%= link_to image_set_tag('/img/main/no-image-available.png', {'/img/main/no-image-available-193x193.png' => '193w', '/img/main/no-image-available-1000x1000.png' => '1000w', '/img/main/no-image-available-650x650.png' => '650w', '/img/main/no-image-available-445x445.png' => '445w'}, title: product.get_short_name, alt: product.get_short_name, size: '193x193', sizes: '(max-width: 193px) 100vw, 193px', loading: 'lazy', class: 'attachment-thcn_thumbnail size-thcn_thumbnail') + '<span class="product-title">'.html_safe + product.get_short_name + '</span>'.html_safe, product_link(product), title: product.get_short_name %>
+                <% end %>
+                <div class="star-rating" role="img" aria-label="Đánh giá 0.0 / 5.0"><span style="width:0%">Đánh giá <strong class="rating">0.0</strong> / 5.0</span></div>
+                <% if (product.get_show_price.nil?) || (product.get_show_price.to_f <= 1) %><ins><bdi>Đang Cập Nhật Giá</bdi></ins><% else %><ins><bdi><%= format_price(product.get_show_price) %></bdi></ins><% end %>
+                <% if product.get_listed_price.to_f > 1 %><del aria-hidden="true"><bdi><%= format_price(product.get_listed_price) %></bdi></del><% end %>
+            </li>
+        <% end %>
+    </ul>
+</div>

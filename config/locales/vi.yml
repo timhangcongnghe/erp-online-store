@@ -1,57 +1,17 @@
 vi:
-  flash_success: "Thành công!"
-  flash_warning: "Cảnh báo!"
-  flash_error: "Lỗi!"
-  flash_notice: "Thông báo"
-  erp:
-    products:
-      backend:
-        products:
-          form:
-            specs: "Thông số sản phẩm"
-            enter_specs: "Nhập thông số sản phẩm"
-            warranty: "Thời gian bảo hành"
-            placeholder_warranty: "Nhập thời gian bảo hành"
-            weights: "Cân nặng"
-            placeholder_weights: "Nhập cân nặng sản phẩm"
-            dimentions: "Kích thước"
-            placeholder_dimentions: "Nhập kích thước sản phẩm"
-            datasheet: "Tài liệu sản phẩm"
-          list:
-            short_description: "Có mô tả ngắn"
-  activerecord:
-    attributes:
-      erp/user:
-        password: "Mật khẩu"
-        password_confirmation: "Mật khẩu xác nhận"
-        reset_password_token: "Liên kết thay đổi mật khẩu"
-    errors:
-      models:
-        erp/user:
-          attributes:
-            email:
-              invalid: "không hợp lệ. Thử lại? (Ví dụ: username@gmail.com)"
-              taken: "đã được đăng ký tài khoản thành viên."
-              blank: "không được để trống."
-              
-            password:
-              blank: "không được để trống."
-              too_short: "ngắn thường dễ đoán. Hãy thử mật khẩu có ít nhất 6 ký tự."
-              too_long: "quá dài. Hãy thử mật khẩu khác?"
-            password_confirmation:
-              confirmation: "không khớp. Thử lại?"
-            reset_password_token:
-              invalid: "không còn hợp lệ."
-  devise:
-    failure:
-      invalid: "Email hoặc mật khẩu đăng nhập không đúng."
-      not_found_in_database: "Email hoặc mật khẩu đăng nhập không đúng."
-    registrations:
-      user:
-        signed_in: "Đăng ký thành công! Tài khoản của bạn đã được đăng nhập."
-    passwords:
-      user:
-        signed_in: "Mật khẩu mới đã được cập nhật. Tài khoản của bạn đã được đăng nhập."
-  errors:
-    messages:
-      not_found: "không tồn tại. Thử lại?"
+  views:
+    pagination:
+      first: "&laquo;"
+      last: "&raquo;"
+      previous: "&lsaquo;"
+      next: "&rsaquo;"
+      truncate: "&hellip;"
+  helpers:
+    page_entries_info:
+      one_page:
+        display_entries:
+          zero: "Không Có %{entry_name}"
+          one: "Có <b>1</b> %{entry_name}"
+          other: "Có <b>%{count}</b> %{entry_name}"
+      more_pages:
+        display_entries: "Có <b>%{first}&nbsp;-&nbsp;%{last}</b>&nbsp;/&nbsp;<b>%{total}</b> %{entry_name}"

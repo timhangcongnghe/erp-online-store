@@ -1,0 +1,35 @@
+<div id="wpisset-woo-sub-cart" class="wpisset-woo-sub-cart">
+    <div class="wpisset-woo-sub-cart-wrap">
+        <div class="wpisset-woo-sub-cart-inner">
+            <% if @cart.get_numbers > 0 %>
+                <div class="wpisset-woo-cart-table">
+                    <% @cart.cart_items.order('updated_at desc').each do |cart_item| %>
+                        <div class="wpisset-woo-cart-product">
+                            <div class="wpisset-woo-cart-product-image">
+                                <% if cart_item.product.product_images.count > 0 %>
+                                    <%= link_to image_set_tag(cart_item.product.get_main_image.image_url, {cart_item.product.get_main_image.image_url.thumb193 => '193w', cart_item.product.get_main_image.image_url.thumb650 => '1000w', cart_item.product.get_main_image.image_url.thumb650 => '650w', cart_item.product.get_main_image.image_url.thumb445 => '445w'}, title: cart_item.get_product_name, alt: cart_item.get_product_name, size: '193x193', sizes: '(max-width: 193px) 100vw, 193px', loading: 'lazy', class: 'attachment-thcn_thumbnail size-thcn_thumbnail'), product_link(cart_item.product), title: cart_item.get_product_name %>
+                                <% else %>
+                                    <%= link_to image_set_tag('/img/main/no-image-available.png', {'/img/main/no-image-available-193x193.png' => '193w', '/img/main/no-image-available-1000x1000.png' => '1000w', '/img/main/no-image-available-650x650.png' => '650w', '/img/main/no-image-available-445x445.png' => '445w'}, title: cart_item.get_product_name, alt: cart_item.get_product_name, size: '193x193', sizes: '(max-width: 193px) 100vw, 193px', loading: 'lazy', class: 'attachment-thcn_thumbnail size-thcn_thumbnail'), product_link(cart_item.product), title: cart_item.get_product_name %>
+                                <% end %>
+                            </div>
+                            <div class="wpisset-woo-cart-product-content">
+                                <%= link_to cart_item.get_product_name, product_link(cart_item.product), title: cart_item.get_product_name %>
+                                <div class="wpisset-woo-cart-product-price-wrap"><%= cart_item.quantity %> × <%= format_price(cart_item.get_product_price) %></div>
+                            </div>
+                            <div class="wpisset-woo-cart-product-remove"><%= link_to '', remove_cart_item_link(cart_item), title: 'Xóa sản phẩm', aria: {label: 'Xóa sản phẩm'}, data: {product_id: cart_item.product_id, product_sku: cart_item.product_id} %></div>
+                        </div>
+                    <% end %>
+                </div>
+                <div class="wpisset-woo-cart-summary-wrap">
+                    <div class="wpisset-woo-cart-summary">
+                        <div><strong>TỔNG TIỀN (<%= @cart.get_numbers %> sản phẩm)</strong></div>
+                        <div><strong><bdi><%= format_price(@cart.total_order) %></bdi></strong></div>
+                    </div>
+                    <div class="wpisset-woo-cart-buttons"><div><%= link_to 'XEM GIỎ HÀNG', cart_link, title: 'Xem giỏ hàng', class: 'wpisset-button' %></div><div><%= link_to 'ĐẶT HÀNG NGAY', checkout_link, title: 'Đặt hàng ngay', class: 'wpisset-button' %></div></div>
+                </div>
+            <% else %>
+                <div class="wpisset-woo-sub-cart-empty"><svg class="svg-icon" aria-hidden="true" role="img" focusable="false" width="90" height="90" viewBox="0 0 90 90" xmlns="//www.w3.org/2000/svg"><g transform="scale(1.875)"><path fill="%23000" d="M33,12v-3v0c0,-4.97056 -4.02944,-9 -9,-9c-4.97056,0 -9,4.02944 -9,9v3h-11l1.56,27.53l1.3567e-07,2.29989e-06c0.280938,4.76246 4.22927,8.47828 9,8.47h18.9l-4.29432e-08,-7.45217e-11c4.77073,0.00827901 8.71906,-3.70754 9,-8.47l1.54,-27.53h-11Zm-16,-3l7.81597e-14,1.05697e-06c-5.83749e-07,-3.86599 3.13401,-7 7,-7c3.86599,-5.83749e-07 7,3.13401 7,7c0,0 0,7.10543e-15 0,7.10543e-15v3h-14v-3Zm23.44,30.41l1.39807e-07,-2.38291e-06c-0.217374,3.70501 -3.28862,6.59637 -7,6.59h-18.9l-3.43782e-08,5.90248e-11c-3.71138,0.00637129 -6.78262,-2.88499 -7,-6.59l-1.48,-25.41h8.94v9h2v-9h14v9h2v-9h8.94Z" ></path></g></svg><p>Không có sản phẩm nào trong giỏ hàng của bạn!</p><%= link_to 'Tiếp Tục Mua Sắm', root_link, title: 'Tiếp tục mua sắm', class: 'wpisset-button' %></div>
+            <% end %>
+        </div>
+    </div>
+</div>

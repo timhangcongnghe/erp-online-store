@@ -1,0 +1,26 @@
+<% category.menu_get_properties_array.each do |group| %>
+    <div class="widget-even wpisset-widget-border wpisset-widget-disable-title-elements widget thcn widget_layered_nav thcn-widget-layered-nav">
+        <h4 class="wpisset-widgettitle"><span><%= group[:name] %></span></h4>
+        <ul class="thcn-widget-layered-nav-list">
+            <% group[:values].each do |value| %>
+                <% if category.brand.present? %>
+                    <% if value.product_count_by_menu_brand(@category) > 0 %>
+                        <li class="thcn-widget-layered-nav-list__item wc-layered-nav-term ">
+                            <input type="checkbox" value="<%= category.alias + '-' + value[:value] %>" name="<%= name %>[<%= value[:property_id] %>][]" id="<%= id %><%= value[:id] %>">
+                            <label for="<%= id %><%= value[:id] %>"><%= value[:value] %></label>
+                            <span class="count">(<%= value.product_count_by_menu_brand(@category) %>)</span>
+                        </li>
+                    <% end %>
+                <% else %>
+                    <% if value.product_count_by_menu(@category) > 0 %>
+                        <li class="thcn-widget-layered-nav-list__item wc-layered-nav-term ">
+                            <input type="checkbox" value="<%= category.alias + ' ' + value[:value] %>" name="<%= name %>[<%= value[:property_id] %>][]" id="<%= id %><%= value[:id] %>">
+                            <label for="<%= id %><%= value[:id] %>"><%= value[:value] %></label>
+                            <span class="count">(<%= value.product_count_by_menu(@category) %>)</span>
+                        </li>
+                    <% end %>
+                <% end %>
+            <% end %>
+        </ul>
+    </div>
+<% end %>

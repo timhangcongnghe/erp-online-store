@@ -1,0 +1,21 @@
+<% related_categories.each do |category| %>
+    <% if category.children.count > 0 %>
+        <li class="cat-item cat-parent">
+            <%= link_to category.get_name, category_list_link(category), title: category.get_name %>
+            <span class="count">(<%= category.get_number_products %>)</span> 
+            <ul class='children'>
+                <% category.children.each do |category_child| %>
+                    <li class="cat-item">
+                        <%= link_to category_child.get_name, category_list_link(category_child), title: category_child.get_name %>
+                        <span class="count">(<%= category_child.get_number_products %>)</span>
+                    </li>
+                <% end %>
+            </ul>
+        </li>
+    <% else %>
+        <li class="cat-item">
+            <%= link_to category.get_name, category_list_link(category), title: category.get_name %>
+            <span class="count">(<%= category.get_number_products %>)</span>
+        </li>
+    <% end %>
+<% end %>

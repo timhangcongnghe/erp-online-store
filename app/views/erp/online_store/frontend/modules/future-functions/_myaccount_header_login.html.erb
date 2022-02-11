@@ -1,0 +1,33 @@
+<div id="wpisset-myaccount-header-login" class="wpisset-myaccount-header-login">
+    <div class="wpisset-myaccount-header-login-wrapper">
+        <div class="wpisset-myaccount-header-login-inner thcn">
+            <h4 class="wpisset-myaccount-header-login-title">ĐĂNG NHẬP TÀI KHOẢN</h4>
+            <form class="thcn-form thcn-form-login login" method="post">
+                <p class="thcn-form-row thcn-form-row--wide form-row form-row-wide">
+                    <label for="username">Địa chỉ mail&nbsp;<span class="required">*</span></label>
+                    <input type="text" class="thcn-Input thcn-Input--text input-text" name="" id="" autocomplete="" value="" />
+                </p>
+                <p class="thcn-form-row thcn-form-row--wide form-row form-row-wide">
+                    <label for="password">Mật khẩu&nbsp;<span class="required">*</span></label>
+                    <input class="thcn-Input thcn-Input--text input-text" type="password" name="" id="" autocomplete="" />
+                </p>
+                <p class="form-row wpisset-mhl-remember-password">
+                    <label class="thcn-form__label thcn-form__label-for-checkbox thcn-form-login__rememberme">
+                        <input class="thcn-form__input thcn-form__input-checkbox" name="" type="checkbox" id="" value="" />
+                        <span>Ghi nhớ tài khoản</span>
+                    </label>
+                    <%= link_to '<span>Quên mật khẩu</span>'.html_safe, '', title: 'Quên mật khẩu' %>
+                </p>
+                <p class="form-row">
+                    <input type="hidden" id="" name="" value="" />
+                    <input type="hidden" name="" value="" />
+                    <button type="submit" class="thcn-button button thcn-form-login__submit" name="" value="Đăng nhập">ĐĂNG NHẬP</button>
+                </p>
+            </form>
+            <div class="wpisset-myaccount-header-login-footer">
+                Chưa có tài khoản?
+                <%= link_to '<span>TẠO TÀI KHOẢN</span>'.html_safe, '', title: 'Tạo tài khoản' %>
+            </div>
+        </div>
+    </div>
+</div>

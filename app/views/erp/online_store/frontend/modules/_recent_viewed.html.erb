@@ -1,0 +1,34 @@
+<div class="wpisset-row wpisset-woo-recent-viewed-wide">
+    <div class="wpisset-woo-recent-viewed wpisset-col-xs-12">
+        <div class="wpisset-woo-recent-viewed-title">
+            <div class="wpisset-woo-recent-viewed-title-inner">
+                <svg width="36" height="36" version="1.1" viewBox="0 0 36 36" xmlns="//www.w3.org/2000/svg" xmlns:xlink="//www.w3.org/1999/xlink"><g transform="scale(0.75)"><path fill="#000" d="M24,0c-11.68,0 -17.35,6.72 -22,13.31v-8.31h-2v13h13v-2h-10.09c4.7,-7 9.8,-13.75 21.09,-13.75l1.00223e-06,4.14359e-09c12.1005,0.0500281 21.8693,9.89994 21.8192,22.0004c-0.0500281,12.1005 -9.89994,21.8693 -22.0004,21.8192c-12.1005,-0.0500281 -21.8693,-9.89994 -21.8192,-22.0004c9.54088e-05,-0.0230768 0.000227276,-0.0461535 0.000395603,-0.0692299h-2l2.52243e-13,-2.62169e-06c-2.00142e-06,13.2548 10.7452,24 24,24c13.2548,2.00142e-06 24,-10.7452 24,-24c2.00142e-06,-13.2548 -10.7452,-24 -24,-24c-3.40308e-07,-4.9738e-14 -6.61905e-07,-9.59233e-14 -1.00221e-06,-1.3145e-13Z"></path><path fill="#000" d="M26,9h-2v17h-11v2h13v-19Z"></path></g></svg>
+                <h3>SẢN PHẨM VỪA XEM</h3>
+            </div>
+            <div class="wpisset-woo-recent-viewed-title-btn"><%= link_to 'Xem toàn bộ', '', title: '' %></div>
+        </div>
+        <div class="wpisset-woo-recent-viewed-inner">
+            <div class="wpisset-woo-recent-viewed-menu-inner">
+                <div class="wpisset-woo-recent-viewed-no-items-featured">
+                    <% @newest_products.limit(6).each do |product| %>
+                        <div class="product-type-simple wpisset-woo-recent-viewed-item sale">
+                            <div class="wpisset-woo-recent-viewed-item-img">
+                                <% if product.product_images.count > 0 %>
+                                    <%= link_to image_set_tag(product.get_main_image.image_url, {product.get_main_image.image_url.thumb445 => '445w', product.get_main_image.image_url.thumb650 => '1000w', product.get_main_image.image_url.thumb650 => '650w', product.get_main_image.image_url.thumb193 => '193w'}, title: product.get_short_name, alt: product.get_short_name, size: '445x445', sizes: '(max-width: 445px) 100vw, 445px', loading: 'lazy', class: 'attachment-full size-full wp-post-image'), product_link(product), title: product.get_short_name %>
+                                <% else %>
+                                    <%= link_to image_set_tag('/img/main/no-image-available.png', {'/img/main/no-image-available-445x445.png' => '445w', '/img/main/no-image-available-1000x1000.png' => '1000w', '/img/main/no-image-available-650x650.png' => '650w', '/img/main/no-image-available-193x193.png' => '193w'}, title: product.get_short_name, alt: product.get_short_name, size: '445x445', sizes: '(max-width: 445px) 100vw, 445px', loading: 'lazy', class: 'attachment-full size-full wp-post-image'), product_link(product), title: product.get_short_name %>
+                                <% end %>
+                            </div>
+                            <div class="wpisset-woo-recent-viewed-item-title"><%= link_to product.get_short_name, product_link(product), title: product.get_short_name %></div>
+                            <div class="wpisset-woo-loop-desc"><ul><% product.product_short_descipriton_values_array_new_specs.each do |row| %><li><b><%= row[:name] %>: </b><%= row[:values].join(', ') %></li><% end %></ul></div>
+                            <div class="wpisset-woo-recent-viewed-item-price wpisset-woo-price">
+                                <% if product.get_listed_price.to_f > 1 %><del aria-hidden="true"><bdi><%= format_price(product.get_listed_price) %></bdi></del><% end %>
+                                <% if (product.get_show_price.nil?) || (product.get_show_price.to_f <= 1) %><ins><bdi>Đang Cập Nhật Giá</bdi></ins><% else %><ins><bdi><%= format_price(product.get_show_price) %></bdi></ins><% end %>
+                            </div>
+                        </div>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

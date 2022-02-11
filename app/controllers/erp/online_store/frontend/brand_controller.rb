@@ -2,27 +2,16 @@ module Erp
   module OnlineStore
     module Frontend
       class BrandController < Erp::Frontend::FrontendController
-        def listing
-          @body_class = "res layout-subpage"
-          @brands = Erp::Products::Brand.get_brands_order_name
-          @meta_description = "Danh sách các thương hiệu sản phẩm được kinh doanh nhiều nhất tại TimHangCongNghe để quý khách hàng tiện lựa chọn."
-          #expires_in 12.hours, public: true
+        def list
+          @class = 'page-template-default page wp-custom-logo wp-embed-responsive theme-eletra thcn-no-js wpisset wpisset-store-listing wpisset-no-sidebar wpisset-sticky-nav wpisset-footer-bottom-active wpisset-responsive-breakpoints wpisset-medium-breakpoint-768 wpisset-desktop-breakpoint-992 wpisset-header-nav-variant2 wpisset-woo-sidebar-left wpisset-yith-wishlist wpisset-yith-compare wpb-js-composer js-comp-ver-6.6.0 vc_responsive dokan-theme-eletra'
+          @page_title = ' &#8211; Tìm Hàng Công Nghệ'
+          @menus = Erp::Menus::Menu.get_parent_menus
         end
         
-        def detail_301
-          @brand = Erp::Products::Brand.find(params[:brand_id])
-          redirect_to erp_online_store.brand_detail_path(brand_id: @brand.id, brand_name: @brand.alias), status: 301
-        end
-
         def detail
-          @brand = Erp::Products::Brand.find(params[:brand_id])
-          @products = Erp::Products::Product.get_products_for_brand(params).frontend_filter(params).paginate(:page => params[:page], :per_page => 64)
-          @categories = Erp::Menus::Menu.get_menus
-          expires_in 12.hours, public: true
-        end
-
-        def select2
-          render json: {items: Erp::Products::Brand.select2(params)}
+          @class = 'wp-custom-logo wp-embed-responsive theme-eletra thcn-no-js wpisset wpisset-samsong-t32e755cx-32-smart-full-hd-led-tv wpisset-no-sidebar wpisset-sticky-nav wpisset-footer-bottom-active wpisset-responsive-breakpoints wpisset-medium-breakpoint-768 wpisset-desktop-breakpoint-992 wpisset-header-nav-variant2 wpisset-woo-sidebar-left wpisset-yith-wishlist wpisset-yith-compare wpb-js-composer js-comp-ver-6.6.0 vc_responsive dokan-store dokan-theme-eletra'
+          @page_title = ' &#8211; Tìm Hàng Công Nghệ'
+          @menus = Erp::Menus::Menu.get_parent_menus
         end
       end
     end

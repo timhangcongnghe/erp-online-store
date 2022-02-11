@@ -1,0 +1,327 @@
+<% title @product.get_short_name %>
+<div class="wpisset-row">
+    <main id="main" class="wpisset-main wpisset-col-xs-12 wpisset-thcn-content">
+        <div class="wpisset-single-product-breadcrumb">
+            <nav class="thcn-breadcrumb">
+                <%= link_to 'Trang Chủ', root_link, title: 'Tìm Hàng Công Nghệ - TimHangCongNghe.Com' %> » 
+                <% if !@menu.nil? %><% @menu.self_and_parent_menus.each do |menu| %><% if menu.parent.present? %><%= link_to menu.get_name, category_list_link(menu), title: menu.get_name %> » <% end %><% end %><% end %>
+                <%= truncate(@product.get_breadcrumb_name, length: 70) %>
+            </nav>
+            <div class="wpisset-single-product-share-btn-wrap">
+                <a href="#wpisset-single-product-share-btns" class="wpisset-single-product-share-btn" data-navigation-title="Chia Sẻ Sản Phẩm">Chia sẻ<svg class="svg-icon" aria-hidden="true" role="img" focusable="false" width="36" height="36" viewBox="0 0 36 36" xmlns="//www.w3.org/2000/svg"><path d="M20,8c-1.212,0 -2.286,-0.553 -3.021,-1.407l-9.079,4.541c0.062,0.279 0.1,0.566 0.1,0.864c0,0.27 -0.028,0.534 -0.08,0.79l9.064,4.613c0.734,-0.85 1.807,-1.401 3.016,-1.401c2.206,0 4,1.794 4,4c0,2.206 -1.794,4 -4,4c-2.206,0 -4,-1.794 -4,-4c0,-0.278 0.029,-0.55 0.083,-0.812l-9.052,-4.608c-0.735,0.861 -1.813,1.42 -3.031,1.42c-2.206,0 -4,-1.795 -4,-4.002c0,-2.206 1.794,-4 4,-4c1.19,0 2.248,0.532 2.981,1.359l9.101,-4.551c-0.054,-0.261 -0.082,-0.53 -0.082,-0.806c0,-2.206 1.794,-4 4,-4c2.206,0 4,1.794 4,4c0,2.206 -1.794,4 -4,4Zm0,14c1.103,0 2,-0.898 2,-2c0,-1.103 -0.897,-2 -2,-2c-1.102,0 -2,0.897 -2,2c0,1.102 0.898,2 2,2Zm-16,-12.002c-1.102,0 -2,0.898 -2,2c0,1.103 0.898,2.002 2,2.002c1.103,0 2,-0.899 2,-2.002c0,-1.102 -0.897,-2 -2,-2Zm16,-7.998c-1.102,0 -2,0.898 -2,2c0,1.103 0.898,2 2,2c1.103,0 2,-0.897 2,-2c0,-1.102 -0.897,-2 -2,-2Z" transform="scale(1.5)" fill-rule="evenodd" fill="%23000"></path></svg></a>
+                <div id="wpisset-single-product-share-btns" class="wpisset-single-product-share-btns">
+                    <div class="wpisset-single-product-share-btns-wrap">
+                        <div class="wpisset-single-product-share-btns-inner">
+                            <span class="wpisset-ele-es-social-btns2">
+                                <a class="wpisset-ele-es-social-icon" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=<%= request.url %>"><span class="wpisset-ele-es-social-icon-inner"><svg class="svg-icon" aria-hidden="true" role="img" focusable="false" width="24" height="24" viewBox="0 0 24 24" xmlns="//www.w3.org/2000/svg"><path d="M12 2C6.5 2 2 6.5 2 12c0 5 3.7 9.1 8.4 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.3v7C18.3 21.1 22 17 22 12c0-5.5-4.5-10-10-10z"></path></svg><svg class="wpisset-ele-es-social-icon-border" xmlns="//www.w3.org/2000/svg"><g><ellipse ry="12.5" rx="12.5" cy="13" cx="13" stroke-width="1" stroke="#ebebeb" fill="transparent"/><ellipse class="circle" ry="12.5" rx="12.5" cy="13" cx="13" stroke-width="1" stroke="#111" fill="transparent"/></g></svg></span> Facebook</a>
+                                <a class="wpisset-ele-es-social-icon" target="_blank" href="https://twitter.com/home?status=<%= request.url %>"><span class="wpisset-ele-es-social-icon-inner"><svg class="svg-icon" aria-hidden="true" role="img" focusable="false" width="24" height="24" viewBox="0 0 24 24" xmlns="//www.w3.org/2000/svg"><path d="M22.23,5.924c-0.736,0.326-1.527,0.547-2.357,0.646c0.847-0.508,1.498-1.312,1.804-2.27 c-0.793,0.47-1.671,0.812-2.606,0.996C18.324,4.498,17.257,4,16.077,4c-2.266,0-4.103,1.837-4.103,4.103 c0,0.322,0.036,0.635,0.106,0.935C8.67,8.867,5.647,7.234,3.623,4.751C3.27,5.357,3.067,6.062,3.067,6.814 c0,1.424,0.724,2.679,1.825,3.415c-0.673-0.021-1.305-0.206-1.859-0.513c0,0.017,0,0.034,0,0.052c0,1.988,1.414,3.647,3.292,4.023 c-0.344,0.094-0.707,0.144-1.081,0.144c-0.264,0-0.521-0.026-0.772-0.074c0.522,1.63,2.038,2.816,3.833,2.85 c-1.404,1.1-3.174,1.756-5.096,1.756c-0.331,0-0.658-0.019-0.979-0.057c1.816,1.164,3.973,1.843,6.29,1.843 c7.547,0,11.675-6.252,11.675-11.675c0-0.178-0.004-0.355-0.012-0.531C20.985,7.47,21.68,6.747,22.23,5.924z"></path></svg><svg class="wpisset-ele-es-social-icon-border" xmlns="//www.w3.org/2000/svg"><g><ellipse ry="12.5" rx="12.5" cy="13" cx="13" stroke-width="1" stroke="#ebebeb" fill="transparent"/><ellipse class="circle" ry="12.5" rx="12.5" cy="13" cx="13" stroke-width="1" stroke="#111" fill="transparent"/></g></svg></span> Twitter</a>
+                                <a class="wpisset-ele-es-social-icon" target="_blank" href="https://pinterest.com/pin/create/button/?url=<%= @product.get_main_image.image_url.thumb650 %>&media=<%= request.url %>&description=<%= @product.get_short_name %>"><span class="wpisset-ele-es-social-icon-inner"><svg class="svg-icon" aria-hidden="true" role="img" focusable="false" width="24" height="24" viewBox="0 0 24 24" xmlns="//www.w3.org/2000/svg"><path d="M12.289,2C6.617,2,3.606,5.648,3.606,9.622c0,1.846,1.025,4.146,2.666,4.878c0.25,0.111,0.381,0.063,0.439-0.169 c0.044-0.175,0.267-1.029,0.365-1.428c0.032-0.128,0.017-0.237-0.091-0.362C6.445,11.911,6.01,10.75,6.01,9.668 c0-2.777,2.194-5.464,5.933-5.464c3.23,0,5.49,2.108,5.49,5.122c0,3.407-1.794,5.768-4.13,5.768c-1.291,0-2.257-1.021-1.948-2.277 c0.372-1.495,1.089-3.112,1.089-4.191c0-0.967-0.542-1.775-1.663-1.775c-1.319,0-2.379,1.309-2.379,3.059 c0,1.115,0.394,1.869,0.394,1.869s-1.302,5.279-1.54,6.261c-0.405,1.666,0.053,4.368,0.094,4.604 c0.021,0.126,0.167,0.169,0.25,0.063c0.129-0.165,1.699-2.419,2.142-4.051c0.158-0.59,0.817-2.995,0.817-2.995 c0.43,0.784,1.681,1.446,3.013,1.446c3.963,0,6.822-3.494,6.822-7.833C20.394,5.112,16.849,2,12.289,2"></path></svg><svg class="wpisset-ele-es-social-icon-border" xmlns="//www.w3.org/2000/svg"><g><ellipse ry="12.5" rx="12.5" cy="13" cx="13" stroke-width="1" stroke="#ebebeb" fill="transparent"/><ellipse class="circle" ry="12.5" rx="12.5" cy="13" cx="13" stroke-width="1" stroke="#111" fill="transparent"/></g></svg></span> Pinterest</a>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="thcn-notices-wrapper"></div>
+        <div class="wpisset-post wpisset-woo-has-gallery product type-product status-publish first instock has-post-thumbnail sale shipping-taxable purchasable product-type-simple">
+            <div class="wpisset-sp-inner-wrap">
+                <div class="wpisset-thcn-content-wrapper">
+                    <% if @product.is_new? %><span class="onsale">Mới</span><% end %>
+                    <div class="thcn-product-gallery thcn-product-gallery--with-images thcn-product-gallery--columns-5 images" data-columns="5" style="opacity: 0; transition: opacity .25s ease-in-out;">
+                        <figure class="thcn-product-gallery__wrapper">
+                            <% if @product.product_images.count > 0 %>
+                                <div data-thumb="<%= @product.get_main_image.image_url.thumb193 %>" data-thumb-alt="<%= @product.get_short_name %>" class="thcn-product-gallery__image">
+                                    <a href="<%= @product.get_main_image.image_url %>" title="<%= @product.get_short_name %>">
+                                        <img width="650" height="650" src="<%= @product.get_main_image.image_url.thumb650 %>" class="wp-post-image" alt="<%= @product.get_short_name %>" loading="lazy" 
+                                            title="<%= @product.get_short_name.gsub(/[\/\-\"\(\)\.]/i, ' ') %>" data-caption="<%= @product.get_short_name %>" 
+                                            data-src="<%= @product.get_main_image.image_url %>" 
+                                            data-large_image="<%= @product.get_main_image.image_url.thumb650 %>" 
+                                            data-large_image_width="1000" data-large_image_height="1000" 
+                                            srcset="<%=  @product.get_main_image.image_url.thumb650 %> 1000w, <%=  @product.get_main_image.image_url.thumb650 %> 650w, <%= @product.get_main_image.image_url.thumb445 %> 445w, <%= @product.get_main_image.image_url.thumb193 %> 193w" 
+                                            sizes="(max-width: 650px) 100vw, 650px" />
+                                    </a>
+                                </div>
+                            <% else %>
+                                <div data-thumb="/img/main/no-image-available-193x193.png" data-thumb-alt="<%= @product.get_short_name %>" class="thcn-product-gallery__image">
+                                    <a href="/img/main/no-image-available.png" title="<%= @product.get_short_name %>">
+                                        <img width="650" height="650" src="/img/main/no-image-available-650x650.png" class="wp-post-image" alt="<%= @product.get_short_name %>" loading="lazy" title="<%= @product.get_short_name.gsub(/[\/\-\"\(\)\.]/i, ' ') %>" data-caption="<%= @product.get_short_name %>" 
+                                            data-src="/img/main/no-image-available.png" 
+                                            data-large_image="/img/main/no-image-available-650x650.png" 
+                                            data-large_image_width="650" data-large_image_height="650" 
+                                            srcset="/img/main/no-image-available-1000x1000.png 1000w, /img/main/no-image-available-650x650.png 650w, /img/main/no-image-available-445x445.png 445w, /img/main/no-image-available-193x193.png 193w" 
+                                            sizes="(max-width: 650px) 100vw, 650px" />
+                                    </a>
+                                </div>
+                            <% end %>
+                            <% if @product.product_images.count > 0 %>
+                                <% @product.get_all_images.each_with_index do |image,index| %>
+                                    <% if index != 0 %>
+                                        <div data-thumb="<%= image.image_url.thumb193 %>" data-thumb-alt="<%= @product.get_short_name %>" class="thcn-product-gallery__image">
+                                            <a href="<%= image.image_url %>" title="<%= @product.get_short_name %>">
+                                                <img width="650" height="650" src="<%= image.image_url.thumb650 %>" class="" alt="<%= @product.get_short_name %>" loading="lazy" 
+                                                title="<%= @product.get_short_name.gsub(/[\/\-\"\(\)\.]/i, ' ') %>" data-caption="<%= @product.get_short_name %>" 
+                                                data-src="<%= image.image_url %>" 
+                                                data-large_image="<%= image.image_url.thumb650 %>" 
+                                                data-large_image_width="1000" data-large_image_height="1000" 
+                                                srcset="<%= image.image_url.thumb650 %> 1000w, <%= image.image_url.thumb650 %> 650w, <%= image.image_url.thumb445 %> 445w, <%= image.image_url.thumb193 %> 193w" 
+                                                sizes="(max-width: 650px) 100vw, 650px" />
+                                            </a>
+                                        </div>
+                                    <% end %>
+                                <% end %>
+                            <% end %>
+                        </figure>
+                    </div>
+                    <div class="summary entry-summary">
+                        <h1 class="product_title entry-title"><%= @product.get_short_name %></h1>
+                        <div class="wpisset-single-product-rating-sku">
+                            <div class="wpisset-single-product-star-rating">
+                                <div class="thcn-product-rating">
+                                    <div class="star-rating" role="img" aria-label="Đáh giá 0.0 / 5.0"><span style="width:0%">Đánh giá <strong class="rating">0.0</strong> / 5.0 <span class="rating">0</span> khách hàng đánh giá</span></div>
+                                    <span class="wpisset-product-average-rating">(0.0)</span>
+                                    <a href="#reviews" class="thcn-review-link" rel="nofollow" title="0 đánh giá"><span><span class="count">0</span> Đánh giá</span></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="wpisset-single-product-rating-sku"><span class="wpisset-sku-wrapper"><span class="wpisset-sku-label"><strong>MÃ SẢN PHẨM:</strong></span><span class="wpisset-sku"><%= @product.get_code %></span></span></div>
+                        <p class="price">
+                            <% if @product.get_listed_price.to_f > 1 %><del aria-hidden="true"><bdi><%= format_price(@product.get_listed_price) %></bdi></del><% end %>
+                            <% if (@product.get_show_price.nil?) || (@product.get_show_price.to_f <= 1) %><ins><bdi>Đang Cập Nhật Giá</bdi></ins><% else %><ins><bdi><%= format_price(@product.get_show_price) %></bdi></ins><% end %>
+                        </p>
+                        <div class="thcn-product-details__short-description">
+                            <ul>
+                                <% @product.product_short_descipriton_values_array_new_specs.each do |row| %><li><b><%= row[:name] %>: </b><%= row[:values].join(', ') %></li><% end %>
+                                <% if @product.brand_id? %><li><strong>THƯƠNG HIỆU: </strong><%= link_to @product.get_brand_name, brand_detail_link(@product.brand), title: @product.get_brand_name, target: '_blank' %><% end %>
+                                <% if @product.warranty? %>
+                                     | <strong>BẢO HÀNH: </strong><%= link_to @product.get_warranty.to_s + ' Tháng', warranty_policy_link, title: 'Chính sách bảo hành', target: '_blank' %></li>
+                                <% else %>
+                                     | <strong>BẢO HÀNH: </strong><%= link_to 'Đang cập nhật', warranty_policy_link, title: 'Chính sách bảo hành', target: '_blank' %></li>
+                                <% end %>
+                                <% if @product.weights? %><li><strong>Vận chuyển (G.Weight): </strong><%= link_to @product.get_weights, transport_policy_link, title: 'Chính sách vận chuyển', target: '_blank' %></li><% end %>
+                            </ul>
+<%
+=begin%>
+ @TODO ADD GIFTS 
+<%
+=end%>
+                        </div>
+<%
+=begin%>
+ @TODO ADD TO CART MOBILE 
+<%
+=end%>
+<%
+=begin%>
+ @TODO TAGS SEO 
+<%
+=end%>
+                    </div>
+<%
+=begin%>
+ @TODO PRODUCTS SAME GROUP 
+<%
+=end%>
+                </div>
+                <div class="thcn-tabs wc-tabs-wrapper">
+                    <ul class="tabs wc-tabs" role="tablist">
+                        <% if @product.description.present? %><li class="description_tab" id="tab-title-description" role="tab" aria-controls="tab-description"><a href="#tab-description">Mô Tả Sản Phẩm</a></li><% end %>
+                        <li class="additional_information_tab" id="tab-title-additional_information" role="tab" aria-controls="tab-additional_information"><a href="#tab-additional_information">Thông Số Sản Phẩm</a></li>
+                        <li class="reviews_tab" id="tab-title-reviews" role="tab" aria-controls="tab-reviews"><a href="#tab-reviews">Đánh Giá (0)</a></li>
+                    </ul>
+                    <% if @product.description.present? %>
+                        <div class="thcn-Tabs-panel thcn-Tabs-panel--description panel entry-content wc-tab" id="tab-description" role="tabpanel" aria-labelledby="tab-title-description">
+                            <h2>MÔ TẢ SẢN PHẨM</h2>
+                            <div class="wpisset-detail-description"><%= @product.description.html_safe %></div>
+                        </div>
+                    <% end %>
+                    <div class="thcn-Tabs-panel thcn-Tabs-panel--additional_information panel entry-content wc-tab" id="tab-additional_information" role="tabpanel" aria-labelledby="tab-title-additional_information">
+                        <h2>Thông Số Kỹ Thuật</h2>
+                        <table class="thcn-product-attributes shop_attributes">
+                            <% @product.product_long_descipriton_values_array.each do |group| %>
+                                <% group[:properties].each do |property| %>
+                                    <tr class="thcn-product-attributes-item">
+                                        <th class="thcn-product-attributes-item__label"><%= property[:property].name %></th>
+                                        <td class="thcn-product-attributes-item__value">
+                                            <%= property[:values].count < 3 ? property[:values].join(', ') : ('<p>' + property[:values].join('</p><p>') + '</p>').html_safe %>
+                                        </td>
+                                    </tr>
+                                <% end %>
+                            <% end %>
+                        </table>
+                    </div>
+                    <div class="thcn-Tabs-panel thcn-Tabs-panel--reviews panel entry-content wc-tab" id="tab-reviews" role="tabpanel" aria-labelledby="tab-title-reviews">
+                        <div id="reviews" class="thcn-Reviews">
+                            <div id="comments">
+                                <h2 class="thcn-Reviews-title">Đánh Giá Sản Phẩm</h2>
+                                <p class="woocommerce-noreviews">Chưa có bài đánh giá cho sản phẩm này!</p>
+                            </div>
+                            <div id="review_form_wrapper">
+                                <div id="review_form">
+                                    <div id="respond" class="comment-respond">
+                                        <span id="reply-title" class="comment-reply-title">Viết Đánh Giá Cho Sản Phẩm <small><a rel="nofollow" id="cancel-comment-reply-link" href="" style="display:none;">Hủy Đánh Giá</a></small></span>
+                                        <form action="" method="post" id="commentform" class="comment-form" novalidate>
+                                            <p class="comment-notes"><span>Email và số điện thoại sẽ được ẩn. Đánh giá hợp lệ phải có lịch sử mua hàng tại Tìm Hàng Công Nghệ.</span></p>
+                                            <div class="comment-form-rating">
+                                                <label for="rating">Điểm đánh giá&nbsp;<span class="required">*</span></label>
+                                                <select name="rating" id="rating" required>
+                                                    <option value="">Đánh giá&hellip;</option>
+                                                    <option value="5">Rất hài lòng</option>
+                                                    <option value="4">Hài lòng</option>
+                                                    <option value="3">Bình thường</option>
+                                                    <option value="2">Tạm được</option>
+                                                    <option value="1">Không thích</option>
+                                                </select>
+                                            </div>
+                                            <p>
+                                                <label for="">Nhập nội dung đánh giá (Tối thiểu 80 ký tự)&nbsp;<span class="required">*</span></label>
+                                                <textarea id="" name="" cols="45" rows="8" required></textarea>
+                                            </p>
+                                            <p class="comment-form-author">
+                                               <label for="">Họ tên&nbsp;<span class="required">*</span></label>
+                                               <input id="" name="" type="text" value="" size="30" required />
+                                            </p>
+                                            <p class="comment-form-email">
+                                                <label for="">Email&nbsp;<span class="required">*</span></label>
+                                                <input id="" name="" type="email" value="" size="30" required />
+                                            </p>
+                                            <p class="comment-form-phone">
+                                                <label for="">Số điện thoại&nbsp;<span class="required">*</span></label>
+                                                <input id="" name="" type="text" value="" size="30" required />
+                                            </p>
+                                            <p class="form-submit">
+                                                <input name="submit" type="submit" id="" class="submit" value="GỬI ĐÁNH GIÁ" />
+                                                <input type='hidden' name='' id='' value='' />
+                                                <input type='hidden' name='' id='' value='' />
+                                            </p>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="wpisset-sp-extented-price-cart">
+                <div class="wpisset-sp-extented-price-cart-wrapper">
+                    <div class="wpisset-sp-extented-price-cart-inner">
+                        <% if (@product.get_listed_price.to_f > 1) && (@product.get_show_price.to_f > 1) && (@product.get_listed_price.to_f > @product.get_show_price.to_f) %>
+                            <div class="wpisset-sp-extented-price-cart-save">
+                                <div class="wpisset-sp-extented-price-cart-save-was">Giảm <bdi><%= format_price(@product.get_product_discount_price) %></bdi></div>
+                                <% if @product.get_product_discount_percent.to_f >= 1 %><div class="wpisset-sp-extented-price-cart-save-total">Tiết kiệm&nbsp;<bdi><%= @product.get_product_discount_percent.to_f.round(1) %> %</bdi></div><% end %>
+                            </div>
+                        <% end %>
+                        <p class="price">
+                            <% if @product.get_listed_price.to_f > 1 %><del aria-hidden="true"><bdi><%= format_price(@product.get_listed_price) %></bdi></del><% end %>
+                            <% if (@product.get_show_price.nil?) || (@product.get_show_price.to_f <= 1) %><ins><bdi>Đang Cập Nhật Giá</bdi></ins><% else %><ins><bdi><%= format_price(@product.get_show_price) %></bdi></ins><% end %>
+                        </p>
+                        <% if (@product.get_show_price.to_f > 1) %>
+                            <div class="wpisset-sp-add-to-cart-wrap">
+                                <%= form_tag erp_online_store.add_to_cart_frontend_cart_items_path, class: 'cart' do %>
+                                    <%= hidden_field_tag 'product_id', @product.id %>
+                                    <div class="wpisset-sp-add-to-cart-inner-wrap">
+                                        <div class="wpisset-sp-add-to-cart-btn-wrap">
+                                            <div class="quantity">
+                                                <label class="screen-reader-text" for="">Đặt Mua Ngay <%= @product.get_short_name %></label>
+                                                <input type="number" id="<%= @product.id %>" class="input-text qty text" step="1" min="1" max="" name="quantity" value="1" title="Đặt Mua Ngay <%= @product.get_short_name %>" size="4" placeholder="Đặt Mua Ngay <%= @product.get_short_name %>" inputmode="numeric"/>
+                                            </div>
+                                            <button class="single_add_to_cart_button button alt" title="Thêm vào giỏ hàng">THÊM VÀO GIỎ HÀNG</button>
+                                        </div>
+                                    </div>
+                                <% end %>
+                                <div class="wpisset-sp-add-to-cart-extra-btns">
+                                    <div class="wpisset-add-to-wishlist wpisset-cursor-anim-element wpisset-cursor-anim-element-2" data-cursor-text="DANH SÁCH YÊU THÍCH" data-cursor-color="#d9214e" data-cursor-text-color="#fff">
+                                        <svg class="wpisset-woo-loop-nav-icon-border" xmlns="//www.w3.org/2000/svg"><g><ellipse ry="19.5" rx="19.5" cy="20" cx="20" stroke-width="1" stroke="#ebebeb" fill="transparent"/><ellipse class="circle" ry="19.5" rx="19.5" cy="20" cx="20" stroke-width="1" stroke="#111" fill="transparent"/></g></svg>
+                                        <div class="yith-wcwl-add-to-wishlist  wishlist-fragment on-first-load" data-fragment-ref="<%= @product.id %>" data-fragment-options="">
+                                            <div class="yith-wcwl-add-button">
+                                                <a href="" title="THÊM <%= @product.get_name %> VÀO DANH SÁCH YÊU THÍCH" rel="nofollow" data-product-id="<%= @product.id %>" data-product-type="simple" data-original-product-id="<%= @product.id %>" class="add_to_wishlist single_add_to_wishlist" data-title="THÊM <%= @product.get_name %> VÀO DANH SÁCH YÊU THÍCH">
+                                                    <i class="yith-wcwl-icon fa fa-heart-o"></i>
+                                                    <span>THÊM <%= @product.get_name %> VÀO DANH SÁCH YÊU THÍCH</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="wpisset-add-to-compare wpisset-cursor-anim-element wpisset-cursor-anim-element-2" data-cursor-text="SO SÁNH SẢN PHẨM" data-cursor-color="#d9214e" data-cursor-text-color="#fff">
+                                        <svg class="wpisset-woo-loop-nav-icon-border" xmlns="//www.w3.org/2000/svg"><g><ellipse ry="19.5" rx="19.5" cy="20" cx="20" stroke-width="1" stroke="#ebebeb" fill="transparent"/><ellipse class="circle" ry="19.5" rx="19.5" cy="20" cx="20" stroke-width="1" stroke="#111" fill="transparent"/></g></svg>
+                                        <div class="thcn product compare-button">
+                                            <a href="" title="Thêm <%= @product.get_name %> Vào Danh Sách So Sánh" class="compare button" data-product_id="<%= @product.id %>" rel="nofollow">
+                                                Thêm <%= @product.get_name %> Vào Danh Sách So Sánh
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        <% end %>
+                    </div>
+                    <div class="wpisset-woo-product-extra-content">
+                        <div class="wpisset-icon-content-wrap wpisset-icon-content-wrap-1177157228">
+                            <div class="wpisset-icon-content wpisset-icon-content-services">
+                                <%= image_tag '/img/product/san-pham-chinh-hang.png', alt: 'Chính sách hàng chính hãng', title: 'Chính sách hàng chính hãng' %>
+                                <%= link_to '<strong>Sản phẩm chính hãng</strong>'.html_safe, '', title: 'Chính sách hàng chính hãng' %>
+                            </div>
+                            <div class="wpisset-icon-content wpisset-icon-content-services">
+                                <%= image_tag '/img/product/doi-tra-hang.png', alt: 'Chính sách đổi trả, hoàn tiền', title: 'Chính sách đổi trả, hoàn tiền' %>
+                                <%= link_to '<strong>Đổi trả hàng & hoàn tiền</strong>'.html_safe, '', title: 'Chính sách đổi trả, hoàn tiền' %>
+                            </div>
+                            <div class="wpisset-icon-content wpisset-icon-content-services">
+                                <%= image_tag '/img/product/giao-hang-nhanh.png', alt: 'Chính sách vận chuyển', title: 'Chính sách vận chuyển' %>
+                                <%= link_to '<strong>Giao hàng nhanh (TP. Hồ Chí Minh)</strong>'.html_safe, '', title: 'Chính sách vận chuyển' %>
+                            </div>
+                            <div class="wpisset-icon-content wpisset-icon-content-services">
+                                <%= image_tag '/img/product/giao-hang-toan-quoc.png', alt: 'Chính sách vận chuyển', title: 'Chính sách vận chuyển' %>
+                                <%= link_to '<strong>Giao hàng trên toàn quốc'.html_safe, '', title: 'Chính sách vận chuyển' %>
+                            </div>
+                            <div class="wpisset-icon-content wpisset-icon-content-services">
+                                <%= image_tag '/img/product/bao-hanh-tan-noi.png', alt: 'Chính sách bảo hành', title: 'Chính sách bảo hành' %>
+                                <%= link_to '<strong>Bảo hành tận nơi cho doanh nghiệp</strong>'.html_safe, '', title: 'Chính sách bảo hành' %>
+                            </div>
+                        </div>
+                        <svg class="wpssiet-es-cs"><style>table.dataTable.compare-list tr .wpisset-icon-content-wrap{display: none !important;}.wpssiet-es-cs{display: none;}</style></svg>
+                    </div>
+                    <div class="wpisset-woo-product-extra-content">
+                        <div class="wpisset-icon-content-wrap wpisset-icon-content-wrap-1177157228">
+                            <div class="wpisset-icon-content wpisset-icon-content-services">
+                                <%= image_tag '/img/product/dich-vu-cong-nghe-thong-tin.png', alt: 'Dịch vụ công nghệ thông tin', title: 'Dịch vụ công nghệ thông tin' %>
+                                <%= link_to '<strong>Dịch vụ công nghệ thông tin</strong>'.html_safe, '', title: 'Dịch vụ công nghệ thông tin' %>
+                            </div>
+                            <div class="wpisset-icon-content wpisset-icon-content-services">
+                                <%= image_tag '/img/product/giai-phap-tich-hop-he-thong.png', alt: 'Giải pháp tích hợp hệ thống', title: 'Giải pháp tích hợp hệ thống' %>
+                                <%= link_to '<strong>Giải pháp tích hợp hệ thống</strong>'.html_safe, '', title: 'Giải pháp tích hợp hệ thống' %>
+                            </div>
+                            <div class="wpisset-icon-content wpisset-icon-content-services">
+                                <%= image_tag '/img/product/dich-vu-giai-phap-phan-mem.png', alt: 'Dịch vụ giải pháp phần mềm', title: 'Dịch vụ giải pháp phần mềm' %>
+                                <%= link_to '<strong>Dịch vụ giải pháp phần mềm</strong>'.html_safe, '', title: 'Dịch vụ giải pháp phần mềm' %>
+                            </div>
+                            <div class="wpisset-icon-content wpisset-icon-content-services">
+                                <%= image_tag '/img/product/giai-phap-man-hinh-chuyen-dung.png', alt: 'Giải pháp màn hình chuyên dụng', title: 'Giải pháp màn hình chuyên dụng' %>
+                                <%= link_to '<strong>Giải pháp màn hình chuyên dụng</strong>'.html_safe, '', title: 'Giải pháp màn hình chuyên dụng' %>
+                            </div>
+                            <svg class="wpssiet-es-cs"><style>.wpisset-icon-content-services img{margin-right:0.75rem;margin-top:0;max-width:56px !important;}.wpisset-icon-content-297025123{align-items:center;margin-top:1rem;margin-bottom:1rem;}</style></svg>
+                        </div>
+                        <svg class="wpssiet-es-cs"><style>table.dataTable.compare-list tr .wpisset-icon-content-wrap{display: none !important;}.wpssiet-es-cs{display: none;}</style></svg>
+                    </div>
+                    <% if @category_newest_related_products.count > 0 %>
+                        <div id="wpisset-woo-product-sidebar" class="wpisset-woo-product-sidebar wpisset-sidebar">
+                            <div class="widget-odd widget-last widget-first widget-1 wpisset-widget-border widget thcn widget_recently_viewed_products">
+                                <h4 class="wpisset-widgettitle"><span><%= @menu.get_name %> Mới</span></h4>
+                                <ul class="product_list_widget">
+                                    <% @category_newest_related_products.each do |product| %>
+                                        <li>
+                                            <%= link_to image_set_tag(product.get_main_image.image_url, {product.get_main_image.image_url.thumb445 => '445w', product.get_main_image.image_url.thumb650 => '1000w', product.get_main_image.image_url.thumb650 => '650w', product.get_main_image.image_url.thumb193 => '193w'}, title: product.get_short_name, alt: product.get_short_name, size: '445x445', sizes: '(max-width: 445px) 100vw, 445px', loading: 'lazy', class: 'attachment-thcn_thumbnail size-thcn_thumbnail') + '<span class="product-title">'.html_safe + product.get_short_name + '</span>'.html_safe,  product_link(product), title: product.get_short_name %>
+                                            <div class="star-rating" role="img" aria-label="Đánh giá 0.0 / 5.0"><span style="width:0%">Đánh giá <strong class="rating">0.0</strong> / 5.0</span></div>
+                                            <% if (product.get_show_price.nil?) || (product.get_show_price.to_f <= 1) %><ins><bdi>Đang Cập Nhật Giá</bdi></ins><% else %><ins><bdi><%= format_price(product.get_show_price) %></bdi></ins><% end %>
+                                            <% if product.get_listed_price.to_f > 1 %><del aria-hidden="true"><bdi><%= format_price(product.get_listed_price) %></bdi></del><% end %>
+                                        </li>
+                                    <% end %>
+                                </ul>
+                            </div>
+                        </div>
+                    <% end %>
+                </div>
+            </div>
+            <%= render 'frontend/product/related_products', products: @brand_related_products, title: @menu.get_name + ' Khác' %>
+            <%= render 'frontend/product/related_products', products: @category_related_products, title: 'Cùng Chuyên Mục' %>
+        </div>
+    </main>
+</div>
+<%= render 'frontend/modules/newest' %>

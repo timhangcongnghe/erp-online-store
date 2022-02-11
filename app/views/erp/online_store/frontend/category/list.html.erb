@@ -1,0 +1,213 @@
+<% title @page_title.html_safe %>
+<div class="wpisset-row wpisset-shop-wide">
+    <div class="wpisset-woo-shop-desc wpisset-col-xs-12">
+        <div class="page-description">
+            <div class="vc_row wpb_row vc_row-fluid wpisset-ele-es-animate-fadein vc_custom_1612958198106">
+                <div class="wpb_column vc_column_container vc_col-sm-12">
+                    <div class="vc_column-inner">
+                        <div class="wpb_wrapper">
+                            <div class="vc_empty_space" style="height:.5rem"><span class="vc_empty_space_inner"></span></div>
+                            <% if !@category.parent.nil? %>
+                                <div class=" wpisset_ele_es_productcategory1 wpisset_ele_es_productcategory1-429113875" >
+                                    <div class="wpisset-ele-es-productcategory1 wpisset-ele-es-productcategory1-col-5">
+                                        <% @category.parent.get_children.where(not_create_link: false).each do |category| %>
+                                            <div class="wpisset-ele-es-productcategory1-item-wrap">
+                                                <a href="<%= category_list_link(category) %>" title="<%= category.get_name %>" class="wpisset-ele-es-productcategory1-item wpisset-ele-es-productcategory1-icon">
+                                                    <div class="wpisset-ele-es-productcategory1-item-img"><% if category.image_menu? %><%= image_tag category.image_menu.thumb200x200, alt: category.get_name, title: category.get_name %><% else %><%= image_tag '/img/main/no-image-available-193x193.png', alt: category.get_short_name, title: category.get_short_name %><% end %></div>
+                                                    <div class="wpisset-ele-es-productcategory1-item-content"><span class="wpisset-ele-es-productcategory1-item-title"><%= category.get_short_name %></span></div><span class="wpisset-ele-es-productcategory1-item-bh"></span><span class="wpisset-ele-es-productcategory1-item-bv"></span>
+                                                </a>
+                                            </div>
+                                        <% end %>
+                                    </div>
+                                </div>
+                            <% else %>
+                                <svg class="wpssiet-es-cs"><style></style></svg>
+                                <div class="vc_row wpb_row vc_inner vc_row-fluid">
+                                    <% @category.get_children.each do |category| %>
+                                        <div class="wpb_column vc_column_container vc_col-sm-6 vc_col-lg-4">
+                                            <div class="vc_column-inner">
+                                                <div class="wpb_wrapper">
+                                                    <div class=" wpisset_ele_es_categorybanner4 wpisset_ele_es_categorybanner4-2144944731" >
+                                                        <div class="wpisset-ele-es-categorybanner4">
+                                                            <div class="wpisset-ele-es-categorybanner4-img"><%= image_tag '/img/main/no-image-available-193x193.png', alt: category.get_name, title: category.get_name %></div>
+                                                            <% if category.get_children.count > 0 %>
+                                                                <div class="wpisset-ele-es-categorybanner4-menu">
+                                                                    <div class="wpisset-ele-es-categorybanner4-menu-title"><%= category.get_short_name %></div>
+                                                                    <ul class="wpisset-categorybanner4-menu"><% category.get_children.where(not_create_link: false).each do |category_child| %><li class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item"><%= link_to category_child.get_short_name, category_list_link(category_child), title: category_child.get_name, aria: {current: 'page'} %></li><% end %></ul>
+                                                                </div>
+                                                            <% end %>
+                                                            <% if !(category.is_redirect?) && !(category.redirect_id.present?) %><div class="wpisset-ele-es-categorybanner4-desc-wrap"><%= link_to 'Xem Toàn Bộ ' + category.get_short_name, category_list_link(category), title: category.get_name, class: 'wpisset-ele-es-categorybanner4-desc' %></div><% end %><span class="wpisset-ele-es-categorybanner4-bh"></span><span class="wpisset-ele-es-categorybanner4-bv"></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="vc_empty_space" style="height:1rem"><span class="vc_empty_space_inner"></span></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    <% end %>
+                                </div>
+                            <% end %>
+                            <div class="vc_empty_space" style="height:.5rem"><span class="vc_empty_space_inner"></span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <main class="wpisset-main wpisset-col-lg-9 wpisset-col-xs-12 wpisset-thcn-content wpisset-thcn-loop-content" data-shop-grid-columns="4" data-shop-grid-desc="0" data-shop-grid-big-columns="2" data-shop-grid-big-desc="1" data-shop-list-columns="1" data-shop-list-desc="1">
+        <header class="thcn-products-header">
+            <h1 class="thcn-products-header__title page-title"><%= @category.get_name %><% if @redirect_category.present? %> <%= @redirect_category.get_short_name %><% end %></h1>
+            <nav class="thcn-breadcrumb">
+                <%= link_to 'Trang Chủ', root_link, title: 'Tìm Hàng Công Nghệ - TimHangCongNghe.Com' %> <span class="wpisset-sp-breadcrumb-delimiter">&#47;</span>
+                <% @category.self_and_parent_menus.each do |category| %><% if @category.id != category.id %><%= link_to category.get_name, category_list_link(category), title: category.get_name %> <span class="wpisset-sp-breadcrumb-delimiter">&#47;</span><% end %><% end %>
+                <%= @category.get_name %>
+            </nav>
+        </header>
+        <div class="thcn-notices-wrapper"></div>
+        <div class="wpisset-before-shop-loop">
+            <div class="wpisset-shop-filter-wrap">
+                <div class="wpisset-shop-filter">
+                    <a class="wpisset-woo-filter-btn" href="#wpisset-shop-filter-section" title="Bộ lọc sản phẩm" data-navigation-title="BỘ LỌC SẢN PHẨM"><svg width="24" height="24" version="1.1" viewBox="0 0 24 24" xmlns="//www.w3.org/2000/svg" xmlns:xlink="//www.w3.org/1999/xlink"><g transform="scale(0.5)"><path fill="#000" d="M48,6l2.19819e-07,0.000220929c-0.00285696,-2.92552 -2.1152,-5.42249 -4.99978,-5.91018v-0.0900368h-2.00022v0.09l-3.49837e-07,6.12853e-08c-3.264,0.571795 -5.44647,3.68132 -4.87467,6.94533c0.436092,2.48937 2.38531,4.43858 4.87467,4.87467v36.09h2v-36.09l1.47181e-07,-2.48781e-08c2.8846,-0.487586 4.99703,-2.98448 5,-5.91Zm-6,4l-1.74846e-07,-3.55271e-15c-2.20914,-9.65645e-08 -4,-1.79086 -4,-4c9.65645e-08,-2.20914 1.79086,-4 4,-4c2.20914,9.65645e-08 4,1.79086 4,4l7.10543e-15,-1.74846e-07c0,2.20914 -1.79086,4 -4,4Z"></path><path fill="#000" d="M25,25.09v-25.09h-2v25.09l-3.49837e-07,6.12853e-08c-3.264,0.571795 -5.44647,3.68132 -4.87467,6.94533c0.436092,2.48937 2.38531,4.43858 4.87467,4.87467v11.09h2v-11.09l3.62777e-07,-6.35521e-08c3.264,-0.571795 5.44647,-3.68132 4.87467,-6.94533c-0.436093,-2.48937 -2.38531,-4.43858 -4.87467,-4.87467Zm-1,9.91l-1.74846e-07,-7.10543e-15c-2.20914,-9.65645e-08 -4,-1.79086 -4,-4c9.65645e-08,-2.20914 1.79086,-4 4,-4c2.20914,9.65645e-08 4,1.79086 4,4l7.10543e-15,-1.74846e-07c0,2.20914 -1.79086,4 -4,4Z"></path><path fill="#000" d="M7,0.09v-0.09h-2v0.09l-3.49837e-07,6.12853e-08c-3.264,0.571795 -5.44647,3.68132 -4.87467,6.94533c0.436092,2.48937 2.38531,4.43858 4.87467,4.87467v36.09h2v-36.09l5.37696e-07,-9.41947e-08c3.264,-0.571795 5.44647,-3.68132 4.87467,-6.94533c-0.436093,-2.48937 -2.38531,-4.43858 -4.87467,-4.87467Zm-1,9.91l-1.74846e-07,-3.55271e-15c-2.20914,-9.65645e-08 -4,-1.79086 -4,-4c9.65645e-08,-2.20914 1.79086,-4 4,-4c2.20914,9.65645e-08 4,1.79086 4,4l3.55271e-15,-1.74846e-07c0,2.20914 -1.79086,4 -4,4Z"></path></g></svg>Bộ lọc</a>
+                    <div id="wpisset-shop-filter-section" class="wpisset-shop-filter-section">
+                        <div class="wpisset-shop-filter-section-wrapper">
+                            <div class="wpisset-shop-filter-section-inner">
+                                <div class="wpisset-woo-filter wpisset-sidebar">
+                                    <% if @related_categories.count > 0 %>
+                                        <div class="widget-odd wpisset_toggle_product_categories wpisset-widget-border wpisset-widget-disable-title-elements widget thcn widget_product_categories">
+                                            <h4 class="wpisset-widgettitle"><span>DANH MỤC SẢN PHẨM</span></h4>
+                                            <ul class="product-categories"><%= render 'frontend/category/filter_category', related_categories: @related_categories %></ul>
+                                        </div>
+                                    <% end %>
+                                    <%= form_tag((defined?(action) ? action : ''), method: 'get', id: 'form-filter-specs-mobile', class: 'form-filter-specs ' + (defined?(auto_load) ? 'auto-load' : '')) do %>
+                                        <!-- <div class="widget-even wpisset-widget-border wpisset-widget-disable-title-elements widget thcn widget_layered_nav thcn-widget-layered-nav">
+                                            <h4 class="wpisset-widgettitle">
+                                                <span>THƯƠNG HIỆU</span>
+                                            </h4>
+                                            <ul class="thcn-widget-layered-nav-list">
+                                                <% (0..5).each do |brand| %>
+                                                    <li class="thcn-widget-layered-nav-list__item wc-layered-nav-term ">
+                                                        <%= link_to '<span>'.html_safe + 'Apple' + '</span>'.html_safe, '', title: '', rel: 'nofollow' %>
+                                                        <span class="count">(3)</span>
+                                                    </li>
+                                                    <li class="thcn-widget-layered-nav-list__item wc-layered-nav-term ">
+                                                        <%= link_to '<span>'.html_safe + 'Microsoft' + '</span>'.html_safe, '', title: '', rel: 'nofollow' %>
+                                                        <span class="count">(3)</span>
+                                                    </li>
+                                                <% end %>
+                                            </ul>
+                                        </div> -->
+                                        <% if @category.use_filter? %>
+                                            <%= render 'frontend/category/filter_specs', category: @category, name: 'pvm_ids', id: 'pvm_value_' %>
+                                            <button type="submit" value="Search">TÌM KIẾM SẢN PHẨM</button>
+                                        <% end %>
+                                        <% if @newest_products.count > 0 %><%= render 'frontend/category/sidebar_newest_products', newest_products: @newest_products %><% end %>
+                                    <% end %>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p class="thcn-result-count"><%= page_entries_info @products, entry_name: @category.get_name %></p>
+            <form class="thcn-ordering" method="get">
+                <select name="orderby" class="orderby" aria-label="">
+                    <option value="popularity"  selected='selected'>Mặc định</option>
+                    <option value="price" >Giá: Thấp -> Cao</option>
+                    <option value="price-desc" >Giá: Cao -> Thấp</option>
+                </select><input type="hidden" name="" value="" />
+            </form>
+            <div class="wpisset-shop-view-wrap">
+                <div class="wpisset-shop-view">
+                    <span class="wpisset-woo-shop-view-btn wpisset-shop-grid"><svg width="20" height="20" version="1.1" viewBox="0 0 20 20" xmlns="//www.w3.org/2000/svg" xmlns:xlink="//www.w3.org/1999/xlink"><g transform="scale(0.416667)"><path fill="#000" d="M2,14h12v-12h-12v12Zm2,-10h8v8h-8v-8Z"></path><path fill="#000" d="M2,30h12v-12h-12v12Zm2,-10h8v8h-8v-8Z"></path><path fill="#000" d="M2,46h12v-12h-12v12Zm2,-10h8v8h-8v-8Z"></path><path fill="#000" d="M18,14h12v-12h-12v12Zm2,-10h8v8h-8v-8Z"></path><path fill="#000" d="M18,30h12v-12h-12v12Zm2,-10h8v8h-8v-8Z"></path><path fill="#000" d="M18,46h12v-12h-12v12Zm2,-10h8v8h-8v-8Z"></path><path fill="#000" d="M34,2v12h12v-12h-12Zm10,10h-8v-8h8v8Z"></path><path fill="#000" d="M34,30h12v-12h-12v12Zm2,-10h8v8h-8v-8Z"></path><path fill="#000" d="M34,46h12v-12h-12v12Zm2,-10h8v8h-8v-8Z"></path </g></svg></span>
+                    <span class="wpisset-woo-shop-view-btn wpisset-shop-grid-big"><svg width="20" height="20" version="1.1" viewBox="0 0 20 20" xmlns="//www.w3.org/2000/svg" xmlns:xlink="//www.w3.org/1999/xlink"><g transform="scale(0.416667)"><path fill="none" stroke="#000" stroke-width="2" d="M4,4h16v16h-16Z"></path><path fill="none" stroke="#000" stroke-width="2" d="M4,28h16v16h-16Z"></path><path fill="none" stroke="#000" stroke-width="2" d="M28,4h16v16h-16Z"></path><path fill="none" stroke="#000" stroke-width="2" d="M28,28h16v16h-16Z"></path></g></svg></span>
+                    <span class="wpisset-woo-shop-view-btn wpisset-shop-list"><svg width="20" height="20" version="1.1" viewBox="0 0 20 20" xmlns="//www.w3.org/2000/svg" xmlns:xlink="//www.w3.org/1999/xlink"><g transform="scale(0.416667)"><path fill="#000" d="M19,8h25v2h-25Z"></path><path fill="#000" d="M19,23h25v2h-25Z"></path><path fill="#000" d="M19,38h25v2h-25Z"></path><path fill="#000" d="M9,4l-2.18557e-07,5.32907e-15c-2.76142,1.20706e-07 -5,2.23858 -5,5c1.20706e-07,2.76142 2.23858,5 5,5c2.76142,-1.20706e-07 5,-2.23858 5,-5l3.55271e-15,2.18557e-07c0,-2.76142 -2.23858,-5 -5,-5Zm0,8l-1.31134e-07,-3.55271e-15c-1.65685,-7.24234e-08 -3,-1.34315 -3,-3c7.24234e-08,-1.65685 1.34315,-3 3,-3c1.65685,7.24234e-08 3,1.34315 3,3l3.55271e-15,-1.31134e-07c0,1.65685 -1.34315,3 -3,3Z"></path><path fill="#000" d="M9,19l-2.18557e-07,7.10543e-15c-2.76142,1.20706e-07 -5,2.23858 -5,5c1.20706e-07,2.76142 2.23858,5 5,5c2.76142,-1.20706e-07 5,-2.23858 5,-5l3.55271e-15,2.18557e-07c0,-2.76142 -2.23858,-5 -5,-5Zm0,8l-1.31134e-07,-3.55271e-15c-1.65685,-7.24234e-08 -3,-1.34315 -3,-3c7.24234e-08,-1.65685 1.34315,-3 3,-3c1.65685,7.24234e-08 3,1.34315 3,3l3.55271e-15,-1.31134e-07c0,1.65685 -1.34315,3 -3,3Z"></path><path fill="#000" d="M9,34l-2.18557e-07,7.10543e-15c-2.76142,1.20706e-07 -5,2.23858 -5,5c1.20706e-07,2.76142 2.23858,5 5,5c2.76142,-1.20706e-07 5,-2.23858 5,-5l3.55271e-15,2.18557e-07c0,-2.76142 -2.23858,-5 -5,-5Zm0,8h-1.31134e-07c-1.65685,-7.24234e-08 -3,-1.34315 -3,-3c7.24234e-08,-1.65685 1.34315,-3 3,-3c1.65685,7.24234e-08 3,1.34315 3,3l3.55271e-15,-1.31134e-07c0,1.65685 -1.34315,3 -3,3Z"></path></g></svg></span>
+                </div>
+            </div>
+        </div>
+        <div class="wpisset-woo-shop-main-products wpisset-product-loop-grid-big wpisset-woo-enable-loop-desc">
+            <ul class="products columns-2">
+                <% @products.each_with_index do |product, index| %>
+                    <li class="wpisset-post wpisset-woo-has-gallery product type-product status-publish<% if index == 0 %> first<% elsif index == 15 %> last<% else %><% end %> instock has-post-thumbnail sale shipping-taxable purchasable product-type-simple">
+                        <div class="wpisset-woo-loop-wrapper">
+                            <div class="wpisset-woo-loop-inner">
+                                <div class="wpisset-woo-loop-thumbnail-wrapper">
+                                    <% if product.product_images.count > 0 %>
+                                        <% if product.is_new? %>
+                                            <%= link_to '<span class="onsale">Mới</span>'.html_safe +
+                                                        image_set_tag(product.get_main_image.image_url, {product.get_main_image.image_url.thumb445 => '445w', product.get_main_image.image_url.thumb650 => '1000w', product.get_main_image.image_url.thumb650 => '650w', product.get_main_image.image_url.thumb193 => '193w'}, alt: product.get_short_name, title: product.get_short_name, size: '445x445', sizes: '(max-width: 445px) 100vw, 445px', loading: 'lazy', class: 'attachment-thcn_thumbnail size-thcn_thumbnail') + 
+                                                        image_set_tag(product.get_main_image.image_url, {product.get_main_image.image_url.thumb445 => '445w', product.get_main_image.image_url.thumb650 => '1000w', product.get_main_image.image_url.thumb650 => '650w', product.get_main_image.image_url.thumb193 => '193w'}, alt: product.get_short_name, title: product.get_short_name, size: '445x445', sizes: '(max-width: 445px) 100vw, 445px', loading: 'lazy', class: 'wp-post-image wp-post-image-secondary'),
+                                                product_link(product), title: product.get_short_name, class: 'thcn-LoopProduct-link thcn-loop-product__link' %>
+                                        <% else %>
+                                            <%= link_to image_set_tag(product.get_main_image.image_url, {product.get_main_image.image_url.thumb445 => '445w', product.get_main_image.image_url.thumb650 => '1000w', product.get_main_image.image_url.thumb650 => '650w', product.get_main_image.image_url.thumb193 => '193w'}, alt: product.get_short_name, title: product.get_short_name, size: '445x445', sizes: '(max-width: 445px) 100vw, 445px', loading: 'lazy', class: 'attachment-thcn_thumbnail size-thcn_thumbnail') + 
+                                                        image_set_tag(product.get_main_image.image_url, {product.get_main_image.image_url.thumb445 => '445w', product.get_main_image.image_url.thumb650 => '1000w', product.get_main_image.image_url.thumb650 => '650w', product.get_main_image.image_url.thumb193 => '193w'}, alt: product.get_short_name, title: product.get_short_name, size: '445x445', sizes: '(max-width: 445px) 100vw, 445px', loading: 'lazy', class: 'wp-post-image wp-post-image-secondary'),
+                                                product_link(product), title: product.get_short_name, class: 'thcn-LoopProduct-link thcn-loop-product__link' %>
+                                        <% end %>
+                                    <% else %>
+                                        <% if product.is_new? %>
+                                            <%= link_to '<span class="onsale">Mới</span>'.html_safe +
+                                                        image_set_tag('/img/main/no-image-available.png', {'/img/main/no-image-available-445x445.png' => '445w', '/img/main/no-image-available-1000x1000.png' => '1000w', '/img/main/no-image-available-650x650.png' => '650w', '/img/main/no-image-available-193x193.png' => '193w'}, alt: product.get_short_name, title: product.get_short_name, size: '445x445', sizes: '(max-width: 445px) 100vw, 445px', loading: 'lazy', class: 'attachment-thcn_thumbnail size-thcn_thumbnail') + 
+                                                        image_set_tag('/img/main/no-image-available.png', {'/img/main/no-image-available-445x445.png' => '445w', '/img/main/no-image-available-1000x1000.png' => '1000w', '/img/main/no-image-available-650x650.png' => '650w', '/img/main/no-image-available-193x193.png' => '193w'}, alt: product.get_short_name, title: product.get_short_name, size: '445x445', sizes: '(max-width: 445px) 100vw, 445px', loading: 'lazy', class: 'wp-post-image wp-post-image-secondary'),
+                                                product_link(product), title: product.get_short_name, class: 'thcn-LoopProduct-link thcn-loop-product__link' %>
+                                        <% else %>
+                                            <%= link_to image_set_tag('/img/main/no-image-available.png', {'/img/main/no-image-available-445x445.png' => '445w', '/img/main/no-image-available-1000x1000.png' => '1000w', '/img/main/no-image-available-650x650.png' => '650w', '/img/main/no-image-available-193x193.png' => '193w'}, alt: product.get_short_name, title: product.get_short_name, size: '445x445', sizes: '(max-width: 445px) 100vw, 445px', loading: 'lazy', class: 'attachment-thcn_thumbnail size-thcn_thumbnail') + 
+                                                        image_set_tag('/img/main/no-image-available.png', {'/img/main/no-image-available-445x445.png' => '445w', '/img/main/no-image-available-1000x1000.png' => '1000w', '/img/main/no-image-available-650x650.png' => '650w', '/img/main/no-image-available-193x193.png' => '193w'}, alt: product.get_short_name, title: product.get_short_name, size: '445x445', sizes: '(max-width: 445px) 100vw, 445px', loading: 'lazy', class: 'wp-post-image wp-post-image-secondary'),
+                                                product_link(product), title: product.get_short_name, class: 'thcn-LoopProduct-link thcn-loop-product__link' %>
+                                        <% end %>
+                                    <% end %>
+                                </div>
+                                <div class="wpisset-woo-loop-content-wrapper">
+                                    <div class="wpisset-woo-loop-content-inner wpisset-woo-enable-loop-desc1">
+                                        <div class="wpisset-woo-loop-rating">
+                                            <div class="wpisset-woo-loop-rating-wrap">
+                                                <div class="wpisset-woo-loop-status in-stock"><span>Trạng thái: </span><span>Đang kinh doanh</span></div>
+                                                <div class="wpisset-woo-loop-rating-inner"><div class="wpisset-woo-loop-rating-starts"><div class="star-rating" role="img" aria-label="Đánh giá 0.0 / 5.0"><span style="width:0%">Đánh giá <strong class="rating">0.0</strong> / 5.0</span></div><span>(0)</span></div></div>
+                                            </div>
+                                        </div>
+                                        <%= link_to '<h2 class="thcn-loop-product__title">'.html_safe + product.get_short_name + '</h2>'.html_safe, product_link(product), title: product.get_short_name, class: 'thcn-LoopProduct-link thcn-loop-product__link' %>
+                                        <div class="wpisset-woo-loop-desc"><ul><% product.product_short_descipriton_values_array_new_specs.each do |row| %><li><b><%= row[:name] %>: </b><%= row[:values].join(', ') %></li><% end %></ul></div>
+                                    </div>
+                                    <div class="wpisset-woo-loop-nav-price-wrap"><span class="price"><% if product.listed_price.to_f > 1 %><del aria-hidden="true"><bdi><%= format_price(product.get_listed_price) %></bdi></del><% end %><% if (product.price.nil?) || (product.price.to_f <= 1) %><ins><bdi>Đang Cập Nhật Giá</bdi></ins><% else %><ins><bdi><%= format_price(product.get_show_price) %></bdi></ins><% end %></span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                <% end %>
+            </ul>
+        </div>
+        <% if @products.count > 0 %><div class="wpisset-thcn-pagination-wrap"><p class="thcn-result-count"><%= page_entries_info @products, entry_name: @category.get_name %></p><%= paginate @products, external_window: 3 %></div><% end %>
+        <div class="wpisset-thcn-content-wrap"><% if @category.description.present? %><div class="category-description text-justify"><%= @category.description.html_safe %></div><% end %></div>
+    </main>
+    <div class=" wpisset-col-lg-3 wpisset-col-xs-12 wpisset-sidebar-wrapper wpisset-first-lg">
+        <aside class="wpisset-sidebar">
+            <% if @related_categories.count > 0 %>
+                <div class="widget-odd widget-first wpisset_toggle_product_categories wpisset-widget-border widget thcn widget_product_categories">
+                    <h4 class="wpisset-widgettitle"><span>DANH MỤC SẢN PHẨM</span></h4>
+                    <ul class="product-categories">
+                        <%= render 'frontend/category/filter_category', related_categories: @related_categories %>
+                    </ul>
+                </div>
+            <% end %>
+            <%= form_tag((defined?(action) ? action : ''), method: 'get', id: 'form-filter-specs-desktop', class: 'form-filter-specs ' + (defined?(auto_load) ? 'auto-load' : '')) do %>
+                <%
+=begin%>
+ <div class="widget-even wpisset-widget-border wpisset-widget-disable-title-elements widget thcn widget_layered_nav thcn-widget-layered-nav">
+                    <h4 class="wpisset-widgettitle">
+                        <span>THƯƠNG HIỆU</span>
+                    </h4>
+                    <ul class="thcn-widget-layered-nav-list">
+                        <% (0..5).each do |brand| %>
+                            <li class="thcn-widget-layered-nav-list__item wc-layered-nav-term ">
+                                <%= link_to 'Apple', '', title: '', rel: 'nofollow' %>
+                                <span class="count">(3)</span>
+                            </li>
+                        <% end %>
+                    </ul>
+                </div> 
+<%
+=end%>
+                <% if @category.use_filter? %><%= render 'frontend/category/filter_specs', category: @category, name: 'pv_ids', id: 'pv_value_' %><% end %>
+                <% if @newest_products.count > 0 %><%= render 'frontend/category/sidebar_newest_products', newest_products: @newest_products %><% end %>
+            <% end %>
+        </aside>
+    </div>
+</div>
+<%= render 'frontend/modules/recent_viewed' %>

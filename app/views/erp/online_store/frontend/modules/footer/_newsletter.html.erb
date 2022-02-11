@@ -1,0 +1,22 @@
+<div class="wpisset-footer-newsletter">
+    <div class="wpisset-inner-footer-newsletter wpisset-container wpisset-container-center">
+        <div class="wpisset-row">
+            <div class="wpisset-col-md-6 wpisset-col-xs-12">
+                <span class="wpisset-custom-title" style="color:#fff;font-size:20px;font-weight:500">ĐĂNG KÝ NHẬN EMAIL THÔNG BÁO</span><br />
+                <span class="wpisset-custom-title" style="color:#fff;font-size:18px;font-weight:400">Thông Tin Khuyến Mãi Hoặc Tin Công Nghệ Mới</span>
+                <span class="wpisset-custom-title wpisset-ele-es-custom-text-animate" style="color:#f1bc00;font-size:18px;font-weight:500">Năm <%= Time.now.strftime('%Y') %></span>
+            </div>
+            <div class="wpisset-col-md-6 wpisset-col-xs-12">
+                <form class="mc4wp-form mc4wp-form-235">
+                    <div class="mc4wp-form-fields">
+                        <div class="wpisset-mc4wp-custom-form-1">
+                            <p><%= email_field '', '', placeholder: 'Nhập email của bạn', required: true %></p>
+                            <p><%= submit_tag 'Gửi' %></p>
+                        </div>
+                    </div>
+                    <div class="mc4wp-response"></div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

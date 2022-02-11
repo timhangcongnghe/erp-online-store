@@ -2,168 +2,29 @@ module Erp
   module OnlineStore
     module Frontend
       class ProductController < Erp::Frontend::FrontendController
-        before_action :set_comment, only: [:delete_comment]
-        include ActionView::Helpers::NumberHelper
-        include Erp::OnlineStore::ApplicationHelper
-
-        def detail_301
+        def index
+          @class = 'product-template-default single single-product wp-custom-logo wp-embed-responsive theme-eletra thcn thcn-page thcn-no-js wpisset wpisset-samsong-galaxy-s20-5g-128-gb-black wpisset-no-sidebar wpisset-sticky-nav wpisset-footer-bottom-active wpisset-responsive-breakpoints wpisset-medium-breakpoint-768 wpisset-desktop-breakpoint-992 wpisset-header-nav-variant2 wpisset-product-type-extented wpisset-product-sticky-active wpisset-yith-wishlist wpisset-yith-compare wpb-js-composer js-comp-ver-6.6.0 vc_responsive'
           @product = Erp::Products::Product.find(params[:product_id])
-          redirect_to erp_online_store.product_detail_path(product_id: @product.id, product_name: @product.alias), status: 301
-        end
+          @page_title = @product.get_name.to_s + ' &#8211; Tìm Hàng Công Nghệ'
+          @menus = Erp::Menus::Menu.get_parent_menus
+          @newest_products = Erp::Products::Product.get_newest_products
 
-        def detail
-          @body_class = "res layout-subpage"
-          @product = Erp::Products::Product.find(params[:product_id])
-          if @product.is_sold_out == true
-              @related_products = Erp::Products::Product.where(category_id: @product.category).where.not(id: params[:product_id]).order('erp_products_products.created_at desc').limit(13)
-              @related_brand_products = Erp::Products::Product.where(category_id: @product.category).where(brand_id: @product.brand).where.not(id: params[:product_id]).order('erp_products_products.created_at desc').limit(13)
+          @menu = @product.find_menu
+
+          @category_newest_related_products = Erp::Products::Product.category_newest_related_products(@product).limit(3)
+
+          if @product.is_sold_out?
+            @brand_related_products = Erp::Products::Product.brand_related_products_for_sold_out(@product).limit(5)
+            @category_related_products = Erp::Products::Product.category_related_products_for_sold_out(@product).limit(5)
           else
-              @related_products = Erp::Products::Product.where(category_id: @product.category, is_sold_out: false).where.not(id: params[:product_id]).order('erp_products_products.created_at desc').limit(13)
-              @related_brand_products = Erp::Products::Product.where(category_id: @product.category).where(brand_id: @product.brand, is_sold_out: false).where.not(id: params[:product_id]).order('erp_products_products.created_at desc').limit(13)
+            @brand_related_products = Erp::Products::Product.brand_related_products_for_not_sold_out(@product).limit(5)
+            @category_related_products = Erp::Products::Product.category_related_products_for_not_sold_out(@product).limit(5)
           end
-          if @product.archived == true
-            render layout: 'erp/frontend/error_page'
-            render(:status => 404)
-          else
-            @deal_products = Erp::Products::Product.get_deal_products
-            @category = params[:category_id].present? ? Erp::Menus::Menu.find(params[:category_id]) : @product.find_menu
-            @related_events = @product.get_related_events(Time.now)
-
-            @meta_keywords = @product.meta_keywords
-
-            if @product.meta_description.present? && @product.category.short_meta_description.present? && @product.brand_name.present?
-              if @product.meta_description.length == (@product.category.short_meta_description.length + @product.brand_name.length + 1)
-                @meta_description =  @product.category.short_meta_description + ' ' + @product.get_long_name
-              else
-                @meta_description =  @product.meta_description
-              end
-            end
-
-            if @category.present?
-              if !@product.meta_keywords.present?
-                @meta_keywords = @category.meta_keywords
-              end
-              if !@product.meta_description.present?
-                @meta_description = @category.meta_description
-              end
-            end
-            @total_comments = @product.comments.where(parent_id: nil).where(archived: false).count
-          end
-          expires_in 12.hours, public: true
         end
-
+        
         def search
-          @body_class = "res layout-subpage"
-          @keyword = params[:keyword]
-          @products = Erp::Products::Product.search(params).paginate(:page => params[:page], :per_page => 30)
-          if @products.count == 1
-            redirect_to erp_online_store.product_detail_path(product_id: @products.first.id, product_name: @products.first.alias), status: 301
-          end
+          @class = 'archive post-type-archive post-type-archive-product wp-custom-logo wp-embed-responsive theme-eletra thcn-shop thcn thcn-page thcn-no-js wpisset wpisset-aplle-iphone-12-64-gb-green wpisset-no-sidebar wpisset-sticky-nav wpisset-footer-bottom-active wpisset-responsive-breakpoints wpisset-medium-breakpoint-768 wpisset-desktop-breakpoint-992 wpisset-header-nav-variant2 wpisset-yith-wishlist wpisset-yith-compare wpisset-wpb wpb-js-composer js-comp-ver-6.6.0 vc_responsive'
         end
-
-        def autosearch
-          @products = Erp::Products::Product.search(params).paginate(:page => params[:page], :per_page => 20)
-          render json: @products.map { |product| {
-            name: product.get_long_name,
-            price: format_price(product.product_price),
-            is_deal: product.is_deal,
-            old_price: (format_price(product.price) if product.is_deal),
-            deal_percent: (product.deal_percent if product.is_deal),
-            link: product_detail_link(product),
-            is_sold_out: product.is_sold_out,
-            is_call: product.is_call,
-            image: image_src(product.main_image, 'thumb193'),
-          }}
-        end
-
-        def comments
-          @product = Erp::Products::Product.find(params[:product_id])
-          # product comment
-          if params[:comment].present?
-            @comment = Erp::Products::Comment.new(comment_params)
-            @comment.user = current_user
-            @comment.save
-            render plain: 'Bạn đã đăng bình luận thành công'
-            return
-          end
-          @comments = @product.comments.order('created_at DESC')
-            .where(parent_id: nil)
-            .where(archived: false)
-            .paginate(:page => params[:page], :per_page => 5)
-
-          render 'erp/online_store/frontend/modules/product/_comments', locals: {comments: @comments}, layout: nil
-        end
-
-        def ratings
-          @rating = current_user.find_rating_by_product(params[:product_id]) if !current_user.nil?
-          @product = Erp::Products::Product.find(params[:product_id])
-
-          # product rating
-          if params[:rating].present?
-            @rating.update(rating_params)
-            @rating.user = current_user
-            @rating.archive
-            @rating.save
-
-            render plain: 'Cảm ơn bạn đã tham gia đánh giá sản phẩm. Nhận xét của bạn sẽ được chúng tôi kiểm duyệt trong 24 giờ.'
-            return
-          end
-
-          @ratings = @product.ratings_active.order('created_at DESC')
-            .paginate(:page => params[:page], :per_page => 5)
-
-          render 'erp/online_store/frontend/modules/product/_ratings', locals: {ratings: @ratings}, layout: nil
-        end
-
-        def delete_comment
-          authorize! :delete, @comment
-
-          @comment.destroy
-          redirect_back(fallback_location: @comment, notice: 'Nội dung bình luận đã được xóa')
-        end
-
-        def delete_rating
-          @rating = Erp::Products::Rating.find(params[:rating_id])
-
-          authorize! :delete, @rating
-
-          @rating.destroy
-          redirect_back(fallback_location: @rating, notice: 'Nội dung đánh giá đã được xóa')
-        end
-
-        def images
-          hkerp_product = Erp::Products::HkerpProduct.find(params[:hkerp_id])
-          product = hkerp_product.product
-          render json: product.product_images.map {|pi|
-            {
-              'origin' => front_end_hkerp_image_url(title: params[:title], image_id: pi.id),
-              'thumb650' => front_end_hkerp_image_url(title: params[:title], image_id: pi.id, type: 'thumb650')
-            }
-          }
-        end
-
-        def image
-          image = Erp::Products::ProductImage.find(params[:image_id])
-          send_file image.image_url_url(params[:type]), :disposition => 'inline'
-        end
-
-        def api_info
-          product = Erp::Products::Product.find(params[:id])
-          render :json => product
-        end
-
-        private
-          def set_comment
-            @comment = Erp::Products::Comment.find(params[:comment_id])
-          end
-
-          def comment_params
-            params.fetch(:comment, {}).permit(:message, :product_id, :parent_id)
-          end
-
-          def rating_params
-            params.fetch(:rating, {}).permit(:content, :product_id, :star)
-          end
       end
     end
   end

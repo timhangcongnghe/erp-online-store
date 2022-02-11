@@ -1,0 +1,32 @@
+<div class="vc_row wpb_row vc_row-fluid wpb-row-stretch vc_custom_1609917565055 vc_row-has-fill">
+    <div class="wpb_column vc_column_container vc_col-sm-12">
+        <div class="vc_column-inner vc_custom_1609917142399">
+            <div class="wpb_wrapper">
+                <div class=" wpisset_ele_es_recentviewedproducts wpisset_ele_es_recentviewedproducts-483614878 vc_custom_1613033166945">
+                    <div class="wpisset-ele-es-recentviewedproducts-title-wrap" >
+                        <h2 class="wpisset-ele-es-recentviewedproducts-title"><span>SẢN PHẨM ĐÃ XEM</span><span></span></h2>
+                        <div class="wpisset-ele-es-recentviewedproducts-title-btn"><%= link_to 'Xem toàn bộ', '', title: 'Xem toàn bộ', class: 'wpisset-button' %></div>
+                    </div>
+                    <div class="wpisset-ele-es-recentviewedproducts-inner">
+                        <% @newest_products.limit(6).each do |product| %>
+                            <div class="product-type-simple wpisset-ele-es-recentviewedproducts-item sale">
+                                <div class="wpisset-ele-es-recentviewedproducts-item-img">
+                                    <% if product.product_images.count > 0 %>
+                                        <%= link_to image_set_tag(product.get_main_image.image_url, {product.get_main_image.image_url.thumb445 => '445w', product.get_main_image.image_url.thumb650 => '1000w', product.get_main_image.image_url.thumb650 => '650w', product.get_main_image.image_url.thumb193 => '193w'}, title: product.get_short_name, alt: product.get_short_name, size: '445w', sizes: '(max-width: 445px) 100vw, 445px', loading: 'lazy', class: 'attachment-full size-full wp-post-image'), product_link(product), title: product.get_short_name %>
+                                    <% else %>
+                                        <%= link_to image_set_tag('/img/main/no-image-available.png', {'/img/main/no-image-available-445x445.png' => '445w', '/img/main/no-image-available-1000x1000.png' => '1000w', '/img/main/no-image-available-650x650.png' => '650w', '/img/main/no-image-available-193x193.png' => '193w'}, title: product.get_short_name, alt: product.get_short_name, size: '445w', sizes: '(max-width: 445px) 100vw, 445px', loading: 'lazy', class: 'attachment-full size-full wp-post-image'), product_link(product), title: product.get_short_name %>
+                                    <% end %>
+                                </div>
+                                <div class="wpisset-ele-es-recentviewedproducts-item-title"><%= link_to product.get_short_name, product_link(product), title: product.get_short_name %></div>
+                                <div class="wpisset-ele-es-recentviewedproducts-item-price wpisset-woo-price">
+                                    <% if product.get_listed_price.to_f > 1 %><del><bdi><%= format_price(product.get_listed_price) %></bdi></del><% end %>
+                                    <% if (product.get_show_price.nil?) || (product.get_show_price.to_f <= 1) %><ins><bdi>Đang Cập Nhật Giá</bdi></ins><% else %><ins><bdi><%= format_price(product.get_show_price) %></bdi></ins><% end %>
+                                </div>
+                            </div>
+                        <% end %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

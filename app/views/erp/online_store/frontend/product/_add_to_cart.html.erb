@@ -1,0 +1,34 @@
+<div class="wpisset-sp-add-to-cart-wrap">
+    <form class="cart" action="" method="post" enctype=''>
+        <div class="wpisset-sp-add-to-cart-inner-wrap">
+            <div class="wpisset-sp-add-to-cart-btn-wrap">
+                <div class="quantity">
+                    <label class="screen-reader-text" for="">Đặt Mua Ngay <%= @product.get_name %></label>
+                    <input type="number" id="<%= @product.id %>" class="input-text qty text" step="1" min="1" max="" name="quantity" value="1" title="Đặt Mua Ngay <%= @product.get_name %>" size="4" placeholder="Đặt Mua Ngay <%= @product.get_name %>" inputmode="numeric"/>
+                </div>
+                <%= link_to 'THÊM VÀO GIỎ HÀNG'.html_safe, quick_order_link(@product), class: 'single_add_to_cart_button button alt', rel: 'nofollow', title: 'Đặt mua ngay' %>
+            </div>
+            <div class="wpisset-sp-add-to-cart-extra-btns">
+                <div class="wpisset-add-to-wishlist wpisset-cursor-anim-element wpisset-cursor-anim-element-2" data-cursor-text="DANH SÁCH YÊU THÍCH" data-cursor-color="#d9214e" data-cursor-text-color="#fff">
+                    <svg class="wpisset-woo-loop-nav-icon-border" xmlns="//www.w3.org/2000/svg"><g><ellipse ry="19.5" rx="19.5" cy="20" cx="20" stroke-width="1" stroke="#ebebeb" fill="transparent"/><ellipse class="circle" ry="19.5" rx="19.5" cy="20" cx="20" stroke-width="1" stroke="#111" fill="transparent"/></g></svg>
+                    <div class="yith-wcwl-add-to-wishlist  wishlist-fragment on-first-load" data-fragment-ref="<%= @product.id %>" data-fragment-options="">
+                        <div class="yith-wcwl-add-button">
+                            <a href="" title="THÊM <%= @product.get_name %> VÀO DANH SÁCH YÊU THÍCH" rel="nofollow" data-product-id="<%= @product.id %>" data-product-type="simple" data-original-product-id="<%= @product.id %>" class="add_to_wishlist single_add_to_wishlist" data-title="THÊM <%= @product.get_name %> VÀO DANH SÁCH YÊU THÍCH">
+                                <i class="yith-wcwl-icon fa fa-heart-o"></i>
+                                <span>THÊM <%= @product.get_name %> VÀO DANH SÁCH YÊU THÍCH</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="wpisset-add-to-compare wpisset-cursor-anim-element wpisset-cursor-anim-element-2" data-cursor-text="SO SÁNH SẢN PHẨM" data-cursor-color="#d9214e" data-cursor-text-color="#fff">
+                    <svg class="wpisset-woo-loop-nav-icon-border" xmlns="//www.w3.org/2000/svg"><g><ellipse ry="19.5" rx="19.5" cy="20" cx="20" stroke-width="1" stroke="#ebebeb" fill="transparent"/><ellipse class="circle" ry="19.5" rx="19.5" cy="20" cx="20" stroke-width="1" stroke="#111" fill="transparent"/></g></svg>
+                    <div class="thcn product compare-button">
+                        <a href="" title="Thêm <%= @product.get_name %> Vào Danh Sách So Sánh" class="compare button" data-product_id="<%= @product.id %>" rel="nofollow">
+                            Thêm <%= @product.get_name %> Vào Danh Sách So Sánh
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
